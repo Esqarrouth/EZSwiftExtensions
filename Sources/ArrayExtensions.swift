@@ -17,8 +17,6 @@ extension Array {
     
     /// EZSwiftExtensions
     func indexOfObject<T: Equatable>(object: T) -> Int? {
-        var i: Int
-        
         for index in 0..<self.count {
             if let arrayObject = self[index] as? T {
                 if arrayObject == object {
