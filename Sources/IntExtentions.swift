@@ -9,22 +9,22 @@ import UIKit
 
 extension Int {
     /// EZSwiftExtensions
-    var isEven: Bool     { return (self % 2 == 0) }
+    public var isEven: Bool     { return (self % 2 == 0) }
     /// EZSwiftExtensions
-    var isOdd: Bool      { return (self % 2 != 0) }
+    public var isOdd: Bool      { return (self % 2 != 0) }
     /// EZSwiftExtensions
-    var isPositive: Bool { return (self >= 0) }
+    public var isPositive: Bool { return (self >= 0) }
     /// EZSwiftExtensions
-    var isNegative: Bool { return (self < 0) }
+    public var isNegative: Bool { return (self < 0) }
     /// EZSwiftExtensions
-    var toDouble: Double { return Double(self) }
+    public var toDouble: Double { return Double(self) }
     /// EZSwiftExtensions
-    var toFloat: Float   { return Float(self) }
+    public var toFloat: Float   { return Float(self) }
     /// EZSwiftExtensions
-    var toCGFloat: CGFloat { return CGFloat(self) }
+    public var toCGFloat: CGFloat { return CGFloat(self) }
     
     /// EZSwiftExtensions
-    var digits: Int {
+    public var digits: Int {
         if self == 0 {
             return 1
         } else if Int(fabs(Double(self))) <= LONG_MAX {
@@ -35,7 +35,7 @@ extension Int {
     }
     
     /// EZSwiftExtensions - Execute action this many times
-    func times(action: () -> ()) {
+    public func times(action: () -> ()) {
         if self > 0 {
             for _ in 0..<self {
                 action()
@@ -47,7 +47,7 @@ extension Int {
 
 extension UInt {
     /// EZSwiftExtensions
-    var toInt: Int { return Int(self) }
+    public var toInt: Int { return Int(self) }
 }
 
 

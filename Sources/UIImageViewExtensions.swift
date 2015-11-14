@@ -10,33 +10,33 @@ import UIKit
 extension UIImageView {
 
     /// EZSwiftExtensions
-    convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, imageName: String) {
+    public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, imageName: String) {
         self.init(frame: CGRect(x: x, y: y, width: w, height: h))
         image = UIImage(named: imageName)
     }
     
     /// EZSwiftExtensions
-    convenience init(x: CGFloat, y: CGFloat, imageName: String, scaleToWidth: CGFloat) {
+    public convenience init(x: CGFloat, y: CGFloat, imageName: String, scaleToWidth: CGFloat) {
         self.init(frame: CGRect(x: x, y: y, width: 0, height: 0))
         image = UIImage(named: imageName)
         scaleImageFrameToWidth(width: scaleToWidth)
     }
     
     /// EZSwiftExtensions
-    convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, image: UIImage) {
+    public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, image: UIImage) {
         self.init(frame: CGRect(x: x, y: y, width: w, height: h))
         self.image = image
     }
     
     /// EZSwiftExtensions
-    convenience init(x: CGFloat, y: CGFloat, image: UIImage, scaleToWidth: CGFloat) {
+    public convenience init(x: CGFloat, y: CGFloat, image: UIImage, scaleToWidth: CGFloat) {
         self.init(frame: CGRect(x: x, y: y, width: 0, height: 0))
         self.image = image
         scaleImageFrameToWidth(width: scaleToWidth)
     }
     
     /// EZSwiftExtensions, scales this ImageView size to fit the given width
-    func scaleImageFrameToWidth(width width: CGFloat) {
+    public func scaleImageFrameToWidth(width width: CGFloat) {
         let widthRatio = image!.size.width / width
         let newWidth = image!.size.width / widthRatio
         let newHeigth = image!.size.height / widthRatio
@@ -44,13 +44,13 @@ extension UIImageView {
     }
     
     /// EZSwiftExtensions
-    func roundSquareImage() {
+    public func roundSquareImage() {
         self.clipsToBounds = true
         self.layer.cornerRadius = self.frame.size.width / 2
     }
     
     /// EZSwiftExtensions
-    func imageWithUrl(url url: String) {
+    public func imageWithUrl(url url: String) {
         requestImage(url, success: { (image) -> Void in
             if let img = image {
                 self.image = img
@@ -59,7 +59,7 @@ extension UIImageView {
     }
     
     /// EZSwiftExtensions
-    func imageWithUrl(url url: String, placeholder: UIImage) {
+    public func imageWithUrl(url url: String, placeholder: UIImage) {
         self.image = placeholder
         requestImage(url, success: { (image) -> Void in
             if let img = image {
@@ -69,7 +69,7 @@ extension UIImageView {
     }
     
     /// EZSwiftExtensions
-    func imageWithUrl(url url: String, placeholderNamed: String) {
+    public func imageWithUrl(url url: String, placeholderNamed: String) {
         self.image = UIImage(named: placeholderNamed)
         requestImage(url, success: { (image) -> Void in
             if let img = image {

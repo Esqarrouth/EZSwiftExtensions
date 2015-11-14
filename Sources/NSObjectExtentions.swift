@@ -9,16 +9,16 @@ import UIKit
 
 extension NSObject {
     
-    var className: String {
+    public var className: String {
         return self.dynamicType.className
     }
     
-    static var className: String {
+    public static var className: String {
         return stringFromClass(self)
     }
 
 }
 
-func stringFromClass(aClass: AnyClass) -> String {
+public func stringFromClass(aClass: AnyClass) -> String {
     return NSStringFromClass(aClass).componentsSeparatedByString(".").last!
 }

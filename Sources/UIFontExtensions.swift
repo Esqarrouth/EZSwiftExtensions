@@ -8,7 +8,7 @@
 import UIKit
 
 /// EZSwiftExtensions
-enum FontType: String {
+public enum FontType: String {
     case None = ""
     case Regular = "Regular"
     case Bold = "Bold"
@@ -29,7 +29,7 @@ enum FontType: String {
 }
 
 /// EZSwiftExtensions
-enum FontName: String {
+public enum FontName: String {
     case HelveticaNeue = "HelveticaNeue"
     case Helvetica = "Helvetica"
     case Futura = "Futura"
@@ -48,7 +48,7 @@ enum FontName: String {
 extension UIFont {
     
     /// EZSwiftExtensions
-    class func PrintFontFamily(font: FontName) {
+    public class func PrintFontFamily(font: FontName) {
         let arr = UIFont.fontNamesForFamilyName(font.rawValue)
         for name in arr {
             print(name)
@@ -56,7 +56,7 @@ extension UIFont {
     }
     
     /// EZSwiftExtensions
-    class func Font(name: FontName, type: FontType, size: CGFloat) -> UIFont {
+    public class func Font(name: FontName, type: FontType, size: CGFloat) -> UIFont {
         if type == FontType.None {
             return UIFont(name: name.rawValue, size: size)!
         }
@@ -64,22 +64,22 @@ extension UIFont {
     }
     
     /// EZSwiftExtensions
-    class func HelveticaNeue(type type: FontType, size: CGFloat) -> UIFont {
+    public class func HelveticaNeue(type type: FontType, size: CGFloat) -> UIFont {
         return Font(.HelveticaNeue, type: type, size: size)
     }
     
     /// EZSwiftExtensions
-    class func AvenirNext(type type: FontType, size: CGFloat) -> UIFont {
+    public class func AvenirNext(type type: FontType, size: CGFloat) -> UIFont {
         return UIFont.Font(.AvenirNext, type: type, size: size)
     }
     
     /// EZSwiftExtensions
-    class func AvenirNextDemiBold(size size: CGFloat) -> UIFont {
+    public class func AvenirNextDemiBold(size size: CGFloat) -> UIFont {
         return AvenirNext(type: .DemiBold, size: size)
     }
     
     /// EZSwiftExtensions
-    class func AvenirNextRegular(size size: CGFloat) -> UIFont {
+    public class func AvenirNextRegular(size size: CGFloat) -> UIFont {
         return AvenirNext(type: .Regular, size: size)
     }
 }

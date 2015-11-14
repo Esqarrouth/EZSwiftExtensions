@@ -11,7 +11,7 @@ import UIKit
 extension CGRect {
     
     /// EZSwiftExtensions
-    init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
+    public init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
         self.init(x: x, y: y, width: w, height: h)
     }
     

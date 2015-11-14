@@ -8,21 +8,21 @@
 
 import UIKit
 
-class BlockLongPress: UILongPressGestureRecognizer {
+public class BlockLongPress: UILongPressGestureRecognizer {
     
     private var longPressAction: ((UILongPressGestureRecognizer) -> Void)?
     
-    override init(target: AnyObject?, action: Selector) {
+    public override init(target: AnyObject?, action: Selector) {
         super.init(target: target, action: action)
     }
     
-    convenience init (action: ((UILongPressGestureRecognizer) -> Void)?) {
+    public convenience init (action: ((UILongPressGestureRecognizer) -> Void)?) {
         self.init()
         longPressAction = action
         addTarget(self, action: "didLongPressed:")
     }
     
-    func didLongPressed (longPress: UILongPressGestureRecognizer) {
+    public func didLongPressed (longPress: UILongPressGestureRecognizer) {
         longPressAction? (longPress)
     }
 }

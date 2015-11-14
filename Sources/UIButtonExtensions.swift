@@ -10,13 +10,13 @@ import UIKit
 extension UIButton {
     
     /// EZSwiftExtensions
-    convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, target: AnyObject, action: Selector) {
+    public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, target: AnyObject, action: Selector) {
         self.init(frame: CGRect(x: x, y: y, width: w, height: h))
         addTarget(target, action: action, forControlEvents: UIControlEvents.TouchUpInside)
     }
 
     /// EZSwiftExtensions
-    func setBackgroundColor(color: UIColor, forState: UIControlState) {
+    public func setBackgroundColor(color: UIColor, forState: UIControlState) {
         UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
         CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), color.CGColor)
         CGContextFillRect(UIGraphicsGetCurrentContext(), CGRect(x: 0, y: 0, width: 1, height: 1))

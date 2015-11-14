@@ -7,51 +7,51 @@
 //
 import UIKit
 
-typealias BlockButtonAction = (sender: BlockButton) -> Void
+public typealias BlockButtonAction = (sender: BlockButton) -> Void
 
-class BlockButton: UIButton {
+public class BlockButton: UIButton {
     
     // MARK: Propeties
     
-    var highlightLayer: CALayer?
-    var action: BlockButtonAction?
+    public var highlightLayer: CALayer?
+    public var action: BlockButtonAction?
     
     // MARK: Init
 
-    init() {
+    public init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         defaultInit()
     }
     
-    init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
+    public init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
         super.init(frame: CGRect(x: x, y: y, width: w, height: h))
         defaultInit()
     }
     
-    init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, action: BlockButtonAction?) {
+    public init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, action: BlockButtonAction?) {
         super.init (frame: CGRect(x: x, y: y, width: w, height: h))
         self.action = action
         defaultInit()
     }
     
-    init(action: BlockButtonAction) {
+    public init(action: BlockButtonAction) {
         super.init(frame: CGRectZero)
         self.action = action
         defaultInit()
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         defaultInit()
     }
     
-    init(frame: CGRect, action: BlockButtonAction) {
+    public init(frame: CGRect, action: BlockButtonAction) {
         super.init(frame: frame)
         self.action = action
         defaultInit()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    public required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
     }
     
@@ -61,19 +61,19 @@ class BlockButton: UIButton {
         addTarget(self, action: "unhighlight", forControlEvents: [UIControlEvents.TouchUpInside, UIControlEvents.TouchUpOutside, UIControlEvents.TouchCancel, UIControlEvents.TouchDragExit])
     }
     
-    func addAction(action: BlockButtonAction) {
+    public func addAction(action: BlockButtonAction) {
         self.action = action
     }
     
     // MARK: Action
     
-    func didPressed(sender: BlockButton) {
+    public func didPressed(sender: BlockButton) {
         action?(sender: sender)
     }
     
     // MARK: Highlight
     
-    func highlight() {
+    public func highlight() {
         if action == nil {
             return
         }
@@ -93,7 +93,7 @@ class BlockButton: UIButton {
         self.highlightLayer = highlightLayer
     }
     
-    func unhighlight() {
+    public func unhighlight() {
         if action == nil {
             return
         }

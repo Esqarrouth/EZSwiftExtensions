@@ -9,7 +9,7 @@ import UIKit
 
 extension Dictionary {
     /// EZSwiftExtensions, combines the first dictionary with the second and returns single dictionary
-    func union(other: Dictionary) -> Dictionary {
+    public func union(other: Dictionary) -> Dictionary {
         var temp = self
         for (key,value) in other {
             temp.updateValue(value, forKey:key)
@@ -19,7 +19,7 @@ extension Dictionary {
 }
 
 /// EZSwiftExtensions
-func += <KeyType, ValueType> (inout left: Dictionary<KeyType, ValueType>, right: Dictionary<KeyType, ValueType>) {
+public func += <KeyType, ValueType> (inout left: Dictionary<KeyType, ValueType>, right: Dictionary<KeyType, ValueType>) {
     for (k, v) in right {
         left.updateValue(v, forKey: k)
     }

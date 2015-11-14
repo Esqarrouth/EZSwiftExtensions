@@ -10,28 +10,28 @@ import UIKit
 //TODO: others standart video, gif
 
 /// EZSwiftExtensions
-var appVersion: String {
+public var appVersion: String {
     return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
 }
 
 /// EZSwiftExtensions
-var appBuild: String {
+public var appBuild: String {
     return NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as String) as! String
 }
 
 /// EZSwiftExtensions
-var appVersionAndBuild: String {
+public var appVersionAndBuild: String {
     let version = appVersion, build = appBuild
     return version == build ? "v\(version)" : "v\(version)(\(build))"
 }
 
 /// EZSwiftExtensions - Your normal appDelegate
-var appDelegateVariable: UIResponder {
+public var appDelegateVariable: UIResponder {
     return UIApplication.sharedApplication().delegate as! UIResponder
 }
 
 /// EZSwiftExtensions - Gives you the VC on top so you can easily push your popups
-var topMostVC: UIViewController {
+public var topMostVC: UIViewController {
     var topController = (UIApplication.sharedApplication().keyWindow!.rootViewController)!
 
     while let presentedVC = topController.presentedViewController {
@@ -41,12 +41,12 @@ var topMostVC: UIViewController {
 }
 
 /// EZSwiftExtensions
-var screenOrientation: UIInterfaceOrientation {
+public var screenOrientation: UIInterfaceOrientation {
     return UIApplication.sharedApplication().statusBarOrientation
 }
 
 /// EZSwiftExtensions
-var screenWidth: CGFloat {
+public var screenWidth: CGFloat {
     if UIInterfaceOrientationIsPortrait(screenOrientation) {
         return UIScreen.mainScreen().bounds.size.width
     } else {
@@ -55,7 +55,7 @@ var screenWidth: CGFloat {
 }
 
 /// EZSwiftExtensions
-var screenHeight: CGFloat {
+public var screenHeight: CGFloat {
     if UIInterfaceOrientationIsPortrait(screenOrientation) {
         return UIScreen.mainScreen().bounds.size.height
     } else {
@@ -64,12 +64,12 @@ var screenHeight: CGFloat {
 }
 
 /// EZSwiftExtensions
-var screenStatusBarHeight: CGFloat {
+public var screenStatusBarHeight: CGFloat {
     return UIApplication.sharedApplication().statusBarFrame.height
 }
 
 /// EZSwiftExtensions
-var screenHeightWithoutStatusBar: CGFloat {
+public var screenHeightWithoutStatusBar: CGFloat {
     if UIInterfaceOrientationIsPortrait(screenOrientation) {
         return UIScreen.mainScreen().bounds.size.height - screenStatusBarHeight
     } else {
@@ -78,7 +78,7 @@ var screenHeightWithoutStatusBar: CGFloat {
 }
 
 /// EZSwiftExtensions
-func forceCrash() {
+public func forceCrash() {
     //NSException(name:NSGenericException, reason:"Everything is ok. This is just a test crash.", userInfo:nil).raise()
     while 1 == 1 {
         var hey: [Int] = []
@@ -87,17 +87,17 @@ func forceCrash() {
 }
 
 /// EZSwiftExtensions
-func prt(items: Any...) {
+public func prt(items: Any...) {
     print(items)
 }
 
 /// EZSwiftExtensions
-func prnt(items: Any...) {
+public func prnt(items: Any...) {
     print(items)
 }
 
 /// EZSwiftExtensions - Calls action when a screen shot is taken
-func detectScreenShot(action: () -> ()) {
+public func detectScreenShot(action: () -> ()) {
     let mainQueue = NSOperationQueue.mainQueue()
     NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationUserDidTakeScreenshotNotification, object: nil, queue: mainQueue) { notification in
         // executes after screenshot
@@ -108,43 +108,43 @@ func detectScreenShot(action: () -> ()) {
 // MARK: - Dispatch
 
 /// EZSwiftExtensions
-func runThisMany(times times: Int, block: () -> ()) {
+public func runThisMany(times times: Int, block: () -> ()) {
     for _ in 0..<times {
         block()
     }
 }
 
 /// EZSwiftExtensions
-func runThisAfterDelay(seconds seconds: Double, after: () -> ()) {
+public func runThisAfterDelay(seconds seconds: Double, after: () -> ()) {
     runThisAfterDelay(seconds: seconds, queue: dispatch_get_main_queue(), after: after)
 }
 
 //TODO: Make this easier
 /// EZSwiftExtensions - dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
-func runThisAfterDelay(seconds seconds: Double, queue: dispatch_queue_t, after: ()->()) {
+public func runThisAfterDelay(seconds seconds: Double, queue: dispatch_queue_t, after: ()->()) {
     let time = dispatch_time(DISPATCH_TIME_NOW, Int64(seconds * Double(NSEC_PER_SEC)))
     dispatch_after(time, queue, after)
 }
 
 /// EZSwiftExtensions - Submits a block for asynchronous execution on the main queue
-func runThisInMainThread(block: dispatch_block_t) {
+public func runThisInMainThread(block: dispatch_block_t) {
     dispatch_async(dispatch_get_main_queue(), block)
 }
 
 /// EZSwiftExtensions
-func runThisBlock(block: () -> ()) {
+public func runThisBlock(block: () -> ()) {
     block()
 }
 
 /// EZSwiftExtensions - Runs in Default priority queue
-func runThisInBackground(block: () -> ()) {
+public func runThisInBackground(block: () -> ()) {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)
 }
 
 // MARK: - DownloadTask
 
 /// EZSwiftExtensions
-func requestImage(url: String, success: (UIImage?) -> Void) {
+public func requestImage(url: String, success: (UIImage?) -> Void) {
     requestURL(url, success: { (data) -> Void in
         if let d = data {
             success(UIImage(data: d))
@@ -153,7 +153,7 @@ func requestImage(url: String, success: (UIImage?) -> Void) {
 }
 
 /// EZSwiftExtensions
-func requestJSON(url: String, success: (AnyObject? -> Void), error: ((NSError) -> Void)?) {
+public func requestJSON(url: String, success: (AnyObject? -> Void), error: ((NSError) -> Void)?) {
     requestURL(url,
         success: { (data)->Void in
             let json: AnyObject? = dataToJsonDict(data)

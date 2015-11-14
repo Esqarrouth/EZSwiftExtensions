@@ -11,17 +11,17 @@ import UIKit
 extension UIView {
     
     /// EZSwiftExtensions
-    convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
+    public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
         self.init(frame: CGRect(x: x, y: y, width: w, height: h))
     }
     
     /// EZSwiftExtensions, puts padding around the view
-    convenience init(superView: UIView, padding: CGFloat) {
+    public convenience init(superView: UIView, padding: CGFloat) {
         self.init(frame: CGRect(x: superView.x + padding, y: superView.y + padding, width: superView.w - padding*2, height: superView.h - padding*2))
     }
     
     /// EZSwiftExtensions - Copies size of superview
-    convenience init(superView: UIView) {
+    public convenience init(superView: UIView) {
         self.init(frame: CGRect(origin: CGPointZero, size: superView.size))
     }
 }
@@ -31,7 +31,7 @@ extension UIView {
     //TODO: Multipe addsubview
     //TODO: Add pics to readme
     /// EZSwiftExtensions, resizes this view so it fits the largest subview
-    func resizeToFitSubviews() {
+    public func resizeToFitSubviews() {
         var width: CGFloat = 0
         var height: CGFloat = 0
         for someView in self.subviews {
@@ -45,7 +45,7 @@ extension UIView {
     }
     
     /// EZSwiftExtensions, resizes this view so it fits the largest subview
-    func resizeToFitSubviews(tagsToIgnore: [Int]) {
+    public func resizeToFitSubviews(tagsToIgnore: [Int]) {
         var width: CGFloat = 0
         var height: CGFloat = 0
         for someView in self.subviews {
@@ -61,21 +61,21 @@ extension UIView {
     }
 
     /// EZSwiftExtensions
-    func resizeToFitWidth() {
+    public func resizeToFitWidth() {
         let currentHeight = self.h
         self.sizeToFit()
         self.h = currentHeight
     }
     
     /// EZSwiftExtensions
-    func resizeToFitHeight() {
+    public func resizeToFitHeight() {
         let currentWidth = self.w
         self.sizeToFit()
         self.w = currentWidth
     }
     
     /// EZSwiftExtensions
-    var x: CGFloat {
+    public var x: CGFloat {
         get {
             return self.frame.origin.x
         } set(value) {
@@ -84,7 +84,7 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    var y: CGFloat {
+    public var y: CGFloat {
         get {
             return self.frame.origin.y
         } set(value) {
@@ -93,7 +93,7 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    var w: CGFloat {
+    public var w: CGFloat {
         get {
             return self.frame.size.width
         } set(value) {
@@ -102,7 +102,7 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    var h: CGFloat {
+    public var h: CGFloat {
         get {
             return self.frame.size.height
         } set(value) {
@@ -111,7 +111,7 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    var left: CGFloat {
+    public var left: CGFloat {
         get {
             return self.x
         } set(value) {
@@ -120,7 +120,7 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    var right: CGFloat {
+    public var right: CGFloat {
         get {
             return self.x + self.w
         } set(value) {
@@ -129,7 +129,7 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    var top: CGFloat {
+    public var top: CGFloat {
         get {
             return self.y
         } set(value) {
@@ -138,7 +138,7 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    var bottom: CGFloat {
+    public var bottom: CGFloat {
         get {
             return self.y + self.h
         } set(value) {
@@ -147,7 +147,7 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    var origin: CGPoint {
+    public var origin: CGPoint {
         get {
             return self.frame.origin
         } set(value) {
@@ -156,7 +156,7 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    var centerX: CGFloat {
+    public var centerX: CGFloat {
         get {
             return self.center.x
         } set(value) {
@@ -165,7 +165,7 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    var centerY: CGFloat {
+    public var centerY: CGFloat {
         get {
             return self.center.y
         } set(value) {
@@ -174,7 +174,7 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    var size: CGSize {
+    public var size: CGSize {
         get {
             return self.frame.size
         } set(value) {
@@ -183,33 +183,33 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    func leftOffset(offset: CGFloat) -> CGFloat {
+    public func leftOffset(offset: CGFloat) -> CGFloat {
         return self.left - offset
     }
     
     /// EZSwiftExtensions
-    func rightOffset(offset: CGFloat) -> CGFloat {
+    public func rightOffset(offset: CGFloat) -> CGFloat {
         return self.right + offset
     }
     
     /// EZSwiftExtensions
-    func topOffset(offset: CGFloat) -> CGFloat {
+    public func topOffset(offset: CGFloat) -> CGFloat {
         return self.top - offset
     }
     
     /// EZSwiftExtensions
-    func bottomOffset(offset: CGFloat) -> CGFloat {
+    public func bottomOffset(offset: CGFloat) -> CGFloat {
         return self.bottom + offset
     }
     
     //TODO: Add to readme
     /// EZSwiftExtensions
-    func alignRight(offset: CGFloat) -> CGFloat {
+    public func alignRight(offset: CGFloat) -> CGFloat {
         return self.w - offset
     }
     
     /// EZSwiftExtensions
-    func reorderSubViews(reorder: Bool = false, tagsToIgnore: [Int] = []) -> CGFloat {
+    public func reorderSubViews(reorder: Bool = false, tagsToIgnore: [Int] = []) -> CGFloat {
         var currentHeight: CGFloat = 0
         for someView in subviews {
             if !tagsToIgnore.contains(someView.tag) && !(someView ).hidden {
@@ -223,7 +223,7 @@ extension UIView {
         return currentHeight
     }
     
-    func removeSubviews() {
+    public func removeSubviews() {
         for subview in subviews {
             subview.removeFromSuperview()
         }
@@ -234,7 +234,7 @@ extension UIView {
 // MARK: Transform Extensions
 extension UIView {
     /// EZSwiftExtensions
-    func setRotationX(x: CGFloat) {
+    public func setRotationX(x: CGFloat) {
         var transform = CATransform3DIdentity
         transform.m34 = 1.0 / -1000.0
         transform = CATransform3DRotate(transform, degreesToRadians(x), 1.0, 0.0, 0.0)
@@ -242,7 +242,7 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    func setRotationY(y: CGFloat) {
+    public func setRotationY(y: CGFloat) {
         var transform = CATransform3DIdentity
         transform.m34 = 1.0 / -1000.0
         transform = CATransform3DRotate(transform, degreesToRadians(y), 0.0, 1.0, 0.0)
@@ -250,7 +250,7 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    func setRotationZ(z: CGFloat) {
+    public func setRotationZ(z: CGFloat) {
         var transform = CATransform3DIdentity
         transform.m34 = 1.0 / -1000.0
         transform = CATransform3DRotate(transform, degreesToRadians(z), 0.0, 0.0, 1.0)
@@ -258,7 +258,7 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    func setRotation(x x: CGFloat, y: CGFloat, z: CGFloat) {
+    public func setRotation(x x: CGFloat, y: CGFloat, z: CGFloat) {
         var transform = CATransform3DIdentity
         transform.m34 = 1.0 / -1000.0
         transform = CATransform3DRotate(transform, degreesToRadians(x), 1.0, 0.0, 0.0)
@@ -268,7 +268,7 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    func setScale(x x: CGFloat, y: CGFloat) {
+    public func setScale(x x: CGFloat, y: CGFloat) {
         var transform = CATransform3DIdentity
         transform.m34 = 1.0 / -1000.0
         transform = CATransform3DScale(transform, x, y, 1)
@@ -279,13 +279,13 @@ extension UIView {
 // MARK: Layer Extensions
 extension UIView {    
     /// EZSwiftExtensions
-    func setCornerRadius(radius radius: CGFloat) {
+    public func setCornerRadius(radius radius: CGFloat) {
         self.layer.cornerRadius = radius
         self.layer.masksToBounds = true
     }
     //TODO: add this to readme
     /// EZSwiftExtensions
-    func addShadow(offset offset: CGSize, radius: CGFloat, color: UIColor, opacity: Float, cornerRadius: CGFloat? = nil) {
+    public func addShadow(offset offset: CGSize, radius: CGFloat, color: UIColor, opacity: Float, cornerRadius: CGFloat? = nil) {
         self.layer.shadowOffset = offset
         self.layer.shadowRadius = radius
         self.layer.shadowOpacity = opacity
@@ -296,34 +296,35 @@ extension UIView {
     }
 
     /// EZSwiftExtensions
-    func addBorder(width width: CGFloat, color: UIColor) {
+    public func addBorder(width width: CGFloat, color: UIColor) {
         layer.borderWidth = width
         layer.borderColor = color.CGColor
         layer.masksToBounds = true
     }
     
     /// EZSwiftExtensions
-    func addBorderTop(size size: CGFloat, color: UIColor) {
+    public func addBorderTop(size size: CGFloat, color: UIColor) {
         addBorderUtility(x: 0, y: 0, width: frame.width, height: size, color: color)
     }
     
+    //TODO: add to readme
     /// EZSwiftExtensions
-    func addBorderTopWithPadding(size size: CGFloat, color: UIColor, padding: CGFloat) {
+    public func addBorderTopWithPadding(size size: CGFloat, color: UIColor, padding: CGFloat) {
         addBorderUtility(x: padding, y: 0, width: frame.width - padding*2, height: size, color: color)
     }
     
     /// EZSwiftExtensions
-    func addBorderBottom(size size: CGFloat, color: UIColor) {
+    public func addBorderBottom(size size: CGFloat, color: UIColor) {
         addBorderUtility(x: 0, y: frame.height - size, width: frame.width, height: size, color: color)
     }
     
     /// EZSwiftExtensions
-    func addBorderLeft(size size: CGFloat, color: UIColor) {
+    public func addBorderLeft(size size: CGFloat, color: UIColor) {
         addBorderUtility(x: 0, y: 0, width: size, height: frame.height, color: color)
     }
     
     /// EZSwiftExtensions
-    func addBorderRight(size size: CGFloat, color: UIColor) {
+    public func addBorderRight(size size: CGFloat, color: UIColor) {
         addBorderUtility(x: frame.width - size, y: 0, width: size, height: frame.height, color: color)
     }
     
@@ -336,7 +337,7 @@ extension UIView {
     }
     //TODO: add this to readme
     /// EZSwiftExtensions
-    func drawCircle(fillColor fillColor: UIColor, strokeColor: UIColor, strokeWidth: CGFloat) {
+    public func drawCircle(fillColor fillColor: UIColor, strokeColor: UIColor, strokeWidth: CGFloat) {
         let path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: self.w, height: self.w), cornerRadius: self.w/2)
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path.CGPath
@@ -347,7 +348,7 @@ extension UIView {
     }
     //TODO: add this to readme
     /// EZSwiftExtensions
-    func drawStroke(width width: CGFloat, color: UIColor) {
+    public func drawStroke(width width: CGFloat, color: UIColor) {
         let path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: self.w, height: self.w), cornerRadius: self.w/2)
         let shapeLayer = CAShapeLayer ()
         shapeLayer.path = path.CGPath
@@ -368,27 +369,27 @@ private let UIViewAnimationSpringVelocity: CGFloat = 0.5
 extension UIView {
     
     /// EZSwiftExtensions
-    func spring(animations animations: (() -> Void), completion: ((Bool) -> Void)? = nil) {
+    public func spring(animations animations: (() -> Void), completion: ((Bool) -> Void)? = nil) {
         spring(duration: UIViewAnimationDuration, animations: animations, completion: completion)
     }
     
     /// EZSwiftExtensions
-    func spring(duration duration: NSTimeInterval, animations: (() -> Void), completion: ((Bool) -> Void)? = nil) {
+    public func spring(duration duration: NSTimeInterval, animations: (() -> Void), completion: ((Bool) -> Void)? = nil) {
         UIView.animateWithDuration(UIViewAnimationDuration, delay: 0, usingSpringWithDamping: UIViewAnimationSpringDamping, initialSpringVelocity: UIViewAnimationSpringVelocity, options: UIViewAnimationOptions.AllowAnimatedContent, animations: animations, completion: completion)
     }
     
     /// EZSwiftExtensions
-    func animate(duration duration: NSTimeInterval, animations: (() -> Void), completion: ((Bool) -> Void)? = nil) {
+    public func animate(duration duration: NSTimeInterval, animations: (() -> Void), completion: ((Bool) -> Void)? = nil) {
         UIView.animateWithDuration(duration, animations: animations, completion: completion)
     }
     
     /// EZSwiftExtensions
-    func animate(animations animations: (()->Void), completion: ((Bool) -> Void)? = nil) {
+    public func animate(animations animations: (()->Void), completion: ((Bool) -> Void)? = nil) {
         animate(duration: UIViewAnimationDuration, animations: animations, completion: completion)
     }
     
     /// EZSwiftExtensions
-    func pop() {
+    public func pop() {
         setScale(x: 1.1, y: 1.1)
         spring(duration: 0.2, animations: { [unowned self] () -> Void in
             self.setScale(x: 1, y: 1)
@@ -396,7 +397,7 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    func popBig() {
+    public func popBig() {
         setScale(x: 1.25, y: 1.25)
         spring(duration: 0.2, animations: { [unowned self] () -> Void in
             self.setScale(x: 1, y: 1)
@@ -409,7 +410,7 @@ extension UIView {
 extension UIView {
     
     /// EZSwiftExtensions
-    func toImage () -> UIImage {
+    public func toImage () -> UIImage {
         UIGraphicsBeginImageContextWithOptions(bounds.size, opaque, 0.0)
         drawViewHierarchyInRect(bounds, afterScreenUpdates: false)
         let img = UIGraphicsGetImageFromCurrentImageContext()
@@ -423,7 +424,7 @@ extension UIView {
     
     /// http://stackoverflow.com/questions/4660371/how-to-add-a-touch-event-to-a-uiview/32182866#32182866
     /// EZSwiftExtensions
-    func addTapGesture(tapNumber tapNumber: Int, target: AnyObject, action: Selector) {
+    public func addTapGesture(tapNumber tapNumber: Int, target: AnyObject, action: Selector) {
         let tap = UITapGestureRecognizer(target: target, action: action)
         tap.numberOfTapsRequired = tapNumber
         addGestureRecognizer(tap)
@@ -431,14 +432,14 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    func addTapGesture(tapNumber tapNumber: Int, action: ((UITapGestureRecognizer) -> ())?) {
+    public func addTapGesture(tapNumber tapNumber: Int, action: ((UITapGestureRecognizer) -> ())?) {
         let tap = BlockTap(tapCount: tapNumber, fingerCount: 1, action: action)
         addGestureRecognizer(tap)
         userInteractionEnabled = true
     }
     
     /// EZSwiftExtensions
-    func addSwipeGesture(direction direction: UISwipeGestureRecognizerDirection, numberOfTouches: Int, target: AnyObject, action: Selector) {
+    public func addSwipeGesture(direction direction: UISwipeGestureRecognizerDirection, numberOfTouches: Int, target: AnyObject, action: Selector) {
         let swipe = UISwipeGestureRecognizer(target: target, action: action)
         swipe.direction = direction
         swipe.numberOfTouchesRequired = numberOfTouches
@@ -447,49 +448,49 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    func addSwipeGesture(direction direction: UISwipeGestureRecognizerDirection, numberOfTouches: Int, action: ((UISwipeGestureRecognizer) -> ())?) {
+    public func addSwipeGesture(direction direction: UISwipeGestureRecognizerDirection, numberOfTouches: Int, action: ((UISwipeGestureRecognizer) -> ())?) {
         let swipe = BlockSwipe(direction: direction, fingerCount: numberOfTouches, action: action)
         addGestureRecognizer(swipe)
         userInteractionEnabled = true
     }
     
     /// EZSwiftExtensions
-    func addPanGesture(target target: AnyObject, action: Selector) {
+    public func addPanGesture(target target: AnyObject, action: Selector) {
         let pan = UIPanGestureRecognizer(target: target, action: action)
         addGestureRecognizer(pan)
         userInteractionEnabled = true
     }
     
     /// EZSwiftExtensions
-    func addPanGesture(action action: ((UIPanGestureRecognizer) -> ())?) {
+    public func addPanGesture(action action: ((UIPanGestureRecognizer) -> ())?) {
         let pan = BlockPan(action: action)
         addGestureRecognizer(pan)
         userInteractionEnabled = true
     }
     
     /// EZSwiftExtensions
-    func addPinchGesture(target target: AnyObject, action: Selector) {
+    public func addPinchGesture(target target: AnyObject, action: Selector) {
         let pinch = UIPinchGestureRecognizer(target: target, action: action)
         addGestureRecognizer(pinch)
         userInteractionEnabled = true
     }
     
     /// EZSwiftExtensions
-    func addPinchGesture(action action: ((UIPinchGestureRecognizer) -> ())?) {
+    public func addPinchGesture(action action: ((UIPinchGestureRecognizer) -> ())?) {
         let pinch = BlockPinch(action: action)
         addGestureRecognizer(pinch)
         userInteractionEnabled = true
     }
     
     /// EZSwiftExtensions
-    func addLongPressGesture(target target: AnyObject, action: Selector) {
+    public func addLongPressGesture(target target: AnyObject, action: Selector) {
         let longPress = UILongPressGestureRecognizer(target: target, action: action)
         addGestureRecognizer(longPress)
         userInteractionEnabled = true
     }
     
     /// EZSwiftExtensions
-    func addLongPressGesture(action action: ((UILongPressGestureRecognizer) -> ())?) {
+    public func addLongPressGesture(action action: ((UILongPressGestureRecognizer) -> ())?) {
         let longPress = BlockLongPress(action: action)
         addGestureRecognizer(longPress)
         userInteractionEnabled = true
@@ -499,7 +500,7 @@ extension UIView {
 //TODO: add to readme
 extension UIView {
     /// [UIRectCorner.TopLeft, UIRectCorner.TopRight]
-    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+    public func roundCorners(corners: UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()
         mask.path = path.CGPath

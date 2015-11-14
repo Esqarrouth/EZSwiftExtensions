@@ -8,15 +8,15 @@
 
 import UIKit
 
-class BlockTap: UITapGestureRecognizer {
+public class BlockTap: UITapGestureRecognizer {
     
     private var tapAction: ((UITapGestureRecognizer) -> Void)?
     
-    override init(target: AnyObject?, action: Selector) {
+    public override init(target: AnyObject?, action: Selector) {
         super.init(target: target, action: action)
     }
     
-    convenience init (
+    public convenience init (
         tapCount: Int,
         fingerCount: Int,
         action: ((UITapGestureRecognizer) -> Void)?) {
@@ -27,7 +27,7 @@ class BlockTap: UITapGestureRecognizer {
             self.addTarget(self, action: "didTap:")
     }
     
-    func didTap (tap: UITapGestureRecognizer) {
+    public func didTap (tap: UITapGestureRecognizer) {
         tapAction? (tap)
     }
     

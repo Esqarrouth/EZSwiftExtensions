@@ -38,37 +38,37 @@ private let DeviceList = [
 extension UIDevice {
     
     /// EZSwiftExtensions
-    class func idForVendor() -> String {
+    public class func idForVendor() -> String {
         return UIDevice.currentDevice().identifierForVendor!.UUIDString
     }
     
     /// EZSwiftExtensions - Operating system name
-    class func systemName() -> String {
+    public class func systemName() -> String {
         return UIDevice.currentDevice().systemName
     }
     
     /// EZSwiftExtensions - Operating system version
-    class func systemVersion() -> String {
+    public class func systemVersion() -> String {
         return UIDevice.currentDevice().systemVersion
     }
     
     /// EZSwiftExtensions
-    class func deviceName() -> String {
+    public class func deviceName() -> String {
         return UIDevice.currentDevice().name
     }
     
     /// EZSwiftExtensions
-    class func deviceLanguage() -> String {
+    public class func deviceLanguage() -> String {
         return NSBundle.mainBundle().preferredLocalizations[0] 
     }
     
     /// EZSwiftExtensions
-    class func deviceModelReadable() -> String {
+    public class func deviceModelReadable() -> String {
         return DeviceList[deviceModel()] ?? deviceModel()
     }
  
     /// EZSwiftExtensions
-    class func deviceModel() -> String {
+    public class func deviceModel() -> String {
         var systemInfo = utsname()
         uname(&systemInfo)
         
@@ -88,7 +88,7 @@ extension UIDevice {
     }
     
     /// EZSwiftExtensions
-    class func isSystemVersionOver(requiredVersion: String) -> Bool {
+    public class func isSystemVersionOver(requiredVersion: String) -> Bool {
         switch systemVersion().compare(requiredVersion, options: NSStringCompareOptions.NumericSearch) {
         case .OrderedSame, .OrderedDescending:
             //println("iOS >= 8.0")

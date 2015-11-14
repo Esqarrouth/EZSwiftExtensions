@@ -10,13 +10,13 @@ import UIKit
 extension String {
     
     /// EZSwiftExtensions
-    subscript(integerIndex: Int) -> Character {
+    public subscript(integerIndex: Int) -> Character {
         let index = startIndex.advancedBy(integerIndex)
         return self[index]
     }
     
     /// EZSwiftExtensions
-    subscript(integerRange: Range<Int>) -> String {
+    public subscript(integerRange: Range<Int>) -> String {
         let start = startIndex.advancedBy(integerRange.startIndex)
         let end = startIndex.advancedBy(integerRange.endIndex)
         let range = start..<end
@@ -24,38 +24,38 @@ extension String {
     }
     
     /// EZSwiftExtensions - Character count
-    var length: Int {
+    public var length: Int {
         return self.characters.count
     }
 
     /// EZSwiftExtensions
-    var capitalizeFirst: String {
+    public var capitalizeFirst: String {
         var result = self
         result.replaceRange(startIndex...startIndex, with: String(self[startIndex]).capitalizedString)
         return result
     }
     
     /// EZSwiftExtensions - Counts whitespace & new lines
-    func isOnlyEmptySpacesAndNewLineCharacters() -> Bool {
+    public func isOnlyEmptySpacesAndNewLineCharacters() -> Bool {
         let characterSet = NSCharacterSet.whitespaceAndNewlineCharacterSet()
         let newText = self.stringByTrimmingCharactersInSet(characterSet)
         return newText.isEmpty
     }
     
     /// EZSwiftExtensions - Trims white space and new line characters
-    mutating func trim() {
+    public mutating func trim() {
          self = self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
     }
     
     /// EZSwiftExtensions
-    var isEmail: Bool {
+    public var isEmail: Bool {
         let dataDetector = try? NSDataDetector(types: NSTextCheckingType.Link.rawValue)
         let firstMatch = dataDetector?.firstMatchInString(self, options: NSMatchingOptions.ReportCompletion, range: NSMakeRange(0, length))
         return (firstMatch?.range.location != NSNotFound && firstMatch?.URL?.scheme == "mailto")
     }
     
     /// EZSwiftExtensions
-    var extractURLs: [NSURL] {
+    public var extractURLs: [NSURL] {
         var urls : [NSURL] = []
         let detector: NSDataDetector?
         do {
@@ -75,17 +75,17 @@ extension String {
     }
     
     /// EZSwiftExtensions
-    func contains(find: String) -> Bool {
+    public func contains(find: String) -> Bool {
         return self.rangeOfString(find) != nil
     }
     
     /// EZSwiftExtensions
-    func contains(find: String, compareOption: NSStringCompareOptions) -> Bool {
+    public func contains(find: String, compareOption: NSStringCompareOptions) -> Bool {
         return self.rangeOfString(find, options: compareOption) != nil
     }
     
     /// EZSwiftExtensions
-    func toInt() -> Int? {
+    public func toInt() -> Int? {
         if let num = NSNumberFormatter().numberFromString(self) {
             return num.integerValue
         } else {
@@ -94,7 +94,7 @@ extension String {
     }
     
     /// EZSwiftExtensions
-    func toDouble() -> Double? {
+    public func toDouble() -> Double? {
         if let num = NSNumberFormatter().numberFromString(self) {
             return num.doubleValue
         } else {
@@ -103,7 +103,7 @@ extension String {
     }
     
     /// EZSwiftExtensions
-    func toFloat() -> Float? {
+    public func toFloat() -> Float? {
         if let num = NSNumberFormatter().numberFromString(self) {
             return num.floatValue
         } else {

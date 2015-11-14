@@ -8,15 +8,15 @@
 
 import UIKit
 
-class BlockSwipe: UISwipeGestureRecognizer {
+public class BlockSwipe: UISwipeGestureRecognizer {
     
     private var swipeAction: ((UISwipeGestureRecognizer) -> Void)?
     
-    override init(target: AnyObject?, action: Selector) {
+    public override init(target: AnyObject?, action: Selector) {
         super.init(target: target, action: action)
     }
     
-    convenience init (direction: UISwipeGestureRecognizerDirection,
+    public convenience init (direction: UISwipeGestureRecognizerDirection,
         fingerCount: Int,
         action: ((UISwipeGestureRecognizer) -> Void)?) {
             self.init()
@@ -26,7 +26,7 @@ class BlockSwipe: UISwipeGestureRecognizer {
             addTarget(self, action: "didSwipe:")
     }
     
-    func didSwipe (swipe: UISwipeGestureRecognizer) {
+    public func didSwipe (swipe: UISwipeGestureRecognizer) {
         swipeAction? (swipe)
     }
 }

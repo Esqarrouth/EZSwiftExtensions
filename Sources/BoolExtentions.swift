@@ -9,7 +9,7 @@
 extension Bool {
     
     /// EZSwiftExtensions
-    mutating func toggle() -> Bool {
+    public mutating func toggle() -> Bool {
         self = !self
         return self
     }

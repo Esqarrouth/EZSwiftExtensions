@@ -10,7 +10,7 @@ import UIKit
 extension NSDate {
     
     /// EZSwiftExtensions
-    func toString() -> String {
+    public func toString() -> String {
         let formatter = NSDateFormatter()
         formatter.timeStyle = NSDateFormatterStyle.NoStyle
         formatter.timeStyle = NSDateFormatterStyle.MediumStyle
@@ -19,42 +19,42 @@ extension NSDate {
     
     //TODO: add in readme
     /// EZSwiftExtensions
-    func fromString(format: String, string: String) -> NSDate? {
+    public func fromString(format: String, string: String) -> NSDate? {
         let formatter = NSDateFormatter()
         formatter.dateFormat = format
         return formatter.dateFromString(string)
     }
     
     /// EZSwiftExtensions
-    func daysInBetweenDate(date: NSDate) -> Double {
+    public func daysInBetweenDate(date: NSDate) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff/86400)
         return diff
     }
     
     /// EZSwiftExtensions
-    func hoursInBetweenDate(date: NSDate) -> Double {
+    public func hoursInBetweenDate(date: NSDate) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff/3600)
         return diff
     }
     
     /// EZSwiftExtensions
-    func minutesInBetweenDate(date: NSDate) -> Double {
+    public func minutesInBetweenDate(date: NSDate) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff/60)
         return diff
     }
     
     /// EZSwiftExtensions
-    func secondsInBetweenDate(date: NSDate) -> Double {
+    public func secondsInBetweenDate(date: NSDate) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff)
         return diff
     }
     
     /// EZSwiftExtensions
-    func timePassed() -> String {
+    public func timePassed() -> String {
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: self, toDate: date, options: [])
