@@ -1,5 +1,7 @@
 # EZSwiftExtensions
 
+[![Cocoapods Compatible](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)  <img src="charizard.png" width="200">
+
 How Swift standard types and classes were supposed to work.
 
 
