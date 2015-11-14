@@ -1,6 +1,7 @@
 # EZSwiftExtensions
 
-[![Cocoapods Compatible](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)  <img src="charizard.png" width="200">
+[![Cocoapods Compatible](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)  
+<img src="charizard.png" width="200">
 
 How Swift standard types and classes were supposed to work.
 
@@ -12,7 +13,7 @@ Easily access your projects version and build numbers:
 ``` swift
 print(appVersion) // 0.3
 print(appBuild) // 7
-print(appVersionAndBuild) // v0.3(7)
+print(appVersionAndBuild) // v0.3(7)
 ```
 
 Easily access your appDelegate instance and your window:
