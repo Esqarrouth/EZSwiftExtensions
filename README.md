@@ -13,11 +13,14 @@ print(appBuild) // 7
 print(appVersionAndBuild) // v0.3(7)
 ```
 
-Easily access your appDelegate instance:
+Easily access your appDelegate instance and your window:
 
 ``` swift
 let myAppDel = appDelegateVariable
 myAppDel.window!.rootViewController = UIViewController()
+// OR
+let myAppDelegateWindow = appDelegateWindow
+myAppDelegateWindow.rootViewController = UIViewController()
 ```
 
 Easily access your ViewController on top of your view stack:

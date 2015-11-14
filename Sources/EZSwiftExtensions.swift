@@ -26,13 +26,18 @@ public var appVersionAndBuild: String {
 }
 
 /// EZSwiftExtensions - Your normal appDelegate
-public var appDelegateVariable: UIResponder {
-    return UIApplication.sharedApplication().delegate as! UIResponder
+public var appDelegateVariable: UIApplicationDelegate {
+    return UIApplication.sharedApplication().delegate!
+}
+
+/// EZSwiftExtensions
+public var appDelegateWindow: UIWindow {
+    return UIApplication.sharedApplication().keyWindow!
 }
 
 /// EZSwiftExtensions - Gives you the VC on top so you can easily push your popups
 public var topMostVC: UIViewController {
-    var topController = (UIApplication.sharedApplication().keyWindow!.rootViewController)!
+    var topController = appDelegateWindow.rootViewController!
 
     while let presentedVC = topController.presentedViewController {
         topController = presentedVC
