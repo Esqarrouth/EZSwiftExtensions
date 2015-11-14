@@ -869,7 +869,7 @@ import EZSwiftExtensions
 And countless gists and stackoverflow answers.
 
 ##License
-CozyLoadingActivity is available under the MIT license. See the [LICENSE file](https://github.com/goktugyil/EZSwiftExtensions/blob/master/LICENSE).
+EZSwiftExtensions is available under the MIT license. See the [LICENSE file](https://github.com/goktugyil/EZSwiftExtensions/blob/master/LICENSE).
 
 ##Keywords
 swift, extension, uikit, exswift, foundation, library, framework, tool
