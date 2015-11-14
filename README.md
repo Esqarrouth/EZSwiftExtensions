@@ -29,8 +29,8 @@ myAppDelegateWindow.rootViewController = UIViewController()
 Easily access your ViewController on top of your view stack:
 
 ``` swift
-let topOfMyViewStack = topMostVC
-  topOfMyViewStack.presentViewController(myAlertController, animated: true, completion: nil)
+let topOfMyViewStack = topMostVC // topMostVC is your rootViewController
+topOfMyViewStack.presentViewController(myAlertController, animated: true, completion: nil)
 ```
 
 Easily access your screen orientation:
@@ -76,7 +76,7 @@ detectScreenShot { () -> () in
 Easily request images:
 
 ``` swift
-requestImage("**http://www.asdf.com/89asdf.gif**") { (image) -> Void in
+requestImage("http://www.asdf.com/89asdf.gif") { (image) -> Void in
     let myImage = image
 }
 ```
@@ -101,7 +101,7 @@ Easily run block of codes after a certain delay:
 
 ``` swift
 runThisAfterDelay(seconds: 2) { () -> () in
-  print("Prints this 2 seconds later in main queue")
+    print("Prints this 2 seconds later in main queue")
 }
 
 ```
@@ -117,7 +117,7 @@ Easily run code in main thread:
 
 ``` swift
 runThisInMainThread { () -> Void in
-  print("Tired of ugly code like: dispatch_async(dispatch_get_main_queue(), block: dispatch_block_t)!!!")
+    print("Tired of ugly code like: dispatch_async(dispatch_get_main_queue(), block: dispatch_block_t)!!!")
 }
 ```
 Easily run code in background:
