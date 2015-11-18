@@ -22,6 +22,8 @@ extension Int {
     public var toFloat: Float   { return Float(self) }
     /// EZSwiftExtensions
     public var toCGFloat: CGFloat { return CGFloat(self) }
+    /// EZSwiftExtensions
+    public var toString: String { return String(self) }
     
     /// EZSwiftExtensions
     public var digits: Int {
