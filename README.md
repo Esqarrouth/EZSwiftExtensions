@@ -185,6 +185,7 @@ var myInt = someUInt.toInt
 var myDouble = myInt.toDouble
 var myFloat = myInt.toFloat
 var myCGFloat = myInt.toCGFloat
+var myString = myInt.toString
 ```
 ##String Extensions
 
