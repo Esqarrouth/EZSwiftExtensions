@@ -59,6 +59,8 @@ public class BlockButton: UIButton {
         addTarget(self, action: "didPressed:", forControlEvents: UIControlEvents.TouchUpInside)
         addTarget(self, action: "highlight", forControlEvents: [UIControlEvents.TouchDown, UIControlEvents.TouchDragEnter])
         addTarget(self, action: "unhighlight", forControlEvents: [UIControlEvents.TouchUpInside, UIControlEvents.TouchUpOutside, UIControlEvents.TouchCancel, UIControlEvents.TouchDragExit])
+        setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected)
     }
     
     public func addAction(action: BlockButtonAction) {
