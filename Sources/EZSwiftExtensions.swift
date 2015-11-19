@@ -81,16 +81,6 @@ public func forceCrash() {
     }
 }
 
-/// EZSwiftExtensions
-public func prt(items: Any...) {
-    print(items)
-}
-
-/// EZSwiftExtensions
-public func prnt(items: Any...) {
-    print(items)
-}
-
 /// EZSwiftExtensions - Calls action when a screen shot is taken
 public func detectScreenShot(action: () -> ()) {
     let mainQueue = NSOperationQueue.mainQueue()

@@ -50,12 +50,7 @@ Easily force a crash:
 ``` swift
 forceCrash() //fatal error: Array index out of range
 ```
-Mistype print() function ? No worries:
 
-``` swift
-prt("Stuff")
-prnt("Stuff")
-```
 Easily track screen shots:
 
 ``` swift
