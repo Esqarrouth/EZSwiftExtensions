@@ -30,21 +30,21 @@ extension UIColor {
     }
     
     /// EZSwiftExtensions
-    public var red: Int {
+    public var redComponent: Int {
         var r: CGFloat = 0
         getRed(&r, green: nil, blue: nil, alpha: nil)
         return Int(r * 255)
     }
 
     /// EZSwiftExtensions
-    public var green: Int {
+    public var greenComponent: Int {
         var g: CGFloat = 0
         getRed(nil, green: &g, blue: nil, alpha: nil)
         return Int(g * 255)
     }
     
     /// EZSwiftExtensions
-    public var blue: Int {
+    public var blueComponent: Int {
         var b: CGFloat = 0
         getRed(nil, green: nil, blue: &b, alpha: nil)
         return Int(b * 255)

@@ -734,9 +734,9 @@ Easily access individual color values:
 
 ``` swift
 let myColor = UIColor(r: 100, g: 55, b: 33) 
-print(myColor.red) // 100
-print(myColor.green) // 55
-print(myColor.blue) // 33
+print(myColor.redComponent) // 100
+print(myColor.greenComponent) // 55
+print(myColor.blueComponent) // 33
 print(myColor.alpha) // 1
 ```
 
