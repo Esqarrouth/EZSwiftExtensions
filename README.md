@@ -45,11 +45,6 @@ Easily access your status bar height:
 print(screenStatusBarHeight) // 20.0 on iPhone6
 print(screenHeightWithoutStatusBar) // 647.0 on iPhone6
 ```
-Easily force a crash:
-
-``` swift
-forceCrash() //fatal error: Array index out of range
-```
 
 Easily track screen shots:
 

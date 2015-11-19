@@ -72,15 +72,6 @@ public var screenHeightWithoutStatusBar: CGFloat {
     }
 }
 
-/// EZSwiftExtensions
-public func forceCrash() {
-    //NSException(name:NSGenericException, reason:"Everything is ok. This is just a test crash.", userInfo:nil).raise()
-    while 1 == 1 {
-        var hey: [Int] = []
-        hey[0] = 1
-    }
-}
-
 /// EZSwiftExtensions - Calls action when a screen shot is taken
 public func detectScreenShot(action: () -> ()) {
     let mainQueue = NSOperationQueue.mainQueue()
