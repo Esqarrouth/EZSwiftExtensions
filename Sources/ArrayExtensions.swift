@@ -30,17 +30,10 @@ extension Array {
 
     /// EZSwiftExtensions
     public mutating func removeObject<U: Equatable>(object: U) {
-        var index: Int?
-        for (idx, objectToCompare) in self.enumerate() {
-            if let to = objectToCompare as? U {
-                if object == to {
-                    index = idx
-                }
+        for i in (0..<count).reverse() {
+            if let obj = self[i] as? U where obj == object {
+                self.removeAtIndex(i)
             }
-        }
-        
-        if index != nil {
-            self.removeAtIndex(index!)
         }
     }
 }
