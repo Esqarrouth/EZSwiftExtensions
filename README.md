@@ -19,8 +19,9 @@ print(appVersionAndBuild) // v0.3(7)
 Easily access your ViewController on top of your view stack:
 
 ``` swift
-let topOfMyViewStack = topMostVC // topMostVC is your rootViewController
-topOfMyViewStack.presentViewController(myAlertController, animated: true, completion: nil)
+topMostVC?.presentViewController(myAlertController, animated: true, completion: nil)
+// topMostVC is your rootViewController
+// Intended for showing small VCs like UIAlertController
 ```
 
 Easily access your screen orientation:
