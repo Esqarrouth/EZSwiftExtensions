@@ -110,11 +110,6 @@ public func runThisInMainThread(block: dispatch_block_t) {
     dispatch_async(dispatch_get_main_queue(), block)
 }
 
-/// EZSwiftExtensions
-public func runThisBlock(block: () -> ()) {
-    block()
-}
-
 /// EZSwiftExtensions - Runs in Default priority queue
 public func runThisInBackground(block: () -> ()) {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)

@@ -108,14 +108,6 @@ runThisInBackground { () -> () in
     print("Runs this in default priority queue")
 }
 ```
-Easily run block of code:
-
-``` swift
-let myBlock = {
-    print("lol")
-}
-runThisBlock(myBlock)
-```
 
 ##NSObject Extensions
 
