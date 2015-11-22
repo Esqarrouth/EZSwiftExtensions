@@ -26,13 +26,16 @@ public var appVersionAndBuild: String {
 }
 
 /// EZSwiftExtensions - Gives you the VC on top so you can easily push your popups
-public var topMostVC: UIViewController {
-    var topController = UIApplication.sharedApplication().keyWindow!.rootViewController!
-
-    while let presentedVC = topController.presentedViewController {
-        topController = presentedVC
+public var topMostVC: UIViewController? {
+    var presentedVC = UIApplication.sharedApplication().keyWindow?.rootViewController
+    while let pVC = presentedVC?.presentedViewController {
+        presentedVC = pVC
     }
-    return topController
+    
+    if presentedVC == nil {
+        print("EZSwiftExtensions Error: You don't have any views set. You may be calling them in viewDidLoad. Try viewDidAppear instead.")
+    }
+    return presentedVC
 }
 
 /// EZSwiftExtensions
