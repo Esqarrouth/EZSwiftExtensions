@@ -5,20 +5,20 @@
 
 How Swift standard types and classes were supposed to work. A collection of useful extensions for the Swift Standard Library, Foundation, and UIKit.
 
-##Global functions and variables:
+##EZ functions and variables:
 
 Easily access your projects version and build numbers:
 
 ``` swift
-print(appVersion) // 0.3
-print(appBuild) // 7
-print(appVersionAndBuild) // v0.3(7)
+print(ez.appVersion) // 0.3
+print(ez.appBuild) // 7
+print(ez.appVersionAndBuild) // v0.3(7)
 ```
 
 Easily access your ViewController on top of your view stack:
 
 ``` swift
-topMostVC?.presentViewController(myAlertController, animated: true, completion: nil)
+ez.topMostVC?.presentViewController(myAlertController, animated: true, completion: nil)
 // topMostVC is your rootViewController
 // Intended for showing small VCs like UIAlertController
 ```
@@ -26,7 +26,7 @@ topMostVC?.presentViewController(myAlertController, animated: true, completion: 
 Easily access your screen orientation:
 
 ``` swift
-if UIInterfaceOrientationIsPortrait(screenOrientation) {
+if UIInterfaceOrientationIsPortrait(ez.screenOrientation) {
   // Screen orientation is portrait
 } else {
   // Screen orientation is not portrait
@@ -36,34 +36,34 @@ if UIInterfaceOrientationIsPortrait(screenOrientation) {
 Easily access your screen width & height:
 
 ``` swift
-print(screenWidth) // 375.0 on iPhone6
-print(screenHeight) // 667.0 on iPhone6
+print(ez.screenWidth) // 375.0 on iPhone6
+print(ez.screenHeight) // 667.0 on iPhone6
 ```
 Easily access your status bar height:
 
 ``` swift 
-print(screenStatusBarHeight) // 20.0 on iPhone6
-print(screenHeightWithoutStatusBar) // 647.0 on iPhone6
+print(ez.screenStatusBarHeight) // 20.0 on iPhone6
+print(ez.screenHeightWithoutStatusBar) // 647.0 on iPhone6
 ```
 
 Easily track screen shots:
 
 ``` swift
-detectScreenShot { () -> () in
+ez.detectScreenShot { () -> () in
     print("User took a screen shot")
 }
 ```
 Easily request images:
 
 ``` swift
-requestImage("http://www.asdf.com/89asdf.gif") { (image) -> Void in
+ez.requestImage("http://www.asdf.com/89asdf.gif") { (image) -> Void in
     let myImage = image
 }
 ```
 Easily request JSON:
 
 ``` swift
-requestJSON("http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=facebook", success: { (object) -> Void in
+ez.requestJSON("http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=facebook", success: { (object) -> Void in
     print(object) // prints whole bunch of shit
     }) { (error) -> Void in
         print(error)
@@ -72,7 +72,7 @@ requestJSON("http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=faceboo
 Easily run a block of code certain amount of times:
 
 ``` swift
-runThisMany(times: 3) { () -> () in
+ez.runThisMany(times: 3) { () -> () in
     print("lol", terminator: "") // lollollol
 }
 ```
@@ -80,7 +80,7 @@ runThisMany(times: 3) { () -> () in
 Easily run block of codes after a certain delay:
 
 ``` swift
-runThisAfterDelay(seconds: 2) { () -> () in
+ez.runThisAfterDelay(seconds: 2) { () -> () in
     print("Prints this 2 seconds later in main queue")
 }
 
@@ -88,7 +88,7 @@ runThisAfterDelay(seconds: 2) { () -> () in
 Easily run code after delay in another thread:
 
 ``` swift
-runThisAfterDelay(seconds: 2, queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) { () -> () in
+ez.runThisAfterDelay(seconds: 2, queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) { () -> () in
     print("Prints this 2 seconds later in low priority queue")
 }
 ```
@@ -96,14 +96,14 @@ runThisAfterDelay(seconds: 2, queue: dispatch_get_global_queue(DISPATCH_QUEUE_PR
 Easily run code in main thread:
 
 ``` swift
-runThisInMainThread { () -> Void in
+ez.runThisInMainThread { () -> Void in
     print("Tired of ugly code like: dispatch_async(dispatch_get_main_queue(), block: dispatch_block_t)!!!")
 }
 ```
 Easily run code in background:
 
 ``` swift
-runThisInBackground { () -> () in
+ez.runThisInBackground { () -> () in
     print("Runs this in default priority queue")
 }
 ```
