@@ -3,8 +3,7 @@
 [![Cocoapods Compatible](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)  
 <img src="charizard.png" width="200">
 
-How Swift standard types and classes were supposed to work.
-
+How Swift standard types and classes were supposed to work. A collection of useful extensions for the Swift Standard Library, Foundation, and UIKit.
 
 ##Global functions and variables:
 
@@ -243,6 +242,13 @@ print(myArray.removeObject("charmander"))
 print(myArray) // ["bulbasaur", "squirtle"]
 ```
 ##Dictionary Extensions
+
+Easily access a random element:
+
+``` swift
+var myDict = ["charmander": "fire","bulbasaur": "grass","squirtle": "water"]
+print(myDict()) // grass or something else
+```
 
 Easily add dictionaries to create new ones:
 
