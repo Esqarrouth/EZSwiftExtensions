@@ -806,6 +806,20 @@ button1.addAction { (sender) -> Void in
 // There are also BlockWebView, BlockTap, BlockPan, BlockSwipe, BlockPinch, BlockLongPress
 ```
 
+##NSUserDefaults Extensions
+
+Easily get values from NSUserDefaults with subscripts:
+
+``` swift
+let Defaults = NSUserDefaults.standardUserDefaults()
+// Get values from NSUserDefaults
+let userName = Defaults["userName"]
+        
+// Set values to NSUserDefaults
+Defaults["userName"] = someUserName
+
+```
+
 ##Installation (~10 seconds)
 
 1. Download and drop '/Sources' in your project.  
