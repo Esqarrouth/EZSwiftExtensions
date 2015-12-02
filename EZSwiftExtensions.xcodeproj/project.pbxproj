@@ -55,7 +55,7 @@
 		B5DC86A91C0ED06700972D0A /* EZSwiftExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EZSwiftExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5DC86AC1C0ED06700972D0A /* EZSwiftExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EZSwiftExtensions.h; sourceTree = "<group>"; };
 		B5DC86AE1C0ED06700972D0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B5DC86B31C0ED06700972D0A /* EZSwiftExtensionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EZSwiftExtensionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5DC86B31C0ED06700972D0A /* EZSwiftExtensionsTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EZSwiftExtensionsTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5DC86B81C0ED06700972D0A /* EZSwiftExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZSwiftExtensionsTests.swift; sourceTree = "<group>"; };
 		B5DC86BA1C0ED06700972D0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5DC86FF1C0ED34300972D0A /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				B5DC86A91C0ED06700972D0A /* EZSwiftExtensions.framework */,
-				B5DC86B31C0ED06700972D0A /* EZSwiftExtensionsTests.xctest */,
+				B5DC86B31C0ED06700972D0A /* EZSwiftExtensionsTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,9 +195,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		B5DC86A81C0ED06700972D0A /* EZSwiftExtensions */ = {
+		B5DC86A81C0ED06700972D0A /* EZSwiftExtensions-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B5DC86BD1C0ED06700972D0A /* Build configuration list for PBXNativeTarget "EZSwiftExtensions" */;
+			buildConfigurationList = B5DC86BD1C0ED06700972D0A /* Build configuration list for PBXNativeTarget "EZSwiftExtensions-iOS" */;
 			buildPhases = (
 				B5DC86A41C0ED06700972D0A /* Sources */,
 				B5DC86A51C0ED06700972D0A /* Frameworks */,
@@ -208,14 +208,14 @@
 			);
 			dependencies = (
 			);
-			name = EZSwiftExtensions;
+			name = "EZSwiftExtensions-iOS";
 			productName = EZSwiftExtensions;
 			productReference = B5DC86A91C0ED06700972D0A /* EZSwiftExtensions.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		B5DC86B21C0ED06700972D0A /* EZSwiftExtensionsTests */ = {
+		B5DC86B21C0ED06700972D0A /* EZSwiftExtensionsTests-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B5DC86C01C0ED06700972D0A /* Build configuration list for PBXNativeTarget "EZSwiftExtensionsTests" */;
+			buildConfigurationList = B5DC86C01C0ED06700972D0A /* Build configuration list for PBXNativeTarget "EZSwiftExtensionsTests-iOS" */;
 			buildPhases = (
 				B5DC86AF1C0ED06700972D0A /* Sources */,
 				B5DC86B01C0ED06700972D0A /* Frameworks */,
@@ -226,9 +226,9 @@
 			dependencies = (
 				B5DC86B61C0ED06700972D0A /* PBXTargetDependency */,
 			);
-			name = EZSwiftExtensionsTests;
+			name = "EZSwiftExtensionsTests-iOS";
 			productName = EZSwiftExtensionsTests;
-			productReference = B5DC86B31C0ED06700972D0A /* EZSwiftExtensionsTests.xctest */;
+			productReference = B5DC86B31C0ED06700972D0A /* EZSwiftExtensionsTest.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -261,8 +261,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B5DC86A81C0ED06700972D0A /* EZSwiftExtensions */,
-				B5DC86B21C0ED06700972D0A /* EZSwiftExtensionsTests */,
+				B5DC86A81C0ED06700972D0A /* EZSwiftExtensions-iOS */,
+				B5DC86B21C0ED06700972D0A /* EZSwiftExtensionsTests-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -334,7 +334,7 @@
 /* Begin PBXTargetDependency section */
 		B5DC86B61C0ED06700972D0A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B5DC86A81C0ED06700972D0A /* EZSwiftExtensions */;
+			target = B5DC86A81C0ED06700972D0A /* EZSwiftExtensions-iOS */;
 			targetProxy = B5DC86B51C0ED06700972D0A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -440,7 +440,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbf.EZSwiftExtensions.EZSwiftExtensions;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EZSwiftExtensions;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -456,7 +456,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbf.EZSwiftExtensions.EZSwiftExtensions;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EZSwiftExtensions;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -467,7 +467,7 @@
 				INFOPLIST_FILE = EZSwiftExtensionsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbf.EZSwiftExtensions.EZSwiftExtensionsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EZSwiftExtensionsTest;
 			};
 			name = Debug;
 		};
@@ -477,7 +477,7 @@
 				INFOPLIST_FILE = EZSwiftExtensionsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbf.EZSwiftExtensions.EZSwiftExtensionsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EZSwiftExtensionsTest;
 			};
 			name = Release;
 		};
@@ -493,7 +493,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B5DC86BD1C0ED06700972D0A /* Build configuration list for PBXNativeTarget "EZSwiftExtensions" */ = {
+		B5DC86BD1C0ED06700972D0A /* Build configuration list for PBXNativeTarget "EZSwiftExtensions-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B5DC86BE1C0ED06700972D0A /* Debug */,
@@ -502,7 +502,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B5DC86C01C0ED06700972D0A /* Build configuration list for PBXNativeTarget "EZSwiftExtensionsTests" */ = {
+		B5DC86C01C0ED06700972D0A /* Build configuration list for PBXNativeTarget "EZSwiftExtensionsTests-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B5DC86C11C0ED06700972D0A /* Debug */,

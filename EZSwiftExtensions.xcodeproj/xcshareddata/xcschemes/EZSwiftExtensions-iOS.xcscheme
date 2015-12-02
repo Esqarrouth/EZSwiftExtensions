@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B5DC86A81C0ED06700972D0A"
                BuildableName = "EZSwiftExtensions.framework"
-               BlueprintName = "EZSwiftExtensions"
+               BlueprintName = "EZSwiftExtensions-iOS"
                ReferencedContainer = "container:EZSwiftExtensions.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B5DC86B21C0ED06700972D0A"
-               BuildableName = "EZSwiftExtensionsTests.xctest"
-               BlueprintName = "EZSwiftExtensionsTests"
+               BuildableName = "EZSwiftExtensionsTest.xctest"
+               BlueprintName = "EZSwiftExtensionsTests-iOS"
                ReferencedContainer = "container:EZSwiftExtensions.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -44,7 +44,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B5DC86A81C0ED06700972D0A"
             BuildableName = "EZSwiftExtensions.framework"
-            BlueprintName = "EZSwiftExtensions"
+            BlueprintName = "EZSwiftExtensions-iOS"
             ReferencedContainer = "container:EZSwiftExtensions.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,7 +66,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B5DC86A81C0ED06700972D0A"
             BuildableName = "EZSwiftExtensions.framework"
-            BlueprintName = "EZSwiftExtensions"
+            BlueprintName = "EZSwiftExtensions-iOS"
             ReferencedContainer = "container:EZSwiftExtensions.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -84,7 +84,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B5DC86A81C0ED06700972D0A"
             BuildableName = "EZSwiftExtensions.framework"
-            BlueprintName = "EZSwiftExtensions"
+            BlueprintName = "EZSwiftExtensions-iOS"
             ReferencedContainer = "container:EZSwiftExtensions.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
