@@ -10,46 +10,46 @@
 		E1839DB91BF79335002212C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839DB81BF79335002212C6 /* AppDelegate.swift */; };
 		E1839DBB1BF79335002212C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839DBA1BF79335002212C6 /* ViewController.swift */; };
 		E1839DBE1BF79335002212C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1839DBC1BF79335002212C6 /* Main.storyboard */; };
-		E1839DC01BF79335002212C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1839DBF1BF79335002212C6 /* Assets.xcassets */; };
+		E1839DC01BF79335002212C6 /* EZSwiftExtensionsExample/Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1839DBF1BF79335002212C6 /* EZSwiftExtensionsExample/Assets.xcassets */; };
 		E1839DC31BF79335002212C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1839DC11BF79335002212C6 /* LaunchScreen.storyboard */; };
-		E1839E1E1BF79974002212C6 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E021BF79974002212C6 /* ArrayExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E1F1BF79974002212C6 /* BlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E031BF79974002212C6 /* BlockButton.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E201BF79974002212C6 /* BlockLongPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E041BF79974002212C6 /* BlockLongPress.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E211BF79974002212C6 /* BlockPan.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E051BF79974002212C6 /* BlockPan.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E221BF79974002212C6 /* BlockPinch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E061BF79974002212C6 /* BlockPinch.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E231BF79974002212C6 /* BlockSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E071BF79974002212C6 /* BlockSwipe.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E241BF79974002212C6 /* BlockTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E081BF79974002212C6 /* BlockTap.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E251BF79974002212C6 /* BlockWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E091BF79974002212C6 /* BlockWebView.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E261BF79974002212C6 /* BoolExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E0A1BF79974002212C6 /* BoolExtentions.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E271BF79974002212C6 /* CGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E0B1BF79974002212C6 /* CGFloatExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E281BF79974002212C6 /* CGRectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E0C1BF79974002212C6 /* CGRectExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E291BF79974002212C6 /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E0D1BF79974002212C6 /* DictionaryExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E2A1BF79974002212C6 /* EZSwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E0E1BF79974002212C6 /* EZSwiftExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E2B1BF79974002212C6 /* IntExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E0F1BF79974002212C6 /* IntExtentions.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E2C1BF79974002212C6 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E101BF79974002212C6 /* NSDateExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E2D1BF79974002212C6 /* NSObjectExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E111BF79974002212C6 /* NSObjectExtentions.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E2E1BF79974002212C6 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E121BF79974002212C6 /* StringExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E2F1BF79974002212C6 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E131BF79974002212C6 /* UIButtonExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E301BF79974002212C6 /* UIColoredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E141BF79974002212C6 /* UIColoredView.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E311BF79974002212C6 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E151BF79974002212C6 /* UIColorExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E321BF79974002212C6 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E161BF79974002212C6 /* UIDeviceExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E331BF79974002212C6 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E171BF79974002212C6 /* UIFontExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E341BF79974002212C6 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E181BF79974002212C6 /* UIImageExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E351BF79974002212C6 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E191BF79974002212C6 /* UIImageViewExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E361BF79974002212C6 /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E1A1BF79974002212C6 /* UILabelExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E371BF79974002212C6 /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E1B1BF79974002212C6 /* UITextViewExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E381BF79974002212C6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E1C1BF79974002212C6 /* UIViewControllerExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		E1839E391BF79974002212C6 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E1D1BF79974002212C6 /* UIViewExtensions.swift */; settings = {ASSET_TAGS = (); }; };
+		E1839E1E1BF79974002212C6 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E021BF79974002212C6 /* ArrayExtensions.swift */; };
+		E1839E1F1BF79974002212C6 /* BlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E031BF79974002212C6 /* BlockButton.swift */; };
+		E1839E201BF79974002212C6 /* BlockLongPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E041BF79974002212C6 /* BlockLongPress.swift */; };
+		E1839E211BF79974002212C6 /* BlockPan.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E051BF79974002212C6 /* BlockPan.swift */; };
+		E1839E221BF79974002212C6 /* BlockPinch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E061BF79974002212C6 /* BlockPinch.swift */; };
+		E1839E231BF79974002212C6 /* BlockSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E071BF79974002212C6 /* BlockSwipe.swift */; };
+		E1839E241BF79974002212C6 /* BlockTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E081BF79974002212C6 /* BlockTap.swift */; };
+		E1839E251BF79974002212C6 /* BlockWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E091BF79974002212C6 /* BlockWebView.swift */; };
+		E1839E261BF79974002212C6 /* BoolExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E0A1BF79974002212C6 /* BoolExtentions.swift */; };
+		E1839E271BF79974002212C6 /* CGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E0B1BF79974002212C6 /* CGFloatExtensions.swift */; };
+		E1839E281BF79974002212C6 /* CGRectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E0C1BF79974002212C6 /* CGRectExtensions.swift */; };
+		E1839E291BF79974002212C6 /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E0D1BF79974002212C6 /* DictionaryExtensions.swift */; };
+		E1839E2A1BF79974002212C6 /* EZSwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E0E1BF79974002212C6 /* EZSwiftExtensions.swift */; };
+		E1839E2B1BF79974002212C6 /* IntExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E0F1BF79974002212C6 /* IntExtentions.swift */; };
+		E1839E2C1BF79974002212C6 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E101BF79974002212C6 /* NSDateExtensions.swift */; };
+		E1839E2D1BF79974002212C6 /* NSObjectExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E111BF79974002212C6 /* NSObjectExtentions.swift */; };
+		E1839E2E1BF79974002212C6 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E121BF79974002212C6 /* StringExtensions.swift */; };
+		E1839E2F1BF79974002212C6 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E131BF79974002212C6 /* UIButtonExtensions.swift */; };
+		E1839E301BF79974002212C6 /* UIColoredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E141BF79974002212C6 /* UIColoredView.swift */; };
+		E1839E311BF79974002212C6 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E151BF79974002212C6 /* UIColorExtensions.swift */; };
+		E1839E321BF79974002212C6 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E161BF79974002212C6 /* UIDeviceExtensions.swift */; };
+		E1839E331BF79974002212C6 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E171BF79974002212C6 /* UIFontExtensions.swift */; };
+		E1839E341BF79974002212C6 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E181BF79974002212C6 /* UIImageExtensions.swift */; };
+		E1839E351BF79974002212C6 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E191BF79974002212C6 /* UIImageViewExtensions.swift */; };
+		E1839E361BF79974002212C6 /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E1A1BF79974002212C6 /* UILabelExtensions.swift */; };
+		E1839E371BF79974002212C6 /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E1B1BF79974002212C6 /* UITextViewExtensions.swift */; };
+		E1839E381BF79974002212C6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E1C1BF79974002212C6 /* UIViewControllerExtensions.swift */; };
+		E1839E391BF79974002212C6 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E1D1BF79974002212C6 /* UIViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E1839DB51BF79335002212C6 /* EZSwiftExtensions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZSwiftExtensions.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1839DB81BF79335002212C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E1839DBA1BF79335002212C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E1839DBD1BF79335002212C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E1839DBF1BF79335002212C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E1839DC21BF79335002212C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E1839DC41BF79335002212C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1839DB51BF79335002212C6 /* EZSwiftExtensionsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZSwiftExtensionsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1839DB81BF79335002212C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = EZSwiftExtensionsExample/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
+		E1839DBA1BF79335002212C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = EZSwiftExtensionsExample/ViewController.swift; sourceTree = SOURCE_ROOT; };
+		E1839DBD1BF79335002212C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = EZSwiftExtensionsExample/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		E1839DBF1BF79335002212C6 /* EZSwiftExtensionsExample/Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = EZSwiftExtensionsExample/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		E1839DC21BF79335002212C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = EZSwiftExtensionsExample/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		E1839DC41BF79335002212C6 /* EZSwiftExtensionsExample/Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = EZSwiftExtensionsExample/Info.plist; sourceTree = SOURCE_ROOT; };
 		E1839E021BF79974002212C6 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrayExtensions.swift; path = Sources/ArrayExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1839E031BF79974002212C6 /* BlockButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockButton.swift; path = Sources/BlockButton.swift; sourceTree = SOURCE_ROOT; };
 		E1839E041BF79974002212C6 /* BlockLongPress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockLongPress.swift; path = Sources/BlockLongPress.swift; sourceTree = SOURCE_ROOT; };
@@ -91,23 +91,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E1839DAC1BF79335002212C6 = {
-			isa = PBXGroup;
-			children = (
-				E1839DB71BF79335002212C6 /* EZSwiftExtensions */,
-				E1839DB61BF79335002212C6 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		E1839DB61BF79335002212C6 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E1839DB51BF79335002212C6 /* EZSwiftExtensions.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		E1839DB71BF79335002212C6 /* EZSwiftExtensions */ = {
+		B54775F01C11EFDC0054C888 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				E1839E021BF79974002212C6 /* ArrayExtensions.swift */,
@@ -138,22 +122,47 @@
 				E1839E1B1BF79974002212C6 /* UITextViewExtensions.swift */,
 				E1839E1C1BF79974002212C6 /* UIViewControllerExtensions.swift */,
 				E1839E1D1BF79974002212C6 /* UIViewExtensions.swift */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		E1839DAC1BF79335002212C6 = {
+			isa = PBXGroup;
+			children = (
+				E1839DB71BF79335002212C6 /* EZSwiftExtensionsExample */,
+				E1839DB61BF79335002212C6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E1839DB61BF79335002212C6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1839DB51BF79335002212C6 /* EZSwiftExtensionsExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E1839DB71BF79335002212C6 /* EZSwiftExtensionsExample */ = {
+			isa = PBXGroup;
+			children = (
+				B54775F01C11EFDC0054C888 /* Sources */,
 				E1839DBC1BF79335002212C6 /* Main.storyboard */,
-				E1839DBF1BF79335002212C6 /* Assets.xcassets */,
+				E1839DBF1BF79335002212C6 /* EZSwiftExtensionsExample/Assets.xcassets */,
 				E1839DC11BF79335002212C6 /* LaunchScreen.storyboard */,
 				E1839DB81BF79335002212C6 /* AppDelegate.swift */,
 				E1839DBA1BF79335002212C6 /* ViewController.swift */,
-				E1839DC41BF79335002212C6 /* Info.plist */,
+				E1839DC41BF79335002212C6 /* EZSwiftExtensionsExample/Info.plist */,
 			);
+			name = EZSwiftExtensionsExample;
 			path = EZSwiftExtensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E1839DB41BF79335002212C6 /* EZSwiftExtensions */ = {
+		E1839DB41BF79335002212C6 /* EZSwiftExtensionsExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E1839DC71BF79335002212C6 /* Build configuration list for PBXNativeTarget "EZSwiftExtensions" */;
+			buildConfigurationList = E1839DC71BF79335002212C6 /* Build configuration list for PBXNativeTarget "EZSwiftExtensionsExample" */;
 			buildPhases = (
 				E1839DB11BF79335002212C6 /* Sources */,
 				E1839DB21BF79335002212C6 /* Frameworks */,
@@ -163,9 +172,9 @@
 			);
 			dependencies = (
 			);
-			name = EZSwiftExtensions;
+			name = EZSwiftExtensionsExample;
 			productName = EZSwiftExtensions;
-			productReference = E1839DB51BF79335002212C6 /* EZSwiftExtensions.app */;
+			productReference = E1839DB51BF79335002212C6 /* EZSwiftExtensionsExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -182,7 +191,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E1839DB01BF79335002212C6 /* Build configuration list for PBXProject "EZSwiftExtensions" */;
+			buildConfigurationList = E1839DB01BF79335002212C6 /* Build configuration list for PBXProject "EZSwiftExtensionsExample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -195,7 +204,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E1839DB41BF79335002212C6 /* EZSwiftExtensions */,
+				E1839DB41BF79335002212C6 /* EZSwiftExtensionsExample */,
 			);
 		};
 /* End PBXProject section */
@@ -206,7 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1839DC31BF79335002212C6 /* LaunchScreen.storyboard in Resources */,
-				E1839DC01BF79335002212C6 /* Assets.xcassets in Resources */,
+				E1839DC01BF79335002212C6 /* EZSwiftExtensionsExample/Assets.xcassets in Resources */,
 				E1839DBE1BF79335002212C6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,7 +269,8 @@
 				E1839DBD1BF79335002212C6 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
+			path = EZSwiftExtensions;
+			sourceTree = SOURCE_ROOT;
 		};
 		E1839DC11BF79335002212C6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -363,7 +373,7 @@
 				INFOPLIST_FILE = EZSwiftExtensions/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbf.EZSwiftExtensions;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EZSwiftExtensionsExample;
 			};
 			name = Debug;
 		};
@@ -374,14 +384,14 @@
 				INFOPLIST_FILE = EZSwiftExtensions/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbf.EZSwiftExtensions;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EZSwiftExtensionsExample;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E1839DB01BF79335002212C6 /* Build configuration list for PBXProject "EZSwiftExtensions" */ = {
+		E1839DB01BF79335002212C6 /* Build configuration list for PBXProject "EZSwiftExtensionsExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E1839DC51BF79335002212C6 /* Debug */,
@@ -390,13 +400,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E1839DC71BF79335002212C6 /* Build configuration list for PBXNativeTarget "EZSwiftExtensions" */ = {
+		E1839DC71BF79335002212C6 /* Build configuration list for PBXNativeTarget "EZSwiftExtensionsExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E1839DC81BF79335002212C6 /* Debug */,
 				E1839DC91BF79335002212C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
