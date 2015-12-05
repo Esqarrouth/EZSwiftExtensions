@@ -1,5 +1,6 @@
 # EZSwiftExtensions
 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Cocoapods Compatible](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)  
 <img src="charizard.png" width="200">
 
@@ -840,6 +841,14 @@ To get the full benefits import `EZSwiftExtensions` wherever you import UIKit
 ``` swift
 import UIKit
 import EZSwiftExtensions
+```
+
+## Install via [Carthage](https://github.com/Carthage/Carthage)
+
+Create a `Cartfile` that lists the framework and run `carthage bootstrap`. Follow the [instructions](https://github.com/Carthage/Carthage#if-youre-building-for-ios) to add `$(SRCROOT)/Carthage/Build/iOS/EZSwiftExtensions.framework` to an iOS project.
+
+```
+github "goktugyil/EZSwiftExtensions"
 ```
 
 ##Requirements

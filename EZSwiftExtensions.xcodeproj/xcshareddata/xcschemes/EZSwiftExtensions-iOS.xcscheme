@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0710"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E1839DB41BF79335002212C6"
-               BuildableName = "EZSwiftExtensions.app"
-               BlueprintName = "EZSwiftExtensions"
+               BlueprintIdentifier = "B5DC86A81C0ED06700972D0A"
+               BuildableName = "EZSwiftExtensions.framework"
+               BlueprintName = "EZSwiftExtensions-iOS"
                ReferencedContainer = "container:EZSwiftExtensions.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,13 +28,23 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B5DC86B21C0ED06700972D0A"
+               BuildableName = "EZSwiftExtensionsTest.xctest"
+               BlueprintName = "EZSwiftExtensionsTests-iOS"
+               ReferencedContainer = "container:EZSwiftExtensions.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E1839DB41BF79335002212C6"
-            BuildableName = "EZSwiftExtensions.app"
-            BlueprintName = "EZSwiftExtensions"
+            BlueprintIdentifier = "B5DC86A81C0ED06700972D0A"
+            BuildableName = "EZSwiftExtensions.framework"
+            BlueprintName = "EZSwiftExtensions-iOS"
             ReferencedContainer = "container:EZSwiftExtensions.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -51,16 +61,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E1839DB41BF79335002212C6"
-            BuildableName = "EZSwiftExtensions.app"
-            BlueprintName = "EZSwiftExtensions"
+            BlueprintIdentifier = "B5DC86A81C0ED06700972D0A"
+            BuildableName = "EZSwiftExtensions.framework"
+            BlueprintName = "EZSwiftExtensions-iOS"
             ReferencedContainer = "container:EZSwiftExtensions.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -70,16 +79,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E1839DB41BF79335002212C6"
-            BuildableName = "EZSwiftExtensions.app"
-            BlueprintName = "EZSwiftExtensions"
+            BlueprintIdentifier = "B5DC86A81C0ED06700972D0A"
+            BuildableName = "EZSwiftExtensions.framework"
+            BlueprintName = "EZSwiftExtensions-iOS"
             ReferencedContainer = "container:EZSwiftExtensions.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
