@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:EZSwiftExtensions.xcodeproj">
+      location = "group:EZSwiftExtensionsExample.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:EZSwiftExtensionsExample.xcodeproj">
+      location = "group:EZSwiftExtensions.xcodeproj">
    </FileRef>
 </Workspace>
