@@ -12,6 +12,12 @@ import UIKit
 public struct ez {
     
     /// EZSwift Extensions
+    public static var appDisplayName: String {
+        return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleDisplayName") as? String
+            ?? NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleName") as! String
+    }
+    
+    /// EZSwift Extensions
     public static var appVersion: String {
         return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
     }
