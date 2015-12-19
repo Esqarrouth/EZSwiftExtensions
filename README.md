@@ -160,6 +160,17 @@ var myFloat = myInt.toFloat
 var myCGFloat = myInt.toCGFloat
 var myString = myInt.toString
 ```
+
+##Double Extensions
+
+Easily convert between different types:
+
+``` swift
+var myString = "33.3"
+var myDouble = myString.toString 
+var myInt = myDouble.toInt
+```
+
 ##String Extensions
 
 Easily access with subscripts:
