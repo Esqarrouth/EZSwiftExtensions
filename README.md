@@ -356,6 +356,14 @@ override func viewDidAppear(animated: Bool) {
 
     dismissVC(completion: nil) // Instead of dismissViewControllerAnimated(true, completion: completion)}
 ```
+
+Easily add UIViewControllers:
+
+``` swift
+    let myViewController = myViewController()
+    addAsChildViewController(myViewController, toView: self.anySubview) // Adding view controller as a child view controller to subview
+```
+
 ##UIView Extensions
 
 Easily initialize your objects:
