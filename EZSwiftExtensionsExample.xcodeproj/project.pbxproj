@@ -40,7 +40,7 @@
 		E1839E371BF79974002212C6 /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E1B1BF79974002212C6 /* UITextViewExtensions.swift */; };
 		E1839E381BF79974002212C6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E1C1BF79974002212C6 /* UIViewControllerExtensions.swift */; };
 		E1839E391BF79974002212C6 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E1D1BF79974002212C6 /* UIViewExtensions.swift */; };
-		E1CB3C1A1C25FB3500DF77CD /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB3C191C25FB3500DF77CD /* DoubleExtensions.swift */; };
+		E1CB3C1C1C25FFA000DF77CD /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB3C1B1C25FFA000DF77CD /* DoubleExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,7 +79,7 @@
 		E1839E1B1BF79974002212C6 /* UITextViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextViewExtensions.swift; path = Sources/UITextViewExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1839E1C1BF79974002212C6 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = Sources/UIViewControllerExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1839E1D1BF79974002212C6 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = Sources/UIViewExtensions.swift; sourceTree = SOURCE_ROOT; };
-		E1CB3C191C25FB3500DF77CD /* DoubleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
+		E1CB3C1B1C25FFA000DF77CD /* DoubleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleExtensions.swift; path = Sources/DoubleExtensions.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +108,7 @@
 				E1839E0B1BF79974002212C6 /* CGFloatExtensions.swift */,
 				E1839E0C1BF79974002212C6 /* CGRectExtensions.swift */,
 				E1839E0D1BF79974002212C6 /* DictionaryExtensions.swift */,
-				E1CB3C191C25FB3500DF77CD /* DoubleExtensions.swift */,
+				E1CB3C1B1C25FFA000DF77CD /* DoubleExtensions.swift */,
 				E1839E0E1BF79974002212C6 /* EZSwiftExtensions.swift */,
 				E1839E0F1BF79974002212C6 /* IntExtentions.swift */,
 				E1839E101BF79974002212C6 /* NSDateExtensions.swift */,
@@ -252,7 +252,7 @@
 				E1839E331BF79974002212C6 /* UIFontExtensions.swift in Sources */,
 				E1839E261BF79974002212C6 /* BoolExtentions.swift in Sources */,
 				E1839E2B1BF79974002212C6 /* IntExtentions.swift in Sources */,
-				E1CB3C1A1C25FB3500DF77CD /* DoubleExtensions.swift in Sources */,
+				E1CB3C1C1C25FFA000DF77CD /* DoubleExtensions.swift in Sources */,
 				E1839E341BF79974002212C6 /* UIImageExtensions.swift in Sources */,
 				E1839E241BF79974002212C6 /* BlockTap.swift in Sources */,
 				E1839E1F1BF79974002212C6 /* BlockButton.swift in Sources */,
