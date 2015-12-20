@@ -51,7 +51,7 @@ extension UIImageView {
     
     /// EZSwiftExtensions
     public func imageWithUrl(url url: String) {
-        requestImage(url, success: { (image) -> Void in
+        ez.requestImage(url, success: { (image) -> Void in
             if let img = image {
                 self.image = img
             }
@@ -61,7 +61,7 @@ extension UIImageView {
     /// EZSwiftExtensions
     public func imageWithUrl(url url: String, placeholder: UIImage) {
         self.image = placeholder
-        requestImage(url, success: { (image) -> Void in
+        ez.requestImage(url, success: { (image) -> Void in
             if let img = image {
                 self.image = img
             }
@@ -71,7 +71,7 @@ extension UIImageView {
     /// EZSwiftExtensions
     public func imageWithUrl(url url: String, placeholderNamed: String) {
         self.image = UIImage(named: placeholderNamed)
-        requestImage(url, success: { (image) -> Void in
+        ez.requestImage(url, success: { (image) -> Void in
             if let img = image {
                 self.image = img
             }

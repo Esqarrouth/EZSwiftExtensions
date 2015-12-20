@@ -214,5 +214,13 @@ extension UIViewController {
     public func dismissVC(completion completion: (() -> Void)? ) {
         dismissViewControllerAnimated(true, completion: completion)
     }
+    
+    /// EZSwiftExtensions
+    public func addAsChildViewController(vc: UIViewController, toView: UIView){
+        vc.view.frame = toView.frame
+        toView.addSubview(vc.view)
+        self.addChildViewController(vc)
+        vc.didMoveToParentViewController(self)
+    }
 }
 

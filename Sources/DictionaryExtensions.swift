@@ -8,6 +8,12 @@
 import UIKit
 
 extension Dictionary {
+    /// EZSwiftExtensions
+    public func random() -> NSObject {
+        let index: Int = Int(arc4random_uniform(UInt32(self.count)))
+        return Array(self.values)[index] as! NSObject
+    }
+
     /// EZSwiftExtensions, combines the first dictionary with the second and returns single dictionary
     public func union(other: Dictionary) -> Dictionary {
         var temp = self

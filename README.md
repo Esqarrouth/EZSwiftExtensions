@@ -1,32 +1,33 @@
 # EZSwiftExtensions
 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Cocoapods Compatible](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)  
 <img src="charizard.png" width="200">
 
-How Swift standard types and classes were supposed to work.
+How Swift standard types and classes were supposed to work. A collection of useful extensions for the Swift Standard Library, Foundation, and UIKit.
 
-
-##Global functions and variables:
+##EZ functions and variables:
 
 Easily access your projects version and build numbers:
 
 ``` swift
-print(appVersion) // 0.3
-print(appBuild) // 7
-print(appVersionAndBuild) // v0.3(7)
+print(ez.appVersion) // 0.3
+print(ez.appBuild) // 7
+print(ez.appVersionAndBuild) // v0.3(7)
 ```
 
 Easily access your ViewController on top of your view stack:
 
 ``` swift
-let topOfMyViewStack = topMostVC // topMostVC is your rootViewController
-topOfMyViewStack.presentViewController(myAlertController, animated: true, completion: nil)
+ez.topMostVC?.presentViewController(myAlertController, animated: true, completion: nil)
+// topMostVC is your rootViewController
+// Intended for showing small VCs like UIAlertController
 ```
 
 Easily access your screen orientation:
 
 ``` swift
-if UIInterfaceOrientationIsPortrait(screenOrientation) {
+if UIInterfaceOrientationIsPortrait(ez.screenOrientation) {
   // Screen orientation is portrait
 } else {
   // Screen orientation is not portrait
@@ -36,34 +37,34 @@ if UIInterfaceOrientationIsPortrait(screenOrientation) {
 Easily access your screen width & height:
 
 ``` swift
-print(screenWidth) // 375.0 on iPhone6
-print(screenHeight) // 667.0 on iPhone6
+print(ez.screenWidth) // 375.0 on iPhone6
+print(ez.screenHeight) // 667.0 on iPhone6
 ```
 Easily access your status bar height:
 
-``` swift
-print(screenStatusBarHeight) // 20.0 on iPhone6
-print(screenHeightWithoutStatusBar) // 647.0 on iPhone6
+``` swift 
+print(ez.screenStatusBarHeight) // 20.0 on iPhone6
+print(ez.screenHeightWithoutStatusBar) // 647.0 on iPhone6
 ```
 
 Easily track screen shots:
 
 ``` swift
-detectScreenShot { () -> () in
+ez.detectScreenShot { () -> () in
     print("User took a screen shot")
 }
 ```
 Easily request images:
 
 ``` swift
-requestImage("http://www.asdf.com/89asdf.gif") { (image) -> Void in
+ez.requestImage("http://www.asdf.com/89asdf.gif") { (image) -> Void in
     let myImage = image
 }
 ```
 Easily request JSON:
 
 ``` swift
-requestJSON("http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=facebook", success: { (object) -> Void in
+ez.requestJSON("http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=facebook", success: { (object) -> Void in
     print(object) // prints whole bunch of shit
     }) { (error) -> Void in
         print(error)
@@ -72,7 +73,7 @@ requestJSON("http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=faceboo
 Easily run a block of code certain amount of times:
 
 ``` swift
-runThisMany(times: 3) { () -> () in
+ez.runThisMany(times: 3) { () -> () in
     print("lol", terminator: "") // lollollol
 }
 ```
@@ -80,7 +81,7 @@ runThisMany(times: 3) { () -> () in
 Easily run block of codes after a certain delay:
 
 ``` swift
-runThisAfterDelay(seconds: 2) { () -> () in
+ez.runThisAfterDelay(seconds: 2) { () -> () in
     print("Prints this 2 seconds later in main queue")
 }
 
@@ -88,32 +89,24 @@ runThisAfterDelay(seconds: 2) { () -> () in
 Easily run code after delay in another thread:
 
 ``` swift
-runThisAfterDelay(seconds: 2, queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) { () -> () in
+ez.runThisAfterDelay(seconds: 2, queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) { () -> () in
     print("Prints this 2 seconds later in low priority queue")
 }
 ```
-
+       
 Easily run code in main thread:
 
 ``` swift
-runThisInMainThread { () -> Void in
+ez.runThisInMainThread { () -> Void in
     print("Tired of ugly code like: dispatch_async(dispatch_get_main_queue(), block: dispatch_block_t)!!!")
 }
 ```
 Easily run code in background:
 
 ``` swift
-runThisInBackground { () -> () in
+ez.runThisInBackground { () -> () in
     print("Runs this in default priority queue")
 }
-```
-Easily run block of code:
-
-``` swift
-let myBlock = {
-    print("lol")
-}
-runThisBlock(myBlock)
 ```
 
 ##NSObject Extensions
@@ -123,7 +116,7 @@ Easily get the name of your class:
 ``` swift
 let vc = UIViewController()
 print(vc.className) // UIViewController
-
+    
 print(UIViewController.className) // UIViewController
 ```
 
@@ -154,7 +147,7 @@ Easily run a block of code certain amount of times:
 ``` swift
 3.times { () -> () in
     print("lol", terminator: "") // lollollol
-}
+} 
 ```
 Easily convert between different types:
 
@@ -167,6 +160,17 @@ var myFloat = myInt.toFloat
 var myCGFloat = myInt.toCGFloat
 var myString = myInt.toString
 ```
+
+##Double Extensions
+
+Easily convert between different types:
+
+``` swift
+var myString = "33.3"
+var myDouble = myString.toString 
+var myInt = myDouble.toInt
+```
+
 ##String Extensions
 
 Easily access with subscripts:
@@ -215,13 +219,13 @@ var myString = "eZSwiftExtensions is awesome!"
 let emailStr = "charmander@gmail.com"
 print(myString.isEmail) // false
 print(emailStr.isEmail) // true
-
+    
 let urlString = "http://www.google.com is great but www.facebook.com not that much"
 print(myString.extractURLs) // []
 print(emailStr.extractURLs) // [mailto:charmander@gmail.com]
 print(urlString.extractURLs) // [http://www.google.com, http://www.facebook.com]
 ```
-Easily convert to numbers:
+Easily convert to numbers: 
 
 ``` swift
 let myNumberString = "13"
@@ -251,15 +255,22 @@ print(myArray) // ["bulbasaur", "squirtle"]
 ```
 ##Dictionary Extensions
 
+Easily access a random element:
+
+``` swift
+var myDict = ["charmander": "fire","bulbasaur": "grass","squirtle": "water"]
+print(myDict()) // grass or something else
+```
+
 Easily add dictionaries to create new ones:
 
 ``` swift
 var dictionary1 = ["fire" : "charmander"]
 var dictionary2 = ["water" : "squirtle"]
-
+    
 var dictionary3 = dictionary1.union(dictionary2)
 print(dictionary3) // ["fire": "charmander", "water": "squirtle"]
-
+    
 dictionary1 += dictionary2
 print(dictionary1) // ["fire": "charmander", "water": "squirtle"]
 ```
@@ -272,7 +283,7 @@ let now = NSDate()
 print(now.toString())
 ```
 
-Easily see how much time passed:
+Easily see how much time passed: 
 
 ``` swift
 let now = NSDate()
@@ -311,20 +322,20 @@ print(now2 < now) // false
 ##CGRect Extensions
 
 Easily initialize:
-
+ 
 ``` swift
 let rect = CGRect(x: 100, y: 100, w: 100, h: 100)
 ```
 
 ##UIViewController Extensions
 
-Easily access ViewController sizes:
+Easily access ViewController sizes: 
 
 ``` swift
 // Can be called in any method inside a UIViewController
 override func viewDidAppear(animated: Bool) {
 	super.viewDidAppear(animated)
-
+	
 	print(self.top) // 44.0 starting position of ViewController
 	print(self.bottom) // 647.0 bottom position of ViewController
 	print(self.applicationFrame) // (0.0, 44.0, 375.0, 603.0)
@@ -335,7 +346,7 @@ Easily access NavigationController and NavigationBar elements:
 ``` swift
 override func viewDidAppear(animated: Bool) {
 	super.viewDidAppear(animated)
-
+	
     print(self.tabBarHeight) // Works in NavigationController otherwise its 0
     print(self.navigationBarHeight) // Works in NavigationController otherwise its 0
     print(self.navBar) // Returns NavigationBar, works in NavigationController otherwise its nil
@@ -346,16 +357,24 @@ Easily navigate between UIViewControllers:
 ``` swift
 override func viewDidAppear(animated: Bool) {
 	super.viewDidAppear(animated)
-
+	
     let myViewController = myViewController()
     pushVC(myViewController) // Instead of navigationController?.pushViewController(myViewController, animated: true)
-
+    
     popVC() // Instead of navigationController?.popViewControllerAnimated(true)
-
+    
     presentVC(myViewController) // Instead of presentViewController(myViewController, animated: true, completion: nil)
 
     dismissVC(completion: nil) // Instead of dismissViewControllerAnimated(true, completion: completion)}
 ```
+
+Easily add UIViewControllers:
+
+``` swift
+    let myViewController = myViewController()
+    addAsChildViewController(myViewController, toView: self.anySubview) // Adding view controller as a child view controller to subview
+```
+
 ##UIView Extensions
 
 Easily initialize your objects:
@@ -366,7 +385,7 @@ print(myView.frame) // (0.0, 0.0, 100.0, 100.0)
 
 let myView2 = UIView(superView: myView)
 print(myView2.frame) // (0.0, 0.0, 100.0, 100.0)
-
+    
 let myView3 = UIView(superView: myView2, padding: 20)
 print(myView3.frame) // (20.0, 20.0, 60.0, 60.0)
 ```
@@ -379,13 +398,13 @@ print(view1.frame) // (0.0, 0.0, 100.0, 100.0)
 
 let view2 = UIView(x: 0, y: 0, w: 200, h: 200)
 print(view2.frame) // (0.0, 0.0, 200.0, 200.0)
-
+    
 view1.addSubview(view2)
 view1.resizeToFitSubviews()
 print(view1.frame) // (0.0, 0.0, 200.0, 200.0)
 ```
 Easily resize your UIView according to its contents:   
-
+        
 ``` swift
 let label = UILabel(x: 0, y: 0, w: 20, h: 20)
 print(label.frame) // (0.0, 0.0, 20.0, 20.0)
@@ -426,7 +445,7 @@ let view2 = UIView(x: view.rightOffset(20), y: view.bottomOffset(20), w: 100, h:
 print(view2.frame) // (120.0, 120.0, 100.0, 100.0)
 // There is also 'leftOffset' and 'topOffset'
 ```
-Easily reorder your multiple subviews:
+Easily reorder your multiple subviews: 
 
 ``` swift
 let mainview = UIView(x: 0, y: 0, w: 100, h: 100)
@@ -436,7 +455,7 @@ let cview = UIView(x: 0, y: 0, w: 10, h: 10)
 mainview.addSubview(aview)
 mainview.addSubview(bview)
 mainview.addSubview(cview)
-
+    
 mainview.reorderSubViews(true)
 print(aview.frame) // (0.0, 0.0, 10.0, 10.0)
 print(bview.frame) // (0.0, 10.0, 10.0, 10.0)
@@ -456,7 +475,7 @@ cview.tag = 155
 mainview.addSubview(aview)
 mainview.addSubview(bview)
 mainview.addSubview(cview)
-
+    
 mainview.reorderSubViews(true, tagsToIgnore: [155])
 print(aview.frame) // (0.0, 0.0, 10.0, 10.0)
 print(bview.frame) // (0.0, 10.0, 10.0, 10.0)
@@ -482,10 +501,10 @@ Easily rotate views on their axis:
 let mainview = UIView(x: 0, y: 0, w: 100, h: 100)
 mainview.setRotationX(20)
 print(mainview.frame) // (-0.869926985934792, 3.80534410225589, 101.73985397187, 93.996750906345)
-
+    
 mainview.setRotationY(20)
 print(mainview.frame) // (2.19790499139913, -0.869926985934787, 93.996750906345, 101.73985397187)
-
+    
 mainview.setRotationZ(20)
 print(mainview.frame) // (-14.0856382055789, -14.0856382055789, 128.171276411158, 128.171276411158)
 ```
@@ -502,7 +521,7 @@ Easily round your UIViews corners:
 let mainview = UIView(x: 0, y: 0, w: 100, h: 100)
 mainview.setCornerRadius(radius: 20) // Instead of mainview.layer.cornerRadius
 ```
-Easily add borders to your UIViews:
+Easily add borders to your UIViews: 
 
 ``` swift
 let mainview = UIView(x: 0, y: 0, w: 100, h: 100)
@@ -577,7 +596,7 @@ Easily declare a UITextView with standard details:
 ``` swift
 let mytext = UITextView(x: 0, y: 0, w: 100, h: 100) // Font size is 17 as standard
 let myOtherText = UITextView(x: 0, y: 0, w: 100, h: 100, fontSize: 15)
-
+    
 // These initializers create a UITextView with these properties:    
 
 //font = UIFont.HelveticaNeue(type: FontType.None, size: fontSize)
@@ -634,7 +653,7 @@ Easily initialize your UIImageViews:
 
 ``` swift
 let image = UIImage(named: "lightsaber")!
-
+    
 let myImageView = UIImageView(x: 0, y: 0, w: 20, h: 100, image: image)
 let myImageView2 = UIImageView(x: 0, y: 0, w: 20, h: 100, imageName: "lightsaber")
 
@@ -644,7 +663,7 @@ let myImageView4 = UIImageView(x: 0, y: 0, imageName: "lightsaber", scaleToWidth
 print(myImageView3.frame) // (0.0, 0.0, 100.0, 177.5)
 print(myImageView4.frame) // (0.0, 0.0, 200.0, 355.0)
 ```
-Easily scale images to a certain width:
+Easily scale images to a certain width: 
 
 ``` swift
 let myImageView = UIImageView(x: 80, y: 80, w: 100, h: 100, imageName: "lightsaber")
@@ -687,7 +706,7 @@ Easily compress your images:
 ``` swift
 let image = UIImage(named: "lightsaber")!
 print(image.getSizeAsKilobytes()) // 515
-
+    
 let newImage = UIImage(data: image.compressImage(rate: 0.5))!
 print(newImage.getSizeAsKilobytes()) //396
 ```
@@ -696,10 +715,10 @@ Easily resize your images:
 ``` swift
 let image = UIImage(named: "lightsaber")!
 print(image.size) // (800.0, 1420.0)
-
+    
 let newImage = UIImage.scaleTo(image: image, w: 50, h: 50)
 print(newImage.size) // (50.0, 50.0)
-
+    
 let newImage2 = image.resizeWithWidth(100)
 print(newImage2.size) // (100.0, 178.0)
 
@@ -733,22 +752,11 @@ let myColor1 = UIColor.Gray(100, alpha: 0.5) // Equals 100,100,100
 Easily access individual color values:
 
 ``` swift
-let myColor = UIColor(r: 100, g: 55, b: 33)
+let myColor = UIColor(r: 100, g: 55, b: 33) 
 print(myColor.redComponent) // 100
 print(myColor.greenComponent) // 55
 print(myColor.blueComponent) // 33
 print(myColor.alpha) // 1
-```
-
-Easily create colors with HEX values:
-
-``` swift
-let myColor = UIColor(hex: 0x233C64) // Equals 35,60,100,1
-let myColor1 = UIColor(hexString: "0x233C64") // Equals 35,60,100,1
-let myColor1 = UIColor(hexString: "0x233C64", alpha: 0.6) // Equals 35,60,100,0.6
-let myColor2 = UIColor(hexString: "233C64") // Equals 35,60,100,1
-let myColor3 = UIColor(hexString: "#233C64") // Equals 35,60,100,1
-let myColor4 = UIColor(hexString: "not hex string") // nil
 ```
 
 ##UIFont Extensions
@@ -809,13 +817,27 @@ Easily initialize a BlockButton:
 let button = BlockButton(x: 0, y: 0, w: 100, h: 100) { (sender) -> Void in
     print("Block button clicked!")
 }
-
+    
 let button1 = BlockButton(x: 0, y: 0, w: 100, h: 100)
 button1.addAction { (sender) -> Void in
     print("Block button clicked!")
 }
 
 // There are also BlockWebView, BlockTap, BlockPan, BlockSwipe, BlockPinch, BlockLongPress
+```
+
+##NSUserDefaults Extensions
+
+Easily get values from NSUserDefaults with subscripts:
+
+``` swift
+let Defaults = NSUserDefaults.standardUserDefaults()
+// Get values from NSUserDefaults
+let userName = Defaults["userName"]
+        
+// Set values to NSUserDefaults
+Defaults["userName"] = someUserName
+
 ```
 
 ##Installation (~10 seconds)
@@ -840,9 +862,17 @@ import UIKit
 import EZSwiftExtensions
 ```
 
+## Install via [Carthage](https://github.com/Carthage/Carthage)
+
+Create a `Cartfile` that lists the framework and run `carthage bootstrap`. Follow the [instructions](https://github.com/Carthage/Carthage#if-youre-building-for-ios) to add `$(SRCROOT)/Carthage/Build/iOS/EZSwiftExtensions.framework` to an iOS project.
+
+```
+github "goktugyil/EZSwiftExtensions"
+```
+
 ##Requirements
 
-- Swift 2 or later
+- Swift 2 or later 
 
 ##Possible features
 
@@ -871,3 +901,9 @@ EZSwiftExtensions is available under the MIT license. See the [LICENSE file](htt
 
 ##Keywords
 swift, extension, uikit, exswift, foundation, library, framework, tool
+
+
+
+
+
+
