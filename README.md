@@ -763,10 +763,10 @@ Easily create colors with HEX values:
 ``` swift
 let myColor = UIColor(hex: 0x233C64) // Equals 35,60,100,1
 let myColor1 = UIColor(hexString: "0x233C64") // Equals 35,60,100,1
-let myColor1 = UIColor(hexString: "0x233C64", alpha: 0.6) // Equals 35,60,100,0.6
-let myColor2 = UIColor(hexString: "233C64") // Equals 35,60,100,1
-let myColor3 = UIColor(hexString: "#233C64") // Equals 35,60,100,1
-let myColor4 = UIColor(hexString: "not hex string") // nil
+let myColor2 = UIColor(hexString: "0x233C64", alpha: 0.6) // Equals 35,60,100,0.6
+let myColor3 = UIColor(hexString: "233C64") // Equals 35,60,100,1
+let myColor4 = UIColor(hexString: "#233C64") // Equals 35,60,100,1
+let myColor5 = UIColor(hexString: "not hex string") // nil
 ```
 
 ##UIFont Extensions
