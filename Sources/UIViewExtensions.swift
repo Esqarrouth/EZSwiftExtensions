@@ -508,5 +508,73 @@ extension UIView {
     }
 }
 
+extension UIView {
+    public func changeHeightBy(height:CGFloat) {
+        var frame = self.frame
+        frame.size.height = frame.size.height + height
+        self.frame = frame
+    }
+    public func changeHeightTo(height:CGFloat) {
+        var frame = self.frame
+        frame.size.height = height
+        self.frame = frame
+    }
+    public func changeWidthBy(width:CGFloat) {
+        var frame = self.frame
+        frame.size.width = frame.size.width + width
+        self.frame = frame
+    }
+    public func changeWidthTo(width:CGFloat) {
+        var frame = self.frame
+        frame.size.width = width
+        self.frame = frame
+    }
+    public func changeXBy(x:CGFloat) {
+        var frame = self.frame
+        frame.origin.x = frame.origin.x + x
+        self.frame = frame
+ 
+    }
+    public func changeXTo(x:CGFloat) {
+        var frame = self.frame
+        frame.origin.x =  x
+        self.frame = frame
+        
+    }
+    public func changeYBy(y:CGFloat) {
+        var frame = self.frame
+        frame.origin.y = frame.origin.y + y
+        self.frame = frame
+        
+    }
+    public func changeYTo(y:CGFloat) {
+        var frame = self.frame
+        frame.origin.y =  y
+        self.frame = frame
+        
+    }
+    public func changeCenterXTo(x:CGFloat) {
+        var center = self.center
+        center.x = x
+        self.center = center
+    }
+    public func changeCenterYTo(x:CGFloat) {
+        var center = self.center
+        center.y = y
+        self.center = center
+    }
+    public func changeCenterXBy(x:CGFloat) {
+        var center = self.center
+        center.x = center.x + x
+        self.center = center
+    }
+    public func changeCenterYBy(y:CGFloat) {
+        var center = self.center
+        center.y = self.center.y + y
+        self.center = center
+    }
 
+
+
+}
 
