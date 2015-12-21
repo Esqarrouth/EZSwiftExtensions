@@ -42,7 +42,7 @@ print(ez.screenHeight) // 667.0 on iPhone6
 ```
 Easily access your status bar height:
 
-``` swift 
+``` swift
 print(ez.screenStatusBarHeight) // 20.0 on iPhone6
 print(ez.screenHeightWithoutStatusBar) // 647.0 on iPhone6
 ```
@@ -93,7 +93,7 @@ ez.runThisAfterDelay(seconds: 2, queue: dispatch_get_global_queue(DISPATCH_QUEUE
     print("Prints this 2 seconds later in low priority queue")
 }
 ```
-       
+
 Easily run code in main thread:
 
 ``` swift
@@ -116,7 +116,7 @@ Easily get the name of your class:
 ``` swift
 let vc = UIViewController()
 print(vc.className) // UIViewController
-    
+
 print(UIViewController.className) // UIViewController
 ```
 
@@ -147,7 +147,7 @@ Easily run a block of code certain amount of times:
 ``` swift
 3.times { () -> () in
     print("lol", terminator: "") // lollollol
-} 
+}
 ```
 Easily convert between different types:
 
@@ -167,7 +167,7 @@ Easily convert between different types:
 
 ``` swift
 var myString = "33.3"
-var myDouble = myString.toString 
+var myDouble = myString.toString
 var myInt = myDouble.toInt
 ```
 
@@ -219,13 +219,13 @@ var myString = "eZSwiftExtensions is awesome!"
 let emailStr = "charmander@gmail.com"
 print(myString.isEmail) // false
 print(emailStr.isEmail) // true
-    
+
 let urlString = "http://www.google.com is great but www.facebook.com not that much"
 print(myString.extractURLs) // []
 print(emailStr.extractURLs) // [mailto:charmander@gmail.com]
 print(urlString.extractURLs) // [http://www.google.com, http://www.facebook.com]
 ```
-Easily convert to numbers: 
+Easily convert to numbers:
 
 ``` swift
 let myNumberString = "13"
@@ -267,10 +267,10 @@ Easily add dictionaries to create new ones:
 ``` swift
 var dictionary1 = ["fire" : "charmander"]
 var dictionary2 = ["water" : "squirtle"]
-    
+
 var dictionary3 = dictionary1.union(dictionary2)
 print(dictionary3) // ["fire": "charmander", "water": "squirtle"]
-    
+
 dictionary1 += dictionary2
 print(dictionary1) // ["fire": "charmander", "water": "squirtle"]
 ```
@@ -283,7 +283,7 @@ let now = NSDate()
 print(now.toString())
 ```
 
-Easily see how much time passed: 
+Easily see how much time passed:
 
 ``` swift
 let now = NSDate()
@@ -322,20 +322,20 @@ print(now2 < now) // false
 ##CGRect Extensions
 
 Easily initialize:
- 
+
 ``` swift
 let rect = CGRect(x: 100, y: 100, w: 100, h: 100)
 ```
 
 ##UIViewController Extensions
 
-Easily access ViewController sizes: 
+Easily access ViewController sizes:
 
 ``` swift
 // Can be called in any method inside a UIViewController
 override func viewDidAppear(animated: Bool) {
 	super.viewDidAppear(animated)
-	
+
 	print(self.top) // 44.0 starting position of ViewController
 	print(self.bottom) // 647.0 bottom position of ViewController
 	print(self.applicationFrame) // (0.0, 44.0, 375.0, 603.0)
@@ -346,7 +346,7 @@ Easily access NavigationController and NavigationBar elements:
 ``` swift
 override func viewDidAppear(animated: Bool) {
 	super.viewDidAppear(animated)
-	
+
     print(self.tabBarHeight) // Works in NavigationController otherwise its 0
     print(self.navigationBarHeight) // Works in NavigationController otherwise its 0
     print(self.navBar) // Returns NavigationBar, works in NavigationController otherwise its nil
@@ -357,12 +357,12 @@ Easily navigate between UIViewControllers:
 ``` swift
 override func viewDidAppear(animated: Bool) {
 	super.viewDidAppear(animated)
-	
+
     let myViewController = myViewController()
     pushVC(myViewController) // Instead of navigationController?.pushViewController(myViewController, animated: true)
-    
+
     popVC() // Instead of navigationController?.popViewControllerAnimated(true)
-    
+
     presentVC(myViewController) // Instead of presentViewController(myViewController, animated: true, completion: nil)
 
     dismissVC(completion: nil) // Instead of dismissViewControllerAnimated(true, completion: completion)}
@@ -385,7 +385,7 @@ print(myView.frame) // (0.0, 0.0, 100.0, 100.0)
 
 let myView2 = UIView(superView: myView)
 print(myView2.frame) // (0.0, 0.0, 100.0, 100.0)
-    
+
 let myView3 = UIView(superView: myView2, padding: 20)
 print(myView3.frame) // (20.0, 20.0, 60.0, 60.0)
 ```
@@ -398,13 +398,13 @@ print(view1.frame) // (0.0, 0.0, 100.0, 100.0)
 
 let view2 = UIView(x: 0, y: 0, w: 200, h: 200)
 print(view2.frame) // (0.0, 0.0, 200.0, 200.0)
-    
+
 view1.addSubview(view2)
 view1.resizeToFitSubviews()
 print(view1.frame) // (0.0, 0.0, 200.0, 200.0)
 ```
 Easily resize your UIView according to its contents:   
-        
+
 ``` swift
 let label = UILabel(x: 0, y: 0, w: 20, h: 20)
 print(label.frame) // (0.0, 0.0, 20.0, 20.0)
@@ -445,7 +445,7 @@ let view2 = UIView(x: view.rightOffset(20), y: view.bottomOffset(20), w: 100, h:
 print(view2.frame) // (120.0, 120.0, 100.0, 100.0)
 // There is also 'leftOffset' and 'topOffset'
 ```
-Easily reorder your multiple subviews: 
+Easily reorder your multiple subviews:
 
 ``` swift
 let mainview = UIView(x: 0, y: 0, w: 100, h: 100)
@@ -455,7 +455,7 @@ let cview = UIView(x: 0, y: 0, w: 10, h: 10)
 mainview.addSubview(aview)
 mainview.addSubview(bview)
 mainview.addSubview(cview)
-    
+
 mainview.reorderSubViews(true)
 print(aview.frame) // (0.0, 0.0, 10.0, 10.0)
 print(bview.frame) // (0.0, 10.0, 10.0, 10.0)
@@ -475,7 +475,7 @@ cview.tag = 155
 mainview.addSubview(aview)
 mainview.addSubview(bview)
 mainview.addSubview(cview)
-    
+
 mainview.reorderSubViews(true, tagsToIgnore: [155])
 print(aview.frame) // (0.0, 0.0, 10.0, 10.0)
 print(bview.frame) // (0.0, 10.0, 10.0, 10.0)
@@ -501,10 +501,10 @@ Easily rotate views on their axis:
 let mainview = UIView(x: 0, y: 0, w: 100, h: 100)
 mainview.setRotationX(20)
 print(mainview.frame) // (-0.869926985934792, 3.80534410225589, 101.73985397187, 93.996750906345)
-    
+
 mainview.setRotationY(20)
 print(mainview.frame) // (2.19790499139913, -0.869926985934787, 93.996750906345, 101.73985397187)
-    
+
 mainview.setRotationZ(20)
 print(mainview.frame) // (-14.0856382055789, -14.0856382055789, 128.171276411158, 128.171276411158)
 ```
@@ -521,7 +521,7 @@ Easily round your UIViews corners:
 let mainview = UIView(x: 0, y: 0, w: 100, h: 100)
 mainview.setCornerRadius(radius: 20) // Instead of mainview.layer.cornerRadius
 ```
-Easily add borders to your UIViews: 
+Easily add borders to your UIViews:
 
 ``` swift
 let mainview = UIView(x: 0, y: 0, w: 100, h: 100)
@@ -596,7 +596,7 @@ Easily declare a UITextView with standard details:
 ``` swift
 let mytext = UITextView(x: 0, y: 0, w: 100, h: 100) // Font size is 17 as standard
 let myOtherText = UITextView(x: 0, y: 0, w: 100, h: 100, fontSize: 15)
-    
+
 // These initializers create a UITextView with these properties:    
 
 //font = UIFont.HelveticaNeue(type: FontType.None, size: fontSize)
@@ -653,7 +653,7 @@ Easily initialize your UIImageViews:
 
 ``` swift
 let image = UIImage(named: "lightsaber")!
-    
+
 let myImageView = UIImageView(x: 0, y: 0, w: 20, h: 100, image: image)
 let myImageView2 = UIImageView(x: 0, y: 0, w: 20, h: 100, imageName: "lightsaber")
 
@@ -663,7 +663,7 @@ let myImageView4 = UIImageView(x: 0, y: 0, imageName: "lightsaber", scaleToWidth
 print(myImageView3.frame) // (0.0, 0.0, 100.0, 177.5)
 print(myImageView4.frame) // (0.0, 0.0, 200.0, 355.0)
 ```
-Easily scale images to a certain width: 
+Easily scale images to a certain width:
 
 ``` swift
 let myImageView = UIImageView(x: 80, y: 80, w: 100, h: 100, imageName: "lightsaber")
@@ -706,7 +706,7 @@ Easily compress your images:
 ``` swift
 let image = UIImage(named: "lightsaber")!
 print(image.getSizeAsKilobytes()) // 515
-    
+
 let newImage = UIImage(data: image.compressImage(rate: 0.5))!
 print(newImage.getSizeAsKilobytes()) //396
 ```
@@ -715,10 +715,10 @@ Easily resize your images:
 ``` swift
 let image = UIImage(named: "lightsaber")!
 print(image.size) // (800.0, 1420.0)
-    
+
 let newImage = UIImage.scaleTo(image: image, w: 50, h: 50)
 print(newImage.size) // (50.0, 50.0)
-    
+
 let newImage2 = image.resizeWithWidth(100)
 print(newImage2.size) // (100.0, 178.0)
 
@@ -752,11 +752,21 @@ let myColor1 = UIColor.Gray(100, alpha: 0.5) // Equals 100,100,100
 Easily access individual color values:
 
 ``` swift
-let myColor = UIColor(r: 100, g: 55, b: 33) 
+let myColor = UIColor(r: 100, g: 55, b: 33)
 print(myColor.redComponent) // 100
 print(myColor.greenComponent) // 55
 print(myColor.blueComponent) // 33
 print(myColor.alpha) // 1
+```
+Easily create colors with HEX values:
+
+``` swift
+let myColor = UIColor(hex: 0x233C64) // Equals 35,60,100,1
+let myColor1 = UIColor(hexString: "0x233C64") // Equals 35,60,100,1
+let myColor2 = UIColor(hexString: "0x233C64", alpha: 0.6) // Equals 35,60,100,0.6
+let myColor3 = UIColor(hexString: "233C64") // Equals 35,60,100,1
+let myColor4 = UIColor(hexString: "#233C64") // Equals 35,60,100,1
+let myColor5 = UIColor(hexString: "not hex string") // nil
 ```
 
 ##UIFont Extensions
@@ -817,7 +827,7 @@ Easily initialize a BlockButton:
 let button = BlockButton(x: 0, y: 0, w: 100, h: 100) { (sender) -> Void in
     print("Block button clicked!")
 }
-    
+
 let button1 = BlockButton(x: 0, y: 0, w: 100, h: 100)
 button1.addAction { (sender) -> Void in
     print("Block button clicked!")
@@ -834,7 +844,7 @@ Easily get values from NSUserDefaults with subscripts:
 let Defaults = NSUserDefaults.standardUserDefaults()
 // Get values from NSUserDefaults
 let userName = Defaults["userName"]
-        
+
 // Set values to NSUserDefaults
 Defaults["userName"] = someUserName
 
@@ -872,7 +882,7 @@ github "goktugyil/EZSwiftExtensions"
 
 ##Requirements
 
-- Swift 2 or later 
+- Swift 2 or later
 
 ##Possible features
 
@@ -901,9 +911,3 @@ EZSwiftExtensions is available under the MIT license. See the [LICENSE file](htt
 
 ##Keywords
 swift, extension, uikit, exswift, foundation, library, framework, tool
-
-
-
-
-
-
