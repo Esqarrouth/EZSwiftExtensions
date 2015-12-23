@@ -13,7 +13,7 @@ extension Int {
     /// EZSwiftExtensions
     public var isOdd: Bool      { return (self % 2 != 0) }
     /// EZSwiftExtensions
-    public var isPositive: Bool { return (self >= 0) }
+    public var isPositive: Bool { return (self > 0) }
     /// EZSwiftExtensions
     public var isNegative: Bool { return (self < 0) }
     /// EZSwiftExtensions
