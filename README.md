@@ -590,13 +590,7 @@ func userAction() {
 }
 ```
 
-Easily add a shake animation to your view:
 
-``` swift
-
-view.shakeViewForTimes(2)
-
-```
 
 ``` swift
 let mytext = UITextView(x: 0, y: 0, w: 100, h: 100) // Font size is 17 as standard
@@ -616,6 +610,15 @@ let myOtherText = UITextView(x: 0, y: 0, w: 100, h: 100, fontSize: 15)
 mytext.textAlignment = NSTextAlignment.Right
 mytext.editable = true
 ```
+
+Easily add a shake animation to your view:
+
+``` swift
+
+view.shakeViewForTimes(2)
+
+```
+
 ##UILabel Extensions
 
 Easily declare a UILabel with standard details:
