@@ -589,9 +589,12 @@ func userAction() {
 	print("long pressed")
 }
 ```
-##UITextView Extensions
 
-Easily declare a UITextView with standard details:
+Easily add a shake animation to your view:
+
+``` swift
+
+view.shakeViewForTimes(2)
 
 ``` swift
 let mytext = UITextView(x: 0, y: 0, w: 100, h: 100) // Font size is 17 as standard
