@@ -894,8 +894,10 @@ github "goktugyil/EZSwiftExtensions"
 
 ##Possible features
 
-- More extensions!
-- Better documentation with fancy pictures!
+- More extensions! Please if there is an extension you are constantly using, send a pull request now!
+- Fancy pictures and jpgs in documentation.
+- Documentations inside code 
+- List of contents inside readme
 - Completing `TODO`s in source code.
 - OSX compatibility and add here https://github.com/AndrewSB/awesome-osx
 
