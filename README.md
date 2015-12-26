@@ -590,7 +590,15 @@ func userAction() {
 }
 ```
 
+Easily add a shake animation to your view:
 
+``` swift
+view.shakeViewForTimes(2)
+```
+
+##UITextView Extensions
+
+Easily declare a UITextView with standard details:
 
 ``` swift
 let mytext = UITextView(x: 0, y: 0, w: 100, h: 100) // Font size is 17 as standard
@@ -609,14 +617,6 @@ let myOtherText = UITextView(x: 0, y: 0, w: 100, h: 100, fontSize: 15)
 // For most UITextViews these are enough, you can edit parts of your own:
 mytext.textAlignment = NSTextAlignment.Right
 mytext.editable = true
-```
-
-Easily add a shake animation to your view:
-
-``` swift
-
-view.shakeViewForTimes(2)
-
 ```
 
 ##UILabel Extensions
@@ -903,8 +903,10 @@ github "goktugyil/EZSwiftExtensions"
 
 ##Possible features
 
-- More extensions!
-- Better documentation with fancy pictures!
+- More extensions! Please if there is an extension you are constantly using, send a pull request now!
+- Fancy pictures and jpgs in documentation.
+- Documentations inside code 
+- List of contents inside readme
 - Completing `TODO`s in source code.
 - OSX compatibility and add here https://github.com/AndrewSB/awesome-osx
 
