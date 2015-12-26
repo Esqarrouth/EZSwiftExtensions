@@ -700,6 +700,12 @@ myImageView.imageWithUrl(url: "http://images.buystarwarscostumes.com/products/85
 myImageView.imageWithUrl(url: "http://images.buystarwarscostumes.com/products/8556/1-2/darth-maul-lightsaber.jpg", placeholderNamed: "lightsaber")
 ```
 
+
+Easily animate label text change
+``` swift
+myLabel.setText("*I* am your father!",animated:true)
+```
+
 ##UIImage Extensions
 
 Easily find out the size of your images:
