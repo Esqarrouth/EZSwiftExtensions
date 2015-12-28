@@ -111,5 +111,8 @@ extension String {
         }
     }
     
+    /// EZSwiftExtensions
+    public var toNSString: NSString { get { return self as NSString } }
+    
 }
 

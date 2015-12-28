@@ -33,6 +33,16 @@ extension Array {
         for i in (0..<count).reverse() {
             if let obj = self[i] as? U where obj == object {
                 self.removeAtIndex(i)
+                return
+            }
+        }
+    }
+    
+    /// EZSwiftExtensions
+    public mutating func removeObjects<U: Equatable>(object: U) {
+        for i in (0..<count).reverse() {
+            if let obj = self[i] as? U where obj == object {
+                self.removeAtIndex(i)
             }
         }
     }
