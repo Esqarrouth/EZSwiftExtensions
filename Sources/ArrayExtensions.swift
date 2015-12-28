@@ -15,7 +15,7 @@ extension Array {
         return self[index]
     }
     
-    /// EZSE: EZSE: Returns the index of the object
+    /// EZSE: Returns the index of the object
     public func indexOfObject<T: Equatable>(object: T) -> Int? {
         for index in 0..<self.count {
             if let arrayObject = self[index] as? T {
