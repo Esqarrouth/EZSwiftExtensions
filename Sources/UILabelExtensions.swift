@@ -59,7 +59,7 @@ extension UILabel {
     
     func setText(text:String?,animated:Bool) {
         if animated {
-            UIView.transitionWithView(self, duration: GlobalConstants.AnimationTimes.SHORT, options: .TransitionCrossDissolve, animations: { () -> Void in
+            UIView.transitionWithView(self, duration: 0.3, options: .TransitionCrossDissolve, animations: { () -> Void in
                 self.text = text
                 }) { (completion) -> Void in
             }
