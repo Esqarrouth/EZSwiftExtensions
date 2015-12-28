@@ -656,9 +656,11 @@ print(myLabel.frame) // (0.0, 0.0, 323.5, 20.0)
 // There is also fitHeight and fitWidth
 ```
 
-Easily animate label text change
+Easily animate label text change:
+
 ``` swift
-myLabel.setText("*I* am your father!",animated:true)
+myLabel.setText("I am your father!", animated: true, duration: 0.3)
+
 ```
 
 ##UIImageView Extensions

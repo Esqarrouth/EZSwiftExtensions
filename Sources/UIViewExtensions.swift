@@ -509,20 +509,22 @@ extension UIView {
 }
 
 extension UIView {
+    
+    /// EZSwiftExtensions
     /**
      Shakes the view for as many number of times as given in the argument
      */
-    func shakeViewForTimes(times:Int) {
-        let anim = CAKeyframeAnimation( keyPath:"transform" )
+    public func shakeViewForTimes(times: Int) {
+        let anim = CAKeyframeAnimation(keyPath: "transform")
         anim.values = [
-            NSValue( CATransform3D:CATransform3DMakeTranslation(-5, 0, 0 ) ),
-            NSValue( CATransform3D:CATransform3DMakeTranslation( 5, 0, 0 ) )
+            NSValue(CATransform3D: CATransform3DMakeTranslation(-5, 0, 0 )),
+            NSValue(CATransform3D: CATransform3DMakeTranslation( 5, 0, 0 ))
         ]
         anim.autoreverses = true
         anim.repeatCount = Float(times)
         anim.duration = 7/100
         
-        self.layer.addAnimation( anim, forKey:nil)
+        self.layer.addAnimation(anim, forKey: nil)
     }
 
 }

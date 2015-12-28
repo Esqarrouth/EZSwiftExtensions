@@ -57,12 +57,12 @@ extension UILabel {
         sizeToFit()
     }
     
-    func setText(text:String?,animated:Bool) {
+    /// EZSwiftExtensions
+    public func setText(text: String?, animated: Bool, duration: NSTimeInterval) {
         if animated {
-            UIView.transitionWithView(self, duration: 0.3, options: .TransitionCrossDissolve, animations: { () -> Void in
+            UIView.transitionWithView(self, duration: duration, options: .TransitionCrossDissolve, animations: { () -> Void in
                 self.text = text
-                }) { (completion) -> Void in
-            }
+                }, completion: nil)
         } else {
             self.text = text
         }
