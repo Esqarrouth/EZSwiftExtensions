@@ -38,3 +38,14 @@ extension Array {
     }
 }
 
+extension Array where Element : Equatable {
+    func arrayContainsArray(lookFor:[Element]) -> Bool {
+        for item in lookFor {
+            if self.contains(item) == false {
+                return false
+            }
+        }
+        return true
+    }
+}
+

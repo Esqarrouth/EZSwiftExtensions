@@ -655,6 +655,12 @@ myLabel.fitSize()
 print(myLabel.frame) // (0.0, 0.0, 323.5, 20.0)
 // There is also fitHeight and fitWidth
 ```
+
+Easily animate label text change
+``` swift
+myLabel.setText("*I* am your father!",animated:true)
+```
+
 ##UIImageView Extensions
 
 Easily initialize your UIImageViews:
@@ -699,6 +705,9 @@ myImageView.imageWithUrl(url: "http://images.buystarwarscostumes.com/products/85
 // Shows a placeholder image, then image after its downloaded it changes
 myImageView.imageWithUrl(url: "http://images.buystarwarscostumes.com/products/8556/1-2/darth-maul-lightsaber.jpg", placeholderNamed: "lightsaber")
 ```
+
+
+
 
 ##UIImage Extensions
 
