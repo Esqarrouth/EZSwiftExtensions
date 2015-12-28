@@ -58,9 +58,9 @@ extension UILabel {
     }
     
     /// EZSwiftExtensions
-    public func setText(text: String?, animated: Bool, duration: NSTimeInterval) {
+    public func setText(text: String?, animated: Bool, duration: NSTimeInterval?) {
         if animated {
-            UIView.transitionWithView(self, duration: duration, options: .TransitionCrossDissolve, animations: { () -> Void in
+            UIView.transitionWithView(self, duration: duration ?? 0.3, options: .TransitionCrossDissolve, animations: { () -> Void in
                 self.text = text
                 }, completion: nil)
         } else {
