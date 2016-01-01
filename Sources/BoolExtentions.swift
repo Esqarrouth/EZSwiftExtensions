@@ -8,7 +8,7 @@
 
 extension Bool {
     
-    /// EZSwiftExtensions
+    /// EZSE: Toggle boolean value.
     public mutating func toggle() -> Bool {
         self = !self
         return self
