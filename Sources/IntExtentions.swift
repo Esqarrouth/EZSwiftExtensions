@@ -8,24 +8,31 @@
 import UIKit
 
 extension Int {
-    /// EZSwiftExtensions
+    /// EZSE: Checks if the integer is even.
     public var isEven: Bool     { return (self % 2 == 0) }
-    /// EZSwiftExtensions
+    
+    /// EZSE: Checks if the integer is odd.
     public var isOdd: Bool      { return (self % 2 != 0) }
-    /// EZSwiftExtensions
+    
+    /// EZSE: Checks if the integer is positive.
     public var isPositive: Bool { return (self > 0) }
-    /// EZSwiftExtensions
+    
+    /// EZSE: Checks if the integer is negative.
     public var isNegative: Bool { return (self < 0) }
-    /// EZSwiftExtensions
+    
+    /// EZSE: Converts integer value to Double.
     public var toDouble: Double { return Double(self) }
-    /// EZSwiftExtensions
+    
+    /// EZSE: Converts integer value to Float.
     public var toFloat: Float   { return Float(self) }
-    /// EZSwiftExtensions
+    
+    /// EZSE: Converts integer value to CGFloat.
     public var toCGFloat: CGFloat { return CGFloat(self) }
-    /// EZSwiftExtensions
+    
+    /// EZSE: Converts integer value to String.
     public var toString: String { return String(self) }
     
-    /// EZSwiftExtensions
+    /// EZSE: Returns number of digits in the integer.
     public var digits: Int {
         if self == 0 {
             return 1
@@ -36,7 +43,7 @@ extension Int {
         }
     }
     
-    /// EZSwiftExtensions - Execute action this many times
+    /// EZSE: Executes 'action' this many times.
     public func times(action: () -> ()) {
         if self > 0 {
             for _ in 0..<self {
@@ -48,7 +55,7 @@ extension Int {
 }
 
 extension UInt {
-    /// EZSwiftExtensions
+    /// EZSE: Convert UInt to Int
     public var toInt: Int { return Int(self) }
 }
 
