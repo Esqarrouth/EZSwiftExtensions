@@ -109,6 +109,19 @@ ez.runThisInBackground { () -> () in
 }
 ```
 
+Easily run code every seconds:
+
+``` swift
+var count = 0
+ez.runThisEvery(seconds: 1) { (timer) -> Void in
+    print("Will print every second")
+    if count == 3 {
+        timer.invalidate()
+    }
+    count++
+}
+```
+
 ##NSObject Extensions
 
 Easily get the name of your class:

@@ -122,6 +122,14 @@ public struct ez {
     public static func runThisInBackground(block: () -> ()) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)
     }
+    
+    /// EZSwiftExtensions - Runs every second, to cancel use: timer.invalidate()
+    public static func runThisEvery(seconds seconds: NSTimeInterval, handler: NSTimer! -> Void) -> NSTimer {
+        let fireDate = seconds + CFAbsoluteTimeGetCurrent()
+        let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, fireDate, seconds, 0, 0, handler)
+        CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, kCFRunLoopCommonModes)
+        return timer
+    }
 
     // MARK: - DownloadTask
 
