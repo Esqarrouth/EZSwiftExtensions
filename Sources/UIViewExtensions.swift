@@ -499,12 +499,17 @@ extension UIView {
 
 //TODO: add to readme
 extension UIView {
-    /// [UIRectCorner.TopLeft, UIRectCorner.TopRight]
+    /// EZSwiftExtensions [UIRectCorner.TopLeft, UIRectCorner.TopRight]
     public func roundCorners(corners: UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()
         mask.path = path.CGPath
         self.layer.mask = mask
+    }
+    
+    /// EZSwiftExtensions
+    public func round() {
+        self.layer.cornerRadius = self.frame.size.width / 2
     }
 }
 
