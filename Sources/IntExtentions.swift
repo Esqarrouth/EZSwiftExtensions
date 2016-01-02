@@ -44,10 +44,10 @@ extension Int {
     }
     
     /// EZSE: Executes 'action' this many times.
-    public func times(action: () -> ()) {
+    public func times(action: (Int) -> ()) {
         if self > 0 {
-            for _ in 0..<self {
-                action()
+            for index in 0..<self {
+                action(index)
             }
         }
     }

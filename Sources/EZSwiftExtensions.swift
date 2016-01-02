@@ -95,9 +95,9 @@ public struct ez {
     // MARK: - Dispatch
 
     /// EZSwiftExtensions
-    public static func runThisMany(times times: Int, block: () -> ()) {
-        for _ in 0..<times {
-            block()
+    public static func runThisMany(times times: Int, block: (Int) -> ()) {
+        for index in 0..<times {
+            block(index)
         }
     }
 
