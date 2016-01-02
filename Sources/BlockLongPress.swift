@@ -22,7 +22,9 @@ public class BlockLongPress: UILongPressGestureRecognizer {
         addTarget(self, action: "didLongPressed:")
     }
     
-    public func didLongPressed (longPress: UILongPressGestureRecognizer) {
-        longPressAction? (longPress)
+    public func didLongPressed(longPress: UILongPressGestureRecognizer) {
+        if longPress.state == UIGestureRecognizerState.Began {
+            longPressAction?(longPress)
+        }
     }
 }
