@@ -180,7 +180,7 @@ Easily convert between different types:
 
 ``` swift
 var myString = "33.3"
-var myDouble = myString.toString
+var myDouble = myString.toDouble
 var myInt = myDouble.toInt
 ```
 
