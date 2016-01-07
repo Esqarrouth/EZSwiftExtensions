@@ -7,7 +7,8 @@ s.homepage         = "https://github.com/goktugyil/EZSwiftExtensions"
 s.license          = 'MIT'
 s.author           = { "goktugyil" => "gok-2@hotmail.com" }
 s.source           = { :git => "https://github.com/goktugyil/EZSwiftExtensions.git", :tag => s.version.to_s }
-s.platform     = :ios, '8.0'
+s.ios.deployment_target   = '8.0'
+s.tvos.deployment_target  = '9.0'
 s.requires_arc = true
 
 # If more than one source file: https://guides.cocoapods.org/syntax/podspec.html#source_files

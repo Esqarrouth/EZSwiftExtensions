@@ -46,6 +46,7 @@ public struct ez {
         return presentedVC
     }
 
+#if TARGET_OS_IOS
     /// EZSwiftExtensions
     public static var screenOrientation: UIInterfaceOrientation {
         return UIApplication.sharedApplication().statusBarOrientation
@@ -91,6 +92,7 @@ public struct ez {
             action()
         }
     }
+#endif
 
     // MARK: - Dispatch
 
