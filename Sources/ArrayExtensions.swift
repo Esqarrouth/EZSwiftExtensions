@@ -61,7 +61,7 @@ extension Array {
 extension Array where Element : Equatable {
     
     /// EZSE: Checks if the main array contains the parameter array
-    public func arrayContainsArray(lookFor: [Element]) -> Bool {
+    public func containsArray(lookFor: [Element]) -> Bool {
         for item in lookFor {
             if self.contains(item) == false {
                 return false

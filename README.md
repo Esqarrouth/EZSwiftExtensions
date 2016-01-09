@@ -264,7 +264,7 @@ Easily remove an object:
 
 ``` swift
 var myArray = ["charmander","bulbasaur","squirtle"]
-print(myArray.removeObject("charmander"))
+myArray.removeObject("charmander")
 print(myArray) // ["bulbasaur", "squirtle"]
 ```
 
@@ -276,7 +276,13 @@ print(myArray.containsInstanceOf("hey")) // true
 print(myArray.containsInstanceOf(1)) // false
 ```
 
+Easily check if an array contains another array:
 
+``` swift
+var myArray = ["charmander","bulbasaur","squirtle"]
+print(myArray.containsArray(["charmander","bulbasaur"])) // true
+print(myArray.containsArray(["string"])) // false
+```
 
 ##Dictionary Extensions
 
