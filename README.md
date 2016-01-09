@@ -172,6 +172,7 @@ var myDouble = myInt.toDouble
 var myFloat = myInt.toFloat
 var myCGFloat = myInt.toCGFloat
 var myString = myInt.toString
+var myUInt = myInt.toUInt
 ```
 
 ##Double Extensions

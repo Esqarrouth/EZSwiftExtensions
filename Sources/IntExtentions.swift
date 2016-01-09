@@ -32,6 +32,9 @@ extension Int {
     /// EZSE: Converts integer value to String.
     public var toString: String { return String(self) }
     
+    /// EZSE: Converts integer value to UInt.
+    public var toUInt: UInt { return UInt(self) }
+    
     /// EZSE: Returns number of digits in the integer.
     public var digits: Int {
         if self == 0 {
