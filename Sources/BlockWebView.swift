@@ -6,6 +6,7 @@
 //
 //
 
+#if TARGET_OS_IOS
 import UIKit
 
 public class BlockWebView: UIWebView, UIWebViewDelegate {
@@ -47,5 +48,4 @@ public class BlockWebView: UIWebView, UIWebViewDelegate {
     }
     
 }
-
-
+#endif

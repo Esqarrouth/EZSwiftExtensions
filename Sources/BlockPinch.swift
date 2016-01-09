@@ -6,6 +6,7 @@
 //
 //
 
+#if TARGET_OS_IOS
 import UIKit
 
 public class BlockPinch: UIPinchGestureRecognizer {
@@ -27,3 +28,4 @@ public class BlockPinch: UIPinchGestureRecognizer {
     }
 
 }
+#endif

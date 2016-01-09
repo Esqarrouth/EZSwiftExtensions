@@ -46,6 +46,7 @@ public struct ez {
         return presentedVC
     }
 
+#if TARGET_OS_IOS
     /// EZSwiftExtensions
     public static var screenOrientation: UIInterfaceOrientation {
         return UIApplication.sharedApplication().statusBarOrientation
@@ -91,6 +92,7 @@ public struct ez {
             action()
         }
     }
+#endif
 
     // MARK: - Dispatch
 
@@ -182,17 +184,28 @@ public struct ez {
 
     /// EZSwiftExtensions
     private static func requestURL(url: String, success: (NSData?) -> Void, error: ((NSError) -> Void)? = nil) {
-        //TODO: Seems this is depreceated, update it
-        NSURLConnection.sendAsynchronousRequest(
+        guard #available(iOS 9, *) else {
+            NSURLConnection.sendAsynchronousRequest(
+                NSURLRequest(URL: NSURL (string: url)!),
+                queue: NSOperationQueue.mainQueue(),
+                completionHandler: { response, data, err in
+                    if let e = err {
+                        error?(e)
+                    } else {
+                        success(data)
+                    }
+            })
+            return
+        }
+        NSURLSession.sharedSession().dataTaskWithRequest(
             NSURLRequest(URL: NSURL (string: url)!),
-            queue: NSOperationQueue.mainQueue(),
-            completionHandler: { response, data, err in
+            completionHandler: { data, response, err in
                 if let e = err {
                     error?(e)
                 } else {
                     success(data)
                 }
-        })
+        }).resume()
     }
 
 }
