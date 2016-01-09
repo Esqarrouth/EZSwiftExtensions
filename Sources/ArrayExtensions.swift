@@ -44,7 +44,17 @@ extension Array {
             if let obj = self[i] as? U where obj == object {
                 self.removeAtIndex(i)
             }
+        }        
+    }
+    
+    /// EZSE: Checks if array contains at least 1 instance of the given object type
+    public func containsInstanceOf<T>(object: T) -> Bool {
+        for item in self {
+            if item.dynamicType == object.dynamicType {
+                return true
+            }
         }
+        return false
     }
 }
 

@@ -267,6 +267,17 @@ var myArray = ["charmander","bulbasaur","squirtle"]
 print(myArray.removeObject("charmander"))
 print(myArray) // ["bulbasaur", "squirtle"]
 ```
+
+Easily check if an array contains instance of an object:
+
+``` swift
+var myArray = ["charmander","bulbasaur","squirtle"]
+print(myArray.containsInstanceOf("hey")) // true
+print(myArray.containsInstanceOf(1)) // false
+```
+
+
+
 ##Dictionary Extensions
 
 Easily access a random element:
