@@ -6,7 +6,6 @@
 //
 //
 
-#if TARGET_OS_IOS
 import UIKit
 
 public class BlockSwipe: UISwipeGestureRecognizer {
@@ -31,4 +30,3 @@ public class BlockSwipe: UISwipeGestureRecognizer {
         swipeAction? (swipe)
     }
 }
-#endif

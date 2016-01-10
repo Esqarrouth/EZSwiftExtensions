@@ -23,9 +23,7 @@ extension UITextView {
         clipsToBounds = true
         textAlignment = NSTextAlignment.Left
         userInteractionEnabled = true
-#if TARGET_OS_IOS
         editable = false
-#endif
         scrollEnabled = false
     }
 }

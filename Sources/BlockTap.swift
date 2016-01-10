@@ -6,7 +6,6 @@
 //
 //
 
-#if TARGET_OS_IOS
 import UIKit
 
 public class BlockTap: UITapGestureRecognizer {
@@ -33,4 +32,3 @@ public class BlockTap: UITapGestureRecognizer {
     }
     
 }
-#endif

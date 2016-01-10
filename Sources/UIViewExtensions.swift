@@ -419,7 +419,6 @@ extension UIView {
     }
 }
 
-#if TARGET_OS_IOS
 // MARK: Gesture Extensions
 extension UIView {
     
@@ -497,7 +496,6 @@ extension UIView {
         userInteractionEnabled = true
     }
 }
-#endif
 
 //TODO: add to readme
 extension UIView {
