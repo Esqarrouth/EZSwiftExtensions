@@ -10,19 +10,22 @@ import UIKit
 extension NSDate {
     
     /// EZSwiftExtensions
+    public convenience init?(fromString string: String, format: String) {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = format
+        if let date = formatter.dateFromString(string) {
+            self.init(timeInterval: 0, sinceDate: date)
+        } else {
+            return nil
+        }
+    }
+    
+    /// EZSwiftExtensions
     public func toString() -> String {
         let formatter = NSDateFormatter()
         formatter.timeStyle = NSDateFormatterStyle.NoStyle
         formatter.timeStyle = NSDateFormatterStyle.MediumStyle
         return formatter.stringFromDate(self)
-    }
-    
-    //TODO: add in readme
-    /// EZSwiftExtensions
-    public func fromString(format: String, string: String) -> NSDate? {
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = format
-        return formatter.dateFromString(string)
     }
     
     /// EZSwiftExtensions
