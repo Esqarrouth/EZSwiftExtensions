@@ -307,6 +307,14 @@ print(dictionary1) // ["fire": "charmander", "water": "squirtle"]
 ```
 ##NSDate Extensions
 
+Easily initialize your string:
+
+``` swift
+let format = "yyyy/MM/dd"
+let fromString = "2016/01/11"
+print(NSDate(fromString: fromString, format: format)) // Optional("2016/01/11 00:00:00 +0000")
+```
+
 Easily convert date into string:
 
 ``` swift
