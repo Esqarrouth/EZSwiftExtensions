@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C85840ED1C43B05200595696 /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85840EC1C43B05200595696 /* NSURLExtensions.swift */; };
 		E1839DB91BF79335002212C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839DB81BF79335002212C6 /* AppDelegate.swift */; };
 		E1839DBB1BF79335002212C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839DBA1BF79335002212C6 /* ViewController.swift */; };
 		E1839DBE1BF79335002212C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1839DBC1BF79335002212C6 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C85840EC1C43B05200595696 /* NSURLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSURLExtensions.swift; path = Sources/NSURLExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1839DB51BF79335002212C6 /* EZSwiftExtensionsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZSwiftExtensionsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1839DB81BF79335002212C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = EZSwiftExtensionsExample/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		E1839DBA1BF79335002212C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = EZSwiftExtensionsExample/ViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -125,6 +127,7 @@
 				E1839E1B1BF79974002212C6 /* UITextViewExtensions.swift */,
 				E1839E1C1BF79974002212C6 /* UIViewControllerExtensions.swift */,
 				E1839E1D1BF79974002212C6 /* UIViewExtensions.swift */,
+				C85840EC1C43B05200595696 /* NSURLExtensions.swift */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				E1839E361BF79974002212C6 /* UILabelExtensions.swift in Sources */,
 				E1839E281BF79974002212C6 /* CGRectExtensions.swift in Sources */,
 				E1839E331BF79974002212C6 /* UIFontExtensions.swift in Sources */,
+				C85840ED1C43B05200595696 /* NSURLExtensions.swift in Sources */,
 				E1839E261BF79974002212C6 /* BoolExtentions.swift in Sources */,
 				E1839E2B1BF79974002212C6 /* IntExtentions.swift in Sources */,
 				E1CB3C1C1C25FFA000DF77CD /* DoubleExtensions.swift in Sources */,
