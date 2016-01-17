@@ -572,11 +572,11 @@ Easily add gesture recognizers:
 
 ``` swift
 let mainview = UIView(x: 0, y: 0, w: 100, h: 100)
-mainview.addTapGesture(tapNumber: 1) { (gesture) -> () in
+mainview.addTapGesture { (gesture) -> () in
     print("view tapped")
 }  
 // OR
-mainview.addTapGesture(tapNumber: 1, target: self, action: "userTapped")
+mainview.addTapGesture(target: self, action: "userTapped")
 func userTapped() {
     print("view tapped")
 }
@@ -584,11 +584,11 @@ func userTapped() {
 
 ``` swift
 let mainview = UIView(x: 0, y: 0, w: 100, h: 100)
-mainview.addSwipeGesture(direction: UISwipeGestureRecognizerDirection.Down, numberOfTouches: 1) { (Swiped) -> () in
+mainview.addSwipeGesture(direction: UISwipeGestureRecognizerDirection.Down) { (Swiped) -> () in
     print("user swiped")
 }
 // OR
-mainview.addSwipeGesture(direction: UISwipeGestureRecognizerDirection.Down, numberOfTouches: 1, target: self, action: "userAction")
+mainview.addSwipeGesture(direction: UISwipeGestureRecognizerDirection.Down, target: self, action: "userAction")
 func userAction() {
 	print("view swiped")
 }

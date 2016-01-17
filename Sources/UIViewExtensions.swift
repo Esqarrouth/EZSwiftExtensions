@@ -424,7 +424,7 @@ extension UIView {
     
     /// http://stackoverflow.com/questions/4660371/how-to-add-a-touch-event-to-a-uiview/32182866#32182866
     /// EZSwiftExtensions
-    public func addTapGesture(tapNumber tapNumber: Int, target: AnyObject, action: Selector) {
+    public func addTapGesture(tapNumber tapNumber: Int = 1, target: AnyObject, action: Selector) {
         let tap = UITapGestureRecognizer(target: target, action: action)
         tap.numberOfTapsRequired = tapNumber
         addGestureRecognizer(tap)
@@ -432,14 +432,14 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    public func addTapGesture(tapNumber tapNumber: Int, action: ((UITapGestureRecognizer) -> ())?) {
+    public func addTapGesture(tapNumber tapNumber: Int = 1, action: ((UITapGestureRecognizer) -> ())?) {
         let tap = BlockTap(tapCount: tapNumber, fingerCount: 1, action: action)
         addGestureRecognizer(tap)
         userInteractionEnabled = true
     }
     
     /// EZSwiftExtensions
-    public func addSwipeGesture(direction direction: UISwipeGestureRecognizerDirection, numberOfTouches: Int, target: AnyObject, action: Selector) {
+    public func addSwipeGesture(direction direction: UISwipeGestureRecognizerDirection, numberOfTouches: Int = 1, target: AnyObject, action: Selector) {
         let swipe = UISwipeGestureRecognizer(target: target, action: action)
         swipe.direction = direction
         swipe.numberOfTouchesRequired = numberOfTouches
@@ -448,7 +448,7 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    public func addSwipeGesture(direction direction: UISwipeGestureRecognizerDirection, numberOfTouches: Int, action: ((UISwipeGestureRecognizer) -> ())?) {
+    public func addSwipeGesture(direction direction: UISwipeGestureRecognizerDirection, numberOfTouches: Int = 1, action: ((UISwipeGestureRecognizer) -> ())?) {
         let swipe = BlockSwipe(direction: direction, fingerCount: numberOfTouches, action: action)
         addGestureRecognizer(swipe)
         userInteractionEnabled = true
