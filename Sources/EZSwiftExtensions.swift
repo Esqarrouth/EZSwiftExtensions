@@ -125,7 +125,7 @@ public struct ez {
     
     /// EZSwiftExtensions - Runs every second, to cancel use: timer.invalidate()
     public static func runThisEvery(seconds seconds: NSTimeInterval, handler: NSTimer! -> Void) -> NSTimer {
-        let fireDate = seconds + CFAbsoluteTimeGetCurrent()
+        let fireDate =  CFAbsoluteTimeGetCurrent()
         let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, fireDate, seconds, 0, 0, handler)
         CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, kCFRunLoopCommonModes)
         return timer
