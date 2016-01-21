@@ -19,7 +19,11 @@ extension UIImageView {
     public convenience init(x: CGFloat, y: CGFloat, imageName: String, scaleToWidth: CGFloat) {
         self.init(frame: CGRect(x: x, y: y, width: 0, height: 0))
         image = UIImage(named: imageName)
-        scaleImageFrameToWidth(width: scaleToWidth)
+        if image != nil {
+            scaleImageFrameToWidth(width: scaleToWidth)
+        } else {
+            assertionFailure("EZSwiftExtensions Error: The imageName is invalid!!!")
+        }
     }
     
     /// EZSwiftExtensions
