@@ -315,6 +315,8 @@ Easily convert date into string:
 ``` swift
 let now = NSDate()
 print(now.toString())
+print(now.toString(dateStyle: .MediumStyle, timeStyle: .MediumStyle))
+print(now.toString(format: "yyyy/MM/dd HH:mm:ss"))
 ```
 
 Easily see how much time passed:

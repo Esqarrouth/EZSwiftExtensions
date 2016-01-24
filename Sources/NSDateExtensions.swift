@@ -21,10 +21,17 @@ extension NSDate {
     }
     
     /// EZSwiftExtensions
-    public func toString() -> String {
+    public func toString(dateStyle dateStyle: NSDateFormatterStyle = .MediumStyle, timeStyle: NSDateFormatterStyle = .MediumStyle) -> String {
         let formatter = NSDateFormatter()
-        formatter.timeStyle = NSDateFormatterStyle.NoStyle
-        formatter.timeStyle = NSDateFormatterStyle.MediumStyle
+        formatter.dateStyle = dateStyle
+        formatter.timeStyle = timeStyle
+        return formatter.stringFromDate(self)
+    }
+    
+    /// EZSwiftExtensions
+    public func toString(format format: String) -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = format
         return formatter.stringFromDate(self)
     }
     
