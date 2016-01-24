@@ -217,7 +217,6 @@ extension UIViewController {
     
     /// EZSwiftExtensions
     public func addAsChildViewController(vc: UIViewController, toView: UIView){
-        vc.view.frame = toView.frame
         toView.addSubview(vc.view)
         self.addChildViewController(vc)
         vc.didMoveToParentViewController(self)
