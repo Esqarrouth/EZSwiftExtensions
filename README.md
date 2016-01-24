@@ -155,6 +155,15 @@ print(myNumber.isNegative) // true
 print(myNumber.digits) // 2
 ```
 
+Easily get a range from an integer:
+
+``` swift
+for index in 5.range {
+    print(index) // 0 1 2 3 4
+}
+// Seriously the most intuitive way to write for loops in Swift
+```
+
 Easily run a block of code certain amount of times:
 
 ``` swift

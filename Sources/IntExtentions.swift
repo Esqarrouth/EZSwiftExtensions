@@ -35,6 +35,9 @@ extension Int {
     /// EZSE: Converts integer value to UInt.
     public var toUInt: UInt { return UInt(self) }
     
+    /// EZSE: Converts integer value to a 0..<Int range. Useful in for loops.
+    public var range: Range<Int> { return 0..<self }
+    
     /// EZSE: Returns number of digits in the integer.
     public var digits: Int {
         if self == 0 {
