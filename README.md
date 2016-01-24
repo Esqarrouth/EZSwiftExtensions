@@ -819,6 +819,12 @@ let myColor4 = UIColor(hexString: "#233C64") // Equals 35,60,100,1
 let myColor5 = UIColor(hexString: "not hex string") // nil
 ```
 
+Easily get a random color:
+
+``` swift
+let myRandomColor = UIColor.randomColor()
+```
+
 ##UIFont Extensions
 
 Easily declare common fonts:

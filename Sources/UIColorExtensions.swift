@@ -75,5 +75,22 @@ extension UIColor {
         getRed(nil, green: nil, blue: nil, alpha: &a)
         return Int(a)
     }
+    
+    /// EZSwiftExtensions
+    public static func randomColor(randomAlpha: Bool = false) -> UIColor {
+        let randomRed = CGFloat.random()
+        let randomGreen = CGFloat.random()
+        let randomBlue = CGFloat.random()
+        let alpha = randomAlpha ? CGFloat.random() : 1.0
+        return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: alpha)
+    }
    
 }
+
+private extension CGFloat {
+    /// SwiftRandom extension
+    static func random(lower: CGFloat = 0, _ upper: CGFloat = 1) -> CGFloat {
+        return CGFloat(Float(arc4random()) / Float(UINT32_MAX)) * (upper - lower) + lower
+    }
+}
+
