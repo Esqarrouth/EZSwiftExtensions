@@ -302,6 +302,14 @@ print(dictionary1) // ["fire": "charmander", "water": "squirtle"]
 ```
 ##NSDate Extensions
 
+Easily initialize your string:
+
+``` swift
+let format = "yyyy/MM/dd"
+let fromString = "2016/01/11"
+print(NSDate(fromString: fromString, format: format)) // Optional("2016/01/11 00:00:00 +0000")
+```
+
 Easily convert date into string:
 
 ``` swift
@@ -559,11 +567,11 @@ Easily add gesture recognizers:
 
 ``` swift
 let mainview = UIView(x: 0, y: 0, w: 100, h: 100)
-mainview.addTapGesture(tapNumber: 1) { (gesture) -> () in
+mainview.addTapGesture { (gesture) -> () in
     print("view tapped")
 }  
 // OR
-mainview.addTapGesture(tapNumber: 1, target: self, action: "userTapped")
+mainview.addTapGesture(target: self, action: "userTapped")
 func userTapped() {
     print("view tapped")
 }
@@ -571,11 +579,11 @@ func userTapped() {
 
 ``` swift
 let mainview = UIView(x: 0, y: 0, w: 100, h: 100)
-mainview.addSwipeGesture(direction: UISwipeGestureRecognizerDirection.Down, numberOfTouches: 1) { (Swiped) -> () in
+mainview.addSwipeGesture(direction: UISwipeGestureRecognizerDirection.Down) { (Swiped) -> () in
     print("user swiped")
 }
 // OR
-mainview.addSwipeGesture(direction: UISwipeGestureRecognizerDirection.Down, numberOfTouches: 1, target: self, action: "userAction")
+mainview.addSwipeGesture(direction: UISwipeGestureRecognizerDirection.Down, target: self, action: "userAction")
 func userAction() {
 	print("view swiped")
 }
@@ -898,6 +906,19 @@ let userName = Defaults["userName"]
 
 // Set values to NSUserDefaults
 Defaults["userName"] = someUserName
+
+```
+
+##NSURL Extensions
+
+Easily get query in the Dictionary
+``` swift
+let url = NSURL(string: "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=facebook")
+if let queryParameters = url?.queryParameters {
+    print(queryParameters["v"]) //Optional("1.0")
+    print(queryParameters["q"]) //Optional("facebook")
+    print(queryParameters["other"]) //nil
+}
 
 ```
 

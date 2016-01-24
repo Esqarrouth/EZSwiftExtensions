@@ -17,8 +17,8 @@ public class BlockTap: UITapGestureRecognizer {
     }
     
     public convenience init (
-        tapCount: Int,
-        fingerCount: Int,
+        tapCount: Int = 1,
+        fingerCount: Int = 1,
         action: ((UITapGestureRecognizer) -> Void)?) {
             self.init()
             self.numberOfTapsRequired = tapCount

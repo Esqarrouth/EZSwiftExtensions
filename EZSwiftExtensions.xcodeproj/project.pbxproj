@@ -40,6 +40,7 @@
 		B5DC87361C0ED34300972D0A /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DC87191C0ED34300972D0A /* UITextViewExtensions.swift */; };
 		B5DC87371C0ED34300972D0A /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DC871A1C0ED34300972D0A /* UIViewControllerExtensions.swift */; };
 		B5DC87381C0ED34300972D0A /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DC871B1C0ED34300972D0A /* UIViewExtensions.swift */; };
+		C85840EB1C43B02C00595696 /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85840EA1C43B02C00595696 /* NSURLExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		B5DC87191C0ED34300972D0A /* UITextViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewExtensions.swift; sourceTree = "<group>"; };
 		B5DC871A1C0ED34300972D0A /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		B5DC871B1C0ED34300972D0A /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		C85840EA1C43B02C00595696 /* NSURLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 				B5DC87191C0ED34300972D0A /* UITextViewExtensions.swift */,
 				B5DC871A1C0ED34300972D0A /* UIViewControllerExtensions.swift */,
 				B5DC871B1C0ED34300972D0A /* UIViewExtensions.swift */,
+				C85840EA1C43B02C00595696 /* NSURLExtensions.swift */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -300,6 +303,7 @@
 				B5DC87201C0ED34300972D0A /* BlockPinch.swift in Sources */,
 				B5DC87211C0ED34300972D0A /* BlockSwipe.swift in Sources */,
 				B5DC87221C0ED34300972D0A /* BlockTap.swift in Sources */,
+				C85840EB1C43B02C00595696 /* NSURLExtensions.swift in Sources */,
 				B5DC87231C0ED34300972D0A /* BlockWebView.swift in Sources */,
 				B5DC87241C0ED34300972D0A /* BoolExtentions.swift in Sources */,
 				B5DC87251C0ED34300972D0A /* CGFloatExtensions.swift in Sources */,
