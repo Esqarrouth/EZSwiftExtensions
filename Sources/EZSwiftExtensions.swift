@@ -94,12 +94,6 @@ public struct ez {
 
     // MARK: - Dispatch
 
-    /// EZSwiftExtensions
-    public static func runThisMany(times times: Int, block: (Int) -> ()) {
-        for index in 0..<times {
-            block(index)
-        }
-    }
 
     /// EZSwiftExtensions
     public static func runThisAfterDelay(seconds seconds: Double, after: () -> ()) {

@@ -70,13 +70,6 @@ ez.requestJSON("http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=face
         print(error)
 }
 ```
-Easily run a block of code certain amount of times:
-
-``` swift
-ez.runThisMany(times: 3) { () -> () in
-    print("lol", terminator: "") // lollollol
-}
-```
 
 Easily run block of codes after a certain delay:
 
@@ -164,13 +157,6 @@ for index in 5.range {
 // Seriously the most intuitive way to write for loops in Swift
 ```
 
-Easily run a block of code certain amount of times:
-
-``` swift
-3.times { () -> () in
-    print("lol", terminator: "") // lollollol
-}
-```
 Easily convert between different types:
 
 ``` swift

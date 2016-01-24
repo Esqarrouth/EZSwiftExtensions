@@ -48,15 +48,6 @@ extension Int {
             return -1; //out of bound
         }
     }
-    
-    /// EZSE: Executes 'action' this many times.
-    public func times(action: (Int) -> ()) {
-        if self > 0 {
-            for index in 0..<self {
-                action(index)
-            }
-        }
-    }
 
 }
 
