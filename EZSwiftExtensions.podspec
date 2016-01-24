@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = "EZSwiftExtensions"
-s.version          = "1.0.5"
+s.version          = "1.1.0"
 s.summary          = ":smirk: How Swift standard types and classes were supposed to work"
 s.description      = ":smirk: How Swift standard types and classes were supposed to work."
 s.homepage         = "https://github.com/goktugyil/EZSwiftExtensions"

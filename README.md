@@ -911,7 +911,8 @@ Defaults["userName"] = someUserName
 
 ##NSURL Extensions
 
-Easily get query in the Dictionary
+Easily get query in the Dictionary:
+
 ``` swift
 let url = NSURL(string: "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=facebook")
 if let queryParameters = url?.queryParameters {
@@ -919,7 +920,6 @@ if let queryParameters = url?.queryParameters {
     print(queryParameters["q"]) //Optional("facebook")
     print(queryParameters["other"]) //nil
 }
-
 ```
 
 ##Installation (~10 seconds)
