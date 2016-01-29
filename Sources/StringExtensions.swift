@@ -43,8 +43,13 @@ extension String {
     }
     
     /// EZSwiftExtensions - Trims white space and new line characters
-    public mutating func trim() {
-         self = self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    public mutating func trimInPlace() {
+         self = self.trim()
+    }
+    
+    /// EZSwiftExtensions
+    public func trim() -> String {
+        return self.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).joinWithSeparator("")
     }
     
     /// EZSwiftExtensions

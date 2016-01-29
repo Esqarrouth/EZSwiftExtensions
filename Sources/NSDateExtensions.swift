@@ -27,7 +27,14 @@ extension NSDate {
         formatter.timeStyle = NSDateFormatterStyle.MediumStyle
         return formatter.stringFromDate(self)
     }
-    
+  
+    /// EZSwiftExtensions
+    public func toStringUsingFormat(format: String) -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = format
+        return formatter.stringFromDate(self)
+      }
+  
     /// EZSwiftExtensions
     public func daysInBetweenDate(date: NSDate) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
@@ -90,11 +97,13 @@ extension NSDate {
 extension NSDate: Comparable {}
 
 public func ==(lhs: NSDate, rhs: NSDate) -> Bool {
-    return lhs.isEqualToDate(rhs)
+  return lhs.isEqualToDate(rhs)
 }
 
 public func <(lhs: NSDate, rhs: NSDate) -> Bool {
     return lhs.compare(rhs) == .OrderedAscending
 }
 
-
+public func >(lhs: NSDate, rhs: NSDate) -> Bool {
+  return lhs.compare(rhs) == .OrderedDescending
+}
