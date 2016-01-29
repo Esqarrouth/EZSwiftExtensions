@@ -111,14 +111,11 @@ extension String {
         }
     }
     
-    ///Returns the first index of the occurency of the character in String
-    public func getIndexOf(chr:Character) -> Int
-    {
+    ///EZSE: Returns the first index of the occurency of the character in String
+    public func getIndexOf(char: Character) -> Int {
       var count = 0
-      for char in self.characters
-      {
-        if char == chr
-        {
+      for c in self.characters {
+        if c == char {
           return count
         }
         count += 1
