@@ -113,14 +113,12 @@ extension String {
     
     ///EZSE: Returns the first index of the occurency of the character in String
     public func getIndexOf(char: Character) -> Int {
-      var count = 0
-      for c in self.characters {
-        if c == char {
-          return count
+        for (index, c) in characters.enumerate() {
+            if c == char {
+                return index
+            }
         }
-        count += 1
-      }
-      return 0
+        return 0
     }
     
     /// EZSwiftExtensions
