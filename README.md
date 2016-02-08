@@ -632,6 +632,15 @@ Easily add a shake animation to your view:
 view.shakeViewForTimes(2)
 ```
 
+Easily add a background image to your ViewController:
+
+``` swift
+self.setBackgroundImage("img.png")
+//OR
+let image = UIImage()
+self.setBackgroundImage(image)
+```
+
 ##UITextView Extensions
 
 Easily declare a UITextView with standard details:
