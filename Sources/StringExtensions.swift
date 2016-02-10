@@ -54,6 +54,14 @@ extension String {
         return (firstMatch?.range.location != NSNotFound && firstMatch?.URL?.scheme == "mailto")
     }
     
+    /// EZSE: Returns if String is a number
+    func isNumber() -> Bool {
+        if let _ = NSNumberFormatter().numberFromString(self) {
+        return true
+        }
+        return false
+    }
+    
     /// EZSwiftExtensions
     public var extractURLs: [NSURL] {
         var urls : [NSURL] = []
