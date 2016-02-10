@@ -27,6 +27,11 @@ extension String {
     public var length: Int {
         return self.characters.count
     }
+    
+    /// EZSE: counts number of instances of the input inside String
+    func count(substring: String) -> Int{
+        return componentsSeparatedByString(substring).count-1
+    }
 
     /// EZSwiftExtensions
     public var capitalizeFirst: String {
