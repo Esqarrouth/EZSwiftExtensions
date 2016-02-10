@@ -8,7 +8,7 @@
 import UIKit
 
 extension String {
-    
+  
     /// EZSwiftExtensions
     public subscript(integerIndex: Int) -> Character {
         let index = startIndex.advancedBy(integerIndex)
@@ -110,7 +110,17 @@ extension String {
             return nil
         }
     }
+  
+    /// EZSE: Converts String to Bool
+    func toBool() -> Bool? {
+      let trimmed = self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).lowercaseString
     
+      if trimmed == "true" || trimmed == "false" {
+        return (trimmed as NSString).boolValue
+      }
+      return nil
+    }
+  
     ///EZSE: Returns the first index of the occurency of the character in String
     public func getIndexOf(char: Character) -> Int {
         for (index, c) in characters.enumerate() {
