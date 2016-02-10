@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C2E41FEF1C6A57E800643CBA /* NSTimerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E41FEE1C6A57E800643CBA /* NSTimerExtensions.swift */; };
 		C85840ED1C43B05200595696 /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85840EC1C43B05200595696 /* NSURLExtensions.swift */; };
 		E1839DB91BF79335002212C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839DB81BF79335002212C6 /* AppDelegate.swift */; };
 		E1839DBB1BF79335002212C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839DBA1BF79335002212C6 /* ViewController.swift */; };
@@ -46,7 +45,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C2E41FEE1C6A57E800643CBA /* NSTimerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTimerExtensions.swift; sourceTree = "<group>"; };
 		C85840EC1C43B05200595696 /* NSURLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSURLExtensions.swift; path = Sources/NSURLExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1839DB51BF79335002212C6 /* EZSwiftExtensionsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZSwiftExtensionsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1839DB81BF79335002212C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = EZSwiftExtensionsExample/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
@@ -130,7 +128,6 @@
 				E1839E1C1BF79974002212C6 /* UIViewControllerExtensions.swift */,
 				E1839E1D1BF79974002212C6 /* UIViewExtensions.swift */,
 				C85840EC1C43B05200595696 /* NSURLExtensions.swift */,
-				C2E41FEE1C6A57E800643CBA /* NSTimerExtensions.swift */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -245,7 +242,6 @@
 				E1839E351BF79974002212C6 /* UIImageViewExtensions.swift in Sources */,
 				E1839E371BF79974002212C6 /* UITextViewExtensions.swift in Sources */,
 				E1839E2F1BF79974002212C6 /* UIButtonExtensions.swift in Sources */,
-				C2E41FEF1C6A57E800643CBA /* NSTimerExtensions.swift in Sources */,
 				E1839E301BF79974002212C6 /* UIColoredView.swift in Sources */,
 				E1839E1E1BF79974002212C6 /* ArrayExtensions.swift in Sources */,
 				E1839E2D1BF79974002212C6 /* NSObjectExtentions.swift in Sources */,
