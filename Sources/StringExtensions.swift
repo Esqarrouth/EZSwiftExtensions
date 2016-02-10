@@ -53,7 +53,15 @@ extension String {
         let firstMatch = dataDetector?.firstMatchInString(self, options: NSMatchingOptions.ReportCompletion, range: NSMakeRange(0, length))
         return (firstMatch?.range.location != NSNotFound && firstMatch?.URL?.scheme == "mailto")
     }
-    
+  
+    /// EZSE - Returns if String is a number
+    func isNumber() -> Bool {
+      if let _ = NSNumberFormatter().numberFromString(self) {
+        return true
+      }
+      return false
+    }
+  
     /// EZSwiftExtensions
     public var extractURLs: [NSURL] {
         var urls : [NSURL] = []
