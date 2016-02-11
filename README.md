@@ -1,7 +1,7 @@
 # EZSwiftExtensions
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Cocoapods Compatible](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)  
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)  
 <img src="charizard.png" width="200">
 
 How Swift standard types and classes were supposed to work. A collection of useful extensions for the Swift Standard Library, Foundation, and UIKit.
@@ -946,7 +946,7 @@ if let queryParameters = url?.queryParameters {
 
 ## Install via CocoaPods (~10 seconds)
 
-You can use [Cocoapods](http://cocoapods.org/) to install `EZSwiftExtensions` by adding it to your `Podfile`:
+You can use [CocoaPods](http://cocoapods.org/) to install `EZSwiftExtensions` by adding it to your `Podfile`:
 
 ```ruby
 platform :ios, '8.0'
