@@ -27,7 +27,7 @@ public struct ez {
         return NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as String) as! String
     }
 
-    /// EZSE: Returns both app's version and build numbers
+    /// EZSE: Returns both app's version and build numbers "v0.3(7)"
     public static var appVersionAndBuild: String {
         let version = appVersion, build = appBuild
         return version == build ? "v\(version)" : "v\(version)(\(build))"
