@@ -9,9 +9,9 @@
 import UIKit
 
 extension Double {
-    /// EZSwiftExtensions
+    /// EZSE: Converts Double to String
     public var toString: String { return String(self) }
-    /// EZSwiftExtensions
+    /// EZSE: Converts Double to Int
     public var toInt: Int { return Int(self) }
 }
 
