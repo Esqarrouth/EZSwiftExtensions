@@ -101,7 +101,7 @@ public struct ez {
     }
 
     //TODO: Make this easier
-    /// EZSE: runs function after x seconds with dispatch_queue
+    /// EZSE: runs function after x seconds with dispatch_queue, use this syntax: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)		
     public static func runThisAfterDelay(seconds seconds: Double, queue: dispatch_queue_t, after: ()->()) {
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(seconds * Double(NSEC_PER_SEC)))
         dispatch_after(time, queue, after)
