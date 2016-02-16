@@ -11,29 +11,29 @@ import UIKit
 
 public struct ez {
 
-    /// EZSwift Extensions
+    /// EZSE: Returns app's name
     public static var appDisplayName: String {
         return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleDisplayName") as? String
             ?? NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleName") as! String
     }
 
-    /// EZSwift Extensions
+    /// EZSE: Returns app's version number
     public static var appVersion: String {
         return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
     }
 
-    /// EZSwiftExtensions
+    /// EZSE: Return app's build number
     public static var appBuild: String {
         return NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as String) as! String
     }
 
-    /// EZSwiftExtensions
+    /// EZSE: Returns both app's version and build numbers
     public static var appVersionAndBuild: String {
         let version = appVersion, build = appBuild
         return version == build ? "v\(version)" : "v\(version)(\(build))"
     }
 
-    /// EZSwiftExtensions - Gives you the VC on top so you can easily push your popups
+    /// EZSE: Returns top ViewController
     public static var topMostVC: UIViewController? {
         var presentedVC = UIApplication.sharedApplication().keyWindow?.rootViewController
         while let pVC = presentedVC?.presentedViewController {
@@ -46,12 +46,12 @@ public struct ez {
         return presentedVC
     }
 
-    /// EZSwiftExtensions
+    /// EZSE: Returns current screen orientation
     public static var screenOrientation: UIInterfaceOrientation {
         return UIApplication.sharedApplication().statusBarOrientation
     }
 
-    /// EZSwiftExtensions
+    /// EZSE: Returns screen width
     public static var screenWidth: CGFloat {
         if UIInterfaceOrientationIsPortrait(screenOrientation) {
             return UIScreen.mainScreen().bounds.size.width
@@ -60,7 +60,7 @@ public struct ez {
         }
     }
 
-    /// EZSwiftExtensions
+    /// EZSE: Returns screen height
     public static var screenHeight: CGFloat {
         if UIInterfaceOrientationIsPortrait(screenOrientation) {
             return UIScreen.mainScreen().bounds.size.height
@@ -69,12 +69,12 @@ public struct ez {
         }
     }
 
-    /// EZSwiftExtensions
+    /// EZSE: returns StatusBar height
     public static var screenStatusBarHeight: CGFloat {
         return UIApplication.sharedApplication().statusBarFrame.height
     }
 
-    /// EZSwiftExtensions
+    /// EZSE: return screen's height without StatusBar
     public static var screenHeightWithoutStatusBar: CGFloat {
         if UIInterfaceOrientationIsPortrait(screenOrientation) {
             return UIScreen.mainScreen().bounds.size.height - screenStatusBarHeight
@@ -83,7 +83,7 @@ public struct ez {
         }
     }
 
-    /// EZSwiftExtensions - Calls action when a screen shot is taken
+    /// EZSE: Calls action when a screen shot is taken
     public static func detectScreenShot(action: () -> ()) {
         let mainQueue = NSOperationQueue.mainQueue()
         NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationUserDidTakeScreenshotNotification, object: nil, queue: mainQueue) { notification in
@@ -95,29 +95,29 @@ public struct ez {
     // MARK: - Dispatch
 
 
-    /// EZSwiftExtensions
+    /// EZSE: runs function after x seconds
     public static func runThisAfterDelay(seconds seconds: Double, after: () -> ()) {
         runThisAfterDelay(seconds: seconds, queue: dispatch_get_main_queue(), after: after)
     }
 
     //TODO: Make this easier
-    /// EZSwiftExtensions - dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
+    /// EZSE: runs function after x seconds with dispatch_queue
     public static func runThisAfterDelay(seconds seconds: Double, queue: dispatch_queue_t, after: ()->()) {
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(seconds * Double(NSEC_PER_SEC)))
         dispatch_after(time, queue, after)
     }
 
-    /// EZSwiftExtensions - Submits a block for asynchronous execution on the main queue
+    /// EZSE: Submits a block for asynchronous execution on the main queue
     public static func runThisInMainThread(block: dispatch_block_t) {
         dispatch_async(dispatch_get_main_queue(), block)
     }
 
-    /// EZSwiftExtensions - Runs in Default priority queue
+    /// EZSE: Runs in Default priority queue
     public static func runThisInBackground(block: () -> ()) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)
     }
     
-    /// EZSwiftExtensions - Runs every second, to cancel use: timer.invalidate()
+    /// EZSE: Runs every second, to cancel use: timer.invalidate()
     public static func runThisEvery(seconds seconds: NSTimeInterval, handler: NSTimer! -> Void) -> NSTimer {
         let fireDate =  CFAbsoluteTimeGetCurrent()
         let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, fireDate, seconds, 0, 0, handler)
@@ -127,7 +127,7 @@ public struct ez {
 
     // MARK: - DownloadTask
 
-    /// EZSwiftExtensions
+    /// EZSE: downloads image from url string
     public static func requestImage(url: String, success: (UIImage?) -> Void) {
         requestURL(url, success: { (data) -> Void in
             if let d = data {
@@ -136,7 +136,7 @@ public struct ez {
         })
     }
 
-    /// EZSwiftExtensions
+    /// EZSE: downloads JSON from url string
     public static func requestJSON(url: String, success: (AnyObject? -> Void), error: ((NSError) -> Void)?) {
         requestURL(url,
             success: { (data)->Void in
@@ -150,7 +150,7 @@ public struct ez {
         })
     }
 
-    /// EZSwiftExtensions
+    /// EZSE: converts NSData to JSON dictionary
     private static func dataToJsonDict(data: NSData?) -> AnyObject? {
         if let d = data {
             var error: NSError?
@@ -174,7 +174,7 @@ public struct ez {
         }
     }
 
-    /// EZSwiftExtensions
+    /// EZSE: 
     private static func requestURL(url: String, success: (NSData?) -> Void, error: ((NSError) -> Void)? = nil) {
         guard #available(iOS 9, *) else {
             NSURLConnection.sendAsynchronousRequest(
