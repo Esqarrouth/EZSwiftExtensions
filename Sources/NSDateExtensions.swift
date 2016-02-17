@@ -9,7 +9,7 @@ import UIKit
 
 extension NSDate {
     
-    /// EZSwiftExtensions
+    /// EZSE: Initializes NSDate from string and format
     public convenience init?(fromString string: String, format: String) {
         let formatter = NSDateFormatter()
         formatter.dateFormat = format
@@ -20,7 +20,7 @@ extension NSDate {
         }
     }
     
-    /// EZSwiftExtensions
+    /// EZSE: Converts NSDate to String
     public func toString(dateStyle dateStyle: NSDateFormatterStyle = .MediumStyle, timeStyle: NSDateFormatterStyle = .MediumStyle) -> String {
         let formatter = NSDateFormatter()
         formatter.dateStyle = dateStyle
@@ -28,42 +28,42 @@ extension NSDate {
         return formatter.stringFromDate(self)
     }
     
-    /// EZSwiftExtensions
+    /// EZSE: Converts NSDate to String, with format
     public func toString(format format: String) -> String {
         let formatter = NSDateFormatter()
         formatter.dateFormat = format
         return formatter.stringFromDate(self)
     }
     
-    /// EZSwiftExtensions
+    /// EZSE: Calculates how many days passed from now to date
     public func daysInBetweenDate(date: NSDate) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff/86400)
         return diff
     }
     
-    /// EZSwiftExtensions
+    /// EZSE: Calculates how many hours passed from now to date
     public func hoursInBetweenDate(date: NSDate) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff/3600)
         return diff
     }
     
-    /// EZSwiftExtensions
+    /// EZSE: Calculates how many minutes passed from now to date
     public func minutesInBetweenDate(date: NSDate) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff/60)
         return diff
     }
     
-    /// EZSwiftExtensions
+    /// EZSE: Calculates how many seconds passed from now to date
     public func secondsInBetweenDate(date: NSDate) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff)
         return diff
     }
     
-    /// EZSwiftExtensions
+    /// EZSE: Easy creation of time passed String. Can be Years, Months, days, hours, minutes or seconds
     public func timePassed() -> String {
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
@@ -95,11 +95,11 @@ extension NSDate {
 }
 
 extension NSDate: Comparable {}
-
+ /// EZSE: Returns if dates are equal to each other
 public func ==(lhs: NSDate, rhs: NSDate) -> Bool {
     return lhs.isEqualToDate(rhs)
 }
-
+ /// EZSE: Returns if one date is smaller than the other
 public func <(lhs: NSDate, rhs: NSDate) -> Bool {
     return lhs.compare(rhs) == .OrderedAscending
 }
