@@ -13,5 +13,10 @@ extension Double {
     public var toString: String { return String(self) }
     /// EZSE: Converts Double to Int
     public var toInt: Int { return Int(self) }
+    
+    /// EZSE: rounds Double to x decimalPlaces
+    func formatWithDecimalPlaces(decimalPlaces: Int) -> Double {
+        let formattedString = NSString(format: "%.\(decimalPlaces)f", self) as String
+        return Double(formattedString)!
+    }
 }
-
