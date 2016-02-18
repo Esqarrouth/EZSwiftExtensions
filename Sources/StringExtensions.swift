@@ -146,5 +146,29 @@ extension String {
     /// EZSE: Converts String to NSString
     public var toNSString: NSString { get { return self as NSString } }
     
+    ///EZSE: Returns bold NSAttributedString
+    func bold() -> NSAttributedString {
+        let boldString = NSMutableAttributedString(string: self, attributes: [NSFontAttributeName : UIFont.boldSystemFontOfSize(UIFont.systemFontSize())])
+        return boldString
+    }
+  
+    ///EZSE: Returns underlined NSAttributedString
+    func underline() -> NSAttributedString {
+        let underlineString = NSAttributedString(string: self, attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue])
+        return underlineString
+    }
+  
+    ///EZSE: Returns italic NSAttributedString
+    func italic() -> NSAttributedString {
+        let italicString = NSMutableAttributedString(string: self, attributes: [NSFontAttributeName : UIFont.italicSystemFontOfSize(UIFont.systemFontSize())])
+        return italicString
+    }
+  
+    ///EZSE: Returns NSAttributedString
+    func color(color:UIColor) -> NSAttributedString {
+        let colorString = NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName : color])
+        return colorString
+    }
+    
 }
 
