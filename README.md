@@ -71,22 +71,6 @@ ez.requestJSON("http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=face
 }
 ```
 
-Easily run block of codes after a certain delay:
-
-``` swift
-ez.runThisAfterDelay(seconds: 2) { () -> () in
-    print("Prints this 2 seconds later in main queue")
-}
-
-```
-Easily run code after delay in another thread:
-
-``` swift
-ez.runThisAfterDelay(seconds: 2, queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) { () -> () in
-    print("Prints this 2 seconds later in low priority queue")
-}
-```
-
 Easily run code in main thread:
 
 ``` swift
@@ -99,19 +83,6 @@ Easily run code in background:
 ``` swift
 ez.runThisInBackground { () -> () in
     print("Runs this in default priority queue")
-}
-```
-
-Easily run code every seconds:
-
-``` swift
-var count = 0
-ez.runThisEvery(seconds: 1) { (timer) -> Void in
-    print("Will print every second")
-    if count == 3 {
-        timer.invalidate()
-    }
-    count++
 }
 ```
 
@@ -359,6 +330,35 @@ let now = NSDate()
 let now2 = NSDate()
 print(now < now2) // true
 print(now2 < now) // false  
+```
+##NSTimer Extensions
+
+Easily run block of codes after a certain delay:
+
+``` swift
+NSTimer.runThisAfterDelay(seconds: 2) { () -> () in
+    print("Prints this 2 seconds later in main queue")
+}
+
+```
+Easily run code after delay in another thread:
+
+``` swift
+NSTimer.runThisAfterDelay(seconds: 2, queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) { () -> () in
+    print("Prints this 2 seconds later in low priority queue")
+}
+```
+Easily run code every seconds:
+
+``` swift
+var count = 0
+NSTimer.runThisEvery(seconds: 1) { (timer) -> Void in
+    print("Will print every second")
+    if count == 3 {
+        timer.invalidate()
+    }
+    count++
+}
 ```
 
 ##CGRect Extensions
