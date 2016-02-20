@@ -41,3 +41,11 @@ extension NSAttributedString {
         return copy as! NSAttributedString
     }
 }
+
+///EZSE: appends one NSAttributedString to another NSAttributedString
+public func += (inout left: NSAttributedString, right: NSAttributedString) {
+    let ns = NSMutableAttributedString(attributedString: left)
+    ns.appendAttributedString(right)
+    left = ns
+}
+
