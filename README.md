@@ -6,6 +6,28 @@
 
 How Swift standard types and classes were supposed to work. A collection of useful extensions for the Swift Standard Library, Foundation, and UIKit.
 
+### Contents
+
+- [EZ functions and variables](#ez-functions-and-variables)
+- [NSObject](#nsobject-extensions)
+- [Bool](#bool-extensions)
+- [Int](#int-extensions)
+- [Double](#double-extensions)
+- [String](#string-extensions)
+- [Array](#array-extensions)
+- [Dictionary](#dictionary-extensions)
+- [NSDate](#nsdate-extensions)
+- [CGRect](#cgrect-extensions)
+- [UIViewController](#uiviewcontroller-extensions)
+- [UIView](#uiview-extensions)
+- [UITextView](#uitextview-extensions)
+- [UILabel](#uilabel-extensions)
+- [UIImage](#uiimage-extensions)
+- [Block Objects](#block-objects)
+- [UIDevice](#uidevice-extensions)
+- [NSUserDefaults](#nsuserdefaults-extensions)
+- [NSURL](#nsurl-extensions)
+
 ##EZ functions and variables:
 
 Easily access your projects version and build numbers:
