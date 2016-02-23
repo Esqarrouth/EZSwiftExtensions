@@ -22,6 +22,7 @@ How Swift standard types and classes were supposed to work. A collection of usef
 - [UIView](#uiview-extensions)
 - [UITextView](#uitextview-extensions)
 - [UILabel](#uilabel-extensions)
+- [UIImageView](#uiimageview-extensions)
 - [UIImage](#uiimage-extensions)
 - [Block Objects](#block-objects)
 - [UIDevice](#uidevice-extensions)
