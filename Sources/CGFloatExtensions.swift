@@ -13,7 +13,7 @@ extension CGFloat {
     public var center: CGFloat { return (self / 2) }
 }
 
-/// EZSwiftExtensions
+/// EZSE: Converts angle degrees to radians
 public func degreesToRadians (angle: CGFloat) -> CGFloat {
     return (CGFloat (M_PI) * angle) / 180.0
 }
