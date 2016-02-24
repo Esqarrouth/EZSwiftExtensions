@@ -277,9 +277,7 @@ extension UIView {
     
     //EZSE: Converts view to a circular frame
     public func makeCircular() {
-        let cntr:CGPoint = self.center
         self.layer.cornerRadius = min(self.frame.size.height, self.frame.size.width) / 2.0
-        self.center = cntr
     }
 }
 
