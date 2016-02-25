@@ -134,13 +134,13 @@ extension String {
     }
     
     ///EZSE: Returns the first index of the occurency of the character in String
-    public func getIndexOf(char: Character) -> Int {
+    public func getIndexOf(char: Character) -> Int? {
         for (index, c) in characters.enumerate() {
             if c == char {
                 return index
             }
         }
-        return 0
+        return nil
     }
     
     /// EZSE: Converts String to NSString
