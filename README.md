@@ -267,7 +267,7 @@ Easily check if an array contains instance of an object:
 
 ``` swift
 var myArray = ["charmander","bulbasaur","squirtle"]
-print(myArray.containsInstanceOf("hey")) // true
+print(myArray.containsInstanceOf("charmander")) // true
 print(myArray.containsInstanceOf(1)) // false
 ```
 
