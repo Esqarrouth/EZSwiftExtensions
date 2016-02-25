@@ -78,21 +78,21 @@ extension UIImage {
         let croppedImage: UIImage = UIImage(CGImage: imageRef!, scale: self.scale, orientation: UIImageOrientation.Up)
         return croppedImage
     }
-
-}
-
-///EZSE: Returns the image associated with the URL
-public convenience init?(urlString:String) {
-    guard let url = NSURL(string: urlString) else
-    {
-        self.init(data:NSData())
-        return
+    
+    ///EZSE: Returns the image associated with the URL
+    public convenience init?(urlString:String) {
+        guard let url = NSURL(string: urlString) else
+        {
+            self.init(data:NSData())
+            return
+        }
+        guard let data = NSData(contentsOfURL: url) else
+        {
+            print("EZSE: No image in URL")
+            self.init(data:NSData())
+            return
+        }
+        self.init(data:data)
     }
-    guard let data = NSData(contentsOfURL: url) else
-    {
-        print("EZSE: No image in URL")
-        self.init(data:NSData())
-        return
-    }
-    self.init(data:data)
+
 }
