@@ -33,14 +33,9 @@ extension UIColor {
         }
     }
     
-    /// EZSwiftExtensions
-    public class func Gray(gray: CGFloat) -> UIColor {
-        return UIColor(r: gray, g: gray, b: gray)
-    }
-    
-    /// EZSwiftExtensions
-    public class func Gray(gray: CGFloat, alpha: CGFloat) -> UIColor {
-        return UIColor(r: gray, g: gray, b: gray, a: alpha)
+    /// EZSE: init method from Gray value
+    public convenience init(gray: CGFloat, alpha: CGFloat = 1) {
+        self.init(red: gray/255, green: gray/255, blue: gray/255, alpha: alpha)
     }
     
     /// EZSwiftExtensions
