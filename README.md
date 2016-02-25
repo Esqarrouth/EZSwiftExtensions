@@ -183,7 +183,7 @@ var myString = "eZSwiftExtensions"
 print(myString[2]) // S
 print(myString[3]) // w
 print(myString[2...4]) // Swi
-print(myString.getIndexOf(w) // 3
+print(myString.getIndexOf("w") // 3
 ```
 
 Easy instance variables:
