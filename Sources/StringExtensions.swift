@@ -28,9 +28,9 @@ extension String {
         return self.characters.count
     }
     
-    /// EZSE: counts number of instances of the input inside String
+    /// EZSE: Counts number of instances of the input inside String
     func count(substring: String) -> Int{
-        return componentsSeparatedByString(substring).count-1
+        return componentsSeparatedByString(substring).count - 1
     }
 
     /// EZSE: Capitalizes first character of String

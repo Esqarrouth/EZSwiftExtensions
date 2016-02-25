@@ -256,6 +256,13 @@ print(myStr.isNumber()) // true
 print(myOtherStr.isNumber()) // false
 ```
 
+Easily count the number of instances of a text inside String:
+
+``` swift
+let str = "yes yes yes yesyesyes"
+print(str.count("yes")) // 6
+```
+
 ##Array Extensions
 Easily access a random element:
 
