@@ -247,6 +247,14 @@ print(myString.toBool()) // false
 print(myOtherString.toBool()) // nil
 ```
 
+Easily check if string is a number:
+
+``` swift
+let myStr = "10.5"
+let myOtherStr = "Legolas"
+print(myStr.isNumber()) // true
+print(myOtherStr.isNumber()) // false
+```
 
 ##Array Extensions
 Easily access a random element:

@@ -62,7 +62,7 @@ extension String {
     /// EZSE: Returns if String is a number
     func isNumber() -> Bool {
         if let _ = NSNumberFormatter().numberFromString(self) {
-        return true
+            return true
         }
         return false
     }
