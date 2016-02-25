@@ -238,8 +238,14 @@ myNumberString.toDouble()
 myNumberString.toFloat()
 ```
 
+Easily get the bool value of a String:
 
-
+``` swift
+let myString = "false"
+let myOtherString = "hello"
+print(myString.toBool()) // false
+print(myOtherString.toBool()) // nil
+```
 
 
 ##Array Extensions
