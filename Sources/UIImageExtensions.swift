@@ -80,19 +80,17 @@ extension UIImage {
     }
     
     ///EZSE: Returns the image associated with the URL
-    public convenience init?(urlString:String) {
-        guard let url = NSURL(string: urlString) else
-        {
-            self.init(data:NSData())
+    public convenience init?(urlString: String) {
+        guard let url = NSURL(string: urlString) else {
+            self.init(data: NSData())
             return
         }
-        guard let data = NSData(contentsOfURL: url) else
-        {
+        guard let data = NSData(contentsOfURL: url) else {
             print("EZSE: No image in URL")
-            self.init(data:NSData())
+            self.init(data: NSData())
             return
         }
-        self.init(data:data)
+        self.init(data: data)
     }
 
 }
