@@ -33,7 +33,7 @@ public struct ez {
         return version == build ? "v\(version)" : "v\(version)(\(build))"
     }
 
-    /// EZSE: Returns top ViewController
+    /// EZSE: Returns the top ViewController
     public static var topMostVC: UIViewController? {
         var presentedVC = UIApplication.sharedApplication().keyWindow?.rootViewController
         while let pVC = presentedVC?.presentedViewController {
