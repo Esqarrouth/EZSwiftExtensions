@@ -148,7 +148,7 @@ extension String {
     
     ///EZSE: Returns bold NSAttributedString
     func bold() -> NSAttributedString {
-        let boldString = NSMutableAttributedString(string: self, attributes: [NSFontAttributeName : UIFont.boldSystemFontOfSize(UIFont.systemFontSize())])
+        let boldString = NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.boldSystemFontOfSize(UIFont.systemFontSize())])
         return boldString
     }
   
@@ -160,13 +160,13 @@ extension String {
   
     ///EZSE: Returns italic NSAttributedString
     func italic() -> NSAttributedString {
-        let italicString = NSMutableAttributedString(string: self, attributes: [NSFontAttributeName : UIFont.italicSystemFontOfSize(UIFont.systemFontSize())])
+        let italicString = NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFontOfSize(UIFont.systemFontSize())])
         return italicString
     }
   
     ///EZSE: Returns NSAttributedString
-    func color(color:UIColor) -> NSAttributedString {
-        let colorString = NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName : color])
+    func color(color: UIColor) -> NSAttributedString {
+        let colorString = NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
         return colorString
     }
     
