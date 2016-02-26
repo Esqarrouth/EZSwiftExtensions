@@ -69,12 +69,12 @@ public struct ez {
         }
     }
 
-    /// EZSE: returns StatusBar height
+    /// EZSE: Returns StatusBar height
     public static var screenStatusBarHeight: CGFloat {
         return UIApplication.sharedApplication().statusBarFrame.height
     }
 
-    /// EZSE: return screen's height without StatusBar
+    /// EZSE: Return screen's height without StatusBar
     public static var screenHeightWithoutStatusBar: CGFloat {
         if UIInterfaceOrientationIsPortrait(screenOrientation) {
             return UIScreen.mainScreen().bounds.size.height - screenStatusBarHeight
@@ -95,13 +95,13 @@ public struct ez {
     // MARK: - Dispatch
 
 
-    /// EZSE: runs function after x seconds
+    /// EZSE: Runs function after x seconds
     public static func runThisAfterDelay(seconds seconds: Double, after: () -> ()) {
         runThisAfterDelay(seconds: seconds, queue: dispatch_get_main_queue(), after: after)
     }
 
     //TODO: Make this easier
-    /// EZSE: runs function after x seconds with dispatch_queue, use this syntax: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)		
+    /// EZSE: Runs function after x seconds with dispatch_queue, use this syntax: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
     public static func runThisAfterDelay(seconds seconds: Double, queue: dispatch_queue_t, after: ()->()) {
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(seconds * Double(NSEC_PER_SEC)))
         dispatch_after(time, queue, after)
@@ -119,7 +119,7 @@ public struct ez {
     
     /// EZSE: Runs every second, to cancel use: timer.invalidate()
     public static func runThisEvery(seconds seconds: NSTimeInterval, handler: NSTimer! -> Void) -> NSTimer {
-        let fireDate =  CFAbsoluteTimeGetCurrent()
+        let fireDate = CFAbsoluteTimeGetCurrent()
         let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, fireDate, seconds, 0, 0, handler)
         CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, kCFRunLoopCommonModes)
         return timer
@@ -127,7 +127,7 @@ public struct ez {
 
     // MARK: - DownloadTask
 
-    /// EZSE: downloads image from url string
+    /// EZSE: Downloads image from url string
     public static func requestImage(url: String, success: (UIImage?) -> Void) {
         requestURL(url, success: { (data) -> Void in
             if let d = data {
@@ -136,7 +136,7 @@ public struct ez {
         })
     }
 
-    /// EZSE: downloads JSON from url string
+    /// EZSE: Downloads JSON from url string
     public static func requestJSON(url: String, success: (AnyObject? -> Void), error: ((NSError) -> Void)?) {
         requestURL(url,
             success: { (data)->Void in
