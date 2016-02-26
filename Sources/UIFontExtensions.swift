@@ -57,26 +57,22 @@ extension UIFont {
     
     /// EZSwiftExtensions
     public class func Font(name: FontName, type: FontType, size: CGFloat) -> UIFont! {
-      
       //Using type
       let fontName = name.rawValue + "-" + type.rawValue
-      if let font = UIFont(name: fontName, size: size)
-      {
-        return font
+      if let font = UIFont(name: fontName, size: size) {
+          return font
       }
       
       //That font doens't have that type, try .None
       let fontNameNone = name.rawValue
-      if let font = UIFont(name: fontNameNone, size: size)
-      {
-        return font
+      if let font = UIFont(name: fontNameNone, size: size) {
+          return font
       }
       
       //That font doens't have that type, try .Regular
       let fontNameRegular = name.rawValue + "-" + "Regular"
-      if let font = UIFont(name: fontNameRegular, size: size)
-      {
-        return font
+      if let font = UIFont(name: fontNameRegular, size: size) {
+          return font
       }
       
       return nil
@@ -99,7 +95,7 @@ extension UIFont {
     
     /// EZSwiftExtensions
     public class func AvenirNextRegular(size size: CGFloat) -> UIFont {
-      return Font(.AvenirNext, type: .Regular, size: size)
+        return Font(.AvenirNext, type: .Regular, size: size)
     }
 }
 
