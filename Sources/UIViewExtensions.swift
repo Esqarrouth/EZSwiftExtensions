@@ -274,11 +274,7 @@ extension UIView {
         transform = CATransform3DScale(transform, x, y, 1)
         self.layer.transform = transform
     }
-    
-    //EZSE: Converts view to a circular frame
-    public func makeCircular() {
-        self.layer.cornerRadius = min(self.frame.size.height, self.frame.size.width) / 2.0
-    }
+
 }
 
 // MARK: Layer Extensions
@@ -513,9 +509,10 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    public func round() {
-        self.layer.cornerRadius = self.frame.size.width / 2
+    public func roundView() {
+        self.layer.cornerRadius = min(self.frame.size.height, self.frame.size.width) / 2
     }
+    
 }
 
 extension UIView {
