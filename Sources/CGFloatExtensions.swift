@@ -9,7 +9,7 @@
 import UIKit
 
 extension CGFloat {
-    /// EZSwiftExtensions
+    /// EZSE: Return the central value of CGFloat.
     public var center: CGFloat { return (self / 2) }
   
     /// EZSwiftExtensions
@@ -26,8 +26,9 @@ extension CGFloat {
     public mutating func toRadiansInPlace() {
         self = (CGFloat (M_PI) * self) / 180.0
     }
+
+    /// EZSE: Converts angle degrees to radians.
+    public func degreesToRadians (angle: CGFloat) -> CGFloat {
+        return (CGFloat (M_PI) * angle) / 180.0
+    }
 }
-
-
-
-

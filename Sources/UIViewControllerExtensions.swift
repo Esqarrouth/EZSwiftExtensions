@@ -221,5 +221,23 @@ extension UIViewController {
         self.addChildViewController(vc)
         vc.didMoveToParentViewController(self)
     }
+    
+    ///EZSE: Adds image named: as a UIImageView in the Background
+    func setBackgroundImage(named: String) {
+        let image = UIImage(named: named)
+        let imageView = UIImageView(frame: view.frame)
+        imageView.image = image
+        view.addSubview(imageView)
+        view.sendSubviewToBack(imageView)
+    }
+    
+    ///EZSE: Adds UIImage as a UIImageView in the Background
+    @nonobjc func setBackgroundImage(image: UIImage) {
+        let imageView = UIImageView(frame: view.frame)
+        imageView.image = image
+        view.addSubview(imageView)
+        view.sendSubviewToBack(imageView)
+    }
+
 }
 

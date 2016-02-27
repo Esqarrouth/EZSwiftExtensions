@@ -10,7 +10,7 @@ import UIKit
 
 extension CGRect {
     
-    /// EZSwiftExtensions
+    /// EZSE: Easier initialization of CGRect
     public init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
         self.init(x: x, y: y, width: w, height: h)
     }

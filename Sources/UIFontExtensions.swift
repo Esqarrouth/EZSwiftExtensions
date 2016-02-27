@@ -56,11 +56,26 @@ extension UIFont {
     }
     
     /// EZSwiftExtensions
-    public class func Font(name: FontName, type: FontType, size: CGFloat) -> UIFont {
-        if type == FontType.None {
-            return UIFont(name: name.rawValue, size: size)!
-        }
-        return UIFont(name: name.rawValue + "-" + type.rawValue, size: size)!
+    public class func Font(name: FontName, type: FontType, size: CGFloat) -> UIFont! {
+      //Using type
+      let fontName = name.rawValue + "-" + type.rawValue
+      if let font = UIFont(name: fontName, size: size) {
+          return font
+      }
+      
+      //That font doens't have that type, try .None
+      let fontNameNone = name.rawValue
+      if let font = UIFont(name: fontNameNone, size: size) {
+          return font
+      }
+      
+      //That font doens't have that type, try .Regular
+      let fontNameRegular = name.rawValue + "-" + "Regular"
+      if let font = UIFont(name: fontNameRegular, size: size) {
+          return font
+      }
+      
+      return nil
     }
     
     /// EZSwiftExtensions
@@ -70,17 +85,17 @@ extension UIFont {
     
     /// EZSwiftExtensions
     public class func AvenirNext(type type: FontType, size: CGFloat) -> UIFont {
-        return UIFont.Font(.AvenirNext, type: type, size: size)
+        return Font(.AvenirNext, type: type, size: size)
     }
     
     /// EZSwiftExtensions
     public class func AvenirNextDemiBold(size size: CGFloat) -> UIFont {
-        return AvenirNext(type: .DemiBold, size: size)
+        return Font(.AvenirNext, type: .DemiBold, size: size)
     }
     
     /// EZSwiftExtensions
     public class func AvenirNextRegular(size size: CGFloat) -> UIFont {
-        return AvenirNext(type: .Regular, size: size)
+        return Font(.AvenirNext, type: .Regular, size: size)
     }
 }
 

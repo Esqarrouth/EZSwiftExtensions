@@ -41,6 +41,8 @@
 		E1839E371BF79974002212C6 /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E1B1BF79974002212C6 /* UITextViewExtensions.swift */; };
 		E1839E381BF79974002212C6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E1C1BF79974002212C6 /* UIViewControllerExtensions.swift */; };
 		E1839E391BF79974002212C6 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E1D1BF79974002212C6 /* UIViewExtensions.swift */; };
+		E197F7BD1C7FCE9D00FC6144 /* NSTimerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197F7BC1C7FCE9D00FC6144 /* NSTimerExtensions.swift */; };
+		E197F7BF1C7FD8C500FC6144 /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197F7BE1C7FD8C500FC6144 /* NSAttributedStringExtensions.swift */; };
 		E1CB3C1C1C25FFA000DF77CD /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB3C1B1C25FFA000DF77CD /* DoubleExtensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +83,8 @@
 		E1839E1B1BF79974002212C6 /* UITextViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextViewExtensions.swift; path = Sources/UITextViewExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1839E1C1BF79974002212C6 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = Sources/UIViewControllerExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1839E1D1BF79974002212C6 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = Sources/UIViewExtensions.swift; sourceTree = SOURCE_ROOT; };
+		E197F7BC1C7FCE9D00FC6144 /* NSTimerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTimerExtensions.swift; sourceTree = "<group>"; };
+		E197F7BE1C7FD8C500FC6144 /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
 		E1CB3C1B1C25FFA000DF77CD /* DoubleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleExtensions.swift; path = Sources/DoubleExtensions.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -113,8 +117,10 @@
 				E1CB3C1B1C25FFA000DF77CD /* DoubleExtensions.swift */,
 				E1839E0E1BF79974002212C6 /* EZSwiftExtensions.swift */,
 				E1839E0F1BF79974002212C6 /* IntExtentions.swift */,
+				E197F7BE1C7FD8C500FC6144 /* NSAttributedStringExtensions.swift */,
 				E1839E101BF79974002212C6 /* NSDateExtensions.swift */,
 				E1839E111BF79974002212C6 /* NSObjectExtentions.swift */,
+				E197F7BC1C7FCE9D00FC6144 /* NSTimerExtensions.swift */,
 				E1839E121BF79974002212C6 /* StringExtensions.swift */,
 				E1839E131BF79974002212C6 /* UIButtonExtensions.swift */,
 				E1839E141BF79974002212C6 /* UIColoredView.swift */,
@@ -245,6 +251,7 @@
 				E1839E301BF79974002212C6 /* UIColoredView.swift in Sources */,
 				E1839E1E1BF79974002212C6 /* ArrayExtensions.swift in Sources */,
 				E1839E2D1BF79974002212C6 /* NSObjectExtentions.swift in Sources */,
+				E197F7BD1C7FCE9D00FC6144 /* NSTimerExtensions.swift in Sources */,
 				E1839DB91BF79335002212C6 /* AppDelegate.swift in Sources */,
 				E1839E201BF79974002212C6 /* BlockLongPress.swift in Sources */,
 				E1839E381BF79974002212C6 /* UIViewControllerExtensions.swift in Sources */,
@@ -261,6 +268,7 @@
 				E1839E241BF79974002212C6 /* BlockTap.swift in Sources */,
 				E1839E1F1BF79974002212C6 /* BlockButton.swift in Sources */,
 				E1839E311BF79974002212C6 /* UIColorExtensions.swift in Sources */,
+				E197F7BF1C7FD8C500FC6144 /* NSAttributedStringExtensions.swift in Sources */,
 				E1839E251BF79974002212C6 /* BlockWebView.swift in Sources */,
 				E1839E231BF79974002212C6 /* BlockSwipe.swift in Sources */,
 				E1839E221BF79974002212C6 /* BlockPinch.swift in Sources */,

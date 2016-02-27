@@ -1,10 +1,33 @@
 # EZSwiftExtensions
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Cocoapods Compatible](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)  
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)  
 <img src="charizard.png" width="200">
 
 How Swift standard types and classes were supposed to work. A collection of useful extensions for the Swift Standard Library, Foundation, and UIKit.
+
+### Contents
+
+- [EZ functions and variables](#ez-functions-and-variables)
+- [NSObject](#nsobject-extensions)
+- [Bool](#bool-extensions)
+- [Int](#int-extensions)
+- [Double](#double-extensions)
+- [String](#string-extensions)
+- [Array](#array-extensions)
+- [Dictionary](#dictionary-extensions)
+- [NSDate](#nsdate-extensions)
+- [CGRect](#cgrect-extensions)
+- [UIViewController](#uiviewcontroller-extensions)
+- [UIView](#uiview-extensions)
+- [UITextView](#uitextview-extensions)
+- [UILabel](#uilabel-extensions)
+- [UIImageView](#uiimageview-extensions)
+- [UIImage](#uiimage-extensions)
+- [Block Objects](#block-objects)
+- [UIDevice](#uidevice-extensions)
+- [NSUserDefaults](#nsuserdefaults-extensions)
+- [NSURL](#nsurl-extensions)
 
 ##EZ functions and variables:
 
@@ -82,22 +105,6 @@ ez.requestJSON("http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=face
 }
 ```
 
-Easily run block of codes after a certain delay:
-
-``` swift
-ez.runThisAfterDelay(seconds: 2) { () -> () in
-    print("Prints this 2 seconds later in main queue")
-}
-
-```
-Easily run code after delay in another thread:
-
-``` swift
-ez.runThisAfterDelay(seconds: 2, queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) { () -> () in
-    print("Prints this 2 seconds later in low priority queue")
-}
-```
-
 Easily run code in main thread:
 
 ``` swift
@@ -110,19 +117,6 @@ Easily run code in background:
 ``` swift
 ez.runThisInBackground { () -> () in
     print("Runs this in default priority queue")
-}
-```
-
-Easily run code every seconds:
-
-``` swift
-var count = 0
-ez.runThisEvery(seconds: 1) { (timer) -> Void in
-    print("Will print every second")
-    if count == 3 {
-        timer.invalidate()
-    }
-    count++
 }
 ```
 
@@ -200,6 +194,7 @@ var myString = "eZSwiftExtensions"
 print(myString[2]) // S
 print(myString[3]) // w
 print(myString[2...4]) // Swi
+print(myString.getIndexOf("w") // 3
 ```
 
 Easy instance variables:
@@ -253,6 +248,32 @@ myNumberString.toInt()
 myNumberString.toDouble()
 myNumberString.toFloat()
 ```
+
+Easily get the bool value of a String:
+
+``` swift
+let myString = "false"
+let myOtherString = "hello"
+print(myString.toBool()) // false
+print(myOtherString.toBool()) // nil
+```
+
+Easily check if string is a number:
+
+``` swift
+let myStr = "10.5"
+let myOtherStr = "Legolas"
+print(myStr.isNumber()) // true
+print(myOtherStr.isNumber()) // false
+```
+
+Easily count the number of instances of a text inside String:
+
+``` swift
+let str = "yes yes yes yesyesyes"
+print(str.count("yes")) // 6
+```
+
 ##Array Extensions
 Easily access a random element:
 
@@ -278,7 +299,7 @@ Easily check if an array contains instance of an object:
 
 ``` swift
 var myArray = ["charmander","bulbasaur","squirtle"]
-print(myArray.containsInstanceOf("hey")) // true
+print(myArray.containsInstanceOf("charmander")) // true
 print(myArray.containsInstanceOf(1)) // false
 ```
 
@@ -326,6 +347,8 @@ Easily convert date into string:
 ``` swift
 let now = NSDate()
 print(now.toString())
+print(now.toString(dateStyle: .MediumStyle, timeStyle: .MediumStyle))
+print(now.toString(format: "yyyy/MM/dd HH:mm:ss"))
 ```
 
 Easily see how much time passed:
@@ -362,6 +385,35 @@ let now = NSDate()
 let now2 = NSDate()
 print(now < now2) // true
 print(now2 < now) // false  
+```
+##NSTimer Extensions
+
+Easily run block of codes after a certain delay:
+
+``` swift
+NSTimer.runThisAfterDelay(seconds: 2) { () -> () in
+    print("Prints this 2 seconds later in main queue")
+}
+
+```
+Easily run code after delay in another thread:
+
+``` swift
+NSTimer.runThisAfterDelay(seconds: 2, queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) { () -> () in
+    print("Prints this 2 seconds later in low priority queue")
+}
+```
+Easily run code every seconds:
+
+``` swift
+var count = 0
+NSTimer.runThisEvery(seconds: 1) { (timer) -> Void in
+    print("Will print every second")
+    if count == 3 {
+        timer.invalidate()
+    }
+    count++
+}
 ```
 
 ##CGRect Extensions
@@ -639,6 +691,15 @@ Easily add a shake animation to your view:
 
 ``` swift
 view.shakeViewForTimes(2)
+```
+
+Easily add a background image to your ViewController:
+
+``` swift
+self.setBackgroundImage("img.png")
+//OR
+let image = UIImage()
+self.setBackgroundImage(image)
 ```
 
 ##UITextView Extensions
@@ -940,7 +1001,7 @@ if let queryParameters = url?.queryParameters {
 
 ## Install via CocoaPods (~10 seconds)
 
-You can use [Cocoapods](http://cocoapods.org/) to install `EZSwiftExtensions` by adding it to your `Podfile`:
+You can use [CocoaPods](http://cocoapods.org/) to install `EZSwiftExtensions` by adding it to your `Podfile`:
 
 ```ruby
 platform :ios, '8.0'
