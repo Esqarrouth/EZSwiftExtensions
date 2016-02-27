@@ -29,7 +29,7 @@ class EZSwiftExtensionsTestsNSDate: XCTestCase {
     }
   
     func testDateToString() {
-        let dateToString = NSDate(timeIntervalSince1970: 0).toStringUsingFormat(format)
+        let dateToString = NSDate(timeIntervalSince1970: 0).toString(format: format)
         guard let dateFromString = NSDate(fromString: dateToString, format: format) else {
             XCTFail("Date From String Couldn't be initialized.")
             return
