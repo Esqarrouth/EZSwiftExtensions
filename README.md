@@ -18,6 +18,7 @@ How Swift standard types and classes were supposed to work. A collection of usef
 - [Array](#array-extensions)
 - [Dictionary](#dictionary-extensions)
 - [NSDate](#nsdate-extensions)
+- [NSTimer](#nstimer-extensions)
 - [CGRect](#cgrect-extensions)
 - [UIViewController](#uiviewcontroller-extensions)
 - [UIView](#uiview-extensions)
