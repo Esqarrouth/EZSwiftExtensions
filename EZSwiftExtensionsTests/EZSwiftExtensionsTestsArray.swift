@@ -15,18 +15,37 @@ class EZSwiftExtensionsTestsArray: XCTestCase {
   
     override func setUp() {
         super.setUp()
-        numberArray = [Int](0...20)
+        //[0, 1, 2, 3, 4, 5, 1]
+        numberArray = [Int](0...5)
+        numberArray.append(1)
     }
-
-    func testIndexOf() {
-        XCTAssertEqual(numberArray.indexOf(10), numberArray.indexOfObject(10))
+    
+    func testIndexesOf() {
+        var indexes = numberArray.indexesOf(1)
+        XCTAssertEqual(indexes, [1, 6])
+        
+        indexes = numberArray.indexesOf(12345)
+        XCTAssertEqual(indexes, [])
     }
   
     func testRemoveObject() {
-        var copy = numberArray
-        copy.removeAtIndex(0)
-        numberArray.removeObject(0)
-        XCTAssertEqual(copy, numberArray)
+        let copyArray = numberArray
+        numberArray.removeObject(12345)
+        XCTAssertEqual(numberArray, copyArray)
+        
+        let compareArray = [0, 2, 3, 4, 5, 1]
+        numberArray.removeObject(1)
+        XCTAssertEqual(numberArray, compareArray)
+    }
+    
+    func testRemoveObjects() {
+        let copyArray = numberArray
+        numberArray.removeObjects(12345)
+        XCTAssertEqual(numberArray, copyArray)
+        
+        let compareArray = [0, 2, 3, 4, 5]
+        numberArray.removeObjects(1)
+        XCTAssertEqual(numberArray, compareArray)
     }
   
     func testContainsInstanceOf() {
@@ -36,7 +55,7 @@ class EZSwiftExtensionsTestsArray: XCTestCase {
     }
   
     func testContainsArray() {
-        let array = [Int](2...6)
+        let array = [Int](2...4)
         XCTAssertTrue(numberArray.containsArray(array))
     }
   

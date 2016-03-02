@@ -38,8 +38,8 @@ class EZSwiftExtensionsTestsString: XCTestCase {
     
     func testTrim() {
         string = "space space"
-        let trimmed = string.trim()
-        XCTAssertFalse(trimmed.containsString(" "))
+        string.trim()
+        XCTAssertFalse(string.containsString(" "))
     }
     
     func testIsEmail() {
