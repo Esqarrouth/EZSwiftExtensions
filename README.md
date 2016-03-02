@@ -57,11 +57,22 @@ if UIInterfaceOrientationIsPortrait(ez.screenOrientation) {
 }
 ```
 
-Easily access your screen width & height:
+
+Easily access your screen orientation:
 
 ``` swift
-print(ez.screenWidth) // 375.0 on iPhone6
-print(ez.screenHeight) // 667.0 on iPhone6
+if UIInterfaceOrientationIsPortrait(ez.screenOrientation) {
+  // Screen orientation is portrait
+} else {
+  // Screen orientation is not portrait
+}
+```
+
+Easily access your screen traitCollections:
+
+``` swift
+print(ez.verticalSizeClass) // regular on iPhone6
+print(ez.horizontalSizeClass) // compact  on iPhone6
 ```
 Easily access your status bar height:
 
