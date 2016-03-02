@@ -14,6 +14,7 @@ How Swift standard types and classes were supposed to work. A collection of usef
 - [Int](#int-extensions)
 - [Double](#double-extensions)
 - [String](#string-extensions)
+- [NSAttributedString](#nsattributedstring-extensions)
 - [Array](#array-extensions)
 - [Dictionary](#dictionary-extensions)
 - [NSDate](#nsdate-extensions)
@@ -280,6 +281,36 @@ Easily count the number of instances of a text inside String:
 ``` swift
 let str = "yes yes yes yesyesyes"
 print(str.count("yes")) // 6
+```
+
+##NSAttributedString Extensions
+Easily change the typeface:
+
+``` swift
+var str = NSAttributedString(string: "Hello")
+let attrStr1 = myStr.undeline()
+let attrStr2 = myStr.bold()
+let attrStr3 = myStr.italic()
+```
+
+Easily change the color:
+
+``` swift
+var str = NSAttributedString(string: "Hello")
+str.color(UIColor.blueColor())
+```
+
+Easily use multiple options:
+``` swift
+var str = NSAttributedString(string: "Hello")
+str.bold().underline().color(UIColor.blueColor())
+```
+
+Easily add NSAttributedStrings:
+``` swift
+var str = NSAttributedString(string: "Hello")
+var str2 = NSAttributedString(string: " World")
+str += str2 //Hello World
 ```
 
 ##Array Extensions
@@ -799,8 +830,6 @@ Easily scale images to a certain width:
 let myImageView = UIImageView(x: 80, y: 80, w: 100, h: 100, imageName: "lightsaber")
 myImageView.scaleImageFrameToWidth(width: 20)
 print(myImageView.frame) // (80.0, 80.0, 20.0, 4.59016393442623)
-myImageView.scaleImageFrameToHeight(height: 90)
-print(myImageView.frame) // (80.0, 80.0, 392.14285714, 90.0)       
 ```
 Easily round square images:
 
