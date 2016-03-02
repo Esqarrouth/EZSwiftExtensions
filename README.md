@@ -289,11 +289,11 @@ Easily access a random element:
 var myArray = ["charmander","bulbasaur","squirtle"]
 print(myArray.random()) // bulbasaur or something else
 ```
-Easily find the index of an object:
+Easily find the indexs of an object:
 
 ``` swift
-var myArray = ["charmander","bulbasaur","squirtle"]
-print(myArray.indexOfObject("charmander")) // 0
+var myArray = ["charmander","bulbasaur","squirtle","charmander"]
+print(myArray.indexsOf("charmander")) // [0,3]
 ```
 Easily remove an object:
 
