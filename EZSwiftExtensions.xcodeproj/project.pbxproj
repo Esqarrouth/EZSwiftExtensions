@@ -52,6 +52,7 @@
 		E17878101C8651EB00BC05AA /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E178780F1C8651EB00BC05AA /* NSAttributedStringExtensions.swift */; };
 		E17878121C86520100BC05AA /* NSTimerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878111C86520100BC05AA /* NSTimerExtensions.swift */; };
 		E17878181C8676F100BC05AA /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878171C8676F100BC05AA /* UIAlertControllerExtensions.swift */; };
+		E178781C1C8678AA00BC05AA /* UISliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E178781B1C8678AA00BC05AA /* UISliderExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		E178780F1C8651EB00BC05AA /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
 		E17878111C86520100BC05AA /* NSTimerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTimerExtensions.swift; sourceTree = "<group>"; };
 		E17878171C8676F100BC05AA /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
+		E178781B1C8678AA00BC05AA /* UISliderExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISliderExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 				B5DC87161C0ED34300972D0A /* UIImageExtensions.swift */,
 				B5DC87171C0ED34300972D0A /* UIImageViewExtensions.swift */,
 				B5DC87181C0ED34300972D0A /* UILabelExtensions.swift */,
+				E178781B1C8678AA00BC05AA /* UISliderExtensions.swift */,
 				B5DC87191C0ED34300972D0A /* UITextViewExtensions.swift */,
 				B5DC871A1C0ED34300972D0A /* UIViewControllerExtensions.swift */,
 				B5DC871B1C0ED34300972D0A /* UIViewExtensions.swift */,
@@ -355,6 +358,7 @@
 				B5DC872F1C0ED34300972D0A /* UIColoredView.swift in Sources */,
 				B5DC87301C0ED34300972D0A /* UIColorExtensions.swift in Sources */,
 				B5DC87311C0ED34300972D0A /* UIDeviceExtensions.swift in Sources */,
+				E178781C1C8678AA00BC05AA /* UISliderExtensions.swift in Sources */,
 				B5DC87321C0ED34300972D0A /* UIFontExtensions.swift in Sources */,
 				B5DC87331C0ED34300972D0A /* UIImageExtensions.swift in Sources */,
 				B5DC87341C0ED34300972D0A /* UIImageViewExtensions.swift in Sources */,

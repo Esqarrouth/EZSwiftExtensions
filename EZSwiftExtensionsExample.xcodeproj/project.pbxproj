@@ -11,6 +11,7 @@
 		E17878141C86525300BC05AA /* NSTimerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878131C86525300BC05AA /* NSTimerExtensions.swift */; };
 		E17878161C86525B00BC05AA /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878151C86525A00BC05AA /* NSAttributedStringExtensions.swift */; };
 		E178781A1C86770E00BC05AA /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878191C86770E00BC05AA /* UIAlertControllerExtensions.swift */; };
+		E178781E1C8678F900BC05AA /* UISliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E178781D1C8678F900BC05AA /* UISliderExtensions.swift */; };
 		E1839DB91BF79335002212C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839DB81BF79335002212C6 /* AppDelegate.swift */; };
 		E1839DBB1BF79335002212C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839DBA1BF79335002212C6 /* ViewController.swift */; };
 		E1839DBE1BF79335002212C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1839DBC1BF79335002212C6 /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 		E17878131C86525300BC05AA /* NSTimerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSTimerExtensions.swift; path = Sources/NSTimerExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E17878151C86525A00BC05AA /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSAttributedStringExtensions.swift; path = Sources/NSAttributedStringExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E17878191C86770E00BC05AA /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIAlertControllerExtensions.swift; path = Sources/UIAlertControllerExtensions.swift; sourceTree = SOURCE_ROOT; };
+		E178781D1C8678F900BC05AA /* UISliderExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UISliderExtensions.swift; path = Sources/UISliderExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1839DB51BF79335002212C6 /* EZSwiftExtensionsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZSwiftExtensionsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1839DB81BF79335002212C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = EZSwiftExtensionsExample/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		E1839DBA1BF79335002212C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = EZSwiftExtensionsExample/ViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -133,6 +135,7 @@
 				E1839E181BF79974002212C6 /* UIImageExtensions.swift */,
 				E1839E191BF79974002212C6 /* UIImageViewExtensions.swift */,
 				E1839E1A1BF79974002212C6 /* UILabelExtensions.swift */,
+				E178781D1C8678F900BC05AA /* UISliderExtensions.swift */,
 				E1839E1B1BF79974002212C6 /* UITextViewExtensions.swift */,
 				E1839E1C1BF79974002212C6 /* UIViewControllerExtensions.swift */,
 				E1839E1D1BF79974002212C6 /* UIViewExtensions.swift */,
@@ -258,6 +261,7 @@
 				E17878141C86525300BC05AA /* NSTimerExtensions.swift in Sources */,
 				E1839DB91BF79335002212C6 /* AppDelegate.swift in Sources */,
 				E1839E201BF79974002212C6 /* BlockLongPress.swift in Sources */,
+				E178781E1C8678F900BC05AA /* UISliderExtensions.swift in Sources */,
 				E1839E381BF79974002212C6 /* UIViewControllerExtensions.swift in Sources */,
 				E1839E2A1BF79974002212C6 /* EZSwiftExtensions.swift in Sources */,
 				E1839E391BF79974002212C6 /* UIViewExtensions.swift in Sources */,
