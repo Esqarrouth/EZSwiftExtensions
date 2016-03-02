@@ -229,6 +229,16 @@ extension UIView {
         }
     }
     
+    //EZSE: Remove view's subview from it's x and y locations
+    public func removeSubview(x:Double,y:Double) {
+        for view in self.subviews {
+            if Float(view.frame.origin.x) == Float(x) && Float(view.frame.origin.y) == Float(y) {
+                view.removeFromSuperview()
+                "removed"
+            }
+        }
+    }
+    
 }
 
 // MARK: Transform Extensions
