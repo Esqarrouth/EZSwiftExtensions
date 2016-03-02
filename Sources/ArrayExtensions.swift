@@ -26,18 +26,17 @@ extension Array {
     }
 }
 
-extension Array where Element : Equatable {
+extension Array where Element: Equatable {
 
-    /// EZSE: Returns the indexs of the object
-    public func indexsOf(object: Element) -> [Int] {
-        var indexs = [Int]()
+    /// EZSE: Returns the indexes of the object
+    public func indexesOf(object: Element) -> [Int] {
+        var indexes = [Int]()
         for index in 0..<self.count {
             if self[index] == object {
-                indexs.append(index)
+                indexes.append(index)
             }
         }
-        
-        return indexs
+        return indexes
     }
     
     /// EZSE: Removes the first given object
@@ -49,7 +48,7 @@ extension Array where Element : Equatable {
     
     /// EZSE: Removes all occurrences of the given object
     public mutating func removeObjects(object: Element) {
-        for i in self.indexsOf(object).reverse() {
+        for i in self.indexesOf(object).reverse() {
             self.removeAtIndex(i)
         }
     }
