@@ -9,5 +9,15 @@
 import UIKit
 
 extension UISlider {
-
+    
+    ///EZSE: Slider moving to value with animation duration
+    public func setValue(value: Float, duration: Double) {
+      UIView.animateWithDuration(duration, animations: { () -> Void in
+        self.setValue(self.value, animated: true)
+        }) { (bol) -> Void in
+          UIView.animateWithDuration(duration, animations: { () -> Void in
+            self.setValue(value, animated: true)
+            }, completion: nil)
+      }
+    }
 }
