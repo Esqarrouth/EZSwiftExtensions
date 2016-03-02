@@ -2,6 +2,10 @@
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)  
+[![License](https://img.shields.io/cocoapods/l/EZSwiftExtensions.svg?style=flat)](http://cocoapods.org/pods/EZSwiftExtensions)
+[![Platform](https://img.shields.io/cocoapods/p/EZSwiftExtensions.svg?style=flat)](http://cocoapods.org/pods/EZSwiftExtensions)
+[![Language](https://img.shields.io/badge/swift-2.1-orange.svg)](http://swift.org)
+
 <img src="charizard.png" width="200">
 
 How Swift standard types and classes were supposed to work. A collection of useful extensions for the Swift Standard Library, Foundation, and UIKit.
