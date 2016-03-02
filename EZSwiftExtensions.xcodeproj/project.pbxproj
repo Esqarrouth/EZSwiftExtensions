@@ -54,6 +54,7 @@
 		E17878181C8676F100BC05AA /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878171C8676F100BC05AA /* UIAlertControllerExtensions.swift */; };
 		E178781C1C8678AA00BC05AA /* UISliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E178781B1C8678AA00BC05AA /* UISliderExtensions.swift */; };
 		E17878201C867E9400BC05AA /* CharacterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E178781F1C867E9400BC05AA /* CharacterExtensions.swift */; };
+		E17878241C86861900BC05AA /* UIWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878231C86861900BC05AA /* UIWindowExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		E17878171C8676F100BC05AA /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
 		E178781B1C8678AA00BC05AA /* UISliderExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISliderExtensions.swift; sourceTree = "<group>"; };
 		E178781F1C867E9400BC05AA /* CharacterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterExtensions.swift; sourceTree = "<group>"; };
+		E17878231C86861900BC05AA /* UIWindowExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindowExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 				B5DC870E1C0ED34300972D0A /* NSObjectExtentions.swift */,
 				B5DC870F1C0ED34300972D0A /* NSUserDefaultsExtension.swift */,
 				E17878111C86520100BC05AA /* NSTimerExtensions.swift */,
+				C85840EA1C43B02C00595696 /* NSURLExtensions.swift */,
 				B5DC87101C0ED34300972D0A /* StringExtensions.swift */,
 				B5DC87111C0ED34300972D0A /* UIButtonExtensions.swift */,
 				E17878171C8676F100BC05AA /* UIAlertControllerExtensions.swift */,
@@ -221,7 +224,7 @@
 				B5DC87191C0ED34300972D0A /* UITextViewExtensions.swift */,
 				B5DC871A1C0ED34300972D0A /* UIViewControllerExtensions.swift */,
 				B5DC871B1C0ED34300972D0A /* UIViewExtensions.swift */,
-				C85840EA1C43B02C00595696 /* NSURLExtensions.swift */,
+				E17878231C86861900BC05AA /* UIWindowExtensions.swift */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -336,6 +339,7 @@
 			files = (
 				31F868DB1C2B6E5E00542250 /* DoubleExtensions.swift in Sources */,
 				B5DC871C1C0ED34300972D0A /* ArrayExtensions.swift in Sources */,
+				E17878241C86861900BC05AA /* UIWindowExtensions.swift in Sources */,
 				B5DC871D1C0ED34300972D0A /* BlockButton.swift in Sources */,
 				B5DC871E1C0ED34300972D0A /* BlockLongPress.swift in Sources */,
 				B5DC871F1C0ED34300972D0A /* BlockPan.swift in Sources */,

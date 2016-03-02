@@ -13,6 +13,7 @@
 		E178781A1C86770E00BC05AA /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878191C86770E00BC05AA /* UIAlertControllerExtensions.swift */; };
 		E178781E1C8678F900BC05AA /* UISliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E178781D1C8678F900BC05AA /* UISliderExtensions.swift */; };
 		E17878221C867EAB00BC05AA /* CharacterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878211C867EAB00BC05AA /* CharacterExtensions.swift */; };
+		E17878261C86863900BC05AA /* UIWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878251C86863900BC05AA /* UIWindowExtensions.swift */; };
 		E1839DB91BF79335002212C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839DB81BF79335002212C6 /* AppDelegate.swift */; };
 		E1839DBB1BF79335002212C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839DBA1BF79335002212C6 /* ViewController.swift */; };
 		E1839DBE1BF79335002212C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1839DBC1BF79335002212C6 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		E17878191C86770E00BC05AA /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIAlertControllerExtensions.swift; path = Sources/UIAlertControllerExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E178781D1C8678F900BC05AA /* UISliderExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UISliderExtensions.swift; path = Sources/UISliderExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E17878211C867EAB00BC05AA /* CharacterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterExtensions.swift; path = Sources/CharacterExtensions.swift; sourceTree = SOURCE_ROOT; };
+		E17878251C86863900BC05AA /* UIWindowExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIWindowExtensions.swift; path = Sources/UIWindowExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1839DB51BF79335002212C6 /* EZSwiftExtensionsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZSwiftExtensionsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1839DB81BF79335002212C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = EZSwiftExtensionsExample/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		E1839DBA1BF79335002212C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = EZSwiftExtensionsExample/ViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -128,6 +130,7 @@
 				E1839E101BF79974002212C6 /* NSDateExtensions.swift */,
 				E1839E111BF79974002212C6 /* NSObjectExtentions.swift */,
 				E17878131C86525300BC05AA /* NSTimerExtensions.swift */,
+				C85840EC1C43B05200595696 /* NSURLExtensions.swift */,
 				E1839E121BF79974002212C6 /* StringExtensions.swift */,
 				E17878191C86770E00BC05AA /* UIAlertControllerExtensions.swift */,
 				E1839E131BF79974002212C6 /* UIButtonExtensions.swift */,
@@ -142,7 +145,7 @@
 				E1839E1B1BF79974002212C6 /* UITextViewExtensions.swift */,
 				E1839E1C1BF79974002212C6 /* UIViewControllerExtensions.swift */,
 				E1839E1D1BF79974002212C6 /* UIViewExtensions.swift */,
-				C85840EC1C43B05200595696 /* NSURLExtensions.swift */,
+				E17878251C86863900BC05AA /* UIWindowExtensions.swift */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				E17878141C86525300BC05AA /* NSTimerExtensions.swift in Sources */,
 				E1839DB91BF79335002212C6 /* AppDelegate.swift in Sources */,
 				E1839E201BF79974002212C6 /* BlockLongPress.swift in Sources */,
+				E17878261C86863900BC05AA /* UIWindowExtensions.swift in Sources */,
 				E178781E1C8678F900BC05AA /* UISliderExtensions.swift in Sources */,
 				E1839E381BF79974002212C6 /* UIViewControllerExtensions.swift in Sources */,
 				E1839E2A1BF79974002212C6 /* EZSwiftExtensions.swift in Sources */,
