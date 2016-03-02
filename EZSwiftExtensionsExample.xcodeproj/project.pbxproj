@@ -10,6 +10,7 @@
 		C85840ED1C43B05200595696 /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85840EC1C43B05200595696 /* NSURLExtensions.swift */; };
 		E17878141C86525300BC05AA /* NSTimerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878131C86525300BC05AA /* NSTimerExtensions.swift */; };
 		E17878161C86525B00BC05AA /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878151C86525A00BC05AA /* NSAttributedStringExtensions.swift */; };
+		E178781A1C86770E00BC05AA /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878191C86770E00BC05AA /* UIAlertControllerExtensions.swift */; };
 		E1839DB91BF79335002212C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839DB81BF79335002212C6 /* AppDelegate.swift */; };
 		E1839DBB1BF79335002212C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839DBA1BF79335002212C6 /* ViewController.swift */; };
 		E1839DBE1BF79335002212C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1839DBC1BF79335002212C6 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		C85840EC1C43B05200595696 /* NSURLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSURLExtensions.swift; path = Sources/NSURLExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E17878131C86525300BC05AA /* NSTimerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSTimerExtensions.swift; path = Sources/NSTimerExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E17878151C86525A00BC05AA /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSAttributedStringExtensions.swift; path = Sources/NSAttributedStringExtensions.swift; sourceTree = SOURCE_ROOT; };
+		E17878191C86770E00BC05AA /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIAlertControllerExtensions.swift; path = Sources/UIAlertControllerExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1839DB51BF79335002212C6 /* EZSwiftExtensionsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZSwiftExtensionsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1839DB81BF79335002212C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = EZSwiftExtensionsExample/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		E1839DBA1BF79335002212C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = EZSwiftExtensionsExample/ViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -122,6 +124,7 @@
 				E1839E111BF79974002212C6 /* NSObjectExtentions.swift */,
 				E17878131C86525300BC05AA /* NSTimerExtensions.swift */,
 				E1839E121BF79974002212C6 /* StringExtensions.swift */,
+				E17878191C86770E00BC05AA /* UIAlertControllerExtensions.swift */,
 				E1839E131BF79974002212C6 /* UIButtonExtensions.swift */,
 				E1839E141BF79974002212C6 /* UIColoredView.swift */,
 				E1839E151BF79974002212C6 /* UIColorExtensions.swift */,
@@ -241,6 +244,7 @@
 			files = (
 				E1839DBB1BF79335002212C6 /* ViewController.swift in Sources */,
 				E1839E291BF79974002212C6 /* DictionaryExtensions.swift in Sources */,
+				E178781A1C86770E00BC05AA /* UIAlertControllerExtensions.swift in Sources */,
 				E1839E211BF79974002212C6 /* BlockPan.swift in Sources */,
 				E1839E2C1BF79974002212C6 /* NSDateExtensions.swift in Sources */,
 				E1839E321BF79974002212C6 /* UIDeviceExtensions.swift in Sources */,

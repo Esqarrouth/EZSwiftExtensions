@@ -51,6 +51,7 @@
 		C85840EB1C43B02C00595696 /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85840EA1C43B02C00595696 /* NSURLExtensions.swift */; };
 		E17878101C8651EB00BC05AA /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E178780F1C8651EB00BC05AA /* NSAttributedStringExtensions.swift */; };
 		E17878121C86520100BC05AA /* NSTimerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878111C86520100BC05AA /* NSTimerExtensions.swift */; };
+		E17878181C8676F100BC05AA /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878171C8676F100BC05AA /* UIAlertControllerExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		C85840EA1C43B02C00595696 /* NSURLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtensions.swift; sourceTree = "<group>"; };
 		E178780F1C8651EB00BC05AA /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
 		E17878111C86520100BC05AA /* NSTimerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTimerExtensions.swift; sourceTree = "<group>"; };
+		E17878171C8676F100BC05AA /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 				E17878111C86520100BC05AA /* NSTimerExtensions.swift */,
 				B5DC87101C0ED34300972D0A /* StringExtensions.swift */,
 				B5DC87111C0ED34300972D0A /* UIButtonExtensions.swift */,
+				E17878171C8676F100BC05AA /* UIAlertControllerExtensions.swift */,
 				B5DC87121C0ED34300972D0A /* UIColoredView.swift */,
 				B5DC87131C0ED34300972D0A /* UIColorExtensions.swift */,
 				B5DC87141C0ED34300972D0A /* UIDeviceExtensions.swift */,
@@ -347,6 +350,7 @@
 				B5DC872B1C0ED34300972D0A /* NSObjectExtentions.swift in Sources */,
 				B5DC872C1C0ED34300972D0A /* NSUserDefaultsExtension.swift in Sources */,
 				B5DC872D1C0ED34300972D0A /* StringExtensions.swift in Sources */,
+				E17878181C8676F100BC05AA /* UIAlertControllerExtensions.swift in Sources */,
 				B5DC872E1C0ED34300972D0A /* UIButtonExtensions.swift in Sources */,
 				B5DC872F1C0ED34300972D0A /* UIColoredView.swift in Sources */,
 				B5DC87301C0ED34300972D0A /* UIColorExtensions.swift in Sources */,
