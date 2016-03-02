@@ -53,6 +53,7 @@
 		E17878121C86520100BC05AA /* NSTimerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878111C86520100BC05AA /* NSTimerExtensions.swift */; };
 		E17878181C8676F100BC05AA /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878171C8676F100BC05AA /* UIAlertControllerExtensions.swift */; };
 		E178781C1C8678AA00BC05AA /* UISliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E178781B1C8678AA00BC05AA /* UISliderExtensions.swift */; };
+		E17878201C867E9400BC05AA /* CharacterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E178781F1C867E9400BC05AA /* CharacterExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		E17878111C86520100BC05AA /* NSTimerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTimerExtensions.swift; sourceTree = "<group>"; };
 		E17878171C8676F100BC05AA /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
 		E178781B1C8678AA00BC05AA /* UISliderExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISliderExtensions.swift; sourceTree = "<group>"; };
+		E178781F1C867E9400BC05AA /* CharacterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 				B5DC87081C0ED34300972D0A /* CGFloatExtensions.swift */,
 				B5DC87091C0ED34300972D0A /* CGRectExtensions.swift */,
 				B5DC870A1C0ED34300972D0A /* DictionaryExtensions.swift */,
+				E178781F1C867E9400BC05AA /* CharacterExtensions.swift */,
 				31F868DA1C2B6E5E00542250 /* DoubleExtensions.swift */,
 				B5DC870B1C0ED34300972D0A /* EZSwiftExtensions.swift */,
 				B5DC870C1C0ED34300972D0A /* IntExtentions.swift */,
@@ -336,6 +339,7 @@
 				B5DC871D1C0ED34300972D0A /* BlockButton.swift in Sources */,
 				B5DC871E1C0ED34300972D0A /* BlockLongPress.swift in Sources */,
 				B5DC871F1C0ED34300972D0A /* BlockPan.swift in Sources */,
+				E17878201C867E9400BC05AA /* CharacterExtensions.swift in Sources */,
 				B5DC87201C0ED34300972D0A /* BlockPinch.swift in Sources */,
 				B5DC87211C0ED34300972D0A /* BlockSwipe.swift in Sources */,
 				B5DC87221C0ED34300972D0A /* BlockTap.swift in Sources */,
