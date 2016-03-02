@@ -48,10 +48,15 @@ extension String {
     }
     
     /// EZSE: Trims white space and new line characters
-    public mutating func trim() {
-         self = self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    public mutating func trimInPlace() {
+         self = self.trim()
     }
     
+  /// EZSE: Trims white space and new line characters, returns a new string
+    public func trim() -> String {
+        return self.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).joinWithSeparator("")
+  }
+  
     /// EZSE: Checks if String contains Email
     public var isEmail: Bool {
         let dataDetector = try? NSDataDetector(types: NSTextCheckingType.Link.rawValue)

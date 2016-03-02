@@ -50,6 +50,16 @@ public struct ez {
     public static var screenOrientation: UIInterfaceOrientation {
         return UIApplication.sharedApplication().statusBarOrientation
     }
+  
+    /// EZSwiftExtensions
+    public static var horizontalSizeClass : UIUserInterfaceSizeClass {
+      return self.topMostVC?.traitCollection.horizontalSizeClass ?? UIUserInterfaceSizeClass(rawValue: 0)!
+    }
+  
+    /// EZSwiftExtensions
+    public static var verticalSizeClass : UIUserInterfaceSizeClass {
+      return self.topMostVC?.traitCollection.verticalSizeClass ?? UIUserInterfaceSizeClass(rawValue: 0)!
+    }
 
     /// EZSE: Returns screen width
     public static var screenWidth: CGFloat {
