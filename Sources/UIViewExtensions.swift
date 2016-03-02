@@ -536,5 +536,14 @@ extension UIView {
 
 }
 
+extension UIView {
+    ///EZSE: Loops until it finds the top root view. //TODO: Add to readme
+    func rootView() -> UIView {
+        guard superview != nil else {
+            return self
+        }
+        return superview!.rootView()
+    }
+}
 
 
