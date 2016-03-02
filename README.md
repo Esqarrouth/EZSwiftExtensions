@@ -799,6 +799,8 @@ Easily scale images to a certain width:
 let myImageView = UIImageView(x: 80, y: 80, w: 100, h: 100, imageName: "lightsaber")
 myImageView.scaleImageFrameToWidth(width: 20)
 print(myImageView.frame) // (80.0, 80.0, 20.0, 4.59016393442623)
+myImageView.scaleImageFrameToHeight(height: 90)
+print(myImageView.frame) // (80.0, 80.0, 392.14285714, 90.0)       
 ```
 Easily round square images:
 
