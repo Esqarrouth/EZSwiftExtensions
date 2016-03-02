@@ -74,6 +74,14 @@ Easily access your screen traitCollections:
 print(ez.verticalSizeClass) // regular on iPhone6
 print(ez.horizontalSizeClass) // compact  on iPhone6
 ```
+
+Easily access your screen traitCollections:
+
+``` swift
+print(ez.screenWidth) // 375.0 on iPhone6
+print(ez.screenHeight) // 667.0 on iPhone6
+```
+
 Easily access your status bar height:
 
 ``` swift
