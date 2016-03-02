@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B96C3CF1C86895E00BB2A3B /* EZSwiftExtensionsTestsNSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96C3CD1C8688CB00BB2A3B /* EZSwiftExtensionsTestsNSURL.swift */; };
 		31F868DB1C2B6E5E00542250 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F868DA1C2B6E5E00542250 /* DoubleExtensions.swift */; };
 		7605D3121C81FC180046FAC3 /* EZSwiftExtensionsTestsArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605D3021C81FBB80046FAC3 /* EZSwiftExtensionsTestsArray.swift */; };
 		7605D3131C81FC180046FAC3 /* EZSwiftExtensionsTestsBlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605D3031C81FBB80046FAC3 /* EZSwiftExtensionsTestsBlockButton.swift */; };
@@ -66,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B96C3CD1C8688CB00BB2A3B /* EZSwiftExtensionsTestsNSURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwiftExtensionsTestsNSURL.swift; sourceTree = "<group>"; };
 		31F868DA1C2B6E5E00542250 /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
 		7605D3021C81FBB80046FAC3 /* EZSwiftExtensionsTestsArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwiftExtensionsTestsArray.swift; sourceTree = "<group>"; };
 		7605D3031C81FBB80046FAC3 /* EZSwiftExtensionsTestsBlockButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwiftExtensionsTestsBlockButton.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				7605D3071C81FBB80046FAC3 /* EZSwiftExtensionsTestsInt.swift */,
 				7605D3081C81FBB80046FAC3 /* EZSwiftExtensionsTestsNSDate.swift */,
 				7605D3091C81FBB80046FAC3 /* EZSwiftExtensionsTestsString.swift */,
+				0B96C3CD1C8688CB00BB2A3B /* EZSwiftExtensionsTestsNSURL.swift */,
 				B5DC86B81C0ED06700972D0A /* EZSwiftExtensionsTests.swift */,
 				B5DC86BA1C0ED06700972D0A /* Info.plist */,
 			);
@@ -378,6 +381,7 @@
 				7605D3131C81FC180046FAC3 /* EZSwiftExtensionsTestsBlockButton.swift in Sources */,
 				7605D3121C81FC180046FAC3 /* EZSwiftExtensionsTestsArray.swift in Sources */,
 				7605D3171C81FC180046FAC3 /* EZSwiftExtensionsTestsInt.swift in Sources */,
+				0B96C3CF1C86895E00BB2A3B /* EZSwiftExtensionsTestsNSURL.swift in Sources */,
 				B5DC86B91C0ED06700972D0A /* EZSwiftExtensionsTests.swift in Sources */,
 				7605D3191C81FC180046FAC3 /* EZSwiftExtensionsTestsString.swift in Sources */,
 				7605D3151C81FC180046FAC3 /* EZSwiftExtensionsTestsCGFloat.swift in Sources */,
