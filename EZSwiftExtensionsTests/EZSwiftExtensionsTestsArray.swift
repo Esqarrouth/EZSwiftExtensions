@@ -58,5 +58,9 @@ class EZSwiftExtensionsTestsArray: XCTestCase {
         let array = [Int](2...4)
         XCTAssertTrue(numberArray.containsArray(array))
     }
-  
+
+    func testRandom() {
+        XCTAssertNotNil(numberArray.random())
+        XCTAssertNil([].random())
+    }
 }

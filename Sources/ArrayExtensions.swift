@@ -10,7 +10,11 @@ import UIKit
 extension Array {
 
     /// EZSE: Returns a random element from the array.
-    public func random() -> Element {
+    public func random() -> Element? {
+        guard self.count > 0 else {
+            return nil
+        }
+
         let index = Int(arc4random_uniform(UInt32(self.count)))
         return self[index]
     }
