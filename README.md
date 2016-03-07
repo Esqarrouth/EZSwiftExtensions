@@ -361,7 +361,7 @@ Easily access a random element:
 
 ``` swift
 var myDict = ["charmander": "fire","bulbasaur": "grass","squirtle": "water"]
-print(myDict()) // grass or something else
+print(myDict.random()) // grass or something else
 ```
 
 Easily add dictionaries to create new ones:
