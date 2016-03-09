@@ -9,12 +9,12 @@ import UIKit
 
 extension UIColor {
     
-    /// EZSE: init method with RGB values from 0 to 255, instead of 0 to 1
+    /// EZSE: init method with RGB values from 0 to 255, instead of 0 to 1. With alpha(default:1)
     public convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1) {
         self.init(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: a)
     }
 
-    /// EZSwiftExtensions
+    /// EZSE: init method with hex string and alpha(default: 1)
     public convenience init?(hexString: String, alpha: CGFloat = 1.0) {
         var formatted = hexString.stringByReplacingOccurrencesOfString("0x", withString: "")
         formatted = formatted.stringByReplacingOccurrencesOfString("#", withString: "")
@@ -27,40 +27,40 @@ extension UIColor {
         }
     }
     
-    /// EZSE: init method from Gray value
+    /// EZSE: init method from Gray value and alpha(default:1)
     public convenience init(gray: CGFloat, alpha: CGFloat = 1) {
         self.init(red: gray/255, green: gray/255, blue: gray/255, alpha: alpha)
     }
     
-    /// EZSwiftExtensions
+    /// EZSE: Red component of UIColor (get-only)
     public var redComponent: Int {
         var r: CGFloat = 0
         getRed(&r, green: nil, blue: nil, alpha: nil)
         return Int(r * 255)
     }
 
-    /// EZSwiftExtensions
+    /// EZSE: Green component of UIColor (get-only)
     public var greenComponent: Int {
         var g: CGFloat = 0
         getRed(nil, green: &g, blue: nil, alpha: nil)
         return Int(g * 255)
     }
     
-    /// EZSwiftExtensions
+    /// EZSE: blue component of UIColor (get-only)
     public var blueComponent: Int {
         var b: CGFloat = 0
         getRed(nil, green: nil, blue: &b, alpha: nil)
         return Int(b * 255)
     }
     
-    /// EZSwiftExtensions
+    /// EZSE: Alpha of UIColor (get-only)
     public var alpha: Int {
         var a: CGFloat = 0
         getRed(nil, green: nil, blue: nil, alpha: &a)
         return Int(a)
     }
     
-    /// EZSwiftExtensions
+    /// EZSE: Returns random UIColor with random alpha(default: false)
     public static func randomColor(randomAlpha: Bool = false) -> UIColor {
         let randomRed = CGFloat.random()
         let randomGreen = CGFloat.random()
