@@ -63,17 +63,6 @@ if UIInterfaceOrientationIsPortrait(ez.screenOrientation) {
 }
 ```
 
-
-Easily access your screen orientation:
-
-``` swift
-if UIInterfaceOrientationIsPortrait(ez.screenOrientation) {
-  // Screen orientation is portrait
-} else {
-  // Screen orientation is not portrait
-}
-```
-
 Easily access your screen traitCollections:
 
 ``` swift
