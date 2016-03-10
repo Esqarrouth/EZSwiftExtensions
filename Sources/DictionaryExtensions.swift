@@ -13,21 +13,12 @@ extension Dictionary {
         let index: Int = Int(arc4random_uniform(UInt32(self.count)))
         return Array(self.values)[index] as! NSObject
     }
-
-    /// EZSE: Combines the first dictionary with the second and returns single dictionary
-    public func union(other: Dictionary) -> Dictionary {
-        var temp = self
-        for (key,value) in other {
-            temp.updateValue(value, forKey:key)
-        }
-        return temp
-    }
     
     /// EZSE: Union of self and the input dictionaries.
     func union(dictionaries: Dictionary...) -> Dictionary {
         var result = self
-        dictionaries.each { (dictionary) -> Void in
-            dictionary.each { (key, value) -> Void in
+        dictionaries.forEach { (dictionary) -> Void in
+            dictionary.forEach { (key, value) -> Void in
                 _ = result.updateValue(value, forKey: key)
             }
         }
@@ -48,7 +39,7 @@ extension Dictionary {
         //  Intersection
         return filtered.filter { (key: K, value: V) -> Bool in
             //  check for [key: value] in all the dictionaries
-            dictionaries.all { $0.has(key) && $0[key] == value }
+            dictionaries.testAll { $0.has(key) && $0[key] == value }
         }
     }
     
@@ -61,7 +52,7 @@ extension Dictionary {
     /// each [key: value] of self through the mapFunction.
     func toArray<V>(map: (Key, Value) -> V) -> [V] {
         var mapped: [V] = []
-        each {
+        forEach {
             mapped.append(map($0, $1))
         }
         return mapped
@@ -71,7 +62,7 @@ extension Dictionary {
     /// each [key: value] of self through the mapFunction.
     func mapValues<V>(map: (Key, Value) -> V) -> [Key: V] {
         var mapped: [Key: V] = [:]
-        each {
+        forEach {
             mapped[$0] = map($0, $1)
         }
         return mapped
@@ -81,7 +72,7 @@ extension Dictionary {
     /// each [key: value] of self through the mapFunction discarding nil return values.
     func mapFilterValues<V>(map: (Key, Value) -> V?) -> [Key: V] {
         var mapped: [Key: V] = [:]
-        each {
+        forEach {
             if let value = map($0, $1) {
                 mapped[$0] = value
             }
@@ -93,7 +84,7 @@ extension Dictionary {
     /// each [key: value] of self through the mapFunction discarding nil return values.
     func mapFilter<K, V>(map: (Key, Value) -> (K, V)?) -> [K: V] {
         var mapped: [K: V] = [:]
-        each {
+        forEach {
             if let value = map($0, $1) {
                 mapped[value.0] = value.1
             }
@@ -105,18 +96,11 @@ extension Dictionary {
     /// each [key: value] of self through the mapFunction.
     func map<K, V>(map: (Key, Value) -> (K, V)) -> [K: V] {
         var mapped: [K: V] = [:]
-        self.each({
+        forEach {
             let (_key, _value) = map($0, $1)
             mapped[_key] = _value
-        })
-        return mapped
-    }
-    
-    /// EZSE: Loops trough each [key: value] pair in self.
-    func each(each: (Key, Value) -> ()) {
-        for (key, value) in self {
-            each(key, value)
         }
+        return mapped
     }
     
     /// EZSE: Constructs a dictionary containing every [key: value] pair from self
@@ -132,7 +116,7 @@ extension Dictionary {
     }
     
     /// EZSE: Checks if test evaluates true for all the elements in self.
-    func all(test: (Key, Value) -> (Bool)) -> Bool {
+    func testAll(test: (Key, Value) -> (Bool)) -> Bool {
         for (key, value) in self {
             if !test(key, value) {
                 return false
@@ -154,7 +138,6 @@ extension Dictionary where Value: Equatable {
                 }
             }
         }
-        
         return result
     }
 }
@@ -164,4 +147,20 @@ public func += <KeyType, ValueType> (inout left: Dictionary<KeyType, ValueType>,
     for (k, v) in right {
         left.updateValue(v, forKey: k)
     }
+}
+
+/// EZSE: Difference operator
+public func - <K, V: Equatable> (first: [K: V], second: [K: V]) -> [K: V] {
+    return first.difference(second)
+}
+
+
+/// EZSE: Intersection operator
+public func & <K, V: Equatable> (first: [K: V], second: [K: V]) -> [K: V] {
+    return first.intersection(second)
+}
+
+/// EZSE: Union operator
+public func | <K: Hashable, V> (first: [K: V], second: [K: V]) -> [K: V] {
+    return first.union(second)
 }

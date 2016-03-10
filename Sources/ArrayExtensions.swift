@@ -29,22 +29,8 @@ extension Array {
         return false
     }
     
-    /// EZSE: Sorts using block provided
-    func sortUsing<U: Comparable>(block: (Element) -> U?) -> [Element] {
-        return sort {
-            let value1 = block($0.0)
-            let value2 = block($0.1)
-            
-            if value1 != nil && value2 != nil {
-                return value1 < value2
-            } else {
-                return value1 > value2
-            }
-        }
-    }
-    
     /// EZSE: Checks if test returns true for all the elements in self
-    func all(test: (Element) -> Bool) -> Bool {
+    func testAll(test: (Element) -> Bool) -> Bool {
         for item in self {
             if !test(item) {
                 return false
@@ -94,24 +80,8 @@ extension Array {
         return mapped
     }
     
-    /// EZSE: Removes the last element from self and returns it.
-    mutating func pop() -> Element? {
-        if self.isEmpty {
-            return nil
-        }
-        return removeLast()
-    }
-    
-    /// EZSE: Returns the first element of self and removes it from the array.
-    mutating func shift() -> Element? {
-        if self.isEmpty {
-            return nil
-        }
-        return removeAtIndex(0)
-    }
-    
     /// EZSE: Prepends an object to the array.
-    mutating func unshift(newElement: Element) {
+    mutating func insertAsFirst(newElement: Element) {
         insert(newElement, atIndex: 0)
     }
 }
@@ -136,7 +106,7 @@ extension Array where Element: Equatable {
     
     /// EZSE: Checks if self contains a list of items.
     func contains(items: Element...) -> Bool {
-        return items.all { self.indexOf($0) >= 0 }
+        return items.testAll { self.indexOf($0) >= 0 }
     }
     
     /// EZSE: Difference of self and the input arrays.
