@@ -75,12 +75,12 @@ class EZSwiftExtensionsTestsString: XCTestCase {
         XCTAssertTrue(string.toNSString.isKindOfClass(NSString.self))
     }
     
-    func testIsIncludeEmoji(){
+    func testIsIncludeEmoji() {
         string = "Incididunt tempor ad 😃 sint Lorem amet 🍷 Elit ut dolore ad est qui magna 🍻"
-        XCTAssertTrue(string.isIncludeEmoji())
+        XCTAssertTrue(string.includesEmoji())
         
         string = "The greatest respect that writers can give their readers is to not write anything that they expect"
-        XCTAssertFalse(string.isIncludeEmoji())
+        XCTAssertFalse(string.includesEmoji())
     }
 
 }
