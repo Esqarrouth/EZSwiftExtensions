@@ -128,8 +128,8 @@ public struct ez {
     }
     
     /// EZSE: Runs every second, to cancel use: timer.invalidate()
-    public static func runThisEvery(seconds seconds: NSTimeInterval, handler: NSTimer! -> Void) -> NSTimer {
-        let fireDate = CFAbsoluteTimeGetCurrent()
+    public static func runThisEvery(seconds seconds: NSTimeInterval, startAfterSeconds: NSTimeInterval, handler: NSTimer! -> Void) -> NSTimer {
+        let fireDate = startAfterSeconds + CFAbsoluteTimeGetCurrent()
         let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, fireDate, seconds, 0, 0, handler)
         CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, kCFRunLoopCommonModes)
         return timer
