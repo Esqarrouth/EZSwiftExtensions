@@ -15,13 +15,13 @@ extension Double {
     public var toInt: Int { return Int(self) }
     
     /// EZSE: Returns a Double rounded to decimal
-    func getRoundedByPlaces(places: Int) -> Double {
+    public func getRoundedByPlaces(places: Int) -> Double {
         let divisor = pow(10.0, Double(places))
         return round(self * divisor) / divisor
     }
     
     /// EZSE: Rounds the current Double rounded to decimal
-    mutating func roundByPlaces(places: Int) {
+    public mutating func roundByPlaces(places: Int) {
         let divisor = pow(10.0, Double(places))
         self = round(self * divisor) / divisor
     }
