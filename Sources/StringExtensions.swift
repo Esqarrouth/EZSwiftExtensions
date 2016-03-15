@@ -29,7 +29,7 @@ extension String {
     }
     
     /// EZSE: Counts number of instances of the input inside String
-    func count(substring: String) -> Int{
+    public func count(substring: String) -> Int{
         return componentsSeparatedByString(substring).count - 1
     }
 
@@ -65,7 +65,7 @@ extension String {
     }
     
     /// EZSE: Returns if String is a number
-    func isNumber() -> Bool {
+    public func isNumber() -> Bool {
         if let _ = NSNumberFormatter().numberFromString(self) {
             return true
         }
@@ -130,7 +130,7 @@ extension String {
     }
     
     /// EZSE: Converts String to Bool
-    func toBool() -> Bool? {
+    public func toBool() -> Bool? {
         let trimmed = self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).lowercaseString
         if trimmed == "true" || trimmed == "false" {
             return (trimmed as NSString).boolValue
@@ -152,25 +152,25 @@ extension String {
     public var toNSString: NSString { get { return self as NSString } }
     
     ///EZSE: Returns bold NSAttributedString
-    func bold() -> NSAttributedString {
+    public func bold() -> NSAttributedString {
         let boldString = NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.boldSystemFontOfSize(UIFont.systemFontSize())])
         return boldString
     }
   
     ///EZSE: Returns underlined NSAttributedString
-    func underline() -> NSAttributedString {
+    public func underline() -> NSAttributedString {
         let underlineString = NSAttributedString(string: self, attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue])
         return underlineString
     }
   
     ///EZSE: Returns italic NSAttributedString
-    func italic() -> NSAttributedString {
+    public func italic() -> NSAttributedString {
         let italicString = NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFontOfSize(UIFont.systemFontSize())])
         return italicString
     }
   
     ///EZSE: Returns NSAttributedString
-    func color(color: UIColor) -> NSAttributedString {
+    public func color(color: UIColor) -> NSAttributedString {
         let colorString = NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
         return colorString
     }
