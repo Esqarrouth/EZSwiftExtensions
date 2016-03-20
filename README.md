@@ -498,6 +498,15 @@ override func viewDidAppear(animated: Bool) {
     dismissVC(completion: nil) // Instead of dismissViewControllerAnimated(true, completion: completion)}
 ```
 
+Easily hide the keyboard when user taps around the UIViewController:
+
+```swift 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+    }
+```
+
 Easily add UIViewControllers:
 
 ``` swift
