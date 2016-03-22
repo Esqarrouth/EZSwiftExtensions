@@ -54,17 +54,15 @@ extension Array {
         return Array(self[0..<Swift.max(0, Swift.min(n, count))])
     }
     
-    //TODO: Remove this
     /// EZSE: Iterates on each element of the array.
-    private func each(call: (Element) -> ()) {
+    public func each(call: (Element) -> ()) {
         for item in self {
             call(item)
         }
     }
     
-    //TODO: Remove this
     /// EZSE: Iterates on each element of the array with its index.
-    private func each(call: (Int, Element) -> ()) {
+    public func each(call: (Int, Element) -> ()) {
         for (index, item) in self.enumerate() {
             call(index, item)
         }
