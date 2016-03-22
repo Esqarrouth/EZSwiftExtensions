@@ -229,6 +229,7 @@ extension UIView {
         }
     }
     
+    /// EZSE: Centers view in superview horizontally
     public func centerXInSuperView() {
         if self.superview != nil {
             self.x = self.superview!.w/2 - self.w/2
@@ -237,6 +238,7 @@ extension UIView {
         }
     }
     
+    /// EZSE: Centers view in superview vertically
     public func centerYInSuperView() {
         if self.superview != nil {
             self.y = self.superview!.h/2 - self.h/2
@@ -245,6 +247,7 @@ extension UIView {
         }
     }
     
+    /// EZSE: Centers view in superview horizontally & vertically
     public func centerInSuperView() {
         self.centerXInSuperView()
         self.centerYInSuperView()
