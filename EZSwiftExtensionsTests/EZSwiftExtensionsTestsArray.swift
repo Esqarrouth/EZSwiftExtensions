@@ -67,7 +67,20 @@ class EZSwiftExtensionsTestsArray: XCTestCase {
 	func testTestAll() {
 		XCTAssertTrue(numberArray.testAll { $0 < 10 })
 	}
-
+    
+    func testTestIfAllIs() {
+        let array1 = [true, true, true]
+        let array2 = [false, false]
+        let array3 = [true, false]
+        
+        XCTAssertEqual(array1.testIfAllIs(true), true)
+        XCTAssertEqual(array2.testIfAllIs(true), false)
+        XCTAssertEqual(array2.testIfAllIs(false), true)
+        XCTAssertEqual(array3.testIfAllIs(true), false)
+        XCTAssertEqual(array3.testIfAllIs(false), false)
+        XCTAssertEqual(numberArray.testIfAllIs(true), false)
+    }
+    
 	func testGet() {
 		XCTAssertNotNil(numberArray.get(1))
 		XCTAssertNil(numberArray.get(10))

@@ -39,6 +39,17 @@ extension Array {
         return true
     }
     
+    /// EZSE: Checks if all elements in the array are true of false
+    public func testIfAllIs(condition: Bool) -> Bool {
+        for item in self {
+            guard item is Bool else { return false }
+            if (item as! Bool) != condition {
+                return false
+            }
+        }
+        return true
+    }
+    
     /// EZSE: Gets the object at the specified index, if it exists.
     public func get(index: Int) -> Element? {
         return index >= 0 && index < count ? self[index] : nil
