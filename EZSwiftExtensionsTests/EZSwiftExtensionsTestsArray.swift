@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import EZSwiftExtensions
+import EZSwiftExtensions
 
 class EZSwiftExtensionsTestsArray: XCTestCase {
   

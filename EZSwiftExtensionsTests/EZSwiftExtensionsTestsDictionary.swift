@@ -7,28 +7,86 @@
 //
 
 import XCTest
+import EZSwiftExtensions
 
 class EZSwiftExtensionsTestsDictionary: XCTestCase {
   
-    var dic: [String:Int]!
+	var firstdic: [String:Int]!
     var secondDic: [String:Int]!
     var thirdDic: [String:Int]!
-
+    var fourthDic: [String:Int]!
   
     override func setUp() {
         super.setUp()
-        dic = ["one" : 1, "two" : 2, "three" : 3]
+        firstdic = ["one" : 1, "two" : 2, "three" : 3]
         secondDic = ["four" : 4, "five" : 5]
         thirdDic = ["six" : 6, "seven" : 7]
+		fourthDic = ["two" : 2, "three" : 3, "five" : 5, "six" : 6]
     }
   
     func testUnion() {
-        let union = dic.union(secondDic)
-        XCTAssertEqual(Array(dic.keys).count + Array(secondDic.keys).count, Array(union.keys).count)
-        XCTAssertEqual(Array(dic.values).count + Array(secondDic.values).count, Array(union.values).count)
-        let multiUnion = dic.union(secondDic, thirdDic)
-        XCTAssertEqual(Array(dic.keys).count + Array(secondDic.keys).count + Array(thirdDic.keys).count, Array(multiUnion.keys).count)
-        XCTAssertEqual(Array(dic.values).count + Array(secondDic.values).count + Array(thirdDic.values).count, Array(multiUnion.values).count)
+        let union = firstdic.union(secondDic)
+        XCTAssertEqual(firstdic.keys.count + secondDic.keys.count, union.keys.count)
+        XCTAssertEqual(firstdic.values.count + secondDic.values.count, union.values.count)
+
+        let multiUnion = firstdic | secondDic | thirdDic
+        XCTAssertEqual(firstdic.keys.count + secondDic.keys.count + thirdDic.keys.count, multiUnion.keys.count)
+        XCTAssertEqual(firstdic.values.count + secondDic.values.count + thirdDic.values.count, multiUnion.values.count)
     }
-  
+
+	func testIntersection() {
+		let union = firstdic | secondDic
+		let intersection = union & fourthDic
+
+		XCTAssertTrue(intersection.has("two"))
+		XCTAssertTrue(intersection.has("three"))
+		XCTAssertTrue(intersection.has("five"))
+		XCTAssertEqual(intersection.count, 3)
+	}
+
+	func testDifference() {
+		let union = firstdic | secondDic
+		let difference = union - fourthDic
+
+		XCTAssertTrue(difference.has("one"))
+		XCTAssertTrue(difference.has("four"))
+		XCTAssertEqual(difference.count, 2)
+	}
+
+	func testTestAll() {
+		let allKeysHaveMoreThan3Chars = firstdic.testAll { key, _ in key.length >= 3 }
+		XCTAssertTrue(allKeysHaveMoreThan3Chars)
+	}
+
+	func testToArray() {
+		let array = fourthDic.toArray { key, value in
+			return key.uppercaseString + String(value)
+		}
+
+		XCTAssertNotNil(array.indexOf("TWO2"))
+		XCTAssertNotNil(array.indexOf("FIVE5"))
+		XCTAssertEqual(array.count, fourthDic.count)
+	}
+
+	func testMapFilterValues() {
+		let thirdMappedDic = thirdDic.mapFilterValues { (key, value) -> String? in
+			if value == 6 {
+				return nil
+			} else {
+				return "\(key) * 2 = \(value * 2)"
+			}
+		}
+
+		XCTAssertEqual(thirdMappedDic.count, 1)
+		XCTAssertTrue(thirdMappedDic.has("seven"))
+		XCTAssertEqual(thirdMappedDic["seven"], "seven * 2 = 14")
+	}
+
+	func testFilter() {
+		let secondFiltered = secondDic.filter { key, value in key != "five" }
+
+		XCTAssertTrue(secondFiltered.has("four"))
+		XCTAssertEqual(secondFiltered.count, 1)
+
+	}
 }
