@@ -634,6 +634,13 @@ print(mainview.subviews) // 3 subviews
 mainview.removeSubviews()
 print(mainview.subviews) // []
 ```
+Easily center view in superview:
+
+``` swift
+myView.centerXInSuperView() //centers horizontally
+myView.centerYInSuperView() //centers vertically
+myView.centerInSuperView() //centers horizontally & vertically
+```
 Easily rotate views on their axis:
 
 ``` swift
