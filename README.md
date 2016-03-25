@@ -282,9 +282,9 @@ Easily change the typeface:
 
 ``` swift
 var str = NSAttributedString(string: "Hello")
-let attrStr1 = myStr.undeline()
-let attrStr2 = myStr.bold()
-let attrStr3 = myStr.italic()
+let attrStr1 = str.underline()
+let attrStr2 = str.bold()
+let attrStr3 = str.italic()
 ```
 
 Easily change the color:
