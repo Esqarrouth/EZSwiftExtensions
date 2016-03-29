@@ -41,8 +41,9 @@ extension Array {
     /// EZSE: Checks if all elements in the array are true of false
     public func testIfAllIs(condition: Bool) -> Bool {
         for item in self {
-            guard item is Bool else { return false }
-            if (item as! Bool) != condition {
+            guard let item = item as? Bool else { return false }
+
+            if item != condition {
                 return false
             }
         }

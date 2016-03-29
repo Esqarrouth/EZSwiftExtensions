@@ -9,9 +9,9 @@ import UIKit
 
 extension Dictionary {
     /// EZSE: Returns a random element inside Dictionary
-    public func random() -> NSObject {
+    public func random() -> Value {
         let index: Int = Int(arc4random_uniform(UInt32(self.count)))
-        return Array(self.values)[index] as! NSObject
+        return Array(self.values)[index]
     }
 
     /// EZSE: Union of self and the input dictionaries.
@@ -30,8 +30,9 @@ extension Dictionary {
     public func intersection<K, V where K: Equatable, V: Equatable>(dictionaries: [K: V]...) -> [K: V] {
         //  Casts self from [Key: Value] to [K: V]
         let filtered = mapFilter { (item, value) -> (K, V)? in
-            if item is K && value is V {
-                return (item as! K, value as! V)
+            if let item = item as? K,
+                let value = value as? V {
+                return (item, value)
             }
             return nil
         }

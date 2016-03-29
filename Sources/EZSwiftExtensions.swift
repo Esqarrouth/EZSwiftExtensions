@@ -11,19 +11,24 @@ import UIKit
 
 public struct ez {
     /// EZSE: Returns app's name
-    public static var appDisplayName: String {
-        return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleDisplayName") as? String
-            ?? NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleName") as! String
+    public static var appDisplayName: String? {
+        if let bundleDisplayName = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleDisplayName") as? String {
+            return bundleDisplayName
+        } else if let bundleName = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleName") as? String {
+            return bundleName
+        }
+
+        return nil
     }
 
     /// EZSE: Returns app's version number
-    public static var appVersion: String {
-        return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
+    public static var appVersion: String? {
+        return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? String
     }
 
     /// EZSE: Return app's build number
-    public static var appBuild: String {
-        return NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as String) as! String
+    public static var appBuild: String? {
+        return NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as String) as? String
     }
 
     /// EZSE: Returns both app's version and build numbers "v0.3(7)"

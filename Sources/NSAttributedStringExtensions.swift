@@ -10,34 +10,38 @@ import UIKit
 extension NSAttributedString {
     /// EZSE: Adds bold attribute to NSAttributedString and returns it
     func bold() -> NSAttributedString {
-        let copy = self.mutableCopy()
+        guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
+
         let range = (self.string as NSString).rangeOfString(self.string)
         copy.addAttributes([NSFontAttributeName: UIFont.boldSystemFontOfSize(UIFont.systemFontSize())], range: range)
-        return copy as! NSAttributedString
+        return copy
     }
 
     /// EZSE: Adds underline attribute to NSAttributedString and returns it
     func underline() -> NSAttributedString {
-        let copy = self.mutableCopy()
+        guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
+
         let range = (self.string as NSString).rangeOfString(self.string)
         copy.addAttributes([NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue], range: range)
-        return copy as! NSAttributedString
+        return copy
     }
 
     /// EZSE: Adds italic attribute to NSAttributedString and returns it
     func italic() -> NSAttributedString {
-        let copy = self.mutableCopy()
+        guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
+
         let range = (self.string as NSString).rangeOfString(self.string)
         copy.addAttributes([NSFontAttributeName: UIFont.italicSystemFontOfSize(UIFont.systemFontSize())], range: range)
-        return copy as! NSAttributedString
+        return copy
     }
 
     /// EZSE: Adds color attribute to NSAttributedString and returns it
     func color(color: UIColor) -> NSAttributedString {
-        let copy = self.mutableCopy()
+        guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
+
         let range = (self.string as NSString).rangeOfString(self.string)
         copy.addAttributes([NSForegroundColorAttributeName: color], range: range)
-        return copy as! NSAttributedString
+        return copy
     }
 }
 
