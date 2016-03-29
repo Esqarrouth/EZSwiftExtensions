@@ -231,20 +231,22 @@ extension UIView {
 
     /// EZSE: Centers view in superview horizontally
     public func centerXInSuperView() {
-        if self.superview != nil {
-            self.x = self.superview!.w/2 - self.w/2
-        } else {
-            assertionFailure("Your view doesn't have a superview")
+        guard let parentView = superview else {
+            assertionFailure("EZSwiftExtensions Error: The view \(self) doesn't have a superview")
+            return
         }
+
+        self.x = parentView.w/2 - self.w/2
     }
 
     /// EZSE: Centers view in superview vertically
     public func centerYInSuperView() {
-        if self.superview != nil {
-            self.y = self.superview!.h/2 - self.h/2
-        } else {
-            assertionFailure("Your view doesn't have a superview")
+        guard let parentView = superview else {
+            assertionFailure("EZSwiftExtensions Error: The view \(self) doesn't have a superview")
+            return
         }
+
+        self.y = parentView.h/2 - self.h/2
     }
 
     /// EZSE: Centers view in superview horizontally & vertically
@@ -381,7 +383,6 @@ extension UIView {
         shapeLayer.lineWidth = width
         self.layer.addSublayer(shapeLayer)
     }
-
 }
 
 private let UIViewAnimationDuration: NSTimeInterval = 1
@@ -540,7 +541,6 @@ extension UIView {
     public func roundView() {
         self.layer.cornerRadius = min(self.frame.size.height, self.frame.size.width) / 2
     }
-
 }
 
 extension UIView {
@@ -560,15 +560,14 @@ extension UIView {
 
         self.layer.addAnimation(anim, forKey: nil)
     }
-
 }
 
 extension UIView {
     ///EZSE: Loops until it finds the top root view. //TODO: Add to readme
     func rootView() -> UIView {
-        guard superview != nil else {
+        guard let parentView = superview else {
             return self
         }
-        return superview!.rootView()
+        return parentView.rootView()
     }
 }

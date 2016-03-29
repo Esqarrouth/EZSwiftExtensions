@@ -20,8 +20,8 @@ public class BlockWebView: UIWebView, UIWebViewDelegate {
         delegate = self
     }
 
-    public required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 
 

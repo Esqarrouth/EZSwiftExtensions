@@ -50,8 +50,8 @@ public class BlockButton: UIButton {
         defaultInit()
     }
 
-    public required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 
     private func defaultInit() {
@@ -82,12 +82,15 @@ public class BlockButton: UIButton {
         highlightLayer.frame = layer.bounds
         highlightLayer.backgroundColor = UIColor.blackColor().CGColor
         highlightLayer.opacity = 0.5
+        var maskImage: UIImage? = nil
         UIGraphicsBeginImageContextWithOptions(layer.bounds.size, false, 0)
-        layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        let maskImage = UIGraphicsGetImageFromCurrentImageContext()
+        if let context = UIGraphicsGetCurrentContext() {
+            layer.renderInContext(context)
+            maskImage = UIGraphicsGetImageFromCurrentImageContext()
+        }
         UIGraphicsEndImageContext()
         let maskLayer = CALayer()
-        maskLayer.contents = maskImage.CGImage
+        maskLayer.contents = maskImage?.CGImage
         maskLayer.frame = highlightLayer.frame
         highlightLayer.mask = maskLayer
         layer.addSublayer(highlightLayer)

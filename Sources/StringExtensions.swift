@@ -83,10 +83,15 @@ extension String {
 
         let text = self
 
-        detector!.enumerateMatchesInString(text, options: [], range: NSMakeRange(0, text.characters.count), usingBlock: {
-            (result: NSTextCheckingResult?, flags: NSMatchingFlags, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
-            urls.append(result!.URL!)
-        })
+        if let detector = detector {
+            detector.enumerateMatchesInString(text, options: [], range: NSMakeRange(0, text.characters.count), usingBlock: {
+                (result: NSTextCheckingResult?, flags: NSMatchingFlags, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
+                if let result = result,
+                    let url = result.URL {
+                    urls.append(url)
+                }
+            })
+        }
 
         return urls
     }

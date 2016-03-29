@@ -10,21 +10,19 @@ import UIKit
 
 extension UIImage {
     /// EZSE: Returns compressed image to rate from 0 to 1
-    public func compressImage(rate rate: CGFloat) -> NSData {
-        let compressedImage = UIImageJPEGRepresentation(self, rate)
-        return compressedImage!
+    public func compressImage(rate rate: CGFloat) -> NSData? {
+        return UIImageJPEGRepresentation(self, rate)
     }
 
     /// EZSE: Returns Image size in Bytes
     public func getSizeAsBytes() -> Int {
-        let imageData = NSData(data: UIImageJPEGRepresentation(self, 1)!)
-        return imageData.length
+        return UIImageJPEGRepresentation(self, 1)?.length ?? 0
     }
 
     /// EZSE: Returns Image size in Kylobites
     public func getSizeAsKilobytes() -> Int {
-        let imageData = NSData(data: UIImageJPEGRepresentation(self, 1)!)
-        return imageData.length / 1024
+        let sizeAsBytes = getSizeAsBytes()
+        return sizeAsBytes != 0 ? sizeAsBytes / 1024 : 0
     }
 
     /// EZSE: scales image

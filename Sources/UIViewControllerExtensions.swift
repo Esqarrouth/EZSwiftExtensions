@@ -122,8 +122,9 @@ extension UIViewController {
     /// EZSwiftExtensions
     public var top: CGFloat {
         get {
-            if let me = self as? UINavigationController {
-                return me.visibleViewController!.top
+            if let me = self as? UINavigationController,
+                let visibleViewController = me.visibleViewController {
+                return visibleViewController.top
             }
             if let nav = self.navigationController {
                 if nav.navigationBarHidden {
@@ -140,8 +141,9 @@ extension UIViewController {
     /// EZSwiftExtensions
     public var bottom: CGFloat {
         get {
-            if let me = self as? UINavigationController {
-                return me.visibleViewController!.bottom
+            if let me = self as? UINavigationController,
+                let visibleViewController = me.visibleViewController {
+                return visibleViewController.bottom
             }
             if let tab = tabBarController {
                 if tab.tabBar.hidden {
@@ -158,8 +160,9 @@ extension UIViewController {
     /// EZSwiftExtensions
     public var tabBarHeight: CGFloat {
         get {
-            if let me = self as? UINavigationController {
-                return me.visibleViewController!.tabBarHeight
+            if let me = self as? UINavigationController,
+                let visibleViewController = me.visibleViewController {
+                return visibleViewController.tabBarHeight
             }
             if let tab = self.tabBarController {
                 return tab.tabBar.frame.size.height
@@ -171,8 +174,9 @@ extension UIViewController {
     /// EZSwiftExtensions
     public var navigationBarHeight: CGFloat {
         get {
-            if let me = self as? UINavigationController {
-                return me.visibleViewController!.navigationBarHeight
+            if let me = self as? UINavigationController,
+                let visibleViewController = me.visibleViewController {
+                return visibleViewController.navigationBarHeight
             }
             if let nav = self.navigationController {
                 return nav.navigationBar.h
@@ -184,8 +188,9 @@ extension UIViewController {
     /// EZSwiftExtensions
     public var navigationBarColor: UIColor? {
         get {
-            if let me = self as? UINavigationController {
-                return me.visibleViewController!.navigationBarColor
+            if let me = self as? UINavigationController,
+                let visibleViewController = me.visibleViewController {
+                return visibleViewController.navigationBarColor
             }
             return navigationController?.navigationBar.tintColor
         } set(value) {

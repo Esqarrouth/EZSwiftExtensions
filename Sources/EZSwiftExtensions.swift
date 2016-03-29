@@ -57,12 +57,12 @@ public struct ez {
 
     /// EZSwiftExtensions
     public static var horizontalSizeClass: UIUserInterfaceSizeClass {
-      return self.topMostVC?.traitCollection.horizontalSizeClass ?? UIUserInterfaceSizeClass(rawValue: 0)!
+      return self.topMostVC?.traitCollection.horizontalSizeClass ?? UIUserInterfaceSizeClass.Unspecified
     }
 
     /// EZSwiftExtensions
     public static var verticalSizeClass: UIUserInterfaceSizeClass {
-      return self.topMostVC?.traitCollection.verticalSizeClass ?? UIUserInterfaceSizeClass(rawValue: 0)!
+      return self.topMostVC?.traitCollection.verticalSizeClass ?? UIUserInterfaceSizeClass.Unspecified
     }
 
     /// EZSE: Returns screen width
@@ -190,8 +190,13 @@ public struct ez {
 
     /// EZSE:
     private static func requestURL(url: String, success: (NSData?) -> Void, error: ((NSError) -> Void)? = nil) {
+        guard let requestURL = NSURL(string: url) else {
+            assertionFailure("EZSwiftExtensions Error: Invalid URL")
+            return
+        }
+
         NSURLSession.sharedSession().dataTaskWithRequest(
-            NSURLRequest(URL: NSURL (string: url)!),
+            NSURLRequest(URL: requestURL),
             completionHandler: { data, response, err in
                 if let e = err {
                     error?(e)

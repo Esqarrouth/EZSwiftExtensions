@@ -38,8 +38,8 @@ private let DeviceList = [
 
 extension UIDevice {
     /// EZSwiftExtensions
-    public class func idForVendor() -> String {
-        return UIDevice.currentDevice().identifierForVendor!.UUIDString
+    public class func idForVendor() -> String? {
+        return UIDevice.currentDevice().identifierForVendor?.UUIDString
     }
 
     /// EZSwiftExtensions - Operating system name
