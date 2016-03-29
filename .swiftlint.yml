@@ -1,8 +1,10 @@
 excluded:
   - Pods
 line_length: 160
-variable_name_min_length: 1
+file_length: 1000
 disabled_rules:
   - type_body_length
   - function_body_length
   - type_name
+  - variable_name
+  - variable_name_min_length
