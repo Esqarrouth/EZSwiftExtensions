@@ -24,19 +24,19 @@ extension UIViewController {
     }
 
     public func addKeyboardWillShowNotification() {
-        self.addNotificationObserver(UIKeyboardWillShowNotification, selector: #selector(UIViewController.keyboardWillShowNotification(_:)));
+        self.addNotificationObserver(UIKeyboardWillShowNotification, selector: #selector(UIViewController.keyboardWillShowNotification(_:)))
     }
 
     public func addKeyboardDidShowNotification() {
-        self.addNotificationObserver(UIKeyboardDidShowNotification, selector: #selector(UIViewController.keyboardDidShowNotification(_:)));
+        self.addNotificationObserver(UIKeyboardDidShowNotification, selector: #selector(UIViewController.keyboardDidShowNotification(_:)))
     }
 
     public func addKeyboardWillHideNotification() {
-        self.addNotificationObserver(UIKeyboardWillHideNotification, selector: #selector(UIViewController.keyboardWillHideNotification(_:)));
+        self.addNotificationObserver(UIKeyboardWillHideNotification, selector: #selector(UIViewController.keyboardWillHideNotification(_:)))
     }
 
     public func addKeyboardDidHideNotification() {
-        self.addNotificationObserver(UIKeyboardDidHideNotification, selector: #selector(UIViewController.keyboardDidHideNotification(_:)));
+        self.addNotificationObserver(UIKeyboardDidHideNotification, selector: #selector(UIViewController.keyboardDidHideNotification(_:)))
     }
 
     public func removeKeyboardWillShowNotification() {
