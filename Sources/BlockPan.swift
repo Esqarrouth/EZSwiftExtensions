@@ -19,7 +19,7 @@ public class BlockPan: UIPanGestureRecognizer {
     public convenience init (action: ((UIPanGestureRecognizer) -> Void)?) {
         self.init()
         self.panAction = action
-        self.addTarget(self, action: "didPan:")
+        self.addTarget(self, action: #selector(BlockPan.didPan(_:)))
     }
     
     public func didPan (pan: UIPanGestureRecognizer) {

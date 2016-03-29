@@ -19,7 +19,7 @@ public class BlockLongPress: UILongPressGestureRecognizer {
     public convenience init (action: ((UILongPressGestureRecognizer) -> Void)?) {
         self.init()
         longPressAction = action
-        addTarget(self, action: "didLongPressed:")
+        addTarget(self, action: #selector(BlockLongPress.didLongPressed(_:)))
     }
     
     public func didLongPressed(longPress: UILongPressGestureRecognizer) {
