@@ -81,7 +81,10 @@ extension UIImage {
             print("EZSE: Your cropping Y coordinate is larger than the image height")
             return nil
         }
-        let scaledBounds: CGRect = CGRectMake(bound.origin.x * self.scale, bound.origin.y * self.scale, bound.size.width * self.scale, bound.size.height * self.scale)
+        let scaledBounds: CGRect = CGRectMake(
+            bound.origin.x * self.scale, bound.origin.y * self.scale,
+            bound.size.width * self.scale, bound.size.height * self.scale
+        )
         let imageRef = CGImageCreateWithImageInRect(self.CGImage, scaledBounds)
         let croppedImage: UIImage = UIImage(CGImage: imageRef!, scale: self.scale, orientation: UIImageOrientation.Up)
         return croppedImage

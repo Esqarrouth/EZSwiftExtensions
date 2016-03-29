@@ -398,7 +398,15 @@ extension UIView {
 
     /// EZSwiftExtensions
     public func spring(duration duration: NSTimeInterval, animations: (() -> Void), completion: ((Bool) -> Void)? = nil) {
-        UIView.animateWithDuration(UIViewAnimationDuration, delay: 0, usingSpringWithDamping: UIViewAnimationSpringDamping, initialSpringVelocity: UIViewAnimationSpringVelocity, options: UIViewAnimationOptions.AllowAnimatedContent, animations: animations, completion: completion)
+        UIView.animateWithDuration(
+            UIViewAnimationDuration,
+            delay: 0,
+            usingSpringWithDamping: UIViewAnimationSpringDamping,
+            initialSpringVelocity: UIViewAnimationSpringVelocity,
+            options: UIViewAnimationOptions.AllowAnimatedContent,
+            animations: animations,
+            completion: completion
+        )
     }
 
     /// EZSwiftExtensions
