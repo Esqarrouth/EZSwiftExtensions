@@ -1,5 +1,5 @@
 //
-//  IntExtentions.swift
+//  IntExtensions.swift
 //  EZSwiftExtensions
 //
 //  Created by Goktug Yilmaz on 16/07/15.

@@ -234,7 +234,7 @@ extension UIView {
         if self.superview != nil {
             self.x = self.superview!.w/2 - self.w/2
         } else {
-            assertionFailure("Your view doesnt have a superview")
+            assertionFailure("Your view doesn't have a superview")
         }
     }
 
@@ -243,7 +243,7 @@ extension UIView {
         if self.superview != nil {
             self.y = self.superview!.h/2 - self.h/2
         } else {
-            assertionFailure("Your view doesnt have a superview")
+            assertionFailure("Your view doesn't have a superview")
         }
     }
 
