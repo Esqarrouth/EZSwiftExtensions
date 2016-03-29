@@ -7,15 +7,9 @@
 //
 
 extension Bool {
-    
     /// EZSE: Toggle boolean value.
     public mutating func toggle() -> Bool {
         self = !self
         return self
     }
-    
 }
-
-
-
-

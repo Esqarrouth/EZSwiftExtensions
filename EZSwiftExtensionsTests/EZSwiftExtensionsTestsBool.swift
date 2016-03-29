@@ -9,7 +9,6 @@
 import XCTest
 
 class EZSwiftExtensionsTestsBool: XCTestCase {
-  
     var bool: Bool!
 
     override func setUp() {
@@ -22,5 +21,4 @@ class EZSwiftExtensionsTestsBool: XCTestCase {
         bool.toggle()
         XCTAssertNotEqual(value, bool)
     }
-
 }

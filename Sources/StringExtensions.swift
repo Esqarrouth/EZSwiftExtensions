@@ -8,13 +8,12 @@
 import UIKit
 
 extension String {
-    
     /// EZSE: Cut string from integerIndex to the end
     public subscript(integerIndex: Int) -> Character {
         let index = startIndex.advancedBy(integerIndex)
         return self[index]
     }
-    
+
     /// EZSE: Cut string from range
     public subscript(integerRange: Range<Int>) -> String {
         let start = startIndex.advancedBy(integerRange.startIndex)
@@ -22,12 +21,12 @@ extension String {
         let range = start..<end
         return self[range]
     }
-    
+
     /// EZSE: Character count
     public var length: Int {
         return self.characters.count
     }
-    
+
     /// EZSE: Counts number of instances of the input inside String
     public func count(substring: String) -> Int{
         return componentsSeparatedByString(substring).count - 1
@@ -39,31 +38,31 @@ extension String {
         result.replaceRange(startIndex...startIndex, with: String(self[startIndex]).capitalizedString)
         return result
     }
-    
+
     /// EZSE: Counts whitespace & new lines
     public func isOnlyEmptySpacesAndNewLineCharacters() -> Bool {
         let characterSet = NSCharacterSet.whitespaceAndNewlineCharacterSet()
         let newText = self.stringByTrimmingCharactersInSet(characterSet)
         return newText.isEmpty
     }
-    
+
     /// EZSE: Trims white space and new line characters
     public mutating func trim() {
          self = self.trimmed()
     }
-    
+
     /// EZSE: Trims white space and new line characters, returns a new string
     public func trimmed() -> String {
         return self.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).joinWithSeparator("")
     }
-  
+
     /// EZSE: Checks if String contains Email
     public var isEmail: Bool {
         let dataDetector = try? NSDataDetector(types: NSTextCheckingType.Link.rawValue)
         let firstMatch = dataDetector?.firstMatchInString(self, options: NSMatchingOptions.ReportCompletion, range: NSMakeRange(0, length))
         return (firstMatch?.range.location != NSNotFound && firstMatch?.URL?.scheme == "mailto")
     }
-    
+
     /// EZSE: Returns if String is a number
     public func isNumber() -> Bool {
         if let _ = NSNumberFormatter().numberFromString(self) {
@@ -71,7 +70,7 @@ extension String {
         }
         return false
     }
-    
+
     /// EZSE: Extracts URLS from String
     public var extractURLs: [NSURL] {
         var urls : [NSURL] = []
@@ -83,25 +82,25 @@ extension String {
         }
 
         let text = self
-        
+
         detector!.enumerateMatchesInString(text, options: [], range: NSMakeRange(0, text.characters.count), usingBlock: {
             (result: NSTextCheckingResult?, flags: NSMatchingFlags, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
             urls.append(result!.URL!)
         })
-        
+
         return urls
     }
-    
+
     /// EZSE: Checking if String contains input
     public func contains(find: String) -> Bool {
         return self.rangeOfString(find) != nil
     }
-    
+
     /// EZSE: Checking if String contains input with comparing options
     public func contains(find: String, compareOption: NSStringCompareOptions) -> Bool {
         return self.rangeOfString(find, options: compareOption) != nil
     }
-    
+
     /// EZSE: Converts String to Int
     public func toInt() -> Int? {
         if let num = NSNumberFormatter().numberFromString(self) {
@@ -110,7 +109,7 @@ extension String {
             return nil
         }
     }
-    
+
     /// EZSE: Converts String to Double
     public func toDouble() -> Double? {
         if let num = NSNumberFormatter().numberFromString(self) {
@@ -119,7 +118,7 @@ extension String {
             return nil
         }
     }
-    
+
     /// EZSE: Converts String to Float
     public func toFloat() -> Float? {
         if let num = NSNumberFormatter().numberFromString(self) {
@@ -128,7 +127,7 @@ extension String {
             return nil
         }
     }
-    
+
     /// EZSE: Converts String to Bool
     public func toBool() -> Bool? {
         let trimmed = self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).lowercaseString
@@ -137,7 +136,7 @@ extension String {
         }
         return nil
     }
-    
+
     ///EZSE: Returns the first index of the occurency of the character in String
     public func getIndexOf(char: Character) -> Int? {
         for (index, c) in characters.enumerate() {
@@ -147,34 +146,34 @@ extension String {
         }
         return nil
     }
-    
+
     /// EZSE: Converts String to NSString
     public var toNSString: NSString { get { return self as NSString } }
-    
+
     ///EZSE: Returns bold NSAttributedString
     public func bold() -> NSAttributedString {
         let boldString = NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.boldSystemFontOfSize(UIFont.systemFontSize())])
         return boldString
     }
-  
+
     ///EZSE: Returns underlined NSAttributedString
     public func underline() -> NSAttributedString {
         let underlineString = NSAttributedString(string: self, attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue])
         return underlineString
     }
-  
+
     ///EZSE: Returns italic NSAttributedString
     public func italic() -> NSAttributedString {
         let italicString = NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFontOfSize(UIFont.systemFontSize())])
         return italicString
     }
-  
+
     ///EZSE: Returns NSAttributedString
     public func color(color: UIColor) -> NSAttributedString {
         let colorString = NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
         return colorString
     }
-    
+
     /// EZSE: Checks if String contains Emoji
     public func includesEmoji() -> Bool {
         for i in 0...length {
@@ -185,6 +184,4 @@ extension String {
         }
         return false
     }
-    
 }
-

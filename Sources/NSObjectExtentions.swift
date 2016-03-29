@@ -8,13 +8,11 @@
 import UIKit
 
 extension NSObject {
-    
     public var className: String {
         return self.dynamicType.className
     }
-    
+
     public static var className: String {
         return String(self)
     }
-
 }

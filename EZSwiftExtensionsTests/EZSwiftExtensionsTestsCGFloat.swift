@@ -9,18 +9,16 @@
 import XCTest
 
 class EZSwiftExtensionsTestsCGFloat: XCTestCase {
-  
     var radians: CGFloat!
     var degrees: CGFloat!
-  
+
     override func setUp() {
         super.setUp()
         radians = CGFloat (M_PI * Double(2))
         degrees = 360
     }
-  
+
     func testToggle() {
         XCTAssertEqual(radians, degrees.degreesToRadians())
     }
-  
 }

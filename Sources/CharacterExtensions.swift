@@ -12,5 +12,3 @@ extension Character {
     /// EZSE: Converts Character to String //TODO: Add to readme
     public var toString: String { return String(self) }
 }
-
-

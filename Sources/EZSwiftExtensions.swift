@@ -10,7 +10,6 @@ import UIKit
 //TODO: others standart video, gif
 
 public struct ez {
-
     /// EZSE: Returns app's name
     public static var appDisplayName: String {
         return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleDisplayName") as? String
@@ -50,12 +49,12 @@ public struct ez {
     public static var screenOrientation: UIInterfaceOrientation {
         return UIApplication.sharedApplication().statusBarOrientation
     }
-  
+
     /// EZSwiftExtensions
     public static var horizontalSizeClass : UIUserInterfaceSizeClass {
       return self.topMostVC?.traitCollection.horizontalSizeClass ?? UIUserInterfaceSizeClass(rawValue: 0)!
     }
-  
+
     /// EZSwiftExtensions
     public static var verticalSizeClass : UIUserInterfaceSizeClass {
       return self.topMostVC?.traitCollection.verticalSizeClass ?? UIUserInterfaceSizeClass(rawValue: 0)!
@@ -126,7 +125,7 @@ public struct ez {
     public static func runThisInBackground(block: () -> ()) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)
     }
-    
+
     /// EZSE: Runs every second, to cancel use: timer.invalidate()
     public static func runThisEvery(seconds seconds: NSTimeInterval, startAfterSeconds: NSTimeInterval, handler: NSTimer! -> Void) -> NSTimer {
         let fireDate = startAfterSeconds + CFAbsoluteTimeGetCurrent()
@@ -184,7 +183,7 @@ public struct ez {
         }
     }
 
-    /// EZSE: 
+    /// EZSE:
     private static func requestURL(url: String, success: (NSData?) -> Void, error: ((NSError) -> Void)? = nil) {
         NSURLSession.sharedSession().dataTaskWithRequest(
             NSURLRequest(URL: NSURL (string: url)!),
@@ -196,5 +195,4 @@ public struct ez {
                 }
         }).resume()
     }
-
 }

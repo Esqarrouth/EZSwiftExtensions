@@ -8,7 +8,6 @@
 import UIKit
 
 extension NSDate {
-    
     /// EZSE: Initializes NSDate from string and format
     public convenience init?(fromString string: String, format: String) {
         let formatter = NSDateFormatter()
@@ -19,7 +18,7 @@ extension NSDate {
             return nil
         }
     }
-    
+
     /// EZSE: Converts NSDate to String
     public func toString(dateStyle dateStyle: NSDateFormatterStyle = .MediumStyle, timeStyle: NSDateFormatterStyle = .MediumStyle) -> String {
         let formatter = NSDateFormatter()
@@ -34,35 +33,35 @@ extension NSDate {
         formatter.dateFormat = format
         return formatter.stringFromDate(self)
     }
-    
+
     /// EZSE: Calculates how many days passed from now to date
     public func daysInBetweenDate(date: NSDate) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff/86400)
         return diff
     }
-    
+
     /// EZSE: Calculates how many hours passed from now to date
     public func hoursInBetweenDate(date: NSDate) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff/3600)
         return diff
     }
-    
+
     /// EZSE: Calculates how many minutes passed from now to date
     public func minutesInBetweenDate(date: NSDate) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff/60)
         return diff
     }
-    
+
     /// EZSE: Calculates how many seconds passed from now to date
     public func secondsInBetweenDate(date: NSDate) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff)
         return diff
     }
-    
+
     /// EZSE: Easy creation of time passed String. Can be Years, Months, days, hours, minutes or seconds
     public func timePassed() -> String {
         let date = NSDate()
@@ -91,7 +90,7 @@ extension NSDate {
             return "\(components.second) seconds ago"
         }
     }
-    
+
 }
 
 extension NSDate: Comparable {}
