@@ -415,7 +415,7 @@ extension UIView {
     }
 
     /// EZSwiftExtensions
-    public func animate(animations animations: (()->Void), completion: ((Bool) -> Void)? = nil) {
+    public func animate(animations animations: (() -> Void), completion: ((Bool) -> Void)? = nil) {
         animate(duration: UIViewAnimationDuration, animations: animations, completion: completion)
     }
 

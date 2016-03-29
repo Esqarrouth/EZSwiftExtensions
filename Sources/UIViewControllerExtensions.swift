@@ -40,19 +40,19 @@ extension UIViewController {
     }
 
     public func removeKeyboardWillShowNotification() {
-        self.removeNotificationObserver(UIKeyboardWillShowNotification);
+        self.removeNotificationObserver(UIKeyboardWillShowNotification)
     }
 
     public func removeKeyboardDidShowNotification() {
-        self.removeNotificationObserver(UIKeyboardDidShowNotification);
+        self.removeNotificationObserver(UIKeyboardDidShowNotification)
     }
 
     public func removeKeyboardWillHideNotification() {
-        self.removeNotificationObserver(UIKeyboardWillHideNotification);
+        self.removeNotificationObserver(UIKeyboardWillHideNotification)
     }
 
     public func removeKeyboardDidHideNotification() {
-        self.removeNotificationObserver(UIKeyboardDidHideNotification);
+        self.removeNotificationObserver(UIKeyboardDidHideNotification)
     }
 
     public func keyboardDidShowNotification(notification: NSNotification) {
@@ -226,7 +226,7 @@ extension UIViewController {
     }
 
     /// EZSwiftExtensions
-    public func addAsChildViewController(vc: UIViewController, toView: UIView){
+    public func addAsChildViewController(vc: UIViewController, toView: UIView) {
         toView.addSubview(vc.view)
         self.addChildViewController(vc)
         vc.didMoveToParentViewController(self)

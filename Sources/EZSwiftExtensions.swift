@@ -51,12 +51,12 @@ public struct ez {
     }
 
     /// EZSwiftExtensions
-    public static var horizontalSizeClass : UIUserInterfaceSizeClass {
+    public static var horizontalSizeClass: UIUserInterfaceSizeClass {
       return self.topMostVC?.traitCollection.horizontalSizeClass ?? UIUserInterfaceSizeClass(rawValue: 0)!
     }
 
     /// EZSwiftExtensions
-    public static var verticalSizeClass : UIUserInterfaceSizeClass {
+    public static var verticalSizeClass: UIUserInterfaceSizeClass {
       return self.topMostVC?.traitCollection.verticalSizeClass ?? UIUserInterfaceSizeClass(rawValue: 0)!
     }
 
@@ -148,11 +148,11 @@ public struct ez {
     /// EZSE: Downloads JSON from url string
     public static func requestJSON(url: String, success: (AnyObject? -> Void), error: ((NSError) -> Void)?) {
         requestURL(url,
-            success: { (data)->Void in
+            success: { (data) -> Void in
                 let json: AnyObject? = self.dataToJsonDict(data)
                 success(json)
             },
-            error: { (err)->Void in
+            error: { (err) -> Void in
                 if let e = error {
                     e(err)
                 }

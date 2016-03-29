@@ -144,7 +144,7 @@ extension Array where Element: Equatable {
         for (i, value) in values.enumerate() {
             //  the intersection is computed by intersecting a couple per loop:
             //  self n values[0], (self n values[0]) n values[1], ...
-            if (i > 0) {
+            if i > 0 {
                 result = intersection
                 intersection = Array()
             }
@@ -199,7 +199,7 @@ extension Array where Element: Equatable {
 }
 
 public func ==<T: Equatable>(lhs: [T]?, rhs: [T]?) -> Bool {
-    switch (lhs,rhs) {
+    switch (lhs, rhs) {
     case (.Some(let lhs), .Some(let rhs)):
         return lhs == rhs
     case (.None, .None):

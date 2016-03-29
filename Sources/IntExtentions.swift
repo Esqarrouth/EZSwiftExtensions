@@ -9,10 +9,10 @@ import UIKit
 
 extension Int {
     /// EZSE: Checks if the integer is even.
-    public var isEven: Bool     { return (self % 2 == 0) }
+    public var isEven: Bool { return (self % 2 == 0) }
 
     /// EZSE: Checks if the integer is odd.
-    public var isOdd: Bool      { return (self % 2 != 0) }
+    public var isOdd: Bool { return (self % 2 != 0) }
 
     /// EZSE: Checks if the integer is positive.
     public var isPositive: Bool { return (self > 0) }
@@ -24,7 +24,7 @@ extension Int {
     public var toDouble: Double { return Double(self) }
 
     /// EZSE: Converts integer value to Float.
-    public var toFloat: Float   { return Float(self) }
+    public var toFloat: Float { return Float(self) }
 
     /// EZSE: Converts integer value to CGFloat.
     public var toCGFloat: CGFloat { return CGFloat(self) }

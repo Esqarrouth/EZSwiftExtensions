@@ -95,14 +95,14 @@ extension NSDate {
 
 extension NSDate: Comparable {}
  /// EZSE: Returns if dates are equal to each other
-public func ==(lhs: NSDate, rhs: NSDate) -> Bool {
+public func == (lhs: NSDate, rhs: NSDate) -> Bool {
   return lhs.isEqualToDate(rhs)
 }
  /// EZSE: Returns if one date is smaller than the other
-public func <(lhs: NSDate, rhs: NSDate) -> Bool {
+public func < (lhs: NSDate, rhs: NSDate) -> Bool {
     return lhs.compare(rhs) == .OrderedAscending
 }
 
-public func >(lhs: NSDate, rhs: NSDate) -> Bool {
+public func > (lhs: NSDate, rhs: NSDate) -> Bool {
   return lhs.compare(rhs) == .OrderedDescending
 }

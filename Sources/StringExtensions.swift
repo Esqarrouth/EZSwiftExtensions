@@ -28,7 +28,7 @@ extension String {
     }
 
     /// EZSE: Counts number of instances of the input inside String
-    public func count(substring: String) -> Int{
+    public func count(substring: String) -> Int {
         return componentsSeparatedByString(substring).count - 1
     }
 
@@ -73,7 +73,7 @@ extension String {
 
     /// EZSE: Extracts URLS from String
     public var extractURLs: [NSURL] {
-        var urls : [NSURL] = []
+        var urls: [NSURL] = []
         let detector: NSDataDetector?
         do {
             detector = try NSDataDetector(types: NSTextCheckingType.Link.rawValue)
