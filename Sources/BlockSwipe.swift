@@ -23,7 +23,7 @@ public class BlockSwipe: UISwipeGestureRecognizer {
             self.direction = direction
             numberOfTouchesRequired = fingerCount
             swipeAction = action
-            addTarget(self, action: "didSwipe:")
+            addTarget(self, action: #selector(BlockSwipe.didSwipe(_:)))
     }
     
     public func didSwipe (swipe: UISwipeGestureRecognizer) {
