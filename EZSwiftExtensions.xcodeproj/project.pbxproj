@@ -17,6 +17,7 @@
 		7605D3171C81FC180046FAC3 /* EZSwiftExtensionsTestsInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605D3071C81FBB80046FAC3 /* EZSwiftExtensionsTestsInt.swift */; };
 		7605D3181C81FC180046FAC3 /* EZSwiftExtensionsTestsNSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605D3081C81FBB80046FAC3 /* EZSwiftExtensionsTestsNSDate.swift */; };
 		7605D3191C81FC180046FAC3 /* EZSwiftExtensionsTestsString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605D3091C81FBB80046FAC3 /* EZSwiftExtensionsTestsString.swift */; };
+		AFBEC7861CB347D50023408E /* NSBundleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBEC7851CB347D50023408E /* NSBundleExtensions.swift */; };
 		B5DC86AD1C0ED06700972D0A /* EZSwiftExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = B5DC86AC1C0ED06700972D0A /* EZSwiftExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5DC86B41C0ED06700972D0A /* EZSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5DC86A91C0ED06700972D0A /* EZSwiftExtensions.framework */; };
 		B5DC86B91C0ED06700972D0A /* EZSwiftExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DC86B81C0ED06700972D0A /* EZSwiftExtensionsTests.swift */; };
@@ -80,6 +81,7 @@
 		7605D3071C81FBB80046FAC3 /* EZSwiftExtensionsTestsInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwiftExtensionsTestsInt.swift; sourceTree = "<group>"; };
 		7605D3081C81FBB80046FAC3 /* EZSwiftExtensionsTestsNSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwiftExtensionsTestsNSDate.swift; sourceTree = "<group>"; };
 		7605D3091C81FBB80046FAC3 /* EZSwiftExtensionsTestsString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwiftExtensionsTestsString.swift; sourceTree = "<group>"; };
+		AFBEC7851CB347D50023408E /* NSBundleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSBundleExtensions.swift; sourceTree = "<group>"; };
 		B5DC86A91C0ED06700972D0A /* EZSwiftExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EZSwiftExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5DC86AC1C0ED06700972D0A /* EZSwiftExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EZSwiftExtensions.h; sourceTree = "<group>"; };
 		B5DC86AE1C0ED06700972D0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				E15484E11CA2BCF0003B030E /* ErrorTypeExtensions.swift */,
 				B5DC870C1C0ED34300972D0A /* IntExtentions.swift */,
 				E178780F1C8651EB00BC05AA /* NSAttributedStringExtensions.swift */,
+				AFBEC7851CB347D50023408E /* NSBundleExtensions.swift */,
 				B5DC870D1C0ED34300972D0A /* NSDateExtensions.swift */,
 				B5DC870E1C0ED34300972D0A /* NSObjectExtentions.swift */,
 				B5DC870F1C0ED34300972D0A /* NSUserDefaultsExtension.swift */,
@@ -353,6 +356,7 @@
 				E17878201C867E9400BC05AA /* CharacterExtensions.swift in Sources */,
 				B5DC87201C0ED34300972D0A /* BlockPinch.swift in Sources */,
 				B5DC87211C0ED34300972D0A /* BlockSwipe.swift in Sources */,
+				AFBEC7861CB347D50023408E /* NSBundleExtensions.swift in Sources */,
 				B5DC87221C0ED34300972D0A /* BlockTap.swift in Sources */,
 				C85840EB1C43B02C00595696 /* NSURLExtensions.swift in Sources */,
 				B5DC87231C0ED34300972D0A /* BlockWebView.swift in Sources */,
