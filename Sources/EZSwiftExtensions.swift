@@ -32,6 +32,15 @@ public struct ez {
         let version = appVersion, build = appBuild
         return version == build ? "v\(version)" : "v\(version)(\(build))"
     }
+    
+    /// EZSE: Return device version ""
+    public static var deviceVersion: String {
+        var size: Int = 0
+        sysctlbyname("hw.machine", nil, &size, nil, 0)
+        var machine = [CChar](count: Int(size), repeatedValue: 0)
+        sysctlbyname("hw.machine", &machine, &size, nil, 0)
+        return String.fromCString(machine)!
+    }
 
     /// EZSE: Returns the top ViewController
     public static var topMostVC: UIViewController? {
