@@ -36,7 +36,7 @@ public struct ez {
         let version = appVersion, build = appBuild
         return version == build ? "v\(version)" : "v\(version)(\(build))"
     }
-    
+
     /// EZSE: Return device version ""
     public static var deviceVersion: String {
         var size: Int = 0

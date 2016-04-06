@@ -59,7 +59,7 @@ extension String {
     /// EZSE: Checks if String contains Email
     public var isEmail: Bool {
         let dataDetector = try? NSDataDetector(types: NSTextCheckingType.Link.rawValue)
-        let firstMatch = dataDetector?.firstMatchInString(self, options: NSMatchingOptions.ReportCompletion, range: NSMakeRange(0, length))
+        let firstMatch = dataDetector?.firstMatchInString(self, options: NSMatchingOptions.ReportCompletion, range: NSRange(location: 0, length: length))
         return (firstMatch?.range.location != NSNotFound && firstMatch?.URL?.scheme == "mailto")
     }
 
@@ -84,7 +84,7 @@ extension String {
         let text = self
 
         if let detector = detector {
-            detector.enumerateMatchesInString(text, options: [], range: NSMakeRange(0, text.characters.count), usingBlock: {
+            detector.enumerateMatchesInString(text, options: [], range: NSRange(location: 0, length: text.characters.count), usingBlock: {
                 (result: NSTextCheckingResult?, flags: NSMatchingFlags, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
                 if let result = result,
                     let url = result.URL {
