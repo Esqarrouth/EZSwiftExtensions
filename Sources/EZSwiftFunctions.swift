@@ -66,12 +66,12 @@ public struct ez {
 
     /// EZSwiftExtensions
     public static var horizontalSizeClass: UIUserInterfaceSizeClass {
-      return self.topMostVC?.traitCollection.horizontalSizeClass ?? UIUserInterfaceSizeClass.Unspecified
+        return self.topMostVC?.traitCollection.horizontalSizeClass ?? UIUserInterfaceSizeClass.Unspecified
     }
 
     /// EZSwiftExtensions
     public static var verticalSizeClass: UIUserInterfaceSizeClass {
-      return self.topMostVC?.traitCollection.verticalSizeClass ?? UIUserInterfaceSizeClass.Unspecified
+        return self.topMostVC?.traitCollection.verticalSizeClass ?? UIUserInterfaceSizeClass.Unspecified
     }
 
     /// EZSE: Returns screen width
