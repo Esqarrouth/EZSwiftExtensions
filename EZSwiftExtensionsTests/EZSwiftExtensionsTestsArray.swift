@@ -10,50 +10,49 @@ import XCTest
 import EZSwiftExtensions
 
 class EZSwiftExtensionsTestsArray: XCTestCase {
-  
     var numberArray: [Int] = []
-  
+
     override func setUp() {
         super.setUp()
         //[0, 1, 2, 3, 4, 5, 1]
         numberArray = [Int](0...5)
         numberArray.append(1)
     }
-    
+
     func testIndexesOf() {
         var indexes = numberArray.indexesOf(1)
         XCTAssertEqual(indexes, [1, 6])
-        
+
         indexes = numberArray.indexesOf(12345)
         XCTAssertEqual(indexes, [])
     }
-  
+
     func testRemoveObject() {
         let copyArray = numberArray
         numberArray.removeObject(12345)
         XCTAssertEqual(numberArray, copyArray)
-        
+
         let compareArray = [0, 2, 3, 4, 5, 1]
         numberArray.removeObject(1)
         XCTAssertEqual(numberArray, compareArray)
     }
-    
+
     func testRemoveObjects() {
         let copyArray = numberArray
         numberArray.removeObjects(12345)
         XCTAssertEqual(numberArray, copyArray)
-        
+
         let compareArray = [0, 2, 3, 4, 5]
         numberArray.removeObjects(1)
         XCTAssertEqual(numberArray, compareArray)
     }
-  
+
     func testContainsInstanceOf() {
         XCTAssertFalse(numberArray.containsInstanceOf("a"))
         XCTAssertFalse(numberArray.containsInstanceOf(12.22))
         XCTAssertTrue(numberArray.containsInstanceOf(46378))
     }
-  
+
     func testContainsArray() {
         let array = [Int](2...4)
         XCTAssertTrue(numberArray.containsArray(array))
@@ -64,15 +63,15 @@ class EZSwiftExtensionsTestsArray: XCTestCase {
         XCTAssertNil([].random())
     }
 
-	func testTestAll() {
-		XCTAssertTrue(numberArray.testAll { $0 < 10 })
-	}
-    
+  func testTestAll() {
+    XCTAssertTrue(numberArray.testAll { $0 < 10 })
+  }
+
     func testTestIfAllIs() {
         let array1 = [true, true, true]
         let array2 = [false, false]
         let array3 = [true, false]
-        
+
         XCTAssertEqual(array1.testIfAllIs(true), true)
         XCTAssertEqual(array2.testIfAllIs(true), false)
         XCTAssertEqual(array2.testIfAllIs(false), true)
@@ -80,67 +79,67 @@ class EZSwiftExtensionsTestsArray: XCTestCase {
         XCTAssertEqual(array3.testIfAllIs(false), false)
         XCTAssertEqual(numberArray.testIfAllIs(true), false)
     }
-    
-	func testGet() {
-		XCTAssertNotNil(numberArray.get(1))
-		XCTAssertNil(numberArray.get(10))
-	}
 
-	func testReverseIndex() {
-		let array = [Int](0...5)
-		XCTAssertEqual(array.reverseIndex(0), 5)
-		XCTAssertEqual(array.reverseIndex(2), 3)
-	}
+  func testGet() {
+    XCTAssertNotNil(numberArray.get(1))
+    XCTAssertNil(numberArray.get(10))
+  }
 
-	func testTakeMax() {
-		XCTAssertEqual(numberArray.takeMax(2).count, 2)
-	}
+  func testReverseIndex() {
+    let array = [Int](0...5)
+    XCTAssertEqual(array.reverseIndex(0), 5)
+    XCTAssertEqual(array.reverseIndex(2), 3)
+  }
 
-	func testEach() {
-		var sameArray: [Int] = []
-		numberArray.each { sameArray.append($0) }
-		XCTAssertEqual(numberArray, sameArray)
+  func testTakeMax() {
+    XCTAssertEqual(numberArray.takeMax(2).count, 2)
+  }
 
-		var indexArray: [Int] = []
-		numberArray.each { indexArray.append($0.0) }
-		XCTAssertEqual(indexArray, [Int](0..<numberArray.count))
-	}
+  func testEach() {
+    var sameArray: [Int] = []
+    numberArray.each { sameArray.append($0) }
+    XCTAssertEqual(numberArray, sameArray)
 
-	func testMapFilter() {
-		let filtered = numberArray.mapFilter { number -> String? in
-			return number == 1 ? String(number) : nil
-		}
+    var indexArray: [Int] = []
+    numberArray.each { indexArray.append($0.0) }
+    XCTAssertEqual(indexArray, [Int](0..<numberArray.count))
+  }
 
-		XCTAssertEqual(filtered.count, 2)
-	}
+  func testMapFilter() {
+    let filtered = numberArray.mapFilter { number -> String? in
+      return number == 1 ? String(number) : nil
+    }
 
-	func testUnion() {
-		let a = [Int](0...2), b = [Int](3...5), c = [Int](6...8)
-		let union = a.union(b, c)
+    XCTAssertEqual(filtered.count, 2)
+  }
 
-		XCTAssertEqual(union, [Int](0...8))
-	}
+  func testUnion() {
+    let a = [Int](0...2), b = [Int](3...5), c = [Int](6...8)
+    let union = a.union(b, c)
 
-	func testIntersection() {
-		let a = [Int](0...8), b = [Int](3...4), c = [Int](1...6)
-		let intersection = a.intersection(b, c)
+    XCTAssertEqual(union, [Int](0...8))
+  }
 
-		XCTAssertEqual(intersection, [3, 4])
-	}
+  func testIntersection() {
+    let a = [Int](0...8), b = [Int](3...4), c = [Int](1...6)
+    let intersection = a.intersection(b, c)
 
-	func testDifference() {
-		let a = [Int](0...8), b = [Int](3...4), c = [Int](1...2)
-		let difference = a.difference(b, c)
+    XCTAssertEqual(intersection, [3, 4])
+  }
 
-		XCTAssertEqual(difference, [0, 5, 6, 7, 8])
-	}
+  func testDifference() {
+    let a = [Int](0...8), b = [Int](3...4), c = [Int](1...2)
+    let difference = a.difference(b, c)
 
-	func testOptionalEquatable() {
-		let a: [Int]? = [1, 2, 3]
-		let b: [Int]? = [1, 2, 3]
-		let c: [Int]? = nil
+    XCTAssertEqual(difference, [0, 5, 6, 7, 8])
+  }
 
-		XCTAssertTrue(a == b)
-		XCTAssertFalse(a == c)
-	}
+  func testOptionalEquatable() {
+    let a: [Int]? = [1, 2, 3]
+    let b: [Int]? = [1, 2, 3]
+    let c: [Int]? = nil
+
+    XCTAssertTrue(a == b)
+    XCTAssertFalse(a == c)
+  }
 }

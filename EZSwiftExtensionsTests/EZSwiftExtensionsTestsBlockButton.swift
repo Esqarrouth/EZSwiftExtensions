@@ -10,7 +10,6 @@ import XCTest
 @testable import EZSwiftExtensions
 
 class EZSwiftExtensionsTestsBlockButton: XCTestCase {
-  
     var blockButton: BlockButton!
 
     override func setUp() {
@@ -26,10 +25,9 @@ class EZSwiftExtensionsTestsBlockButton: XCTestCase {
         }
         XCTAssertNotNil(blockButton.highlightLayer)
     }
-  
+
     func testUnighlight() {
         blockButton.unhighlight()
         XCTAssertNil(blockButton.highlightLayer)
     }
-
 }

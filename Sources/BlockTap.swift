@@ -1,6 +1,6 @@
 //
 //  BlockTap.swift
-//  
+//
 //
 //  Created by Cem Olcay on 12/08/15.
 //
@@ -9,13 +9,12 @@
 import UIKit
 
 public class BlockTap: UITapGestureRecognizer {
-    
     private var tapAction: ((UITapGestureRecognizer) -> Void)?
-    
+
     public override init(target: AnyObject?, action: Selector) {
         super.init(target: target, action: action)
     }
-    
+
     public convenience init (
         tapCount: Int = 1,
         fingerCount: Int = 1,
@@ -26,9 +25,8 @@ public class BlockTap: UITapGestureRecognizer {
             self.tapAction = action
             self.addTarget(self, action: #selector(BlockTap.didTap(_:)))
     }
-    
+
     public func didTap (tap: UITapGestureRecognizer) {
         tapAction? (tap)
     }
-    
 }

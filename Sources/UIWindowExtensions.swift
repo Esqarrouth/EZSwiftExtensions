@@ -17,5 +17,3 @@ extension UIWindow {
         self.makeKeyAndVisible()
     }
 }
-
-

@@ -16,5 +16,3 @@ extension Character {
     ///TODO: Add to readme
     public var toInt: Int? { return Int(String(self)) }
 }
-
-

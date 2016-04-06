@@ -10,21 +10,25 @@ import UIKit
 //TODO: others standart video, gif
 
 public struct ez {
-
     /// EZSE: Returns app's name
-    public static var appDisplayName: String {
-        return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleDisplayName") as? String
-            ?? NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleName") as! String
+    public static var appDisplayName: String? {
+        if let bundleDisplayName = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleDisplayName") as? String {
+            return bundleDisplayName
+        } else if let bundleName = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleName") as? String {
+            return bundleName
+        }
+
+        return nil
     }
 
     /// EZSE: Returns app's version number
-    public static var appVersion: String {
-        return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
+    public static var appVersion: String? {
+        return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? String
     }
 
     /// EZSE: Return app's build number
-    public static var appBuild: String {
-        return NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as String) as! String
+    public static var appBuild: String? {
+        return NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as String) as? String
     }
 
     /// EZSE: Returns both app's version and build numbers "v0.3(7)"
@@ -59,15 +63,15 @@ public struct ez {
     public static var screenOrientation: UIInterfaceOrientation {
         return UIApplication.sharedApplication().statusBarOrientation
     }
-  
+
     /// EZSwiftExtensions
-    public static var horizontalSizeClass : UIUserInterfaceSizeClass {
-      return self.topMostVC?.traitCollection.horizontalSizeClass ?? UIUserInterfaceSizeClass(rawValue: 0)!
+    public static var horizontalSizeClass: UIUserInterfaceSizeClass {
+      return self.topMostVC?.traitCollection.horizontalSizeClass ?? UIUserInterfaceSizeClass.Unspecified
     }
-  
+
     /// EZSwiftExtensions
-    public static var verticalSizeClass : UIUserInterfaceSizeClass {
-      return self.topMostVC?.traitCollection.verticalSizeClass ?? UIUserInterfaceSizeClass(rawValue: 0)!
+    public static var verticalSizeClass: UIUserInterfaceSizeClass {
+      return self.topMostVC?.traitCollection.verticalSizeClass ?? UIUserInterfaceSizeClass.Unspecified
     }
 
     /// EZSE: Returns screen width
@@ -135,7 +139,7 @@ public struct ez {
     public static func runThisInBackground(block: () -> ()) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)
     }
-    
+
     /// EZSE: Runs every second, to cancel use: timer.invalidate()
     public static func runThisEvery(seconds seconds: NSTimeInterval, startAfterSeconds: NSTimeInterval, handler: NSTimer! -> Void) -> NSTimer {
         let fireDate = startAfterSeconds + CFAbsoluteTimeGetCurrent()
@@ -158,11 +162,11 @@ public struct ez {
     /// EZSE: Downloads JSON from url string
     public static func requestJSON(url: String, success: (AnyObject? -> Void), error: ((NSError) -> Void)?) {
         requestURL(url,
-            success: { (data)->Void in
+            success: { (data) -> Void in
                 let json: AnyObject? = self.dataToJsonDict(data)
                 success(json)
             },
-            error: { (err)->Void in
+            error: { (err) -> Void in
                 if let e = error {
                     e(err)
                 }
@@ -193,10 +197,15 @@ public struct ez {
         }
     }
 
-    /// EZSE: 
+    /// EZSE:
     private static func requestURL(url: String, success: (NSData?) -> Void, error: ((NSError) -> Void)? = nil) {
+        guard let requestURL = NSURL(string: url) else {
+            assertionFailure("EZSwiftExtensions Error: Invalid URL")
+            return
+        }
+
         NSURLSession.sharedSession().dataTaskWithRequest(
-            NSURLRequest(URL: NSURL (string: url)!),
+            NSURLRequest(URL: requestURL),
             completionHandler: { data, response, err in
                 if let e = err {
                     error?(e)
@@ -205,5 +214,4 @@ public struct ez {
                 }
         }).resume()
     }
-
 }

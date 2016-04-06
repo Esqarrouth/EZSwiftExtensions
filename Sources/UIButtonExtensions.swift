@@ -8,7 +8,6 @@
 import UIKit
 
 extension UIButton {
-    
     /// EZSwiftExtensions
     public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, target: AnyObject, action: Selector) {
         self.init(frame: CGRect(x: x, y: y, width: w, height: h))
@@ -24,5 +23,4 @@ extension UIButton {
         UIGraphicsEndImageContext()
         self.setBackgroundImage(colorImage, forState: forState)
     }
-
 }

@@ -5,6 +5,7 @@
 //  Created by Cem Olcay on 12/08/15.
 //
 //
+
 import UIKit
 
 /// EZSwiftExtensions
@@ -46,7 +47,6 @@ public enum FontName: String {
 }
 
 extension UIFont {
-    
     /// EZSwiftExtensions
     public class func PrintFontFamily(font: FontName) {
         let arr = UIFont.fontNamesForFamilyName(font.rawValue)
@@ -54,7 +54,7 @@ extension UIFont {
             print(name)
         }
     }
-    
+
     /// EZSwiftExtensions
     public class func Font(name: FontName, type: FontType, size: CGFloat) -> UIFont! {
       //Using type
@@ -62,40 +62,39 @@ extension UIFont {
       if let font = UIFont(name: fontName, size: size) {
           return font
       }
-      
+
       //That font doens't have that type, try .None
       let fontNameNone = name.rawValue
       if let font = UIFont(name: fontNameNone, size: size) {
           return font
       }
-      
+
       //That font doens't have that type, try .Regular
       let fontNameRegular = name.rawValue + "-" + "Regular"
       if let font = UIFont(name: fontNameRegular, size: size) {
           return font
       }
-      
+
       return nil
     }
-    
+
     /// EZSwiftExtensions
     public class func HelveticaNeue(type type: FontType, size: CGFloat) -> UIFont {
         return Font(.HelveticaNeue, type: type, size: size)
     }
-    
+
     /// EZSwiftExtensions
     public class func AvenirNext(type type: FontType, size: CGFloat) -> UIFont {
         return Font(.AvenirNext, type: type, size: size)
     }
-    
+
     /// EZSwiftExtensions
     public class func AvenirNextDemiBold(size size: CGFloat) -> UIFont {
         return Font(.AvenirNext, type: .DemiBold, size: size)
     }
-    
+
     /// EZSwiftExtensions
     public class func AvenirNextRegular(size size: CGFloat) -> UIFont {
         return Font(.AvenirNext, type: .Regular, size: size)
     }
 }
-

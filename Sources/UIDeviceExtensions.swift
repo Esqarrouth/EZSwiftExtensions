@@ -5,6 +5,7 @@
 //  Created by Goktug Yilmaz on 15/07/15.
 //  Copyright (c) 2015 Goktug Yilmaz. All rights reserved.
 //
+
 import UIKit
 
 /// EZSwiftExtensions
@@ -36,57 +37,56 @@ private let DeviceList = [
 ]
 
 extension UIDevice {
-    
     /// EZSwiftExtensions
-    public class func idForVendor() -> String {
-        return UIDevice.currentDevice().identifierForVendor!.UUIDString
+    public class func idForVendor() -> String? {
+        return UIDevice.currentDevice().identifierForVendor?.UUIDString
     }
-    
+
     /// EZSwiftExtensions - Operating system name
     public class func systemName() -> String {
         return UIDevice.currentDevice().systemName
     }
-    
+
     /// EZSwiftExtensions - Operating system version
     public class func systemVersion() -> String {
         return UIDevice.currentDevice().systemVersion
     }
-    
+
     /// EZSwiftExtensions
     public class func deviceName() -> String {
         return UIDevice.currentDevice().name
     }
-    
+
     /// EZSwiftExtensions
     public class func deviceLanguage() -> String {
-        return NSBundle.mainBundle().preferredLocalizations[0] 
+        return NSBundle.mainBundle().preferredLocalizations[0]
     }
-    
+
     /// EZSwiftExtensions
     public class func deviceModelReadable() -> String {
         return DeviceList[deviceModel()] ?? deviceModel()
     }
- 
+
     /// EZSwiftExtensions
     public class func deviceModel() -> String {
         var systemInfo = utsname()
         uname(&systemInfo)
-        
+
         let machine = systemInfo.machine
         var identifier = ""
         let mirror = Mirror(reflecting: machine)
-        
+
         for child in mirror.children {
             let value = child.value
-            
+
             if let value = value as? Int8 where value != 0 {
                 identifier.append(UnicodeScalar(UInt8(value)))
             }
         }
-       
+
         return identifier
     }
-    
+
     /// EZSwiftExtensions
     public class func isSystemVersionOver(requiredVersion: String) -> Bool {
         switch systemVersion().compare(requiredVersion, options: NSStringCompareOptions.NumericSearch) {
@@ -98,9 +98,4 @@ extension UIDevice {
             return false
         }
     }
-    
 }
-
-
-
-
