@@ -32,7 +32,7 @@
 		E1839E271BF79974002212C6 /* CGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E0B1BF79974002212C6 /* CGFloatExtensions.swift */; };
 		E1839E281BF79974002212C6 /* CGRectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E0C1BF79974002212C6 /* CGRectExtensions.swift */; };
 		E1839E291BF79974002212C6 /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E0D1BF79974002212C6 /* DictionaryExtensions.swift */; };
-		E1839E2A1BF79974002212C6 /* EZSwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E0E1BF79974002212C6 /* EZSwiftExtensions.swift */; };
+		E1839E2A1BF79974002212C6 /* EZSwiftFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E0E1BF79974002212C6 /* EZSwiftFunctions.swift */; };
 		E1839E2B1BF79974002212C6 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E0F1BF79974002212C6 /* IntExtensions.swift */; };
 		E1839E2C1BF79974002212C6 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E101BF79974002212C6 /* NSDateExtensions.swift */; };
 		E1839E2D1BF79974002212C6 /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E111BF79974002212C6 /* NSObjectExtensions.swift */; };
@@ -79,7 +79,7 @@
 		E1839E0B1BF79974002212C6 /* CGFloatExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGFloatExtensions.swift; path = Sources/CGFloatExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1839E0C1BF79974002212C6 /* CGRectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGRectExtensions.swift; path = Sources/CGRectExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1839E0D1BF79974002212C6 /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryExtensions.swift; path = Sources/DictionaryExtensions.swift; sourceTree = SOURCE_ROOT; };
-		E1839E0E1BF79974002212C6 /* EZSwiftExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EZSwiftExtensions.swift; path = Sources/EZSwiftExtensions.swift; sourceTree = SOURCE_ROOT; };
+		E1839E0E1BF79974002212C6 /* EZSwiftFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EZSwiftFunctions.swift; path = Sources/EZSwiftFunctions.swift; sourceTree = SOURCE_ROOT; };
 		E1839E0F1BF79974002212C6 /* IntExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntExtensions.swift; path = Sources/IntExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1839E101BF79974002212C6 /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateExtensions.swift; path = Sources/NSDateExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1839E111BF79974002212C6 /* NSObjectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSObjectExtensions.swift; path = Sources/NSObjectExtensions.swift; sourceTree = SOURCE_ROOT; };
@@ -126,7 +126,7 @@
 				E17878211C867EAB00BC05AA /* CharacterExtensions.swift */,
 				E1839E0D1BF79974002212C6 /* DictionaryExtensions.swift */,
 				E1CB3C1B1C25FFA000DF77CD /* DoubleExtensions.swift */,
-				E1839E0E1BF79974002212C6 /* EZSwiftExtensions.swift */,
+				E1839E0E1BF79974002212C6 /* EZSwiftFunctions.swift */,
 				E15484E31CA2BD00003B030E /* ErrorTypeExtensions.swift */,
 				E1839E0F1BF79974002212C6 /* IntExtensions.swift */,
 				E17878151C86525A00BC05AA /* NSAttributedStringExtensions.swift */,
@@ -275,7 +275,7 @@
 				E178781E1C8678F900BC05AA /* UISliderExtensions.swift in Sources */,
 				E1839E381BF79974002212C6 /* UIViewControllerExtensions.swift in Sources */,
 				E15484E41CA2BD00003B030E /* ErrorTypeExtensions.swift in Sources */,
-				E1839E2A1BF79974002212C6 /* EZSwiftExtensions.swift in Sources */,
+				E1839E2A1BF79974002212C6 /* EZSwiftFunctions.swift in Sources */,
 				E1839E391BF79974002212C6 /* UIViewExtensions.swift in Sources */,
 				E1839E361BF79974002212C6 /* UILabelExtensions.swift in Sources */,
 				E1839E281BF79974002212C6 /* CGRectExtensions.swift in Sources */,

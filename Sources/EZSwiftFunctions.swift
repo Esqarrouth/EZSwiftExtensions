@@ -1,5 +1,5 @@
 //
-//  EZSwiftExtensions.swift
+//  EZSwiftFunctions.swift
 //  EZSwiftExtensions
 //
 //  Created by Goktug Yilmaz on 13/07/15.
