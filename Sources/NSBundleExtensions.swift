@@ -20,8 +20,8 @@ public extension NSBundle {
 
     /// EZSE: load xib
     /// Usage: let view: ViewXibName = NSBundle.loadNib("ViewXibName")
-    public class func loadNib<T>(name: String) -> T {
-        return NSBundle.mainBundle().loadNibNamed(name, owner: nil, options: nil)[0] as! T
+    public class func loadNib<T>(name: String) -> T? {
+        return NSBundle.mainBundle().loadNibNamed(name, owner: nil, options: nil)[0] as? T
     }
 
 }
