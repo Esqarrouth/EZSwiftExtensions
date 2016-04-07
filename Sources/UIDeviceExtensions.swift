@@ -52,6 +52,11 @@ extension UIDevice {
         return UIDevice.currentDevice().systemVersion
     }
 
+    /// EZSwiftExtensions - Operating system version
+    public class func systemFloatVersion() -> Float {
+        return (systemVersion() as NSString).floatValue
+    }
+
     /// EZSwiftExtensions
     public class func deviceName() -> String {
         return UIDevice.currentDevice().name
@@ -65,6 +70,16 @@ extension UIDevice {
     /// EZSwiftExtensions
     public class func deviceModelReadable() -> String {
         return DeviceList[deviceModel()] ?? deviceModel()
+    }
+
+    /// EZSE: Returns true if the device is iPhone //TODO: Add to readme
+    public class func isPhone() -> Bool {
+        return UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Phone
+    }
+    
+    /// EZSE: Returns true if the device is iPad //TODO: Add to readme
+    public class func isPad() -> Bool {
+        return UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad
     }
 
     /// EZSwiftExtensions
@@ -85,6 +100,104 @@ extension UIDevice {
         }
 
         return identifier
+    }
+
+    //TODO: Fix syntax, add docs and readme for these methods:
+    //TODO: Delete isSystemVersionOver() 
+    // MARK: - Device Version Checks
+
+    public enum Versions: Float {
+        case Five = 5.0
+        case Six = 6.0
+        case Seven = 7.0
+        case Eight = 8.0
+        case Nine = 9.0
+    }
+
+    public class func isVersion(version: Versions) -> Bool {
+        return systemFloatVersion() >= version.rawValue && systemFloatVersion() < (version.rawValue + 1.0)
+    }
+
+    public class func isVersionOrLater(version: Versions) -> Bool {
+        return systemFloatVersion() >= version.rawValue
+    }
+
+    public class func isVersionOrEarlier(version: Versions) -> Bool {
+        return systemFloatVersion() < (version.rawValue + 1.0)
+    }
+
+    public class var CURRENT_VERSION: String {
+        return "\(systemFloatVersion())"
+    }
+
+    // MARK: iOS 5 Checks
+
+    public class func IS_OS_5() -> Bool {
+        return isVersion(.Five)
+    }
+
+    public class func IS_OS_5_OR_LATER() -> Bool {
+        return isVersionOrLater(.Five)
+    }
+
+    public class func IS_OS_5_OR_EARLIER() -> Bool {
+        return isVersionOrEarlier(.Five)
+    }
+
+    // MARK: iOS 6 Checks
+
+    public class func IS_OS_6() -> Bool {
+        return isVersion(.Six)
+    }
+
+    public class func IS_OS_6_OR_LATER() -> Bool {
+        return isVersionOrLater(.Six)
+    }
+
+    public class func IS_OS_6_OR_EARLIER() -> Bool {
+        return isVersionOrEarlier(.Six)
+    }
+
+    // MARK: iOS 7 Checks
+
+    public class func IS_OS_7() -> Bool {
+        return isVersion(.Seven)
+    }
+
+    public class func IS_OS_7_OR_LATER() -> Bool {
+        return isVersionOrLater(.Seven)
+    }
+
+    public class func IS_OS_7_OR_EARLIER() -> Bool {
+        return isVersionOrEarlier(.Seven)
+    }
+
+    // MARK: iOS 8 Checks
+
+    public class func IS_OS_8() -> Bool {
+        return isVersion(.Eight)
+    }
+
+    public class func IS_OS_8_OR_LATER() -> Bool {
+        return isVersionOrLater(.Eight)
+    }
+
+    public class func IS_OS_8_OR_EARLIER() -> Bool {
+        return isVersionOrEarlier(.Eight)
+    }
+
+    // MARK: iOS 9 Checks
+
+    public class func IS_OS_9() -> Bool {
+        return isVersion(.Nine)
+    }
+
+    public class func IS_OS_9_OR_LATER() -> Bool {
+        return isVersionOrLater(.Nine)
+    }
+
+    public class func IS_OS_9_OR_EARLIER() -> Bool {
+        return isVersionOrEarlier(.Nine)
     }
 
     /// EZSwiftExtensions
