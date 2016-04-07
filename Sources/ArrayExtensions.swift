@@ -95,6 +95,17 @@ extension Array {
     public mutating func insertAsFirst(newElement: Element) {
         insert(newElement, atIndex: 0)
     }
+    
+    /// EZSE: Creates a shuffled version of the array.
+    public func shuffle() -> Array {
+        var arr = self
+        
+        for _ in 0..<self.count {
+            arr = arr.sort { _,_ in arc4random() < arc4random() }
+        }
+        
+        return arr
+    }
 }
 
 extension Array where Element: Equatable {
