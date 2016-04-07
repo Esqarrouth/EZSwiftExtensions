@@ -46,6 +46,42 @@ public struct ez {
         return String.fromCString(machine)!
     }
 
+    /// EZSE: Returns true if DEBUG mode is active //TODO: Add to readme
+    public static var isDebug: Bool {
+    #if DEBUG
+        return true
+    #else
+        return false
+    #endif
+    }
+
+    /// EZSE: Returns true if RELEASE mode is active //TODO: Add to readme
+    public static var isRelease: Bool {
+    #if DEBUG
+        return false
+    #else
+        return true
+    #endif
+    }
+
+    /// EZSE: Returns true if its simulator and not a device //TODO: Add to readme
+    public static var isSimulator: Bool {
+    #if (arch(i386) || arch(x86_64)) && os(iOS)
+        return true
+    #else
+        return false
+    #endif
+    }
+
+    /// EZSE: Returns true if its on a device and not a simulator //TODO: Add to readme
+    public static var isDevice: Bool {
+    #if (arch(i386) || arch(x86_64)) && os(iOS)
+        return false
+    #else
+        return true
+    #endif
+    }
+
     /// EZSE: Returns the top ViewController
     public static var topMostVC: UIViewController? {
         var presentedVC = UIApplication.sharedApplication().keyWindow?.rootViewController
@@ -104,6 +140,11 @@ public struct ez {
         } else {
             return UIScreen.mainScreen().bounds.size.width - screenStatusBarHeight
         }
+    }
+
+    /// EZSE: Returns the locale country code. An example value might be "ES". //TODO: Add to readme
+    public static var currentRegion: String? {
+        return NSLocale.currentLocale().objectForKey(NSLocaleCountryCode) as? String
     }
 
     /// EZSE: Calls action when a screen shot is taken
