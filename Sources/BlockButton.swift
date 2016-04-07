@@ -9,6 +9,7 @@ import UIKit
 
 public typealias BlockButtonAction = (sender: BlockButton) -> Void
 
+///Make sure you use  "[weak self] (sender) in" if you are using the keyword self inside the closure or there might be a memory leak
 public class BlockButton: UIButton {
     // MARK: Propeties
 
