@@ -406,7 +406,6 @@ var dictionary2 = ["squirtle" : "water"]
 dictionary1 += dictionary2
 print(dictionary1) // ["charmander" : "fire", "squirtle" : "water"]
 ```
-
 Easily get intersection or union of two dictionaries:
 
 ``` swift
@@ -419,13 +418,13 @@ print(dictionary3)// ["charmander" : "fire"]
 dictionary3 = dictionary1.union(dictionary2)
 print(dictionary3) // ["charmander": "fire","bulbasaur": "grass","squirtle": "water"]
 ```
-
 Easily get difference of two dictionaries (key value pairs that are only present in one dictionary):
+
 ``` swift
 var dictionary1 = ["charmander" : "fire", "bulbasaur" : "grass"]
 var dictionary2 = ["charmander": "fire","squirtle": "water"]
 difference(dictionary1, dictionary2) // ["bulbasaur" : "grass", "squirtle": "water"]
-
+```
 
 ## NSDate Extensions
 
@@ -436,7 +435,6 @@ let format = "yyyy/MM/dd"
 let fromString = "2016/01/11"
 print(NSDate(fromString: fromString, format: format)) // Optional("2016/01/11 00:00:00 +0000")
 ```
-
 Easily convert date into string:
 
 ``` swift
@@ -445,7 +443,6 @@ print(now.toString())
 print(now.toString(dateStyle: .MediumStyle, timeStyle: .MediumStyle))
 print(now.toString(format: "yyyy/MM/dd HH:mm:ss"))
 ```
-
 Easily see how much time passed:
 
 ``` swift
@@ -560,7 +557,6 @@ override func viewDidAppear(animated: Bool) {
 
     dismissVC(completion: nil) // Instead of dismissViewControllerAnimated(true, completion: completion)}
 ```
-
 Easily hide the keyboard when user taps around the UIViewController:
 
 ```swift 
@@ -569,7 +565,6 @@ Easily hide the keyboard when user taps around the UIViewController:
         self.hideKeyboardWhenTappedAround()
     }
 ```
-
 Easily add UIViewControllers:
 
 ``` swift
@@ -591,7 +586,6 @@ print(myView2.frame) // (0.0, 0.0, 100.0, 100.0)
 let myView3 = UIView(superView: myView2, padding: 20)
 print(myView3.frame) // (20.0, 20.0, 60.0, 60.0)
 ```
-
 Easily resize your UIView to contain its subviews:
 
 ``` swift
@@ -664,9 +658,7 @@ print(bview.frame) // (0.0, 10.0, 10.0, 10.0)
 print(cview.frame) // (0.0, 20.0, 10.0, 10.0)
 // This only works in reordering vertically
 ```
-
 Ignore specific subviews while reordering:
-
 
 ``` swift
 let mainview = UIView(x: 0, y: 0, w: 100, h: 100)
