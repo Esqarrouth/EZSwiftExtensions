@@ -356,7 +356,16 @@ print(myArray.containsArray(["charmander","bulbasaur"])) // true
 print(myArray.containsArray(["string"])) // false
 ```
 
-Easily check if an array contains an element:
+Easily shuffle an array:
+
+``` swift
+var myArray = ["charmander","bulbasaur","squirtle",1,2,3]
+myArray.shuffle()
+print(myArray) // [1,"squirtle","charmander",3,"bulbasaur",2]
+```
+
+##Dictionary Extensions
+>>>>>>> Added shuffle() example.
 
 ``` swift
 var myArray = ["charmander","bulbasaur","squirtle"]
