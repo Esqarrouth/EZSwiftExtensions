@@ -278,6 +278,7 @@ print(str.count("yes")) // 6
 ```
 
 ##NSAttributedString Extensions
+
 Easily change the typeface:
 
 ``` swift
@@ -295,19 +296,22 @@ str.color(UIColor.blueColor())
 ```
 
 Easily use multiple options:
+
 ``` swift
 var str = NSAttributedString(string: "Hello")
 str.bold().underline().color(UIColor.blueColor())
 ```
 
 Easily add NSAttributedStrings:
+
 ``` swift
 var str = NSAttributedString(string: "Hello")
 var str2 = NSAttributedString(string: " World")
 str += str2 //Hello World
 ```
 
-##Array Extensions
+## Array Extensions
+
 Easily access a random element:
 
 ``` swift
@@ -320,6 +324,14 @@ Easily find the indexes of an object:
 var myArray = ["charmander","bulbasaur","squirtle","charmander"]
 print(myArray.indexesOf("charmander")) // [0,3]
 ```
+
+Easily get index of last occurrence of an object:
+
+``` swift
+var myArray = ["charmander","bulbasaur","squirtle","charmander"]
+print(myArray.lastIndexOf("charmander")) // 3
+```
+
 Easily remove an object:
 
 ``` swift
@@ -344,10 +356,42 @@ print(myArray.containsArray(["charmander","bulbasaur"])) // true
 print(myArray.containsArray(["string"])) // false
 ```
 
-##Dictionary Extensions
+Easily check if an array contains an element:
+
+``` swift
+var myArray = ["charmander","bulbasaur","squirtle"]
+print(myArray.containsInstanceOf("squirtle")) // true
+print(myArray.containsInstanceOf(11)) // false
+```
+
+Easily get intersection and union of two arrays :
+
+``` swift
+var myArray = ["charmander","bulbasaur","squirtle"]
+
+print(myArray.intersection(["charmander","pikachu","bulbasaur"])) // ["charmander","bulbasaur"]
+
+print(myArray.union(["charmander","pikachu"])) // ["charmander","bulbasaur","squirtle","pikachu"]
+```
+
+Easily get difference between two arrays (the elements in the an array which are not present in another input array):
+
+``` swift
+var myArray = ["charmander","bulbasaur","squirtle","pikachu"]
+print(myArray.difference(["charmander","bulbasaur"])) // ["squirtle","pikachu"]
+```
+
+## Dictionary Extensions
+
+Easily check if a key exists in the dictionary:
+
+``` swift
+var myDict = ["charmander": "fire","bulbasaur": "grass","squirtle": "water"]
+print(myDict.has("charmander")) // True
+print(myDict.has("pikachu")) // False
+```
 
 Easily access a random element:
-
 ``` swift
 var myDict = ["charmander": "fire","bulbasaur": "grass","squirtle": "water"]
 print(myDict.random()) // grass or something else
@@ -356,16 +400,34 @@ print(myDict.random()) // grass or something else
 Easily add dictionaries to create new ones:
 
 ``` swift
-var dictionary1 = ["fire" : "charmander"]
-var dictionary2 = ["water" : "squirtle"]
-
-var dictionary3 = dictionary1.union(dictionary2)
-print(dictionary3) // ["fire": "charmander", "water": "squirtle"]
+var dictionary1 = ["charmander" : "fire"]
+var dictionary2 = ["squirtle" : "water"]
 
 dictionary1 += dictionary2
-print(dictionary1) // ["fire": "charmander", "water": "squirtle"]
+print(dictionary1) // ["charmander" : "fire", "squirtle" : "water"]
 ```
-##NSDate Extensions
+
+Easily get intersection or union of two dictionaries:
+
+``` swift
+var dictionary1 = ["charmander" : "fire", "bulbasaur" : "grass"]
+var dictionary2 = ["charmander": "fire","squirtle": "water"]
+
+var dictionary3 = dictionary1.intersection(dictionary2)
+print(dictionary3)// ["charmander" : "fire"]
+
+dictionary3 = dictionary1.union(dictionary2)
+print(dictionary3) // ["charmander": "fire","bulbasaur": "grass","squirtle": "water"]
+```
+
+Easily get difference of two dictionaries (key value pairs that are only present in one dictionary):
+``` swift
+var dictionary1 = ["charmander" : "fire", "bulbasaur" : "grass"]
+var dictionary2 = ["charmander": "fire","squirtle": "water"]
+difference(dictionary1, dictionary2) // ["bulbasaur" : "grass", "squirtle": "water"]
+
+
+## NSDate Extensions
 
 Easily initialize your string:
 
@@ -419,6 +481,7 @@ let now2 = NSDate()
 print(now < now2) // true
 print(now2 < now) // false  
 ```
+
 ##NSTimer Extensions
 
 Easily run block of codes after a certain delay:
