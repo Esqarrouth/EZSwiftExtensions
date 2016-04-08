@@ -278,6 +278,7 @@ print(str.count("yes")) // 6
 ```
 
 ##NSAttributedString Extensions
+
 Easily change the typeface:
 
 ``` swift
@@ -295,20 +296,22 @@ str.color(UIColor.blueColor())
 ```
 
 Easily use multiple options:
+
 ``` swift
 var str = NSAttributedString(string: "Hello")
 str.bold().underline().color(UIColor.blueColor())
 ```
 
 Easily add NSAttributedStrings:
+
 ``` swift
 var str = NSAttributedString(string: "Hello")
 var str2 = NSAttributedString(string: " World")
 str += str2 //Hello World
 ```
 
-
 ##Array Extensions
+
 Easily access a random element:
 
 ``` swift
@@ -323,6 +326,7 @@ print(myArray.indexesOf("charmander")) // [0,3]
 ```
 
 Easily get index of last occurence of an object:
+
 ``` swift
 var myArray = ["charmander","bulbasaur","squirtle","charmander"]
 print(myArray.lastIndexOf("charmander")) // 3
@@ -417,12 +421,10 @@ print(dictionary3) // ["charmander": "fire","bulbasaur": "grass","squirtle": "wa
 ```
 
 Easily get difference of two dictionaries (key value pairs that are only present in one dictionary):
-
 ``` swift
 var dictionary1 = ["charmander" : "fire", "bulbasaur" : "grass"]
 var dictionary2 = ["charmander": "fire","squirtle": "water"]
-
-dictionary1.difference
+difference(dictionary1, dictionary2) // ["bulbasaur" : "grass", "squirtle": "water"]
 
 
 ##NSDate Extensions
