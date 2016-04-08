@@ -356,7 +356,7 @@ print(myArray.containsArray(["charmander","bulbasaur"])) // true
 print(myArray.containsArray(["string"])) // false
 ```
 
-Easily check if an array contains another array:
+Easily shuffle an array:
 
 ``` swift
 var myArray = ["charmander","bulbasaur","squirtle",1,2,3]
