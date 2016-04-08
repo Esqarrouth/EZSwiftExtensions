@@ -344,6 +344,14 @@ print(myArray.containsArray(["charmander","bulbasaur"])) // true
 print(myArray.containsArray(["string"])) // false
 ```
 
+Easily shuffle an array:
+
+``` swift
+var myArray = ["charmander","bulbasaur","squirtle",1,2,3]
+myArray.shuffle()
+print(myArray) // ["bulbasaur",3,1,"charmander","squirtle",2]
+```
+
 ##Dictionary Extensions
 
 Easily access a random element:
