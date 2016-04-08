@@ -310,7 +310,7 @@ var str2 = NSAttributedString(string: " World")
 str += str2 //Hello World
 ```
 
-##Array Extensions
+## Array Extensions
 
 Easily access a random element:
 
@@ -325,7 +325,7 @@ var myArray = ["charmander","bulbasaur","squirtle","charmander"]
 print(myArray.indexesOf("charmander")) // [0,3]
 ```
 
-Easily get index of last occurence of an object:
+Easily get index of last occurrence of an object:
 
 ``` swift
 var myArray = ["charmander","bulbasaur","squirtle","charmander"]
@@ -381,7 +381,7 @@ var myArray = ["charmander","bulbasaur","squirtle","pikachu"]
 print(myArray.difference(["charmander","bulbasaur"])) // ["squirtle","pikachu"]
 ```
 
-##Dictionary Extensions
+## Dictionary Extensions
 
 Easily check if a key exists in the dictionary:
 
@@ -427,7 +427,7 @@ var dictionary2 = ["charmander": "fire","squirtle": "water"]
 difference(dictionary1, dictionary2) // ["bulbasaur" : "grass", "squirtle": "water"]
 
 
-##NSDate Extensions
+## NSDate Extensions
 
 Easily initialize your string:
 
