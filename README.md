@@ -278,6 +278,7 @@ print(str.count("yes")) // 6
 ```
 
 ##NSAttributedString Extensions
+
 Easily change the typeface:
 
 ``` swift
@@ -295,19 +296,22 @@ str.color(UIColor.blueColor())
 ```
 
 Easily use multiple options:
+
 ``` swift
 var str = NSAttributedString(string: "Hello")
 str.bold().underline().color(UIColor.blueColor())
 ```
 
 Easily add NSAttributedStrings:
+
 ``` swift
 var str = NSAttributedString(string: "Hello")
 var str2 = NSAttributedString(string: " World")
 str += str2 //Hello World
 ```
 
-##Array Extensions
+## Array Extensions
+
 Easily access a random element:
 
 ``` swift
@@ -320,6 +324,14 @@ Easily find the indexes of an object:
 var myArray = ["charmander","bulbasaur","squirtle","charmander"]
 print(myArray.indexesOf("charmander")) // [0,3]
 ```
+
+Easily get index of last occurrence of an object:
+
+``` swift
+var myArray = ["charmander","bulbasaur","squirtle","charmander"]
+print(myArray.lastIndexOf("charmander")) // 3
+```
+
 Easily remove an object:
 
 ``` swift
@@ -344,18 +356,51 @@ print(myArray.containsArray(["charmander","bulbasaur"])) // true
 print(myArray.containsArray(["string"])) // false
 ```
 
-Easily shuffle an array:
+Easily check if an array contains another array:
 
 ``` swift
 var myArray = ["charmander","bulbasaur","squirtle",1,2,3]
 myArray.shuffle()
-print(myArray) // ["bulbasaur",3,1,"charmander","squirtle",2]
+print(myArray) // [1,"squirtle","charmander",3,"bulbasaur",2]
 ```
 
 ##Dictionary Extensions
+>>>>>>> Added shuffle() example.
+
+``` swift
+var myArray = ["charmander","bulbasaur","squirtle"]
+print(myArray.containsInstanceOf("squirtle")) // true
+print(myArray.containsInstanceOf(11)) // false
+```
+
+Easily get intersection and union of two arrays :
+
+``` swift
+var myArray = ["charmander","bulbasaur","squirtle"]
+
+print(myArray.intersection(["charmander","pikachu","bulbasaur"])) // ["charmander","bulbasaur"]
+
+print(myArray.union(["charmander","pikachu"])) // ["charmander","bulbasaur","squirtle","pikachu"]
+```
+
+Easily get difference between two arrays (the elements in the an array which are not present in another input array):
+
+``` swift
+var myArray = ["charmander","bulbasaur","squirtle","pikachu"]
+print(myArray.difference(["charmander","bulbasaur"])) // ["squirtle","pikachu"]
+```
+
+## Dictionary Extensions
+
+Easily check if a key exists in the dictionary:
+
+``` swift
+var myDict = ["charmander": "fire","bulbasaur": "grass","squirtle": "water"]
+print(myDict.has("charmander")) // True
+print(myDict.has("pikachu")) // False
+```
 
 Easily access a random element:
-
 ``` swift
 var myDict = ["charmander": "fire","bulbasaur": "grass","squirtle": "water"]
 print(myDict.random()) // grass or something else
@@ -364,16 +409,33 @@ print(myDict.random()) // grass or something else
 Easily add dictionaries to create new ones:
 
 ``` swift
-var dictionary1 = ["fire" : "charmander"]
-var dictionary2 = ["water" : "squirtle"]
-
-var dictionary3 = dictionary1.union(dictionary2)
-print(dictionary3) // ["fire": "charmander", "water": "squirtle"]
+var dictionary1 = ["charmander" : "fire"]
+var dictionary2 = ["squirtle" : "water"]
 
 dictionary1 += dictionary2
-print(dictionary1) // ["fire": "charmander", "water": "squirtle"]
+print(dictionary1) // ["charmander" : "fire", "squirtle" : "water"]
 ```
-##NSDate Extensions
+Easily get intersection or union of two dictionaries:
+
+``` swift
+var dictionary1 = ["charmander" : "fire", "bulbasaur" : "grass"]
+var dictionary2 = ["charmander": "fire","squirtle": "water"]
+
+var dictionary3 = dictionary1.intersection(dictionary2)
+print(dictionary3)// ["charmander" : "fire"]
+
+dictionary3 = dictionary1.union(dictionary2)
+print(dictionary3) // ["charmander": "fire","bulbasaur": "grass","squirtle": "water"]
+```
+Easily get difference of two dictionaries (key value pairs that are only present in one dictionary):
+
+``` swift
+var dictionary1 = ["charmander" : "fire", "bulbasaur" : "grass"]
+var dictionary2 = ["charmander": "fire","squirtle": "water"]
+difference(dictionary1, dictionary2) // ["bulbasaur" : "grass", "squirtle": "water"]
+```
+
+## NSDate Extensions
 
 Easily initialize your string:
 
@@ -382,7 +444,6 @@ let format = "yyyy/MM/dd"
 let fromString = "2016/01/11"
 print(NSDate(fromString: fromString, format: format)) // Optional("2016/01/11 00:00:00 +0000")
 ```
-
 Easily convert date into string:
 
 ``` swift
@@ -391,7 +452,6 @@ print(now.toString())
 print(now.toString(dateStyle: .MediumStyle, timeStyle: .MediumStyle))
 print(now.toString(format: "yyyy/MM/dd HH:mm:ss"))
 ```
-
 Easily see how much time passed:
 
 ``` swift
@@ -427,6 +487,7 @@ let now2 = NSDate()
 print(now < now2) // true
 print(now2 < now) // false  
 ```
+
 ##NSTimer Extensions
 
 Easily run block of codes after a certain delay:
@@ -505,7 +566,6 @@ override func viewDidAppear(animated: Bool) {
 
     dismissVC(completion: nil) // Instead of dismissViewControllerAnimated(true, completion: completion)}
 ```
-
 Easily hide the keyboard when user taps around the UIViewController:
 
 ```swift 
@@ -514,7 +574,6 @@ Easily hide the keyboard when user taps around the UIViewController:
         self.hideKeyboardWhenTappedAround()
     }
 ```
-
 Easily add UIViewControllers:
 
 ``` swift
@@ -536,7 +595,6 @@ print(myView2.frame) // (0.0, 0.0, 100.0, 100.0)
 let myView3 = UIView(superView: myView2, padding: 20)
 print(myView3.frame) // (20.0, 20.0, 60.0, 60.0)
 ```
-
 Easily resize your UIView to contain its subviews:
 
 ``` swift
@@ -609,9 +667,7 @@ print(bview.frame) // (0.0, 10.0, 10.0, 10.0)
 print(cview.frame) // (0.0, 20.0, 10.0, 10.0)
 // This only works in reordering vertically
 ```
-
 Ignore specific subviews while reordering:
-
 
 ``` swift
 let mainview = UIView(x: 0, y: 0, w: 100, h: 100)
