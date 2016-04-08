@@ -96,15 +96,14 @@ extension Array {
         insert(newElement, atIndex: 0)
     }
     
-    /// EZSE: Creates a shuffled version of the array.
-    public func shuffle() -> Array {
-        var arr = self
+    /// EZSE: Shuffles the array in-place using the Fisher-Yates-Durstenfeld algorithm.
+    public mutating func shuffle() {
+        var j: Int
         
-        for _ in 0..<self.count {
-            arr = arr.sort { _,_ in arc4random() < arc4random() }
+        for i in 0..<(self.count-2) {
+            j = Int(arc4random_uniform(UInt32(self.count - i)))
+            if i != i+j { swap(&self[i],&self[i+j]) }
         }
-        
-        return arr
     }
 }
 
