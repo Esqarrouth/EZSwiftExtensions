@@ -364,8 +364,24 @@ myArray.shuffle()
 print(myArray) // [1,"squirtle","charmander",3,"bulbasaur",2]
 ```
 
+Easily get an object at a specified index:
+
+``` swift
+var myArray = ["charmander","bulbasaur","squirtle"]
+print(myArray.get(1)) // "bulbasaur"
+```
+
+Easily prepend an object to an array:
+
+``` swift
+var myArray = ["charmander","bulbasaur","squirtle"]
+myArray.insertAsFirst("snorlax")
+print(myArray) // ["snorlax","charmander","bulbasaur","squirtle"]
+```
+
 ##Dictionary Extensions
->>>>>>> Added shuffle() example.
+
+Easily determine if an array contains an object:
 
 ``` swift
 var myArray = ["charmander","bulbasaur","squirtle"]
@@ -373,7 +389,7 @@ print(myArray.containsInstanceOf("squirtle")) // true
 print(myArray.containsInstanceOf(11)) // false
 ```
 
-Easily get intersection and union of two arrays :
+Easily get intersection and union of two arrays:
 
 ``` swift
 var myArray = ["charmander","bulbasaur","squirtle"]
