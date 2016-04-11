@@ -379,8 +379,6 @@ myArray.insertAsFirst("snorlax")
 print(myArray) // ["snorlax","charmander","bulbasaur","squirtle"]
 ```
 
-##Dictionary Extensions
-
 Easily determine if an array contains an object:
 
 ``` swift
