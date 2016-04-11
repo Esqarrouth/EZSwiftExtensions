@@ -404,6 +404,17 @@ var myArray = ["charmander","bulbasaur","squirtle","pikachu"]
 print(myArray.difference(["charmander","bulbasaur"])) // ["squirtle","pikachu"]
 ```
 
+Easily test all elements of an array against a closure:
+
+``` swift
+let myArray = ["charmander","bulbasaur","squirtle"]
+let result = myArray.testAll {
+    if $0 == "charmander" { return true }
+    else { return false }
+}
+print(result) // false
+```
+
 ## Dictionary Extensions
 
 Easily check if a key exists in the dictionary:
