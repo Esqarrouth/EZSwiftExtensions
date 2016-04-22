@@ -364,8 +364,22 @@ myArray.shuffle()
 print(myArray) // [1,"squirtle","charmander",3,"bulbasaur",2]
 ```
 
-##Dictionary Extensions
->>>>>>> Added shuffle() example.
+Easily get an object at a specified index:
+
+``` swift
+var myArray = ["charmander","bulbasaur","squirtle"]
+print(myArray.get(1)) // "bulbasaur"
+```
+
+Easily prepend an object to an array:
+
+``` swift
+var myArray = ["charmander","bulbasaur","squirtle"]
+myArray.insertAsFirst("snorlax")
+print(myArray) // ["snorlax","charmander","bulbasaur","squirtle"]
+```
+
+Easily determine if an array contains an object:
 
 ``` swift
 var myArray = ["charmander","bulbasaur","squirtle"]
@@ -373,7 +387,7 @@ print(myArray.containsInstanceOf("squirtle")) // true
 print(myArray.containsInstanceOf(11)) // false
 ```
 
-Easily get intersection and union of two arrays :
+Easily get intersection and union of two arrays:
 
 ``` swift
 var myArray = ["charmander","bulbasaur","squirtle"]
@@ -388,6 +402,17 @@ Easily get difference between two arrays (the elements in the an array which are
 ``` swift
 var myArray = ["charmander","bulbasaur","squirtle","pikachu"]
 print(myArray.difference(["charmander","bulbasaur"])) // ["squirtle","pikachu"]
+```
+
+Easily test all elements of an array against a closure:
+
+``` swift
+let myArray = ["charmander","bulbasaur","squirtle"]
+let result = myArray.testAll {
+    if $0 == "charmander" { return true }
+    else { return false }
+}
+print(result) // false
 ```
 
 ## Dictionary Extensions
