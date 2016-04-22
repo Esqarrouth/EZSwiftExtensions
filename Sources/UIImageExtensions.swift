@@ -92,7 +92,7 @@ extension UIImage {
             return
         }
         guard let data = NSData(contentsOfURL: url) else {
-            print("EZSE: No image in URL")
+            print("EZSE: No image in URL \(urlString)")
             self.init(data: NSData())
             return
         }
