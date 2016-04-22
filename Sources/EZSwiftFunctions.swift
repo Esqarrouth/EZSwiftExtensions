@@ -32,9 +32,15 @@ public struct ez {
     }
 
     /// EZSE: Returns both app's version and build numbers "v0.3(7)"
-    public static var appVersionAndBuild: String {
-        let version = appVersion, build = appBuild
-        return version == build ? "v\(version)" : "v\(version)(\(build))"
+    public static var appVersionAndBuild: String? {
+        if appVersion != nil && appBuild != nil {
+            if appVersion == appBuild {
+                return "v\(appVersion!)"
+            } else {
+                return "v\(appVersion!)(\(appBuild!))"
+            }
+        }
+        return nil
     }
 
     /// EZSE: Return device version ""
