@@ -27,4 +27,20 @@ extension UITextView {
         editable = false
         scrollEnabled = false
     }
+    
+    /// EZSwiftExtensions: Automatically adds a toolbar with a done button to the top of the keyboard. 
+    /// Tapping the button will dismiss the keyboard.
+    func addDoneButton(barStyle: UIBarStyle = .Default) {
+        
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.items = [
+            UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil),
+            UIBarButtonItem(title: "Done", style: .Done, target: self, action: #selector(resignFirstResponder))
+        ]
+        
+        keyboardToolbar.barStyle = barStyle
+        keyboardToolbar.sizeToFit()
+        
+        inputAccessoryView = keyboardToolbar
+    }
 }

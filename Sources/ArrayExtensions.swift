@@ -95,6 +95,16 @@ extension Array {
     public mutating func insertAsFirst(newElement: Element) {
         insert(newElement, atIndex: 0)
     }
+    
+    /// EZSE: Shuffles the array in-place using the Fisher-Yates-Durstenfeld algorithm.
+    public mutating func shuffle() {
+        var j: Int
+        
+        for i in 0..<(self.count-2) {
+            j = Int(arc4random_uniform(UInt32(self.count - i)))
+            if i != i+j { swap(&self[i],&self[i+j]) }
+        }
+    }
 }
 
 extension Array where Element: Equatable {

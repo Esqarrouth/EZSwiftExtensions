@@ -22,7 +22,7 @@ extension UIImageView {
         if image != nil {
             scaleImageFrameToWidth(width: scaleToWidth)
         } else {
-            assertionFailure("EZSwiftExtensions Error: The imageName is invalid.")
+            assertionFailure("EZSwiftExtensions Error: The imageName: '\(imageName)' is invalid!!!")
         }
     }
 

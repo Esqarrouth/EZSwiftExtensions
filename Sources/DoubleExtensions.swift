@@ -25,4 +25,10 @@ extension Double {
         let divisor = pow(10.0, Double(places))
         self = round(self * divisor) / divisor
     }
+    
+    /// EZSE: Returns a Double Ceil to decimal
+    public func getCeiledByPlaces(places: Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return ceil(self * divisor) / divisor
+    }
 }
