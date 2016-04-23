@@ -10,6 +10,8 @@ import UIKit
 
 extension UISwitch {
 
-
-
+	/// EZSE: toggles Switch
+	public func toggle() {
+		self.setOn(!self.on, animated: true)
+	}
 }
