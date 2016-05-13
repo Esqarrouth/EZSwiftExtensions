@@ -15,6 +15,7 @@ extension NSDate {
         if let date = formatter.dateFromString(string) {
             self.init(timeInterval: 0, sinceDate: date)
         } else {
+            self.init()
             return nil
         }
     }
