@@ -12,11 +12,13 @@ class EZSwiftExtensionsTestsNSDate: XCTestCase {
     // note that NSDate uses UTC in NSDate(timeIntervalSince1970: _)
 
     var string: String!
+    var wrongDateString: String!
     let format = "dd-mm-yyyy hh:mm:ss"
 
     override func setUp() {
         super.setUp()
         string = "01-01-1970 00:00:00"
+        wrongDateString = "13-82-1900 90:65:12"
     }
 
     func testDateFromString() {
@@ -25,6 +27,7 @@ class EZSwiftExtensionsTestsNSDate: XCTestCase {
             return
         }
         XCTAssertEqualWithAccuracy(dateFromString.timeIntervalSince1970, 0, accuracy: 60 * 60 * 24)
+        XCTAssertNil(NSDate(fromString: wrongDateString, format: format), "Date From String initialized, but source string was invalid.")
     }
 
     func testDateToString() {
