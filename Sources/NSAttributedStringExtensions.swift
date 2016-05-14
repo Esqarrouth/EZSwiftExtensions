@@ -9,7 +9,7 @@ import UIKit
 
 extension NSAttributedString {
     /// EZSE: Adds bold attribute to NSAttributedString and returns it
-    func bold() -> NSAttributedString {
+    public func bold() -> NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
         let range = (self.string as NSString).rangeOfString(self.string)
@@ -18,7 +18,7 @@ extension NSAttributedString {
     }
 
     /// EZSE: Adds underline attribute to NSAttributedString and returns it
-    func underline() -> NSAttributedString {
+    public func underline() -> NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
         let range = (self.string as NSString).rangeOfString(self.string)
@@ -27,7 +27,7 @@ extension NSAttributedString {
     }
 
     /// EZSE: Adds italic attribute to NSAttributedString and returns it
-    func italic() -> NSAttributedString {
+    public func italic() -> NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
         let range = (self.string as NSString).rangeOfString(self.string)
@@ -36,7 +36,7 @@ extension NSAttributedString {
     }
 
     /// EZSE: Adds color attribute to NSAttributedString and returns it
-    func color(color: UIColor) -> NSAttributedString {
+    public func color(color: UIColor) -> NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
         let range = (self.string as NSString).rangeOfString(self.string)
