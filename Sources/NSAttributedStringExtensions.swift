@@ -9,6 +9,9 @@ import UIKit
 
 extension NSAttributedString {
     /// EZSE: Adds bold attribute to NSAttributedString and returns it
+    
+    #if os(iOS)
+    
     public func bold() -> NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
@@ -16,6 +19,8 @@ extension NSAttributedString {
         copy.addAttributes([NSFontAttributeName: UIFont.boldSystemFontOfSize(UIFont.systemFontSize())], range: range)
         return copy
     }
+    
+    #endif
 
     /// EZSE: Adds underline attribute to NSAttributedString and returns it
     public func underline() -> NSAttributedString {
@@ -25,6 +30,8 @@ extension NSAttributedString {
         copy.addAttributes([NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue], range: range)
         return copy
     }
+    
+    #if os(iOS)
 
     /// EZSE: Adds italic attribute to NSAttributedString and returns it
     public func italic() -> NSAttributedString {
@@ -34,6 +41,8 @@ extension NSAttributedString {
         copy.addAttributes([NSFontAttributeName: UIFont.italicSystemFontOfSize(UIFont.systemFontSize())], range: range)
         return copy
     }
+    
+    #endif
 
     /// EZSE: Adds color attribute to NSAttributedString and returns it
     public func color(color: UIColor) -> NSAttributedString {

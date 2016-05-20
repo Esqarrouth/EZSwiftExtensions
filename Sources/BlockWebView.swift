@@ -8,6 +8,8 @@
 
 import UIKit
 
+#if os(iOS)
+
 ///Make sure you use  "[weak self] (NSURLRequest) in" if you are using the keyword self inside the closure or there might be a memory leak
 public class BlockWebView: UIWebView, UIWebViewDelegate {
     public var didStartLoad: ((NSURLRequest) -> ())?
@@ -46,3 +48,5 @@ public class BlockWebView: UIWebView, UIWebViewDelegate {
         }
     }
 }
+
+#endif

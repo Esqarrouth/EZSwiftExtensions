@@ -8,6 +8,8 @@
 
 import UIKit
 
+#if os(iOS)
+
 ///Make sure you use  "[weak self] (gesture) in" if you are using the keyword self inside the closure or there might be a memory leak
 public class BlockPinch: UIPinchGestureRecognizer {
     private var pinchAction: ((UIPinchGestureRecognizer) -> Void)?
@@ -26,3 +28,5 @@ public class BlockPinch: UIPinchGestureRecognizer {
         pinchAction? (pinch)
     }
 }
+
+#endif
