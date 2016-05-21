@@ -101,10 +101,14 @@ public struct ez {
         return presentedVC
     }
 
+    #if os(iOS)
+    
     /// EZSE: Returns current screen orientation
     public static var screenOrientation: UIInterfaceOrientation {
         return UIApplication.sharedApplication().statusBarOrientation
     }
+    
+    #endif
 
     /// EZSwiftExtensions
     public static var horizontalSizeClass: UIUserInterfaceSizeClass {
@@ -118,21 +122,41 @@ public struct ez {
 
     /// EZSE: Returns screen width
     public static var screenWidth: CGFloat {
+        
+        #if os(iOS)
+            
         if UIInterfaceOrientationIsPortrait(screenOrientation) {
             return UIScreen.mainScreen().bounds.size.width
         } else {
             return UIScreen.mainScreen().bounds.size.height
         }
+        
+        #elseif os(tvOS)
+            
+        return UIScreen.mainScreen().bounds.size.width
+        
+        #endif
     }
 
     /// EZSE: Returns screen height
     public static var screenHeight: CGFloat {
+        
+        #if os(iOS)
+        
         if UIInterfaceOrientationIsPortrait(screenOrientation) {
             return UIScreen.mainScreen().bounds.size.height
         } else {
             return UIScreen.mainScreen().bounds.size.width
         }
+        
+        #elseif os(tvOS)
+            
+            return UIScreen.mainScreen().bounds.size.height
+            
+        #endif
     }
+    
+    #if os(iOS)
 
     /// EZSE: Returns StatusBar height
     public static var screenStatusBarHeight: CGFloat {
@@ -147,6 +171,8 @@ public struct ez {
             return UIScreen.mainScreen().bounds.size.width - screenStatusBarHeight
         }
     }
+    
+    #endif
 
     /// EZSE: Returns the locale country code. An example value might be "ES". //TODO: Add to readme
     public static var currentRegion: String? {

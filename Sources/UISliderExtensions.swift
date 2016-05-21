@@ -8,6 +8,8 @@
 
 import UIKit
 
+#if os(iOS)
+
 extension UISlider {
     ///EZSE: Slider moving to value with animation duration
     public func setValue(value: Float, duration: Double) {
@@ -20,3 +22,5 @@ extension UISlider {
       }
     }
 }
+
+#endif

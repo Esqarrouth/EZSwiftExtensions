@@ -155,23 +155,31 @@ extension String {
     /// EZSE: Converts String to NSString
     public var toNSString: NSString { get { return self as NSString } }
 
+    #if os(iOS)
+    
     ///EZSE: Returns bold NSAttributedString
     public func bold() -> NSAttributedString {
         let boldString = NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.boldSystemFontOfSize(UIFont.systemFontSize())])
         return boldString
     }
+    
+    #endif
 
     ///EZSE: Returns underlined NSAttributedString
     public func underline() -> NSAttributedString {
         let underlineString = NSAttributedString(string: self, attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue])
         return underlineString
     }
+    
+    #if os(iOS)
 
     ///EZSE: Returns italic NSAttributedString
     public func italic() -> NSAttributedString {
         let italicString = NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFontOfSize(UIFont.systemFontSize())])
         return italicString
     }
+    
+    #endif
 
     ///EZSE: Returns NSAttributedString
     public func color(color: UIColor) -> NSAttributedString {

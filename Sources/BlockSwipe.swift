@@ -21,7 +21,13 @@ public class BlockSwipe: UISwipeGestureRecognizer {
         action: ((UISwipeGestureRecognizer) -> Void)?) {
             self.init()
             self.direction = direction
+        
+            #if os(iOS)
+        
             numberOfTouchesRequired = fingerCount
+                
+            #endif
+        
             swipeAction = action
             addTarget(self, action: #selector(BlockSwipe.didSwipe(_:)))
     }

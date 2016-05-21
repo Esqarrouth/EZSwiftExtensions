@@ -22,6 +22,8 @@ extension UIViewController {
     public func removeNotificationObserver() {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
+    
+    #if os(iOS)
 
     public func addKeyboardWillShowNotification() {
         self.addNotificationObserver(UIKeyboardWillShowNotification, selector: #selector(UIViewController.keyboardWillShowNotification(_:)))
@@ -112,6 +114,8 @@ extension UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
+    
+    #endif
 
     public func dismissKeyboard() {
         view.endEditing(true)
