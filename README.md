@@ -2,7 +2,7 @@
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)  
-[![License](https://img.shields.io/cocoapods/l/EZSwiftExtensions.svg?style=flat)](http://cocoapods.org/pods/EZSwiftExtensions)
+[![License](https://img.shields.io/cocoapods/l/EZSwiftExtensions.svg?style=flat)](https://cocoapods.org/pods/EZSwiftExtensions)
 [![Platform](https://img.shields.io/cocoapods/p/EZSwiftExtensions.svg?style=flat)](http://cocoapods.org/pods/EZSwiftExtensions)
 [![Language](https://img.shields.io/badge/swift-2.1-orange.svg)](http://swift.org)
 
@@ -241,7 +241,7 @@ print(emailStr.isEmail) // true
 let urlString = "http://www.google.com is great but www.facebook.com not that much"
 print(myString.extractURLs) // []
 print(emailStr.extractURLs) // [mailto:charmander@gmail.com]
-print(urlString.extractURLs) // [http://www.google.com, http://www.facebook.com]
+print(urlString.extractURLs) // [http://www.google.com, https://www.facebook.com/]
 ```
 Easily convert to numbers:
 
@@ -1186,7 +1186,7 @@ github "goktugyil/EZSwiftExtensions"
 - [Geometry by artman](https://github.com/artman/Geometry)
 - [Swift-Extensions by vitkuzmenko](https://github.com/vitkuzmenko/Swift-Extensions)
 - [SwiftTweetGettr by jmenter](https://github.com/jmenter/SwiftTweetGettr)
-- [Basics by dennisweissmann](https://github.com/dennisweissmann/Basics)
+- [Basics by dennisweissmann](https://github.com/dennisweissmann/DeviceKit)
 - [toNumber by Mamesoft](https://github.com/Mamesoft/toNumber)
 - [RBResizer by hcatlin](https://gist.github.com/hcatlin/180e81cd961573e3c54d)
 
