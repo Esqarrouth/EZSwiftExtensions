@@ -35,7 +35,7 @@ public class BlockButton: UIButton {
     }
 
     public init(action: BlockButtonAction) {
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
         self.action = action
         defaultInit()
     }
