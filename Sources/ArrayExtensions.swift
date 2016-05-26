@@ -102,7 +102,7 @@ extension Array {
         
         for i in 0..<(self.count-2) {
             j = Int(arc4random_uniform(UInt32(self.count - i)))
-            if i != i+j { swap(&self[i],&self[i+j]) }
+            if i != i+j { swap(&self[i], &self[i+j]) }
         }
     }
 }

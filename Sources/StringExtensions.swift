@@ -86,8 +86,7 @@ extension String {
         if let detector = detector {
             detector.enumerateMatchesInString(text, options: [], range: NSRange(location: 0, length: text.characters.count), usingBlock: {
                 (result: NSTextCheckingResult?, flags: NSMatchingFlags, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
-                if let result = result,
-                    let url = result.URL {
+                if let result = result, url = result.URL {
                     urls.append(url)
                 }
             })

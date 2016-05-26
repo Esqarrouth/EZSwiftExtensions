@@ -30,8 +30,7 @@ extension Dictionary {
     public func intersection<K, V where K: Equatable, V: Equatable>(dictionaries: [K: V]...) -> [K: V] {
         //  Casts self from [Key: Value] to [K: V]
         let filtered = mapFilter { (item, value) -> (K, V)? in
-            if let item = item as? K,
-                let value = value as? V {
+            if let item = item as? K, value = value as? V {
                 return (item, value)
             }
             return nil
