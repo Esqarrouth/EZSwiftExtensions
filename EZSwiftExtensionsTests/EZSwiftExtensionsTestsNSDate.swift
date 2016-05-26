@@ -26,17 +26,21 @@ class EZSwiftExtensionsTestsNSDate: XCTestCase {
             XCTFail("Date From String Couldn't be initialized.")
             return
         }
-        XCTAssertEqualWithAccuracy(dateFromString.timeIntervalSince1970, 0, accuracy: 60 * 60 * 24)
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = format
+        let dateString = formatter.dateFromString(string)
+        XCTAssertEqual(dateFromString, dateString)
         XCTAssertNil(NSDate(fromString: wrongDateString, format: format), "Date From String initialized, but source string was invalid.")
     }
 
     func testDateToString() {
-        let dateToString = NSDate(timeIntervalSince1970: 0).toString(format: format)
-        guard let dateFromString = NSDate(fromString: dateToString, format: format) else {
-            XCTFail("Date From String Couldn't be initialized.")
-            return
-        }
-        XCTAssertEqualWithAccuracy(dateFromString.timeIntervalSince1970, 0, accuracy: 60 * 60 * 24)
+        let date = NSDate(timeIntervalSince1970: 0)
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = format
+        let dateString = formatter.stringFromDate(date)
+        
+        XCTAssertEqual(date.toString(format: format), dateString)
     }
 
     func testTimePassedBetweenDates() {
