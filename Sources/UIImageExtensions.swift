@@ -40,7 +40,7 @@ extension UIImage {
         let aspectSize = CGSize (width: width, height: aspectHeightForWidth(width))
 
         UIGraphicsBeginImageContext(aspectSize)
-        self.drawInRect(CGRect(origin: CGPointZero, size: aspectSize))
+        self.drawInRect(CGRect(origin: CGPoint.zero, size: aspectSize))
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
@@ -52,7 +52,7 @@ extension UIImage {
         let aspectSize = CGSize (width: aspectWidthForHeight(height), height: height)
 
         UIGraphicsBeginImageContext(aspectSize)
-        self.drawInRect(CGRect(origin: CGPointZero, size: aspectSize))
+        self.drawInRect(CGRect(origin: CGPoint.zero, size: aspectSize))
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 

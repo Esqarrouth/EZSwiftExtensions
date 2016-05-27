@@ -22,7 +22,7 @@ extension UIView {
 
     /// EZSwiftExtensions - Copies size of superview
     public convenience init(superView: UIView) {
-        self.init(frame: CGRect(origin: CGPointZero, size: superView.size))
+        self.init(frame: CGRect(origin: CGPoint.zero, size: superView.size))
     }
 }
 
@@ -472,7 +472,13 @@ extension UIView {
     public func addSwipeGesture(direction direction: UISwipeGestureRecognizerDirection, numberOfTouches: Int = 1, target: AnyObject, action: Selector) {
         let swipe = UISwipeGestureRecognizer(target: target, action: action)
         swipe.direction = direction
+        
+        #if os(iOS)
+        
         swipe.numberOfTouchesRequired = numberOfTouches
+            
+        #endif
+        
         addGestureRecognizer(swipe)
         userInteractionEnabled = true
     }
@@ -498,12 +504,18 @@ extension UIView {
         userInteractionEnabled = true
     }
 
+    #if os(iOS)
+    
     /// EZSwiftExtensions
     public func addPinchGesture(target target: AnyObject, action: Selector) {
         let pinch = UIPinchGestureRecognizer(target: target, action: action)
         addGestureRecognizer(pinch)
         userInteractionEnabled = true
     }
+    
+    #endif
+    
+    #if os(iOS)
 
     /// EZSwiftExtensions - Make sure you use  "[weak self] (gesture) in" if you are using the keyword self inside the closure or there might be a memory leak
     public func addPinchGesture(action action: ((UIPinchGestureRecognizer) -> ())?) {
@@ -511,6 +523,8 @@ extension UIView {
         addGestureRecognizer(pinch)
         userInteractionEnabled = true
     }
+    
+    #endif
 
     /// EZSwiftExtensions
     public func addLongPressGesture(target target: AnyObject, action: Selector) {

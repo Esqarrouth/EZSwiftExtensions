@@ -9,34 +9,43 @@ import UIKit
 
 extension NSAttributedString {
     /// EZSE: Adds bold attribute to NSAttributedString and returns it
-    func bold() -> NSAttributedString {
+    
+    #if os(iOS)
+    
+    public func bold() -> NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
         let range = (self.string as NSString).rangeOfString(self.string)
         copy.addAttributes([NSFontAttributeName: UIFont.boldSystemFontOfSize(UIFont.systemFontSize())], range: range)
         return copy
     }
+    
+    #endif
 
     /// EZSE: Adds underline attribute to NSAttributedString and returns it
-    func underline() -> NSAttributedString {
+    public func underline() -> NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
         let range = (self.string as NSString).rangeOfString(self.string)
         copy.addAttributes([NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue], range: range)
         return copy
     }
+    
+    #if os(iOS)
 
     /// EZSE: Adds italic attribute to NSAttributedString and returns it
-    func italic() -> NSAttributedString {
+    public func italic() -> NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
         let range = (self.string as NSString).rangeOfString(self.string)
         copy.addAttributes([NSFontAttributeName: UIFont.italicSystemFontOfSize(UIFont.systemFontSize())], range: range)
         return copy
     }
+    
+    #endif
 
     /// EZSE: Adds color attribute to NSAttributedString and returns it
-    func color(color: UIColor) -> NSAttributedString {
+    public func color(color: UIColor) -> NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
         let range = (self.string as NSString).rangeOfString(self.string)

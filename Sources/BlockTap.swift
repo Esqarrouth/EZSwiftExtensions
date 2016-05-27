@@ -22,7 +22,13 @@ public class BlockTap: UITapGestureRecognizer {
         action: ((UITapGestureRecognizer) -> Void)?) {
             self.init()
             self.numberOfTapsRequired = tapCount
+        
+            #if os(iOS)
+        
             self.numberOfTouchesRequired = fingerCount
+                
+            #endif
+        
             self.tapAction = action
             self.addTarget(self, action: #selector(BlockTap.didTap(_:)))
     }
