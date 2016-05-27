@@ -20,6 +20,24 @@ extension NSDate {
         }
     }
 
+    /// EZSE: Initializes NSDate from string returned from an http response, according to several RFCs
+    public convenience init? (httpDateString: String) {
+        if let rfc1123 = NSDate(string: httpDateString, withFormat: "EEE',' dd' 'MMM' 'yyyy HH':'mm':'ss zzz") {
+            self.init(timeIntervalSince1970: rfc1123.timeIntervalSince1970)
+            return
+        }
+        if let rfc850 = NSDate(string: httpDateString, withFormat: "EEEE',' dd'-'MMM'-'yy HH':'mm':'ss z") {
+            self.init(timeIntervalSince1970: rfc850.timeIntervalSince1970)
+            return
+        }
+        if let asctime =  NSDate(string: httpDateString, withFormat: "EEE MMM d HH':'mm':'ss yyyy") {
+            self.init(timeIntervalSince1970: asctime.timeIntervalSince1970)
+            return
+        }
+        //self.init()
+        return nil
+    }
+
     /// EZSE: Converts NSDate to String
     public func toString(dateStyle dateStyle: NSDateFormatterStyle = .MediumStyle, timeStyle: NSDateFormatterStyle = .MediumStyle) -> String {
         let formatter = NSDateFormatter()
