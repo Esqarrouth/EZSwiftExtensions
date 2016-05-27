@@ -58,6 +58,7 @@
 		E178781C1C8678AA00BC05AA /* UISliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E178781B1C8678AA00BC05AA /* UISliderExtensions.swift */; };
 		E17878201C867E9400BC05AA /* CharacterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E178781F1C867E9400BC05AA /* CharacterExtensions.swift */; };
 		E17878241C86861900BC05AA /* UIWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878231C86861900BC05AA /* UIWindowExtensions.swift */; };
+		E1D7CDD01CF8FFC7008E4C07 /* UIBarButtonItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D7CDCF1CF8FFC7008E4C07 /* UIBarButtonItemExtensions.swift */; };
 		E1F21CB51CB55CDA004A01A4 /* EZSwiftFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F21CB41CB55CDA004A01A4 /* EZSwiftFunctions.swift */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +127,7 @@
 		E178781B1C8678AA00BC05AA /* UISliderExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISliderExtensions.swift; sourceTree = "<group>"; };
 		E178781F1C867E9400BC05AA /* CharacterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterExtensions.swift; sourceTree = "<group>"; };
 		E17878231C86861900BC05AA /* UIWindowExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindowExtensions.swift; sourceTree = "<group>"; };
+		E1D7CDCF1CF8FFC7008E4C07 /* UIBarButtonItemExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtensions.swift; sourceTree = "<group>"; };
 		E1F21CB41CB55CDA004A01A4 /* EZSwiftFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwiftFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -222,8 +224,9 @@
 				E17878111C86520100BC05AA /* NSTimerExtensions.swift */,
 				C85840EA1C43B02C00595696 /* NSURLExtensions.swift */,
 				B5DC87101C0ED34300972D0A /* StringExtensions.swift */,
-				B5DC87111C0ED34300972D0A /* UIButtonExtensions.swift */,
 				E17878171C8676F100BC05AA /* UIAlertControllerExtensions.swift */,
+				E1D7CDCF1CF8FFC7008E4C07 /* UIBarButtonItemExtensions.swift */,
+				B5DC87111C0ED34300972D0A /* UIButtonExtensions.swift */,
 				B5DC87121C0ED34300972D0A /* UIColoredView.swift */,
 				B5DC87131C0ED34300972D0A /* UIColorExtensions.swift */,
 				B5DC87141C0ED34300972D0A /* UIDeviceExtensions.swift */,
@@ -406,6 +409,7 @@
 				B5DC87361C0ED34300972D0A /* UITextViewExtensions.swift in Sources */,
 				B5DC87371C0ED34300972D0A /* UIViewControllerExtensions.swift in Sources */,
 				B5DC87381C0ED34300972D0A /* UIViewExtensions.swift in Sources */,
+				E1D7CDD01CF8FFC7008E4C07 /* UIBarButtonItemExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

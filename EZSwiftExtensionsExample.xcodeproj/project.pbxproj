@@ -50,6 +50,7 @@
 		E1839E381BF79974002212C6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E1C1BF79974002212C6 /* UIViewControllerExtensions.swift */; };
 		E1839E391BF79974002212C6 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E1D1BF79974002212C6 /* UIViewExtensions.swift */; };
 		E1CB3C1C1C25FFA000DF77CD /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB3C1B1C25FFA000DF77CD /* DoubleExtensions.swift */; };
+		E1D7CDCE1CF8FFB3008E4C07 /* UIBarButtonItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D7CDCD1CF8FFB3008E4C07 /* UIBarButtonItemExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		E1839E1C1BF79974002212C6 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = Sources/UIViewControllerExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1839E1D1BF79974002212C6 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = Sources/UIViewExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1CB3C1B1C25FFA000DF77CD /* DoubleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleExtensions.swift; path = Sources/DoubleExtensions.swift; sourceTree = SOURCE_ROOT; };
+		E1D7CDCD1CF8FFB3008E4C07 /* UIBarButtonItemExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIBarButtonItemExtensions.swift; path = Sources/UIBarButtonItemExtensions.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				C85840EC1C43B05200595696 /* NSURLExtensions.swift */,
 				E1839E121BF79974002212C6 /* StringExtensions.swift */,
 				E17878191C86770E00BC05AA /* UIAlertControllerExtensions.swift */,
+				E1D7CDCD1CF8FFB3008E4C07 /* UIBarButtonItemExtensions.swift */,
 				E1839E131BF79974002212C6 /* UIButtonExtensions.swift */,
 				E1839E141BF79974002212C6 /* UIColoredView.swift */,
 				E1839E151BF79974002212C6 /* UIColorExtensions.swift */,
@@ -297,6 +300,7 @@
 				E1839E231BF79974002212C6 /* BlockSwipe.swift in Sources */,
 				E1839E221BF79974002212C6 /* BlockPinch.swift in Sources */,
 				E1839E2E1BF79974002212C6 /* StringExtensions.swift in Sources */,
+				E1D7CDCE1CF8FFB3008E4C07 /* UIBarButtonItemExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
