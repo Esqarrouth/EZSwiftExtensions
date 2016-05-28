@@ -86,24 +86,52 @@ extension NSURL {
         return isdirv?.boolValue ?? false
     }
 
-    /// EZSE: Returns file modification date, nil if file doesn't exist
+    /// EZSE: File modification date, nil if file doesn't exist
     public var fileModifiedDate: NSDate? {
-        var datemodv: AnyObject?
-        do {
-            try self.getResourceValue(&datemodv, forKey: NSURLContentModificationDateKey)
-        } catch _ {
+        get {
+            var datemodv: AnyObject?
+            do {
+                try self.getResourceValue(&datemodv, forKey: NSURLContentModificationDateKey)
+            } catch _ {
+            }
+            return datemodv as? NSDate
         }
-        return datemodv as? NSDate ?? NSDate()
+        set {
+            do {
+                try self.setResourceValue(newValue, forKey: NSURLContentModificationDateKey)
+            } catch _ {
+            }
+        }
     }
 
-    /// EZSE: Returns file creation date, nil if file doesn't exist
+    /// EZSE: File creation date, nil if file doesn't exist
     public var fileCreationDate: NSDate? {
-        var datecreatev: AnyObject?
+        get {
+            var datecreatev: AnyObject?
+            do {
+                try self.getResourceValue(&datecreatev, forKey: NSURLCreationDateKey)
+            } catch _ {
+            }
+            return datecreatev as? NSDate
+        }
+        set {
+            do {
+                try self.setResourceValue(newValue, forKey: NSURLCreationDateKey)
+            } catch _ {
+            }
+
+        }
+    }
+
+    /// EZSE: Returns last file access date, nil if file doesn't exist or didn't accessed yet
+    public var fileAccessDate: NSDate? {
+        NSURLCustomIconKey
+        var dateaccessv: AnyObject?
         do {
-            try self.getResourceValue(&datecreatev, forKey: NSURLCreationDateKey)
+            try self.getResourceValue(&dateaccessv, forKey: NSURLContentAccessDateKey)
         } catch _ {
         }
-        return datecreatev as? NSDate ?? NSDate()
+        return dateaccessv as? NSDate
     }
 
     /// EZSE: Returns file size, -1 if file doesn't exist
@@ -115,6 +143,100 @@ extension NSURL {
         }
         return sizev?.longLongValue ?? -1
     }
+
+    /// EZSE: File is hidden or not, don't care about files begining with dot
+    public var fileIsHidden: Bool {
+        get {
+            var ishiddenv: AnyObject?
+            do {
+                try self.getResourceValue(&ishiddenv, forKey: NSURLIsHiddenKey)
+            } catch _ {
+            }
+            return ishiddenv?.boolValue ?? false
+        }
+        set {
+            do {
+                try self.setResourceValue(newValue, forKey: NSURLIsHiddenKey)
+            } catch _ {
+            }
+            
+        }
+    }
+
+    /// EZSE: Checks file is writable
+    public var fileIsWritable: Bool {
+        var isdirv: AnyObject?
+        do {
+            try self.getResourceValue(&isdirv, forKey: NSURLIsWritableKey)
+        } catch _ {
+        }
+        return isdirv?.boolValue ?? false
+    }
+
+    #if (OSX)
+    @available(OSX 10.10, *)
+    internal var fileThumbnailsDictionary: [String: NSImage]? {
+        get {
+            var thumbsData: AnyObject?
+            do {
+            try self.getResourceValue(&thumbsData, forKey: NSURLThumbnailDictionaryKey)
+            } catch _ {
+            }
+            return thumbsData as? [String: NSImage]
+        }
+        set {
+            do {
+            let dic = NSDictionary(dictionary: newValue ?? [:])
+            try self.setResourceValue(dic, forKey: NSURLThumbnailDictionaryKey)
+            } catch _ {
+            }
+        }
+    }
+
+    /// EZSE: File thubmnail saved in system or iCloud in form of 1024pxx1024px
+    @available(OSX 10.10, *)
+    public var fileThumbnail1024px: NSImage? {
+        get {
+            return fileThumbnailsDictionary?[NSThumbnail1024x1024SizeKey]
+        }
+        set {
+            assert(newValue == nil || (newValue?.size.height == 1024 && newValue?.size.width == 1024), "Image size set in fileThumbnail1024px is not 1024x1024")
+            fileThumbnailsDictionary?[NSThumbnail1024x1024SizeKey] = newValue
+        }
+    }
+
+    #else
+    @available(iOS 8.0, *)
+    internal var fileThumbnailsDictionary: [String: UIImage]? {
+        get {
+            var thumbsData: AnyObject?
+            do {
+                try self.getResourceValue(&thumbsData, forKey: NSURLThumbnailDictionaryKey)
+            } catch _ {
+            }
+            return thumbsData as? [String: UIImage]
+        }
+        set {
+            do {
+                let dic = NSDictionary(dictionary: newValue ?? [:])
+                try self.setResourceValue(dic, forKey: NSURLThumbnailDictionaryKey)
+            } catch _ {
+            }
+        }
+    }
+
+    /// EZSE: File thubmnail saved in system or iCloud in form of 1024pxx1024px
+    @available(iOS 8.0, *)
+    var fileThumbnail1024px: UIImage? {
+        get {
+            return fileThumbnailsDictionary?[NSThumbnail1024x1024SizeKey]
+        }
+        set {
+            assert(newValue == nil || (newValue?.size.height == 1024 && newValue?.size.width == 1024), "Image size set in fileThumbnail1024px is not 1024x1024")
+            fileThumbnailsDictionary?[NSThumbnail1024x1024SizeKey] = newValue
+        }
+    }
+    #endif
 
     /// EZSE: Set SkipBackup attrubute of file or directory in iOS. return current state if no value is set
     public func skipBackupAttributeToItemAtURL(skip: Bool? = nil) -> Bool {
