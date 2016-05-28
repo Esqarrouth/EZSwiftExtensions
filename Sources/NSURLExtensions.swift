@@ -24,41 +24,29 @@ extension NSURL {
     }
 
     /// EZSE: Returns remote size of url, don't use it in main thread
-    public var remoteSize: Int64 {
-        if NSThread.isMainThread() {
-            NSLog("Using NSURL.remoteSize() function inside main thread may lead to UI freeze")
-        }
-        var contentLength: Int64 = NSURLSessionTransferSizeUnknown
-        let request = NSMutableURLRequest(URL: self, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 30.0);
+    public func remoteSize(completionHandler: ((contentLength: Int64) -> Void), timeoutInterval: NSTimeInterval = 30) {
+        let request = NSMutableURLRequest(URL: self, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
         request.HTTPMethod = "HEAD";
         request.setValue("", forHTTPHeaderField: "Accept-Encoding")
-        let group = dispatch_group_create()
-        dispatch_group_enter(group)
-        NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
-            contentLength = response?.expectedContentLength ?? NSURLSessionTransferSizeUnknown
-            dispatch_group_leave(group)
+        NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (_, response, _) -> Void in
+            let contentLength: Int64 = response?.expectedContentLength ?? NSURLSessionTransferSizeUnknown
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                completionHandler(contentLength: contentLength)
+            })
         }).resume()
-        dispatch_group_wait(group, dispatch_time(DISPATCH_TIME_NOW, Int64(5 * NSEC_PER_SEC)))
-        return contentLength
     }
 
     /// EZSE: Returns server supports resuming or not, don't use it in main thread
-    public func supportsResume() -> Bool {
-        if NSThread.isMainThread() {
-            NSLog("Using NSURL.remoteSize() function inside main thread may lead to UI freeze")
-        }
-        var responseCode = -1
-        let request = NSMutableURLRequest(URL: self, cachePolicy: NSURLRequestCachePolicy.ReloadRevalidatingCacheData, timeoutInterval: 30.0);
+    public func supportsResume(completionHandler: ((Bool) -> Void), timeoutInterval: NSTimeInterval = 30) {
+        let request = NSMutableURLRequest(URL: self, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
         request.HTTPMethod = "HEAD";
         request.setValue("bytes=5-10", forHTTPHeaderField: "Range")
-        let group = dispatch_group_create()
-        dispatch_group_enter(group)
-        NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
-            responseCode = (response as? NSHTTPURLResponse)?.statusCode ?? -1
-            dispatch_group_leave(group)
+        NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (_, response, _) -> Void in
+            let responseCode = (response as? NSHTTPURLResponse)?.statusCode ?? -1
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                completionHandler(responseCode == 206)
+            })
         }).resume()
-        dispatch_group_wait(group, dispatch_time(DISPATCH_TIME_NOW, Int64(5 * NSEC_PER_SEC)))
-        return (responseCode == 206)
     }
 
     /// EZSE: Compare two URLs
