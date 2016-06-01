@@ -178,6 +178,13 @@ extension String {
         return italicString
     }
     
+    /// EZSE: Returns strikehthrough NSAttributedString
+    public func strikethrough() -> NSAttributedString {
+        let italicString = NSMutableAttributedString(string: self, attributes: [
+        NSStrikethroughStyleAttributeName: NSNumber(integer: NSUnderlineStyle.StyleSingle.rawValue)])
+        return italicString
+    }
+    
     #endif
 
     ///EZSE: Returns NSAttributedString
