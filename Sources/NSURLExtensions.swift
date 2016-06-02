@@ -3,6 +3,7 @@
 //  EZSwiftExtensions
 //
 //  Created by furuyan on 2016/01/11.
+//  Modified by mousavian on 2016/05/24.
 //  Copyright (c) 2016 Goktug Yilmaz. All rights reserved.
 //
 
@@ -37,14 +38,14 @@ extension NSURL {
     }
 
     /// EZSE: Returns server supports resuming or not, don't use it in main thread
-    public func supportsResume(completionHandler: ((Bool) -> Void), timeoutInterval: NSTimeInterval = 30) {
+    public func supportsResume(completionHandler: ((doesSupport: Bool) -> Void), timeoutInterval: NSTimeInterval = 30) {
         let request = NSMutableURLRequest(URL: self, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
         request.HTTPMethod = "HEAD";
         request.setValue("bytes=5-10", forHTTPHeaderField: "Range")
         NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (_, response, _) -> Void in
             let responseCode = (response as? NSHTTPURLResponse)?.statusCode ?? -1
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-                completionHandler(responseCode == 206)
+                completionHandler(doesSupport: responseCode == 206)
             })
         }).resume()
     }
@@ -64,7 +65,8 @@ extension NSURL {
                 return false
             }
         }
-        if self.path?.lowercaseString != url.path?.lowercaseString {
+        let pathdelimiter = NSCharacterSet(charactersInString: "/")
+        if self.path?.lowercaseString.stringByTrimmingCharactersInSet(pathdelimiter) != url.path?.lowercaseString.stringByTrimmingCharactersInSet(pathdelimiter) {
             return false
         }
         if self.port != url.port {
@@ -244,7 +246,7 @@ extension NSURL {
         let enumOpt = NSDirectoryEnumerationOptions()
         if NSFileManager.defaultManager().fileExistsAtPath(self.path!) {
             if skip != nil {
-                if self.path!.isDirectory {
+                if self.fileIsDirectory {
                     let filesList = (try? NSFileManager.defaultManager().contentsOfDirectoryAtURL(self, includingPropertiesForKeys: keys, options: enumOpt)) ?? []
                     for fileURL in filesList {
                         fileURL.skipBackupAttributeToItemAtURL(skip);

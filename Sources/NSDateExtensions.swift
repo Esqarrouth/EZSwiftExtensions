@@ -30,7 +30,7 @@ extension NSDate {
             self.init(timeInterval: 0, sinceDate: rfc850)
             return
         }
-        if let asctime =  NSDate(string: httpDateString, withFormat: "EEE MMM d HH':'mm':'ss yyyy") {
+        if let asctime =  NSDate(fromString: httpDateString, format: "EEE MMM d HH':'mm':'ss yyyy") {
             self.init(timeInterval: 0, sinceDate: asctime)
             return
         }

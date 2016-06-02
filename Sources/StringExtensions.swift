@@ -14,8 +14,11 @@ import UIKit
 extension String {
     /// EZSE: Init string with a base64 encoded string
     init ? (base64: String) {
-        if let decodedData = NSData(base64EncodedString: base64, options: NSDataBase64DecodingOptions(rawValue: 0)), let decodedString = NSString(data: decodedData, encoding: NSUTF8StringEncoding) {
+        let pad = String(count: base64.length % 4,repeatedValue: Character("="))
+        let base64Padded = base64 + pad
+        if let decodedData = NSData(base64EncodedString: base64Padded, options: NSDataBase64DecodingOptions(rawValue: 0)), let decodedString = NSString(data: decodedData, encoding: NSUTF8StringEncoding) {
             self.init(decodedString)
+            return
         }
         return nil
     }
@@ -95,14 +98,14 @@ extension String {
     /// EZSE: split string using a spearator string, returns an array of string
     public func split(separator: String) -> [String] {
         return self.componentsSeparatedByString(separator).filter {
-            !$0.trim().isEmpty
+            !$0.trimmed().isEmpty
         }
     }
 
     /// EZSE: split string with delimiters, returns an array of string
     public func split(characters: NSCharacterSet) -> [String] {
         return self.componentsSeparatedByCharactersInSet(characters).filter {
-            !$0.trim().isEmpty
+            !$0.trimmed().isEmpty
         }
     }
 
@@ -115,8 +118,18 @@ extension String {
     /// EZSE : Returns count of paragraphs in string
     public var countofParagraphs: Int {
         let regex = try? NSRegularExpression(pattern: "\\n", options: NSRegularExpressionOptions())
-        let str = self.trim()
+        let str = self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         return (regex?.numberOfMatchesInString(str, options: NSMatchingOptions(), range: NSMakeRange(0, str.length)) ?? -1) + 1
+    }
+
+    internal func rangeFromNSRange(nsRange : NSRange) -> Range<String.Index>? {
+        let from16 = utf16.startIndex.advancedBy(nsRange.location, limit: utf16.endIndex)
+        let to16 = from16.advancedBy(nsRange.length, limit: utf16.endIndex)
+        if let from = String.Index(from16, within: self),
+            let to = String.Index(to16, within: self) {
+            return from ..< to
+        }
+        return nil
     }
 
     /// EZSE: Find matches of regular expression in string

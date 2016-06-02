@@ -17,6 +17,14 @@
 		7605D3171C81FC180046FAC3 /* EZSwiftExtensionsTestsInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605D3071C81FBB80046FAC3 /* EZSwiftExtensionsTestsInt.swift */; };
 		7605D3181C81FC180046FAC3 /* EZSwiftExtensionsTestsNSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605D3081C81FBB80046FAC3 /* EZSwiftExtensionsTestsNSDate.swift */; };
 		7605D3191C81FC180046FAC3 /* EZSwiftExtensionsTestsString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605D3091C81FBB80046FAC3 /* EZSwiftExtensionsTestsString.swift */; };
+		793061141D0022C1001769AA /* NSDictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793061131D0022C1001769AA /* NSDictionaryExtensions.swift */; };
+		793061151D0022C1001769AA /* NSDictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793061131D0022C1001769AA /* NSDictionaryExtensions.swift */; };
+		793061161D0022C1001769AA /* NSDictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793061131D0022C1001769AA /* NSDictionaryExtensions.swift */; };
+		793061171D0022C1001769AA /* NSDictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793061131D0022C1001769AA /* NSDictionaryExtensions.swift */; };
+		793061191D00231B001769AA /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793061181D00231B001769AA /* UIApplicationExtensions.swift */; };
+		7930611A1D00231B001769AA /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793061181D00231B001769AA /* UIApplicationExtensions.swift */; };
+		7930611B1D00231B001769AA /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793061181D00231B001769AA /* UIApplicationExtensions.swift */; };
+		7930611C1D00231B001769AA /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793061181D00231B001769AA /* UIApplicationExtensions.swift */; };
 		AFBEC7861CB347D50023408E /* NSBundleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBEC7851CB347D50023408E /* NSBundleExtensions.swift */; };
 		B5DC86AD1C0ED06700972D0A /* EZSwiftExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = B5DC86AC1C0ED06700972D0A /* EZSwiftExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5DC86B41C0ED06700972D0A /* EZSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5DC86A91C0ED06700972D0A /* EZSwiftExtensions.framework */; };
@@ -141,6 +149,8 @@
 		7605D3071C81FBB80046FAC3 /* EZSwiftExtensionsTestsInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwiftExtensionsTestsInt.swift; sourceTree = "<group>"; };
 		7605D3081C81FBB80046FAC3 /* EZSwiftExtensionsTestsNSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwiftExtensionsTestsNSDate.swift; sourceTree = "<group>"; };
 		7605D3091C81FBB80046FAC3 /* EZSwiftExtensionsTestsString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwiftExtensionsTestsString.swift; sourceTree = "<group>"; };
+		793061131D0022C1001769AA /* NSDictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDictionaryExtensions.swift; sourceTree = "<group>"; };
+		793061181D00231B001769AA /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		AFBEC7851CB347D50023408E /* NSBundleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSBundleExtensions.swift; sourceTree = "<group>"; };
 		B5DC86A91C0ED06700972D0A /* EZSwiftExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EZSwiftExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5DC86AC1C0ED06700972D0A /* EZSwiftExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EZSwiftExtensions.h; sourceTree = "<group>"; };
@@ -295,6 +305,7 @@
 				E178780F1C8651EB00BC05AA /* NSAttributedStringExtensions.swift */,
 				AFBEC7851CB347D50023408E /* NSBundleExtensions.swift */,
 				B5DC870D1C0ED34300972D0A /* NSDateExtensions.swift */,
+				793061131D0022C1001769AA /* NSDictionaryExtensions.swift */,
 				B5DC870E1C0ED34300972D0A /* NSObjectExtensions.swift */,
 				B5DC870F1C0ED34300972D0A /* NSUserDefaultsExtension.swift */,
 				E17878111C86520100BC05AA /* NSTimerExtensions.swift */,
@@ -302,6 +313,7 @@
 				B5DC87101C0ED34300972D0A /* StringExtensions.swift */,
 				B5DC87111C0ED34300972D0A /* UIButtonExtensions.swift */,
 				E17878171C8676F100BC05AA /* UIAlertControllerExtensions.swift */,
+				793061181D00231B001769AA /* UIApplicationExtensions.swift */,
 				B5DC87121C0ED34300972D0A /* UIColoredView.swift */,
 				B5DC87131C0ED34300972D0A /* UIColorExtensions.swift */,
 				B5DC87141C0ED34300972D0A /* UIDeviceExtensions.swift */,
@@ -543,10 +555,12 @@
 				E17878101C8651EB00BC05AA /* NSAttributedStringExtensions.swift in Sources */,
 				B5DC872B1C0ED34300972D0A /* NSObjectExtensions.swift in Sources */,
 				B5DC872C1C0ED34300972D0A /* NSUserDefaultsExtension.swift in Sources */,
+				793061141D0022C1001769AA /* NSDictionaryExtensions.swift in Sources */,
 				B5DC872D1C0ED34300972D0A /* StringExtensions.swift in Sources */,
 				E17878181C8676F100BC05AA /* UIAlertControllerExtensions.swift in Sources */,
 				B5DC872E1C0ED34300972D0A /* UIButtonExtensions.swift in Sources */,
 				B5DC872F1C0ED34300972D0A /* UIColoredView.swift in Sources */,
+				793061191D00231B001769AA /* UIApplicationExtensions.swift in Sources */,
 				B5DC87301C0ED34300972D0A /* UIColorExtensions.swift in Sources */,
 				B5DC87311C0ED34300972D0A /* UIDeviceExtensions.swift in Sources */,
 				E1F21CB51CB55CDA004A01A4 /* EZSwiftFunctions.swift in Sources */,
@@ -569,7 +583,9 @@
 				7605D3141C81FC180046FAC3 /* EZSwiftExtensionsTestsBool.swift in Sources */,
 				7605D3131C81FC180046FAC3 /* EZSwiftExtensionsTestsBlockButton.swift in Sources */,
 				7605D3121C81FC180046FAC3 /* EZSwiftExtensionsTestsArray.swift in Sources */,
+				793061151D0022C1001769AA /* NSDictionaryExtensions.swift in Sources */,
 				7605D3171C81FC180046FAC3 /* EZSwiftExtensionsTestsInt.swift in Sources */,
+				7930611A1D00231B001769AA /* UIApplicationExtensions.swift in Sources */,
 				0B96C3CF1C86895E00BB2A3B /* EZSwiftExtensionsTestsNSURL.swift in Sources */,
 				B5DC86B91C0ED06700972D0A /* EZSwiftExtensionsTests.swift in Sources */,
 				7605D3191C81FC180046FAC3 /* EZSwiftExtensionsTestsString.swift in Sources */,
@@ -607,10 +623,12 @@
 				CD4D30C91CEEAFD900CB53BC /* NSAttributedStringExtensions.swift in Sources */,
 				CD4D30CA1CEEAFD900CB53BC /* NSObjectExtensions.swift in Sources */,
 				CD4D30CB1CEEAFD900CB53BC /* NSUserDefaultsExtension.swift in Sources */,
+				793061161D0022C1001769AA /* NSDictionaryExtensions.swift in Sources */,
 				CD4D30CC1CEEAFD900CB53BC /* StringExtensions.swift in Sources */,
 				CD4D30CD1CEEAFD900CB53BC /* UIAlertControllerExtensions.swift in Sources */,
 				CD4D30CE1CEEAFD900CB53BC /* UIButtonExtensions.swift in Sources */,
 				CD4D30CF1CEEAFD900CB53BC /* UIColoredView.swift in Sources */,
+				7930611B1D00231B001769AA /* UIApplicationExtensions.swift in Sources */,
 				CD4D30D01CEEAFD900CB53BC /* UIColorExtensions.swift in Sources */,
 				CD4D30D11CEEAFD900CB53BC /* UIDeviceExtensions.swift in Sources */,
 				CD4D30D21CEEAFD900CB53BC /* EZSwiftFunctions.swift in Sources */,
@@ -633,7 +651,9 @@
 				CD4D314F1CEEB9EA00CB53BC /* EZSwiftExtensionsTestsBool.swift in Sources */,
 				CD4D31501CEEB9EA00CB53BC /* EZSwiftExtensionsTestsBlockButton.swift in Sources */,
 				CD4D31511CEEB9EA00CB53BC /* EZSwiftExtensionsTestsArray.swift in Sources */,
+				793061171D0022C1001769AA /* NSDictionaryExtensions.swift in Sources */,
 				CD4D31521CEEB9EA00CB53BC /* EZSwiftExtensionsTestsInt.swift in Sources */,
+				7930611C1D00231B001769AA /* UIApplicationExtensions.swift in Sources */,
 				CD4D31531CEEB9EA00CB53BC /* EZSwiftExtensionsTestsNSURL.swift in Sources */,
 				CD4D31541CEEB9EA00CB53BC /* EZSwiftExtensionsTests.swift in Sources */,
 				CD4D31551CEEB9EA00CB53BC /* EZSwiftExtensionsTestsString.swift in Sources */,
