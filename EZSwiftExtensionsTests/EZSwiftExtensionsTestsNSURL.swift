@@ -50,11 +50,13 @@ class EZSwiftExtensionsTestsNSURL: XCTestCase {
         // FIXME: Better implementation to address a real existing file url
         let documentsPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
         let documentsURL = NSURL(fileURLWithPath: documentsPath)
+        #if (OSX) || (iOS)
         XCTAssertTrue(documentsURL.fileIsDirectory)
         XCTAssertNotNil(documentsURL.fileCreationDate)
         XCTAssertNotNil(documentsURL.fileModifiedDate)
         XCTAssertTrue(documentsURL.fileIsWritable)
         XCTAssertEqual(documentsURL.fileSize, -1)
+        #endif
     }
     
     
