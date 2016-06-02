@@ -269,3 +269,7 @@ extension NSURL {
         return false
     }
 }
+
+public func ~=(lhs: NSURL, rhs: NSURL) -> Bool {
+    return lhs.isSameWithURL(rhs)
+}

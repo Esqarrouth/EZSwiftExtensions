@@ -44,6 +44,13 @@ class EZSwiftExtensionsTestsNSURL: XCTestCase {
         let url1 = NSURL(string: "http://google.com/")!
         let url2 = NSURL(string: "http://www.google.com")!
         XCTAssertTrue(url1.isSameWithURL(url2))
+        XCTAssertTrue(url1 ~= url2)
+        switch url1 {
+        case url2:
+            XCTAssertTrue(true)
+        default:
+            XCTAssertTrue(false)
+        }
     }
     
     func testFileFunctions() {
@@ -58,6 +65,4 @@ class EZSwiftExtensionsTestsNSURL: XCTestCase {
         XCTAssertEqual(documentsURL.fileSize, -1)
         #endif
     }
-    
-    
 }
