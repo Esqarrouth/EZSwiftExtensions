@@ -53,7 +53,7 @@ extension String {
 
     /// EZSE: Trims white space and new line characters, returns a new string
     public func trimmed() -> String {
-        return self.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).joinWithSeparator("")
+        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
     }
 
     /// EZSE: Checks if String contains Email

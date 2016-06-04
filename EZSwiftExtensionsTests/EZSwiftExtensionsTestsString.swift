@@ -36,9 +36,13 @@ class EZSwiftExtensionsTestsString: XCTestCase {
     }
 
     func testTrim() {
-        string = "space space"
+        string = "  Hello how are you   "
         string.trim()
-        XCTAssertFalse(string.containsString(" "))
+        XCTAssertEqual(string, "Hello how are you")
+        
+        string = "  \t\t  Lets trim all the whitespace  \n \t  \n  "
+        string.trim()
+        XCTAssertEqual(string, "Lets trim all the whitespace")
     }
 
     func testIsEmail() {
