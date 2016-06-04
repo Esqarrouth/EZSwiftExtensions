@@ -75,6 +75,8 @@ class EZSwiftExtensionsTestsString: XCTestCase {
         string = "0.12"//Assumed USA locale, change to "," if EU
         XCTAssertNotNil(string.toDouble())
         XCTAssertNotNil(string.toFloat())
+        XCTAssertEqual(String(10.253, precision: 2), "10.25")
+        XCTAssertEqual(String(10.257, precision: 2), "10.26")
         XCTAssertTrue(string.toNSString.isKindOfClass(NSString.self))
     }
 
@@ -84,5 +86,34 @@ class EZSwiftExtensionsTestsString: XCTestCase {
 
         string = "The greatest respect that writers can give their readers is to not write anything that they expect"
         XCTAssertFalse(string.includesEmoji())
+    }
+    
+    func testBase64Conversion() {
+        let string = "EZSwiftExtensions is Awesome"
+        let base64String = "RVpTd2lmdEV4dGVuc2lvbnMgaXMgQXdlc29tZQ"
+        let base64StringPadded = "RVpTd2lmdEV4dGVuc2lvbnMgaXMgQXdlc29tZQ=="
+        XCTAssertEqual(string.base64, base64StringPadded)
+        let newString = String(base64: base64String) ?? ""
+        XCTAssertEqual(newString, string)
+    }
+    
+    func testStatsFuncs() {
+        let string = "EZSwiftExtensions is Awesome, let's revolutionize Swift\nI love it.\n"
+        XCTAssertEqual(string.countofWords, 10)
+        XCTAssertEqual(string.countofParagraphs, 2)
+        XCTAssertEqual(string.positionOfSubstring("Awesome"), 21)
+        XCTAssertEqual(string.split(" ")[3], "let's")
+        switch string {
+        case hasPrefix("EZSwift"):
+            XCTAssertTrue(true)
+        default:
+            XCTAssertTrue(false)
+        }
+        switch string {
+        case hasSuffix(" it.\n"):
+            XCTAssertTrue(true)
+        default:
+            XCTAssertTrue(false)
+        }
     }
 }
