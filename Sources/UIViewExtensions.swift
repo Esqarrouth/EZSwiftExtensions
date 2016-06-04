@@ -558,10 +558,7 @@ extension UIView {
 }
 
 extension UIView {
-    /// EZSwiftExtensions
-    /**
-     Shakes the view for as many number of times as given in the argument
-     */
+    ///EZSE: Shakes the view for as many number of times as given in the argument.
     public func shakeViewForTimes(times: Int) {
         let anim = CAKeyframeAnimation(keyPath: "transform")
         anim.values = [
