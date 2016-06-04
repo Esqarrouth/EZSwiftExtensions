@@ -11,3 +11,6 @@ xcode_sdk: iphonesimulator9.1
 
 script:
 - xcodebuild clean build test -project EZSwiftExtensions.xcodeproj -scheme EZSwiftExtensions-iOS
+
+notifications:
+  email: false
