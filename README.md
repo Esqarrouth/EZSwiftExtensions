@@ -25,6 +25,7 @@ How Swift standard types and classes were supposed to work. A collection of usef
 - [NSTimer](#nstimer-extensions)
 - [CGRect](#cgrect-extensions)
 - [UIViewController](#uiviewcontroller-extensions)
+- [UIStoryBoard](#uistoryboard-extensions)
 - [UIView](#uiview-extensions)
 - [UITextView](#uitextview-extensions)
 - [UILabel](#uilabel-extensions)
@@ -604,6 +605,14 @@ Easily add UIViewControllers:
 ``` swift
     let myViewController = myViewController()
     addAsChildViewController(myViewController, toView: self.anySubview) // Adding view controller as a child view controller to subview
+```
+
+### UIStoryboard Extensions
+
+Easily get the main storyboard:
+
+``` swift
+    let storyboard = UIStoryboard.mainStoryboard
 ```
 
 ### UIView Extensions
