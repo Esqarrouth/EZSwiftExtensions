@@ -6,8 +6,6 @@
 //  Copyright © 2016 Goktug Yilmaz. All rights reserved.
 //
 
-import Foundation
-
 public extension UIStoryboard {
     
     /// EZSE: Get the application's main storyboard
