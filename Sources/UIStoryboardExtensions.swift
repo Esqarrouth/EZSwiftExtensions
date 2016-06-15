@@ -10,7 +10,6 @@ import Foundation
 
 public extension UIStoryboard {
     
-    // TODO: Add to readme
     /// EZSE: Get the application's main storyboard
     /// Usage: let storyboard = UIStoryboard.mainStoryboard
     public static var mainStoryboard: UIStoryboard {
