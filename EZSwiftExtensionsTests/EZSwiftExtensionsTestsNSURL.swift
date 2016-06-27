@@ -46,8 +46,24 @@ class EZSwiftExtensionsTestsNSURL: XCTestCase {
         XCTAssertTrue(url1.isSameWithURL(url2))
     }
     
+    func getDocumentsDirectory() -> NSString {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
+
     func testFileFunctions() {
+        
         // FIXME: Better implementation to address a real existing file url
+        let str = "Super long string here"
+        let filename = getDocumentsDirectory().stringByAppendingPathComponent("output.txt")
+        
+        do {
+            try str.writeToFile(filename, atomically: true, encoding: NSUTF8StringEncoding)
+        } catch {
+            // failed to write file – bad permissions, bad filename, missing permissions, or more likely it can't be converted to the encoding
+        }
+
         let documentsPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
         let documentsURL = NSURL(fileURLWithPath: documentsPath)
         XCTAssertTrue(documentsURL.fileIsDirectory)
