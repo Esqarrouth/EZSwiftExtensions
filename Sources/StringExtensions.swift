@@ -58,7 +58,10 @@ extension String {
 
     /// EZSE: Capitalizes first character of String
     public var capitalizeFirst: String {
+    
+        guard characters.count > 0 else { return self }
         var result = self
+        
         result.replaceRange(startIndex...startIndex, with: String(self[startIndex]).capitalizedString)
         return result
     }
