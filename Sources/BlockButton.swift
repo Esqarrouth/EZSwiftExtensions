@@ -56,25 +56,25 @@ public class BlockButton: UIButton {
     }
 
     private func defaultInit() {
-        addTarget(self, action: #selector(BlockButton.didPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        addTarget(self, action: #selector(BlockButton.highlight), forControlEvents: [UIControlEvents.TouchDown, UIControlEvents.TouchDragEnter])
-        addTarget(self, action: #selector(BlockButton.unhighlight), forControlEvents: [
-            UIControlEvents.TouchUpInside,
-            UIControlEvents.TouchUpOutside,
-            UIControlEvents.TouchCancel,
-            UIControlEvents.TouchDragExit
+        addTarget(self, action: #selector(BlockButton.didPressed(_:)), for: UIControlEvents.touchUpInside)
+        addTarget(self, action: #selector(BlockButton.highlight), for: [UIControlEvents.touchDown, UIControlEvents.touchDragEnter])
+        addTarget(self, action: #selector(BlockButton.unhighlight), for: [
+            UIControlEvents.touchUpInside,
+            UIControlEvents.touchUpOutside,
+            UIControlEvents.touchCancel,
+            UIControlEvents.touchDragExit
         ])
-        setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-        setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected)
+        setTitleColor(UIColor.black(), for: UIControlState())
+        setTitleColor(UIColor.blue(), for: UIControlState.selected)
     }
 
-    public func addAction(action: BlockButtonAction) {
+    public func addAction(_ action: BlockButtonAction) {
         self.action = action
     }
 
     // MARK: Action
 
-    public func didPressed(sender: BlockButton) {
+    public func didPressed(_ sender: BlockButton) {
         action?(sender: sender)
     }
 
@@ -86,17 +86,17 @@ public class BlockButton: UIButton {
         }
         let highlightLayer = CALayer()
         highlightLayer.frame = layer.bounds
-        highlightLayer.backgroundColor = UIColor.blackColor().CGColor
+        highlightLayer.backgroundColor = UIColor.black().cgColor
         highlightLayer.opacity = 0.5
         var maskImage: UIImage? = nil
         UIGraphicsBeginImageContextWithOptions(layer.bounds.size, false, 0)
         if let context = UIGraphicsGetCurrentContext() {
-            layer.renderInContext(context)
+            layer.render(in: context)
             maskImage = UIGraphicsGetImageFromCurrentImageContext()
         }
         UIGraphicsEndImageContext()
         let maskLayer = CALayer()
-        maskLayer.contents = maskImage?.CGImage
+        maskLayer.contents = maskImage?.cgImage
         maskLayer.frame = highlightLayer.frame
         highlightLayer.mask = maskLayer
         layer.addSublayer(highlightLayer)

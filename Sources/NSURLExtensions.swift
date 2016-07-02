@@ -9,10 +9,10 @@
 
 import Foundation
 
-extension NSURL {
+extension URL {
     /// EZSE: Returns convert query to Dictionary
     public var queryParameters: [String: String]? {
-        guard let components = NSURLComponents(URL: self, resolvingAgainstBaseURL: true), queryItems = components.queryItems else {
+        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: true), queryItems = components.queryItems else {
             return nil
         }
 
@@ -25,37 +25,37 @@ extension NSURL {
     }
 
     /// EZSE: Returns remote size of url, don't use it in main thread
-    public func remoteSize(completionHandler: ((contentLength: Int64) -> Void), timeoutInterval: NSTimeInterval = 30) {
-        let request = NSMutableURLRequest(URL: self, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
-        request.HTTPMethod = "HEAD";
+    public func remoteSize(_ completionHandler: ((contentLength: Int64) -> Void), timeoutInterval: TimeInterval = 30) {
+        let request = NSMutableURLRequest(url: self, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
+        request.httpMethod = "HEAD";
         request.setValue("", forHTTPHeaderField: "Accept-Encoding")
-        NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (_, response, _) -> Void in
+        URLSession.shared().dataTask(with: request as URLRequest) { (data, response, error) in
             let contentLength: Int64 = response?.expectedContentLength ?? NSURLSessionTransferSizeUnknown
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            DispatchQueue.global(attributes: DispatchQueue.GlobalAttributes.qosDefault).async(execute: {
                 completionHandler(contentLength: contentLength)
             })
-        }).resume()
+        }.resume()
     }
 
     /// EZSE: Returns server supports resuming or not, don't use it in main thread
-    public func supportsResume(completionHandler: ((doesSupport: Bool) -> Void), timeoutInterval: NSTimeInterval = 30) {
-        let request = NSMutableURLRequest(URL: self, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
-        request.HTTPMethod = "HEAD";
+    public func supportsResume(_ completionHandler: ((doesSupport: Bool) -> Void), timeoutInterval: TimeInterval = 30) {
+        let request = NSMutableURLRequest(url: self, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
+        request.httpMethod = "HEAD";
         request.setValue("bytes=5-10", forHTTPHeaderField: "Range")
-        NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (_, response, _) -> Void in
-            let responseCode = (response as? NSHTTPURLResponse)?.statusCode ?? -1
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+        URLSession.shared().dataTask(with: request as URLRequest, completionHandler: { (_, response, _) -> Void in
+            let responseCode = (response as? HTTPURLResponse)?.statusCode ?? -1
+            DispatchQueue.global(attributes: DispatchQueue.GlobalAttributes.qosDefault).async(execute: {
                 completionHandler(doesSupport: responseCode == 206)
             })
         }).resume()
     }
 
     /// EZSE: Compare two URLs
-    public func isSameWithURL(url: NSURL) -> Bool {
+    public func isSameWithURL(_ url: URL) -> Bool {
         if self == url {
             return true
         }
-        if self.scheme.lowercaseString != url.scheme.lowercaseString {
+        if self.scheme?.lowercased() != url.scheme?.lowercased() {
             return false
         }
         if let host1 = self.host, host2 = url.host {
@@ -65,14 +65,14 @@ extension NSURL {
                 return false
             }
         }
-        let pathdelimiter = NSCharacterSet(charactersInString: "/")
-        if self.path?.lowercaseString.stringByTrimmingCharactersInSet(pathdelimiter) != url.path?.lowercaseString.stringByTrimmingCharactersInSet(pathdelimiter) {
+        let pathdelimiter = CharacterSet(charactersIn: "/")
+        if self.path?.lowercased().trimmingCharacters(in: pathdelimiter) != url.path?.lowercased().trimmingCharacters(in: pathdelimiter) {
             return false
         }
-        if self.port != url.port {
+        if (self as NSURL).port != (url as NSURL).port {
             return false
         }
-        if self.query?.lowercaseString != url.query?.lowercaseString {
+        if self.query?.lowercased() != url.query?.lowercased() {
             return false
         }
         return true
@@ -82,43 +82,43 @@ extension NSURL {
     public var fileIsDirectory: Bool {
         var isdirv: AnyObject?
         do {
-            try self.getResourceValue(&isdirv, forKey: NSURLIsDirectoryKey)
+            try (self as NSURL).getResourceValue(&isdirv, forKey: URLResourceKey.isDirectoryKey)
         } catch _ {
         }
         return isdirv?.boolValue ?? false
     }
 
     /// EZSE: File modification date, nil if file doesn't exist
-    public var fileModifiedDate: NSDate? {
+    public var fileModifiedDate: Date? {
         get {
             var datemodv: AnyObject?
             do {
-                try self.getResourceValue(&datemodv, forKey: NSURLContentModificationDateKey)
+                try (self as NSURL).getResourceValue(&datemodv, forKey: URLResourceKey.contentModificationDateKey)
             } catch _ {
             }
-            return datemodv as? NSDate
+            return datemodv as? Date
         }
         set {
             do {
-                try self.setResourceValue(newValue, forKey: NSURLContentModificationDateKey)
+                try (self as NSURL).setResourceValue(newValue, forKey: URLResourceKey.contentModificationDateKey)
             } catch _ {
             }
         }
     }
 
     /// EZSE: File creation date, nil if file doesn't exist
-    public var fileCreationDate: NSDate? {
+    public var fileCreationDate: Date? {
         get {
             var datecreatev: AnyObject?
             do {
-                try self.getResourceValue(&datecreatev, forKey: NSURLCreationDateKey)
+                try (self as NSURL).getResourceValue(&datecreatev, forKey: URLResourceKey.creationDateKey)
             } catch _ {
             }
-            return datecreatev as? NSDate
+            return datecreatev as? Date
         }
         set {
             do {
-                try self.setResourceValue(newValue, forKey: NSURLCreationDateKey)
+                try (self as NSURL).setResourceValue(newValue, forKey: URLResourceKey.creationDateKey)
             } catch _ {
             }
 
@@ -126,24 +126,24 @@ extension NSURL {
     }
 
     /// EZSE: Returns last file access date, nil if file doesn't exist or didn't accessed yet
-    public var fileAccessDate: NSDate? {
-        NSURLCustomIconKey
+    public var fileAccessDate: Date? {
+        URLResourceKey.customIconKey
         var dateaccessv: AnyObject?
         do {
-            try self.getResourceValue(&dateaccessv, forKey: NSURLContentAccessDateKey)
+            try (self as NSURL).getResourceValue(&dateaccessv, forKey: URLResourceKey.contentAccessDateKey)
         } catch _ {
         }
-        return dateaccessv as? NSDate
+        return dateaccessv as? Date
     }
 
     /// EZSE: Returns file size, -1 if file doesn't exist
     public var fileSize: Int64 {
         var sizev: AnyObject?
         do {
-            try self.getResourceValue(&sizev, forKey: NSURLFileSizeKey)
+            try (self as NSURL).getResourceValue(&sizev, forKey: URLResourceKey.fileSizeKey)
         } catch _ {
         }
-        return sizev?.longLongValue ?? -1
+        return sizev?.int64Value ?? -1
     }
 
     /// EZSE: File is hidden or not, don't care about files begining with dot
@@ -151,14 +151,14 @@ extension NSURL {
         get {
             var ishiddenv: AnyObject?
             do {
-                try self.getResourceValue(&ishiddenv, forKey: NSURLIsHiddenKey)
+                try (self as NSURL).getResourceValue(&ishiddenv, forKey: URLResourceKey.isHiddenKey)
             } catch _ {
             }
             return ishiddenv?.boolValue ?? false
         }
         set {
             do {
-                try self.setResourceValue(newValue, forKey: NSURLIsHiddenKey)
+                try (self as NSURL).setResourceValue(newValue, forKey: URLResourceKey.isHiddenKey)
             } catch _ {
             }
             
@@ -169,7 +169,7 @@ extension NSURL {
     public var fileIsWritable: Bool {
         var isdirv: AnyObject?
         do {
-            try self.getResourceValue(&isdirv, forKey: NSURLIsWritableKey)
+            try (self as NSURL).getResourceValue(&isdirv, forKey: URLResourceKey.isWritableKey)
         } catch _ {
         }
         return isdirv?.boolValue ?? false
@@ -213,7 +213,7 @@ extension NSURL {
         get {
             var thumbsData: AnyObject?
             do {
-                try self.getResourceValue(&thumbsData, forKey: NSURLThumbnailDictionaryKey)
+                try (self as NSURL).getResourceValue(&thumbsData, forKey: URLResourceKey.thumbnailDictionaryKey)
             } catch _ {
             }
             return thumbsData as? [String: UIImage]
@@ -221,7 +221,7 @@ extension NSURL {
         set {
             do {
                 let dic = NSDictionary(dictionary: newValue ?? [:])
-                try self.setResourceValue(dic, forKey: NSURLThumbnailDictionaryKey)
+                try (self as NSURL).setResourceValue(dic, forKey: URLResourceKey.thumbnailDictionaryKey)
             } catch _ {
             }
         }
@@ -231,36 +231,36 @@ extension NSURL {
     @available(iOS 8.0, *)
     var fileThumbnail1024px: UIImage? {
         get {
-            return fileThumbnailsDictionary?[NSThumbnail1024x1024SizeKey]
+            return fileThumbnailsDictionary?[URLThumbnailDictionaryItem.NSThumbnail1024x1024SizeKey.rawValue]
         }
         set {
             assert(newValue == nil || (newValue?.size.height == 1024 && newValue?.size.width == 1024), "Image size set in fileThumbnail1024px is not 1024x1024")
-            fileThumbnailsDictionary?[NSThumbnail1024x1024SizeKey] = newValue
+            fileThumbnailsDictionary?[URLThumbnailDictionaryItem.NSThumbnail1024x1024SizeKey.rawValue] = newValue
         }
     }
     #endif
 
     /// EZSE: Set SkipBackup attrubute of file or directory in iOS. return current state if no value is set
-    public func skipBackupAttributeToItemAtURL(skip: Bool? = nil) -> Bool {
-        let keys = [NSURLIsDirectoryKey, NSURLFileSizeKey]
-        let enumOpt = NSDirectoryEnumerationOptions()
-        if NSFileManager.defaultManager().fileExistsAtPath(self.path!) {
+    public func skipBackupAttributeToItemAtURL(_ skip: Bool? = nil) -> Bool {
+        let keys = [URLResourceKey.isDirectoryKey.rawValue, URLResourceKey.fileSizeKey.rawValue]
+        let enumOpt = FileManager.DirectoryEnumerationOptions()
+        if FileManager.default().fileExists(atPath: self.path!) {
             if skip != nil {
                 if self.fileIsDirectory {
-                    let filesList = (try? NSFileManager.defaultManager().contentsOfDirectoryAtURL(self, includingPropertiesForKeys: keys, options: enumOpt)) ?? []
+                    let filesList = (try? FileManager.default().contentsOfDirectory(at: self, includingPropertiesForKeys: keys, options: enumOpt)) ?? []
                     for fileURL in filesList {
-                        fileURL.skipBackupAttributeToItemAtURL(skip);
+                        fileURL.skipBackupAttributeToItemAtURL(skip)
                     }
                 }
                 do {
-                    try self.setResourceValue(NSNumber(bool: skip!), forKey: NSURLIsExcludedFromBackupKey)
+                    try (self as NSURL).setResourceValue(NSNumber(value: skip!), forKey: URLResourceKey.isExcludedFromBackupKey)
                     return true
                 } catch _ {
                     return false
                 }
             } else {
-                let dict = try? self.resourceValuesForKeys([NSURLIsExcludedFromBackupKey])
-                if  let key: AnyObject = dict?[NSURLIsExcludedFromBackupKey] {
+                let dict = try? (self as NSURL).resourceValues(forKeys: [URLResourceKey.isExcludedFromBackupKey])
+                if  let key: AnyObject = dict?[URLResourceKey.isExcludedFromBackupKey] {
                     return key.boolValue
                 }
                 return false

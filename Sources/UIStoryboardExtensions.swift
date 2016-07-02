@@ -11,7 +11,7 @@ public extension UIStoryboard {
     /// EZSE: Get the application's main storyboard
     /// Usage: let storyboard = UIStoryboard.mainStoryboard
     public static var mainStoryboard: UIStoryboard {
-        let bundle = NSBundle.mainBundle()
+        let bundle = Bundle.main()
         return UIStoryboard(name: bundle.objectForInfoDictionaryKey("UIMainStoryboardFile") as! String, bundle: bundle)
     }
 }
