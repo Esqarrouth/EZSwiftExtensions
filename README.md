@@ -619,7 +619,7 @@ Easily get view controller from storyboard:
 
 ``` swift
     //ViewController must be set both as custom class and StoryboardID in identity inspector
-    let vc = storyboard?.instantiateVC(ViewController) //vc is of type ViewController
+    let vc = storyboard!.instantiateVC(ViewController) //vc is of type ViewController
 ```
 
 ### UIView Extensions
