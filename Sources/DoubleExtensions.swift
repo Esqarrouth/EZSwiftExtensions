@@ -15,19 +15,19 @@ extension Double {
     public var toInt: Int { return Int(self) }
 
     /// EZSE: Returns a Double rounded to decimal
-    public func getRoundedByPlaces(places: Int) -> Double {
+    public func getRoundedByPlaces(_ places: Int) -> Double {
         let divisor = pow(10.0, Double(places))
         return round(self * divisor) / divisor
     }
 
     /// EZSE: Rounds the current Double rounded to decimal
-    public mutating func roundByPlaces(places: Int) {
+    public mutating func roundByPlaces(_ places: Int) {
         let divisor = pow(10.0, Double(places))
         self = round(self * divisor) / divisor
     }
     
     /// EZSE: Returns a Double Ceil to decimal
-    public func getCeiledByPlaces(places: Int) -> Double {
+    public func getCeiledByPlaces(_ places: Int) -> Double {
         let divisor = pow(10.0, Double(places))
         return ceil(self * divisor) / divisor
     }
@@ -35,16 +35,16 @@ extension Double {
 
 extension String {
     init(_ value: Float, precision: Int) {
-        let nFormatter = NSNumberFormatter();
-        nFormatter.numberStyle = .DecimalStyle;
-        nFormatter.maximumFractionDigits = precision;
-        self = nFormatter.stringFromNumber(value)!
+        let nFormatter = NumberFormatter()
+        nFormatter.numberStyle = .decimal
+        nFormatter.maximumFractionDigits = precision
+        self = nFormatter.string(from: value)!
     }
     
     init(_ value: Double, precision: Int) {
-        let nFormatter = NSNumberFormatter();
-        nFormatter.numberStyle = .DecimalStyle;
-        nFormatter.maximumFractionDigits = precision;
-        self = nFormatter.stringFromNumber(value)!
+        let nFormatter = NumberFormatter()
+        nFormatter.numberStyle = .decimal
+        nFormatter.maximumFractionDigits = precision
+        self = nFormatter.string(from: value)!
     }
 }

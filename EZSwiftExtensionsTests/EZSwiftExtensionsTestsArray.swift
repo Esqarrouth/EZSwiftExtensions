@@ -139,8 +139,8 @@ class EZSwiftExtensionsTestsArray: XCTestCase {
         let b: [Int]? = [1, 2, 3]
         let c: [Int]? = nil
 
-        XCTAssertTrue(a == b)
-        XCTAssertFalse(a == c)
+        XCTAssertTrue(a! == b!)
+        XCTAssertFalse(a! == c!)
     }
     
     func testShuffle() {
@@ -152,8 +152,8 @@ class EZSwiftExtensionsTestsArray: XCTestCase {
         XCTAssertEqual(numberArray.count, copyArray.count)
         
         for e in copyArray {
-            if let i = numberArray.indexOf(e) {
-                numberArray.removeAtIndex(i)
+            if let i = numberArray.index(of: e) {
+                numberArray.remove(at: i)
             }
         }
         XCTAssertEqual(numberArray, [])

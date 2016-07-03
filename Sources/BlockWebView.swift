@@ -12,11 +12,11 @@ import UIKit
 
 ///Make sure you use  "[weak self] (NSURLRequest) in" if you are using the keyword self inside the closure or there might be a memory leak
 public class BlockWebView: UIWebView, UIWebViewDelegate {
-    public var didStartLoad: ((NSURLRequest) -> ())?
-    public var didFinishLoad: ((NSURLRequest) -> ())?
-    public var didFailLoad: ((NSURLRequest, NSError) -> ())?
+    public var didStartLoad: ((URLRequest) -> ())?
+    public var didFinishLoad: ((URLRequest) -> ())?
+    public var didFailLoad: ((URLRequest, NSError) -> ())?
 
-    public var shouldStartLoadingRequest: ((NSURLRequest) -> (Bool))?
+    public var shouldStartLoadingRequest: ((URLRequest) -> (Bool))?
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,19 +28,19 @@ public class BlockWebView: UIWebView, UIWebViewDelegate {
     }
 
 
-    public func webViewDidStartLoad(webView: UIWebView) {
+    public func webViewDidStartLoad(_ webView: UIWebView) {
         didStartLoad? (webView.request!)
     }
 
-    public func webViewDidFinishLoad(webView: UIWebView) {
+    public func webViewDidFinishLoad(_ webView: UIWebView) {
         didFinishLoad? (webView.request!)
     }
 
-    public func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+    public func webView(_ webView: UIWebView, didFailLoadWithError error: NSError?) {
         didFailLoad? (webView.request!, error!)
     }
 
-    public func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    public func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         if let should = shouldStartLoadingRequest {
             return should (request)
         } else {

@@ -12,7 +12,7 @@ import UIKit
 public class BlockSwipe: UISwipeGestureRecognizer {
     private var swipeAction: ((UISwipeGestureRecognizer) -> Void)?
 
-    public override init(target: AnyObject?, action: Selector) {
+    public override init(target: AnyObject?, action: Selector?) {
         super.init(target: target, action: action)
     }
 
@@ -32,7 +32,7 @@ public class BlockSwipe: UISwipeGestureRecognizer {
             addTarget(self, action: #selector(BlockSwipe.didSwipe(_:)))
     }
 
-    public func didSwipe (swipe: UISwipeGestureRecognizer) {
+    public func didSwipe (_ swipe: UISwipeGestureRecognizer) {
         swipeAction? (swipe)
     }
 }

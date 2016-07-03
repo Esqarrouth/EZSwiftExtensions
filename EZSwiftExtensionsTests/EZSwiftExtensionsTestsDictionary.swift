@@ -59,11 +59,11 @@ class EZSwiftExtensionsTestsDictionary: XCTestCase {
 
     func testToArray() {
         let array = fourthDic.toArray { key, value in
-            return key.uppercaseString + String(value)
+            return key.uppercased() + String(value)
         }
 
-        XCTAssertNotNil(array.indexOf("TWO2"))
-        XCTAssertNotNil(array.indexOf("FIVE5"))
+        XCTAssertNotNil(array.index(of: "TWO2"))
+        XCTAssertNotNil(array.index(of: "FIVE5"))
         XCTAssertEqual(array.count, fourthDic.count)
     }
 
@@ -90,7 +90,7 @@ class EZSwiftExtensionsTestsDictionary: XCTestCase {
     }
     
     func testJSON () {
-        let jsonDic = NSDictionary(dictionary: ["name": "John", "surname": "Smith", "age": 35.0, "married": NSNumber.init(bool: true), "children": 3])
+        let jsonDic = NSDictionary(dictionary: ["name": "John", "surname": "Smith", "age": 35.0, "married": NSNumber.init(value: true), "children": 3])
         let jsonString = jsonDic.formatJSON()
         XCTAssertNotNil(jsonString)
         let secondJsonDic = NSDictionary(json: jsonString!)

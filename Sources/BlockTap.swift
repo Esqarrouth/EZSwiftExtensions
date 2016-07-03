@@ -12,7 +12,7 @@ import UIKit
 public class BlockTap: UITapGestureRecognizer {
     private var tapAction: ((UITapGestureRecognizer) -> Void)?
 
-    public override init(target: AnyObject?, action: Selector) {
+    public override init(target: AnyObject?, action: Selector?) {
         super.init(target: target, action: action)
     }
 
@@ -33,7 +33,7 @@ public class BlockTap: UITapGestureRecognizer {
             self.addTarget(self, action: #selector(BlockTap.didTap(_:)))
     }
 
-    public func didTap (tap: UITapGestureRecognizer) {
+    public func didTap (_ tap: UITapGestureRecognizer) {
         tapAction? (tap)
     }
 }

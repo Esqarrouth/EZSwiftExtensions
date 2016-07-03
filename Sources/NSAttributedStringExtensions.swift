@@ -7,48 +7,48 @@
 //
 import UIKit
 
-extension NSAttributedString {
+extension AttributedString {
     /// EZSE: Adds bold attribute to NSAttributedString and returns it
     
     #if os(iOS)
     
-    public func bold() -> NSAttributedString {
+    public func bold() -> AttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
-        let range = (self.string as NSString).rangeOfString(self.string)
-        copy.addAttributes([NSFontAttributeName: UIFont.boldSystemFontOfSize(UIFont.systemFontSize())], range: range)
+        let range = (self.string as NSString).range(of: self.string)
+        copy.addAttributes([NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize())], range: range)
         return copy
     }
     
     #endif
 
     /// EZSE: Adds underline attribute to NSAttributedString and returns it
-    public func underline() -> NSAttributedString {
+    public func underline() -> AttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
-        let range = (self.string as NSString).rangeOfString(self.string)
-        copy.addAttributes([NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue], range: range)
+        let range = (self.string as NSString).range(of: self.string)
+        copy.addAttributes([NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue], range: range)
         return copy
     }
     
     #if os(iOS)
 
     /// EZSE: Adds italic attribute to NSAttributedString and returns it
-    public func italic() -> NSAttributedString {
+    public func italic() -> AttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
-        let range = (self.string as NSString).rangeOfString(self.string)
-        copy.addAttributes([NSFontAttributeName: UIFont.italicSystemFontOfSize(UIFont.systemFontSize())], range: range)
+        let range = (self.string as NSString).range(of: self.string)
+        copy.addAttributes([NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize())], range: range)
         return copy
     }
     
     /// EZSE: Adds strikethrough attribute to NSAttributedString and returns it
-    public func strikethrough() -> NSAttributedString {
+    public func strikethrough() -> AttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
     
-        let range = (self.string as NSString).rangeOfString(self.string)
+        let range = (self.string as NSString).range(of: self.string)
         let attributes = [
-        NSStrikethroughStyleAttributeName: NSNumber(integer: NSUnderlineStyle.StyleSingle.rawValue)]
+        NSStrikethroughStyleAttributeName: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue)]
         copy.addAttributes(attributes, range: range)
       
         return copy
@@ -58,18 +58,18 @@ extension NSAttributedString {
     #endif
 
     /// EZSE: Adds color attribute to NSAttributedString and returns it
-    public func color(color: UIColor) -> NSAttributedString {
+    public func color(_ color: UIColor) -> AttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
-        let range = (self.string as NSString).rangeOfString(self.string)
+        let range = (self.string as NSString).range(of: self.string)
         copy.addAttributes([NSForegroundColorAttributeName: color], range: range)
         return copy
     }
 }
 
 /// EZSE: Appends one NSAttributedString to another NSAttributedString and returns it
-public func += (inout left: NSAttributedString, right: NSAttributedString) {
+public func += (left: inout AttributedString, right: AttributedString) {
     let ns = NSMutableAttributedString(attributedString: left)
-    ns.appendAttributedString(right)
+    ns.append(right)
     left = ns
 }

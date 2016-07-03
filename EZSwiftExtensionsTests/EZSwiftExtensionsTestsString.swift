@@ -65,8 +65,8 @@ class EZSwiftExtensionsTestsString: XCTestCase {
 
     func testContains() {
         XCTAssertTrue(string.contains("01"))
-        XCTAssertTrue(string.contains("01", compareOption: NSStringCompareOptions.AnchoredSearch))
-        XCTAssertFalse(string.contains("12", compareOption: NSStringCompareOptions.AnchoredSearch))
+        XCTAssertTrue(string.contains("01", compareOption: NSString.CompareOptions.anchoredSearch))
+        XCTAssertFalse(string.contains("12", compareOption: NSString.CompareOptions.anchoredSearch))
         XCTAssertFalse(string.contains("h"))
     }
 
@@ -77,7 +77,7 @@ class EZSwiftExtensionsTestsString: XCTestCase {
         XCTAssertNotNil(string.toFloat())
         XCTAssertEqual(String(10.253, precision: 2), "10.25")
         XCTAssertEqual(String(10.257, precision: 2), "10.26")
-        XCTAssertTrue(string.toNSString.isKindOfClass(NSString.self))
+        XCTAssertTrue(string.toNSString.isKind(of: NSString.self))
     }
 
     func testIsIncludeEmoji() {
