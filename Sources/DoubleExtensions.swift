@@ -35,16 +35,16 @@ extension Double {
 
 extension String {
     init(_ value: Float, precision: Int) {
-        let nFormatter = NSNumberFormatter();
-        nFormatter.numberStyle = .DecimalStyle;
-        nFormatter.maximumFractionDigits = precision;
+        let nFormatter = NSNumberFormatter()
+        nFormatter.numberStyle = .DecimalStyle
+        nFormatter.maximumFractionDigits = precision
         self = nFormatter.stringFromNumber(value)!
     }
     
     init(_ value: Double, precision: Int) {
-        let nFormatter = NSNumberFormatter();
-        nFormatter.numberStyle = .DecimalStyle;
-        nFormatter.maximumFractionDigits = precision;
+        let nFormatter = NSNumberFormatter()
+        nFormatter.numberStyle = .DecimalStyle
+        nFormatter.maximumFractionDigits = precision
         self = nFormatter.stringFromNumber(value)!
     }
 }

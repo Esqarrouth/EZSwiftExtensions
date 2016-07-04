@@ -5,6 +5,9 @@
 //  Created by Goktug Yilmaz on 15/07/15.
 //  Copyright (c) 2015 Goktug Yilmaz. All rights reserved.
 //
+// swiftlint:disable line_length
+// swiftlint:disable trailing_whitespace
+
 #if os(OSX)
 import AppKit
 #else
@@ -14,9 +17,9 @@ import UIKit
 extension String {
     /// EZSE: Init string with a base64 encoded string
     init ? (base64: String) {
-        let pad = String(count: base64.length % 4,repeatedValue: Character("="))
+        let pad = String(count: base64.length % 4, repeatedValue: Character("="))
         let base64Padded = base64 + pad
-        if let decodedData = NSData(base64EncodedString: base64Padded, options: NSDataBase64DecodingOptions(rawValue: 0)), let decodedString = NSString(data: decodedData, encoding: NSUTF8StringEncoding) {
+        if let decodedData = NSData(base64EncodedString: base64Padded, options: NSDataBase64DecodingOptions(rawValue: 0)), decodedString = NSString(data: decodedData, encoding: NSUTF8StringEncoding) {
             self.init(decodedString)
             return
         }
@@ -95,7 +98,7 @@ extension String {
         if let range = self.rangeOfString(subString, options: searchOption) where !range.isEmpty {
             return self.startIndex.distanceTo(range.startIndex)
         }
-        return -1;
+        return -1
     }
 
     /// EZSE: split string using a spearator string, returns an array of string
@@ -115,21 +118,21 @@ extension String {
     /// EZSE : Returns count of words in string
     public var countofWords: Int {
         let regex = try? NSRegularExpression(pattern: "\\w+", options: NSRegularExpressionOptions())
-        return regex?.numberOfMatchesInString(self, options: NSMatchingOptions(), range: NSMakeRange(0, self.length)) ?? 0
+        return regex?.numberOfMatchesInString(self, options: NSMatchingOptions(), range: NSRange(location: 0, length: self.length)) ?? 0
     }
 
     /// EZSE : Returns count of paragraphs in string
     public var countofParagraphs: Int {
         let regex = try? NSRegularExpression(pattern: "\\n", options: NSRegularExpressionOptions())
         let str = self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-        return (regex?.numberOfMatchesInString(str, options: NSMatchingOptions(), range: NSMakeRange(0, str.length)) ?? -1) + 1
+        return (regex?.numberOfMatchesInString(str, options: NSMatchingOptions(), range: NSRange(location:0, length: str.length)) ?? -1) + 1
     }
 
-    internal func rangeFromNSRange(nsRange : NSRange) -> Range<String.Index>? {
+    internal func rangeFromNSRange(nsRange: NSRange) -> Range<String.Index>? {
         let from16 = utf16.startIndex.advancedBy(nsRange.location, limit: utf16.endIndex)
         let to16 = from16.advancedBy(nsRange.length, limit: utf16.endIndex)
         if let from = String.Index(from16, within: self),
-            let to = String.Index(to16, within: self) {
+            to = String.Index(to16, within: self) {
             return from ..< to
         }
         return nil
@@ -138,7 +141,7 @@ extension String {
     /// EZSE: Find matches of regular expression in string
     public func matchesForRegexInText(regex: String!) -> [String] {
         let regex = try? NSRegularExpression(pattern: regex, options: [])
-        let results = regex?.matchesInString(self, options: [], range: NSMakeRange(0, self.length)) ?? []
+        let results = regex?.matchesInString(self, options: [], range: NSRange(location: 0, length: self.length)) ?? []
         return results.map { self.substringWithRange(self.rangeFromNSRange($0.range)!) }
     }
 
@@ -272,11 +275,11 @@ extension String {
     func height(width: CGFloat, font: UIFont, lineBreakMode: NSLineBreakMode?) -> CGFloat {
         var attrib: [String: AnyObject] = [NSFontAttributeName: font]
         if lineBreakMode != nil {
-            let paragraphStyle = NSMutableParagraphStyle();
-            paragraphStyle.lineBreakMode = lineBreakMode!;
-            attrib.updateValue(paragraphStyle, forKey: NSParagraphStyleAttributeName);
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineBreakMode = lineBreakMode!
+            attrib.updateValue(paragraphStyle, forKey: NSParagraphStyleAttributeName)
         }
-        let size = CGSize(width: width, height: CGFloat(DBL_MAX));
+        let size = CGSize(width: width, height: CGFloat(DBL_MAX))
         return ceil((self as NSString).boundingRectWithSize(size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes:attrib, context: nil).height)
     }
     
@@ -290,22 +293,22 @@ extension String {
 
     ///EZSE: Returns NSAttributedString
     public func colorSubString(subString: String, color: UIColor) -> NSMutableAttributedString {
-        var start = 0;
+        var start = 0
         var ranges: [NSRange] = []
         while true {
-            let range = (self as NSString).rangeOfString(subString, options: NSStringCompareOptions.LiteralSearch, range: NSMakeRange(start, (self as NSString).length - start))
+            let range = (self as NSString).rangeOfString(subString, options: NSStringCompareOptions.LiteralSearch, range: NSRange(location: start, length: (self as NSString).length - start))
             if range.location == NSNotFound {
-                break;
+                break
             } else {
                 ranges.append(range)
                 start = range.location + range.length
             }
         }
-        let attrText = NSMutableAttributedString(string: self);
+        let attrText = NSMutableAttributedString(string: self)
         for range in ranges {
             attrText.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
         }
-        return attrText;
+        return attrText
     }
 
     /// EZSE: Checks if String contains Emoji
@@ -321,7 +324,7 @@ extension String {
 }
 
 /// EZSE: Pattern matching of strings via defined functions
-public func ~=<T>(pattern: (T -> Bool), value: T) -> Bool {
+public func ~=<T> (pattern: (T -> Bool), value: T) -> Bool {
     return pattern(value)
 }
 
