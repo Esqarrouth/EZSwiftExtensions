@@ -17,4 +17,12 @@ public extension UIStoryboard {
 		}
 		return UIStoryboard(name: key, bundle: bundle)
 	}
+
+	/// EZSE: Get view controller from storyboard by its class type
+	/// Usage: let profileVC = storyboard!.instantiateVC(ProfileViewController) /* profileVC is of type ProfileViewController */
+	/// Warning: identifier should match storyboard ID in storyboard of identifier class
+	public func instantiateVC<T>(identifier: T.Type) -> T {
+		let storyboardID = String(identifier)
+		return instantiateViewControllerWithIdentifier(storyboardID) as! T
+	}
 }
