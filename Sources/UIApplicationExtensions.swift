@@ -17,7 +17,7 @@ extension UIApplication {
             } else {
                 taskID = self.beginBackgroundTaskWithExpirationHandler({ })
             }
-            closure();
+            closure()
             self.endBackgroundTask(taskID)
         }
     }

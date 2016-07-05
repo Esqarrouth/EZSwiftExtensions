@@ -6,6 +6,8 @@
 //  Modified by mousavian on 2016/05/24.
 //  Copyright (c) 2016 Goktug Yilmaz. All rights reserved.
 //
+// swiftlint:disable line_length
+// swiftlint:disable trailing_whitespace
 
 import Foundation
 
@@ -27,7 +29,7 @@ extension NSURL {
     /// EZSE: Returns remote size of url, don't use it in main thread
     public func remoteSize(completionHandler: ((contentLength: Int64) -> Void), timeoutInterval: NSTimeInterval = 30) {
         let request = NSMutableURLRequest(URL: self, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
-        request.HTTPMethod = "HEAD";
+        request.HTTPMethod = "HEAD"
         request.setValue("", forHTTPHeaderField: "Accept-Encoding")
         NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (_, response, _) -> Void in
             let contentLength: Int64 = response?.expectedContentLength ?? NSURLSessionTransferSizeUnknown
@@ -40,7 +42,7 @@ extension NSURL {
     /// EZSE: Returns server supports resuming or not, don't use it in main thread
     public func supportsResume(completionHandler: ((doesSupport: Bool) -> Void), timeoutInterval: NSTimeInterval = 30) {
         let request = NSMutableURLRequest(URL: self, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
-        request.HTTPMethod = "HEAD";
+        request.HTTPMethod = "HEAD"
         request.setValue("bytes=5-10", forHTTPHeaderField: "Range")
         NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (_, response, _) -> Void in
             let responseCode = (response as? NSHTTPURLResponse)?.statusCode ?? -1
@@ -249,7 +251,7 @@ extension NSURL {
                 if self.fileIsDirectory {
                     let filesList = (try? NSFileManager.defaultManager().contentsOfDirectoryAtURL(self, includingPropertiesForKeys: keys, options: enumOpt)) ?? []
                     for fileURL in filesList {
-                        fileURL.skipBackupAttributeToItemAtURL(skip);
+                        fileURL.skipBackupAttributeToItemAtURL(skip)
                     }
                 }
                 do {
