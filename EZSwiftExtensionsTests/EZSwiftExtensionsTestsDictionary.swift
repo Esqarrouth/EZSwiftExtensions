@@ -88,7 +88,7 @@ class EZSwiftExtensionsTestsDictionary: XCTestCase {
         XCTAssertEqual(secondFiltered.count, 1)
 
     }
-    
+
     func testJSON () {
         let jsonDic = NSDictionary(dictionary: ["name": "John", "surname": "Smith", "age": 35.0, "married": NSNumber.init(bool: true), "children": 3])
         let jsonString = jsonDic.formatJSON()

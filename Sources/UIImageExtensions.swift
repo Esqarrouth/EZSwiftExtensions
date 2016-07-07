@@ -88,20 +88,20 @@ extension UIImage {
     /// EZSE: Use current image for pattern of color
     public func withColor(tintColor: UIColor) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
-        
+
         let context = UIGraphicsGetCurrentContext()
         CGContextTranslateCTM(context, 0, self.size.height)
         CGContextScaleCTM(context, 1.0, -1.0)
         CGContextSetBlendMode(context, CGBlendMode.Normal)
-        
+
         let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height) as CGRect
         CGContextClipToMask(context, rect, self.CGImage)
         tintColor.setFill()
         CGContextFillRect(context, rect)
-        
+
         let newImage = UIGraphicsGetImageFromCurrentImageContext() as UIImage
         UIGraphicsEndImageContext()
-        
+
         return newImage
     }
 

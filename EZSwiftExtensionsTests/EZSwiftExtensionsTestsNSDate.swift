@@ -35,11 +35,11 @@ class EZSwiftExtensionsTestsNSDate: XCTestCase {
 
     func testDateToString() {
         let date = NSDate(timeIntervalSince1970: 0)
-        
+
         let formatter = NSDateFormatter()
         formatter.dateFormat = format
         let dateString = formatter.stringFromDate(date)
-        
+
         XCTAssertEqual(date.toString(format: format), dateString)
     }
 

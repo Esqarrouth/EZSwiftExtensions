@@ -39,13 +39,13 @@ class EZSwiftExtensionsTestsNSURL: XCTestCase {
         XCTAssertEqual(len, 1024)
         XCTAssertEqual(support, true)
     }
-    
+
     func testIsSame() {
         let url1 = NSURL(string: "http://google.com/")!
         let url2 = NSURL(string: "http://www.google.com")!
         XCTAssertTrue(url1.isSameWithURL(url2))
     }
-    
+
     //func testFileFunctions() {
         // FIXME: Better implementation to address a real existing file url
         //let documentsPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
@@ -56,6 +56,6 @@ class EZSwiftExtensionsTestsNSURL: XCTestCase {
         //XCTAssertTrue(documentsURL.fileIsWritable)
         //XCTAssertEqual(documentsURL.fileSize, -1)
     //}
-    
-    
+
+
 }

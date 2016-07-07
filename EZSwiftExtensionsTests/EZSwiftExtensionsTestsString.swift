@@ -39,7 +39,7 @@ class EZSwiftExtensionsTestsString: XCTestCase {
         string = "  Hello how are you   "
         string.trim()
         XCTAssertEqual(string, "Hello how are you")
-        
+
         string = "  \t\t  Lets trim all the whitespace  \n \t  \n  "
         string.trim()
         XCTAssertEqual(string, "Lets trim all the whitespace")
@@ -87,7 +87,7 @@ class EZSwiftExtensionsTestsString: XCTestCase {
         string = "The greatest respect that writers can give their readers is to not write anything that they expect"
         XCTAssertFalse(string.includesEmoji())
     }
-    
+
     func testBase64Conversion() {
         let string = "EZSwiftExtensions is Awesome"
         let base64String = "RVpTd2lmdEV4dGVuc2lvbnMgaXMgQXdlc29tZQ"
@@ -96,7 +96,7 @@ class EZSwiftExtensionsTestsString: XCTestCase {
         let newString = String(base64: base64String) ?? ""
         XCTAssertEqual(newString, string)
     }
-    
+
     func testStatsFuncs() {
         let string = "EZSwiftExtensions is Awesome, let's revolutionize Swift\nI love it.\n"
         XCTAssertEqual(string.countofWords, 10)

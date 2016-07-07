@@ -25,7 +25,7 @@ extension Double {
         let divisor = pow(10.0, Double(places))
         self = round(self * divisor) / divisor
     }
-    
+
     /// EZSE: Returns a Double Ceil to decimal
     public func getCeiledByPlaces(places: Int) -> Double {
         let divisor = pow(10.0, Double(places))
@@ -40,7 +40,7 @@ extension String {
         nFormatter.maximumFractionDigits = precision
         self = nFormatter.stringFromNumber(value)!
     }
-    
+
     init(_ value: Double, precision: Int) {
         let nFormatter = NSNumberFormatter()
         nFormatter.numberStyle = .DecimalStyle

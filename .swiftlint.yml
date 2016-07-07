@@ -8,6 +8,5 @@ disabled_rules:
   - type_name
   - variable_name
   - valid_docs
-  - trailing_whitespace
   - todo
 

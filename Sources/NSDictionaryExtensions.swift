@@ -19,7 +19,7 @@ public extension NSDictionary {
             return nil
         }
     }
-    
+
     /// EZSE: Serialize NSDictionary into JSON string
     public func formatJSON() -> String? {
         if let jsonData = try? NSJSONSerialization.dataWithJSONObject(self, options: NSJSONWritingOptions()) {
