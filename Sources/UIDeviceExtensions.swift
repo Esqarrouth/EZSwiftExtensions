@@ -76,7 +76,7 @@ extension UIDevice {
     public class func isPhone() -> Bool {
         return UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Phone
     }
-    
+
     /// EZSE: Returns true if the device is iPad //TODO: Add to readme
     public class func isPad() -> Bool {
         return UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad
@@ -103,7 +103,7 @@ extension UIDevice {
     }
 
     //TODO: Fix syntax, add docs and readme for these methods:
-    //TODO: Delete isSystemVersionOver() 
+    //TODO: Delete isSystemVersionOver()
     // MARK: - Device Version Checks
 
     public enum Versions: Float {

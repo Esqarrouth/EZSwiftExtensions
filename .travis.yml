@@ -4,3 +4,9 @@ language: objective-c
 xcode_workspace: "EZSwiftExtensions.xcworkspace"
 xcode_scheme: "EZSwiftExtensions-iOS"
 xcode_sdk: "iphonesimulator"
+
+before_install:
+  - brew install swiftlint
+
+before_script:
+  - swiftlint

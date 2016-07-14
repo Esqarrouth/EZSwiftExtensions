@@ -7,8 +7,6 @@ disabled_rules:
   - function_body_length
   - type_name
   - variable_name
-  - variable_name_min_length
   - valid_docs
-  - trailing_whitespace
   - todo
 
