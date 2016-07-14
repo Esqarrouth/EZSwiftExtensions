@@ -60,13 +60,22 @@ extension String {
     }
 
     /// EZSE: Capitalizes first character of String
-    public var capitalizeFirst: String {
-    
+    public func capitalizeFirst() -> String {
+        
         guard characters.count > 0 else { return self }
         var result = self
         
         result.replaceRange(startIndex...startIndex, with: String(self[startIndex]).capitalizedString)
         return result
+    }
+    
+    /// EZSE: Capitalizes first character of String
+    public mutating func getCapitalizedFirst() {
+        
+        if characters.count > 0 {
+            
+            self.replaceRange(startIndex...startIndex, with: String(self[startIndex]).capitalizedString)
+        }
     }
 
     /// EZSE: Counts whitespace & new lines
