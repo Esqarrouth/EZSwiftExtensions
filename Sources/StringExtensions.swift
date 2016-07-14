@@ -321,6 +321,12 @@ extension String {
         }
         return false
     }
+    
+    /// EZSE: copy string to pasteboard
+    func addToPasteboard() {
+        let pasteboard = UIPasteboard.generalPasteboard()
+        pasteboard.string = self
+    }
 }
 
 /// EZSE: Pattern matching of strings via defined functions
