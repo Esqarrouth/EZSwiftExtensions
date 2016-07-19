@@ -60,8 +60,13 @@ extension String {
     }
 
     /// EZSE: Capitalizes first character of String
-    public var capitalizeFirst: String {
-    
+    public mutating func capitalizeFirst() {
+        guard characters.count > 0 else { return }
+        self.replaceRange(startIndex...startIndex, with: String(self[startIndex]).capitalizedString)
+    }
+
+    /// EZSE: Capitalizes first character of String, returns a new string
+    public func capitalizedFirst() -> String {
         guard characters.count > 0 else { return self }
         var result = self
         
