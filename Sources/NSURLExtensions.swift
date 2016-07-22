@@ -80,7 +80,7 @@ extension NSURL {
         return true
     }
 
-    /// EZSE: Returns true of given file is a directory
+    /// EZSE: Returns true if given file is a directory
     public var fileIsDirectory: Bool {
         var isdirv: AnyObject?
         do {
@@ -127,7 +127,7 @@ extension NSURL {
         }
     }
 
-    /// EZSE: Returns last file access date, nil if file doesn't exist or didn't accessed yet
+    /// EZSE: Returns last file access date, nil if file doesn't exist or not yet accessed
     public var fileAccessDate: NSDate? {
         NSURLCustomIconKey
         var dateaccessv: AnyObject?
@@ -148,7 +148,7 @@ extension NSURL {
         return sizev?.longLongValue ?? -1
     }
 
-    /// EZSE: File is hidden or not, don't care about files begining with dot
+    /// EZSE: File is hidden or not, don't care about files beginning with dot
     public var fileIsHidden: Bool {
         get {
             var ishiddenv: AnyObject?
@@ -167,7 +167,7 @@ extension NSURL {
         }
     }
 
-    /// EZSE: Checks file is writable
+    /// EZSE: Checks if file is writable
     public var fileIsWritable: Bool {
         var isdirv: AnyObject?
         do {
