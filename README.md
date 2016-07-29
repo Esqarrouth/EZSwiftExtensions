@@ -827,7 +827,7 @@ mainview.addPinchGesture { (pinch) -> () in
 // OR    
 mainview.addPinchGesture(target: self, action: "userAction")
 func userAction() {
-	print("panned")
+	print("pinched")
 }
 ```
 ``` swift      
