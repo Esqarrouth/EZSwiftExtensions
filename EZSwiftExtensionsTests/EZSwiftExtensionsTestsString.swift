@@ -26,7 +26,10 @@ class EZSwiftExtensionsTestsString: XCTestCase {
 
     func testCapitalization() {
         string = "lorem ipsum"
-        XCTAssertEqual(string.capitalizeFirst, "Lorem ipsum")
+        XCTAssertEqual(string.capitalizedFirst(), "Lorem ipsum")
+        string = "eZSwiftExtensions"
+        string.capitalizeFirst()
+        XCTAssertEqual(string, "EZSwiftExtensions")
     }
 
     func testIsOnlyEmptySpacesAndNewLineCharacters() {
