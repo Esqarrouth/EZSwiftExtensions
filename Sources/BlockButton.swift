@@ -53,6 +53,7 @@ public class BlockButton: UIButton {
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        defaultInit()
     }
 
     private func defaultInit() {
