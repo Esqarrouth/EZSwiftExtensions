@@ -32,23 +32,23 @@ class EZSwiftExtensionsTestsString: XCTestCase {
         XCTAssertEqual(string, "EZSwiftExtensions")
 
         string = "ezswiftExtensions"
-        XCTAssertEqual(string.capitalizedPrefix(5), "EZSWIftExtensions")
-        string.capitalizePrefix(3)
+        XCTAssertEqual(string.uppercasedPrefix(5), "EZSWIftExtensions")
+        string.uppercasePrefix(3)
         XCTAssertEqual(string, "EZSwiftExtensions")
         string = "ez swift extensions"
-        XCTAssertEqual(string.capitalizedPrefix(string.length + 1), "EZ SWIFT EXTENSIONS")
+        XCTAssertEqual(string.uppercasedPrefix(string.length + 1), "EZ SWIFT EXTENSIONS")
         XCTAssertEqual(string, "ez swift extensions")
-        string.capitalizePrefix(string.length + 14)
+        string.uppercasePrefix(string.length + 14)
         XCTAssertEqual(string, "EZ SWIFT EXTENSIONS")
 
         string = "ezswiftExtensions"
-        XCTAssertEqual(string.capitalizedSuffix(6), "ezswiftExteNSIONS")
-        string.capitalizeSuffix(4)
+        XCTAssertEqual(string.uppercasedSuffix(6), "ezswiftExteNSIONS")
+        string.uppercaseSuffix(4)
         XCTAssertEqual(string, "ezswiftExtensIONS")
         string = "ez swift extensions"
-        XCTAssertEqual(string.capitalizedSuffix(string.length + 1), "EZ SWIFT EXTENSIONS")
+        XCTAssertEqual(string.uppercasedSuffix(string.length + 1), "EZ SWIFT EXTENSIONS")
         XCTAssertEqual(string, "ez swift extensions")
-        string.capitalizeSuffix(string.length + 14)
+        string.uppercaseSuffix(string.length + 14)
         XCTAssertEqual(string, "EZ SWIFT EXTENSIONS")
     }
 
