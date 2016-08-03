@@ -73,6 +73,38 @@ extension String {
         result.replaceRange(startIndex...startIndex, with: String(self[startIndex]).capitalizedString)
         return result
     }
+    
+    /// EZSE: Capitalizes first 'count' characters of String
+    public mutating func capitalizePrefix(count: Int) {
+        guard characters.count > 0 && count > 0 else { return }
+        self.replaceRange(startIndex..<startIndex.advancedBy(min(count, length)),
+                          with: String(self[startIndex..<startIndex.advancedBy(min(count, length))]).uppercaseString)
+    }
+    
+    /// EZSE: Capitalizes first 'count' characters of String, returns a new string
+    public func capitalizedPrefix(count: Int) -> String {
+        guard characters.count > 0 && count > 0 else { return self }
+        var result = self
+        result.replaceRange(startIndex..<startIndex.advancedBy(min(count, length)),
+                            with: String(self[startIndex..<startIndex.advancedBy(min(count, length))]).uppercaseString)
+        return result
+    }
+    
+    /// EZSE: Capitalizes last 'count' characters of String
+    public mutating func capitalizeSuffix(count: Int) {
+        guard characters.count > 0 && count > 0 else { return }
+        self.replaceRange(endIndex.advancedBy(-min(count, length))..<endIndex,
+                          with: String(self[endIndex.advancedBy(-min(count, length))..<endIndex]).uppercaseString)
+    }
+    
+    /// EZSE: Capitalizes first 'count' characters of String, returns a new string
+    public func capitalizedSuffix(count: Int) -> String {
+        guard characters.count > 0 && count > 0 else { return self }
+        var result = self
+        result.replaceRange(endIndex.advancedBy(-min(count, length))..<endIndex,
+                            with: String(self[endIndex.advancedBy(-min(count, length))..<endIndex]).uppercaseString)
+        return result
+    }
 
     /// EZSE: Counts whitespace & new lines
     public func isOnlyEmptySpacesAndNewLineCharacters() -> Bool {
