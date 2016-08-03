@@ -74,14 +74,14 @@ extension String {
         return result
     }
     
-    /// EZSE: Capitalizes first 'count' characters of String
+    /// EZSE: Uppercases first 'count' characters of String
     public mutating func uppercasePrefix(count: Int) {
         guard characters.count > 0 && count > 0 else { return }
         self.replaceRange(startIndex..<startIndex.advancedBy(min(count, length)),
                           with: String(self[startIndex..<startIndex.advancedBy(min(count, length))]).uppercaseString)
     }
     
-    /// EZSE: Capitalizes first 'count' characters of String, returns a new string
+    /// EZSE: Uppercases first 'count' characters of String, returns a new string
     public func uppercasedPrefix(count: Int) -> String {
         guard characters.count > 0 && count > 0 else { return self }
         var result = self
@@ -90,14 +90,14 @@ extension String {
         return result
     }
     
-    /// EZSE: Capitalizes last 'count' characters of String
+    /// EZSE: Uppercases last 'count' characters of String
     public mutating func uppercaseSuffix(count: Int) {
         guard characters.count > 0 && count > 0 else { return }
         self.replaceRange(endIndex.advancedBy(-min(count, length))..<endIndex,
                           with: String(self[endIndex.advancedBy(-min(count, length))..<endIndex]).uppercaseString)
     }
     
-    /// EZSE: Capitalizes first 'count' characters of String, returns a new string
+    /// EZSE: Uppercases last 'count' characters of String, returns a new string
     public func uppercasedSuffix(count: Int) -> String {
         guard characters.count > 0 && count > 0 else { return self }
         var result = self
@@ -105,6 +105,25 @@ extension String {
                             with: String(self[endIndex.advancedBy(-min(count, length))..<endIndex]).uppercaseString)
         return result
     }
+    
+    /// EZSE: Uppercases string in range 'range' (from range.startIndex to range.endIndex)
+    public mutating func uppercase(range range: Range<Int>) {
+        let from = max(range.startIndex, 0), to = min(range.endIndex, length)
+        guard characters.count > 0 && (0..<length).contains(from) else { return }
+        self.replaceRange(startIndex.advancedBy(from)..<startIndex.advancedBy(to),
+                          with: String(self[startIndex.advancedBy(from)..<startIndex.advancedBy(to)]).uppercaseString)
+    }
+    
+    /// EZSE: Uppercases string in range 'range' (from range.startIndex to range.endIndex), returns new string
+    public func uppercased(range range: Range<Int>) -> String {
+        let from = max(range.startIndex, 0), to = min(range.endIndex, length)
+        guard characters.count > 0 && (0..<length).contains(from) else { return self }
+        var result = self
+        result.replaceRange(startIndex.advancedBy(from)..<startIndex.advancedBy(to),
+                          with: String(self[startIndex.advancedBy(from)..<startIndex.advancedBy(to)]).uppercaseString)
+        return result
+    }
+    
 
     /// EZSE: Counts whitespace & new lines
     public func isOnlyEmptySpacesAndNewLineCharacters() -> Bool {

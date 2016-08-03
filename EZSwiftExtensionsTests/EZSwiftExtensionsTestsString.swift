@@ -56,6 +56,15 @@ class EZSwiftExtensionsTestsString: XCTestCase {
         XCTAssertEqual(string, "ez swift extensions")
         string.uppercaseSuffix(string.length + 14)
         XCTAssertEqual(string, "EZ SWIFT EXTENSIONS")
+
+        string = "ezswiftExtensions"
+        XCTAssertEqual(string.uppercased(range: string.length+1..<string.length+15), "ezswiftExtensions")
+        string.uppercase(range: string.length+7..<string.length+99)
+        XCTAssertEqual(string, "ezswiftExtensions")
+        XCTAssertEqual(string.uppercased(range: -5..<5), "EZSWIftExtensions")
+        XCTAssertEqual(string.uppercased(range: 4..<10), "ezswIFTEXTensions")
+        string.uppercase(range: 8..<13)
+        XCTAssertEqual(string, "ezswiftEXTENSions")
     }
 
     func testIsOnlyEmptySpacesAndNewLineCharacters() {
