@@ -32,6 +32,9 @@ class EZSwiftExtensionsTestsString: XCTestCase {
         XCTAssertEqual(string, "EZSwiftExtensions")
 
         string = "ezswiftExtensions"
+        string.uppercasePrefix(-7)
+        XCTAssertEqual(string, "ezswiftExtensions")
+        XCTAssertEqual(string.uppercasedPrefix(0), "ezswiftExtensions")
         XCTAssertEqual(string.uppercasedPrefix(5), "EZSWIftExtensions")
         string.uppercasePrefix(3)
         XCTAssertEqual(string, "EZSwiftExtensions")
@@ -42,6 +45,9 @@ class EZSwiftExtensionsTestsString: XCTestCase {
         XCTAssertEqual(string, "EZ SWIFT EXTENSIONS")
 
         string = "ezswiftExtensions"
+        string.uppercaseSuffix(0)
+        XCTAssertEqual(string, "ezswiftExtensions")
+        XCTAssertEqual(string.uppercasedSuffix(-3), "ezswiftExtensions")
         XCTAssertEqual(string.uppercasedSuffix(6), "ezswiftExteNSIONS")
         string.uppercaseSuffix(4)
         XCTAssertEqual(string, "ezswiftExtensIONS")
