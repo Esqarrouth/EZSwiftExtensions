@@ -30,6 +30,41 @@ class EZSwiftExtensionsTestsString: XCTestCase {
         string = "eZSwiftExtensions"
         string.capitalizeFirst()
         XCTAssertEqual(string, "EZSwiftExtensions")
+
+        string = "ezswiftExtensions"
+        string.uppercasePrefix(-7)
+        XCTAssertEqual(string, "ezswiftExtensions")
+        XCTAssertEqual(string.uppercasedPrefix(0), "ezswiftExtensions")
+        XCTAssertEqual(string.uppercasedPrefix(5), "EZSWIftExtensions")
+        string.uppercasePrefix(3)
+        XCTAssertEqual(string, "EZSwiftExtensions")
+        string = "ez swift extensions"
+        XCTAssertEqual(string.uppercasedPrefix(string.length + 1), "EZ SWIFT EXTENSIONS")
+        XCTAssertEqual(string, "ez swift extensions")
+        string.uppercasePrefix(string.length + 14)
+        XCTAssertEqual(string, "EZ SWIFT EXTENSIONS")
+
+        string = "ezswiftExtensions"
+        string.uppercaseSuffix(0)
+        XCTAssertEqual(string, "ezswiftExtensions")
+        XCTAssertEqual(string.uppercasedSuffix(-3), "ezswiftExtensions")
+        XCTAssertEqual(string.uppercasedSuffix(6), "ezswiftExteNSIONS")
+        string.uppercaseSuffix(4)
+        XCTAssertEqual(string, "ezswiftExtensIONS")
+        string = "ez swift extensions"
+        XCTAssertEqual(string.uppercasedSuffix(string.length + 1), "EZ SWIFT EXTENSIONS")
+        XCTAssertEqual(string, "ez swift extensions")
+        string.uppercaseSuffix(string.length + 14)
+        XCTAssertEqual(string, "EZ SWIFT EXTENSIONS")
+
+        string = "ezswiftExtensions"
+        XCTAssertEqual(string.uppercased(range: string.length+1..<string.length+15), "ezswiftExtensions")
+        string.uppercase(range: string.length+7..<string.length+99)
+        XCTAssertEqual(string, "ezswiftExtensions")
+        XCTAssertEqual(string.uppercased(range: -5..<5), "EZSWIftExtensions")
+        XCTAssertEqual(string.uppercased(range: 4..<10), "ezswIFTEXTensions")
+        string.uppercase(range: 8..<13)
+        XCTAssertEqual(string, "ezswiftEXTENSions")
     }
 
     func testIsOnlyEmptySpacesAndNewLineCharacters() {

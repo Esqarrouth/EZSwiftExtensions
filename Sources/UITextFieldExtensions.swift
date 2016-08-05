@@ -14,7 +14,7 @@ extension UITextField {
     public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
         self.init(x: x, y: y, w: w, h: h, fontSize: 17)
     }
-    
+
     /// EZSwiftExtensions: Automatically sets these values: backgroundColor = clearColor, textColor = ThemeNicknameColor, clipsToBounds = true,
     /// textAlignment = Left, userInteractionEnabled = true, editable = false, scrollEnabled = false, font = ThemeFontName
     public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, fontSize: CGFloat) {
@@ -25,21 +25,21 @@ extension UITextField {
         textAlignment = NSTextAlignment.Left
         userInteractionEnabled = true
     }
-    
+
     /// EZSE: Add left padding to the text in textfield
     func addLeftTextPadding(blankSize: CGFloat) {
         let leftView = UIView()
-        leftView.frame = CGRectMake(0, 0, blankSize, self.frame.height)
+        leftView.frame = CGRect(x: 0, y: 0, width: blankSize, height: frame.height)
         self.leftView = leftView
         self.leftViewMode = UITextFieldViewMode.Always
     }
-    
+
     /// EZSE: Add a image icon on the left side of the textfield
     func addLeftIcon(image: UIImage?, frame: CGRect, imageSize: CGSize) {
         let leftView = UIView()
         leftView.frame = frame
         let imgView = UIImageView()
-        imgView.frame = CGRectMake(frame.width - 8 - imageSize.width, (frame.height - imageSize.height) / 2, imageSize.width, imageSize.height)
+        imgView.frame = CGRect(x: frame.width - 8 - imageSize.width, y: (frame.height - imageSize.height) / 2, w: imageSize.width, h: imageSize.height)
         imgView.image = image
         leftView.addSubview(imgView)
         self.leftView = leftView
