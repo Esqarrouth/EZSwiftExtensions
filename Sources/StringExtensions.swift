@@ -124,7 +124,70 @@ extension String {
         return result
     }
     
-
+    /// EZSE: Lowercases first character of String
+    public mutating func lowercaseFirst() {
+        guard characters.count > 0 else { return }
+        self.replaceRange(startIndex...startIndex, with: String(self[startIndex]).lowercaseString)
+    }
+    
+    /// EZSE: Lowercases first character of String, returns a new string
+    public func lowercasedFirst() -> String {
+        guard characters.count > 0 else { return self }
+        var result = self
+        result.replaceRange(startIndex...startIndex, with: String(self[startIndex]).lowercaseString)
+        return result
+    }
+    
+    /// EZSE: Lowercases first 'count' characters of String
+    public mutating func lowercasePrefix(count: Int) {
+        guard characters.count > 0 && count > 0 else { return }
+        self.replaceRange(startIndex..<startIndex.advancedBy(min(count, length)),
+                          with: String(self[startIndex..<startIndex.advancedBy(min(count, length))]).lowercaseString)
+    }
+    
+    /// EZSE: Lowercases first 'count' characters of String, returns a new string
+    public func lowercasedPrefix(count: Int) -> String {
+        guard characters.count > 0 && count > 0 else { return self }
+        var result = self
+        result.replaceRange(startIndex..<startIndex.advancedBy(min(count, length)),
+                            with: String(self[startIndex..<startIndex.advancedBy(min(count, length))]).lowercaseString)
+        return result
+    }
+    
+    /// EZSE: Lowercases last 'count' characters of String
+    public mutating func lowercaseSuffix(count: Int) {
+        guard characters.count > 0 && count > 0 else { return }
+        self.replaceRange(endIndex.advancedBy(-min(count, length))..<endIndex,
+                          with: String(self[endIndex.advancedBy(-min(count, length))..<endIndex]).lowercaseString)
+    }
+    
+    /// EZSE: Lowercases last 'count' characters of String, returns a new string
+    public func lowercasedSuffix(count: Int) -> String {
+        guard characters.count > 0 && count > 0 else { return self }
+        var result = self
+        result.replaceRange(endIndex.advancedBy(-min(count, length))..<endIndex,
+                            with: String(self[endIndex.advancedBy(-min(count, length))..<endIndex]).lowercaseString)
+        return result
+    }
+    
+    /// EZSE: Lowercases string in range 'range' (from range.startIndex to range.endIndex)
+    public mutating func lowercase(range range: Range<Int>) {
+        let from = max(range.startIndex, 0), to = min(range.endIndex, length)
+        guard characters.count > 0 && (0..<length).contains(from) else { return }
+        self.replaceRange(startIndex.advancedBy(from)..<startIndex.advancedBy(to),
+                          with: String(self[startIndex.advancedBy(from)..<startIndex.advancedBy(to)]).lowercaseString)
+    }
+    
+    /// EZSE: Lowercases string in range 'range' (from range.startIndex to range.endIndex), returns new string
+    public func lowercased(range range: Range<Int>) -> String {
+        let from = max(range.startIndex, 0), to = min(range.endIndex, length)
+        guard characters.count > 0 && (0..<length).contains(from) else { return self }
+        var result = self
+        result.replaceRange(startIndex.advancedBy(from)..<startIndex.advancedBy(to),
+                            with: String(self[startIndex.advancedBy(from)..<startIndex.advancedBy(to)]).lowercaseString)
+        return result
+    }
+    
     /// EZSE: Counts whitespace & new lines
     public func isOnlyEmptySpacesAndNewLineCharacters() -> Bool {
         let characterSet = NSCharacterSet.whitespaceAndNewlineCharacterSet()
