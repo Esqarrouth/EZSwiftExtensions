@@ -67,6 +67,49 @@ class EZSwiftExtensionsTestsString: XCTestCase {
         XCTAssertEqual(string, "ezswiftEXTENSions")
     }
 
+    func testLowercase() {
+        string = "LoReM IpSuM"
+        XCTAssertEqual(string.lowercasedFirst(), "loReM IpSuM")
+        string = "EZSwiftExtensions"
+        string.lowercaseFirst()
+        XCTAssertEqual(string, "eZSwiftExtensions")
+
+        string = "EzSWIFTeXTENSIONs"
+        string.lowercasePrefix(-7)
+        XCTAssertEqual(string, "EzSWIFTeXTENSIONs")
+        XCTAssertEqual(string.lowercasedPrefix(0), "EzSWIFTeXTENSIONs")
+        XCTAssertEqual(string.lowercasedPrefix(5), "ezswiFTeXTENSIONs")
+        string.lowercasePrefix(3)
+        XCTAssertEqual(string, "ezsWIFTeXTENSIONs")
+        string = "EZ SWIFT EXTENSIONS"
+        XCTAssertEqual(string.lowercasedPrefix(string.length + 1), "ez swift extensions")
+        XCTAssertEqual(string, "EZ SWIFT EXTENSIONS")
+        string.lowercasePrefix(string.length + 14)
+        XCTAssertEqual(string, "ez swift extensions")
+
+        string = "EzSWIFTeXTENSIonS"
+        string.lowercaseSuffix(0)
+        XCTAssertEqual(string, "EzSWIFTeXTENSIonS")
+        XCTAssertEqual(string.lowercasedSuffix(-3), "EzSWIFTeXTENSIonS")
+        XCTAssertEqual(string.lowercasedSuffix(6), "EzSWIFTeXTEnsions")
+        string.lowercaseSuffix(4)
+        XCTAssertEqual(string, "EzSWIFTeXTENSions")
+        string = "EZ SWIFT EXTENSIONS"
+        XCTAssertEqual(string.lowercasedSuffix(string.length + 1), "ez swift extensions")
+        XCTAssertEqual(string, "EZ SWIFT EXTENSIONS")
+        string.lowercaseSuffix(string.length + 14)
+        XCTAssertEqual(string, "ez swift extensions")
+
+        string = "EzSWIFTeXTENSIonS"
+        XCTAssertEqual(string.lowercased(range: string.length+1..<string.length+15), "EzSWIFTeXTENSIonS")
+        string.lowercase(range: string.length+7..<string.length+99)
+        XCTAssertEqual(string, "EzSWIFTeXTENSIonS")
+        XCTAssertEqual(string.lowercased(range: -5..<5), "ezswiFTeXTENSIonS")
+        XCTAssertEqual(string.lowercased(range: 4..<10), "EzSWiftextENSIonS")
+        string.lowercase(range: 8..<13)
+        XCTAssertEqual(string, "EzSWIFTextensIonS")
+    }
+
     func testIsOnlyEmptySpacesAndNewLineCharacters() {
         let emptyString = " \n "
         XCTAssertFalse(string.isOnlyEmptySpacesAndNewLineCharacters())
