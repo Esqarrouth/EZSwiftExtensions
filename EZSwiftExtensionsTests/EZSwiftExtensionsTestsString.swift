@@ -71,6 +71,8 @@ class EZSwiftExtensionsTestsString: XCTestCase {
         let emptyString = " \n "
         XCTAssertFalse(string.isOnlyEmptySpacesAndNewLineCharacters())
         XCTAssertTrue(emptyString.isOnlyEmptySpacesAndNewLineCharacters())
+        XCTAssertFalse(string.isBlank)
+        XCTAssertTrue(emptyString.isBlank)
     }
 
     func testTrim() {

@@ -225,8 +225,10 @@ Easily check if string is empty and trim it:
 var myString = "\n    eZSwiftExtensions is awesome!     \n \n "
 let emptyStr = "   \n \n \n"
 
-print(myString.isOnlyEmptySpacesAndNewLineCharacters()) // false
-print(emptyStr.isOnlyEmptySpacesAndNewLineCharacters()) // true
+print(myString.isOnlyEmptySpacesAndNewLineCharacters()) // false //v. 1.5 and earlier
+print(emptyStr.isOnlyEmptySpacesAndNewLineCharacters()) // true //v. 1.5 and earlier
+print(myString.isBlank) // false
+print(emptyStr.isBlank) // true
 
 myString.trim()
 print(myString) // eZSwiftExtensions is awesome!

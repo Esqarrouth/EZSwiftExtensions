@@ -126,10 +126,19 @@ extension String {
     
 
     /// EZSE: Counts whitespace & new lines
+    @available(*, deprecated=1.6, renamed="isBlank")
     public func isOnlyEmptySpacesAndNewLineCharacters() -> Bool {
         let characterSet = NSCharacterSet.whitespaceAndNewlineCharacterSet()
         let newText = self.stringByTrimmingCharactersInSet(characterSet)
         return newText.isEmpty
+    }
+    
+    /// EZSE: Checks if string is empty or consists only of whitespace and newline characters
+    public var isBlank: Bool {
+        get {
+            let trimmed = stringByTrimmingCharactersInSet(.whitespaceAndNewlineCharacterSet())
+            return trimmed.isEmpty
+        }
     }
 
     /// EZSE: Trims white space and new line characters
