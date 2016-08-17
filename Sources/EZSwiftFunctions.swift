@@ -189,7 +189,16 @@ public struct ez {
     }
 
     // MARK: - Dispatch
-
+    
+    /// EZSE: Runs the function after x seconds
+    public static func dispatchDelay(second: Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(second * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
 
     /// EZSE: Runs function after x seconds
     public static func runThisAfterDelay(seconds seconds: Double, after: () -> ()) {
