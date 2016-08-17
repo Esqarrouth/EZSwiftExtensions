@@ -158,4 +158,19 @@ class EZSwiftExtensionsTestsArray: XCTestCase {
         }
         XCTAssertEqual(numberArray, [])
     }
+
+    func testDecompose() {
+        let a: [Int] = []
+        let b: [Int] = [1]
+        let c: [Int] = [1, 2]
+        XCTAssertNil(a.decompose())
+        XCTAssertTrue(b.decompose()!.head == 1 && b.decompose()!.tail == [])
+        XCTAssertTrue(c.decompose()!.head == 1 && c.decompose()!.tail == [2])
+
+        let copyArray = numberArray
+        let head = copyArray.first!
+        let tail = copyArray.dropFirst()
+        XCTAssertTrue(numberArray.decompose()!.head == head)
+        XCTAssertTrue(numberArray.decompose()!.tail == tail)
+    }
 }
