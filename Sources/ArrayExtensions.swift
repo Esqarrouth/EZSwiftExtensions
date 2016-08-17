@@ -105,6 +105,12 @@ extension Array {
             if i != i+j { swap(&self[i], &self[i+j]) }
         }
     }
+    
+    /// EZSE: Decompose an array to a tuple with first element and the rest; useful in Functional Programming
+    public func decompose() -> (head: Generator.Element, tail: SubSequence)? {
+        return (count > 0) ? (self[0], self[1..<count]) : nil
+    }
+
 }
 
 extension Array where Element: Equatable {
