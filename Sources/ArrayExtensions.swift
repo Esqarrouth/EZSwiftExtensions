@@ -74,7 +74,15 @@ extension Array {
     }
 
     /// EZSE: Iterates on each element of the array with its index.
+    @available(*, deprecated=1.6, renamed="forEach")
     public func each(call: (Int, Element) -> ()) {
+        for (index, item) in self.enumerate() {
+            call(index, item)
+        }
+    }
+
+    /// EZSE: Iterates on each element of the array with its index.
+    public func forEach(call: (Int, Element) -> ()) {
         for (index, item) in self.enumerate() {
             call(index, item)
         }
