@@ -189,7 +189,7 @@ public struct ez {
     }
 
     // MARK: - Dispatch
-    
+
     /// EZSE: Runs the function after x seconds
     public static func dispatchDelay(second: Double, closure:()->()) {
         dispatch_after(
@@ -228,6 +228,36 @@ public struct ez {
         let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, fireDate, seconds, 0, 0, handler)
         CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, kCFRunLoopCommonModes)
         return timer
+    }
+
+    /// EZSE: Gobal main queue
+    public var globalMainQueue: dispatch_queue_t {
+        return dispatch_get_main_queue()
+    }
+
+    /// EZSE: Gobal queue with user interactive priority
+    public var globalUserInteractiveQueue: dispatch_queue_t {
+        return dispatch_get_global_queue(Int(QOS_CLASS_USER_INTERACTIVE.rawValue), 0)
+    }
+
+    /// EZSE: Gobal queue with user initiated priority
+    public var globalUserInitiatedQueue: dispatch_queue_t {
+        return dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)
+    }
+
+    /// EZSE: Gobal queue with utility priority
+    public var globalUtilityQueue: dispatch_queue_t {
+        return dispatch_get_global_queue(Int(QOS_CLASS_UTILITY.rawValue), 0)
+    }
+
+    /// EZSE: Gobal queue with background priority
+    public var globalBackgroundQueue: dispatch_queue_t {
+        return dispatch_get_global_queue(Int(QOS_CLASS_BACKGROUND.rawValue), 0)
+    }
+
+    /// EZSE: Gobal queue with default priority
+    public var globalQueue: dispatch_queue_t {
+        return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
     }
 
     // MARK: - DownloadTask
