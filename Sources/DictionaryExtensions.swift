@@ -35,7 +35,7 @@ extension Dictionary {
             }
             return nil
         }
-        
+
         //  Intersection
         return filtered.filter { (key: K, value: V) -> Bool in
             //  check for [key: value] in all the dictionaries
