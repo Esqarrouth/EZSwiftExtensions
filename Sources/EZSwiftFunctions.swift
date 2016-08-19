@@ -89,7 +89,7 @@ public struct ez {
     }
 
     /// EZSE: Returns the top ViewController
-    @available(*, deprecated=1.6, renamed="UIApplication.topViewController")
+    @available(*, deprecated=1.6, renamed="topMostViewController")
     public static var topMostVC: UIViewController? {
         var presentedVC = UIApplication.sharedApplication().keyWindow?.rootViewController
         while let pVC = presentedVC?.presentedViewController {
@@ -100,6 +100,14 @@ public struct ez {
             print("EZSwiftExtensions Error: You don't have any views set. You may be calling them in viewDidLoad. Try viewDidAppear instead.")
         }
         return presentedVC
+    }
+
+    public static var topMostViewController: UIViewController? {
+        let topVC = UIApplication.topViewController()
+        if topVC == nil {
+            print("EZSwiftExtensions Error: You don't have any views set. You may be calling them in viewDidLoad. Try viewDidAppear instead.")
+        }
+        return topVC
     }
 
     #if os(iOS)
@@ -113,12 +121,12 @@ public struct ez {
 
     /// EZSwiftExtensions
     public static var horizontalSizeClass: UIUserInterfaceSizeClass {
-        return UIApplication.topViewController()?.traitCollection.horizontalSizeClass ?? UIUserInterfaceSizeClass.Unspecified
+        return self.topMostViewController?.traitCollection.horizontalSizeClass ?? UIUserInterfaceSizeClass.Unspecified
     }
 
     /// EZSwiftExtensions
     public static var verticalSizeClass: UIUserInterfaceSizeClass {
-        return UIApplication.topViewController()?.traitCollection.verticalSizeClass ?? UIUserInterfaceSizeClass.Unspecified
+        return self.topMostViewController?.traitCollection.verticalSizeClass ?? UIUserInterfaceSizeClass.Unspecified
     }
 
     /// EZSE: Returns screen width
