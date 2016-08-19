@@ -66,6 +66,7 @@ extension Array {
     }
 
     /// EZSE: Iterates on each element of the array.
+    @available(*, deprecated=1.6)
     public func each(call: (Element) -> ()) {
         for item in self {
             call(item)
@@ -73,7 +74,15 @@ extension Array {
     }
 
     /// EZSE: Iterates on each element of the array with its index.
+    @available(*, deprecated=1.6, renamed="forEach")
     public func each(call: (Int, Element) -> ()) {
+        for (index, item) in self.enumerate() {
+            call(index, item)
+        }
+    }
+
+    /// EZSE: Iterates on each element of the array with its index.
+    public func forEach(call: (Int, Element) -> ()) {
         for (index, item) in self.enumerate() {
             call(index, item)
         }
@@ -84,7 +93,7 @@ extension Array {
     @available(*, deprecated=1.6, renamed="flatMap")
     public func mapFilter<V>(mapFunction map: (Element) -> (V)?) -> [V] {
         var mapped = [V]()
-        each { (value: Element) -> Void in
+        forEach { (value: Element) -> Void in
             if let mappedValue = map(value) {
                 mapped.append(mappedValue)
             }
@@ -169,7 +178,7 @@ extension Array where Element: Equatable {
 
             //  find common elements and save them in first set
             //  to intersect in the next loop
-            value.each { (item: Element) -> Void in
+            value.forEach { (item: Element) -> Void in
                 if result.contains(item) {
                     intersection.append(item)
                 }

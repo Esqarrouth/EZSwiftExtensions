@@ -97,11 +97,11 @@ class EZSwiftExtensionsTestsArray: XCTestCase {
 
     func testEach() {
         var sameArray: [Int] = []
-        numberArray.each { sameArray.append($0) }
+        numberArray.forEach { sameArray.append($0) }
         XCTAssertEqual(numberArray, sameArray)
 
         var indexArray: [Int] = []
-        numberArray.each { indexArray.append($0.0) }
+        numberArray.forEach { indexArray.append($0.0) }
         XCTAssertEqual(indexArray, [Int](0..<numberArray.count))
     }
 
