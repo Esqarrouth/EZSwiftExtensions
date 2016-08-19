@@ -89,6 +89,7 @@ public struct ez {
     }
 
     /// EZSE: Returns the top ViewController
+    @available(*, deprecated=1.6, renamed="UIApplication.topViewController")
     public static var topMostVC: UIViewController? {
         var presentedVC = UIApplication.sharedApplication().keyWindow?.rootViewController
         while let pVC = presentedVC?.presentedViewController {
@@ -112,12 +113,12 @@ public struct ez {
 
     /// EZSwiftExtensions
     public static var horizontalSizeClass: UIUserInterfaceSizeClass {
-        return self.topMostVC?.traitCollection.horizontalSizeClass ?? UIUserInterfaceSizeClass.Unspecified
+        return UIApplication.topViewController()?.traitCollection.horizontalSizeClass ?? UIUserInterfaceSizeClass.Unspecified
     }
 
     /// EZSwiftExtensions
     public static var verticalSizeClass: UIUserInterfaceSizeClass {
-        return self.topMostVC?.traitCollection.verticalSizeClass ?? UIUserInterfaceSizeClass.Unspecified
+        return UIApplication.topViewController()?.traitCollection.verticalSizeClass ?? UIUserInterfaceSizeClass.Unspecified
     }
 
     /// EZSE: Returns screen width
