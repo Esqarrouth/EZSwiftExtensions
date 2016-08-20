@@ -120,9 +120,7 @@ extension NSDate {
     }
 
     /// EZSE: Get Astro from current NSDate
-    public func astro() -> String {
-        let month = Int(self.month)
-        let day = Int(self.day)
+    public var astro: String {
         var s = ["Capricorn",
                  "Aquarius",
                  "Pisces",
