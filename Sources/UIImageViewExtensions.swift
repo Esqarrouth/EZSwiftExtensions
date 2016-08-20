@@ -75,30 +75,33 @@ extension UIImageView {
 
     /// EZSwiftExtensions
     public func imageWithUrl(url url: String) {
-        ez.requestImage(url, success: { (image) -> Void in
-            if let img = image {
-                self.image = img
-            }
-        })
+        imageWithUrlHelper(url.toURL(), placeholderImage: nil)
     }
 
     /// EZSwiftExtensions
     public func imageWithUrl(url url: String, placeholder: UIImage) {
-        self.image = placeholder
-        ez.requestImage(url, success: { (image) -> Void in
-            if let img = image {
-                self.image = img
-            }
-        })
+        imageWithUrlHelper(url.toURL(), placeholderImage: placeholder)
     }
 
     /// EZSwiftExtensions
     public func imageWithUrl(url url: String, placeholderNamed: String) {
-        self.image = UIImage(named: placeholderNamed)
-        ez.requestImage(url, success: { (image) -> Void in
-            if let img = image {
-                self.image = img
+        imageWithUrlHelper(url.toURL(), placeholderImage: UIImage(named: placeholderNamed))
+    }
+    
+    private func imageWithUrlHelper(url: NSURL?, placeholderImage: UIImage?) {
+        if let placeholder = placeholderImage {
+            self.image = placeholder
+        }
+        if let urlString = url?.absoluteString {
+            ImageLoader.sharedInstance.imageForUrl(urlString) { [weak self] image, url in
+                if let strongSelf = self {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        if urlString == url {
+                            strongSelf.image = image ?? placeholderImage
+                        }
+                    }
+                }
             }
-        })
+        }
     }
 }

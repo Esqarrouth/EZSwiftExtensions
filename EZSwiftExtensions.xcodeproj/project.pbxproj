@@ -26,6 +26,7 @@
 		79AB4F331D03394F009183EC /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB4F2C1D03394F009183EC /* UIApplicationExtensions.swift */; };
 		79AB4F341D03394F009183EC /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB4F2C1D03394F009183EC /* UIApplicationExtensions.swift */; };
 		8889A85B1D20E8D500635002 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8889A85A1D20E8D500635002 /* UITextFieldExtensions.swift */; };
+		88A1232C1D68FA1B00717973 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A1232B1D68FA1B00717973 /* ImageLoader.swift */; };
 		988DA77E1D115FA900F8468F /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988DA77D1D115FA900F8468F /* UIStoryboardExtensions.swift */; };
 		988DA77F1D115FB900F8468F /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988DA77D1D115FA900F8468F /* UIStoryboardExtensions.swift */; };
 		AFBEC7861CB347D50023408E /* NSBundleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBEC7851CB347D50023408E /* NSBundleExtensions.swift */; };
@@ -156,6 +157,7 @@
 		79AB4F2B1D03394F009183EC /* NSDictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDictionaryExtensions.swift; sourceTree = "<group>"; };
 		79AB4F2C1D03394F009183EC /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		8889A85A1D20E8D500635002 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensions.swift; sourceTree = "<group>"; };
+		88A1232B1D68FA1B00717973 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		988DA77D1D115FA900F8468F /* UIStoryboardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtensions.swift; sourceTree = "<group>"; };
 		AFBEC7851CB347D50023408E /* NSBundleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSBundleExtensions.swift; sourceTree = "<group>"; };
 		B5DC86A91C0ED06700972D0A /* EZSwiftExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EZSwiftExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -337,6 +339,7 @@
 				B5DC871A1C0ED34300972D0A /* UIViewControllerExtensions.swift */,
 				B5DC871B1C0ED34300972D0A /* UIViewExtensions.swift */,
 				E17878231C86861900BC05AA /* UIWindowExtensions.swift */,
+				88A1232B1D68FA1B00717973 /* ImageLoader.swift */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -578,6 +581,7 @@
 				E1F21CB51CB55CDA004A01A4 /* EZSwiftFunctions.swift in Sources */,
 				E178781C1C8678AA00BC05AA /* UISliderExtensions.swift in Sources */,
 				B5DC87321C0ED34300972D0A /* UIFontExtensions.swift in Sources */,
+				88A1232C1D68FA1B00717973 /* ImageLoader.swift in Sources */,
 				B5DC87331C0ED34300972D0A /* UIImageExtensions.swift in Sources */,
 				B5DC87341C0ED34300972D0A /* UIImageViewExtensions.swift in Sources */,
 				B5DC87351C0ED34300972D0A /* UILabelExtensions.swift in Sources */,
