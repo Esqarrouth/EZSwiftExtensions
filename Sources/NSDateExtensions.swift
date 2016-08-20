@@ -83,24 +83,46 @@ extension NSDate {
 
     /// EZSE: Get year from current NSDate
     public var year: Int {
-        let components = NSCalendar.currentCalendar().components([.Year], fromDate: self)
-        return components.year
+        return getComponent(.Year)
     }
 
     /// EZSE: Get month from current NSDate
     public var month: Int {
-        let components = NSCalendar.currentCalendar().components([.Month], fromDate: self)
-        return components.month
+        return getComponent(.Month)
     }
 
     /// EZSE: Get day from current NSDate
     public var day: Int {
-        let components = NSCalendar.currentCalendar().components([.Day], fromDate: self)
-        return components.day
+        return getComponent(.Day)
+    }
+
+    /// EZSE: Get hour from current NSDate
+    public var hour: Int {
+        return getComponent(.Hour)
+    }
+
+    /// EZSE: Get minute from current NSDate
+    public var minute: Int {
+        return getComponent(.Minute)
+    }
+
+    /// EZSE: Get second from current NSDate
+    public var second: Int {
+        return getComponent(.Second)
+    }
+
+    /// EZSE: Get component of NSDate, e.g. month, year ...
+    public func getComponent(component: NSCalendarUnit) -> Int {
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(component, fromDate: self)
+
+        return components.valueForComponent(component)
     }
 
     /// EZSE: Get Astro from current NSDate
-    public var astro: String {
+    public func astro() -> String {
+        let month = Int(self.month)
+        let day = Int(self.day)
         var s = ["Capricorn",
                  "Aquarius",
                  "Pisces",
