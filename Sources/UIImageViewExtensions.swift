@@ -65,8 +65,12 @@ extension UIImageView {
 
     /// EZSwiftExtensions
     public func roundSquareImage() {
-        self.clipsToBounds = true
-        self.layer.cornerRadius = self.frame.size.width / 2
+        let image = self.image
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, UIScreen.mainScreen().scale)
+        UIBezierPath(roundedRect: self.bounds, cornerRadius: self.bounds.width).addClip()
+        image?.drawInRect(self.bounds)
+        self.image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
     }
 
     /// EZSwiftExtensions
