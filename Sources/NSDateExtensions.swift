@@ -101,6 +101,20 @@ extension NSDate {
         format.dateFormat = "dd"
         return format.stringFromDate(self)
     }
+    
+    /// EZSE: Check date if it is today
+    public func isDateToday() -> Bool {
+        let format = NSDateFormatter()
+        format.dateFormat = "yyyy-MM-dd"
+        return format.stringFromDate(self) == format.stringFromDate(NSDate())
+    }
+    
+    /// EZSE: Check date if it is yesterday
+    public func isDateYestoday() -> Bool {
+        let format = NSDateFormatter()
+        format.dateFormat = "yyyy-MM-dd"
+        return format.stringFromDate(self) == format.stringFromDate(NSDate().dateByAddingTimeInterval(-24*60*60))
+    }
 
     /// EZSE: Easy creation of time passed String. Can be Years, Months, days, hours, minutes or seconds
     public func timePassed() -> String {
