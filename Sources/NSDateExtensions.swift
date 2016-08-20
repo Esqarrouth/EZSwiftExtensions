@@ -92,22 +92,22 @@ extension NSDate {
     }
 
     /// EZSE: Get day from current NSDate
-    public var day: Int {
+    public var days: Int {
         return getComponent(.Day)
     }
 
     /// EZSE: Get hour from current NSDate
-    public var hour: Int {
+    public var hours: Int {
         return getComponent(.Hour)
     }
 
     /// EZSE: Get minute from current NSDate
-    public var minute: Int {
+    public var minutes: Int {
         return getComponent(.Minute)
     }
 
     /// EZSE: Get second from current NSDate
-    public var second: Int {
+    public var seconds: Int {
         return getComponent(.Second)
     }
 
@@ -117,24 +117,6 @@ extension NSDate {
         let components = calendar.components(component, fromDate: self)
 
         return components.valueForComponent(component)
-    }
-
-    /// EZSE: Get hours from current NSDate
-    public var hours: Int {
-        let components = NSCalendar.currentCalendar().components([.Hour], fromDate: self)
-        return components.hour
-    }
-
-    /// EZSE: Get minutes from current NSDate
-    public var minutes: Int {
-        let components = NSCalendar.currentCalendar().components([.Minute], fromDate: self)
-        return components.minute
-    }
-
-    /// EZSE: Get seconds from current NSDate
-    public var seconds: Int {
-        let components = NSCalendar.currentCalendar().components([.Second], fromDate: self)
-        return components.second
     }
 
     /// EZSE: Get Astro from current NSDate
@@ -153,7 +135,7 @@ extension NSDate {
                  "Sagittarius",
                  "Capricorn"]
         var arr = [20, 19, 21, 21, 21, 22, 23, 23, 23, 23, 22, 22]
-        let index = month - (day < (arr[month-1]) ? 1 : 0)
+        let index = month - (days < (arr[month-1]) ? 1 : 0)
         return s[index]
     }
 
