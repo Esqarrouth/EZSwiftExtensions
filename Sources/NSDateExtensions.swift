@@ -82,30 +82,25 @@ extension NSDate {
     }
 
     /// EZSE: Get year from current NSDate
-    public func getYear() -> String {
-        let format = NSDateFormatter()
-        format.dateFormat = "yyyy"
-        return format.stringFromDate(self)
+    public var year: Int {
+        let components = NSCalendar.currentCalendar().components([.Year], fromDate: self)
+        return components.year
     }
 
     /// EZSE: Get month from current NSDate
-    public func getMonth() -> String {
-        let format = NSDateFormatter()
-        format.dateFormat = "MM"
-        return format.stringFromDate(self)
+    public var month: Int {
+        let components = NSCalendar.currentCalendar().components([.Month], fromDate: self)
+        return components.month
     }
 
     /// EZSE: Get day from current NSDate
-    public func getDay() -> String {
-        let format = NSDateFormatter()
-        format.dateFormat = "dd"
-        return format.stringFromDate(self)
+    public var day: Int {
+        let components = NSCalendar.currentCalendar().components([.Day], fromDate: self)
+        return components.day
     }
 
     /// EZSE: Get Astro from current NSDate
-    public func getAstro() -> String {
-        let m = Int(self.getMonth())
-        let d = Int(self.getDay())
+    public var astro: String {
         var s = ["Capricorn",
                  "Aquarius",
                  "Pisces",
@@ -120,19 +115,19 @@ extension NSDate {
                  "Sagittarius",
                  "Capricorn"]
         var arr = [20, 19, 21, 21, 21, 22, 23, 23, 23, 23, 22, 22]
-        let index = m! - (d < (arr[m!-1]) ? 1 : 0)
+        let index = month - (day < (arr[month-1]) ? 1 : 0)
         return s[index]
     }
 
     /// EZSE: Check date if it is today
-    public func isDateToday() -> Bool {
+    public var isToday: Bool {
         let format = NSDateFormatter()
         format.dateFormat = "yyyy-MM-dd"
         return format.stringFromDate(self) == format.stringFromDate(NSDate())
     }
 
     /// EZSE: Check date if it is yesterday
-    public func isDateYesterday() -> Bool {
+    public var isYesterday: Bool {
         let format = NSDateFormatter()
         format.dateFormat = "yyyy-MM-dd"
         return format.stringFromDate(self) == format.stringFromDate(NSDate().dateByAddingTimeInterval(-24*60*60))
@@ -141,9 +136,9 @@ extension NSDate {
     /// EZSE: Return a favored string for noticing time depending on current date
     public func noticeTime() -> String {
         let format = NSDateFormatter()
-        if self.isDateToday() {
+        if self.isToday {
             format.dateFormat = "HH:mm"
-        } else if self.isDateYesterday() {
+        } else if self.isYesterday {
             format.dateFormat = "Yesterday HH:mm"
         } else {
             format.dateFormat = "MM-dd"
