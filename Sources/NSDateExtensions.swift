@@ -92,7 +92,7 @@ extension NSDate {
     }
 
     /// EZSE: Get day from current NSDate
-    public var days: Int {
+    public var day: Int {
         return getComponent(.Day)
     }
 
@@ -135,7 +135,7 @@ extension NSDate {
                  "Sagittarius",
                  "Capricorn"]
         var arr = [20, 19, 21, 21, 21, 22, 23, 23, 23, 23, 22, 22]
-        let index = month - (days < (arr[month-1]) ? 1 : 0)
+        let index = month - (day < (arr[month-1]) ? 1 : 0)
         return s[index]
     }
 
