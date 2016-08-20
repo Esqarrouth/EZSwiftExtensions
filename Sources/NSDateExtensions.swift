@@ -119,6 +119,24 @@ extension NSDate {
         return components.valueForComponent(component)
     }
 
+    /// EZSE: Get hours from current NSDate
+    public var hours: Int {
+        let components = NSCalendar.currentCalendar().components([.Hour], fromDate: self)
+        return components.hour
+    }
+
+    /// EZSE: Get minutes from current NSDate
+    public var minutes: Int {
+        let components = NSCalendar.currentCalendar().components([.Minute], fromDate: self)
+        return components.minute
+    }
+
+    /// EZSE: Get seconds from current NSDate
+    public var seconds: Int {
+        let components = NSCalendar.currentCalendar().components([.Second], fromDate: self)
+        return components.second
+    }
+
     /// EZSE: Get Astro from current NSDate
     public var astro: String {
         var s = ["Capricorn",
