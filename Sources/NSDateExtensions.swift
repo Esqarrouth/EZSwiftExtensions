@@ -109,6 +109,46 @@ extension NSDate {
             return "\(components.second) seconds ago"
         }
     }
+    
+    /// EZSE: Easy creation of time passed String; similar to timePassed but with shorter string
+    func timePassedShort() -> String {
+        let calendar = NSCalendar.currentCalendar()
+        let unitFlags: NSCalendarUnit = [.Minute, .Hour, .Day, .WeekOfYear, .Month, .Year, .Second]
+        let now = NSDate()
+        let earliest = now.earlierDate(self)
+        let latest = (earliest == now) ? self: now
+        let components: NSDateComponents = calendar.components(unitFlags, fromDate: earliest, toDate: latest, options: [])
+        
+        if (components.year >= 2) {
+            return "\(components.year)y"
+        } else if (components.year >= 1) {
+            return "1y"
+        } else if (components.month >= 2) {
+            return "\(components.month * 4)w"
+        } else if (components.month >= 1) {
+            return "4w"
+        } else if (components.weekOfYear >= 2) {
+            return "\(components.weekOfYear)w"
+        } else if (components.weekOfYear >= 1) {
+            return "1w"
+        } else if (components.day >= 2) {
+            return "\(components.day)d"
+        } else if (components.day >= 1) {
+            return "1d"
+        } else if (components.hour >= 2) {
+            return "\(components.hour)h"
+        } else if (components.hour >= 1) {
+            return "1h"
+        } else if (components.minute >= 2) {
+            return "\(components.minute)m"
+        } else if (components.minute >= 1) {
+            return "1m"
+        } else if (components.second >= 3) {
+            return "\(components.second)s"
+        } else {
+            return "now"
+        }
+    }
 
 }
 
