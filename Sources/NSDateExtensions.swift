@@ -132,7 +132,7 @@ extension NSDate {
     }
 
     /// EZSE: Check date if it is yesterday
-    public func isDateYestoday() -> Bool {
+    public func isDateYesterday() -> Bool {
         let format = NSDateFormatter()
         format.dateFormat = "yyyy-MM-dd"
         return format.stringFromDate(self) == format.stringFromDate(NSDate().dateByAddingTimeInterval(-24*60*60))
@@ -143,7 +143,7 @@ extension NSDate {
         let format = NSDateFormatter()
         if self.isDateToday() {
             format.dateFormat = "HH:mm"
-        } else if self.isDateYestoday() {
+        } else if self.isDateYesterday() {
             format.dateFormat = "Yesterday HH:mm"
         } else {
             format.dateFormat = "MM-dd"
