@@ -149,6 +149,15 @@ extension NSDate {
             return "now"
         }
     }
+    
+    /// EZSE: Class method for converting timestamp to NSDate
+    class func dateFromTimestampString(timestamp: String) -> NSDate! {
+        let time = Int(timestamp)!
+        let date = NSDate(timeIntervalSince1970: NSTimeInterval(time))
+        return date
+    }
+    
+    
 
 }
 
