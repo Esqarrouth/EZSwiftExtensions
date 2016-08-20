@@ -102,6 +102,16 @@ extension NSDate {
         return format.stringFromDate(self)
     }
     
+    /// EZSE: Get Astro from current NSDate
+    public func getAstro() -> String {
+        let m = Int(self.getMonth())
+        let d = Int(self.getDay())
+        var s = ["Capricorn","Aquarius","Pisces","Aries","Taurus","Gemini","Cancer","Leo","Virgo","Libra","Scorpio","Sagittarius","Capricorn"]
+        var arr = [20,19,21,21,21,22,23,23,23,23,22,22]
+        let index = m! - (d < (arr[m!-1]) ? 1 : 0)
+        return s[index]
+    }
+    
     /// EZSE: Check date if it is today
     public func isDateToday() -> Bool {
         let format = NSDateFormatter()
