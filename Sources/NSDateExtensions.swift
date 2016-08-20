@@ -115,6 +115,19 @@ extension NSDate {
         format.dateFormat = "yyyy-MM-dd"
         return format.stringFromDate(self) == format.stringFromDate(NSDate().dateByAddingTimeInterval(-24*60*60))
     }
+    
+    /// EZSE: Return a favored string for noticing time depending on current date
+    public func noticeTime() -> String {
+        let format = NSDateFormatter()
+        if self.isDateToday() {
+            format.dateFormat = "HH:mm"
+        } else if self.isDateYestoday(){
+            format.dateFormat = "Yesterday HH:mm"
+        } else {
+            format.dateFormat = "MM-dd"
+        }
+        return format.stringFromDate(self)
+    }
 
     /// EZSE: Easy creation of time passed String. Can be Years, Months, days, hours, minutes or seconds
     public func timePassed() -> String {
