@@ -80,6 +80,27 @@ extension NSDate {
         diff = fabs(diff)
         return diff
     }
+    
+    /// EZSE: Get year from current NSDate
+    public func getYear() -> String {
+        let format = NSDateFormatter()
+        format.dateFormat = "yyyy"
+        return format.stringFromDate(self)
+    }
+    
+    /// EZSE: Get month from current NSDate
+    public func getMonth() -> String {
+        let format = NSDateFormatter()
+        format.dateFormat = "MM"
+        return format.stringFromDate(self)
+    }
+    
+    /// EZSE: Get day from current NSDate
+    public func getDay() -> String {
+        let format = NSDateFormatter()
+        format.dateFormat = "dd"
+        return format.stringFromDate(self)
+    }
 
     /// EZSE: Easy creation of time passed String. Can be Years, Months, days, hours, minutes or seconds
     public func timePassed() -> String {
@@ -111,7 +132,7 @@ extension NSDate {
     }
     
     /// EZSE: Easy creation of time passed String; similar to timePassed but with shorter string
-    func timePassedShort() -> String {
+    public func timePassedShort() -> String {
         let calendar = NSCalendar.currentCalendar()
         let unitFlags: NSCalendarUnit = [.Minute, .Hour, .Day, .WeekOfYear, .Month, .Year, .Second]
         let now = NSDate()
@@ -151,7 +172,7 @@ extension NSDate {
     }
     
     /// EZSE: Class method for converting timestamp to NSDate
-    class func dateFromTimestampString(timestamp: String) -> NSDate! {
+    public class func dateFromTimestampString(timestamp: String) -> NSDate! {
         let time = Int(timestamp)!
         let date = NSDate(timeIntervalSince1970: NSTimeInterval(time))
         return date
