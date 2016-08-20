@@ -80,58 +80,70 @@ extension NSDate {
         diff = fabs(diff)
         return diff
     }
-    
+
     /// EZSE: Get year from current NSDate
     public func getYear() -> String {
         let format = NSDateFormatter()
         format.dateFormat = "yyyy"
         return format.stringFromDate(self)
     }
-    
+
     /// EZSE: Get month from current NSDate
     public func getMonth() -> String {
         let format = NSDateFormatter()
         format.dateFormat = "MM"
         return format.stringFromDate(self)
     }
-    
+
     /// EZSE: Get day from current NSDate
     public func getDay() -> String {
         let format = NSDateFormatter()
         format.dateFormat = "dd"
         return format.stringFromDate(self)
     }
-    
+
     /// EZSE: Get Astro from current NSDate
     public func getAstro() -> String {
         let m = Int(self.getMonth())
         let d = Int(self.getDay())
-        var s = ["Capricorn","Aquarius","Pisces","Aries","Taurus","Gemini","Cancer","Leo","Virgo","Libra","Scorpio","Sagittarius","Capricorn"]
-        var arr = [20,19,21,21,21,22,23,23,23,23,22,22]
+        var s = ["Capricorn",
+                 "Aquarius",
+                 "Pisces",
+                 "Aries",
+                 "Taurus",
+                 "Gemini",
+                 "Cancer",
+                 "Leo",
+                 "Virgo",
+                 "Libra",
+                 "Scorpio",
+                 "Sagittarius",
+                 "Capricorn"]
+        var arr = [20, 19, 21, 21, 21, 22, 23, 23, 23, 23, 22, 22]
         let index = m! - (d < (arr[m!-1]) ? 1 : 0)
         return s[index]
     }
-    
+
     /// EZSE: Check date if it is today
     public func isDateToday() -> Bool {
         let format = NSDateFormatter()
         format.dateFormat = "yyyy-MM-dd"
         return format.stringFromDate(self) == format.stringFromDate(NSDate())
     }
-    
+
     /// EZSE: Check date if it is yesterday
     public func isDateYestoday() -> Bool {
         let format = NSDateFormatter()
         format.dateFormat = "yyyy-MM-dd"
         return format.stringFromDate(self) == format.stringFromDate(NSDate().dateByAddingTimeInterval(-24*60*60))
     }
-    
+
     /// EZSE: Return a favored string for noticing time depending on current date
     public func noticeTime() -> String {
         let format = NSDateFormatter()
         if self.isDateToday() {
             format.dateFormat = "HH:mm"
-        } else if self.isDateYestoday(){
+        } else if self.isDateYestoday() {
             format.dateFormat = "Yesterday HH:mm"
         } else {
             format.dateFormat = "MM-dd"
@@ -167,7 +179,7 @@ extension NSDate {
             return "\(components.second) seconds ago"
         }
     }
-    
+
     /// EZSE: Easy creation of time passed String; similar to timePassed but with shorter string
     public func timePassedShort() -> String {
         let calendar = NSCalendar.currentCalendar()
@@ -176,46 +188,44 @@ extension NSDate {
         let earliest = now.earlierDate(self)
         let latest = (earliest == now) ? self: now
         let components: NSDateComponents = calendar.components(unitFlags, fromDate: earliest, toDate: latest, options: [])
-        
-        if (components.year >= 2) {
+
+        if components.year >= 2 {
             return "\(components.year)y"
-        } else if (components.year >= 1) {
+        } else if components.year >= 1 {
             return "1y"
-        } else if (components.month >= 2) {
+        } else if components.month >= 2 {
             return "\(components.month * 4)w"
-        } else if (components.month >= 1) {
+        } else if components.month >= 1 {
             return "4w"
-        } else if (components.weekOfYear >= 2) {
+        } else if components.weekOfYear >= 2 {
             return "\(components.weekOfYear)w"
-        } else if (components.weekOfYear >= 1) {
+        } else if components.weekOfYear >= 1 {
             return "1w"
-        } else if (components.day >= 2) {
+        } else if components.day >= 2 {
             return "\(components.day)d"
-        } else if (components.day >= 1) {
+        } else if components.day >= 1 {
             return "1d"
-        } else if (components.hour >= 2) {
+        } else if components.hour >= 2 {
             return "\(components.hour)h"
-        } else if (components.hour >= 1) {
+        } else if components.hour >= 1 {
             return "1h"
-        } else if (components.minute >= 2) {
+        } else if components.minute >= 2 {
             return "\(components.minute)m"
-        } else if (components.minute >= 1) {
+        } else if components.minute >= 1 {
             return "1m"
-        } else if (components.second >= 3) {
+        } else if components.second >= 3 {
             return "\(components.second)s"
         } else {
             return "now"
         }
     }
-    
+
     /// EZSE: Class method for converting timestamp to NSDate
     public class func dateFromTimestampString(timestamp: String) -> NSDate! {
         let time = Int(timestamp)!
         let date = NSDate(timeIntervalSince1970: NSTimeInterval(time))
         return date
     }
-    
-    
 
 }
 
