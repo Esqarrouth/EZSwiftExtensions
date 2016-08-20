@@ -56,5 +56,7 @@ class EZSwiftExtensionsTestsNSDate: XCTestCase {
         XCTAssertTrue(date < future)
         XCTAssertFalse(date > future)
         XCTAssertTrue(date == date)
+        XCTAssertTrue(date <= future)
+        XCTAssertFalse(date >= future)
     }
 }
