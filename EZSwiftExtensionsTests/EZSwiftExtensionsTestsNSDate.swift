@@ -73,31 +73,18 @@ class EZSwiftExtensionsTestsNSDate: XCTestCase {
         XCTAssertFalse(distantFuture.isYesterday)
     }
 
-    func testComponents() {
+    func testDateComponents() {
         guard let timeZone = NSCalendar.currentCalendar().components([.TimeZone], fromDate: NSDate()).timeZone else {
             XCTFail("Couldn't determine timezone.")
             return
         }
         let date = NSDate(timeIntervalSince1970: timeInterval - NSTimeInterval(timeZone.secondsFromGMT))
-        XCTAssertEqual(date.getComponent(.Era), 1)
         XCTAssertEqual(date.year, 2016)
-        XCTAssertEqual(date.getComponent(.Year), 2016)
         XCTAssertEqual(date.month, 8)
-        XCTAssertEqual(date.getComponent(.Month), 8)
         XCTAssertEqual(date.day, 21)
-        XCTAssertEqual(date.getComponent(.Day), 21)
         XCTAssertEqual(date.hours, 7)
-        XCTAssertEqual(date.getComponent(.Hour), 7)
         XCTAssertEqual(date.minutes, 41)
-        XCTAssertEqual(date.getComponent(.Minute), 41)
         XCTAssertEqual(date.seconds, 53)
-        XCTAssertEqual(date.getComponent(.Second), 53)
-        XCTAssertEqual(date.getComponent(.Weekday), 1)
-        XCTAssertEqual(date.getComponent(.WeekdayOrdinal), 3)
-        XCTAssertEqual(date.getComponent(.WeekOfMonth), 4)
-        XCTAssertEqual(date.getComponent(.WeekOfYear), 35)
-        XCTAssertEqual(date.getComponent(.YearForWeekOfYear), 2016)
-
     }
 
     func testAstro() {
