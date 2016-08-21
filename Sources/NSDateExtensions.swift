@@ -21,7 +21,7 @@ extension NSDate {
     }
 
     /// EZSE: Initializes NSDate from string returned from an http response, according to several RFCs
-    public convenience init? (httpDateString: String) {
+    public convenience init?(httpDateString: String) {
         if let rfc1123 = NSDate(fromString: httpDateString, format: "EEE',' dd' 'MMM' 'yyyy HH':'mm':'ss zzz") {
             self.init(timeInterval: 0, sinceDate: rfc1123)
             return
@@ -34,6 +34,7 @@ extension NSDate {
             self.init(timeInterval: 0, sinceDate: asctime)
             return
         }
+
         //self.init()
         return nil
     }
@@ -256,12 +257,4 @@ public func < (lhs: NSDate, rhs: NSDate) -> Bool {
 /// EZSE: Returns if left date is later than the right one
 public func > (lhs: NSDate, rhs: NSDate) -> Bool {
   return lhs.compare(rhs) == .OrderedDescending
-}
-/// EZSE: Returns if left date is earlier than the right one, or the dates are equal
-public func <= (lhs: NSDate, rhs: NSDate) -> Bool {
-    return lhs.compare(rhs) != .OrderedDescending
-}
-/// EZSE: Returns if left date is later than the right one, or the dates are equal
-public func >= (lhs: NSDate, rhs: NSDate) -> Bool {
-    return lhs.compare(rhs) != .OrderedAscending
 }
