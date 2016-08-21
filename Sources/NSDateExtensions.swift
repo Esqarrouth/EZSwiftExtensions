@@ -235,13 +235,6 @@ extension NSDate {
         }
     }
 
-    /// EZSE: Class method for converting timestamp to NSDate
-    public class func dateFromTimestampString(timestamp: String) -> NSDate! {
-        let time = Int(timestamp)!
-        let date = NSDate(timeIntervalSince1970: NSTimeInterval(time))
-        return date
-    }
-
 }
 
 extension NSDate: Comparable {}
