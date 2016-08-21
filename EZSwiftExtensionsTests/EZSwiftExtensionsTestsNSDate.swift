@@ -96,11 +96,7 @@ class EZSwiftExtensionsTestsNSDate: XCTestCase {
         XCTAssertEqual(date.getComponent(.WeekdayOrdinal), 3)
         XCTAssertEqual(date.getComponent(.WeekOfMonth), 4)
         XCTAssertEqual(date.getComponent(.WeekOfYear), 35)
-        XCTAssertEqual(date.getComponent(.Calendar), 0)
-        XCTAssertEqual(date.getComponent(.Quarter), 2)
-        XCTAssertEqual(date.getComponent(.Nanosecond), 23)
         XCTAssertEqual(date.getComponent(.YearForWeekOfYear), 2016)
-        XCTAssertEqual(date.getComponent(.TimeZone), 0)
 
     }
 

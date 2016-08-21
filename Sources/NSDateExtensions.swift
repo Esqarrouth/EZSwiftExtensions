@@ -113,10 +113,9 @@ extension NSDate {
     }
 
     /// EZSE: Get component of NSDate, e.g. month, year ...
-    public func getComponent(component: NSCalendarUnit) -> Int {
+    internal func getComponent(component: NSCalendarUnit) -> Int {
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components(component, fromDate: self)
-
         return components.valueForComponent(component)
     }
 
