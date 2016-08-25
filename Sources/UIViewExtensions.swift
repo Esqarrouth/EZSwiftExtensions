@@ -442,6 +442,14 @@ extension UIView {
             self.setScale(x: 1, y: 1)
             })
     }
+    
+    //EZSE: Reverse pop, good for button animations
+    public func reversePop() {
+        setScale(x: 0.9, y: 0.9)
+        UIView.animateWithDuration(0.05, delay: 0, options: UIViewAnimationOptions.AllowUserInteraction, animations: { [weak self] Void in
+            self?.setScale(x: 1, y: 1)
+        }) { (bool) in }
+    }
 }
 
 //TODO: add this to readme
