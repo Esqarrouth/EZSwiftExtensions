@@ -357,6 +357,11 @@ extension String {
         }
         return nil
     }
+    
+    /// EZSE: Converts String to NSURL
+    public func toURL() -> NSURL? {
+        return NSURL(string: self)
+    }
 
     ///EZSE: Returns the first index of the occurency of the character in String
     public func getIndexOf(char: Character) -> Int? {
