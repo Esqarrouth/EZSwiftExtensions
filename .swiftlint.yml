@@ -9,4 +9,4 @@ disabled_rules:
   - variable_name
   - valid_docs
   - todo
-
+  - variable_name_min_length
