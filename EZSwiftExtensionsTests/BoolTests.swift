@@ -9,16 +9,18 @@
 import XCTest
 
 class BoolTests: XCTestCase {
-    var bool: Bool!
-
-    override func setUp() {
-        super.setUp()
-        bool = false
+    
+    func testToInt() {
+        let t = true
+        let f = false
+        XCTAssertEqual(t.toInt, 1)
+        XCTAssertEqual(f.toInt, 0)
     }
 
     func testToggle() {
-        let value = bool
-        bool.toggle()
-        XCTAssertNotEqual(value, bool)
+        var value = false
+        value.toggle()
+        XCTAssertNotEqual(value, false)
     }
 }
+
