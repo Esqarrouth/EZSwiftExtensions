@@ -188,6 +188,16 @@ public struct ez {
             action()
         }
     }
+    
+    //TODO: Document this, add tests to this, find a way to remove ++
+    /// EZSE: Iterates through enum elements, use with (for element in ez.iterateEnum(myEnum))
+    public static func iterateEnum<T: Hashable>(_: T.Type) -> AnyGenerator<T> {
+        var i = 0
+        return AnyGenerator {
+            let next = withUnsafePointer(&i) { UnsafePointer<T>($0).memory }
+            return next.hashValue == i++ ? next : nil
+        }
+    }
 
     // MARK: - Dispatch
 
