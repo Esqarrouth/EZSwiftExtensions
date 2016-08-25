@@ -113,6 +113,8 @@
 		CD4D31561CEEB9EA00CB53BC /* EZSwiftExtensionsTestsCGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605D3051C81FBB80046FAC3 /* EZSwiftExtensionsTestsCGFloat.swift */; };
 		CD4D31571CEEB9EA00CB53BC /* EZSwiftExtensionsTestsNSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605D3081C81FBB80046FAC3 /* EZSwiftExtensionsTestsNSDate.swift */; };
 		CD4D31591CEEB9EA00CB53BC /* EZSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5DC86A91C0ED06700972D0A /* EZSwiftExtensions.framework */; };
+		E10A79341D6F3D0B00735549 /* EZSwiftExtensionsTestsEZSwiftFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79331D6F3D0B00735549 /* EZSwiftExtensionsTestsEZSwiftFunctions.swift */; };
+		E10A79351D6F3D0B00735549 /* EZSwiftExtensionsTestsEZSwiftFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79331D6F3D0B00735549 /* EZSwiftExtensionsTestsEZSwiftFunctions.swift */; };
 		E15484E21CA2BCF0003B030E /* ErrorTypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15484E11CA2BCF0003B030E /* ErrorTypeExtensions.swift */; };
 		E1587FB21CCA420400A0B071 /* UISwitchExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1587FB11CCA420400A0B071 /* UISwitchExtensions.swift */; };
 		E17878101C8651EB00BC05AA /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E178780F1C8651EB00BC05AA /* NSAttributedStringExtensions.swift */; };
@@ -195,6 +197,7 @@
 		C85840EA1C43B02C00595696 /* NSURLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtensions.swift; sourceTree = "<group>"; };
 		CD4D30E31CEEAFD900CB53BC /* EZSwiftExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EZSwiftExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4D315E1CEEB9EA00CB53BC /* EZSwiftExtensionsTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EZSwiftExtensionsTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E10A79331D6F3D0B00735549 /* EZSwiftExtensionsTestsEZSwiftFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwiftExtensionsTestsEZSwiftFunctions.swift; sourceTree = "<group>"; };
 		E15484E11CA2BCF0003B030E /* ErrorTypeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTypeExtensions.swift; sourceTree = "<group>"; };
 		E1587FB11CCA420400A0B071 /* UISwitchExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISwitchExtensions.swift; sourceTree = "<group>"; };
 		E178780F1C8651EB00BC05AA /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
@@ -275,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				7605D3021C81FBB80046FAC3 /* EZSwiftExtensionsTestsArray.swift */,
+				E10A79331D6F3D0B00735549 /* EZSwiftExtensionsTestsEZSwiftFunctions.swift */,
 				7605D3031C81FBB80046FAC3 /* EZSwiftExtensionsTestsBlockButton.swift */,
 				7605D3041C81FBB80046FAC3 /* EZSwiftExtensionsTestsBool.swift */,
 				7605D3051C81FBB80046FAC3 /* EZSwiftExtensionsTestsCGFloat.swift */,
@@ -599,6 +603,7 @@
 				79AB4F2E1D03394F009183EC /* NSDictionaryExtensions.swift in Sources */,
 				7605D3171C81FC180046FAC3 /* EZSwiftExtensionsTestsInt.swift in Sources */,
 				79AB4F321D03394F009183EC /* UIApplicationExtensions.swift in Sources */,
+				E10A79341D6F3D0B00735549 /* EZSwiftExtensionsTestsEZSwiftFunctions.swift in Sources */,
 				0B96C3CF1C86895E00BB2A3B /* EZSwiftExtensionsTestsNSURL.swift in Sources */,
 				B5DC86B91C0ED06700972D0A /* EZSwiftExtensionsTests.swift in Sources */,
 				7605D3191C81FC180046FAC3 /* EZSwiftExtensionsTestsString.swift in Sources */,
@@ -668,6 +673,7 @@
 				79AB4F301D03394F009183EC /* NSDictionaryExtensions.swift in Sources */,
 				CD4D31521CEEB9EA00CB53BC /* EZSwiftExtensionsTestsInt.swift in Sources */,
 				79AB4F341D03394F009183EC /* UIApplicationExtensions.swift in Sources */,
+				E10A79351D6F3D0B00735549 /* EZSwiftExtensionsTestsEZSwiftFunctions.swift in Sources */,
 				CD4D31531CEEB9EA00CB53BC /* EZSwiftExtensionsTestsNSURL.swift in Sources */,
 				CD4D31541CEEB9EA00CB53BC /* EZSwiftExtensionsTests.swift in Sources */,
 				CD4D31551CEEB9EA00CB53BC /* EZSwiftExtensionsTestsString.swift in Sources */,
