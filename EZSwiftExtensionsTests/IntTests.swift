@@ -1,5 +1,5 @@
 //
-//  EZSwiftExtensionsTestsInt.swift
+//  IntTests.swift
 //  EZSwiftExtensions
 //
 //  Created by Valentino Urbano on 28/01/16.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class EZSwiftExtensionsTestsInt: XCTestCase {
+class IntTests: XCTestCase {
     var value: Int!
 
     override func setUp() {

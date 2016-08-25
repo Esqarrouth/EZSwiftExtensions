@@ -1,5 +1,5 @@
 //
-//  EZSwiftExtensionsTestsEZSwiftFunctions.swift
+//  EZSwiftFunctionsTests.swift
 //  EZSwiftExtensions
 //
 //  Created by Goktug Yilmaz on 8/25/16.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import EZSwiftExtensions
 
-class EZSwiftExtensionsTestsEZSwiftFunctions: XCTestCase {
+class EZSwiftFunctionsTests: XCTestCase {
    
     func testIterateEnum() {
         enum testEnum: Int {

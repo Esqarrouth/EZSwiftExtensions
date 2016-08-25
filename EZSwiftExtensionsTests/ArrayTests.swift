@@ -1,5 +1,5 @@
 //
-//  EZArrayExtensionsTests.swift
+//  ArrayTests.swift
 //  EZSwiftExtensions
 //
 //  Created by Valentino Urbano on 28/01/16.
@@ -9,7 +9,7 @@
 import XCTest
 import EZSwiftExtensions
 
-class EZSwiftExtensionsTestsArray: XCTestCase {
+class ArrayTests: XCTestCase {
     var numberArray: [Int] = []
 
     override func setUp() {
