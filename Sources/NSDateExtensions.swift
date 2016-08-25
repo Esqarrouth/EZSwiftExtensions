@@ -109,6 +109,22 @@ extension NSDate {
             return "\(components.second) seconds ago"
         }
     }
+}
+
+extension NSDate {
+
+    public var startOfDay: NSDate {
+        let currentCalendar = NSCalendar.currentCalendar()
+        return currentCalendar.startOfDayForDate(self)
+    }
+
+    public var endOfDay: NSDate {
+        let currentCalendar = NSCalendar.currentCalendar()
+        let components = NSDateComponents()
+        components.day = 1
+        components.second = -1
+        return currentCalendar.dateByAddingComponents(components, toDate: startOfDay, options: NSCalendarOptions())!
+    }
 
 }
 

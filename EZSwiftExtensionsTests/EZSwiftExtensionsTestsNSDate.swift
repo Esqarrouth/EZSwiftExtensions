@@ -14,6 +14,7 @@ class EZSwiftExtensionsTestsNSDate: XCTestCase {
     var string: String!
     var wrongDateString: String!
     let format = "dd-mm-yyyy hh:mm:ss"
+    let currentCalendar = NSCalendar.currentCalendar()
 
     override func setUp() {
         super.setUp()
@@ -57,4 +58,24 @@ class EZSwiftExtensionsTestsNSDate: XCTestCase {
         XCTAssertFalse(date > future)
         XCTAssertTrue(date == date)
     }
+}
+
+extension EZSwiftExtensionsTestsNSDate {
+
+    func testStartOfDay() {
+        let today = NSDate(), startOfDay = today.startOfDay
+        XCTAssertLessThanOrEqual(startOfDay, today)
+        let dateComponents = currentCalendar.components([.Hour, .Minute, .Second], fromDate: startOfDay)
+        XCTAssertEqual([dateComponents.hour, dateComponents.minute, dateComponents.second], [0, 0, 0])
+        XCTAssertEqual(today.toString(timeStyle: .NoStyle), startOfDay.toString(timeStyle: .NoStyle))
+    }
+
+    func testEndOfDay() {
+        let today = NSDate(), endOfDay = today.endOfDay
+        XCTAssertGreaterThanOrEqual(endOfDay, today)
+        let dateComponents = currentCalendar.components([.Hour, .Minute, .Second], fromDate: endOfDay)
+        XCTAssertEqual([dateComponents.hour, dateComponents.minute, dateComponents.second], [23, 59, 59])
+        XCTAssertEqual(today.toString(timeStyle: .NoStyle), endOfDay.toString(timeStyle: .NoStyle))
+    }
+
 }
