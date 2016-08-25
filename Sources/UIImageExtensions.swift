@@ -26,83 +26,94 @@ extension UIImage {
     }
 
     /// EZSE: scales image
-    public class func scaleTo(image image: UIImage, w: CGFloat, h: CGFloat) -> UIImage {
-        let newSize = CGSize(width: w, height: h)
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
-        image.drawInRect(CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
-        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+    public class func scaleTo(image image: UIImage, w: CGFloat, h: CGFloat) -> UIImage! {
+        let size = CGSize(width: w, height: h)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        image.drawInRect(CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        let outputImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return newImage
+        return outputImage
     }
 
     /// EZSE Returns resized image with width. Might return low quality
-    public func resizeWithWidth(width: CGFloat) -> UIImage {
+    public func resizeWithWidth(width: CGFloat) -> UIImage! {
         let aspectSize = CGSize (width: width, height: aspectHeightForWidth(width))
 
         UIGraphicsBeginImageContext(aspectSize)
-        self.drawInRect(CGRect(origin: CGPoint.zero, size: aspectSize))
-        let img = UIGraphicsGetImageFromCurrentImageContext()
+        drawInRect(CGRect(origin: CGPoint.zero, size: aspectSize))
+        let outputImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
-        return img
+        return outputImage
     }
 
     /// EZSE Returns resized image with height. Might return low quality
-    public func resizeWithHeight(height: CGFloat) -> UIImage {
+    public func resizeWithHeight(height: CGFloat) -> UIImage! {
         let aspectSize = CGSize (width: aspectWidthForHeight(height), height: height)
 
         UIGraphicsBeginImageContext(aspectSize)
-        self.drawInRect(CGRect(origin: CGPoint.zero, size: aspectSize))
-        let img = UIGraphicsGetImageFromCurrentImageContext()
+        drawInRect(CGRect(origin: CGPoint.zero, size: aspectSize))
+        let outputImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
-        return img
+        return outputImage
     }
 
     /// EZSE:
     public func aspectHeightForWidth(width: CGFloat) -> CGFloat {
-        return (width * self.size.height) / self.size.width
+        return (width * size.height) / size.width
     }
 
     /// EZSE:
     public func aspectWidthForHeight(height: CGFloat) -> CGFloat {
-        return (height * self.size.width) / self.size.height
+        return (height * size.width) / size.height
     }
 
     /// EZSE: Returns cropped image from CGRect
     public func croppedImage(bound: CGRect) -> UIImage? {
-        guard self.size.width > bound.origin.x else {
+        guard size.width > bound.origin.x else {
             print("EZSE: Your cropping X coordinate is larger than the image width")
             return nil
         }
-        guard self.size.height > bound.origin.y else {
+        guard size.height > bound.origin.y else {
             print("EZSE: Your cropping Y coordinate is larger than the image height")
             return nil
         }
-        let scaledBounds: CGRect = CGRect(x: bound.x * self.scale, y: bound.y * self.scale, width: bound.w * self.scale, height: bound.h * self.scale)
-        let imageRef = CGImageCreateWithImageInRect(self.CGImage, scaledBounds)
-        let croppedImage: UIImage = UIImage(CGImage: imageRef!, scale: self.scale, orientation: UIImageOrientation.Up)
+        guard let cgImage = CGImage else {
+            print("EZSE: UIImage not backde by CGImage")
+            return nil
+        }
+        let scaledBounds: CGRect = CGRect(x: bound.x * scale, y: bound.y * scale, width: bound.w * scale, height: bound.h * scale)
+        let imageRef = CGImageCreateWithImageInRect(cgImage, scaledBounds)
+        let croppedImage: UIImage = UIImage(CGImage: imageRef!, scale: scale, orientation: UIImageOrientation.Up)
         return croppedImage
     }
 
     /// EZSE: Use current image for pattern of color
-    public func withColor(tintColor: UIColor) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
-
-        let context = UIGraphicsGetCurrentContext()
-        CGContextTranslateCTM(context, 0, self.size.height)
+    public func withColor(tintColor: UIColor) -> UIImage! {
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        
+        guard let context = UIGraphicsGetCurrentContext() else {
+            print("EZSE: Context creation failed")
+            return self
+        }
+        guard let cgImage = CGImage else {
+            print("EZSE: UIImage not backde by CGImage")
+            return self
+        }
+        CGContextTranslateCTM(context, 0, size.height)
         CGContextScaleCTM(context, 1.0, -1.0)
         CGContextSetBlendMode(context, CGBlendMode.Normal)
 
-        let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height) as CGRect
-        CGContextClipToMask(context, rect, self.CGImage)
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        CGContextClipToMask(context, rect, cgImage)
         tintColor.setFill()
         CGContextFillRect(context, rect)
 
-        let newImage = UIGraphicsGetImageFromCurrentImageContext() as UIImage
+        let outputImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
-        return newImage
+        return outputImage
     }
 
     ///EZSE: Returns the image associated with the URL
@@ -120,7 +131,7 @@ extension UIImage {
     }
 
     ///EZSE: Returns an empty image //TODO: Add to readme
-    public class func blankImage() -> UIImage {
+    public class func blankImage() -> UIImage! {
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 1, height: 1), false, 0.0)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
