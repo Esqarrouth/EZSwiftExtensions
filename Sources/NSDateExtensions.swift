@@ -113,11 +113,13 @@ extension NSDate {
 
 extension NSDate {
 
+    /// EZSE: Get beginning of day for current NSDate. Hours/minutes/seconds are at minimal.
     public var startOfDay: NSDate {
         let currentCalendar = NSCalendar.currentCalendar()
         return currentCalendar.startOfDayForDate(self)
     }
 
+    /// EZSE: Get end of day for current NSDate. Hours/minutes/seconds are at maximum.
     public var endOfDay: NSDate {
         let currentCalendar = NSCalendar.currentCalendar()
         let components = NSDateComponents()
