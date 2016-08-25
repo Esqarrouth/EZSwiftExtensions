@@ -9,7 +9,7 @@
 // swiftlint:disable line_length
 // swiftlint:disable trailing_whitespace
 
-import Foundation
+import UIKit
 
 extension NSURL {
     /// EZSE: Returns convert query to Dictionary
@@ -57,7 +57,7 @@ extension NSURL {
         if self == url {
             return true
         }
-        if self.scheme.lowercaseString != url.scheme.lowercaseString {
+        if scheme?.lowercaseString != url.scheme?.lowercaseString {
             return false
         }
         if let host1 = self.host, host2 = url.host {
