@@ -11,6 +11,7 @@
 		E10A79321D6F2ED700735549 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79311D6F2ED700735549 /* UIApplicationExtensions.swift */; };
 		E10A79371D6F4BDB00735549 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79361D6F4BDB00735549 /* UITextFieldExtensions.swift */; };
 		E10A79441D6F505900735549 /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79431D6F505900735549 /* UIStoryboardExtensions.swift */; };
+		E10A79491D6F51E200735549 /* NSDictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79481D6F51E200735549 /* NSDictionaryExtensions.swift */; };
 		E15484E41CA2BD00003B030E /* ErrorTypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15484E31CA2BD00003B030E /* ErrorTypeExtensions.swift */; };
 		E1587FB01CCA41F400A0B071 /* UISwitchExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1587FAF1CCA41F400A0B071 /* UISwitchExtensions.swift */; };
 		E17878141C86525300BC05AA /* NSTimerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878131C86525300BC05AA /* NSTimerExtensions.swift */; };
@@ -61,6 +62,7 @@
 		E10A79311D6F2ED700735549 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIApplicationExtensions.swift; path = Sources/UIApplicationExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E10A79361D6F4BDB00735549 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextFieldExtensions.swift; path = Sources/UITextFieldExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E10A79431D6F505900735549 /* UIStoryboardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIStoryboardExtensions.swift; path = Sources/UIStoryboardExtensions.swift; sourceTree = SOURCE_ROOT; };
+		E10A79481D6F51E200735549 /* NSDictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDictionaryExtensions.swift; path = Sources/NSDictionaryExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E15484E31CA2BD00003B030E /* ErrorTypeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorTypeExtensions.swift; path = Sources/ErrorTypeExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1587FAF1CCA41F400A0B071 /* UISwitchExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UISwitchExtensions.swift; path = Sources/UISwitchExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E17878131C86525300BC05AA /* NSTimerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSTimerExtensions.swift; path = Sources/NSTimerExtensions.swift; sourceTree = SOURCE_ROOT; };
@@ -141,6 +143,7 @@
 				E1839E0F1BF79974002212C6 /* IntExtensions.swift */,
 				E17878151C86525A00BC05AA /* NSAttributedStringExtensions.swift */,
 				E1839E101BF79974002212C6 /* NSDateExtensions.swift */,
+				E10A79481D6F51E200735549 /* NSDictionaryExtensions.swift */,
 				E1839E111BF79974002212C6 /* NSObjectExtensions.swift */,
 				E17878131C86525300BC05AA /* NSTimerExtensions.swift */,
 				C85840EC1C43B05200595696 /* NSURLExtensions.swift */,
@@ -281,6 +284,7 @@
 				E1839E371BF79974002212C6 /* UITextViewExtensions.swift in Sources */,
 				E1839E2F1BF79974002212C6 /* UIButtonExtensions.swift in Sources */,
 				E1587FB01CCA41F400A0B071 /* UISwitchExtensions.swift in Sources */,
+				E10A79491D6F51E200735549 /* NSDictionaryExtensions.swift in Sources */,
 				E1839E301BF79974002212C6 /* UIColoredView.swift in Sources */,
 				E1839E1E1BF79974002212C6 /* ArrayExtensions.swift in Sources */,
 				E10A79441D6F505900735549 /* UIStoryboardExtensions.swift in Sources */,
