@@ -30,6 +30,11 @@ public struct ez {
     public static var appBuild: String? {
         return NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as String) as? String
     }
+    
+    /// EZSE: Return app's bundle Id
+    public static var appBundleId: String? {
+        return NSBundle.mainBundle().bundleIdentifier
+    }
 
     /// EZSE: Returns both app's version and build numbers "v0.3(7)"
     public static var appVersionAndBuild: String? {
