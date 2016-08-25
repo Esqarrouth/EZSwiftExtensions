@@ -30,7 +30,7 @@ public struct ez {
     public static var appBuild: String? {
         return NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as String) as? String
     }
-    
+
     /// EZSE: Return app's bundle Id
     public static var appBundleId: String? {
         return NSBundle.mainBundle().bundleIdentifier
@@ -188,7 +188,7 @@ public struct ez {
             action()
         }
     }
-    
+
     //TODO: Document this, add tests to this, find a way to remove ++
     /// EZSE: Iterates through enum elements, use with (for element in ez.iterateEnum(myEnum))
     public static func iterateEnum<T: Hashable>(_: T.Type) -> AnyGenerator<T> {

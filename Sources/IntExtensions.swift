@@ -34,7 +34,7 @@ extension Int {
 
     /// EZSE: Converts integer value to UInt.
     public var toUInt: UInt { return UInt(self) }
-    
+
     /// EZSE: Converts integer value to Int32.
     public var toInt32: Int32 { return Int32(self) }
 
