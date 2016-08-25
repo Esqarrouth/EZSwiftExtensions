@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C85840ED1C43B05200595696 /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85840EC1C43B05200595696 /* NSURLExtensions.swift */; };
+		E10A79321D6F2ED700735549 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79311D6F2ED700735549 /* UIApplicationExtensions.swift */; };
 		E15484E41CA2BD00003B030E /* ErrorTypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15484E31CA2BD00003B030E /* ErrorTypeExtensions.swift */; };
 		E1587FB01CCA41F400A0B071 /* UISwitchExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1587FAF1CCA41F400A0B071 /* UISwitchExtensions.swift */; };
 		E17878141C86525300BC05AA /* NSTimerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878131C86525300BC05AA /* NSTimerExtensions.swift */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		C85840EC1C43B05200595696 /* NSURLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSURLExtensions.swift; path = Sources/NSURLExtensions.swift; sourceTree = SOURCE_ROOT; };
+		E10A79311D6F2ED700735549 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIApplicationExtensions.swift; path = Sources/UIApplicationExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E15484E31CA2BD00003B030E /* ErrorTypeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorTypeExtensions.swift; path = Sources/ErrorTypeExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1587FAF1CCA41F400A0B071 /* UISwitchExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UISwitchExtensions.swift; path = Sources/UISwitchExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E17878131C86525300BC05AA /* NSTimerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSTimerExtensions.swift; path = Sources/NSTimerExtensions.swift; sourceTree = SOURCE_ROOT; };
@@ -140,6 +142,7 @@
 				C85840EC1C43B05200595696 /* NSURLExtensions.swift */,
 				E1839E121BF79974002212C6 /* StringExtensions.swift */,
 				E17878191C86770E00BC05AA /* UIAlertControllerExtensions.swift */,
+				E10A79311D6F2ED700735549 /* UIApplicationExtensions.swift */,
 				E1D7CDCD1CF8FFB3008E4C07 /* UIBarButtonItemExtensions.swift */,
 				E1839E131BF79974002212C6 /* UIButtonExtensions.swift */,
 				E1839E141BF79974002212C6 /* UIColoredView.swift */,
@@ -290,6 +293,7 @@
 				C85840ED1C43B05200595696 /* NSURLExtensions.swift in Sources */,
 				E1839E261BF79974002212C6 /* BoolExtensions.swift in Sources */,
 				E1839E2B1BF79974002212C6 /* IntExtensions.swift in Sources */,
+				E10A79321D6F2ED700735549 /* UIApplicationExtensions.swift in Sources */,
 				E1CB3C1C1C25FFA000DF77CD /* DoubleExtensions.swift in Sources */,
 				E1839E341BF79974002212C6 /* UIImageExtensions.swift in Sources */,
 				E1839E241BF79974002212C6 /* BlockTap.swift in Sources */,
