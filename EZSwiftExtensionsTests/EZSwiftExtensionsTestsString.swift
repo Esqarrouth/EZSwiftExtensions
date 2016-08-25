@@ -110,10 +110,8 @@ class EZSwiftExtensionsTestsString: XCTestCase {
         XCTAssertEqual(string, "EzSWIFTextensIonS")
     }
 
-    func testIsOnlyEmptySpacesAndNewLineCharacters() {
+    func testIsBlank() {
         let emptyString = " \n "
-        XCTAssertFalse(string.isOnlyEmptySpacesAndNewLineCharacters())
-        XCTAssertTrue(emptyString.isOnlyEmptySpacesAndNewLineCharacters())
         XCTAssertFalse(string.isBlank)
         XCTAssertTrue(emptyString.isBlank)
     }

@@ -90,15 +90,11 @@ public struct ez {
 
     /// EZSE: Returns the top ViewController
     public static var topMostVC: UIViewController? {
-        var presentedVC = UIApplication.sharedApplication().keyWindow?.rootViewController
-        while let pVC = presentedVC?.presentedViewController {
-            presentedVC = pVC
-        }
-
-        if presentedVC == nil {
+        let topVC = UIApplication.topViewController()
+        if topVC == nil {
             print("EZSwiftExtensions Error: You don't have any views set. You may be calling them in viewDidLoad. Try viewDidAppear instead.")
         }
-        return presentedVC
+        return topVC
     }
 
     #if os(iOS)

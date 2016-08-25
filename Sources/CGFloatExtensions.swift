@@ -28,7 +28,7 @@ extension CGFloat {
     }
 
     /// EZSE: Converts angle degrees to radians.
-    public func degreesToRadians (angle: CGFloat) -> CGFloat {
+    public static func degreesToRadians(angle: CGFloat) -> CGFloat {
         return (CGFloat (M_PI) * angle) / 180.0
     }
 }

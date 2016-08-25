@@ -105,14 +105,6 @@ class EZSwiftExtensionsTestsArray: XCTestCase {
         XCTAssertEqual(indexArray, [Int](0..<numberArray.count))
     }
 
-    func testMapFilter() {
-        let filtered = numberArray.mapFilter { number -> String? in
-            return number == 1 ? String(number) : nil
-        }
-
-        XCTAssertEqual(filtered.count, 2)
-    }
-
     func testUnion() {
         let a = [Int](0...2), b = [Int](3...5), c = [Int](6...8)
         let union = a.union(b, c)
