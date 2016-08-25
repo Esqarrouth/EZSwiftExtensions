@@ -106,7 +106,7 @@ class EZSwiftExtensionsTestsArray: XCTestCase {
     }
 
     func testMapFilter() {
-        let filtered = numberArray.mapFilter { number -> String? in
+        let filtered = numberArray.flatMap { number -> String? in
             return number == 1 ? String(number) : nil
         }
 

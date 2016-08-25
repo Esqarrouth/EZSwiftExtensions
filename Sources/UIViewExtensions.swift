@@ -448,12 +448,12 @@ extension UIView {
 // MARK: Render Extensions
 extension UIView {
     /// EZSwiftExtensions
-    public func toImage () -> UIImage {
+    public func toImage () -> UIImage! {
         UIGraphicsBeginImageContextWithOptions(bounds.size, opaque, 0.0)
         drawViewHierarchyInRect(bounds, afterScreenUpdates: false)
-        let img = UIGraphicsGetImageFromCurrentImageContext()
+        let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return img
+        return image
     }
 }
 
