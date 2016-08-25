@@ -21,7 +21,7 @@ extension NSDate {
     }
 
     /// EZSE: Initializes NSDate from string returned from an http response, according to several RFCs
-    public convenience init? (httpDateString: String) {
+    public convenience init?(httpDateString: String) {
         if let rfc1123 = NSDate(fromString: httpDateString, format: "EEE',' dd' 'MMM' 'yyyy HH':'mm':'ss zzz") {
             self.init(timeInterval: 0, sinceDate: rfc1123)
             return
@@ -34,6 +34,7 @@ extension NSDate {
             self.init(timeInterval: 0, sinceDate: asctime)
             return
         }
+
         //self.init()
         return nil
     }
@@ -81,6 +82,90 @@ extension NSDate {
         return diff
     }
 
+    /// EZSE: Get year from current NSDate
+    public var year: Int {
+        return getComponent(.Year)
+    }
+
+    /// EZSE: Get month from current NSDate
+    public var month: Int {
+        return getComponent(.Month)
+    }
+
+    /// EZSE: Get day from current NSDate
+    public var day: Int {
+        return getComponent(.Day)
+    }
+
+    /// EZSE: Get hour from current NSDate
+    public var hours: Int {
+        return getComponent(.Hour)
+    }
+
+    /// EZSE: Get minute from current NSDate
+    public var minutes: Int {
+        return getComponent(.Minute)
+    }
+
+    /// EZSE: Get second from current NSDate
+    public var seconds: Int {
+        return getComponent(.Second)
+    }
+
+    /// EZSE: Get component of NSDate, e.g. month, year ...
+    internal func getComponent(component: NSCalendarUnit) -> Int {
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(component, fromDate: self)
+        return components.valueForComponent(component)
+    }
+
+    /// EZSE: Get Astro from current NSDate
+    public var astro: String {
+        var s = ["Capricorn",
+                 "Aquarius",
+                 "Pisces",
+                 "Aries",
+                 "Taurus",
+                 "Gemini",
+                 "Cancer",
+                 "Leo",
+                 "Virgo",
+                 "Libra",
+                 "Scorpio",
+                 "Sagittarius",
+                 "Capricorn"]
+        var arr = [20, 19, 21, 21, 21, 22, 23, 23, 23, 23, 22, 22]
+        let index = month - (day < (arr[month-1]) ? 1 : 0)
+        return s[index]
+    }
+
+    /// EZSE: Check date if it is today
+    public var isToday: Bool {
+        let format = NSDateFormatter()
+        format.dateFormat = "yyyy-MM-dd"
+        return format.stringFromDate(self) == format.stringFromDate(NSDate())
+    }
+
+    /// EZSE: Check date if it is yesterday
+    public var isYesterday: Bool {
+        let format = NSDateFormatter()
+        format.dateFormat = "yyyy-MM-dd"
+        return format.stringFromDate(self) == format.stringFromDate(NSDate().dateByAddingTimeInterval(-24*60*60))
+    }
+
+    /// EZSE: Return a favored string for noticing time depending on current date
+    public func noticeTime() -> String {
+        let format = NSDateFormatter()
+        if self.isToday {
+            format.dateFormat = "HH:mm"
+        } else if self.isYesterday {
+            format.dateFormat = "Yesterday HH:mm"
+        } else {
+            format.dateFormat = "MM-dd"
+        }
+        return format.stringFromDate(self)
+    }
+
     /// EZSE: Easy creation of time passed String. Can be Years, Months, days, hours, minutes or seconds
     public func timePassed() -> String {
         let date = NSDate()
@@ -110,18 +195,58 @@ extension NSDate {
         }
     }
 
+    /// EZSE: Easy creation of time passed String; similar to timePassed but with shorter string
+    public func timePassedShort() -> String {
+        let calendar = NSCalendar.currentCalendar()
+        let unitFlags: NSCalendarUnit = [.Minute, .Hour, .Day, .WeekOfYear, .Month, .Year, .Second]
+        let now = NSDate()
+        let earliest = now.earlierDate(self)
+        let latest = (earliest == now) ? self: now
+        let components: NSDateComponents = calendar.components(unitFlags, fromDate: earliest, toDate: latest, options: [])
+
+        if components.year >= 2 {
+            return "\(components.year)y"
+        } else if components.year >= 1 {
+            return "1y"
+        } else if components.month >= 2 {
+            return "\(components.month * 4)w"
+        } else if components.month >= 1 {
+            return "4w"
+        } else if components.weekOfYear >= 2 {
+            return "\(components.weekOfYear)w"
+        } else if components.weekOfYear >= 1 {
+            return "1w"
+        } else if components.day >= 2 {
+            return "\(components.day)d"
+        } else if components.day >= 1 {
+            return "1d"
+        } else if components.hour >= 2 {
+            return "\(components.hour)h"
+        } else if components.hour >= 1 {
+            return "1h"
+        } else if components.minute >= 2 {
+            return "\(components.minute)m"
+        } else if components.minute >= 1 {
+            return "1m"
+        } else if components.second >= 3 {
+            return "\(components.second)s"
+        } else {
+            return "now"
+        }
+    }
+
 }
 
 extension NSDate: Comparable {}
- /// EZSE: Returns if dates are equal to each other
+/// EZSE: Returns if dates are equal to each other
 public func == (lhs: NSDate, rhs: NSDate) -> Bool {
   return lhs.isEqualToDate(rhs)
 }
- /// EZSE: Returns if one date is smaller than the other
+/// EZSE: Returns if left date is earlier than the right one
 public func < (lhs: NSDate, rhs: NSDate) -> Bool {
     return lhs.compare(rhs) == .OrderedAscending
 }
-
+/// EZSE: Returns if left date is later than the right one
 public func > (lhs: NSDate, rhs: NSDate) -> Bool {
   return lhs.compare(rhs) == .OrderedDescending
 }
