@@ -117,6 +117,18 @@
 		E10A79471D6F506400735549 /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79451D6F506400735549 /* UIStoryboardExtensions.swift */; };
 		E10A79511D6F5CCC00735549 /* UIUserInterfaceSizeClassExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79501D6F5CCC00735549 /* UIUserInterfaceSizeClassExtensions.swift */; };
 		E10A79521D6F5CCC00735549 /* UIUserInterfaceSizeClassExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79501D6F5CCC00735549 /* UIUserInterfaceSizeClassExtensions.swift */; };
+		E10A79541D6F5DAD00735549 /* BlockLongPressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79531D6F5DAD00735549 /* BlockLongPressTests.swift */; };
+		E10A79551D6F5DAD00735549 /* BlockLongPressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79531D6F5DAD00735549 /* BlockLongPressTests.swift */; };
+		E10A79571D6F5F3A00735549 /* BlockPanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79561D6F5F3A00735549 /* BlockPanTests.swift */; };
+		E10A79581D6F5F3A00735549 /* BlockPanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79561D6F5F3A00735549 /* BlockPanTests.swift */; };
+		E10A795D1D6F62DF00735549 /* BlockPinchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79591D6F62DF00735549 /* BlockPinchTests.swift */; };
+		E10A795E1D6F62DF00735549 /* BlockPinchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79591D6F62DF00735549 /* BlockPinchTests.swift */; };
+		E10A795F1D6F62DF00735549 /* BlockSwipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A795A1D6F62DF00735549 /* BlockSwipeTests.swift */; };
+		E10A79601D6F62DF00735549 /* BlockSwipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A795A1D6F62DF00735549 /* BlockSwipeTests.swift */; };
+		E10A79611D6F62DF00735549 /* BlockTapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A795B1D6F62DF00735549 /* BlockTapTests.swift */; };
+		E10A79621D6F62DF00735549 /* BlockTapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A795B1D6F62DF00735549 /* BlockTapTests.swift */; };
+		E10A79631D6F62DF00735549 /* BlockWebViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A795C1D6F62DF00735549 /* BlockWebViewTests.swift */; };
+		E10A79641D6F62DF00735549 /* BlockWebViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A795C1D6F62DF00735549 /* BlockWebViewTests.swift */; };
 		E15484E21CA2BCF0003B030E /* ErrorTypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15484E11CA2BCF0003B030E /* ErrorTypeExtensions.swift */; };
 		E1587FB21CCA420400A0B071 /* UISwitchExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1587FB11CCA420400A0B071 /* UISwitchExtensions.swift */; };
 		E17878101C8651EB00BC05AA /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E178780F1C8651EB00BC05AA /* NSAttributedStringExtensions.swift */; };
@@ -201,6 +213,12 @@
 		E10A79331D6F3D0B00735549 /* EZSwiftFunctionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwiftFunctionsTests.swift; sourceTree = "<group>"; };
 		E10A79451D6F506400735549 /* UIStoryboardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtensions.swift; sourceTree = "<group>"; };
 		E10A79501D6F5CCC00735549 /* UIUserInterfaceSizeClassExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUserInterfaceSizeClassExtensions.swift; sourceTree = "<group>"; };
+		E10A79531D6F5DAD00735549 /* BlockLongPressTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockLongPressTests.swift; sourceTree = "<group>"; };
+		E10A79561D6F5F3A00735549 /* BlockPanTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockPanTests.swift; sourceTree = "<group>"; };
+		E10A79591D6F62DF00735549 /* BlockPinchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockPinchTests.swift; sourceTree = "<group>"; };
+		E10A795A1D6F62DF00735549 /* BlockSwipeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockSwipeTests.swift; sourceTree = "<group>"; };
+		E10A795B1D6F62DF00735549 /* BlockTapTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockTapTests.swift; sourceTree = "<group>"; };
+		E10A795C1D6F62DF00735549 /* BlockWebViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockWebViewTests.swift; sourceTree = "<group>"; };
 		E15484E11CA2BCF0003B030E /* ErrorTypeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTypeExtensions.swift; sourceTree = "<group>"; };
 		E1587FB11CCA420400A0B071 /* UISwitchExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISwitchExtensions.swift; sourceTree = "<group>"; };
 		E178780F1C8651EB00BC05AA /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
@@ -281,8 +299,14 @@
 			isa = PBXGroup;
 			children = (
 				7605D3021C81FBB80046FAC3 /* ArrayTests.swift */,
-				E10A79331D6F3D0B00735549 /* EZSwiftFunctionsTests.swift */,
 				7605D3031C81FBB80046FAC3 /* BlockButtonTests.swift */,
+				E10A79531D6F5DAD00735549 /* BlockLongPressTests.swift */,
+				E10A79561D6F5F3A00735549 /* BlockPanTests.swift */,
+				E10A79591D6F62DF00735549 /* BlockPinchTests.swift */,
+				E10A795A1D6F62DF00735549 /* BlockSwipeTests.swift */,
+				E10A795B1D6F62DF00735549 /* BlockTapTests.swift */,
+				E10A795C1D6F62DF00735549 /* BlockWebViewTests.swift */,
+				E10A79331D6F3D0B00735549 /* EZSwiftFunctionsTests.swift */,
 				7605D3041C81FBB80046FAC3 /* BoolTests.swift */,
 				7605D3051C81FBB80046FAC3 /* CGFloatTests.swift */,
 				7605D3061C81FBB80046FAC3 /* DictionaryTests.swift */,
@@ -602,14 +626,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				7605D3161C81FC180046FAC3 /* DictionaryTests.swift in Sources */,
+				E10A79611D6F62DF00735549 /* BlockTapTests.swift in Sources */,
 				7605D3141C81FC180046FAC3 /* BoolTests.swift in Sources */,
 				7605D3131C81FC180046FAC3 /* BlockButtonTests.swift in Sources */,
 				7605D3121C81FC180046FAC3 /* ArrayTests.swift in Sources */,
 				79AB4F2E1D03394F009183EC /* NSDictionaryExtensions.swift in Sources */,
+				E10A79571D6F5F3A00735549 /* BlockPanTests.swift in Sources */,
+				E10A79631D6F62DF00735549 /* BlockWebViewTests.swift in Sources */,
+				E10A795F1D6F62DF00735549 /* BlockSwipeTests.swift in Sources */,
 				7605D3171C81FC180046FAC3 /* IntTests.swift in Sources */,
 				E10A79341D6F3D0B00735549 /* EZSwiftFunctionsTests.swift in Sources */,
 				0B96C3CF1C86895E00BB2A3B /* NSURLTests.swift in Sources */,
+				E10A795D1D6F62DF00735549 /* BlockPinchTests.swift in Sources */,
 				B5DC86B91C0ED06700972D0A /* ExampleTests.swift in Sources */,
+				E10A79541D6F5DAD00735549 /* BlockLongPressTests.swift in Sources */,
 				7605D3191C81FC180046FAC3 /* StringTests.swift in Sources */,
 				7605D3151C81FC180046FAC3 /* CGFloatTests.swift in Sources */,
 				7605D3181C81FC180046FAC3 /* NSDateTests.swift in Sources */,
@@ -674,14 +704,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD4D314E1CEEB9EA00CB53BC /* DictionaryTests.swift in Sources */,
+				E10A79621D6F62DF00735549 /* BlockTapTests.swift in Sources */,
 				CD4D314F1CEEB9EA00CB53BC /* BoolTests.swift in Sources */,
 				CD4D31501CEEB9EA00CB53BC /* BlockButtonTests.swift in Sources */,
 				CD4D31511CEEB9EA00CB53BC /* ArrayTests.swift in Sources */,
 				79AB4F301D03394F009183EC /* NSDictionaryExtensions.swift in Sources */,
+				E10A79581D6F5F3A00735549 /* BlockPanTests.swift in Sources */,
+				E10A79641D6F62DF00735549 /* BlockWebViewTests.swift in Sources */,
+				E10A79601D6F62DF00735549 /* BlockSwipeTests.swift in Sources */,
 				CD4D31521CEEB9EA00CB53BC /* IntTests.swift in Sources */,
 				E10A79351D6F3D0B00735549 /* EZSwiftFunctionsTests.swift in Sources */,
 				CD4D31531CEEB9EA00CB53BC /* NSURLTests.swift in Sources */,
+				E10A795E1D6F62DF00735549 /* BlockPinchTests.swift in Sources */,
 				CD4D31541CEEB9EA00CB53BC /* ExampleTests.swift in Sources */,
+				E10A79551D6F5DAD00735549 /* BlockLongPressTests.swift in Sources */,
 				CD4D31551CEEB9EA00CB53BC /* StringTests.swift in Sources */,
 				CD4D31561CEEB9EA00CB53BC /* CGFloatTests.swift in Sources */,
 				CD4D31571CEEB9EA00CB53BC /* NSDateTests.swift in Sources */,
