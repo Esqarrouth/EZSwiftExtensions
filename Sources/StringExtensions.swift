@@ -451,7 +451,7 @@ extension String {
     }
     
     /// EZSE: copy string to pasteboard
-    func addToPasteboard() {
+     public func addToPasteboard() {
         let pasteboard = UIPasteboard.generalPasteboard()
         pasteboard.string = self
     }
