@@ -12,6 +12,9 @@
 		E10A79371D6F4BDB00735549 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79361D6F4BDB00735549 /* UITextFieldExtensions.swift */; };
 		E10A79441D6F505900735549 /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79431D6F505900735549 /* UIStoryboardExtensions.swift */; };
 		E10A79491D6F51E200735549 /* NSDictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79481D6F51E200735549 /* NSDictionaryExtensions.swift */; };
+		E10A794B1D6F5C5300735549 /* NSBundleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A794A1D6F5C5300735549 /* NSBundleExtensions.swift */; };
+		E10A794D1D6F5C7300735549 /* NSUserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A794C1D6F5C7300735549 /* NSUserDefaultsExtension.swift */; };
+		E10A794F1D6F5CB700735549 /* UIUserInterfaceSizeClassExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A794E1D6F5CB700735549 /* UIUserInterfaceSizeClassExtensions.swift */; };
 		E15484E41CA2BD00003B030E /* ErrorTypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15484E31CA2BD00003B030E /* ErrorTypeExtensions.swift */; };
 		E1587FB01CCA41F400A0B071 /* UISwitchExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1587FAF1CCA41F400A0B071 /* UISwitchExtensions.swift */; };
 		E17878141C86525300BC05AA /* NSTimerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878131C86525300BC05AA /* NSTimerExtensions.swift */; };
@@ -63,6 +66,9 @@
 		E10A79361D6F4BDB00735549 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextFieldExtensions.swift; path = Sources/UITextFieldExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E10A79431D6F505900735549 /* UIStoryboardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIStoryboardExtensions.swift; path = Sources/UIStoryboardExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E10A79481D6F51E200735549 /* NSDictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDictionaryExtensions.swift; path = Sources/NSDictionaryExtensions.swift; sourceTree = SOURCE_ROOT; };
+		E10A794A1D6F5C5300735549 /* NSBundleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSBundleExtensions.swift; path = Sources/NSBundleExtensions.swift; sourceTree = SOURCE_ROOT; };
+		E10A794C1D6F5C7300735549 /* NSUserDefaultsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSUserDefaultsExtension.swift; path = Sources/NSUserDefaultsExtension.swift; sourceTree = SOURCE_ROOT; };
+		E10A794E1D6F5CB700735549 /* UIUserInterfaceSizeClassExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIUserInterfaceSizeClassExtensions.swift; path = Sources/UIUserInterfaceSizeClassExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E15484E31CA2BD00003B030E /* ErrorTypeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorTypeExtensions.swift; path = Sources/ErrorTypeExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1587FAF1CCA41F400A0B071 /* UISwitchExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UISwitchExtensions.swift; path = Sources/UISwitchExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E17878131C86525300BC05AA /* NSTimerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSTimerExtensions.swift; path = Sources/NSTimerExtensions.swift; sourceTree = SOURCE_ROOT; };
@@ -142,11 +148,13 @@
 				E1839E0E1BF79974002212C6 /* EZSwiftFunctions.swift */,
 				E1839E0F1BF79974002212C6 /* IntExtensions.swift */,
 				E17878151C86525A00BC05AA /* NSAttributedStringExtensions.swift */,
+				E10A794A1D6F5C5300735549 /* NSBundleExtensions.swift */,
 				E1839E101BF79974002212C6 /* NSDateExtensions.swift */,
 				E10A79481D6F51E200735549 /* NSDictionaryExtensions.swift */,
 				E1839E111BF79974002212C6 /* NSObjectExtensions.swift */,
 				E17878131C86525300BC05AA /* NSTimerExtensions.swift */,
 				C85840EC1C43B05200595696 /* NSURLExtensions.swift */,
+				E10A794C1D6F5C7300735549 /* NSUserDefaultsExtension.swift */,
 				E1839E121BF79974002212C6 /* StringExtensions.swift */,
 				E17878191C86770E00BC05AA /* UIAlertControllerExtensions.swift */,
 				E10A79311D6F2ED700735549 /* UIApplicationExtensions.swift */,
@@ -164,6 +172,7 @@
 				E1587FAF1CCA41F400A0B071 /* UISwitchExtensions.swift */,
 				E10A79361D6F4BDB00735549 /* UITextFieldExtensions.swift */,
 				E1839E1B1BF79974002212C6 /* UITextViewExtensions.swift */,
+				E10A794E1D6F5CB700735549 /* UIUserInterfaceSizeClassExtensions.swift */,
 				E1839E1C1BF79974002212C6 /* UIViewControllerExtensions.swift */,
 				E1839E1D1BF79974002212C6 /* UIViewExtensions.swift */,
 				E17878251C86863900BC05AA /* UIWindowExtensions.swift */,
@@ -298,6 +307,7 @@
 				E15484E41CA2BD00003B030E /* ErrorTypeExtensions.swift in Sources */,
 				E1839E2A1BF79974002212C6 /* EZSwiftFunctions.swift in Sources */,
 				E1839E391BF79974002212C6 /* UIViewExtensions.swift in Sources */,
+				E10A794B1D6F5C5300735549 /* NSBundleExtensions.swift in Sources */,
 				E1839E361BF79974002212C6 /* UILabelExtensions.swift in Sources */,
 				E1839E281BF79974002212C6 /* CGRectExtensions.swift in Sources */,
 				E1839E331BF79974002212C6 /* UIFontExtensions.swift in Sources */,
@@ -305,8 +315,10 @@
 				E1839E261BF79974002212C6 /* BoolExtensions.swift in Sources */,
 				E1839E2B1BF79974002212C6 /* IntExtensions.swift in Sources */,
 				E10A79321D6F2ED700735549 /* UIApplicationExtensions.swift in Sources */,
+				E10A794F1D6F5CB700735549 /* UIUserInterfaceSizeClassExtensions.swift in Sources */,
 				E1CB3C1C1C25FFA000DF77CD /* DoubleExtensions.swift in Sources */,
 				E1839E341BF79974002212C6 /* UIImageExtensions.swift in Sources */,
+				E10A794D1D6F5C7300735549 /* NSUserDefaultsExtension.swift in Sources */,
 				E1839E241BF79974002212C6 /* BlockTap.swift in Sources */,
 				E1839E1F1BF79974002212C6 /* BlockButton.swift in Sources */,
 				E1839E311BF79974002212C6 /* UIColorExtensions.swift in Sources */,
