@@ -43,6 +43,11 @@ public struct ez {
         return nil
     }
 
+    /// EZSE: Returns the app's bundle identifier
+    public static var appBundleId: String? {
+        return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleIdentifier") as? String
+    }
+
     /// EZSE: Return device version ""
     public static var deviceVersion: String {
         var size: Int = 0
