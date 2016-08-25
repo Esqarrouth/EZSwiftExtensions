@@ -9,7 +9,7 @@
 // swiftlint:disable line_length
 // swiftlint:disable trailing_whitespace
 
-import Foundation
+import UIKit
 
 extension NSURL {
     /// EZSE: Returns convert query to Dictionary
