@@ -31,8 +31,8 @@ public struct ez {
         return NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as String) as? String
     }
 
-    /// EZSE: Return app's bundle Id
-    public static var appBundleId: String? {
+    /// EZSE: Return app's bundle ID
+    public static var appBundleID: String? {
         return NSBundle.mainBundle().bundleIdentifier
     }
 
