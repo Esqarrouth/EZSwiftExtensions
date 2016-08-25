@@ -11,7 +11,7 @@ import XCTest
 class CGRectTests: XCTestCase {
 
     func testInit() {
-        let cg = CGRect(x: 55, y: 66, width: 77, height: 88)
+        let cg = CGRect(x: 55, y: 66, w: 77, h: 88)
         XCTAssertEqual(cg.origin.x, 55)
         XCTAssertEqual(cg.origin.y, 66)
         XCTAssertEqual(cg.width, 77)
