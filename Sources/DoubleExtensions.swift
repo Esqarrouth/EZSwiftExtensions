@@ -14,7 +14,9 @@ extension Double {
 
     /// EZSE: Converts Double to Int
     public var toInt: Int { return Int(self) }
+}
 
+extension Double {
     /// EZSE: Returns a Double rounded to decimal
     public func getRoundedByPlaces(places: Int) -> Double {
         return castToDecimalByPlacesHelper(places, function: round)
@@ -30,24 +32,14 @@ extension Double {
         return castToDecimalByPlacesHelper(places, function: ceil)
     }
 
-    private func castToDecimalByPlacesHelper(places: Int, function: Double -> Double) -> Double {
+    /// EZSE: Ceils current Double to number of places
+    public mutating func ceilByPlaces(places: Int) {
+        self = castToDecimalByPlacesHelper(places, function: ceil)
+    }
+
+    private func castToDecimalByPlacesHelper(places: Int, function: (Double) -> Double) -> Double {
+        guard places >= 0 else { return self }
         let divisor = pow(10.0, Double(places))
         return function(self * divisor) / divisor
-    }
-}
-
-extension String {
-    init(_ value: Float, precision: Int) {
-        let nFormatter = NSNumberFormatter()
-        nFormatter.numberStyle = .DecimalStyle
-        nFormatter.maximumFractionDigits = precision
-        self = nFormatter.stringFromNumber(value)!
-    }
-
-    init(_ value: Double, precision: Int) {
-        let nFormatter = NSNumberFormatter()
-        nFormatter.numberStyle = .DecimalStyle
-        nFormatter.maximumFractionDigits = precision
-        self = nFormatter.stringFromNumber(value)!
     }
 }
