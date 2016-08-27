@@ -13,7 +13,7 @@ class DoubleTests: XCTestCase {
 
     var double = 3.14
     var otherDouble = -147.9564
-    var anotherDouble = 231349.678450342834857392948575930204857593843483
+    var anotherDouble = 231349.678450342834857392948575
 
     override func setUp() {
         super.setUp()
@@ -58,19 +58,35 @@ extension DoubleTests {
         XCTAssertNotEqual(otherDouble, savedOtherDouble)
 
         anotherDouble.roundByPlaces(3)
-        XCTAssertEqual(anotherDouble, 231349.679)
-        XCTAssertEqual(anotherDouble.getRoundedByPlaces(-7), 231349.679)
+        XCTAssertEqual(anotherDouble, 231349.678)
+        XCTAssertEqual(anotherDouble.getRoundedByPlaces(-7), 231349.678)
         XCTAssertEqual(anotherDouble.getRoundedByPlaces(0), 231350)
     }
 
     func testCeiling() {
         XCTAssertEqual(double.getCeiledByPlaces(10), double)
         XCTAssertEqual(double.getCeiledByPlaces(1), 3.2)
+        double.ceilByPlaces(1)
+        XCTAssertEqual(double, 3.2)
+        
         XCTAssertEqual(otherDouble.getCeiledByPlaces(3), -147.956)
         XCTAssertEqual(otherDouble.getCeiledByPlaces(2), -147.95)
+        otherDouble.ceilByPlaces(3)
+        XCTAssertEqual(otherDouble, -147.956)
+        otherDouble.ceilByPlaces(2)
+        XCTAssertEqual(otherDouble, -147.95)
+        
         XCTAssertEqual(anotherDouble.getCeiledByPlaces(3), 231349.679)
-        XCTAssertEqual(anotherDouble.getCeiledByPlaces(-7), 231349.678450343)
+        XCTAssertEqual(anotherDouble.getCeiledByPlaces(-7), 231349.678450342834857392948575)
         XCTAssertEqual(anotherDouble.getCeiledByPlaces(0), 231350)
+        anotherDouble.ceilByPlaces(-7)
+        XCTAssertEqual(anotherDouble, 231349.678450342834857392948575)
+        anotherDouble.ceilByPlaces(3)
+        XCTAssertEqual(anotherDouble, 231349.679)
+        XCTAssertEqual(anotherDouble.getCeiledByPlaces(3), 231349.679)
+        anotherDouble.ceilByPlaces(0)
+        XCTAssertEqual(anotherDouble, 231350)
+
     }
 
 }

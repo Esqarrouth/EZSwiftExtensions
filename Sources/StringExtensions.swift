@@ -462,6 +462,22 @@ extension String {
 
 }
 
+extension String {
+    init(_ value: Float, precision: Int) {
+        let nFormatter = NSNumberFormatter()
+        nFormatter.numberStyle = .DecimalStyle
+        nFormatter.maximumFractionDigits = precision
+        self = nFormatter.stringFromNumber(value)!
+    }
+    
+    init(_ value: Double, precision: Int) {
+        let nFormatter = NSNumberFormatter()
+        nFormatter.numberStyle = .DecimalStyle
+        nFormatter.maximumFractionDigits = precision
+        self = nFormatter.stringFromNumber(value)!
+    }
+}
+
 /// EZSE: Pattern matching of strings via defined functions
 public func ~=<T> (pattern: (T -> Bool), value: T) -> Bool {
     return pattern(value)
