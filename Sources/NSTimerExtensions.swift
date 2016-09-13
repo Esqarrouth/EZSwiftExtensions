@@ -7,24 +7,24 @@
 //
 import UIKit
 
-extension NSTimer {
+extension Timer {
     /// EZSE: Runs every x seconds, to cancel use: timer.invalidate()
-    public static func runThisEvery(seconds seconds: NSTimeInterval, handler: NSTimer! -> Void) -> NSTimer {
+    public static func runThisEvery(seconds: TimeInterval, handler: @escaping (CFRunLoopTimer?) -> Void) -> Timer {
         let fireDate = CFAbsoluteTimeGetCurrent()
         let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, fireDate, seconds, 0, 0, handler)
-        CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, kCFRunLoopCommonModes)
-        return timer
+        CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, CFRunLoopMode.commonModes)
+        return timer!
     }
 
     /// EZSE: Run function after x seconds
-    public static func runThisAfterDelay(seconds seconds: Double, after: () -> ()) {
-        runThisAfterDelay(seconds: seconds, queue: dispatch_get_main_queue(), after: after)
+    public static func runThisAfterDelay(seconds: Double, after: @escaping () -> ()) {
+        runThisAfterDelay(seconds: seconds, queue: DispatchQueue.main, after: after)
     }
 
     //TODO: Make this easier
     /// EZSwiftExtensions - dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
-    public static func runThisAfterDelay(seconds seconds: Double, queue: dispatch_queue_t, after: ()->()) {
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(seconds * Double(NSEC_PER_SEC)))
-        dispatch_after(time, queue, after)
+    public static func runThisAfterDelay(seconds: Double, queue: DispatchQueue, after: @escaping ()->()) {
+        let time = DispatchTime.now() + Double(Int64(seconds * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        queue.asyncAfter(deadline: time, execute: after)
     }
 }

@@ -7,14 +7,14 @@
 //
 import UIKit
 
-public typealias BlockButtonAction = (sender: BlockButton) -> Void
+public typealias BlockButtonAction = (_ sender: BlockButton) -> Void
 
 ///Make sure you use  "[weak self] (sender) in" if you are using the keyword self inside the closure or there might be a memory leak
-public class BlockButton: UIButton {
+open class BlockButton: UIButton {
     // MARK: Propeties
 
-    public var highlightLayer: CALayer?
-    public var action: BlockButtonAction?
+    open var highlightLayer: CALayer?
+    open var action: BlockButtonAction?
 
     // MARK: Init
 
@@ -34,7 +34,7 @@ public class BlockButton: UIButton {
         defaultInit()
     }
 
-    public init(action: BlockButtonAction) {
+    public init(action: @escaping BlockButtonAction) {
         super.init(frame: CGRect.zero)
         self.action = action
         defaultInit()
@@ -45,7 +45,7 @@ public class BlockButton: UIButton {
         defaultInit()
     }
 
-    public init(frame: CGRect, action: BlockButtonAction) {
+    public init(frame: CGRect, action: @escaping BlockButtonAction) {
         super.init(frame: frame)
         self.action = action
         defaultInit()
@@ -53,58 +53,57 @@ public class BlockButton: UIButton {
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        defaultInit()
     }
 
-    private func defaultInit() {
-        addTarget(self, action: #selector(BlockButton.didPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        addTarget(self, action: #selector(BlockButton.highlight), forControlEvents: [UIControlEvents.TouchDown, UIControlEvents.TouchDragEnter])
-        addTarget(self, action: #selector(BlockButton.unhighlight), forControlEvents: [
-            UIControlEvents.TouchUpInside,
-            UIControlEvents.TouchUpOutside,
-            UIControlEvents.TouchCancel,
-            UIControlEvents.TouchDragExit
+    fileprivate func defaultInit() {
+        addTarget(self, action: #selector(BlockButton.didPressed(_:)), for: UIControlEvents.touchUpInside)
+        addTarget(self, action: #selector(BlockButton.highlight), for: [UIControlEvents.touchDown, UIControlEvents.touchDragEnter])
+        addTarget(self, action: #selector(BlockButton.unhighlight), for: [
+            UIControlEvents.touchUpInside,
+            UIControlEvents.touchUpOutside,
+            UIControlEvents.touchCancel,
+            UIControlEvents.touchDragExit
         ])
-        setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-        setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected)
+        setTitleColor(UIColor.black, for: UIControlState())
+        setTitleColor(UIColor.blue, for: UIControlState.selected)
     }
 
-    public func addAction(action: BlockButtonAction) {
+    open func addAction(_ action: @escaping BlockButtonAction) {
         self.action = action
     }
 
     // MARK: Action
 
-    public func didPressed(sender: BlockButton) {
-        action?(sender: sender)
+    open func didPressed(_ sender: BlockButton) {
+        action?(sender)
     }
 
     // MARK: Highlight
 
-    public func highlight() {
+    open func highlight() {
         if action == nil {
             return
         }
         let highlightLayer = CALayer()
         highlightLayer.frame = layer.bounds
-        highlightLayer.backgroundColor = UIColor.blackColor().CGColor
+        highlightLayer.backgroundColor = UIColor.black.cgColor
         highlightLayer.opacity = 0.5
         var maskImage: UIImage? = nil
         UIGraphicsBeginImageContextWithOptions(layer.bounds.size, false, 0)
         if let context = UIGraphicsGetCurrentContext() {
-            layer.renderInContext(context)
+            layer.render(in: context)
             maskImage = UIGraphicsGetImageFromCurrentImageContext()
         }
         UIGraphicsEndImageContext()
         let maskLayer = CALayer()
-        maskLayer.contents = maskImage?.CGImage
+        maskLayer.contents = maskImage?.cgImage
         maskLayer.frame = highlightLayer.frame
         highlightLayer.mask = maskLayer
         layer.addSublayer(highlightLayer)
         self.highlightLayer = highlightLayer
     }
 
-    public func unhighlight() {
+    open func unhighlight() {
         if action == nil {
             return
         }
