@@ -199,6 +199,8 @@
 		E17878241C86861900BC05AA /* UIWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878231C86861900BC05AA /* UIWindowExtensions.swift */; };
 		E1D7CDD01CF8FFC7008E4C07 /* UIBarButtonItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D7CDCF1CF8FFC7008E4C07 /* UIBarButtonItemExtensions.swift */; };
 		E1F21CB51CB55CDA004A01A4 /* EZSwiftFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F21CB41CB55CDA004A01A4 /* EZSwiftFunctions.swift */; };
+		FA347DB61D79E0AB007ECB6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA347DB41D79E0AB007ECB6B /* Main.storyboard */; };
+		FA347DB81D79E523007ECB6B /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA347DB71D79E523007ECB6B /* DetailedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -319,6 +321,8 @@
 		E17878231C86861900BC05AA /* UIWindowExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindowExtensions.swift; sourceTree = "<group>"; };
 		E1D7CDCF1CF8FFC7008E4C07 /* UIBarButtonItemExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtensions.swift; sourceTree = "<group>"; };
 		E1F21CB41CB55CDA004A01A4 /* EZSwiftFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwiftFunctions.swift; sourceTree = "<group>"; };
+		FA347DB41D79E0AB007ECB6B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FA347DB71D79E523007ECB6B /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,6 +392,7 @@
 		B5DC86B71C0ED06700972D0A /* EZSwiftExtensionsTests */ = {
 			isa = PBXGroup;
 			children = (
+				FA347DB31D79E097007ECB6B /* Test Resources */,
 				7605D3021C81FBB80046FAC3 /* ArrayTests.swift */,
 				7605D3031C81FBB80046FAC3 /* BlockButtonTests.swift */,
 				E10A79531D6F5DAD00735549 /* BlockLongPressTests.swift */,
@@ -492,6 +497,15 @@
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
+		};
+		FA347DB31D79E097007ECB6B /* Test Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA347DB41D79E0AB007ECB6B /* Main.storyboard */,
+				FA347DB71D79E523007ECB6B /* DetailedViewController.swift */,
+			);
+			path = "Test Resources";
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -639,6 +653,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA347DB61D79E0AB007ECB6B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,6 +795,7 @@
 				E10A79831D6F65AF00735549 /* CGRectTests.swift in Sources */,
 				7605D3191C81FC180046FAC3 /* StringTests.swift in Sources */,
 				E10A799D1D6F65AF00735549 /* UIButtonTests.swift in Sources */,
+				FA347DB81D79E523007ECB6B /* DetailedViewController.swift in Sources */,
 				E10A79AB1D6F65AF00735549 /* UILabelTests.swift in Sources */,
 				E10A79A71D6F65AF00735549 /* UIImageTests.swift in Sources */,
 				E10A79A91D6F65AF00735549 /* UIImageViewTests.swift in Sources */,

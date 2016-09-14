@@ -20,15 +20,16 @@ extension UIStoryboard {
 		return UIStoryboard(name: name, bundle: bundle)
 	}
 
+    /// EZSE: Get storyboard's intial view controller
+    public var initialVC: UIViewController? {
+        return self.instantiateInitialViewController()
+    }
+
 	/// EZSE: Get view controller from storyboard by its class type
-	/// Usage: let profileVC = storyboard!.instantiateVC(ProfileViewController) /* profileVC is of type ProfileViewController */
+	/// Usage: let profileVC = storyboard!.instantiateVC(ProfileViewController) /* profileVC is of type ProfileViewController? */
 	/// Warning: identifier should match storyboard ID in storyboard of identifier class
 	public func instantiateVC<T>(identifier: T.Type) -> T? {
-		let storyboardID = String(identifier)
-		if let vc = instantiateViewControllerWithIdentifier(storyboardID) as? T {
-			return vc
-		} else {
-			return nil
-		}
+		return instantiateViewControllerWithIdentifier(String(identifier)) as? T
 	}
+
 }
