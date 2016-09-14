@@ -28,11 +28,9 @@ extension String {
 
     /// EZSE: base64 encoded of string
     var base64: String {
-        get {
-            let plainData = (self as NSString).dataUsingEncoding(NSUTF8StringEncoding)
-            let base64String = plainData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
-            return base64String
-        }
+        let plainData = (self as NSString).dataUsingEncoding(NSUTF8StringEncoding)
+        let base64String = plainData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+        return base64String
     }
 
     /// EZSE: Cut string from integerIndex to the end
