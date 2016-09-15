@@ -18,26 +18,26 @@ extension UILabel {
     public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, fontSize: CGFloat) {
         self.init(frame: CGRect(x: x, y: y, width: w, height: h))
         font = UIFont.HelveticaNeue(type: FontType.None, size: fontSize)
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
         clipsToBounds = true
-        textAlignment = NSTextAlignment.Left
-        userInteractionEnabled = true
+        textAlignment = NSTextAlignment.left
+        isUserInteractionEnabled = true
         numberOfLines = 1
     }
 
     /// EZSwiftExtensions
-    public func getEstimatedSize(width: CGFloat = CGFloat.max, height: CGFloat = CGFloat.max) -> CGSize {
+    public func getEstimatedSize(_ width: CGFloat = CGFloat.greatestFiniteMagnitude, height: CGFloat = CGFloat.greatestFiniteMagnitude) -> CGSize {
         return sizeThatFits(CGSize(width: width, height: height))
     }
 
     /// EZSwiftExtensions
     public func getEstimatedHeight() -> CGFloat {
-        return sizeThatFits(CGSize(width: w, height: CGFloat.max)).height
+        return sizeThatFits(CGSize(width: w, height: CGFloat.greatestFiniteMagnitude)).height
     }
 
     /// EZSwiftExtensions
     public func getEstimatedWidth() -> CGFloat {
-        return sizeThatFits(CGSize(width: CGFloat.max, height: h)).width
+        return sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: h)).width
     }
 
     /// EZSwiftExtensions
@@ -58,9 +58,9 @@ extension UILabel {
     }
 
     /// EZSwiftExtensions
-    public func setText(text: String?, animated: Bool, duration: NSTimeInterval?) {
+    public func setText(_ text: String?, animated: Bool, duration: TimeInterval?) {
         if animated {
-            UIView.transitionWithView(self, duration: duration ?? 0.3, options: .TransitionCrossDissolve, animations: { () -> Void in
+            UIView.transition(with: self, duration: duration ?? 0.3, options: .transitionCrossDissolve, animations: { () -> Void in
                 self.text = text
                 }, completion: nil)
         } else {

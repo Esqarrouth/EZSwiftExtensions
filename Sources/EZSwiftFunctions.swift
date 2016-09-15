@@ -12,9 +12,9 @@ import UIKit
 public struct ez {
     /// EZSE: Returns app's name
     public static var appDisplayName: String? {
-        if let bundleDisplayName = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleDisplayName") as? String {
+        if let bundleDisplayName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String {
             return bundleDisplayName
-        } else if let bundleName = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleName") as? String {
+        } else if let bundleName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String {
             return bundleName
         }
 
@@ -23,17 +23,12 @@ public struct ez {
 
     /// EZSE: Returns app's version number
     public static var appVersion: String? {
-        return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? String
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
     }
 
     /// EZSE: Return app's build number
     public static var appBuild: String? {
-        return NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as String) as? String
-    }
-
-    /// EZSE: Return app's bundle ID
-    public static var appBundleID: String? {
-        return NSBundle.mainBundle().bundleIdentifier
+        return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
     }
 
     /// EZSE: Returns both app's version and build numbers "v0.3(7)"
@@ -52,9 +47,9 @@ public struct ez {
     public static var deviceVersion: String {
         var size: Int = 0
         sysctlbyname("hw.machine", nil, &size, nil, 0)
-        var machine = [CChar](count: Int(size), repeatedValue: 0)
+        var machine = [CChar](repeating: 0, count: Int(size))
         sysctlbyname("hw.machine", &machine, &size, nil, 0)
-        return String.fromCString(machine)!
+        return String(cString: machine)
     }
 
     /// EZSE: Returns true if DEBUG mode is active //TODO: Add to readme
@@ -95,186 +90,141 @@ public struct ez {
 
     /// EZSE: Returns the top ViewController
     public static var topMostVC: UIViewController? {
-        let topVC = UIApplication.topViewController()
-        if topVC == nil {
+        var presentedVC = UIApplication.shared.keyWindow?.rootViewController
+        while let pVC = presentedVC?.presentedViewController {
+            presentedVC = pVC
+        }
+
+        if presentedVC == nil {
             print("EZSwiftExtensions Error: You don't have any views set. You may be calling them in viewDidLoad. Try viewDidAppear instead.")
         }
-        return topVC
+        return presentedVC
     }
 
     #if os(iOS)
-
+    
     /// EZSE: Returns current screen orientation
     public static var screenOrientation: UIInterfaceOrientation {
-        return UIApplication.sharedApplication().statusBarOrientation
+        return UIApplication.shared.statusBarOrientation
     }
-
+    
     #endif
 
     /// EZSwiftExtensions
     public static var horizontalSizeClass: UIUserInterfaceSizeClass {
-        return self.topMostVC?.traitCollection.horizontalSizeClass ?? UIUserInterfaceSizeClass.Unspecified
+        return self.topMostVC?.traitCollection.horizontalSizeClass ?? UIUserInterfaceSizeClass.unspecified
     }
 
     /// EZSwiftExtensions
     public static var verticalSizeClass: UIUserInterfaceSizeClass {
-        return self.topMostVC?.traitCollection.verticalSizeClass ?? UIUserInterfaceSizeClass.Unspecified
+        return self.topMostVC?.traitCollection.verticalSizeClass ?? UIUserInterfaceSizeClass.unspecified
     }
 
     /// EZSE: Returns screen width
     public static var screenWidth: CGFloat {
-
+        
         #if os(iOS)
-
+            
         if UIInterfaceOrientationIsPortrait(screenOrientation) {
-            return UIScreen.mainScreen().bounds.size.width
+            return UIScreen.main.bounds.size.width
         } else {
-            return UIScreen.mainScreen().bounds.size.height
+            return UIScreen.main.bounds.size.height
         }
-
+        
         #elseif os(tvOS)
-
+            
         return UIScreen.mainScreen().bounds.size.width
-
+        
         #endif
     }
 
     /// EZSE: Returns screen height
     public static var screenHeight: CGFloat {
-
+        
         #if os(iOS)
-
+        
         if UIInterfaceOrientationIsPortrait(screenOrientation) {
-            return UIScreen.mainScreen().bounds.size.height
+            return UIScreen.main.bounds.size.height
         } else {
-            return UIScreen.mainScreen().bounds.size.width
+            return UIScreen.main.bounds.size.width
         }
-
+        
         #elseif os(tvOS)
-
+            
             return UIScreen.mainScreen().bounds.size.height
-
+            
         #endif
     }
-
+    
     #if os(iOS)
 
     /// EZSE: Returns StatusBar height
     public static var screenStatusBarHeight: CGFloat {
-        return UIApplication.sharedApplication().statusBarFrame.height
+        return UIApplication.shared.statusBarFrame.height
     }
 
     /// EZSE: Return screen's height without StatusBar
     public static var screenHeightWithoutStatusBar: CGFloat {
         if UIInterfaceOrientationIsPortrait(screenOrientation) {
-            return UIScreen.mainScreen().bounds.size.height - screenStatusBarHeight
+            return UIScreen.main.bounds.size.height - screenStatusBarHeight
         } else {
-            return UIScreen.mainScreen().bounds.size.width - screenStatusBarHeight
+            return UIScreen.main.bounds.size.width - screenStatusBarHeight
         }
     }
-
+    
     #endif
 
     /// EZSE: Returns the locale country code. An example value might be "ES". //TODO: Add to readme
     public static var currentRegion: String? {
-        return NSLocale.currentLocale().objectForKey(NSLocaleCountryCode) as? String
+        return (Locale.current as NSLocale).object(forKey: NSLocale.Key.countryCode) as? String
     }
 
     /// EZSE: Calls action when a screen shot is taken
-    public static func detectScreenShot(action: () -> ()) {
-        let mainQueue = NSOperationQueue.mainQueue()
-        NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationUserDidTakeScreenshotNotification, object: nil, queue: mainQueue) { notification in
+    public static func detectScreenShot(_ action: @escaping () -> ()) {
+        let mainQueue = OperationQueue.main
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationUserDidTakeScreenshot, object: nil, queue: mainQueue) { notification in
             // executes after screenshot
             action()
         }
     }
 
-    //TODO: Document this, add tests to this, find a way to remove ++
-    /// EZSE: Iterates through enum elements, use with (for element in ez.iterateEnum(myEnum))
-    public static func iterateEnum<T: Hashable>(_: T.Type) -> AnyGenerator<T> {
-        var i = 0
-        return AnyGenerator {
-            let next = withUnsafePointer(&i) { UnsafePointer<T>($0).memory }
-            return next.hashValue == i++ ? next : nil
-        }
-    }
-
     // MARK: - Dispatch
 
-    /// EZSE: Runs the function after x seconds
-    public static func dispatchDelay(second: Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(second * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
-    }
 
     /// EZSE: Runs function after x seconds
-    public static func runThisAfterDelay(seconds seconds: Double, after: () -> ()) {
-        runThisAfterDelay(seconds: seconds, queue: dispatch_get_main_queue(), after: after)
+    public static func runThisAfterDelay(seconds: Double, after: @escaping () -> ()) {
+        runThisAfterDelay(seconds: seconds, queue: DispatchQueue.main, after: after)
     }
 
     //TODO: Make this easier
     /// EZSE: Runs function after x seconds with dispatch_queue, use this syntax: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
-    public static func runThisAfterDelay(seconds seconds: Double, queue: dispatch_queue_t, after: ()->()) {
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(seconds * Double(NSEC_PER_SEC)))
-        dispatch_after(time, queue, after)
+    public static func runThisAfterDelay(seconds: Double, queue: DispatchQueue, after: @escaping ()->()) {
+        let time = DispatchTime.now() + Double(Int64(seconds * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        queue.asyncAfter(deadline: time, execute: after)
     }
 
     /// EZSE: Submits a block for asynchronous execution on the main queue
-    public static func runThisInMainThread(block: dispatch_block_t) {
-        dispatch_async(dispatch_get_main_queue(), block)
+    public static func runThisInMainThread(_ block: @escaping ()->()) {
+        DispatchQueue.main.async(execute: block)
     }
 
     /// EZSE: Runs in Default priority queue
-    public static func runThisInBackground(block: () -> ()) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)
+    public static func runThisInBackground(_ block: @escaping () -> ()) {
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async(execute: block)
     }
 
     /// EZSE: Runs every second, to cancel use: timer.invalidate()
-    public static func runThisEvery(seconds seconds: NSTimeInterval, startAfterSeconds: NSTimeInterval, handler: NSTimer! -> Void) -> NSTimer {
+    public static func runThisEvery(seconds: TimeInterval, startAfterSeconds: TimeInterval, handler: @escaping (CFRunLoopTimer?) -> Void) -> Timer {
         let fireDate = startAfterSeconds + CFAbsoluteTimeGetCurrent()
         let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, fireDate, seconds, 0, 0, handler)
-        CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, kCFRunLoopCommonModes)
-        return timer
-    }
-
-    /// EZSE: Gobal main queue
-    public var globalMainQueue: dispatch_queue_t {
-        return dispatch_get_main_queue()
-    }
-
-    /// EZSE: Gobal queue with user interactive priority
-    public var globalUserInteractiveQueue: dispatch_queue_t {
-        return dispatch_get_global_queue(Int(QOS_CLASS_USER_INTERACTIVE.rawValue), 0)
-    }
-
-    /// EZSE: Gobal queue with user initiated priority
-    public var globalUserInitiatedQueue: dispatch_queue_t {
-        return dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)
-    }
-
-    /// EZSE: Gobal queue with utility priority
-    public var globalUtilityQueue: dispatch_queue_t {
-        return dispatch_get_global_queue(Int(QOS_CLASS_UTILITY.rawValue), 0)
-    }
-
-    /// EZSE: Gobal queue with background priority
-    public var globalBackgroundQueue: dispatch_queue_t {
-        return dispatch_get_global_queue(Int(QOS_CLASS_BACKGROUND.rawValue), 0)
-    }
-
-    /// EZSE: Gobal queue with default priority
-    public var globalQueue: dispatch_queue_t {
-        return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+        CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, CFRunLoopMode.commonModes)
+        return timer!
     }
 
     // MARK: - DownloadTask
 
     /// EZSE: Downloads image from url string
-    public static func requestImage(url: String, success: (UIImage?) -> Void) {
+    public static func requestImage(_ url: String, success: @escaping (UIImage?) -> Void) {
         requestURL(url, success: { (data) -> Void in
             if let d = data {
                 success(UIImage(data: d))
@@ -283,10 +233,10 @@ public struct ez {
     }
 
     /// EZSE: Downloads JSON from url string
-    public static func requestJSON(url: String, success: (AnyObject? -> Void), error: ((NSError) -> Void)?) {
+    public static func requestJSON(_ url: String, success: @escaping ((Any?) -> Void), error: ((NSError) -> Void)?) {
         requestURL(url,
             success: { (data) -> Void in
-                let json: AnyObject? = self.dataToJsonDict(data)
+                let json: Any? = self.dataToJsonDict(data)
                 success(json)
             },
             error: { (err) -> Void in
@@ -297,14 +247,14 @@ public struct ez {
     }
 
     /// EZSE: converts NSData to JSON dictionary
-    private static func dataToJsonDict(data: NSData?) -> AnyObject? {
+    fileprivate static func dataToJsonDict(_ data: Data?) -> Any? {
         if let d = data {
             var error: NSError?
-            let json: AnyObject?
+            let json: Any?
             do {
-                json = try NSJSONSerialization.JSONObjectWithData(
-                    d,
-                    options: NSJSONReadingOptions.AllowFragments)
+                json = try JSONSerialization.jsonObject(
+                    with: d,
+                    options: JSONSerialization.ReadingOptions.allowFragments)
             } catch let error1 as NSError {
                 error = error1
                 json = nil
@@ -321,17 +271,17 @@ public struct ez {
     }
 
     /// EZSE:
-    private static func requestURL(url: String, success: (NSData?) -> Void, error: ((NSError) -> Void)? = nil) {
-        guard let requestURL = NSURL(string: url) else {
+    fileprivate static func requestURL(_ url: String, success: @escaping (Data?) -> Void, error: ((NSError) -> Void)? = nil) {
+        guard let requestURL = URL(string: url) else {
             assertionFailure("EZSwiftExtensions Error: Invalid URL")
             return
         }
 
-        NSURLSession.sharedSession().dataTaskWithRequest(
-            NSURLRequest(URL: requestURL),
+        URLSession.shared.dataTask(
+            with: URLRequest(url: requestURL),
             completionHandler: { data, response, err in
                 if let e = err {
-                    error?(e)
+                    error?(e as NSError)
                 } else {
                     success(data)
                 }

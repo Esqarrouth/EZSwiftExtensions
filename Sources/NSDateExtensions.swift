@@ -7,75 +7,59 @@
 //
 import UIKit
 
-extension NSDate {
+extension Date {
     /// EZSE: Initializes NSDate from string and format
-    public convenience init?(fromString string: String, format: String) {
-        let formatter = NSDateFormatter()
+    public init?(fromString string: String, format: String) {
+        let formatter = DateFormatter()
         formatter.dateFormat = format
-        if let date = formatter.dateFromString(string) {
-            self.init(timeInterval: 0, sinceDate: date)
+        if let date = formatter.date(from: string) {
+            self = Date(timeInterval:0,since:date)
+            //(self as NSDate).init(timeInterval: 0, since: date)
         } else {
-            self.init()
+            self = Date()
+            //(self as NSDate).init()
             return nil
         }
     }
 
-    /// EZSE: Initializes NSDate from string returned from an http response, according to several RFCs
-    public convenience init? (httpDateString: String) {
-        if let rfc1123 = NSDate(fromString: httpDateString, format: "EEE',' dd' 'MMM' 'yyyy HH':'mm':'ss zzz") {
-            self.init(timeInterval: 0, sinceDate: rfc1123)
-            return
-        }
-        if let rfc850 = NSDate(fromString: httpDateString, format: "EEEE',' dd'-'MMM'-'yy HH':'mm':'ss z") {
-            self.init(timeInterval: 0, sinceDate: rfc850)
-            return
-        }
-        if let asctime =  NSDate(fromString: httpDateString, format: "EEE MMM d HH':'mm':'ss yyyy") {
-            self.init(timeInterval: 0, sinceDate: asctime)
-            return
-        }
-        //self.init()
-        return nil
-    }
-
     /// EZSE: Converts NSDate to String
-    public func toString(dateStyle dateStyle: NSDateFormatterStyle = .MediumStyle, timeStyle: NSDateFormatterStyle = .MediumStyle) -> String {
-        let formatter = NSDateFormatter()
+    public func toString(dateStyle: DateFormatter.Style = .medium, timeStyle: DateFormatter.Style = .medium) -> String {
+        let formatter = DateFormatter()
         formatter.dateStyle = dateStyle
         formatter.timeStyle = timeStyle
-        return formatter.stringFromDate(self)
+        return formatter.string(from: self)
     }
 
     /// EZSE: Converts NSDate to String, with format
-    public func toString(format format: String) -> String {
-        let formatter = NSDateFormatter()
+    public func toString(format: String) -> String {
+        let formatter = DateFormatter()
         formatter.dateFormat = format
-        return formatter.stringFromDate(self)
+        return formatter.string(from: self)
     }
 
     /// EZSE: Calculates how many days passed from now to date
-    public func daysInBetweenDate(date: NSDate) -> Double {
+    public func daysInBetweenDate(_ date: Date) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff/86400)
         return diff
     }
 
     /// EZSE: Calculates how many hours passed from now to date
-    public func hoursInBetweenDate(date: NSDate) -> Double {
+    public func hoursInBetweenDate(_ date: Date) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff/3600)
         return diff
     }
 
     /// EZSE: Calculates how many minutes passed from now to date
-    public func minutesInBetweenDate(date: NSDate) -> Double {
+    public func minutesInBetweenDate(_ date: Date) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff/60)
         return diff
     }
 
     /// EZSE: Calculates how many seconds passed from now to date
-    public func secondsInBetweenDate(date: NSDate) -> Double {
+    public func secondsInBetweenDate(_ date: Date) -> Double {
         var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
         diff = fabs(diff)
         return diff
@@ -83,24 +67,24 @@ extension NSDate {
 
     /// EZSE: Easy creation of time passed String. Can be Years, Months, days, hours, minutes or seconds
     public func timePassed() -> String {
-        let date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: self, toDate: date, options: [])
+        let date = Date()
+        let calendar = Calendar.current
+        let components = (calendar as NSCalendar).components([.year, .month, .day, .hour, .minute, .second], from: self, to: date, options: [])
         var str: String
 
-        if components.year >= 1 {
+        if components.year! >= 1 {
             components.year == 1 ? (str = "year") : (str = "years")
             return "\(components.year) \(str) ago"
-        } else if components.month >= 1 {
+        } else if components.month! >= 1 {
             components.month == 1 ? (str = "month") : (str = "months")
             return "\(components.month) \(str) ago"
-        } else if components.day >= 1 {
+        } else if components.day! >= 1 {
             components.day == 1 ? (str = "day") : (str = "days")
             return "\(components.day) \(str) ago"
-        } else if components.hour >= 1 {
+        } else if components.hour! >= 1 {
             components.hour == 1 ? (str = "hour") : (str = "hours")
             return "\(components.hour) \(str) ago"
-        } else if components.minute >= 1 {
+        } else if components.minute! >= 1 {
             components.minute == 1 ? (str = "minute") : (str = "minutes")
             return "\(components.minute) \(str) ago"
         } else if components.second == 0 {
@@ -112,16 +96,13 @@ extension NSDate {
 
 }
 
-extension NSDate: Comparable {}
- /// EZSE: Returns if dates are equal to each other
-public func == (lhs: NSDate, rhs: NSDate) -> Bool {
-  return lhs.isEqualToDate(rhs)
-}
+extension Date  {}
+
  /// EZSE: Returns if one date is smaller than the other
-public func < (lhs: NSDate, rhs: NSDate) -> Bool {
-    return lhs.compare(rhs) == .OrderedAscending
+public func < (lhs: Date, rhs: Date) -> Bool {
+    return lhs.compare(rhs) == .orderedAscending
 }
 
-public func > (lhs: NSDate, rhs: NSDate) -> Bool {
-  return lhs.compare(rhs) == .OrderedDescending
+public func > (lhs: Date, rhs: Date) -> Bool {
+  return lhs.compare(rhs) == .orderedDescending
 }
