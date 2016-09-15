@@ -40,7 +40,7 @@ extension UIImageView {
     }
 
     /// EZSwiftExtensions, scales this ImageView size to fit the given width
-    public func scaleImageFrameToWidth(width width: CGFloat) {
+    public func scaleImageFrameToWidth(width: CGFloat) {
         guard let image = image else {
             print("EZSwiftExtensions Error: The image is not set yet!")
             return
@@ -52,7 +52,7 @@ extension UIImageView {
     }
 
     /// EZSwiftExtensions, scales this ImageView size to fit the given height
-    public func scaleImageFrameToHeight(height height: CGFloat) {
+    public func scaleImageFrameToHeight(height: CGFloat) {
         guard let image = image else {
             print("EZSwiftExtensions Error: The image is not set yet!")
             return
@@ -70,7 +70,7 @@ extension UIImageView {
     }
 
     /// EZSwiftExtensions
-    public func imageWithUrl(url url: String) {
+    public func imageWithUrl(url: String) {
         ez.requestImage(url, success: { (image) -> Void in
             if let img = image {
                 self.image = img
@@ -79,7 +79,7 @@ extension UIImageView {
     }
 
     /// EZSwiftExtensions
-    public func imageWithUrl(url url: String, placeholder: UIImage) {
+    public func imageWithUrl(url: String, placeholder: UIImage) {
         self.image = placeholder
         ez.requestImage(url, success: { (image) -> Void in
             if let img = image {
@@ -89,7 +89,7 @@ extension UIImageView {
     }
 
     /// EZSwiftExtensions
-    public func imageWithUrl(url url: String, placeholderNamed: String) {
+    public func imageWithUrl(url: String, placeholderNamed: String) {
         self.image = UIImage(named: placeholderNamed)
         ez.requestImage(url, success: { (image) -> Void in
             if let img = image {
