@@ -8,11 +8,12 @@
 //
 
 import Foundation
+import UIKit
 
 extension URL {
     /// EZSE: Returns convert query to Dictionary
     public var queryParameters: [String: String]? {
-        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: true), queryItems = components.queryItems else {
+        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: true), let queryItems = components.queryItems else {
             return nil
         }
 
@@ -25,27 +26,27 @@ extension URL {
     }
 
     /// EZSE: Returns remote size of url, don't use it in main thread
-    public func remoteSize(_ completionHandler: ((contentLength: Int64) -> Void), timeoutInterval: TimeInterval = 30) {
+    public func remoteSize(_ completionHandler: @escaping ((_ contentLength: Int64) -> Void), timeoutInterval: TimeInterval = 30) {
         let request = NSMutableURLRequest(url: self, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
         request.httpMethod = "HEAD";
         request.setValue("", forHTTPHeaderField: "Accept-Encoding")
-        URLSession.shared().dataTask(with: request as URLRequest) { (data, response, error) in
+        URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             let contentLength: Int64 = response?.expectedContentLength ?? NSURLSessionTransferSizeUnknown
-            DispatchQueue.global(attributes: DispatchQueue.GlobalAttributes.qosDefault).async(execute: {
-                completionHandler(contentLength: contentLength)
+            DispatchQueue.global(qos: .default).async(execute: { 
+                completionHandler(contentLength)
             })
         }.resume()
     }
 
     /// EZSE: Returns server supports resuming or not, don't use it in main thread
-    public func supportsResume(_ completionHandler: ((doesSupport: Bool) -> Void), timeoutInterval: TimeInterval = 30) {
+    public func supportsResume(_ completionHandler: @escaping ((_ doesSupport: Bool) -> Void), timeoutInterval: TimeInterval = 30) {
         let request = NSMutableURLRequest(url: self, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
         request.httpMethod = "HEAD";
         request.setValue("bytes=5-10", forHTTPHeaderField: "Range")
-        URLSession.shared().dataTask(with: request as URLRequest, completionHandler: { (_, response, _) -> Void in
+        URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (_, response, _) -> Void in
             let responseCode = (response as? HTTPURLResponse)?.statusCode ?? -1
-            DispatchQueue.global(attributes: DispatchQueue.GlobalAttributes.qosDefault).async(execute: {
-                completionHandler(doesSupport: responseCode == 206)
+            DispatchQueue.global(qos: .default).async(execute: {
+                completionHandler(responseCode == 206)
             })
         }).resume()
     }
@@ -58,7 +59,7 @@ extension URL {
         if self.scheme?.lowercased() != url.scheme?.lowercased() {
             return false
         }
-        if let host1 = self.host, host2 = url.host {
+        if let host1 = self.host, let host2 = url.host {
             let whost1 = host1.hasPrefix("www.") ? host1 : "www." + host1
             let whost2 = host2.hasPrefix("www.") ? host2 : "www." + host2
             if whost1 != whost2 {
@@ -66,7 +67,7 @@ extension URL {
             }
         }
         let pathdelimiter = CharacterSet(charactersIn: "/")
-        if self.path?.lowercased().trimmingCharacters(in: pathdelimiter) != url.path?.lowercased().trimmingCharacters(in: pathdelimiter) {
+        if self.path.lowercased().trimmingCharacters(in: pathdelimiter) != url.path.lowercased().trimmingCharacters(in: pathdelimiter) {
             return false
         }
         if (self as NSURL).port != (url as NSURL).port {
@@ -127,7 +128,7 @@ extension URL {
 
     /// EZSE: Returns last file access date, nil if file doesn't exist or didn't accessed yet
     public var fileAccessDate: Date? {
-        URLResourceKey.customIconKey
+        _ = URLResourceKey.customIconKey
         var dateaccessv: AnyObject?
         do {
             try (self as NSURL).getResourceValue(&dateaccessv, forKey: URLResourceKey.contentAccessDateKey)
@@ -242,14 +243,14 @@ extension URL {
 
     /// EZSE: Set SkipBackup attrubute of file or directory in iOS. return current state if no value is set
     public func skipBackupAttributeToItemAtURL(_ skip: Bool? = nil) -> Bool {
-        let keys = [URLResourceKey.isDirectoryKey.rawValue, URLResourceKey.fileSizeKey.rawValue]
+        let keys = [URLResourceKey.isDirectoryKey, URLResourceKey.fileSizeKey]
         let enumOpt = FileManager.DirectoryEnumerationOptions()
-        if FileManager.default().fileExists(atPath: self.path!) {
+        if FileManager.default.fileExists(atPath: self.path) {
             if skip != nil {
                 if self.fileIsDirectory {
-                    let filesList = (try? FileManager.default().contentsOfDirectory(at: self, includingPropertiesForKeys: keys, options: enumOpt)) ?? []
+                    let filesList = (try? FileManager.default.contentsOfDirectory(at: self, includingPropertiesForKeys: keys, options: enumOpt)) ?? []
                     for fileURL in filesList {
-                        fileURL.skipBackupAttributeToItemAtURL(skip)
+                        _ = fileURL.skipBackupAttributeToItemAtURL(skip)
                     }
                 }
                 do {
@@ -260,7 +261,7 @@ extension URL {
                 }
             } else {
                 let dict = try? (self as NSURL).resourceValues(forKeys: [URLResourceKey.isExcludedFromBackupKey])
-                if  let key: AnyObject = dict?[URLResourceKey.isExcludedFromBackupKey] {
+                if  let key: AnyObject = dict?[URLResourceKey.isExcludedFromBackupKey] as AnyObject? {
                     return key.boolValue
                 }
                 return false

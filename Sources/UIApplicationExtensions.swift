@@ -9,7 +9,7 @@ import UIKit
 
 extension UIApplication {
     /// EZSE: Run a block in background after app resigns activity
-    public func runInBackground(_ closure: () -> Void, expirationHandler: (() -> Void)? = nil) {
+    public func runInBackground(_ closure: @escaping () -> Void, expirationHandler: (() -> Void)? = nil) {
         DispatchQueue.main.async {
             let taskID: UIBackgroundTaskIdentifier
             if let expirationHandler = expirationHandler {
@@ -17,7 +17,7 @@ extension UIApplication {
             } else {
                 taskID = self.beginBackgroundTask(expirationHandler: { })
             }
-            closure();
+            closure()
             self.endBackgroundTask(taskID)
         }
     }

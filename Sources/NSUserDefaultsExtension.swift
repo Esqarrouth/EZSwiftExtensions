@@ -11,7 +11,7 @@ import Foundation
 public extension UserDefaults {
     public subscript(key: String) -> AnyObject? {
         get {
-            return object(forKey: key)
+            return object(forKey: key) as AnyObject?
         }
         set {
             set(newValue, forKey: key)

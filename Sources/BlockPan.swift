@@ -12,7 +12,7 @@ import UIKit
 public class BlockPan: UIPanGestureRecognizer {
     private var panAction: ((UIPanGestureRecognizer) -> Void)?
 
-    public override init(target: AnyObject?, action: Selector?) {
+    override init(target: Any?, action: Selector?) {
         super.init(target: target, action: action)
     }
 

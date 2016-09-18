@@ -12,15 +12,15 @@ extension UIViewController {
     // MARK: - Notifications
     //TODO: Document this part
     public func addNotificationObserver(_ name: String, selector: Selector) {
-        NotificationCenter.default().addObserver(self, selector: selector, name: name, object: nil)
+        NotificationCenter.default.addObserver(self, selector: selector, name: NSNotification.Name(rawValue: name), object: nil)
     }
 
     public func removeNotificationObserver(_ name: String) {
-        NotificationCenter.default().removeObserver(self, name: NSNotification.Name(rawValue: name), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: name), object: nil)
     }
 
     public func removeNotificationObserver() {
-        NotificationCenter.default().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     #if os(iOS)
@@ -58,33 +58,33 @@ extension UIViewController {
     }
 
     public func keyboardDidShowNotification(_ notification: Notification) {
-        if let nInfo = (notification as NSNotification).userInfo, value = nInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+        if let nInfo = (notification as NSNotification).userInfo, let value = nInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
 
-            let frame = value.cgRectValue()
+            let frame = value.cgRectValue
             keyboardDidShowWithFrame(frame)
         }
     }
 
     public func keyboardWillShowNotification(_ notification: Notification) {
-        if let nInfo = (notification as NSNotification).userInfo, value = nInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+        if let nInfo = (notification as NSNotification).userInfo, let value = nInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
 
-            let frame = value.cgRectValue()
+            let frame = value.cgRectValue
             keyboardWillShowWithFrame(frame)
         }
     }
 
     public func keyboardWillHideNotification(_ notification: Notification) {
-        if let nInfo = (notification as NSNotification).userInfo, value = nInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+        if let nInfo = (notification as NSNotification).userInfo, let value = nInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
 
-            let frame = value.cgRectValue()
+            let frame = value.cgRectValue
             keyboardWillHideWithFrame(frame)
         }
     }
 
     public func keyboardDidHideNotification(_ notification: Notification) {
-        if let nInfo = (notification as NSNotification).userInfo, value = nInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+        if let nInfo = (notification as NSNotification).userInfo, let value = nInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
 
-            let frame = value.cgRectValue()
+            let frame = value.cgRectValue
             keyboardDidHideWithFrame(frame)
         }
     }
@@ -122,7 +122,7 @@ extension UIViewController {
     /// EZSwiftExtensions
     public var top: CGFloat {
         get {
-            if let me = self as? UINavigationController, visibleViewController = me.visibleViewController {
+            if let me = self as? UINavigationController, let visibleViewController = me.visibleViewController {
                 return visibleViewController.top
             }
             if let nav = self.navigationController {
@@ -140,7 +140,7 @@ extension UIViewController {
     /// EZSwiftExtensions
     public var bottom: CGFloat {
         get {
-            if let me = self as? UINavigationController, visibleViewController = me.visibleViewController {
+            if let me = self as? UINavigationController, let visibleViewController = me.visibleViewController {
                 return visibleViewController.bottom
             }
             if let tab = tabBarController {
@@ -158,7 +158,7 @@ extension UIViewController {
     /// EZSwiftExtensions
     public var tabBarHeight: CGFloat {
         get {
-            if let me = self as? UINavigationController, visibleViewController = me.visibleViewController {
+            if let me = self as? UINavigationController, let visibleViewController = me.visibleViewController {
                 return visibleViewController.tabBarHeight
             }
             if let tab = self.tabBarController {
@@ -171,7 +171,7 @@ extension UIViewController {
     /// EZSwiftExtensions
     public var navigationBarHeight: CGFloat {
         get {
-            if let me = self as? UINavigationController, visibleViewController = me.visibleViewController {
+            if let me = self as? UINavigationController, let visibleViewController = me.visibleViewController {
                 return visibleViewController.navigationBarHeight
             }
             if let nav = self.navigationController {
@@ -184,7 +184,7 @@ extension UIViewController {
     /// EZSwiftExtensions
     public var navigationBarColor: UIColor? {
         get {
-            if let me = self as? UINavigationController, visibleViewController = me.visibleViewController {
+            if let me = self as? UINavigationController, let visibleViewController = me.visibleViewController {
                 return visibleViewController.navigationBarColor
             }
             return navigationController?.navigationBar.tintColor
@@ -216,7 +216,7 @@ extension UIViewController {
 
     /// EZSwiftExtensions
     public func popVC() {
-        navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
 
     /// EZSwiftExtensions
