@@ -21,7 +21,7 @@ extension Array {
     /// EZSE: Checks if array contains at least 1 instance of the given object type
     public func containsInstanceOf<T>(_ object: T) -> Bool {
         for item in self {
-            if item.dynamicType == object.dynamicType {
+            if type(of: item) == type(of: object) {
                 return true
             }
         }
@@ -127,7 +127,7 @@ extension Array where Element: Equatable {
 
     /// EZSE: Checks if self contains a list of items.
     public func contains(_ items: Element...) -> Bool {
-        return items.testAll { self.index(of: $0) >= 0 }
+        return items.testAll { self.index(of: $0) ?? 0 >= 0 }
     }
 
     /// EZSE: Difference of self and the input arrays.

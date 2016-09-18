@@ -7,7 +7,7 @@
 //
 import UIKit
 
-public typealias BlockButtonAction = (sender: BlockButton) -> Void
+public typealias BlockButtonAction = (_ sender: BlockButton) -> Void
 
 ///Make sure you use  "[weak self] (sender) in" if you are using the keyword self inside the closure or there might be a memory leak
 public class BlockButton: UIButton {
@@ -34,7 +34,7 @@ public class BlockButton: UIButton {
         defaultInit()
     }
 
-    public init(action: BlockButtonAction) {
+    public init(action: @escaping BlockButtonAction) {
         super.init(frame: CGRect.zero)
         self.action = action
         defaultInit()
@@ -45,7 +45,7 @@ public class BlockButton: UIButton {
         defaultInit()
     }
 
-    public init(frame: CGRect, action: BlockButtonAction) {
+    public init(frame: CGRect, action: @escaping BlockButtonAction) {
         super.init(frame: frame)
         self.action = action
         defaultInit()
@@ -64,18 +64,18 @@ public class BlockButton: UIButton {
             UIControlEvents.touchCancel,
             UIControlEvents.touchDragExit
         ])
-        setTitleColor(UIColor.black(), for: UIControlState())
-        setTitleColor(UIColor.blue(), for: UIControlState.selected)
+        setTitleColor(UIColor.black, for: UIControlState())
+        setTitleColor(UIColor.blue, for: UIControlState.selected)
     }
 
-    public func addAction(_ action: BlockButtonAction) {
+    public func addAction(_ action: @escaping BlockButtonAction) {
         self.action = action
     }
 
     // MARK: Action
 
     public func didPressed(_ sender: BlockButton) {
-        action?(sender: sender)
+        action?(sender)
     }
 
     // MARK: Highlight
@@ -86,7 +86,7 @@ public class BlockButton: UIButton {
         }
         let highlightLayer = CALayer()
         highlightLayer.frame = layer.bounds
-        highlightLayer.backgroundColor = UIColor.black().cgColor
+        highlightLayer.backgroundColor = UIColor.black.cgColor
         highlightLayer.opacity = 0.5
         var maskImage: UIImage? = nil
         UIGraphicsBeginImageContextWithOptions(layer.bounds.size, false, 0)
