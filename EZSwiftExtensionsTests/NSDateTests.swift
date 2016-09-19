@@ -7,6 +7,17 @@
 //
 
 import XCTest
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 class NSDateTests: XCTestCase {
     // note that NSDate uses UTC in NSDate(timeIntervalSince1970: _)
@@ -22,37 +33,37 @@ class NSDateTests: XCTestCase {
     }
 
     func testDateFromString() {
-        guard let dateFromString = NSDate(fromString: string, format: format) else {
+        guard let dateFromString = Date(fromString: string, format: format) else {
             XCTFail("Date From String Couldn't be initialized.")
             return
         }
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = format
-        let dateString = formatter.dateFromString(string)
+        let dateString = formatter.date(from: string)
         XCTAssertEqual(dateFromString, dateString)
-        XCTAssertNil(NSDate(fromString: wrongDateString, format: format), "Date From String initialized, but source string was invalid.")
+        XCTAssertNil(Date(fromString: wrongDateString, format: format), "Date From String initialized, but source string was invalid.")
     }
 
     func testDateToString() {
-        let date = NSDate(timeIntervalSince1970: 0)
+        let date = Date(timeIntervalSince1970: 0)
 
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = format
-        let dateString = formatter.stringFromDate(date)
+        let dateString = formatter.string(from: date)
 
         XCTAssertEqual(date.toString(format: format), dateString)
     }
 
     func testTimePassedBetweenDates() {
-        let date = NSDate(timeIntervalSince1970: 0)
-        XCTAssertTrue(date.timePassed().containsString("years"))
-        let now = NSDate()
-        XCTAssertTrue(now.timePassed().containsString("now") || now.timePassed().containsString("seconds"))
+        let date = Date(timeIntervalSince1970: 0)
+        XCTAssertTrue(date.timePassed().contains("years"))
+        let now = Date()
+        XCTAssertTrue(now.timePassed().contains("now") || now.timePassed().contains("seconds"))
     }
 
     func testComparable() {
-        let date = NSDate()
-        let future = NSDate(timeIntervalSinceNow: 1000)
+        let date = Date()
+        let future = Date(timeIntervalSinceNow: 1000)
         XCTAssertTrue(date < future)
         XCTAssertFalse(date > future)
         XCTAssertTrue(date == date)

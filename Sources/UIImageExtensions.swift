@@ -10,13 +10,13 @@ import UIKit
 
 extension UIImage {
     /// EZSE: Returns compressed image to rate from 0 to 1
-    public func compressImage(rate rate: CGFloat) -> NSData? {
+    public func compressImage(rate: CGFloat) -> Data? {
         return UIImageJPEGRepresentation(self, rate)
     }
 
     /// EZSE: Returns Image size in Bytes
     public func getSizeAsBytes() -> Int {
-        return UIImageJPEGRepresentation(self, 1)?.length ?? 0
+        return UIImageJPEGRepresentation(self, 1)?.count ?? 0
     }
 
     /// EZSE: Returns Image size in Kylobites
@@ -26,51 +26,51 @@ extension UIImage {
     }
 
     /// EZSE: scales image
-    public class func scaleTo(image image: UIImage, w: CGFloat, h: CGFloat) -> UIImage {
+    public class func scaleTo(image: UIImage, w: CGFloat, h: CGFloat) -> UIImage {
         let newSize = CGSize(width: w, height: h)
         UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
-        image.drawInRect(CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
-        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return newImage
     }
 
     /// EZSE Returns resized image with width. Might return low quality
-    public func resizeWithWidth(width: CGFloat) -> UIImage {
+    public func resizeWithWidth(_ width: CGFloat) -> UIImage {
         let aspectSize = CGSize (width: width, height: aspectHeightForWidth(width))
 
         UIGraphicsBeginImageContext(aspectSize)
-        self.drawInRect(CGRect(origin: CGPoint.zero, size: aspectSize))
+        self.draw(in: CGRect(origin: CGPoint.zero, size: aspectSize))
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
-        return img
+        return img!
     }
 
     /// EZSE Returns resized image with height. Might return low quality
-    public func resizeWithHeight(height: CGFloat) -> UIImage {
+    public func resizeWithHeight(_ height: CGFloat) -> UIImage {
         let aspectSize = CGSize (width: aspectWidthForHeight(height), height: height)
 
         UIGraphicsBeginImageContext(aspectSize)
-        self.drawInRect(CGRect(origin: CGPoint.zero, size: aspectSize))
+        self.draw(in: CGRect(origin: CGPoint.zero, size: aspectSize))
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
-        return img
+        return img!
     }
 
     /// EZSE:
-    public func aspectHeightForWidth(width: CGFloat) -> CGFloat {
+    public func aspectHeightForWidth(_ width: CGFloat) -> CGFloat {
         return (width * self.size.height) / self.size.width
     }
 
     /// EZSE:
-    public func aspectWidthForHeight(height: CGFloat) -> CGFloat {
+    public func aspectWidthForHeight(_ height: CGFloat) -> CGFloat {
         return (height * self.size.width) / self.size.height
     }
 
     /// EZSE: Returns cropped image from CGRect
-    public func croppedImage(bound: CGRect) -> UIImage? {
+    public func croppedImage(_ bound: CGRect) -> UIImage? {
         guard self.size.width > bound.origin.x else {
             print("EZSE: Your cropping X coordinate is larger than the image width")
             return nil
@@ -80,26 +80,26 @@ extension UIImage {
             return nil
         }
         let scaledBounds: CGRect = CGRect(x: bound.x * self.scale, y: bound.y * self.scale, width: bound.w * self.scale, height: bound.h * self.scale)
-        let imageRef = CGImageCreateWithImageInRect(self.CGImage, scaledBounds)
-        let croppedImage: UIImage = UIImage(CGImage: imageRef!, scale: self.scale, orientation: UIImageOrientation.Up)
+        let imageRef = self.cgImage?.cropping(to: scaledBounds)
+        let croppedImage: UIImage = UIImage(cgImage: imageRef!, scale: self.scale, orientation: UIImageOrientation.up)
         return croppedImage
     }
 
     /// EZSE: Use current image for pattern of color
-    public func withColor(tintColor: UIColor) -> UIImage {
+    public func withColor(_ tintColor: UIColor) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
 
         let context = UIGraphicsGetCurrentContext()
-        CGContextTranslateCTM(context, 0, self.size.height)
-        CGContextScaleCTM(context, 1.0, -1.0)
-        CGContextSetBlendMode(context, CGBlendMode.Normal)
+        context?.translateBy(x: 0, y: self.size.height)
+        context?.scaleBy(x: 1.0, y: -1.0)
+        context?.setBlendMode(CGBlendMode.normal)
 
         let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height) as CGRect
-        CGContextClipToMask(context, rect, self.CGImage)
+        context?.clip(to: rect, mask: self.cgImage!)
         tintColor.setFill()
-        CGContextFillRect(context, rect)
+        context?.fill(rect)
 
-        let newImage = UIGraphicsGetImageFromCurrentImageContext() as UIImage
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()! as UIImage
         UIGraphicsEndImageContext()
 
         return newImage
@@ -107,13 +107,13 @@ extension UIImage {
 
     ///EZSE: Returns the image associated with the URL
     public convenience init?(urlString: String) {
-        guard let url = NSURL(string: urlString) else {
-            self.init(data: NSData())
+        guard let url = URL(string: urlString) else {
+            self.init(data: Data())
             return
         }
-        guard let data = NSData(contentsOfURL: url) else {
+        guard let data = try? Data(contentsOf: url) else {
             print("EZSE: No image in URL \(urlString)")
-            self.init(data: NSData())
+            self.init(data: Data())
             return
         }
         self.init(data: data)
@@ -124,6 +124,6 @@ extension UIImage {
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 1, height: 1), false, 0.0)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return image
+        return image!
     }
 }

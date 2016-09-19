@@ -20,22 +20,22 @@ extension UITextField {
     public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, fontSize: CGFloat) {
         self.init(frame: CGRect(x: x, y: y, width: w, height: h))
         font = UIFont.HelveticaNeue(type: FontType.None, size: fontSize)
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
         clipsToBounds = true
-        textAlignment = NSTextAlignment.Left
-        userInteractionEnabled = true
+        textAlignment = NSTextAlignment.left
+        isUserInteractionEnabled = true
     }
 
     /// EZSE: Add left padding to the text in textfield
-    public func addLeftTextPadding(blankSize: CGFloat) {
+    public func addLeftTextPadding(_ blankSize: CGFloat) {
         let leftView = UIView()
         leftView.frame = CGRect(x: 0, y: 0, width: blankSize, height: frame.height)
         self.leftView = leftView
-        self.leftViewMode = UITextFieldViewMode.Always
+        self.leftViewMode = UITextFieldViewMode.always
     }
 
     /// EZSE: Add a image icon on the left side of the textfield
-    public func addLeftIcon(image: UIImage?, frame: CGRect, imageSize: CGSize) {
+    public func addLeftIcon(_ image: UIImage?, frame: CGRect, imageSize: CGSize) {
         let leftView = UIView()
         leftView.frame = frame
         let imgView = UIImageView()
@@ -43,7 +43,7 @@ extension UITextField {
         imgView.image = image
         leftView.addSubview(imgView)
         self.leftView = leftView
-        self.leftViewMode = UITextFieldViewMode.Always
+        self.leftViewMode = UITextFieldViewMode.always
     }
 
 }

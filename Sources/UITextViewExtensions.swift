@@ -20,28 +20,28 @@ extension UITextView {
     public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, fontSize: CGFloat) {
         self.init(frame: CGRect(x: x, y: y, width: w, height: h))
         font = UIFont.HelveticaNeue(type: FontType.None, size: fontSize)
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
         clipsToBounds = true
-        textAlignment = NSTextAlignment.Left
-        userInteractionEnabled = true
+        textAlignment = NSTextAlignment.left
+        isUserInteractionEnabled = true
 
         #if os(iOS)
 
-        editable = false
+        isEditable = false
 
         #endif
 
-        scrollEnabled = false
+        isScrollEnabled = false
     }
 
     #if os(iOS)
 
     /// EZSE: Automatically adds a toolbar with a done button to the top of the keyboard. Tapping the button will dismiss the keyboard.
-    public func addDoneButton(barStyle: UIBarStyle = .Default, title: String? = nil) {
+    public func addDoneButton(_ barStyle: UIBarStyle = .default, title: String? = nil) {
         let keyboardToolbar = UIToolbar()
         keyboardToolbar.items = [
-            UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(title: title ?? "Done", style: .Done, target: self, action: #selector(resignFirstResponder))
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            UIBarButtonItem(title: title ?? "Done", style: .done, target: self, action: #selector(resignFirstResponder))
         ]
 
         keyboardToolbar.barStyle = barStyle

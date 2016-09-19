@@ -20,7 +20,7 @@ class EZSwiftFunctionsTests: XCTestCase {
         }
         var totalValue = 0
         var totalLoopCount = 0
-        for e in ez.iterateEnum(testEnum) {
+        for e in ez.iterateEnum(testEnum.self) {
             totalValue += e.rawValue
             totalLoopCount += 1
         }

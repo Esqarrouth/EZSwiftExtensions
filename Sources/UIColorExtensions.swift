@@ -16,8 +16,8 @@ extension UIColor {
 
     /// EZSE: init method with hex string and alpha(default: 1)
     public convenience init?(hexString: String, alpha: CGFloat = 1.0) {
-        var formatted = hexString.stringByReplacingOccurrencesOfString("0x", withString: "")
-        formatted = formatted.stringByReplacingOccurrencesOfString("#", withString: "")
+        var formatted = hexString.replacingOccurrences(of: "0x", with: "")
+        formatted = formatted.replacingOccurrences(of: "#", with: "")
         if let hex = Int(formatted, radix: 16) {
           let red = CGFloat(CGFloat((hex & 0xFF0000) >> 16)/255.0)
           let green = CGFloat(CGFloat((hex & 0x00FF00) >> 8)/255.0)
@@ -61,7 +61,7 @@ extension UIColor {
     }
 
     /// EZSE: Returns random UIColor with random alpha(default: false)
-    public static func randomColor(randomAlpha: Bool = false) -> UIColor {
+    public static func randomColor(_ randomAlpha: Bool = false) -> UIColor {
         let randomRed = CGFloat.random()
         let randomGreen = CGFloat.random()
         let randomBlue = CGFloat.random()
@@ -73,7 +73,7 @@ extension UIColor {
 
 private extension CGFloat {
     /// SwiftRandom extension
-    static func random(lower: CGFloat = 0, _ upper: CGFloat = 1) -> CGFloat {
+    static func random(_ lower: CGFloat = 0, _ upper: CGFloat = 1) -> CGFloat {
         return CGFloat(Float(arc4random()) / Float(UINT32_MAX)) * (upper - lower) + lower
     }
 }

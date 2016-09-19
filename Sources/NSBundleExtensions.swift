@@ -8,20 +8,20 @@
 
 import Foundation
 
-public extension NSBundle {
+public extension Bundle {
 
     /// EZSE: load xib
     //  Usage: Set some UIView subclass as xib's owner class
     //  NSBundle.loadNib("ViewXibName", owner: self) //some UIView subclass
     //  self.addSubview(self.contentView)
-    public class func loadNib(name: String, owner: AnyObject!) {
-        NSBundle.mainBundle().loadNibNamed(name, owner: owner, options: nil)[0]
+    public class func loadNib(_ name: String, owner: AnyObject!) {
+        _ = Bundle.main.loadNibNamed(name, owner: owner, options: nil)?[0]
     }
 
     /// EZSE: load xib
     /// Usage: let view: ViewXibName = NSBundle.loadNib("ViewXibName")
-    public class func loadNib<T>(name: String) -> T? {
-        return NSBundle.mainBundle().loadNibNamed(name, owner: nil, options: nil)[0] as? T
+    public class func loadNib<T>(_ name: String) -> T? {
+        return Bundle.main.loadNibNamed(name, owner: nil, options: nil)?[0] as? T
     }
 
 }

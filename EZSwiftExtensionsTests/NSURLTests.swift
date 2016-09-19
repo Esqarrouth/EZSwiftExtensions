@@ -11,7 +11,7 @@ import XCTest
 
 class NSURLTests: XCTestCase {
     func testQueryParameters() {
-        let url = NSURL(string: "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=facebook")
+        let url = URL(string: "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=facebook")
         if let queryParameters = url?.queryParameters {
             XCTAssertEqual(queryParameters["v"], Optional("1.0"))
             XCTAssertEqual(queryParameters["q"], Optional("facebook"))
@@ -22,27 +22,27 @@ class NSURLTests: XCTestCase {
     func testRemote() {
         var len: Int64?
         var support: Bool?
-        let urlResume = NSURL(string: "http://httpbin.org/range/1024")!
-        let urlSize = NSURL(string: "http://httpbin.org/bytes/1024")!
-        let group = dispatch_group_create()
-        dispatch_group_enter(group)
+        let urlResume = URL(string: "http://httpbin.org/range/1024")!
+        let urlSize = URL(string: "http://httpbin.org/bytes/1024")!
+        let group = DispatchGroup()
+        group.enter()
         urlSize.remoteSize({ (contentLength: Int64) in
             len = contentLength
-            dispatch_group_leave(group)
+            group.leave()
         })
-        dispatch_group_enter(group)
+        group.enter()
         urlResume.supportsResume({ (doesSupport: Bool) in
             support = doesSupport
-            dispatch_group_leave(group)
+            group.leave()
         })
-        dispatch_group_wait(group, dispatch_time(DISPATCH_TIME_NOW, Int64(30 * NSEC_PER_SEC)))
+        _ = group.wait(timeout: DispatchTime.now() + Double(Int64(30 * NSEC_PER_SEC)) / Double(NSEC_PER_SEC))
         XCTAssertEqual(len, 1024)
         XCTAssertEqual(support, true)
     }
 
     func testIsSame() {
-        let url1 = NSURL(string: "http://google.com/")!
-        let url2 = NSURL(string: "http://www.google.com")!
+        let url1 = URL(string: "http://google.com/")!
+        let url2 = URL(string: "http://www.google.com")!
         XCTAssertTrue(url1.isSameWithURL(url2))
     }
 

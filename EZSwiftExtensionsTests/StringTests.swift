@@ -20,7 +20,7 @@ class StringTests: XCTestCase {
     func testSubscript() {
         XCTAssertEqual(string[2], "2")
         XCTAssertEqual(string[9], "9")
-        XCTAssertEqual(string[0...9], "0123456789")
+        XCTAssertEqual(string[0..<10], "0123456789")
         XCTAssertEqual(string[3..<5], "34")
     }
 
@@ -146,8 +146,8 @@ class StringTests: XCTestCase {
 
     func testContains() {
         XCTAssertTrue(string.contains("01"))
-        XCTAssertTrue(string.contains("01", compareOption: NSStringCompareOptions.AnchoredSearch))
-        XCTAssertFalse(string.contains("12", compareOption: NSStringCompareOptions.AnchoredSearch))
+        XCTAssertTrue(string.contains("01", compareOption: NSString.CompareOptions.anchored))
+        XCTAssertFalse(string.contains("12", compareOption: NSString.CompareOptions.anchored))
         XCTAssertFalse(string.contains("h"))
     }
 
@@ -158,7 +158,7 @@ class StringTests: XCTestCase {
         XCTAssertNotNil(string.toFloat())
         XCTAssertEqual(String(10.253, precision: 2), "10.25")
         XCTAssertEqual(String(10.257, precision: 2), "10.26")
-        XCTAssertTrue(string.toNSString.isKindOfClass(NSString.self))
+        XCTAssertTrue(string.toNSString.isKind(of: NSString.self))
     }
 
     func testIsIncludeEmoji() {

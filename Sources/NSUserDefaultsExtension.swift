@@ -8,13 +8,13 @@
 
 import Foundation
 
-public extension NSUserDefaults {
+public extension UserDefaults {
     public subscript(key: String) -> AnyObject? {
         get {
-            return objectForKey(key)
+            return object(forKey: key) as AnyObject?
         }
         set {
-            setObject(newValue, forKey: key)
+            set(newValue, forKey: key)
         }
     }
 }
