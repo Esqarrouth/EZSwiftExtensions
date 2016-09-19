@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension ErrorType {
+extension Error {
     /// EZSE: Converts ErrorType value to String.
-    public var toString: String { return String(self) }
+    public var toString: String { return String(describing: self) }
 }

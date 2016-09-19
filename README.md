@@ -52,8 +52,8 @@ print(ez.appVersionAndBuild) // v0.3(7)
 Easily access your ViewController on top of your view stack:
 
 ``` swift
-ez.topMostVC?.presentViewController(myAlertController, animated: true, completion: nil)
-// topMostVC is your rootViewController
+ez.topMostViewController?.presentViewController(myAlertController, animated: true, completion: nil)
+// topMostViewController is your rootViewController
 // Intended for showing small VCs like UIAlertController
 ```
 

@@ -1,5 +1,5 @@
 //
-//  EZSwiftExtensionsTestsDictionary.swift
+//  DictionaryTests.swift
 //  EZSwiftExtensions
 //
 //  Created by Valentino Urbano on 28/01/16.
@@ -9,7 +9,7 @@
 import XCTest
 import EZSwiftExtensions
 
-class EZSwiftExtensionsTestsDictionary: XCTestCase {
+class DictionaryTests: XCTestCase {
     var firstdic: [String:Int]!
     var secondDic: [String:Int]!
     var thirdDic: [String:Int]!

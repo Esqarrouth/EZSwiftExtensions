@@ -1,5 +1,5 @@
 //
-//  EZSwiftExtensionsTestsBool.swift
+//  CGFloatTests.swift
 //  EZSwiftExtensions
 //
 //  Created by Valentino Urbano on 28/01/16.
@@ -8,17 +8,17 @@
 
 import XCTest
 
-class EZSwiftExtensionsTestsBool: XCTestCase {
-    var bool: Bool!
+class CGFloatTests: XCTestCase {
+    var radians: CGFloat!
+    var degrees: CGFloat!
 
     override func setUp() {
         super.setUp()
-        bool = false
+        radians = CGFloat (M_PI * Double(2))
+        degrees = 360
     }
 
     func testToggle() {
-        let value = bool
-        bool.toggle()
-        XCTAssertNotEqual(value, bool)
+        XCTAssertEqual(radians, degrees.degreesToRadians())
     }
 }

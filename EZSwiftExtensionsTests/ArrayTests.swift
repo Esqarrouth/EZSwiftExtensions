@@ -1,5 +1,5 @@
 //
-//  EZArrayExtensionsTests.swift
+//  ArrayTests.swift
 //  EZSwiftExtensions
 //
 //  Created by Valentino Urbano on 28/01/16.
@@ -9,7 +9,7 @@
 import XCTest
 import EZSwiftExtensions
 
-class EZSwiftExtensionsTestsArray: XCTestCase {
+class ArrayTests: XCTestCase {
     var numberArray: [Int] = []
 
     override func setUp() {
@@ -103,14 +103,6 @@ class EZSwiftExtensionsTestsArray: XCTestCase {
         var indexArray: [Int] = []
         numberArray.forEach { indexArray.append($0.0) }
         XCTAssertEqual(indexArray, [Int](0..<numberArray.count))
-    }
-
-    func testMapFilter() {
-        let filtered = numberArray.mapFilter { number -> String? in
-            return number == 1 ? String(number) : nil
-        }
-
-        XCTAssertEqual(filtered.count, 2)
     }
 
     func testUnion() {

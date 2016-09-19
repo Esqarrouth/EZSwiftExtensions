@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 extension Double {
     /// EZSE: Converts Double to String
@@ -15,36 +16,24 @@ extension Double {
     public var toInt: Int { return Int(self) }
 
     /// EZSE: Returns a Double rounded to decimal
-    public func getRoundedByPlaces(places: Int) -> Double {
-        let divisor = pow(10.0, Double(places))
-        return round(self * divisor) / divisor
+    public mutating func getRoundedByPlaces(_ places: Int) -> Double {
+        let divisor = pow(10.0, Double(places)) as Double
+        var result = Double(self * divisor) / divisor
+        result.round(.toNearestOrAwayFromZero)
+        return result
     }
 
     /// EZSE: Rounds the current Double rounded to decimal
-    public mutating func roundByPlaces(places: Int) {
+    public mutating func roundByPlaces(_ places: Int) {
         let divisor = pow(10.0, Double(places))
-        self = round(self * divisor) / divisor
+        var result = (self * divisor) / divisor
+        result.round(.toNearestOrAwayFromZero)
+        self = result
     }
-
+    
     /// EZSE: Returns a Double Ceil to decimal
-    public func getCeiledByPlaces(places: Int) -> Double {
+    public func getCeiledByPlaces(_ places: Int) -> Double {
         let divisor = pow(10.0, Double(places))
         return ceil(self * divisor) / divisor
-    }
-}
-
-extension String {
-    init(_ value: Float, precision: Int) {
-        let nFormatter = NSNumberFormatter()
-        nFormatter.numberStyle = .DecimalStyle
-        nFormatter.maximumFractionDigits = precision
-        self = nFormatter.stringFromNumber(value)!
-    }
-
-    init(_ value: Double, precision: Int) {
-        let nFormatter = NSNumberFormatter()
-        nFormatter.numberStyle = .DecimalStyle
-        nFormatter.maximumFractionDigits = precision
-        self = nFormatter.stringFromNumber(value)!
     }
 }

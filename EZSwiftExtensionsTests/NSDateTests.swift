@@ -1,5 +1,5 @@
 //
-//  EZSwiftExtensionsTestsNSDate.swift
+//  NSDateTests.swift
 //  EZSwiftExtensions
 //
 //  Created by Valentino Urbano on 28/01/16.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class EZSwiftExtensionsTestsNSDate: XCTestCase {
+class NSDateTests: XCTestCase {
     // note that NSDate uses UTC in NSDate(timeIntervalSince1970: _)
 
     var string: String!

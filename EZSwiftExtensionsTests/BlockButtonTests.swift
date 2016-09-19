@@ -1,5 +1,5 @@
 //
-//  EZSwiftExtensionsTestsBlockButton.swift
+//  BlockButtonTests.swift
 //  EZSwiftExtensions
 //
 //  Created by Valentino Urbano on 28/01/16.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import EZSwiftExtensions
 
-class EZSwiftExtensionsTestsBlockButton: XCTestCase {
+class BlockButtonTests: XCTestCase {
     var blockButton: BlockButton!
 
     override func setUp() {

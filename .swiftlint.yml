@@ -1,5 +1,6 @@
 excluded:
   - Pods
+  - EZSwiftExtensionsTests
 line_length: 160
 file_length: 1000
 disabled_rules:
@@ -9,4 +10,4 @@ disabled_rules:
   - variable_name
   - valid_docs
   - todo
-
+  - variable_name_min_length

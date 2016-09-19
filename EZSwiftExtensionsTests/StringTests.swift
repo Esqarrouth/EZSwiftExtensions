@@ -1,5 +1,5 @@
 //
-//  EZSwiftExtensionsTestsString.swift
+//  StringTests.swift
 //  EZSwiftExtensions
 //
 //  Created by Valentino Urbano on 29/01/16.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import EZSwiftExtensions
 
-class EZSwiftExtensionsTestsString: XCTestCase {
+class StringTests: XCTestCase {
     var string: String!
 
     override func setUp() {
@@ -110,10 +110,8 @@ class EZSwiftExtensionsTestsString: XCTestCase {
         XCTAssertEqual(string, "EzSWIFTextensIonS")
     }
 
-    func testIsOnlyEmptySpacesAndNewLineCharacters() {
+    func testIsBlank() {
         let emptyString = " \n "
-        XCTAssertFalse(string.isOnlyEmptySpacesAndNewLineCharacters())
-        XCTAssertTrue(emptyString.isOnlyEmptySpacesAndNewLineCharacters())
         XCTAssertFalse(string.isBlank)
         XCTAssertTrue(emptyString.isBlank)
     }
