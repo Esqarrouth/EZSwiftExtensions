@@ -519,6 +519,14 @@ print(now < now2) // true
 print(now2 < now) // false  
 ```
 
+Easily get start or end of day for any Date
+
+``` swift
+let now = NSDate()
+print(now.startOfDay <= now) // true
+print(now.endOfDay >= now) // true
+```
+
 ### NSTimer Extensions
 
 Easily run block of codes after a certain delay:
