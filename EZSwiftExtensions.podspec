@@ -6,7 +6,7 @@ s.description      = ":smirk: How Swift standard types and classes were supposed
 s.homepage         = "https://github.com/goktugyil/EZSwiftExtensions"
 s.license          = 'MIT'
 s.author           = { "goktugyil" => "gok-2@hotmail.com" }
-s.source           = { :git => "https://github.com/gramireza/EZSwiftExtensions.git", :tag => s.version.to_s }
+s.source           = { :git => "https://github.com/goktugyil/EZSwiftExtensions.git", :tag => s.version.to_s }
 s.ios.deployment_target   = '8.0'
 s.tvos.deployment_target   = '9.0'
 s.requires_arc = true
