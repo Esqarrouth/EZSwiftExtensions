@@ -139,8 +139,8 @@ class EZSwiftExtensionsTestsArray: XCTestCase {
         let b: [Int]? = [1, 2, 3]
         let c: [Int]? = nil
 
-        XCTAssertTrue(a! == b!)
-        XCTAssertFalse(a! == c!)
+        XCTAssertTrue(a == b)
+        XCTAssertFalse(a == c)
     }
     
     func testShuffle() {

@@ -9,7 +9,7 @@ import UIKit
 
 extension Timer {
     /// EZSE: Runs every x seconds, to cancel use: timer.invalidate()
-    public static func runThisEvery(seconds: TimeInterval, handler: (CFRunLoopTimer?) -> Void) -> Timer {
+    public static func runThisEvery(seconds: TimeInterval, handler: @escaping (CFRunLoopTimer?) -> Void) -> Timer {
         let fireDate = CFAbsoluteTimeGetCurrent()
         let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, fireDate, seconds, 0, 0, handler)
         CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, CFRunLoopMode.commonModes)
@@ -17,14 +17,14 @@ extension Timer {
     }
 
     /// EZSE: Run function after x seconds
-    public static func runThisAfterDelay(seconds: Double, after: () -> ()) {
+    public static func runThisAfterDelay(seconds: Double, after: @escaping () -> ()) {
         runThisAfterDelay(seconds: seconds, queue: DispatchQueue.main, after: after)
     }
 
     //TODO: Make this easier
     /// EZSwiftExtensions - dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
-    public static func runThisAfterDelay(seconds: Double, queue: DispatchQueue, after: ()->()) {
+    public static func runThisAfterDelay(seconds: Double, queue: DispatchQueue, after: @escaping ()->()) {
         let time = DispatchTime.now() + Double(Int64(seconds * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-        queue.after(when: time, execute: after)
+        queue.asyncAfter(deadline: time, execute: after)
     }
 }

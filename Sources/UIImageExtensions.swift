@@ -90,12 +90,12 @@ extension UIImage {
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
         
         let context = UIGraphicsGetCurrentContext()
-        context?.translate(x: 0, y: self.size.height)
-        context?.scale(x: 1.0, y: -1.0);
+        context?.translateBy(x: 0, y: self.size.height)
+        context?.scaleBy(x: 1.0, y: -1.0);
         context?.setBlendMode(CGBlendMode.normal)
         
         let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height) as CGRect
-        context?.clipToMask(rect, mask: self.cgImage!)
+        context?.clip(to: rect, mask: self.cgImage!)
         tintColor.setFill()
         context?.fill(rect)
         

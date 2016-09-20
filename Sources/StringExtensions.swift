@@ -14,9 +14,9 @@ import UIKit
 extension String {
     /// EZSE: Init string with a base64 encoded string
     init ? (base64: String) {
-        let pad = String(repeating: Character("="),count: base64.length % 4)
+        let pad = String(repeating: "=", count: base64.length%4)
         let base64Padded = base64 + pad
-        if let decodedData = Data(base64Encoded: base64Padded, options: .encoding64CharacterLineLength), let decodedString = NSString(data: decodedData, encoding: String.Encoding.utf8.rawValue) {
+        if let decodedData = Data(base64Encoded: base64Padded, options: .ignoreUnknownCharacters), let decodedString = NSString(data: decodedData, encoding: String.Encoding.utf8.rawValue) {
             self.init(decodedString)
             return
         }
@@ -27,7 +27,7 @@ extension String {
     var base64: String {
         get {
             let plainData = (self as NSString).data(using: String.Encoding.utf8.rawValue)
-            let base64String = plainData!.base64EncodedString(NSData.Base64EncodingOptions(rawValue: 0))
+            let base64String = plainData!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
             return base64String
         }
     }
@@ -43,6 +43,14 @@ extension String {
         let start = characters.index(startIndex, offsetBy: integerRange.lowerBound)
         let end = characters.index(startIndex, offsetBy: integerRange.upperBound)
         let range = start..<end
+        return self[range]
+    }
+    
+    /// EZSE: Cut string from closedrange
+    public subscript(integerClosedRange: ClosedRange<Int>) -> String {
+        let start = characters.index(startIndex, offsetBy: integerClosedRange.lowerBound)
+        let end = characters.index(startIndex, offsetBy: integerClosedRange.upperBound)
+        let range = start...end
         return self[range]
     }
 
@@ -85,11 +93,11 @@ extension String {
         if subString.isEmpty {
             return -1
         }
-        var searchOption = fromEnd ? NSString.CompareOptions.anchoredSearch : NSString.CompareOptions.backwardsSearch
+        var searchOption = fromEnd ? String.CompareOptions.anchored : String.CompareOptions.backwards
         if caseInsensitive {
-            searchOption.insert(NSString.CompareOptions.caseInsensitiveSearch)
+            searchOption.insert(String.CompareOptions.caseInsensitive)
         }
-        if let range = self.range(of: subString, options: searchOption) where !range.isEmpty {
+        if let range = self.range(of: subString, options: searchOption) , !range.isEmpty {
             return self.characters.distance(from: self.startIndex, to: range.lowerBound)
         }
         return -1;
@@ -111,20 +119,20 @@ extension String {
 
     /// EZSE : Returns count of words in string
     public var countofWords: Int {
-        let regex = try? RegularExpression(pattern: "\\w+", options: RegularExpression.Options())
-        return regex?.numberOfMatches(in: self, options: RegularExpression.MatchingOptions(), range: NSMakeRange(0, self.length)) ?? 0
+        let regex = try? NSRegularExpression(pattern: "\\w+", options: NSRegularExpression.Options())
+        return regex?.numberOfMatches(in: self, options: NSRegularExpression.MatchingOptions(), range: NSMakeRange(0, self.length)) ?? 0
     }
 
     /// EZSE : Returns count of paragraphs in string
     public var countofParagraphs: Int {
-        let regex = try? RegularExpression(pattern: "\\n", options: RegularExpression.Options())
+        let regex = try? NSRegularExpression(pattern: "\\n", options: NSRegularExpression.Options())
         let str = self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        return (regex?.numberOfMatches(in: str, options: RegularExpression.MatchingOptions(), range: NSMakeRange(0, str.length)) ?? -1) + 1
+        return (regex?.numberOfMatches(in: str, options: NSRegularExpression.MatchingOptions(), range: NSMakeRange(0, str.length)) ?? -1) + 1
     }
 
     internal func rangeFromNSRange(_ nsRange : NSRange) -> Range<String.Index>? {
-        let from16 = utf16.startIndex.advancedBy(n: nsRange.location, limit: utf16.endIndex)
-        let to16 = from16.advancedBy(nsRange.length, limit: utf16.endIndex)
+        let from16 = utf16.startIndex.advanced(by: nsRange.location)
+        let to16 = from16.advanced(by: nsRange.length)
         if let from = String.Index(from16, within: self),
             let to = String.Index(to16, within: self) {
             return from ..< to
@@ -134,15 +142,15 @@ extension String {
 
     /// EZSE: Find matches of regular expression in string
     public func matchesForRegexInText(_ regex: String!) -> [String] {
-        let regex = try? RegularExpression(pattern: regex, options: [])
+        let regex = try? NSRegularExpression(pattern: regex, options: [])
         let results = regex?.matches(in: self, options: [], range: NSMakeRange(0, self.length)) ?? []
         return results.map { self.substring(with: self.rangeFromNSRange($0.range)!) }
     }
 
     /// EZSE: Checks if String contains Email
     public var isEmail: Bool {
-        let dataDetector = try? NSDataDetector(types: TextCheckingResult.CheckingType.link.rawValue)
-        let firstMatch = dataDetector?.firstMatch(in: self, options: RegularExpression.MatchingOptions.reportCompletion, range: NSRange(location: 0, length: length))
+        let dataDetector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+        let firstMatch = dataDetector?.firstMatch(in: self, options: NSRegularExpression.MatchingOptions.reportCompletion, range: NSRange(location: 0, length: length))
         return (firstMatch?.range.location != NSNotFound && firstMatch?.url?.scheme == "mailto")
     }
 
@@ -159,7 +167,7 @@ extension String {
         var urls: [URL] = []
         let detector: NSDataDetector?
         do {
-            detector = try NSDataDetector(types: TextCheckingResult.CheckingType.link.rawValue)
+            detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
         } catch _ as NSError {
             detector = nil
         }
@@ -168,8 +176,8 @@ extension String {
 
         if let detector = detector {
             detector.enumerateMatches(in: text, options: [], range: NSRange(location: 0, length: text.characters.count), using: {
-                (result: TextCheckingResult?, flags: RegularExpression.MatchingFlags, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
-                if let result = result, url = result.url {
+                (result: NSTextCheckingResult?, flags: NSRegularExpression.MatchingFlags, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
+                if let result = result, let url = result.url {
                     urls.append(url)
                 }
             })
@@ -179,12 +187,12 @@ extension String {
     }
 
     /// EZSE: Checking if String contains input
-    public func contains(_ find: String) -> Bool {
+    public func contains(with find: String) -> Bool {
         return self.range(of: find) != nil
     }
 
     /// EZSE: Checking if String contains input with comparing options
-    public func contains(_ find: String, compareOption: NSString.CompareOptions) -> Bool {
+    public func contains(with find: String, compareOption: String.CompareOptions) -> Bool {
         return self.range(of: find, options: compareOption) != nil
     }
 
@@ -217,7 +225,7 @@ extension String {
 
     /// EZSE: Converts String to Bool
     public func toBool() -> Bool? {
-        let trimmed = self.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines()).lowercased()
+        let trimmed = self.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines).lowercased()
         if trimmed == "true" || trimmed == "false" {
             return (trimmed as NSString).boolValue
         }
@@ -240,24 +248,24 @@ extension String {
     #if os(iOS)
     
     ///EZSE: Returns bold NSAttributedString
-    public func bold() -> AttributedString {
-        let boldString = NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize())])
+    public func bold() -> NSAttributedString {
+        let boldString = NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
         return boldString
     }
     
     #endif
 
     ///EZSE: Returns underlined NSAttributedString
-    public func underline() -> AttributedString {
-        let underlineString = AttributedString(string: self, attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue])
+    public func underline() -> NSAttributedString {
+        let underlineString = NSAttributedString(string: self, attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue])
         return underlineString
     }
     
     #if os(iOS)
 
     ///EZSE: Returns italic NSAttributedString
-    public func italic() -> AttributedString {
-        let italicString = NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize())])
+    public func italic() -> NSAttributedString {
+        let italicString = NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
         return italicString
     }
     
@@ -280,7 +288,7 @@ extension String {
     #endif
 
     ///EZSE: Returns NSAttributedString
-    public func color(_ color: UIColor) -> AttributedString {
+    public func color(_ color: UIColor) -> NSAttributedString {
         let colorString = NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
         return colorString
     }
@@ -290,7 +298,7 @@ extension String {
         var start = 0;
         var ranges: [NSRange] = []
         while true {
-            let range = (self as NSString).range(of: subString, options: NSString.CompareOptions.literalSearch, range: NSMakeRange(start, (self as NSString).length - start))
+            let range = (self as NSString).range(of: subString, options: String.CompareOptions.literal, range: NSMakeRange(start, (self as NSString).length - start))
             if range.location == NSNotFound {
                 break;
             } else {
@@ -323,14 +331,14 @@ public func ~=<T>(pattern: ((T) -> Bool), value: T) -> Bool {
 }
 
 /// EZSE: Can be used in switch-case
-public func hasPrefix(_ prefix: String) -> (value: String) -> Bool {
+public func hasPrefix(_ prefix: String) -> (_ value: String) -> Bool {
     return { (value: String) -> Bool in
         value.hasPrefix(prefix)
     }
 }
 
 /// EZSE: Can be used in switch-case
-public func hasSuffix(_ suffix: String) -> (value: String) -> Bool {
+public func hasSuffix(_ suffix: String) -> (_ value: String) -> Bool {
     return { (value: String) -> Bool in
         value.hasSuffix(suffix)
     }

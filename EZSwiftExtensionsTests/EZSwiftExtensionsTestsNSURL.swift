@@ -35,7 +35,7 @@ class EZSwiftExtensionsTestsNSURL: XCTestCase {
             support = doesSupport
             group.leave()
         })
-        group.wait(timeout: DispatchTime.now() + Double(Int64(30 * NSEC_PER_SEC)) / Double(NSEC_PER_SEC))
+        _ = group.wait(timeout: DispatchTime.now() + Double(Int64(30 * NSEC_PER_SEC)) / Double(NSEC_PER_SEC))
         XCTAssertEqual(len, 1024)
         XCTAssertEqual(support, true)
     }
@@ -48,13 +48,15 @@ class EZSwiftExtensionsTestsNSURL: XCTestCase {
     
     func testFileFunctions() {
         // FIXME: Better implementation to address a real existing file url
-        let documentsPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
+        let documentsPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.libraryDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
         let documentsURL = URL(fileURLWithPath: documentsPath)
+    
         XCTAssertTrue(documentsURL.fileIsDirectory)
         XCTAssertNotNil(documentsURL.fileCreationDate)
         XCTAssertNotNil(documentsURL.fileModifiedDate)
         XCTAssertTrue(documentsURL.fileIsWritable)
-        XCTAssertEqual(documentsURL.fileSize, -1)
+        XCTAssertEqual(documentsURL.fileSizeValue, -1)
+        
     }
     
     

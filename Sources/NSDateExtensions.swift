@@ -8,31 +8,31 @@
 import UIKit
 
 extension Date {
-    /// EZSE: Initializes NSDate from string and format
+    /// EZSE: Initializes Date from string and format
     public init?(fromString string: String, format: String) {
         
         let formatter = DateFormatter()
         formatter.dateFormat = format
         if let date = formatter.date(from: string) {
-                .dynamicType.init(timeInterval: 0, since: date)
+            self = Date(timeInterval: 0, since: date)
         } else {
-            (self as Date).dynamicType.init()
+            _ = type(of: self).init()
             return nil
         }
     }
 
-    /// EZSE: Initializes NSDate from string returned from an http response, according to several RFCs
+    /// EZSE: Initializes Date from string returned from an http response, according to several RFCs
     public init? (httpDateString: String) {
         if let rfc1123 = Date(fromString: httpDateString, format: "EEE',' dd' 'MMM' 'yyyy HH':'mm':'ss zzz") {
-            (self as NSDate).dynamicType.init(timeInterval: 0, since: rfc1123)
+            self = type(of: rfc1123).init(timeInterval: 0, since: rfc1123)
             return
         }
         if let rfc850 = Date(fromString: httpDateString, format: "EEEE',' dd'-'MMM'-'yy HH':'mm':'ss z") {
-            (self as NSDate).dynamicType.init(timeInterval: 0, since: rfc850)
+            self = type(of: rfc850).init(timeInterval: 0, since: rfc850)
             return
         }
         if let asctime =  Date(fromString: httpDateString, format: "EEE MMM d HH':'mm':'ss yyyy") {
-            (self as NSDate).dynamicType.init(timeInterval: 0, since: asctime)
+            self = type(of: asctime).init(timeInterval: 0, since: asctime)
             return
         }
         //self.init()
@@ -40,7 +40,7 @@ extension Date {
     }
 
     /// EZSE: Converts NSDate to String
-    public func toString(dateStyle: DateFormatter.Style = .mediumStyle, timeStyle: DateFormatter.Style = .mediumStyle) -> String {
+    public func toString(dateStyle: DateFormatter.Style = .medium, timeStyle: DateFormatter.Style = .medium) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = dateStyle
         formatter.timeStyle = timeStyle
@@ -85,23 +85,24 @@ extension Date {
     /// EZSE: Easy creation of time passed String. Can be Years, Months, days, hours, minutes or seconds
     public func timePassed() -> String {
         let date = Date()
-        let calendar = Calendar.current()
-        let components = calendar.components([.year, .month, .day, .hour, .minute, .second], from: self, to: date, options: [])
+        let calendar = Calendar.current
+        let calendarComponent: Set<Calendar.Component> = [.year, .month, .day, .hour, .minute, .second]
+        let components = calendar.dateComponents(calendarComponent, from: self, to: date)
         var str: String
 
-        if components.year >= 1 {
+        if (components.year ?? 0) >= 1 {
             components.year == 1 ? (str = "year") : (str = "years")
             return "\(components.year) \(str) ago"
-        } else if components.month >= 1 {
+        } else if (components.month ?? 0) >= 1 {
             components.month == 1 ? (str = "month") : (str = "months")
             return "\(components.month) \(str) ago"
-        } else if components.day >= 1 {
+        } else if (components.day ?? 0) >= 1 {
             components.day == 1 ? (str = "day") : (str = "days")
             return "\(components.day) \(str) ago"
-        } else if components.hour >= 1 {
+        } else if (components.hour ?? 0) >= 1 {
             components.hour == 1 ? (str = "hour") : (str = "hours")
             return "\(components.hour) \(str) ago"
-        } else if components.minute >= 1 {
+        } else if (components.minute ?? 0) >= 1 {
             components.minute == 1 ? (str = "minute") : (str = "minutes")
             return "\(components.minute) \(str) ago"
         } else if components.second == 0 {
@@ -113,11 +114,11 @@ extension Date {
 
 }
 
- /// EZSE: Returns if dates are equal to each other
+/// EZSE: Returns if dates are equal to each other
 public func == (lhs: Date, rhs: Date) -> Bool {
-  return (lhs == rhs)
+    return lhs.compare(rhs) == .orderedSame
 }
- /// EZSE: Returns if one date is smaller than the other
+/// EZSE: Returns if one date is smaller than the other
 public func < (lhs: Date, rhs: Date) -> Bool {
     return lhs.compare(rhs) == .orderedAscending
 }

@@ -20,7 +20,7 @@ extension UITextView {
     public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, fontSize: CGFloat) {
         self.init(frame: CGRect(x: x, y: y, width: w, height: h))
         font = UIFont.HelveticaNeue(type: FontType.None, size: fontSize)
-        backgroundColor = UIColor.clear()
+        backgroundColor = UIColor.clear
         clipsToBounds = true
         textAlignment = NSTextAlignment.left
         isUserInteractionEnabled = true

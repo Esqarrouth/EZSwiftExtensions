@@ -1,3 +1,4 @@
+
 //
 //  UIDeviceExtensions.swift
 //  EZSwiftExtensions
@@ -39,17 +40,17 @@ private let DeviceList = [
 extension UIDevice {
     /// EZSwiftExtensions
     public class func idForVendor() -> String? {
-        return UIDevice.current().identifierForVendor?.uuidString
+        return UIDevice.current.identifierForVendor?.uuidString
     }
 
     /// EZSwiftExtensions - Operating system name
     public class func systemName() -> String {
-        return UIDevice.current().systemName
+        return UIDevice.current.systemName
     }
 
     /// EZSwiftExtensions - Operating system version
     public class func systemVersion() -> String {
-        return UIDevice.current().systemVersion
+        return UIDevice.current.systemVersion
     }
 
     /// EZSwiftExtensions - Operating system version
@@ -59,12 +60,12 @@ extension UIDevice {
 
     /// EZSwiftExtensions
     public class func deviceName() -> String {
-        return UIDevice.current().name
+        return UIDevice.current.name
     }
 
     /// EZSwiftExtensions
     public class func deviceLanguage() -> String {
-        return Bundle.main().preferredLocalizations[0]
+        return Bundle.main.preferredLocalizations[0]
     }
 
     /// EZSwiftExtensions
@@ -74,12 +75,12 @@ extension UIDevice {
 
     /// EZSE: Returns true if the device is iPhone //TODO: Add to readme
     public class func isPhone() -> Bool {
-        return UIDevice.current().userInterfaceIdiom == UIUserInterfaceIdiom.phone
+        return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone
     }
     
     /// EZSE: Returns true if the device is iPad //TODO: Add to readme
     public class func isPad() -> Bool {
-        return UIDevice.current().userInterfaceIdiom == UIUserInterfaceIdiom.pad
+        return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
     }
 
     /// EZSwiftExtensions
@@ -94,8 +95,8 @@ extension UIDevice {
         for child in mirror.children {
             let value = child.value
 
-            if let value = value as? Int8 where value != 0 {
-                identifier.append(UnicodeScalar(UInt8(value)))
+            if let value = value as? Int8 , value != 0 {
+                identifier.append("\(UnicodeScalar(UInt8(value)))")
             }
         }
 
@@ -202,7 +203,7 @@ extension UIDevice {
 
     /// EZSwiftExtensions
     public class func isSystemVersionOver(_ requiredVersion: String) -> Bool {
-        switch systemVersion().compare(requiredVersion, options: NSString.CompareOptions.numericSearch) {
+        switch systemVersion().compare(requiredVersion, options:String.CompareOptions.numeric) {
         case .orderedSame, .orderedDescending:
             //println("iOS >= 8.0")
             return true

@@ -64,10 +64,10 @@ class EZSwiftExtensionsTestsString: XCTestCase {
     }
 
     func testContains() {
-        XCTAssertTrue(string.contains("01"))
-        XCTAssertTrue(string.contains("01", compareOption: NSString.CompareOptions.anchoredSearch))
-        XCTAssertFalse(string.contains("12", compareOption: NSString.CompareOptions.anchoredSearch))
-        XCTAssertFalse(string.contains("h"))
+        XCTAssertTrue(string.contains(with: "01"))
+        XCTAssertTrue(string.contains(with: "01", compareOption: .anchored))
+        XCTAssertFalse(string.contains(with: "12", compareOption: .anchored))
+        XCTAssertFalse(string.contains(with: "h"))
     }
 
     func testConversions() {

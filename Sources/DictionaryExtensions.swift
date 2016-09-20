@@ -27,10 +27,10 @@ extension Dictionary {
 
     /// EZSE: Intersection of self and the input dictionaries.
     /// Two dictionaries are considered equal if they contain the same [key: value] copules.
-    public func intersection<K, V where K: Equatable, V: Equatable>(_ dictionaries: [K: V]...) -> [K: V] {
+    public func intersection<K, V>(_ dictionaries: [K: V]...) -> [K: V] where K: Equatable, V: Equatable {
         //  Casts self from [Key: Value] to [K: V]
         let filtered = mapFilter { (item, value) -> (K, V)? in
-            if let item = item as? K, value = value as? V {
+            if let item = item as? K, let value = value as? V {
                 return (item, value)
             }
             return nil

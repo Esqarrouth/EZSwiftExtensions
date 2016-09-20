@@ -22,7 +22,7 @@ class EZSwiftExtensionsTestsNSDate: XCTestCase {
     }
 
     func testDateFromString() {
-        guard let dateFromString = Date(timeInterval: string, since: format) else {
+        guard let dateFromString = Date(fromString: string, format: format) else {
             XCTFail("Date From String Couldn't be initialized.")
             return
         }
@@ -30,7 +30,7 @@ class EZSwiftExtensionsTestsNSDate: XCTestCase {
         formatter.dateFormat = format
         let dateString = formatter.date(from: string)
         XCTAssertEqual(dateFromString, dateString)
-        XCTAssertNil(Date(timeInterval: wrongDateString, since: format), "Date From String initialized, but source string was invalid.")
+        XCTAssertNil(Date(fromString: wrongDateString, format: format), "Date From String initialized, but source string was invalid.")
     }
 
     func testDateToString() {

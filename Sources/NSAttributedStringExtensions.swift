@@ -7,23 +7,23 @@
 //
 import UIKit
 
-extension AttributedString {
+extension NSAttributedString {
     /// EZSE: Adds bold attribute to NSAttributedString and returns it
     
     #if os(iOS)
     
-    public func bold() -> AttributedString {
+    public func bold() -> NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
         let range = (self.string as NSString).range(of: self.string)
-        copy.addAttributes([NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize())], range: range)
+        copy.addAttributes([NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)], range: range)
         return copy
     }
     
     #endif
 
     /// EZSE: Adds underline attribute to NSAttributedString and returns it
-    public func underline() -> AttributedString {
+    public func underline() -> NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
         let range = (self.string as NSString).range(of: self.string)
@@ -34,16 +34,16 @@ extension AttributedString {
     #if os(iOS)
 
     /// EZSE: Adds italic attribute to NSAttributedString and returns it
-    public func italic() -> AttributedString {
+    public func italic() -> NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
         let range = (self.string as NSString).range(of: self.string)
-        copy.addAttributes([NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize())], range: range)
+        copy.addAttributes([NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)], range: range)
         return copy
     }
     
     /// EZSE: Adds strikethrough attribute to NSAttributedString and returns it
-    public func strikethrough() -> AttributedString {
+    public func strikethrough() -> NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
     
         let range = (self.string as NSString).range(of: self.string)
@@ -58,7 +58,7 @@ extension AttributedString {
     #endif
 
     /// EZSE: Adds color attribute to NSAttributedString and returns it
-    public func color(_ color: UIColor) -> AttributedString {
+    public func color(_ color: UIColor) -> NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
         let range = (self.string as NSString).range(of: self.string)
@@ -68,7 +68,7 @@ extension AttributedString {
 }
 
 /// EZSE: Appends one NSAttributedString to another NSAttributedString and returns it
-public func += (left: inout AttributedString, right: AttributedString) {
+public func += (left: inout NSAttributedString, right: NSAttributedString) {
     let ns = NSMutableAttributedString(attributedString: left)
     ns.append(right)
     left = ns
