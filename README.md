@@ -5,10 +5,13 @@
 [![License](https://img.shields.io/cocoapods/l/EZSwiftExtensions.svg?style=flat)](https://cocoapods.org/pods/EZSwiftExtensions)
 [![Platform](https://img.shields.io/cocoapods/p/EZSwiftExtensions.svg?style=flat)](http://cocoapods.org/pods/EZSwiftExtensions)
 [![Language](https://img.shields.io/badge/swift-2.1-orange.svg)](http://swift.org)
+[![Build Status](https://travis-ci.org/goktugyil/EZSwiftExtensions.svg?branch=master)](https://travis-ci.org/goktugyil/EZSwiftExtensions)
 
 <img src="charizard.png" width="200">
 
 How Swift standard types and classes were supposed to work. A collection of useful extensions for the Swift Standard Library, Foundation, and UIKit.
+
+- [Gitter chat room](https://gitter.im/EZSwiftExtensions/Lobby)
 
 ## Contents
 
@@ -49,8 +52,8 @@ print(ez.appVersionAndBuild) // v0.3(7)
 Easily access your ViewController on top of your view stack:
 
 ``` swift
-ez.topMostVC?.presentViewController(myAlertController, animated: true, completion: nil)
-// topMostVC is your rootViewController
+ez.topMostViewController?.presentViewController(myAlertController, animated: true, completion: nil)
+// topMostViewController is your rootViewController
 // Intended for showing small VCs like UIAlertController
 ```
 
@@ -224,8 +227,10 @@ Easily check if string is empty and trim it:
 var myString = "\n    eZSwiftExtensions is awesome!     \n \n "
 let emptyStr = "   \n \n \n"
 
-print(myString.isOnlyEmptySpacesAndNewLineCharacters()) // false
-print(emptyStr.isOnlyEmptySpacesAndNewLineCharacters()) // true
+print(myString.isOnlyEmptySpacesAndNewLineCharacters()) // false //v. 1.5 and earlier
+print(emptyStr.isOnlyEmptySpacesAndNewLineCharacters()) // true //v. 1.5 and earlier
+print(myString.isBlank) // false
+print(emptyStr.isBlank) // true
 
 myString.trim()
 print(myString) // eZSwiftExtensions is awesome!
@@ -615,6 +620,13 @@ Easily get the main storyboard:
     let storyboard = UIStoryboard.mainStoryboard
 ```
 
+Easily get view controller from storyboard:
+
+``` swift
+    //ViewController must be set both as custom class and StoryboardID in identity inspector
+    let vc = storyboard!.instantiateVC(ViewController) //vc is of type ViewController
+```
+
 ### UIView Extensions
 
 Easily initialize your objects:
@@ -819,7 +831,7 @@ mainview.addPinchGesture { (pinch) -> () in
 // OR    
 mainview.addPinchGesture(target: self, action: "userAction")
 func userAction() {
-	print("panned")
+	print("pinched")
 }
 ```
 ``` swift      

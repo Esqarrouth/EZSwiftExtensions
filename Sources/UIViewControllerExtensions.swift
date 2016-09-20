@@ -22,7 +22,7 @@ extension UIViewController {
     public func removeNotificationObserver() {
         NotificationCenter.default.removeObserver(self)
     }
-    
+
     #if os(iOS)
 
     public func addKeyboardWillShowNotification() {
@@ -110,7 +110,7 @@ extension UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
-    
+
     #endif
 
     public func dismissKeyboard() {
@@ -231,8 +231,8 @@ extension UIViewController {
 
     /// EZSwiftExtensions
     public func addAsChildViewController(_ vc: UIViewController, toView: UIView) {
-        toView.addSubview(vc.view)
         self.addChildViewController(vc)
+        toView.addSubview(vc.view)
         vc.didMove(toParentViewController: self)
     }
 

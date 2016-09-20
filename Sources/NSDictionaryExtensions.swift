@@ -5,6 +5,7 @@
 //  Created by mousavian on 15/11/25.
 //  Copyright (c) 2016 Goktug Yilmaz. All rights reserved.
 //
+// swiftlint:disable line_length
 
 import Foundation
 
@@ -18,7 +19,7 @@ public extension NSDictionary {
             return nil
         }
     }
-    
+
     /// EZSE: Serialize NSDictionary into JSON string
     public func formatJSON() -> String? {
         if let jsonData = try? JSONSerialization.data(withJSONObject: self, options: JSONSerialization.WritingOptions()) {

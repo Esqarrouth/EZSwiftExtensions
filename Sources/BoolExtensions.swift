@@ -11,8 +11,8 @@ extension Bool {
     public var toInt: Int { return self ? 1 : 0 }
 
     /// EZSE: Toggle boolean value.
-    @discardableResult public mutating func toggle() -> Bool {
-        
+    @discardableResult
+    public mutating func toggle() -> Bool {
         self = !self
         return self
     }

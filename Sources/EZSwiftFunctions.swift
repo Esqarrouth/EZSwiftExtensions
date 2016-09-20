@@ -31,6 +31,11 @@ public struct ez {
         return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
     }
 
+    /// EZSE: Return app's bundle ID
+    public static var appBundleID: String? {
+        return Bundle.main.bundleIdentifier
+    }
+
     /// EZSE: Returns both app's version and build numbers "v0.3(7)"
     public static var appVersionAndBuild: String? {
         if appVersion != nil && appBuild != nil {
@@ -90,24 +95,20 @@ public struct ez {
 
     /// EZSE: Returns the top ViewController
     public static var topMostVC: UIViewController? {
-        var presentedVC = UIApplication.shared.keyWindow?.rootViewController
-        while let pVC = presentedVC?.presentedViewController {
-            presentedVC = pVC
-        }
-
-        if presentedVC == nil {
+        let topVC = UIApplication.topViewController()
+        if topVC == nil {
             print("EZSwiftExtensions Error: You don't have any views set. You may be calling them in viewDidLoad. Try viewDidAppear instead.")
         }
-        return presentedVC
+        return topVC
     }
 
     #if os(iOS)
-    
+
     /// EZSE: Returns current screen orientation
     public static var screenOrientation: UIInterfaceOrientation {
         return UIApplication.shared.statusBarOrientation
     }
-    
+
     #endif
 
     /// EZSwiftExtensions
@@ -122,40 +123,40 @@ public struct ez {
 
     /// EZSE: Returns screen width
     public static var screenWidth: CGFloat {
-        
+
         #if os(iOS)
-            
+
         if UIInterfaceOrientationIsPortrait(screenOrientation) {
             return UIScreen.main.bounds.size.width
         } else {
             return UIScreen.main.bounds.size.height
         }
-        
+
         #elseif os(tvOS)
-            
+
         return UIScreen.main.bounds.size.width
-        
+
         #endif
     }
 
     /// EZSE: Returns screen height
     public static var screenHeight: CGFloat {
-        
+
         #if os(iOS)
-        
+
         if UIInterfaceOrientationIsPortrait(screenOrientation) {
             return UIScreen.main.bounds.size.height
         } else {
             return UIScreen.main.bounds.size.width
         }
-        
+
         #elseif os(tvOS)
-            
+
             return UIScreen.main.bounds.size.height
-            
+
         #endif
     }
-    
+
     #if os(iOS)
 
     /// EZSE: Returns StatusBar height
@@ -171,7 +172,7 @@ public struct ez {
             return UIScreen.main.bounds.size.width - screenStatusBarHeight
         }
     }
-    
+
     #endif
 
     /// EZSE: Returns the locale country code. An example value might be "ES". //TODO: Add to readme
@@ -188,8 +189,26 @@ public struct ez {
         }
     }
 
+    //TODO: Document this, add tests to this
+    /// EZSE: Iterates through enum elements, use with (for element in ez.iterateEnum(myEnum))
+    /// http://stackoverflow.com/questions/24007461/how-to-enumerate-an-enum-with-string-type
+    public static func iterateEnum<T: Hashable>(_: T.Type) -> AnyIterator<T> {
+        var i = 0
+        return AnyIterator {
+            let next = withUnsafePointer(to: &i) { $0.withMemoryRebound(to: T.self, capacity: 1) { $0.pointee } }
+            if next.hashValue != i { return nil }
+            i += 1
+            return next
+        }
+    }
+
     // MARK: - Dispatch
 
+    /// EZSE: Runs the function after x seconds
+    public static func dispatchDelay(_ second: Double, closure:@escaping ()->()) {
+        DispatchQueue.main.asyncAfter(
+            deadline: DispatchTime.now() + Double(Int64(second * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
+    }
 
     /// EZSE: Runs function after x seconds
     public static func runThisAfterDelay(seconds: Double, after: @escaping () -> ()) {
@@ -204,7 +223,7 @@ public struct ez {
     }
 
     /// EZSE: Submits a block for asynchronous execution on the main queue
-    public static func runThisInMainThread(_ block: DispatchWorkItem) {
+    public static func runThisInMainThread(_ block: @escaping ()->()) {
         DispatchQueue.main.async(execute: block)
     }
 
@@ -219,6 +238,36 @@ public struct ez {
         let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, fireDate, seconds, 0, 0, handler)
         CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, CFRunLoopMode.commonModes)
         return timer!
+    }
+
+    /// EZSE: Gobal main queue
+    public var globalMainQueue: DispatchQueue {
+        return DispatchQueue.main
+    }
+
+    /// EZSE: Gobal queue with user interactive priority
+    public var globalUserInteractiveQueue: DispatchQueue {
+        return DispatchQueue.global(qos: .userInteractive)
+    }
+
+    /// EZSE: Gobal queue with user initiated priority
+    public var globalUserInitiatedQueue: DispatchQueue {
+        return DispatchQueue.global(qos: .userInitiated)
+    }
+
+    /// EZSE: Gobal queue with utility priority
+    public var globalUtilityQueue: DispatchQueue {
+        return DispatchQueue.global(qos: .utility)
+    }
+
+    /// EZSE: Gobal queue with background priority
+    public var globalBackgroundQueue: DispatchQueue {
+        return DispatchQueue.global(qos: .background)
+    }
+
+    /// EZSE: Gobal queue with default priority
+    public var globalQueue: DispatchQueue {
+        return DispatchQueue.global(qos: .default)
     }
 
     // MARK: - DownloadTask
@@ -236,7 +285,7 @@ public struct ez {
     public static func requestJSON(_ url: String, success: @escaping ((Any?) -> Void), error: ((Error) -> Void)?) {
         requestURL(url,
             success: { (data) -> Void in
-                let json: Any? = self.dataToJsonDict(data)
+                let json = self.dataToJsonDict(data)
                 success(json)
             },
             error: { (err) -> Void in
@@ -247,7 +296,7 @@ public struct ez {
     }
 
     /// EZSE: converts NSData to JSON dictionary
-    private static func dataToJsonDict(_ data: Data?) -> Any? {
+    fileprivate static func dataToJsonDict(_ data: Data?) -> Any? {
         if let d = data {
             var error: NSError?
             let json: Any?
@@ -271,7 +320,7 @@ public struct ez {
     }
 
     /// EZSE:
-    private static func requestURL(_ url: String, success: @escaping (Data?) -> Void, error: ((Error) -> Void)? = nil) {
+    fileprivate static func requestURL(_ url: String, success: @escaping (Data?) -> Void, error: ((Error) -> Void)? = nil) {
         guard let requestURL = URL(string: url) else {
             assertionFailure("EZSwiftExtensions Error: Invalid URL")
             return
@@ -281,7 +330,7 @@ public struct ez {
             with: URLRequest(url: requestURL),
             completionHandler: { data, response, err in
                 if let e = err {
-                    error?(e)
+                    error?(e as NSError)
                 } else {
                     success(data)
                 }

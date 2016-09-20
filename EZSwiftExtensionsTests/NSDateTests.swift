@@ -1,5 +1,5 @@
 //
-//  EZSwiftExtensionsTestsNSDate.swift
+//  NSDateTests.swift
 //  EZSwiftExtensions
 //
 //  Created by Valentino Urbano on 28/01/16.
@@ -7,8 +7,19 @@
 //
 
 import XCTest
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
 
-class EZSwiftExtensionsTestsNSDate: XCTestCase {
+
+class NSDateTests: XCTestCase {
     // note that NSDate uses UTC in NSDate(timeIntervalSince1970: _)
 
     var string: String!
@@ -39,7 +50,7 @@ class EZSwiftExtensionsTestsNSDate: XCTestCase {
         let formatter = DateFormatter()
         formatter.dateFormat = format
         let dateString = formatter.string(from: date)
-        
+
         XCTAssertEqual(date.toString(format: format), dateString)
     }
 

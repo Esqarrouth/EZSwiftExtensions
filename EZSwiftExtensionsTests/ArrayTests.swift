@@ -1,5 +1,5 @@
 //
-//  EZArrayExtensionsTests.swift
+//  ArrayTests.swift
 //  EZSwiftExtensions
 //
 //  Created by Valentino Urbano on 28/01/16.
@@ -9,7 +9,7 @@
 import XCTest
 import EZSwiftExtensions
 
-class EZSwiftExtensionsTestsArray: XCTestCase {
+class ArrayTests: XCTestCase {
     var numberArray: [Int] = []
 
     override func setUp() {
@@ -97,20 +97,12 @@ class EZSwiftExtensionsTestsArray: XCTestCase {
 
     func testEach() {
         var sameArray: [Int] = []
-        numberArray.each { sameArray.append($0) }
+        numberArray.forEach { sameArray.append($0) }
         XCTAssertEqual(numberArray, sameArray)
 
         var indexArray: [Int] = []
-        numberArray.each { indexArray.append($0.0) }
+        numberArray.forEach { indexArray.append($0.0) }
         XCTAssertEqual(indexArray, [Int](0..<numberArray.count))
-    }
-
-    func testMapFilter() {
-        let filtered = numberArray.mapFilter { number -> String? in
-            return number == 1 ? String(number) : nil
-        }
-
-        XCTAssertEqual(filtered.count, 2)
     }
 
     func testUnion() {
@@ -134,28 +126,44 @@ class EZSwiftExtensionsTestsArray: XCTestCase {
         XCTAssertEqual(difference, [0, 5, 6, 7, 8])
     }
 
+    /// WARNING: [SE-0121] Remove Optional Comparison Operators
     func testOptionalEquatable() {
         let a: [Int]? = [1, 2, 3]
         let b: [Int]? = [1, 2, 3]
-        let c: [Int]? = nil
+//        let c: [Int]? = nil
 
-        XCTAssertTrue(a == b)
-        XCTAssertFalse(a == c)
+        XCTAssertTrue(a! == b!)
+//        XCTAssertFalse(a! == c!)
     }
-    
+
     func testShuffle() {
         let copyArray = numberArray
-        
+
         numberArray.shuffle()
-        
+
         XCTAssertNotNil(numberArray)
         XCTAssertEqual(numberArray.count, copyArray.count)
-        
+
         for e in copyArray {
             if let i = numberArray.index(of: e) {
                 numberArray.remove(at: i)
             }
         }
         XCTAssertEqual(numberArray, [])
+    }
+
+    func testDecompose() {
+        let a: [Int] = []
+        let b: [Int] = [1]
+        let c: [Int] = [1, 2]
+        XCTAssertNil(a.decompose())
+        XCTAssertTrue(b.decompose()!.head == 1 && b.decompose()!.tail == [])
+        XCTAssertTrue(c.decompose()!.head == 1 && c.decompose()!.tail == [2])
+
+        let copyArray = numberArray
+        let head = copyArray.first!
+        let tail = copyArray.dropFirst()
+        XCTAssertTrue(numberArray.decompose()!.head == head)
+        XCTAssertTrue(numberArray.decompose()!.tail == tail)
     }
 }

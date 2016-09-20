@@ -11,40 +11,35 @@ import UIKit
 extension Double {
     /// EZSE: Converts Double to String
     public var toString: String { return String(self) }
+
     /// EZSE: Converts Double to Int
     public var toInt: Int { return Int(self) }
+}
 
+extension Double {
     /// EZSE: Returns a Double rounded to decimal
     public func getRoundedByPlaces(_ places: Int) -> Double {
-        let divisor = pow(10.0, Double(places))
-        return Darwin.round(self * divisor) / divisor
+        return castToDecimalByPlacesHelper(places, function: Darwin.round)
     }
 
     /// EZSE: Rounds the current Double rounded to decimal
     public mutating func roundByPlaces(_ places: Int) {
-        let divisor = pow(10.0, Double(places))
-        self = Darwin.round(self * divisor) / divisor
+        self = castToDecimalByPlacesHelper(places, function: Darwin.round)
     }
-    
+
     /// EZSE: Returns a Double Ceil to decimal
     public func getCeiledByPlaces(_ places: Int) -> Double {
-        let divisor = pow(10.0, Double(places))
-        return ceil(self * divisor) / divisor
+        return castToDecimalByPlacesHelper(places, function: Darwin.ceil)
     }
-}
 
-extension String {
-    init(_ value: Float, precision: Int) {
-        let nFormatter = NumberFormatter()
-        nFormatter.numberStyle = .decimal
-        nFormatter.maximumFractionDigits = precision
-        self = nFormatter.string(from: NSNumber(value: value))!
+    /// EZSE: Ceils current Double to number of places
+    public mutating func ceilByPlaces(_ places: Int) {
+        self = castToDecimalByPlacesHelper(places, function: Darwin.ceil)
     }
-    
-    init(_ value: Double, precision: Int) {
-        let nFormatter = NumberFormatter()
-        nFormatter.numberStyle = .decimal
-        nFormatter.maximumFractionDigits = precision
-        self = nFormatter.string(from: NSNumber(value: value))!
+
+    fileprivate func castToDecimalByPlacesHelper(_ places: Int, function: (Double) -> Double) -> Double {
+        guard places >= 0 else { return self }
+        let divisor = pow(10.0, Double(places))
+        return function(self * divisor) / divisor
     }
 }

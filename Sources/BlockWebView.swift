@@ -10,13 +10,13 @@ import UIKit
 
 #if os(iOS)
 
-///Make sure you use  "[weak self] (NSURLRequest) in" if you are using the keyword self inside the closure or there might be a memory leak
-public class BlockWebView: UIWebView, UIWebViewDelegate {
-    public var didStartLoad: ((URLRequest) -> ())?
-    public var didFinishLoad: ((URLRequest) -> ())?
-    public var didFailLoad: ((URLRequest, Error?) -> ())?
+///Make sure you use  `[weak self] (NSURLRequest) in` if you are using the keyword `self` inside the closure or there might be a memory leak
+open class BlockWebView: UIWebView, UIWebViewDelegate {
+    open var didStartLoad: ((URLRequest) -> ())?
+    open var didFinishLoad: ((URLRequest) -> ())?
+    open var didFailLoad: ((URLRequest, Error) -> ())?
 
-    public var shouldStartLoadingRequest: ((URLRequest) -> (Bool))?
+    open var shouldStartLoadingRequest: ((URLRequest) -> (Bool))?
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,20 +27,19 @@ public class BlockWebView: UIWebView, UIWebViewDelegate {
         super.init(coder: aDecoder)
     }
 
-
-    public func webViewDidStartLoad(_ webView: UIWebView) {
+    open func webViewDidStartLoad(_ webView: UIWebView) {
         didStartLoad? (webView.request!)
     }
 
-    public func webViewDidFinishLoad(_ webView: UIWebView) {
+    open func webViewDidFinishLoad(_ webView: UIWebView) {
         didFinishLoad? (webView.request!)
     }
 
-    public func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+    open func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         didFailLoad? (webView.request!, error)
     }
 
-    public func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    open func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         if let should = shouldStartLoadingRequest {
             return should (request)
         } else {

@@ -9,8 +9,8 @@
 import UIKit
 
 ///Make sure you use  "[weak self] (gesture) in" if you are using the keyword self inside the closure or there might be a memory leak
-public class BlockPan: UIPanGestureRecognizer {
-    private var panAction: ((UIPanGestureRecognizer) -> Void)?
+open class BlockPan: UIPanGestureRecognizer {
+    fileprivate var panAction: ((UIPanGestureRecognizer) -> Void)?
 
     public override init(target: Any?, action: Selector?) {
         super.init(target: target, action: action)
@@ -22,7 +22,7 @@ public class BlockPan: UIPanGestureRecognizer {
         self.addTarget(self, action: #selector(BlockPan.didPan(_:)))
     }
 
-    public func didPan (_ pan: UIPanGestureRecognizer) {
+    open func didPan (_ pan: UIPanGestureRecognizer) {
         panAction? (pan)
     }
 }

@@ -10,11 +10,11 @@ import UIKit
 public typealias BlockButtonAction = (_ sender: BlockButton) -> Void
 
 ///Make sure you use  "[weak self] (sender) in" if you are using the keyword self inside the closure or there might be a memory leak
-public class BlockButton: UIButton {
+open class BlockButton: UIButton {
     // MARK: Propeties
 
-    public var highlightLayer: CALayer?
-    public var action: BlockButtonAction?
+    open var highlightLayer: CALayer?
+    open var action: BlockButtonAction?
 
     // MARK: Init
 
@@ -53,6 +53,7 @@ public class BlockButton: UIButton {
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        defaultInit()
     }
 
     private func defaultInit() {
@@ -65,22 +66,22 @@ public class BlockButton: UIButton {
             UIControlEvents.touchDragExit
         ])
         setTitleColor(.black, for: .normal)
-        setTitleColor(UIColor.blue, for: .selected)
+        setTitleColor(.blue, for: .selected)
     }
 
-    public func addAction(_ action: @escaping BlockButtonAction) {
+    open func addAction(_ action: @escaping BlockButtonAction) {
         self.action = action
     }
 
     // MARK: Action
 
-    public func didPressed(_ sender: BlockButton) {
+    open func didPressed(_ sender: BlockButton) {
         action?(sender)
     }
 
     // MARK: Highlight
 
-    public func highlight() {
+    open func highlight() {
         if action == nil {
             return
         }
@@ -103,7 +104,7 @@ public class BlockButton: UIButton {
         self.highlightLayer = highlightLayer
     }
 
-    public func unhighlight() {
+    open func unhighlight() {
         if action == nil {
             return
         }

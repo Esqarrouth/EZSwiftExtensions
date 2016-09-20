@@ -1,5 +1,5 @@
 //
-//  EZSwiftExtensionsTestsCGFloat.swift
+//  CGFloatTests.swift
 //  EZSwiftExtensions
 //
 //  Created by Valentino Urbano on 28/01/16.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class EZSwiftExtensionsTestsCGFloat: XCTestCase {
+class CGFloatTests: XCTestCase {
     var radians: CGFloat!
     var degrees: CGFloat!
 
@@ -18,7 +18,7 @@ class EZSwiftExtensionsTestsCGFloat: XCTestCase {
         degrees = 360
     }
 
-    func testToggle() {
-        XCTAssertEqual(radians, degrees.degreesToRadians())
+    func testConversion() {
+        XCTAssertEqual(radians, degrees.toRadians())
     }
 }

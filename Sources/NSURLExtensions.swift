@@ -6,8 +6,11 @@
 //  Modified by mousavian on 2016/05/24.
 //  Copyright (c) 2016 Goktug Yilmaz. All rights reserved.
 //
+// swiftlint:disable line_length
+// swiftlint:disable trailing_whitespace
 
-import Foundation
+
+//import Foundation
 import UIKit
 
 extension URL {
@@ -27,12 +30,12 @@ extension URL {
 
     /// EZSE: Returns remote size of url, don't use it in main thread
     public func remoteSize(_ completionHandler: @escaping ((_ contentLength: Int64) -> Void), timeoutInterval: TimeInterval = 30) {
-        var request = URLRequest(url: self, cachePolicy: URLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
-        request.httpMethod = "HEAD";
+        var request = URLRequest(url: self, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
+        request.httpMethod = "HEAD"
         request.setValue("", forHTTPHeaderField: "Accept-Encoding")
-        URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             let contentLength: Int64 = response?.expectedContentLength ?? NSURLSessionTransferSizeUnknown
-            DispatchQueue.global(qos: .default).async(execute: { 
+            DispatchQueue.global(qos: .default).async(execute: {
                 completionHandler(contentLength)
             })
         }.resume()
@@ -41,14 +44,14 @@ extension URL {
     /// EZSE: Returns server supports resuming or not, don't use it in main thread
     public func supportsResume(_ completionHandler: @escaping ((_ doesSupport: Bool) -> Void), timeoutInterval: TimeInterval = 30) {
         var request = URLRequest(url: self, cachePolicy: URLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
-        request.httpMethod = "HEAD";
+        request.httpMethod = "HEAD"
         request.setValue("bytes=5-10", forHTTPHeaderField: "Range")
-        URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (_, response, _) -> Void in
+        URLSession.shared.dataTask(with: request) { (_, response, _) -> Void in
             let responseCode = (response as? HTTPURLResponse)?.statusCode ?? -1
             DispatchQueue.global(qos: .default).async(execute: {
                 completionHandler(responseCode == 206)
             })
-        }).resume()
+        }.resume()
     }
 
     /// EZSE: Compare two URLs
@@ -70,7 +73,7 @@ extension URL {
         if self.path.lowercased().trimmingCharacters(in: pathdelimiter) != url.path.lowercased().trimmingCharacters(in: pathdelimiter) {
             return false
         }
-        if self.port != url.port {
+        if (self as NSURL).port != (url as NSURL).port {
             return false
         }
         if self.query?.lowercased() != url.query?.lowercased() {
@@ -79,15 +82,25 @@ extension URL {
         return true
     }
 
-    /// EZSE: Returns true of given file is a directory
+    /// EZSE: Returns true if given file is a directory
     public var fileIsDirectory: Bool {
-        return (try? self.resourceValues(forKeys: [.isDirectoryKey]))?.isDirectory ?? false
+        var isdirv: AnyObject?
+        do {
+            try (self as NSURL).getResourceValue(&isdirv, forKey: URLResourceKey.isDirectoryKey)
+        } catch _ {
+        }
+        return isdirv?.boolValue ?? false
     }
 
     /// EZSE: File modification date, nil if file doesn't exist
     public var fileModifiedDate: Date? {
         get {
-            return (try? self.resourceValues(forKeys: [.contentModificationDateKey]))?.contentModificationDate
+            var datemodv: AnyObject?
+            do {
+                try (self as NSURL).getResourceValue(&datemodv, forKey: URLResourceKey.contentModificationDateKey)
+            } catch _ {
+            }
+            return datemodv as? Date
         }
         set {
             do {
@@ -99,23 +112,53 @@ extension URL {
 
     /// EZSE: File creation date, nil if file doesn't exist
     public var fileCreationDate: Date? {
-        return (try? resourceValues(forKeys: [.creationDateKey]))?.creationDate
+        get {
+            var datecreatev: AnyObject?
+            do {
+                try (self as NSURL).getResourceValue(&datecreatev, forKey: URLResourceKey.creationDateKey)
+            } catch _ {
+            }
+            return datecreatev as? Date
+        }
+        set {
+            do {
+                try (self as NSURL).setResourceValue(newValue, forKey: URLResourceKey.creationDateKey)
+            } catch _ {
+            }
+
+        }
     }
 
-    /// EZSE: Returns last file access date, nil if file doesn't exist or didn't accessed yet
+    /// EZSE: Returns last file access date, nil if file doesn't exist or not yet accessed
     public var fileAccessDate: Date? {
-        return (try? self.resourceValues(forKeys: [.contentAccessDateKey]))?.contentAccessDate
+        _ = URLResourceKey.customIconKey
+        var dateaccessv: AnyObject?
+        do {
+            try (self as NSURL).getResourceValue(&dateaccessv, forKey: URLResourceKey.contentAccessDateKey)
+        } catch _ {
+        }
+        return dateaccessv as? Date
     }
 
     /// EZSE: Returns file size, -1 if file doesn't exist
-    public var fileSizeValue: Int {
-        return (try? self.resourceValues(forKeys: [.fileSizeKey]))?.fileSize ?? -1
+    public var fileSize: Int64 {
+        var sizev: AnyObject?
+        do {
+            try (self as NSURL).getResourceValue(&sizev, forKey: URLResourceKey.fileSizeKey)
+        } catch _ {
+        }
+        return sizev?.int64Value ?? -1
     }
 
-    /// EZSE: File is hidden or not, don't care about files begining with dot
+    /// EZSE: File is hidden or not, don't care about files beginning with dot
     public var fileIsHidden: Bool {
         get {
-            return (try? self.resourceValues(forKeys: [.isHiddenKey]))?.isHidden ?? false
+            var ishiddenv: AnyObject?
+            do {
+                try (self as NSURL).getResourceValue(&ishiddenv, forKey: URLResourceKey.isHiddenKey)
+            } catch _ {
+            }
+            return ishiddenv?.boolValue ?? false
         }
         set {
             do {
@@ -126,9 +169,14 @@ extension URL {
         }
     }
 
-    /// EZSE: Checks file is writable
+    /// EZSE: Checks if file is writable
     public var fileIsWritable: Bool {
-        return (try? self.resourceValues(forKeys: [.isWritableKey]))?.isWritable ?? false
+        var isdirv: AnyObject?
+        do {
+            try (self as NSURL).getResourceValue(&isdirv, forKey: URLResourceKey.isWritableKey)
+        } catch _ {
+        }
+        return isdirv?.boolValue ?? false
     }
 
     #if (OSX)
@@ -209,7 +257,7 @@ extension URL {
                     }
                 }
                 do {
-                    try (self as NSURL).setResourceValue(NSNumber(value: skip!), forKey: URLResourceKey.isExcludedFromBackupKey)
+                    try (self as NSURL).setResourceValue(NSNumber(value: skip!), forKey: .isExcludedFromBackupKey)
                     return true
                 } catch _ {
                     return false

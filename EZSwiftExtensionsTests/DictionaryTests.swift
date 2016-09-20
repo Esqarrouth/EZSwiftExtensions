@@ -1,5 +1,5 @@
 //
-//  EZSwiftExtensionsTestsDictionary.swift
+//  DictionaryTests.swift
 //  EZSwiftExtensions
 //
 //  Created by Valentino Urbano on 28/01/16.
@@ -9,7 +9,7 @@
 import XCTest
 import EZSwiftExtensions
 
-class EZSwiftExtensionsTestsDictionary: XCTestCase {
+class DictionaryTests: XCTestCase {
     var firstdic: [String:Int]!
     var secondDic: [String:Int]!
     var thirdDic: [String:Int]!
@@ -88,9 +88,9 @@ class EZSwiftExtensionsTestsDictionary: XCTestCase {
         XCTAssertEqual(secondFiltered.count, 1)
 
     }
-    
+
     func testJSON () {
-        let jsonDic = NSDictionary(dictionary: ["name": "John", "surname": "Smith", "age": 35.0, "married": NSNumber.init(value: true), "children": 3])
+        let jsonDic = NSDictionary(dictionary: ["name": "John", "surname": "Smith", "age": 35.0, "married": NSNumber(value: true), "children": 3])
         let jsonString = jsonDic.formatJSON()
         XCTAssertNotNil(jsonString)
         let secondJsonDic = NSDictionary(json: jsonString!)
