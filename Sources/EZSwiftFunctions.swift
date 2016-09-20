@@ -134,7 +134,7 @@ public struct ez {
 
         #elseif os(tvOS)
 
-        return UIScreen.mainScreen().bounds.size.width
+        return UIScreen.main.bounds.size.width
 
         #endif
     }
@@ -152,7 +152,7 @@ public struct ez {
 
         #elseif os(tvOS)
 
-            return UIScreen.mainScreen().bounds.size.height
+            return UIScreen.main.bounds.size.height
 
         #endif
     }
@@ -177,7 +177,7 @@ public struct ez {
 
     /// EZSE: Returns the locale country code. An example value might be "ES". //TODO: Add to readme
     public static var currentRegion: String? {
-        return (Locale.current as NSLocale).object(forKey: NSLocale.Key.countryCode) as? String
+        return Locale.current.currencyCode
     }
 
     /// EZSE: Calls action when a screen shot is taken
@@ -282,7 +282,7 @@ public struct ez {
     }
 
     /// EZSE: Downloads JSON from url string
-    public static func requestJSON(_ url: String, success: @escaping ((Any?) -> Void), error: ((NSError) -> Void)?) {
+    public static func requestJSON(_ url: String, success: @escaping ((Any?) -> Void), error: ((Error) -> Void)?) {
         requestURL(url,
             success: { (data) -> Void in
                 let json = self.dataToJsonDict(data)
@@ -320,7 +320,7 @@ public struct ez {
     }
 
     /// EZSE:
-    fileprivate static func requestURL(_ url: String, success: @escaping (Data?) -> Void, error: ((NSError) -> Void)? = nil) {
+    fileprivate static func requestURL(_ url: String, success: @escaping (Data?) -> Void, error: ((Error) -> Void)? = nil) {
         guard let requestURL = URL(string: url) else {
             assertionFailure("EZSwiftExtensions Error: Invalid URL")
             return

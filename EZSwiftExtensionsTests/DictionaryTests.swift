@@ -90,7 +90,7 @@ class DictionaryTests: XCTestCase {
     }
 
     func testJSON () {
-        let jsonDic = NSDictionary(dictionary: ["name": "John", "surname": "Smith", "age": 35.0, "married": NSNumber.init(value: true as Bool), "children": 3])
+        let jsonDic = NSDictionary(dictionary: ["name": "John", "surname": "Smith", "age": 35.0, "married": NSNumber(value: true), "children": 3])
         let jsonString = jsonDic.formatJSON()
         XCTAssertNotNil(jsonString)
         let secondJsonDic = NSDictionary(json: jsonString!)

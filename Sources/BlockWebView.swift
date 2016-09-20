@@ -14,7 +14,7 @@ import UIKit
 open class BlockWebView: UIWebView, UIWebViewDelegate {
     open var didStartLoad: ((URLRequest) -> ())?
     open var didFinishLoad: ((URLRequest) -> ())?
-    open var didFailLoad: ((URLRequest, NSError) -> ())?
+    open var didFailLoad: ((URLRequest, Error) -> ())?
 
     open var shouldStartLoadingRequest: ((URLRequest) -> (Bool))?
 
@@ -27,7 +27,6 @@ open class BlockWebView: UIWebView, UIWebViewDelegate {
         super.init(coder: aDecoder)
     }
 
-
     open func webViewDidStartLoad(_ webView: UIWebView) {
         didStartLoad? (webView.request!)
     }
@@ -37,7 +36,7 @@ open class BlockWebView: UIWebView, UIWebViewDelegate {
     }
 
     open func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-        didFailLoad? (webView.request!, error as NSError)
+        didFailLoad? (webView.request!, error)
     }
 
     open func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {

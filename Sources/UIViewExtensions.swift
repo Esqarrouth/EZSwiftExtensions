@@ -269,7 +269,7 @@ extension UIView {
     public func setRotationX(_ x: CGFloat) {
         var transform = CATransform3DIdentity
         transform.m34 = 1.0 / -1000.0
-        transform = CATransform3DRotate(transform, x.degreesToRadians(), 1.0, 0.0, 0.0)
+        transform = CATransform3DRotate(transform, x.toRadians(), 1.0, 0.0, 0.0)
         self.layer.transform = transform
     }
 
@@ -277,7 +277,7 @@ extension UIView {
     public func setRotationY(_ y: CGFloat) {
         var transform = CATransform3DIdentity
         transform.m34 = 1.0 / -1000.0
-        transform = CATransform3DRotate(transform, y.degreesToRadians(), 0.0, 1.0, 0.0)
+        transform = CATransform3DRotate(transform, y.toRadians(), 0.0, 1.0, 0.0)
         self.layer.transform = transform
     }
 
@@ -285,7 +285,7 @@ extension UIView {
     public func setRotationZ(_ z: CGFloat) {
         var transform = CATransform3DIdentity
         transform.m34 = 1.0 / -1000.0
-        transform = CATransform3DRotate(transform, z.degreesToRadians(), 0.0, 0.0, 1.0)
+        transform = CATransform3DRotate(transform, z.toRadians(), 0.0, 0.0, 1.0)
         self.layer.transform = transform
     }
 
@@ -293,9 +293,9 @@ extension UIView {
     public func setRotation(x: CGFloat, y: CGFloat, z: CGFloat) {
         var transform = CATransform3DIdentity
         transform.m34 = 1.0 / -1000.0
-        transform = CATransform3DRotate(transform, x.degreesToRadians(), 1.0, 0.0, 0.0)
-        transform = CATransform3DRotate(transform, y.degreesToRadians(), 0.0, 1.0, 0.0)
-        transform = CATransform3DRotate(transform, z.degreesToRadians(), 0.0, 0.0, 1.0)
+        transform = CATransform3DRotate(transform, x.toRadians(), 1.0, 0.0, 0.0)
+        transform = CATransform3DRotate(transform, y.toRadians(), 0.0, 1.0, 0.0)
+        transform = CATransform3DRotate(transform, z.toRadians(), 0.0, 0.0, 1.0)
         self.layer.transform = transform
     }
 

@@ -46,6 +46,14 @@ extension String {
         let range = start..<end
         return self[range]
     }
+    
+    /// EZSE: Cut string from closedrange
+    public subscript(integerClosedRange: ClosedRange<Int>) -> String {
+        let start = characters.index(startIndex, offsetBy: integerClosedRange.lowerBound)
+        let end = characters.index(startIndex, offsetBy: integerClosedRange.upperBound)
+        let range = start...end
+        return self[range]
+    }
 
     /// EZSE: Character count
     public var length: Int {
@@ -67,7 +75,6 @@ extension String {
     public func capitalizedFirst() -> String {
         guard characters.count > 0 else { return self }
         var result = self
-        
         result.replaceSubrange(startIndex...startIndex, with: String(self[startIndex]).capitalized)
         return result
     }
@@ -217,9 +224,9 @@ extension String {
         if subString.isEmpty {
             return -1
         }
-        var searchOption = fromEnd ? NSString.CompareOptions.anchored : NSString.CompareOptions.backwards
+        var searchOption = fromEnd ? String.CompareOptions.anchored : .backwards
         if caseInsensitive {
-            searchOption.insert(NSString.CompareOptions.caseInsensitive)
+            searchOption.insert(.caseInsensitive)
         }
         if let range = self.range(of: subString, options: searchOption), !range.isEmpty {
             return self.characters.distance(from: self.startIndex, to: range.lowerBound)
@@ -316,6 +323,7 @@ extension String {
 //    }
 
     /// EZSE: Checking if String contains input with comparing options
+    /// WARNING: tests?
     public func contains(_ find: String, compareOption: NSString.CompareOptions) -> Bool {
         return self.range(of: find, options: compareOption) != nil
     }
@@ -350,9 +358,9 @@ extension String {
     /// EZSE: Converts String to Bool
     /// WARNING: not expected behaviour
     public func toBool() -> Bool? {
-        let trimmedString = trimmed()
-        if trimmedString == "true" || trimmedString == "false" {
-            return (trimmedString as NSString).boolValue
+        let boolString = trimmed().lowercased()
+        if boolString == "true" || boolString == "false" {
+            return (boolString as NSString).boolValue
         }
         return nil
     }

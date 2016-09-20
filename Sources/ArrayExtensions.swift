@@ -86,7 +86,7 @@ extension Array {
     }
 
     /// EZSE: Iterates on each element of the array.
-    @available(*, deprecated: 1.6)
+    @available(*, deprecated: 1.6, renamed: "forEach")
     public func each(_ call: (Element) -> ()) {
         for item in self {
             call(item)
@@ -163,7 +163,7 @@ extension Array where Element: Equatable {
 
     /// EZSE: Checks if self contains a list of items.
     public func contains(_ items: Element...) -> Bool {
-        return items.testAll { self.index(of: $0) >= 0 }
+        return items.testAll { (self.index(of: $0) ?? -1) >= 0 }
     }
 
     /// EZSE: Difference of self and the input arrays.

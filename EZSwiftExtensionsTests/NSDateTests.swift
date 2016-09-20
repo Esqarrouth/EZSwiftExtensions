@@ -46,7 +46,7 @@ class NSDateTests: XCTestCase {
 
     func testDateToString() {
         let date = Date(timeIntervalSince1970: 0)
-
+        
         let formatter = DateFormatter()
         formatter.dateFormat = format
         let dateString = formatter.string(from: date)

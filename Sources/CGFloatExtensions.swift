@@ -18,6 +18,7 @@ extension CGFloat {
     }
 
     /// EZSwiftExtensions
+    @available(*, deprecated: 1.7, renamed: "toRadians")
     public func degreesToRadians() -> CGFloat {
         return toRadians()
     }

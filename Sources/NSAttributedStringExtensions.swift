@@ -45,10 +45,9 @@ extension NSAttributedString {
     /// EZSE: Adds strikethrough attribute to NSAttributedString and returns it
     public func strikethrough() -> NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
-
         let range = (self.string as NSString).range(of: self.string)
         let attributes = [
-        NSStrikethroughStyleAttributeName: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)]
+        NSStrikethroughStyleAttributeName: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue)]
         copy.addAttributes(attributes, range: range)
 
         return copy

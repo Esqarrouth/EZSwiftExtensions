@@ -93,7 +93,6 @@ extension UIDevice {
 
         for child in mirror.children {
             let value = child.value
-
             if let value = value as? Int8, value != 0 {
                 identifier.append(String(UnicodeScalar(UInt8(value))))
             }
@@ -202,7 +201,7 @@ extension UIDevice {
 
     /// EZSwiftExtensions
     public class func isSystemVersionOver(_ requiredVersion: String) -> Bool {
-        switch systemVersion().compare(requiredVersion, options: NSString.CompareOptions.numeric) {
+        switch systemVersion().compare(requiredVersion, options: String.CompareOptions.numeric) {
         case .orderedSame, .orderedDescending:
             //println("iOS >= 8.0")
             return true

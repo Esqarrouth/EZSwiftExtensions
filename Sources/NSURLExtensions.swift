@@ -9,6 +9,8 @@
 // swiftlint:disable line_length
 // swiftlint:disable trailing_whitespace
 
+
+//import Foundation
 import UIKit
 
 extension URL {
@@ -28,10 +30,10 @@ extension URL {
 
     /// EZSE: Returns remote size of url, don't use it in main thread
     public func remoteSize(_ completionHandler: @escaping ((_ contentLength: Int64) -> Void), timeoutInterval: TimeInterval = 30) {
-        let request = NSMutableURLRequest(url: self, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
+        var request = URLRequest(url: self, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
         request.httpMethod = "HEAD"
         request.setValue("", forHTTPHeaderField: "Accept-Encoding")
-        URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             let contentLength: Int64 = response?.expectedContentLength ?? NSURLSessionTransferSizeUnknown
             DispatchQueue.global(qos: .default).async(execute: {
                 completionHandler(contentLength)
@@ -41,10 +43,10 @@ extension URL {
 
     /// EZSE: Returns server supports resuming or not, don't use it in main thread
     public func supportsResume(_ completionHandler: @escaping ((_ doesSupport: Bool) -> Void), timeoutInterval: TimeInterval = 30) {
-        let request = NSMutableURLRequest(url: self, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
+        var request = URLRequest(url: self, cachePolicy: URLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
         request.httpMethod = "HEAD"
         request.setValue("bytes=5-10", forHTTPHeaderField: "Range")
-        URLSession.shared.dataTask(with: request as URLRequest) { (_, response, _) -> Void in
+        URLSession.shared.dataTask(with: request) { (_, response, _) -> Void in
             let responseCode = (response as? HTTPURLResponse)?.statusCode ?? -1
             DispatchQueue.global(qos: .default).async(execute: {
                 completionHandler(responseCode == 206)
@@ -255,7 +257,7 @@ extension URL {
                     }
                 }
                 do {
-                    try (self as NSURL).setResourceValue(NSNumber(value: skip! as Bool), forKey: URLResourceKey.isExcludedFromBackupKey)
+                    try (self as NSURL).setResourceValue(NSNumber(value: skip!), forKey: .isExcludedFromBackupKey)
                     return true
                 } catch _ {
                     return false
