@@ -28,7 +28,13 @@ extension UIView {
 
 // MARK: Frame Extensions
 extension UIView {
-    //TODO: Multipe addsubview
+
+    /// EZSwiftExtensions, add multiple subviews
+    public func addSubviews(_ views: [UIView]) {
+        views.forEach { eachView in
+            self.addSubview(eachView)
+        }
+    }
     //TODO: Add pics to readme
     /// EZSwiftExtensions, resizes this view so it fits the largest subview
     public func resizeToFitSubviews() {
@@ -262,7 +268,7 @@ extension UIView {
     public func setRotationX(_ x: CGFloat) {
         var transform = CATransform3DIdentity
         transform.m34 = 1.0 / -1000.0
-        transform = CATransform3DRotate(transform, x.degreesToRadians(), 1.0, 0.0, 0.0)
+        transform = CATransform3DRotate(transform, x.toRadians(), 1.0, 0.0, 0.0)
         self.layer.transform = transform
     }
 
@@ -270,7 +276,7 @@ extension UIView {
     public func setRotationY(_ y: CGFloat) {
         var transform = CATransform3DIdentity
         transform.m34 = 1.0 / -1000.0
-        transform = CATransform3DRotate(transform, y.degreesToRadians(), 0.0, 1.0, 0.0)
+        transform = CATransform3DRotate(transform, y.toRadians(), 0.0, 1.0, 0.0)
         self.layer.transform = transform
     }
 
@@ -278,7 +284,7 @@ extension UIView {
     public func setRotationZ(_ z: CGFloat) {
         var transform = CATransform3DIdentity
         transform.m34 = 1.0 / -1000.0
-        transform = CATransform3DRotate(transform, z.degreesToRadians(), 0.0, 0.0, 1.0)
+        transform = CATransform3DRotate(transform, z.toRadians(), 0.0, 0.0, 1.0)
         self.layer.transform = transform
     }
 
@@ -286,9 +292,9 @@ extension UIView {
     public func setRotation(x: CGFloat, y: CGFloat, z: CGFloat) {
         var transform = CATransform3DIdentity
         transform.m34 = 1.0 / -1000.0
-        transform = CATransform3DRotate(transform, x.degreesToRadians(), 1.0, 0.0, 0.0)
-        transform = CATransform3DRotate(transform, y.degreesToRadians(), 0.0, 1.0, 0.0)
-        transform = CATransform3DRotate(transform, z.degreesToRadians(), 0.0, 0.0, 1.0)
+        transform = CATransform3DRotate(transform, x.toRadians(), 1.0, 0.0, 0.0)
+        transform = CATransform3DRotate(transform, y.toRadians(), 0.0, 1.0, 0.0)
+        transform = CATransform3DRotate(transform, z.toRadians(), 0.0, 0.0, 1.0)
         self.layer.transform = transform
     }
 
@@ -435,6 +441,14 @@ extension UIView {
             self.setScale(x: 1, y: 1)
             })
     }
+
+    //EZSE: Reverse pop, good for button animations
+    public func reversePop() {
+        setScale(x: 0.9, y: 0.9)
+        UIView.animate(withDuration: 0.05, delay: 0, options: UIViewAnimationOptions.allowUserInteraction, animations: { [weak self] Void in
+            self?.setScale(x: 1, y: 1)
+        }) { (bool) in }
+    }
 }
 
 //TODO: add this to readme
@@ -472,13 +486,11 @@ extension UIView {
     public func addSwipeGesture(direction: UISwipeGestureRecognizerDirection, numberOfTouches: Int = 1, target: AnyObject, action: Selector) {
         let swipe = UISwipeGestureRecognizer(target: target, action: action)
         swipe.direction = direction
-        
+
         #if os(iOS)
-        
         swipe.numberOfTouchesRequired = numberOfTouches
-            
         #endif
-        
+
         addGestureRecognizer(swipe)
         isUserInteractionEnabled = true
     }
@@ -505,25 +517,21 @@ extension UIView {
     }
 
     #if os(iOS)
-    
     /// EZSwiftExtensions
     public func addPinchGesture(target: AnyObject, action: Selector) {
         let pinch = UIPinchGestureRecognizer(target: target, action: action)
         addGestureRecognizer(pinch)
         isUserInteractionEnabled = true
     }
-    
     #endif
-    
-    #if os(iOS)
 
+    #if os(iOS)
     /// EZSwiftExtensions - Make sure you use  "[weak self] (gesture) in" if you are using the keyword self inside the closure or there might be a memory leak
     public func addPinchGesture(action: ((UIPinchGestureRecognizer) -> ())?) {
         let pinch = BlockPinch(action: action)
         addGestureRecognizer(pinch)
         isUserInteractionEnabled = true
     }
-    
     #endif
 
     /// EZSwiftExtensions

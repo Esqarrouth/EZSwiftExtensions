@@ -54,10 +54,10 @@ extension UIColor {
     }
 
     /// EZSE: Alpha of UIColor (get-only)
-    public var alpha: Int {
+    public var alpha: CGFloat {
         var a: CGFloat = 0
         getRed(nil, green: nil, blue: nil, alpha: &a)
-        return Int(a)
+        return a
     }
 
     /// EZSE: Returns random UIColor with random alpha(default: false)

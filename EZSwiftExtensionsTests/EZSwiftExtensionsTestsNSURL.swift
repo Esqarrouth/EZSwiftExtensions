@@ -1,5 +1,5 @@
 //
-//  NSURLTests.swift
+//  EZSwiftExtensionsTestsNSURL.swift
 //  EZSwiftExtensions
 //
 //  Created by furuyan on 2016/03/02.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import EZSwiftExtensions
 
-class NSURLTests: XCTestCase {
+class EZSwiftExtensionsTestsNSURL: XCTestCase {
     func testQueryParameters() {
         let url = URL(string: "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=facebook")
         if let queryParameters = url?.queryParameters {
@@ -39,23 +39,25 @@ class NSURLTests: XCTestCase {
         XCTAssertEqual(len, 1024)
         XCTAssertEqual(support, true)
     }
-
+    
     func testIsSame() {
         let url1 = URL(string: "http://google.com/")!
         let url2 = URL(string: "http://www.google.com")!
         XCTAssertTrue(url1.isSameWithURL(url2))
     }
-
-    //func testFileFunctions() {
+    
+    func testFileFunctions() {
         // FIXME: Better implementation to address a real existing file url
-        //let documentsPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
-        //let documentsURL = NSURL(fileURLWithPath: documentsPath)
-        //XCTAssertTrue(documentsURL.fileIsDirectory)
-        //XCTAssertNotNil(documentsURL.fileCreationDate)
-        //XCTAssertNotNil(documentsURL.fileModifiedDate)
-        //XCTAssertTrue(documentsURL.fileIsWritable)
-        //XCTAssertEqual(documentsURL.fileSize, -1)
-    //}
-
-
+        let documentsPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.libraryDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
+        let documentsURL = URL(fileURLWithPath: documentsPath)
+    
+        XCTAssertTrue(documentsURL.fileIsDirectory)
+        XCTAssertNotNil(documentsURL.fileCreationDate)
+        XCTAssertNotNil(documentsURL.fileModifiedDate)
+        XCTAssertTrue(documentsURL.fileIsWritable)
+        XCTAssertEqual(documentsURL.fileSizeValue, -1)
+        
+    }
+    
+    
 }

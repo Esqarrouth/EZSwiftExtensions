@@ -5,7 +5,6 @@
 //  Created by Rugen Heidbuchel on 15/06/2016.
 //  Copyright © 2016 Goktug Yilmaz. All rights reserved.
 //
-
 import UIKit
 
 extension UIStoryboard {
@@ -23,7 +22,7 @@ extension UIStoryboard {
 	/// EZSE: Get view controller from storyboard by its class type
 	/// Usage: let profileVC = storyboard!.instantiateVC(ProfileViewController) /* profileVC is of type ProfileViewController */
 	/// Warning: identifier should match storyboard ID in storyboard of identifier class
-	public func instantiateVC<T>(identifier: T.Type) -> T? {
+	public func instantiateVC<T>(_ identifier: T.Type) -> T? {
 		let storyboardID = String(describing: identifier)
 		if let vc = instantiateViewController(withIdentifier: storyboardID) as? T {
 			return vc

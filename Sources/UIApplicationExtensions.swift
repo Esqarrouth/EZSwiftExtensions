@@ -9,8 +9,7 @@ import UIKit
 
 extension UIApplication {
     /// EZSE: Run a block in background after app resigns activity
-    public func runInBackground(closure: @escaping () -> Void, expirationHandler: (() -> Void)? = nil) {
-        
+    public func runInBackground(_ closure: @escaping () -> Void, expirationHandler: (() -> Void)? = nil) {
         DispatchQueue.main.async {
             let taskID: UIBackgroundTaskIdentifier
             if let expirationHandler = expirationHandler {
@@ -24,17 +23,17 @@ extension UIApplication {
     }
 
     /// EZSE: Get the top most view controller from the base view controller; default param is UIWindow's rootViewController
-    public class func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+    public class func topViewController(_ base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let nav = base as? UINavigationController {
-            return topViewController(base: nav.visibleViewController)
+            return topViewController(nav.visibleViewController)
         }
         if let tab = base as? UITabBarController {
             if let selected = tab.selectedViewController {
-                return topViewController(base: selected)
+                return topViewController(selected)
             }
         }
         if let presented = base?.presentedViewController {
-            return topViewController(base: presented)
+            return topViewController(presented)
         }
         return base
     }

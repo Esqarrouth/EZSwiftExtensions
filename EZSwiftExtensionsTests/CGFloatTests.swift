@@ -18,7 +18,7 @@ class CGFloatTests: XCTestCase {
         degrees = 360
     }
 
-    func testToggle() {
-        XCTAssertEqual(radians, degrees.degreesToRadians())
+    func testConversion() {
+        XCTAssertEqual(radians, degrees.toRadians())
     }
 }

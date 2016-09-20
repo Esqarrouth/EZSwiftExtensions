@@ -9,9 +9,9 @@
 import Foundation
 
 public extension UserDefaults {
-    public subscript(key: String) -> AnyObject? {
+    public subscript(key: String) -> Any? {
         get {
-            return object(forKey: key) as AnyObject?
+            return object(forKey: key)
         }
         set {
             set(newValue, forKey: key)

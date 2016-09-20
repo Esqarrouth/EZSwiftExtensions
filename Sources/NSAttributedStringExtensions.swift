@@ -8,10 +8,8 @@
 import UIKit
 
 extension NSAttributedString {
-    /// EZSE: Adds bold attribute to NSAttributedString and returns it
-    
     #if os(iOS)
-    
+    /// EZSE: Adds bold attribute to NSAttributedString and returns it
     public func bold() -> NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
 
@@ -19,7 +17,6 @@ extension NSAttributedString {
         copy.addAttributes([NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)], range: range)
         return copy
     }
-    
     #endif
 
     /// EZSE: Adds underline attribute to NSAttributedString and returns it
@@ -30,9 +27,8 @@ extension NSAttributedString {
         copy.addAttributes([NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue], range: range)
         return copy
     }
-    
-    #if os(iOS)
 
+    #if os(iOS)
     /// EZSE: Adds italic attribute to NSAttributedString and returns it
     public func italic() -> NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
@@ -41,20 +37,17 @@ extension NSAttributedString {
         copy.addAttributes([NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)], range: range)
         return copy
     }
-    
+
     /// EZSE: Adds strikethrough attribute to NSAttributedString and returns it
     public func strikethrough() -> NSAttributedString {
         guard let copy = self.mutableCopy() as? NSMutableAttributedString else { return self }
-    
         let range = (self.string as NSString).range(of: self.string)
         let attributes = [
-        NSStrikethroughStyleAttributeName: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)]
+        NSStrikethroughStyleAttributeName: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue)]
         copy.addAttributes(attributes, range: range)
-      
+
         return copy
     }
-
-    
     #endif
 
     /// EZSE: Adds color attribute to NSAttributedString and returns it

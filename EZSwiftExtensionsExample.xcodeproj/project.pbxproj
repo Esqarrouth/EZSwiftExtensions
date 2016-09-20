@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C48E3F661D902B6700ED2DF7 /* NSUserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48E3F651D902B6700ED2DF7 /* NSUserDefaultsExtension.swift */; };
 		C85840ED1C43B05200595696 /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85840EC1C43B05200595696 /* NSURLExtensions.swift */; };
 		E10A79321D6F2ED700735549 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79311D6F2ED700735549 /* UIApplicationExtensions.swift */; };
 		E10A79371D6F4BDB00735549 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79361D6F4BDB00735549 /* UITextFieldExtensions.swift */; };
@@ -61,6 +62,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C48E3F651D902B6700ED2DF7 /* NSUserDefaultsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSUserDefaultsExtension.swift; path = Sources/NSUserDefaultsExtension.swift; sourceTree = SOURCE_ROOT; };
 		C85840EC1C43B05200595696 /* NSURLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSURLExtensions.swift; path = Sources/NSURLExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E10A79311D6F2ED700735549 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIApplicationExtensions.swift; path = Sources/UIApplicationExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E10A79361D6F4BDB00735549 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextFieldExtensions.swift; path = Sources/UITextFieldExtensions.swift; sourceTree = SOURCE_ROOT; };
@@ -135,6 +137,7 @@
 				E1839E041BF79974002212C6 /* BlockLongPress.swift */,
 				E1839E051BF79974002212C6 /* BlockPan.swift */,
 				E1839E061BF79974002212C6 /* BlockPinch.swift */,
+				C48E3F651D902B6700ED2DF7 /* NSUserDefaultsExtension.swift */,
 				E1839E071BF79974002212C6 /* BlockSwipe.swift */,
 				E1839E081BF79974002212C6 /* BlockTap.swift */,
 				E1839E091BF79974002212C6 /* BlockWebView.swift */,
@@ -237,7 +240,7 @@
 		E1839DAD1BF79335002212C6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Goktug Yilmaz";
 				TargetAttributes = {
 					E1839DB41BF79335002212C6 = {
@@ -292,6 +295,7 @@
 				E1839E351BF79974002212C6 /* UIImageViewExtensions.swift in Sources */,
 				E1839E371BF79974002212C6 /* UITextViewExtensions.swift in Sources */,
 				E1839E2F1BF79974002212C6 /* UIButtonExtensions.swift in Sources */,
+				C48E3F661D902B6700ED2DF7 /* NSUserDefaultsExtension.swift in Sources */,
 				E1587FB01CCA41F400A0B071 /* UISwitchExtensions.swift in Sources */,
 				E10A79491D6F51E200735549 /* NSDictionaryExtensions.swift in Sources */,
 				E1839E301BF79974002212C6 /* UIColoredView.swift in Sources */,
@@ -368,8 +372,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -396,6 +402,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -413,8 +420,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -433,6 +442,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -442,11 +453,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = EZSwiftExtensions/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbf.EZSwiftExtensions;
 				PRODUCT_NAME = EZSwiftExtensionsExample;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -454,11 +467,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = EZSwiftExtensions/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbf.EZSwiftExtensions;
 				PRODUCT_NAME = EZSwiftExtensionsExample;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

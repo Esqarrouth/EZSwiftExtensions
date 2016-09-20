@@ -27,7 +27,7 @@ extension UITextField {
     }
 
     /// EZSE: Add left padding to the text in textfield
-    public func addLeftTextPadding(blankSize: CGFloat) {
+    public func addLeftTextPadding(_ blankSize: CGFloat) {
         let leftView = UIView()
         leftView.frame = CGRect(x: 0, y: 0, width: blankSize, height: frame.height)
         self.leftView = leftView
@@ -35,7 +35,7 @@ extension UITextField {
     }
 
     /// EZSE: Add a image icon on the left side of the textfield
-    public func addLeftIcon(image: UIImage?, frame: CGRect, imageSize: CGSize) {
+    public func addLeftIcon(_ image: UIImage?, frame: CGRect, imageSize: CGSize) {
         let leftView = UIView()
         leftView.frame = frame
         let imgView = UIImageView()

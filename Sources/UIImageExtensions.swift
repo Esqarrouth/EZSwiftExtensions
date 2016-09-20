@@ -85,6 +85,25 @@ extension UIImage {
         return croppedImage
     }
 
+    /// EZSE: Use current image for pattern of color
+    public func withColor(_ tintColor: UIColor) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+
+        let context = UIGraphicsGetCurrentContext()
+        context?.translateBy(x: 0, y: self.size.height)
+        context?.scaleBy(x: 1.0, y: -1.0)
+        context?.setBlendMode(.normal)
+        let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height) as CGRect
+        context?.clip(to: rect, mask: self.cgImage!)
+        tintColor.setFill()
+        context?.fill(rect)
+
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()! as UIImage
+        UIGraphicsEndImageContext()
+
+        return newImage
+    }
+
     ///EZSE: Returns the image associated with the URL
     public convenience init?(urlString: String) {
         guard let url = URL(string: urlString) else {

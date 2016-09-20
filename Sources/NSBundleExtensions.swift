@@ -15,7 +15,7 @@ public extension Bundle {
     //  NSBundle.loadNib("ViewXibName", owner: self) //some UIView subclass
     //  self.addSubview(self.contentView)
     public class func loadNib(_ name: String, owner: AnyObject!) {
-        Bundle.main.loadNibNamed(name, owner: owner, options: nil)?[0]
+        _ = Bundle.main.loadNibNamed(name, owner: owner, options: nil)?[0]
     }
 
     /// EZSE: load xib

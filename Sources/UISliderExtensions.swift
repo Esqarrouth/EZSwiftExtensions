@@ -19,7 +19,7 @@ extension UISlider {
           UIView.animate(withDuration: duration, animations: { () -> Void in
             self.setValue(value, animated: true)
             }, completion: nil)
-      }) 
+      })
     }
 }
 

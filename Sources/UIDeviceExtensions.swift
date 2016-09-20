@@ -76,7 +76,7 @@ extension UIDevice {
     public class func isPhone() -> Bool {
         return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone
     }
-    
+
     /// EZSE: Returns true if the device is iPad //TODO: Add to readme
     public class func isPad() -> Bool {
         return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
@@ -93,8 +93,7 @@ extension UIDevice {
 
         for child in mirror.children {
             let value = child.value
-
-            if let value = value as? Int8 , value != 0 {
+            if let value = value as? Int8, value != 0 {
                 identifier.append(String(UnicodeScalar(UInt8(value))))
             }
         }
@@ -103,7 +102,7 @@ extension UIDevice {
     }
 
     //TODO: Fix syntax, add docs and readme for these methods:
-    //TODO: Delete isSystemVersionOver() 
+    //TODO: Delete isSystemVersionOver()
     // MARK: - Device Version Checks
 
     public enum Versions: Float {
@@ -202,7 +201,7 @@ extension UIDevice {
 
     /// EZSwiftExtensions
     public class func isSystemVersionOver(_ requiredVersion: String) -> Bool {
-        switch systemVersion().compare(requiredVersion, options: NSString.CompareOptions.numeric) {
+        switch systemVersion().compare(requiredVersion, options: .numeric) {
         case .orderedSame, .orderedDescending:
             //println("iOS >= 8.0")
             return true
