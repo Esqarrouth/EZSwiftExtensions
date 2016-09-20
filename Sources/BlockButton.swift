@@ -64,8 +64,8 @@ public class BlockButton: UIButton {
             UIControlEvents.touchCancel,
             UIControlEvents.touchDragExit
         ])
-        setTitleColor(UIColor.black, for: UIControlState())
-        setTitleColor(UIColor.blue, for: UIControlState.selected)
+        setTitleColor(.black, for: .normal)
+        setTitleColor(UIColor.blue, for: .selected)
     }
 
     public func addAction(_ action: @escaping BlockButtonAction) {

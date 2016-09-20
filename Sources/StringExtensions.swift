@@ -45,6 +45,14 @@ extension String {
         let range = start..<end
         return self[range]
     }
+    
+    /// EZSE: Cut string from closedrange
+    public subscript(integerClosedRange: ClosedRange<Int>) -> String {
+        let start = characters.index(startIndex, offsetBy: integerClosedRange.lowerBound)
+        let end = characters.index(startIndex, offsetBy: integerClosedRange.upperBound)
+        let range = start...end
+        return self[range]
+    }
 
     /// EZSE: Character count
     public var length: Int {
@@ -179,12 +187,12 @@ extension String {
     }
 
     /// EZSE: Checking if String contains input
-    public func contains(_ find: String) -> Bool {
+    public func contains(with find: String) -> Bool {
         return self.range(of: find) != nil
     }
 
     /// EZSE: Checking if String contains input with comparing options
-    public func contains(_ find: String, compareOption: NSString.CompareOptions) -> Bool {
+    public func contains(with find: String, compareOption: String.CompareOptions) -> Bool {
         return self.range(of: find, options: compareOption) != nil
     }
 

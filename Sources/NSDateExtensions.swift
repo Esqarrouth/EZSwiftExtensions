@@ -14,8 +14,9 @@ extension Date {
         let formatter = DateFormatter()
         formatter.dateFormat = format
         if let date = formatter.date(from: string) {
-            self = type(of: date as NSDate).init(timeInterval: 0, since: date) as Date
+            self = Date(timeInterval: 0, since: date)
         } else {
+            _ = type(of: self).init()
             return nil
         }
     }
@@ -23,15 +24,15 @@ extension Date {
     /// EZSE: Initializes Date from string returned from an http response, according to several RFCs
     public init? (httpDateString: String) {
         if let rfc1123 = Date(fromString: httpDateString, format: "EEE',' dd' 'MMM' 'yyyy HH':'mm':'ss zzz") {
-            self = type(of: rfc1123 as NSDate).init(timeInterval: 0, since: rfc1123) as Date
+            self = type(of: rfc1123).init(timeInterval: 0, since: rfc1123)
             return
         }
         if let rfc850 = Date(fromString: httpDateString, format: "EEEE',' dd'-'MMM'-'yy HH':'mm':'ss z") {
-            self = type(of: rfc850 as NSDate).init(timeInterval: 0, since: rfc850) as Date
+            self = type(of: rfc850).init(timeInterval: 0, since: rfc850)
             return
         }
         if let asctime =  Date(fromString: httpDateString, format: "EEE MMM d HH':'mm':'ss yyyy") {
-            self = type(of: asctime as NSDate).init(timeInterval: 0, since: asctime) as Date
+            self = type(of: asctime).init(timeInterval: 0, since: asctime)
             return
         }
         //self.init()
@@ -89,19 +90,19 @@ extension Date {
         let components = calendar.dateComponents(calendarComponent, from: self, to: date)
         var str: String
 
-        if components.year! >= 1 {
+        if (components.year ?? 0) >= 1 {
             components.year == 1 ? (str = "year") : (str = "years")
             return "\(components.year) \(str) ago"
-        } else if components.month! >= 1 {
+        } else if (components.month ?? 0) >= 1 {
             components.month == 1 ? (str = "month") : (str = "months")
             return "\(components.month) \(str) ago"
-        } else if components.day! >= 1 {
+        } else if (components.day ?? 0) >= 1 {
             components.day == 1 ? (str = "day") : (str = "days")
             return "\(components.day) \(str) ago"
-        } else if components.hour! >= 1 {
+        } else if (components.hour ?? 0) >= 1 {
             components.hour == 1 ? (str = "hour") : (str = "hours")
             return "\(components.hour) \(str) ago"
-        } else if components.minute! >= 1 {
+        } else if (components.minute ?? 0) >= 1 {
             components.minute == 1 ? (str = "minute") : (str = "minutes")
             return "\(components.minute) \(str) ago"
         } else if components.second == 0 {
@@ -113,11 +114,11 @@ extension Date {
 
 }
 
- /// EZSE: Returns if dates are equal to each other
-//public func == (lhs: Date, rhs: Date) -> Bool {
-//  return (lhs == rhs)
-//}
- /// EZSE: Returns if one date is smaller than the other
+/// EZSE: Returns if dates are equal to each other
+public func == (lhs: Date, rhs: Date) -> Bool {
+    return lhs.compare(rhs) == .orderedSame
+}
+/// EZSE: Returns if one date is smaller than the other
 public func < (lhs: Date, rhs: Date) -> Bool {
     return lhs.compare(rhs) == .orderedAscending
 }

@@ -15,7 +15,7 @@ extension Double {
     public var toInt: Int { return Int(self) }
 
     /// EZSE: Returns a Double rounded to decimal
-    public mutating func getRoundedByPlaces(_ places: Int) -> Double {
+    public func getRoundedByPlaces(_ places: Int) -> Double {
         let divisor = pow(10.0, Double(places))
         return Darwin.round(self * divisor) / divisor
     }

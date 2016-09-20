@@ -133,7 +133,7 @@ public struct ez {
         
         #elseif os(tvOS)
             
-        return UIScreen.mainScreen.bounds.size.width
+        return UIScreen.main.bounds.size.width
         
         #endif
     }
@@ -151,7 +151,7 @@ public struct ez {
         
         #elseif os(tvOS)
             
-            return UIScreen.mainScreen().bounds.size.height
+            return UIScreen.main.bounds.size.height
             
         #endif
     }
@@ -176,7 +176,7 @@ public struct ez {
 
     /// EZSE: Returns the locale country code. An example value might be "ES". //TODO: Add to readme
     public static var currentRegion: String? {
-        return Locale.current.currencyCode ?? ""
+        return Locale.current.currencyCode
     }
 
     /// EZSE: Calls action when a screen shot is taken

@@ -127,7 +127,7 @@ extension Array where Element: Equatable {
 
     /// EZSE: Checks if self contains a list of items.
     public func contains(_ items: Element...) -> Bool {
-        return items.testAll { self.index(of: $0) ?? 0 >= 0 }
+        return items.testAll { (self.index(of: $0) ?? -1) >= 0 }
     }
 
     /// EZSE: Difference of self and the input arrays.

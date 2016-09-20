@@ -12,7 +12,7 @@ import UIKit
 public class BlockLongPress: UILongPressGestureRecognizer {
     private var longPressAction: ((UILongPressGestureRecognizer) -> Void)?
     
-    override init(target: Any?, action: Selector?) {
+    public override init(target: Any?, action: Selector?) {
         super.init(target: target, action: action)
     }
 

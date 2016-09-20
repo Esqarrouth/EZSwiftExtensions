@@ -14,8 +14,8 @@ import UIKit
 public class BlockPinch: UIPinchGestureRecognizer {
     private var pinchAction: ((UIPinchGestureRecognizer) -> Void)?
     
-    public init() {
-        super.init(target: nil, action: nil)
+    public override init(target: Any?, action: Selector?) {
+        super.init(target: target, action: action)
     }
 
     public convenience init (action: ((UIPinchGestureRecognizer) -> Void)?) {
