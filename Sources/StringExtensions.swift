@@ -401,7 +401,7 @@ extension String {
         let italicString = NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
         return italicString
     }
-    
+
     #endif
 
     #if os(iOS)

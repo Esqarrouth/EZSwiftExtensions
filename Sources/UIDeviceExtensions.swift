@@ -201,7 +201,7 @@ extension UIDevice {
 
     /// EZSwiftExtensions
     public class func isSystemVersionOver(_ requiredVersion: String) -> Bool {
-        switch systemVersion().compare(requiredVersion, options: String.CompareOptions.numeric) {
+        switch systemVersion().compare(requiredVersion, options: .numeric) {
         case .orderedSame, .orderedDescending:
             //println("iOS >= 8.0")
             return true

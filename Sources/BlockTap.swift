@@ -25,9 +25,7 @@ open class BlockTap: UITapGestureRecognizer {
             self.numberOfTapsRequired = tapCount
 
             #if os(iOS)
-
             self.numberOfTouchesRequired = fingerCount
-
             #endif
 
             self.tapAction = action

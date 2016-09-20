@@ -3,14 +3,9 @@
 //  EZSwiftExtensions
 //
 //  Created by furuyan on 2016/01/11.
-//  Modified by mousavian on 2016/05/24.
 //  Copyright (c) 2016 Goktug Yilmaz. All rights reserved.
 //
-// swiftlint:disable line_length
-// swiftlint:disable trailing_whitespace
 
-
-//import Foundation
 import UIKit
 
 extension URL {
@@ -165,7 +160,7 @@ extension URL {
                 try (self as NSURL).setResourceValue(newValue, forKey: URLResourceKey.isHiddenKey)
             } catch _ {
             }
-            
+
         }
     }
 

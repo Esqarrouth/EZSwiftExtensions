@@ -12,12 +12,10 @@ extension Date {
     public init?(fromString string: String, format: String) {
         let formatter = DateFormatter()
         formatter.dateFormat = format
-        if let date = formatter.date(from: string) {
-            self = date
-        } else {
-//            self = Date()
+        guard let date = formatter.date(from: string) else {
             return nil
         }
+        self = date
     }
 
     /// EZSE: Initializes NSDate from string returned from an http response, according to several RFCs

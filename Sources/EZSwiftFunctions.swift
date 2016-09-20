@@ -95,20 +95,22 @@ public struct ez {
 
     /// EZSE: Returns the top ViewController
     public static var topMostVC: UIViewController? {
-        let topVC = UIApplication.topViewController()
-        if topVC == nil {
+        var presentedVC = UIApplication.shared.keyWindow?.rootViewController
+        while let pVC = presentedVC?.presentedViewController {
+            presentedVC = pVC
+        }
+
+        if presentedVC == nil {
             print("EZSwiftExtensions Error: You don't have any views set. You may be calling them in viewDidLoad. Try viewDidAppear instead.")
         }
-        return topVC
+        return presentedVC
     }
 
     #if os(iOS)
-
     /// EZSE: Returns current screen orientation
     public static var screenOrientation: UIInterfaceOrientation {
         return UIApplication.shared.statusBarOrientation
     }
-
     #endif
 
     /// EZSwiftExtensions
@@ -123,25 +125,19 @@ public struct ez {
 
     /// EZSE: Returns screen width
     public static var screenWidth: CGFloat {
-
         #if os(iOS)
-
         if UIInterfaceOrientationIsPortrait(screenOrientation) {
             return UIScreen.main.bounds.size.width
         } else {
             return UIScreen.main.bounds.size.height
         }
-
         #elseif os(tvOS)
-
         return UIScreen.main.bounds.size.width
-
         #endif
     }
 
     /// EZSE: Returns screen height
     public static var screenHeight: CGFloat {
-
         #if os(iOS)
 
         if UIInterfaceOrientationIsPortrait(screenOrientation) {
@@ -151,14 +147,11 @@ public struct ez {
         }
 
         #elseif os(tvOS)
-
             return UIScreen.main.bounds.size.height
-
         #endif
     }
 
     #if os(iOS)
-
     /// EZSE: Returns StatusBar height
     public static var screenStatusBarHeight: CGFloat {
         return UIApplication.shared.statusBarFrame.height
@@ -172,7 +165,6 @@ public struct ez {
             return UIScreen.main.bounds.size.width - screenStatusBarHeight
         }
     }
-
     #endif
 
     /// EZSE: Returns the locale country code. An example value might be "ES". //TODO: Add to readme
@@ -190,8 +182,8 @@ public struct ez {
     }
 
     //TODO: Document this, add tests to this
+    //SOURCE: http://stackoverflow.com/questions/24007461/how-to-enumerate-an-enum-with-string-type
     /// EZSE: Iterates through enum elements, use with (for element in ez.iterateEnum(myEnum))
-    /// http://stackoverflow.com/questions/24007461/how-to-enumerate-an-enum-with-string-type
     public static func iterateEnum<T: Hashable>(_: T.Type) -> AnyIterator<T> {
         var i = 0
         return AnyIterator {

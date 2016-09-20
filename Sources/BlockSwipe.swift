@@ -24,9 +24,7 @@ open class BlockSwipe: UISwipeGestureRecognizer {
             self.direction = direction
 
             #if os(iOS)
-
             numberOfTouchesRequired = fingerCount
-
             #endif
 
             swipeAction = action

@@ -35,7 +35,6 @@ extension UIView {
             self.addSubview(eachView)
         }
     }
-
     //TODO: Add pics to readme
     /// EZSwiftExtensions, resizes this view so it fits the largest subview
     public func resizeToFitSubviews() {
@@ -489,9 +488,7 @@ extension UIView {
         swipe.direction = direction
 
         #if os(iOS)
-
         swipe.numberOfTouchesRequired = numberOfTouches
-
         #endif
 
         addGestureRecognizer(swipe)
@@ -520,25 +517,21 @@ extension UIView {
     }
 
     #if os(iOS)
-
     /// EZSwiftExtensions
     public func addPinchGesture(target: AnyObject, action: Selector) {
         let pinch = UIPinchGestureRecognizer(target: target, action: action)
         addGestureRecognizer(pinch)
         isUserInteractionEnabled = true
     }
-
     #endif
 
     #if os(iOS)
-
     /// EZSwiftExtensions - Make sure you use  "[weak self] (gesture) in" if you are using the keyword self inside the closure or there might be a memory leak
     public func addPinchGesture(action: ((UIPinchGestureRecognizer) -> ())?) {
         let pinch = BlockPinch(action: action)
         addGestureRecognizer(pinch)
         isUserInteractionEnabled = true
     }
-
     #endif
 
     /// EZSwiftExtensions

@@ -24,7 +24,6 @@ extension UIViewController {
     }
 
     #if os(iOS)
-
     public func addKeyboardWillShowNotification() {
         self.addNotificationObserver(NSNotification.Name.UIKeyboardWillShow.rawValue, selector: #selector(UIViewController.keyboardWillShowNotification(_:)))
     }
@@ -110,7 +109,6 @@ extension UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
-
     #endif
 
     public func dismissKeyboard() {

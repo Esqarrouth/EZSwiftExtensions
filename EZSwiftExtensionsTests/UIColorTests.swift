@@ -52,30 +52,22 @@ class UIColorTests: XCTestCase {
 	}
 
 	func testRedComponent() {
-
 		color = UIColor.red
-
 		XCTAssertEqual(color.redComponent, 255)
 	}
 
 	func testGreenComponent() {
-
 		color = UIColor.green
-
 		XCTAssertEqual(color.greenComponent, 255)
 	}
 
 	func testBlueComponent() {
-
 		color = UIColor.blue
-
 		XCTAssertEqual(color.blueComponent, 255)
 	}
 
 	func testAlpha() {
-
 		color = UIColor(red: 255, green: 255, blue: 255, alpha: 0.5)
-
 		XCTAssertEqual(color.alpha, 0.5)
 	}
 

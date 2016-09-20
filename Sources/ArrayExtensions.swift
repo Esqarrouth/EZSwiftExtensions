@@ -113,7 +113,7 @@ extension Array {
     @available(*, deprecated: 1.6, renamed: "flatMap")
     public func mapFilter<V>(mapFunction map: (Element) -> (V)?) -> [V] {
         var mapped = [V]()
-        forEach { (value: Element) -> Void in
+        each { (value: Element) -> Void in
             if let mappedValue = map(value) {
                 mapped.append(mappedValue)
             }
