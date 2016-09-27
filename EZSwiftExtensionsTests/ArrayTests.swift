@@ -10,7 +10,8 @@ import XCTest
 import EZSwiftExtensions
 
 class ArrayTests: XCTestCase {
-    var numberArray: [Int] = []
+    let emptyArray = [Int]()
+    var numberArray = [Int]()
 
     override func setUp() {
         super.setUp()
@@ -136,6 +137,10 @@ class ArrayTests: XCTestCase {
         XCTAssertEqual(indexCount, 5)
         XCTAssertEqual(totalIndexes, 10)
         XCTAssertEqual(totalNumbers, 20)
+
+        emptyArray.forEachEnumerated { _ in XCTFail() }
+        let copyArray = someArray
+        copyArray.forEachEnumerated { XCTAssertTrue(someArray[$0.0] == $0.1) }
     }
 
     func testUnion() {
