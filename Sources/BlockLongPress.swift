@@ -10,7 +10,7 @@ import UIKit
 
 ///Make sure you use  "[weak self] (gesture) in" if you are using the keyword self inside the closure or there might be a memory leak
 open class BlockLongPress: UILongPressGestureRecognizer {
-    fileprivate var longPressAction: ((UILongPressGestureRecognizer) -> Void)?
+    private var longPressAction: ((UILongPressGestureRecognizer) -> Void)?
 
     public override init(target: Any?, action: Selector?) {
         super.init(target: target, action: action)
