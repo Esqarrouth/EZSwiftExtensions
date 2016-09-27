@@ -195,4 +195,18 @@ class StringTests: XCTestCase {
             XCTAssertTrue(false)
         }
     }
+    
+    func testToBool() {
+        let bool1 = "true"
+        let bool2 = "false"
+        let bool3 = "lolol"
+        let bool4 = "TRUE"
+        let bool5 = "True"
+        
+        XCTAssertTrue(bool1.toBool()!)
+        XCTAssertTrue(bool4.toBool()!)
+        XCTAssertTrue(bool5.toBool()!)
+        XCTAssertFalse(bool2.toBool()!)
+        XCTAssertNil(bool3.toBool())
+    }
 }

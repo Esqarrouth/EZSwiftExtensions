@@ -343,9 +343,8 @@ extension String {
     }
 
     /// EZSE: Converts String to Bool
-    /// WARNING: not expected behaviour
     public func toBool() -> Bool? {
-        let trimmedString = trimmed()
+        let trimmedString = trimmed().lowercased()
         if trimmedString == "true" || trimmedString == "false" {
             return (trimmedString as NSString).boolValue
         }
