@@ -310,11 +310,6 @@ extension String {
         return urls
     }
 
-//    /// EZSE: Checking if String contains input
-//    public func contains(_ find: String) -> Bool {
-//        return self.range(of: find) != nil
-//    }
-
     /// EZSE: Checking if String contains input with comparing options
     public func contains(_ find: String, compareOption: NSString.CompareOptions) -> Bool {
         return self.range(of: find, options: compareOption) != nil
