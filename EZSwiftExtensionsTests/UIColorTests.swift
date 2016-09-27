@@ -37,7 +37,7 @@ class UIColorTests: XCTestCase {
 
 	func testInitGray() {
 		color = UIColor(gray: 100)
-        var red: CGFloat = color.red
+        var red: CGFloat = 0
         var green: CGFloat = 0
         var blue: CGFloat = 0
         XCTAssertTrue(color.getRed(&red, green: &green, blue: &blue, alpha: nil))

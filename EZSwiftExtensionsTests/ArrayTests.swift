@@ -95,14 +95,19 @@ class ArrayTests: XCTestCase {
         XCTAssertEqual(numberArray.takeMax(2).count, 2)
     }
 
-    func testEach() {
-        var sameArray: [Int] = []
-        numberArray.forEach { sameArray.append($0) }
-        XCTAssertEqual(numberArray, sameArray)
-
-        var indexArray: [Int] = []
-        numberArray.forEach { indexArray.append($0.0) }
-        XCTAssertEqual(indexArray, [Int](0..<numberArray.count))
+    func testForEachEnumerated() {
+        let someArray = [1,2,3,4,10]
+        var indexCount = 0
+        var totalIndexes = 0
+        var totalNumbers = 0
+        someArray.forEachEnumerated { (index, element) in
+            indexCount += 1
+            totalIndexes += index
+            totalNumbers += element
+        }
+        XCTAssertEqual(indexCount, 5)
+        XCTAssertEqual(totalIndexes, 10)
+        XCTAssertEqual(totalNumbers, 20)
     }
 
     func testUnion() {
