@@ -6,26 +6,6 @@
 //  Copyright (c) 2015 Goktug Yilmaz. All rights reserved.
 //
 import UIKit
-fileprivate func < <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
-fileprivate func >= <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l >= r
-  default:
-    return !(lhs < rhs)
-  }
-}
-
 
 extension Array {
     /// EZSE: Returns a random element from the array.
@@ -163,7 +143,7 @@ extension Array where Element: Equatable {
 
     /// EZSE: Checks if self contains a list of items.
     public func contains(_ items: Element...) -> Bool {
-        return items.testAll { self.index(of: $0) >= 0 }
+        return items.testAll { self.index(of: $0) ?? -1 >= 0 }
     }
 
     /// EZSE: Difference of self and the input arrays.
