@@ -84,7 +84,7 @@ extension Array {
     public func forEach(_ call: (Int, Element) -> ()) {
         forEachEnumerated(call)
     }
-    
+
     /// EZSE: Iterates on each element of the array with its index. (Index, Element)
     public func forEachEnumerated(_ call: (Int, Element) -> ()) {
         for (index, item) in self.enumerated() {
@@ -115,7 +115,7 @@ extension Array {
     public mutating func insertFirst(_ newElement: Element) {
         insert(newElement, at: 0)
     }
-    
+
     /// EZSE: Shuffles the array in-place using the Fisher-Yates-Durstenfeld algorithm.
     public mutating func shuffle() {
         var j: Int
@@ -140,7 +140,7 @@ extension Array where Element: Equatable {
     public func indexesOf(_ object: Element) -> [Int] {
         return indexes(of: object)
     }
-    
+
     /// EZSE: Returns the indexes of the object
     public func indexes(of object: Element) -> [Int] {
         var indexes = [Int]()
@@ -157,7 +157,7 @@ extension Array where Element: Equatable {
     public func lastIndexOf(_ object: Element) -> Int? {
         return lastIndex(of: object)
     }
-    
+
     /// EZSE: Returns the last index of the object
     public func lastIndex(of object: Element) -> Int? {
         return indexes(of: object).last
@@ -227,7 +227,7 @@ extension Array where Element: Equatable {
     public mutating func removeObject(_ object: Element) {
         removeFirstObject(object)
     }
-    
+
     /// EZSE: Removes the first given object
     public mutating func removeFirstObject(_ object: Element) {
         if let index = self.index(of: object) {
@@ -247,7 +247,7 @@ extension Array where Element: Equatable {
     public func containsArray(_ lookFor: [Element]) -> Bool {
         return contains(array: lookFor)
     }
-    
+
     /// EZSE: Checks if the main array contains the parameter array
     public func contains(array lookFor: [Element]) -> Bool {
         for item in lookFor {

@@ -203,17 +203,17 @@ extension UIDevice {
     public class func IS_OS_9_OR_EARLIER() -> Bool {
         return isVersionOrEarlier(.nine)
     }
-    
+
     // MARK: iOS 10 Checks
-    
+
     public class func IS_OS_10() -> Bool {
         return isVersion(.ten)
     }
-    
+
     public class func IS_OS_10_OR_LATER() -> Bool {
         return isVersionOrLater(.ten)
     }
-    
+
     public class func IS_OS_10_OR_EARLIER() -> Bool {
         return isVersionOrEarlier(.ten)
     }
