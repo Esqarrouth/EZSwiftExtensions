@@ -74,13 +74,13 @@ extension Array {
     }
 
     /// EZSE: Iterates on each element of the array with its index.  (Index, Element)
-    @available(*, deprecated: 1.6, renamed: "forEachEnumerated")
+    @available(*, deprecated: 1.6, renamed: "forEachEnumerated(_:)")
     public func each(_ call: (Int, Element) -> ()) {
         forEachEnumerated(call)
     }
 
     /// EZSE: Iterates on each element of the array with its index. (Index, Element)
-    @available(*, deprecated: 1.7, renamed: "forEachEnumerated")
+    @available(*, deprecated: 1.7, renamed: "forEachEnumerated(_:)")
     public func forEach(_ call: (Int, Element) -> ()) {
         forEachEnumerated(call)
     }
@@ -106,7 +106,7 @@ extension Array {
     }
 
     /// EZSE: Prepends an object to the array.
-    @available(*, deprecated: 1.7, renamed: "insertFirst")
+    @available(*, deprecated: 1.7, renamed: "insertFirst(_:)")
     public mutating func insertAsFirst(_ newElement: Element) {
         insertFirst(newElement)
     }
@@ -136,7 +136,7 @@ extension Array {
 extension Array where Element: Equatable {
 
     /// EZSE: Returns the indexes of the object
-    @available(*, deprecated: 1.7, renamed: "indexes")
+    @available(*, deprecated: 1.7, renamed: "indexes(of:)")
     public func indexesOf(_ object: Element) -> [Int] {
         return indexes(of: object)
     }
@@ -153,7 +153,7 @@ extension Array where Element: Equatable {
     }
 
     /// EZSE: Returns the last index of the object
-    @available(*, deprecated: 1.7, renamed: "lastIndex")
+    @available(*, deprecated: 1.7, renamed: "lastIndex(_:)")
     public func lastIndexOf(_ object: Element) -> Int? {
         return lastIndex(of: object)
     }
@@ -223,7 +223,7 @@ extension Array where Element: Equatable {
     }
 
     /// EZSE: Removes the first given object
-    @available(*, deprecated: 1.7, renamed: "removeFirstObject")
+    @available(*, deprecated: 1.7, renamed: "removeFirstObject(_:)")
     public mutating func removeObject(_ object: Element) {
         removeFirstObject(object)
     }
@@ -243,7 +243,7 @@ extension Array where Element: Equatable {
     }
 
     /// EZSE: Checks if the main array contains the parameter array
-    @available(*, deprecated: 1.7, renamed: "contains")
+    @available(*, deprecated: 1.7, renamed: "contains(array:)")
     public func containsArray(_ lookFor: [Element]) -> Bool {
         return contains(array: lookFor)
     }

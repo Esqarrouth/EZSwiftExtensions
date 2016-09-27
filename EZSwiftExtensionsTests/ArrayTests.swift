@@ -20,20 +20,20 @@ class ArrayTests: XCTestCase {
     }
 
     func testIndexesOf() {
-        var indexes = numberArray.indexesOf(1)
+        var indexes = numberArray.indexes(of: 1)
         XCTAssertEqual(indexes, [1, 6])
 
-        indexes = numberArray.indexesOf(12345)
+        indexes = numberArray.indexes(of: 12345)
         XCTAssertEqual(indexes, [])
     }
 
     func testRemoveObject() {
         let copyArray = numberArray
-        numberArray.removeObject(12345)
+        numberArray.removeFirstObject(12345)
         XCTAssertEqual(numberArray, copyArray)
 
         let compareArray = [0, 2, 3, 4, 5, 1]
-        numberArray.removeObject(1)
+        numberArray.removeFirstObject(1)
         XCTAssertEqual(numberArray, compareArray)
     }
 
@@ -55,7 +55,7 @@ class ArrayTests: XCTestCase {
 
     func testContainsArray() {
         let array = [Int](2...4)
-        XCTAssertTrue(numberArray.containsArray(array))
+        XCTAssertTrue(numberArray.contains(array: array))
     }
 
     func testRandom() {
