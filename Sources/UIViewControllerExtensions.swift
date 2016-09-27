@@ -11,52 +11,52 @@ import UIKit
 extension UIViewController {
     // MARK: - Notifications
     //TODO: Document this part
-    public func addNotificationObserver(_ name: String, selector: Selector) {
+    open func addNotificationObserver(_ name: String, selector: Selector) {
         NotificationCenter.default.addObserver(self, selector: selector, name: NSNotification.Name(rawValue: name), object: nil)
     }
 
-    public func removeNotificationObserver(_ name: String) {
+    open func removeNotificationObserver(_ name: String) {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: name), object: nil)
     }
 
-    public func removeNotificationObserver() {
+    open func removeNotificationObserver() {
         NotificationCenter.default.removeObserver(self)
     }
 
     #if os(iOS)
-    public func addKeyboardWillShowNotification() {
+    open func addKeyboardWillShowNotification() {
         self.addNotificationObserver(NSNotification.Name.UIKeyboardWillShow.rawValue, selector: #selector(UIViewController.keyboardWillShowNotification(_:)))
     }
 
-    public func addKeyboardDidShowNotification() {
+    open func addKeyboardDidShowNotification() {
         self.addNotificationObserver(NSNotification.Name.UIKeyboardDidShow.rawValue, selector: #selector(UIViewController.keyboardDidShowNotification(_:)))
     }
 
-    public func addKeyboardWillHideNotification() {
+    open func addKeyboardWillHideNotification() {
         self.addNotificationObserver(NSNotification.Name.UIKeyboardWillHide.rawValue, selector: #selector(UIViewController.keyboardWillHideNotification(_:)))
     }
 
-    public func addKeyboardDidHideNotification() {
+    open func addKeyboardDidHideNotification() {
         self.addNotificationObserver(NSNotification.Name.UIKeyboardDidHide.rawValue, selector: #selector(UIViewController.keyboardDidHideNotification(_:)))
     }
 
-    public func removeKeyboardWillShowNotification() {
+    open func removeKeyboardWillShowNotification() {
         self.removeNotificationObserver(NSNotification.Name.UIKeyboardWillShow.rawValue)
     }
 
-    public func removeKeyboardDidShowNotification() {
+    open func removeKeyboardDidShowNotification() {
         self.removeNotificationObserver(NSNotification.Name.UIKeyboardDidShow.rawValue)
     }
 
-    public func removeKeyboardWillHideNotification() {
+    open func removeKeyboardWillHideNotification() {
         self.removeNotificationObserver(NSNotification.Name.UIKeyboardWillHide.rawValue)
     }
 
-    public func removeKeyboardDidHideNotification() {
+    open func removeKeyboardDidHideNotification() {
         self.removeNotificationObserver(NSNotification.Name.UIKeyboardDidHide.rawValue)
     }
 
-    public func keyboardDidShowNotification(_ notification: Notification) {
+    open func keyboardDidShowNotification(_ notification: Notification) {
         if let nInfo = (notification as NSNotification).userInfo, let value = nInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
 
             let frame = value.cgRectValue
@@ -64,7 +64,7 @@ extension UIViewController {
         }
     }
 
-    public func keyboardWillShowNotification(_ notification: Notification) {
+    open func keyboardWillShowNotification(_ notification: Notification) {
         if let nInfo = (notification as NSNotification).userInfo, let value = nInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
 
             let frame = value.cgRectValue
@@ -72,7 +72,7 @@ extension UIViewController {
         }
     }
 
-    public func keyboardWillHideNotification(_ notification: Notification) {
+    open func keyboardWillHideNotification(_ notification: Notification) {
         if let nInfo = (notification as NSNotification).userInfo, let value = nInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
 
             let frame = value.cgRectValue
@@ -80,7 +80,7 @@ extension UIViewController {
         }
     }
 
-    public func keyboardDidHideNotification(_ notification: Notification) {
+    open func keyboardDidHideNotification(_ notification: Notification) {
         if let nInfo = (notification as NSNotification).userInfo, let value = nInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
 
             let frame = value.cgRectValue
@@ -88,30 +88,30 @@ extension UIViewController {
         }
     }
 
-    public func keyboardWillShowWithFrame(_ frame: CGRect) {
+    open func keyboardWillShowWithFrame(_ frame: CGRect) {
 
     }
 
-    public func keyboardDidShowWithFrame(_ frame: CGRect) {
+    open func keyboardDidShowWithFrame(_ frame: CGRect) {
 
     }
 
-    public func keyboardWillHideWithFrame(_ frame: CGRect) {
+    open func keyboardWillHideWithFrame(_ frame: CGRect) {
 
     }
 
-    public func keyboardDidHideWithFrame(_ frame: CGRect) {
+    open func keyboardDidHideWithFrame(_ frame: CGRect) {
 
     }
 
     //EZSE: Makes the UIViewController register tap events and hides keyboard when clicked somewhere in the ViewController.
-    public func hideKeyboardWhenTappedAround() {
+    open func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     #endif
 
-    public func dismissKeyboard() {
+    open func dismissKeyboard() {
         view.endEditing(true)
     }
 
