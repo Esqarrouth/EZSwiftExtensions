@@ -134,7 +134,7 @@ public struct ez {
 
         #elseif os(tvOS)
 
-        return UIScreen.mainScreen().bounds.size.width
+        return UIScreen.main.bounds.size.width
 
         #endif
     }
@@ -152,7 +152,7 @@ public struct ez {
 
         #elseif os(tvOS)
 
-            return UIScreen.mainScreen().bounds.size.height
+            return UIScreen.main.bounds.size.height
 
         #endif
     }
