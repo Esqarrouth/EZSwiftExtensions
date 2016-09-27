@@ -31,6 +31,9 @@ class NSDateTests: XCTestCase {
         let dateString = formatter.date(from: string)
         XCTAssertEqual(dateFromString, dateString)
         XCTAssertNil(Date(fromString: wrongDateString, format: format), "Date From String initialized, but source string was invalid.")
+        
+        let dateFromFalseStr = Date(fromString: "lol", format: "haha")
+        XCTAssertNil(dateFromFalseStr)
     }
 
     func testDateToString() {

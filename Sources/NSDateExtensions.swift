@@ -15,7 +15,6 @@ extension Date {
         if let date = formatter.date(from: string) {
             self = date
         } else {
-            self = Date()
             return nil
         }
     }
