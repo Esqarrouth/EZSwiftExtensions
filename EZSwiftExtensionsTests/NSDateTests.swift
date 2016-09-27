@@ -53,11 +53,4 @@ class NSDateTests: XCTestCase {
         XCTAssertTrue(now.timePassed().contains("now") || now.timePassed().contains("seconds"))
     }
 
-    func testComparable() {
-        let date = Date()
-        let future = Date(timeIntervalSinceNow: 1000)
-        XCTAssertTrue(date < future)
-        XCTAssertFalse(date > future)
-        XCTAssertTrue(date == date)
-    }
 }
