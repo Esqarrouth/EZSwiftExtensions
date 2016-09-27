@@ -15,20 +15,16 @@ class UIColorTests: XCTestCase {
 
 	override func setUp() {
 		super.setUp()
-
 		color = UIColor.blue
 	}
 
 	func testInitRGBValues() {
-
 		color = UIColor(r: 255, g: 255, b: 255)
-
 		let red = color.cgColor.components?[0]
 		XCTAssertEqual(red, 1)
 	}
 
 	func testInitHexString() {
-
 		color = UIColor(hexString: "ff0000")
 		let red = color.cgColor.components?[0]
 		let green = color.cgColor.components?[1]

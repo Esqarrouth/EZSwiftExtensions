@@ -145,8 +145,8 @@ class StringTests: XCTestCase {
     }
 
     func testContains() {
-        XCTAssertTrue(string.contains("01", compareOption: NSString.CompareOptions.anchored))
-        XCTAssertFalse(string.contains("12", compareOption: NSString.CompareOptions.anchored))
+        XCTAssertTrue(string.contains("01", compareOption: String.CompareOptions.anchored))
+        XCTAssertFalse(string.contains("12", compareOption: String.CompareOptions.anchored))
     }
 
     func testConversions() {
