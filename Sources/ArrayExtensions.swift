@@ -102,10 +102,16 @@ extension Array {
     }
 
     /// EZSE: Prepends an object to the array.
+    @available(*, deprecated: 1.7, renamed: "insertFirst")
     public mutating func insertAsFirst(_ newElement: Element) {
         insert(newElement, at: 0)
     }
 
+    /// EZSE: Prepends an object to the array.
+    public mutating func insertFirst(_ newElement: Element) {
+        insert(newElement, at: 0)
+    }
+    
     /// EZSE: Shuffles the array in-place using the Fisher-Yates-Durstenfeld algorithm.
     public mutating func shuffle() {
         var j: Int
@@ -126,7 +132,19 @@ extension Array {
 extension Array where Element: Equatable {
 
     /// EZSE: Returns the indexes of the object
+    @available(*, deprecated: 1.7, renamed: "indexes")
     public func indexesOf(_ object: Element) -> [Int] {
+        var indexes = [Int]()
+        for index in 0..<self.count {
+            if self[index] == object {
+                indexes.append(index)
+            }
+        }
+        return indexes
+    }
+    
+    /// EZSE: Returns the indexes of the object
+    public func indexes(of object: Element) -> [Int] {
         var indexes = [Int]()
         for index in 0..<self.count {
             if self[index] == object {
@@ -137,8 +155,14 @@ extension Array where Element: Equatable {
     }
 
     /// EZSE: Returns the last index of the object
+    @available(*, deprecated: 1.7, renamed: "lastIndex")
     public func lastIndexOf(_ object: Element) -> Int? {
-        return indexesOf(object).last
+        return indexes(of: object).last
+    }
+    
+    /// EZSE: Returns the last index of the object
+    public func lastIndex(of object: Element) -> Int? {
+        return indexes(of: object).last
     }
 
     /// EZSE: Checks if self contains a list of items.
