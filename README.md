@@ -1169,7 +1169,11 @@ You can use [CocoaPods](http://cocoapods.org/) to install `EZSwiftExtensions` by
 ```ruby
 platform :ios, '8.0'
 use_frameworks!
-pod 'EZSwiftExtensions'
+pod 'EZSwiftExtensions' #Stable release for Swift 3.0
+
+pod 'EZSwiftExtensions', :git => 'https://github.com/goktugyil/EZSwiftExtensions.git' #Latest release for Swift 3.0
+pod 'EZSwiftExtensions', :git => 'https://github.com/goktugyil/EZSwiftExtensions.git', :branch => 'Swift2.3' #For Swift 2.3
+pod 'EZSwiftExtensions', '~> 1.6' #For Swift 2.2
 ```
 
 To get the full benefits import `EZSwiftExtensions` wherever you import UIKit
