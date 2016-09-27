@@ -41,9 +41,9 @@ class UIColorTests: XCTestCase {
 
 	func testInitGray() {
 		color = UIColor(gray: 100)
-        var red : CGFloat = 0
-        var green : CGFloat = 0
-        var blue : CGFloat = 0
+        var red: CGFloat = color.red
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
         XCTAssertTrue(color.getRed(&red, green: &green, blue: &blue, alpha: nil))
         
 		let gray = Double(0.299 * red + 0.587 * green + 0.114 * blue).getRoundedByPlaces(7)
@@ -52,30 +52,22 @@ class UIColorTests: XCTestCase {
 	}
 
 	func testRedComponent() {
-
 		color = UIColor.red
-
 		XCTAssertEqual(color.redComponent, 255)
 	}
 
 	func testGreenComponent() {
-
 		color = UIColor.green
-
 		XCTAssertEqual(color.greenComponent, 255)
 	}
 
 	func testBlueComponent() {
-
 		color = UIColor.blue
-
 		XCTAssertEqual(color.blueComponent, 255)
 	}
 
 	func testAlpha() {
-
 		color = UIColor(red: 255, green: 255, blue: 255, alpha: 0.5)
-
 		XCTAssertEqual(color.alpha, 0.5)
 	}
 
