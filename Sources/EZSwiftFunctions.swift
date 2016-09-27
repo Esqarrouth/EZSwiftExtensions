@@ -241,31 +241,38 @@ public struct ez {
     }
 
     /// EZSE: Gobal main queue
+    @available(*, deprecated: 1.7, renamed: "DispatchQueue.main")
     public var globalMainQueue: DispatchQueue {
         return DispatchQueue.main
     }
 
     /// EZSE: Gobal queue with user interactive priority
+    @available(*, deprecated: 1.7, renamed: "DispatchQueue.main")
+
     public var globalUserInteractiveQueue: DispatchQueue {
         return DispatchQueue.global(qos: .userInteractive)
     }
 
     /// EZSE: Gobal queue with user initiated priority
+    @available(*, deprecated: 1.7, renamed: "DispatchQueue.global()")
     public var globalUserInitiatedQueue: DispatchQueue {
         return DispatchQueue.global(qos: .userInitiated)
     }
 
     /// EZSE: Gobal queue with utility priority
+    @available(*, deprecated: 1.7, renamed: "DispatchQueue.global()")
     public var globalUtilityQueue: DispatchQueue {
         return DispatchQueue.global(qos: .utility)
     }
 
     /// EZSE: Gobal queue with background priority
+    @available(*, deprecated: 1.7, renamed: "DispatchQueue.global()")
     public var globalBackgroundQueue: DispatchQueue {
         return DispatchQueue.global(qos: .background)
     }
 
     /// EZSE: Gobal queue with default priority
+    @available(*, deprecated: 1.7, renamed: "DispatchQueue.global()")
     public var globalQueue: DispatchQueue {
         return DispatchQueue.global(qos: .default)
     }
