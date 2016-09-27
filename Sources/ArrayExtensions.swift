@@ -225,7 +225,15 @@ extension Array where Element: Equatable {
     }
 
     /// EZSE: Removes the first given object
+    @available(*, deprecated: 1.7, renamed: "removeFirstObject")
     public mutating func removeObject(_ object: Element) {
+        if let index = self.index(of: object) {
+            self.remove(at: index)
+        }
+    }
+    
+    /// EZSE: Removes the first given object
+    public mutating func removeFirstObject(_ object: Element) {
         if let index = self.index(of: object) {
             self.remove(at: index)
         }
@@ -233,13 +241,24 @@ extension Array where Element: Equatable {
 
     /// EZSE: Removes all occurrences of the given object
     public mutating func removeObjects(_ object: Element) {
-        for i in self.indexesOf(object).reversed() {
+        for i in self.indexes(of: object).reversed() {
             self.remove(at: i)
         }
     }
 
     /// EZSE: Checks if the main array contains the parameter array
+    @available(*, deprecated: 1.7, renamed: "contains")
     public func containsArray(_ lookFor: [Element]) -> Bool {
+        for item in lookFor {
+            if self.contains(item) == false {
+                return false
+            }
+        }
+        return true
+    }
+    
+    /// EZSE: Checks if the main array contains the parameter array
+    public func contains(array lookFor: [Element]) -> Bool {
         for item in lookFor {
             if self.contains(item) == false {
                 return false
