@@ -7,17 +7,6 @@
 //
 
 import XCTest
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
 
 class NSDateTests: XCTestCase {
     // note that NSDate uses UTC in NSDate(timeIntervalSince1970: _)
