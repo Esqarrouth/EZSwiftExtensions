@@ -126,14 +126,14 @@ class ArrayTests: XCTestCase {
         XCTAssertEqual(difference, [0, 5, 6, 7, 8])
     }
 
-    /// WARNING: [SE-0121] Remove Optional Comparison Operators
     func testOptionalEquatable() {
         let a: [Int]? = [1, 2, 3]
         let b: [Int]? = [1, 2, 3]
-//        let c: [Int]? = nil
-
-        XCTAssertTrue(a! == b!)
-//        XCTAssertFalse(a! == c!)
+        let c: [Int]? = nil
+        
+        XCTAssertTrue(a == b)
+        XCTAssertFalse(a == c)
+        XCTAssertFalse(c == b)
     }
 
     func testShuffle() {
