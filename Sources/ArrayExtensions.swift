@@ -122,10 +122,10 @@ extension Array where Element: Equatable {
     }
 
     // EZSE: Removes all occurrences of the given object
-    public mutating func removeAll(_ objects: Element...) {
-        for object in objects {
-            for i in self.indexes(of: object).reversed() {
-                self.remove(at: i)
+    public mutating func removeAll(_ elements: Element...) {
+        for element in elements {
+            for index in self.indexes(of: element).reversed() {
+                self.remove(at: index)
             }
         }
     }
