@@ -58,6 +58,7 @@
 		E1839E391BF79974002212C6 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E1D1BF79974002212C6 /* UIViewExtensions.swift */; };
 		E1CB3C1C1C25FFA000DF77CD /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB3C1B1C25FFA000DF77CD /* DoubleExtensions.swift */; };
 		E1D7CDCE1CF8FFB3008E4C07 /* UIBarButtonItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D7CDCD1CF8FFB3008E4C07 /* UIBarButtonItemExtensions.swift */; };
+		FADFAA611D9D8BFE00CF9F7A /* FloatingPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFAA601D9D8BFE00CF9F7A /* FloatingPointExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +115,7 @@
 		E1839E1D1BF79974002212C6 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = Sources/UIViewExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1CB3C1B1C25FFA000DF77CD /* DoubleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleExtensions.swift; path = Sources/DoubleExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1D7CDCD1CF8FFB3008E4C07 /* UIBarButtonItemExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIBarButtonItemExtensions.swift; path = Sources/UIBarButtonItemExtensions.swift; sourceTree = SOURCE_ROOT; };
+		FADFAA601D9D8BFE00CF9F7A /* FloatingPointExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatingPointExtensions.swift; path = ../Sources/FloatingPointExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				E1CB3C1B1C25FFA000DF77CD /* DoubleExtensions.swift */,
 				E15484E31CA2BD00003B030E /* ErrorTypeExtensions.swift */,
 				E1839E0E1BF79974002212C6 /* EZSwiftFunctions.swift */,
+				FADFAA601D9D8BFE00CF9F7A /* FloatingPointExtensions.swift */,
 				E1839E0F1BF79974002212C6 /* IntExtensions.swift */,
 				E17878151C86525A00BC05AA /* NSAttributedStringExtensions.swift */,
 				E10A794A1D6F5C5300735549 /* NSBundleExtensions.swift */,
@@ -312,6 +315,7 @@
 				E1839E361BF79974002212C6 /* UILabelExtensions.swift in Sources */,
 				E1839E281BF79974002212C6 /* CGRectExtensions.swift in Sources */,
 				E1839E331BF79974002212C6 /* UIFontExtensions.swift in Sources */,
+				FADFAA611D9D8BFE00CF9F7A /* FloatingPointExtensions.swift in Sources */,
 				C85840ED1C43B05200595696 /* NSURLExtensions.swift in Sources */,
 				E1839E261BF79974002212C6 /* BoolExtensions.swift in Sources */,
 				E1839E2B1BF79974002212C6 /* IntExtensions.swift in Sources */,
