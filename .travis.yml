@@ -1,9 +1,8 @@
 osx_image: xcode8
 language: objective-c
 
-xcode_workspace: "EZSwiftExtensions.xcworkspace"
-xcode_scheme: "EZSwiftExtensions-iOS"
-xcode_sdk: "iphonesimulator"
+script:
+- xcodebuild -project EZSwiftExtensions.xcworkspace -scheme EZSwiftExtensions-iOS -sdk iphonesimulator
 
 before_install:
   - brew install swiftlint
