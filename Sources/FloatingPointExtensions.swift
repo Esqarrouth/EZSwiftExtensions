@@ -25,6 +25,7 @@ extension FloatingPoint {
         }
     }
 
+    /// EZSE: Returns rounded FloatingPoint to specified number of places
     public func rounded(toPlaces places: Int) -> Self {
         guard places >= 0 else { return self }
         //Float80 max decimal places = 18
@@ -33,11 +34,12 @@ extension FloatingPoint {
         return (self * div).rounded() / div
     }
 
-
+    /// EZSE: Rounds current FloatingPoint to specified number of places
     public mutating func round(toPlaces places: Int) {
         self = rounded(toPlaces: places)
     }
 
+    /// EZSE: Returns ceiled FloatingPoint to specified number of places
     public func ceiled(toPlaces places: Int) -> Self {
         guard places >= 0 else { return self }
         //Float80 max decimal places = 18
@@ -46,6 +48,7 @@ extension FloatingPoint {
         return (self * div).rounded(.up) / div
     }
 
+    /// EZSE: Ceils current FloatingPoint to specified number of places
     public mutating func ceil(toPlaces places: Int) {
         self = ceiled(toPlaces: places)
     }
