@@ -3,7 +3,7 @@ language: objective-c
 
 script:
 - xcodebuild -project EZSwiftExtensions.xcodeproj -scheme EZSwiftExtensions-iOS -sdk iphonesimulator
-- xcodebuild -project EZSwiftExtensions.xcodeproj -scheme EZSwiftExtensions-tvOS -sdk appletvsimulator10.0
+- xcodebuild -project EZSwiftExtensions.xcodeproj -list -scheme EZSwiftExtensions-tvOS -sdk appletvsimulator
 
 before_install:
   - brew install swiftlint
