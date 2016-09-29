@@ -16,30 +16,32 @@ extension Double {
     public var toInt: Int { return Int(self) }
 }
 
+//MARK: - Deprecated 1.8
+
 extension Double {
+
     /// EZSE: Returns a Double rounded to decimal
+    @available(*, deprecated: 1.8, renamed: "rounded(toPlaces:)")
     public func getRoundedByPlaces(_ places: Int) -> Double {
-        return castToDecimalByPlacesHelper(places, function: Darwin.round)
+        return rounded(toPlaces: places)
     }
 
     /// EZSE: Rounds the current Double rounded to decimal
+    @available(*, deprecated: 1.8, renamed: "round(toPlaces:)")
     public mutating func roundByPlaces(_ places: Int) {
-        self = castToDecimalByPlacesHelper(places, function: Darwin.round)
+        self.round(toPlaces: places)
     }
 
     /// EZSE: Returns a Double Ceil to decimal
+    @available(*, deprecated: 1.8, renamed: "ceiled(toPlaces:)")
     public func getCeiledByPlaces(_ places: Int) -> Double {
-        return castToDecimalByPlacesHelper(places, function: Darwin.ceil)
+        return ceiled(toPlaces: places)
     }
 
     /// EZSE: Ceils current Double to number of places
+    @available(*, deprecated: 1.8, renamed: "ceil(toPlaces:)")
     public mutating func ceilByPlaces(_ places: Int) {
-        self = castToDecimalByPlacesHelper(places, function: Darwin.ceil)
+        self.ceil(toPlaces: places)
     }
 
-    fileprivate func castToDecimalByPlacesHelper(_ places: Int, function: (Double) -> Double) -> Double {
-        guard places >= 0 else { return self }
-        let divisor = pow(10.0, Double(places))
-        return function(self * divisor) / divisor
-    }
 }
