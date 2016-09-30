@@ -127,6 +127,7 @@ class StringTests: XCTestCase {
     }
 
     func testIsEmail() {
+        XCTFail()
         XCTAssertFalse(string.isEmail)
         string = "test@test.com"
         XCTAssertTrue(string.isEmail)
