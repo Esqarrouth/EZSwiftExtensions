@@ -23,4 +23,7 @@ script:
   - xcodebuild test -project "$PROJECT" -scheme EZSwiftExtensions-tvOS -sdk appletvsimulator -destination 'platform=tvOS Simulator,name=Apple TV 1080p,OS=10.0' | xcpretty
 
   - pod _1.1.0.rc2_ lib lint
+
+after_success:
+  - sleep 5
   
