@@ -1,5 +1,7 @@
 osx_image: xcode8
 language: objective-c
+rvm: 2.2.2
+cache: cocoapods
 
 env:
   global:
@@ -8,8 +10,8 @@ env:
 script:
   - set -o pipefail
   
-  - xcodebuild -project "$PROJECT" -scheme EZSwiftExtensions-iOS -target EZSwiftExtensionsTests-iOS -sdk iphonesimulator | xcpretty
-  - xcodebuild -project "$PROJECT" -scheme EZSwiftExtensions-iOS -target EZSwiftExtensionsTests-tvOS -sdk appletvsimulator | xcpretty
+  - xcodebuild -project "$PROJECT" -scheme EZSwiftExtensions-iOS -sdk iphonesimulator | xcpretty
+  - xcodebuild -project "$PROJECT" -scheme EZSwiftExtensions-tvOS -sdk appletvsimulator | xcpretty
 
   - pod _1.1.0.rc2_ lib lint
 
