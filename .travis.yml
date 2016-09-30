@@ -1,11 +1,21 @@
 osx_image: xcode8
 language: objective-c
 
+env:
+  global:
+    - PROJECT=EZSwiftExtensions.xcodeproj
+
 script:
-- xcodebuild -project EZSwiftExtensions.xcodeproj -scheme EZSwiftExtensions-iOS -sdk iphonesimulator
-- xcodebuild -project EZSwiftExtensions.xcodeproj -list
+  - set -o pipefail
+  
+  - xcodebuild -project "$PROJECT" -scheme EZSwiftExtensions-iOS -sdk iphonesimulator | xcpretty
+  - xcodebuild -project "$PROJECT" -scheme EZSwiftExtensions-tvOS -sdk appletvsimulator | xcpretty
+
+  - pod _1.1.0.rc2_ lib lint
 
 before_install:
+  - gem install cocoapods -v 1.1.0.rc2 # remove -v after it ships
+  - gem install xcpretty
   - brew install swiftlint
 
 before_script:
