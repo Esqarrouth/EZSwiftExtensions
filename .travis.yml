@@ -18,12 +18,10 @@ before_script:
 script:
   - set -o pipefail
   - set -e
-  - xcodebuild -version
-  - xcodebuild -showsdks
 
-  - xcodebuild clean -workspace "$PROJECT" | xcpretty
-  - xcodebuild test -workspace "$PROJECT" -scheme EZSwiftExtensions-iOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.0' -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES | xcpretty
-  - xcodebuild test -workspace "$PROJECT" -scheme EZSwiftExtensions-tvOS -sdk appletvsimulator -destination 'platform=tvOS Simulator,name=Apple TV 1080p,OS=10.0' -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES | xcpretty
+  - xcodebuild clean -project "$PROJECT" | xcpretty
+  - xcodebuild test -project "$PROJECT" -scheme EZSwiftExtensions-iOS -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.0' ONLY_ACTIVE_ARCH=NO | xcpretty
+  - xcodebuild test -project "$PROJECT" -scheme EZSwiftExtensions-tvOS -destination 'platform=tvOS Simulator,name=Apple TV 1080p,OS=10.0' ONLY_ACTIVE_ARCH=NO  | xcpretty
 
   - pod _1.1.0.rc2_ lib lint
   
