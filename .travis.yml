@@ -18,8 +18,7 @@ before_script:
 script:
   - set -o pipefail
   - set -e
-
-  - xcodebuild clean -project "$PROJECT" | xcpretty
+  
   - xcodebuild test -project "$PROJECT" -scheme EZSwiftExtensions-iOS -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.0' ONLY_ACTIVE_ARCH=NO | xcpretty
   - xcodebuild test -project "$PROJECT" -scheme EZSwiftExtensions-tvOS -destination 'platform=tvOS Simulator,name=Apple TV 1080p,OS=10.0' ONLY_ACTIVE_ARCH=NO  | xcpretty
 
