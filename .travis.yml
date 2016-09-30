@@ -17,8 +17,8 @@ before_script:
 script:
   - set -o pipefail
   
-  - xcodebuild -project "$PROJECT" -scheme EZSwiftExtensions-iOS -sdk iphonesimulator | xcpretty
-  - xcodebuild -project "$PROJECT" -scheme EZSwiftExtensions-tvOS -sdk appletvsimulator | xcpretty
+  - xcodebuild test -project "$PROJECT" -scheme EZSwiftExtensions-iOS -sdk iphonesimulator | xcpretty
+  - xcodebuild test -project "$PROJECT" -scheme EZSwiftExtensions-tvOS -sdk appletvsimulator | xcpretty
 
   - pod _1.1.0.rc2_ lib lint
   
