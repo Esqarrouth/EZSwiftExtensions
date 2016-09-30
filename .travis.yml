@@ -5,10 +5,10 @@ cache: cocoapods
 
 env:
   global:
-    - PROJECT=EZSwiftExtensions.xcodeproj
+    - WORKSPACE=EZSwiftExtensions.xcworkspace
 
 before_install:
-  - gem install cocoapods -v 1.1.0.rc2 #remove -v when it ships, must have for successfull compilation
+  - gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet
   - gem install xcpretty
   - brew install swiftlint
 
@@ -17,15 +17,16 @@ before_script:
 
 script:
   - set -o pipefail
+  - xcodebuild -version
+  - xcodebuild -showsdks
 
-  - xcodebuild clean -project "$PROJECT" | xcpretty
-  - sleep 5
-  - xcodebuild test -project "$PROJECT" -scheme EZSwiftExtensions-iOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.0' | xcpretty
-  - sleep 5
-  - xcodebuild test -project "$PROJECT" -scheme EZSwiftExtensions-tvOS -sdk appletvsimulator -destination 'platform=tvOS Simulator,name=Apple TV 1080p,OS=10.0' | xcpretty
+  - xcodebuild clean -workspace "$WORKSPACE" | xcpretty
+  - xcodebuild test -workspace "$WORKSPACE" -scheme EZSwiftExtensions-iOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.0' -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES | xcpretty
+  - xcodebuild test -workspace "$WORKSPACE" -scheme EZSwiftExtensions-tvOS -sdk appletvsimulator -destination 'platform=tvOS Simulator,name=Apple TV 1080p,OS=10.0' -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES | xcpretty
 
   - pod _1.1.0.rc2_ lib lint
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
   - sleep 5
+
