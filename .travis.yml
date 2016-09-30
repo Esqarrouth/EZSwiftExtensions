@@ -17,13 +17,12 @@ before_script:
 
 script:
   - set -o pipefail
-  
+
   - xcodebuild clean -project "$PROJECT" | xcpretty
+  - sleep 5
   - xcodebuild test -project "$PROJECT" -scheme EZSwiftExtensions-iOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.0' | xcpretty
+  - sleep 5
   - xcodebuild test -project "$PROJECT" -scheme EZSwiftExtensions-tvOS -sdk appletvsimulator -destination 'platform=tvOS Simulator,name=Apple TV 1080p,OS=10.0' | xcpretty
 
   - pod _1.1.0.rc2_ lib lint
-
-after_success:
-  - sleep 5
   
