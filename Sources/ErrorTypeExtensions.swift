@@ -1,9 +1,13 @@
 //
 //  ErrorTypeExtensions.swift
-//  EZSwiftExtensionsExample
+//  EZSwiftExtensions
 //
-//  Created by Goktug Yilmaz on 3/23/16.
+//  Created by Olexii Pyvovarov on 10/1/16.
 //  Copyright © 2016 Goktug Yilmaz. All rights reserved.
 //
 
-import UIKit
+import Foundation
+
+extension Error {
+
+}
