@@ -13,8 +13,8 @@ extension FloatingPoint {
     /// EZSE: Returns rounded FloatingPoint to specified number of places
     public func rounded(toPlaces places: Int) -> Self {
         guard places >= 0 else { return self }
-        var divisor = Self(1)
-        for _ in 0..<places { divisor.multiply(by: Self(10)) }
+        var divisor: Self = 1
+        for _ in 0..<places { divisor.multiply(by: 10) }
         return (self * divisor).rounded() / divisor
     }
 
@@ -26,8 +26,8 @@ extension FloatingPoint {
     /// EZSE: Returns ceiled FloatingPoint to specified number of places
     public func ceiled(toPlaces places: Int) -> Self {
         guard places >= 0 else { return self }
-        var divisor = Self(1)
-        for _ in 0..<places { divisor.multiply(by: Self(10)) }
+        var divisor: Self = 1
+        for _ in 0..<places { divisor.multiply(by: 10) }
         return (self * divisor).rounded(.up) / divisor
     }
 
