@@ -12,8 +12,8 @@ import XCTest
 
 class CharacterTests: XCTestCase {
     
-    let pchr: Character = "p”
-    let digitChr: Character = “3”
+    let pchr: Character = "p"
+    let digitChr: Character = "3"
     
     let int: Int = 3
     let str: String = "p"
@@ -23,14 +23,11 @@ class CharacterTests: XCTestCase {
     }
     
     func testToString() {
-        
-        
-        XCTAssertEqual(chr.toString, str)
+        XCTAssertEqual(pchr.toString, str)
     }
     
     func testToInt() {
-        
-        XCTAssertEqual(chr.toInt, int)
+        XCTAssertEqual(digitChr.toInt, int)
         XCTAssertEqual(pchr.toInt, nil)
     }
 }
