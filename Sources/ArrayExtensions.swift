@@ -56,8 +56,9 @@ extension Array {
     }
 
     /// EZSE: Reverse the given index. i.g.: reverseIndex(2) would be 2 to the last
-    public func reverseIndex(_ index: Int) -> Int {
-        return Swift.max(self.count - 1 - index, 0)
+    public func reverseIndex(_ index: Int) -> Int? {
+        guard index >= 0 && index < count else { return nil }
+        return self.count - 1 - index
     }
 
     /// EZSE: Returns an array with the given number as the max number of elements.
