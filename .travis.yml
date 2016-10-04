@@ -1,12 +1,30 @@
 osx_image: xcode8
 language: objective-c
+rvm: 2.2.2
+cache: cocoapods
 
-xcode_workspace: "EZSwiftExtensions.xcworkspace"
-xcode_scheme: "EZSwiftExtensions-iOS"
-xcode_sdk: "iphonesimulator"
+env:
+  global:
+    - PROJECT=EZSwiftExtensions.xcodeproj
 
 before_install:
+  - gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet
+  - gem install xcpretty
   - brew install swiftlint
 
 before_script:
   - swiftlint
+
+script:
+  - set -o pipefail
+  
+  - xcodebuild clean -project "$PROJECT"
+  - xcodebuild test -project "$PROJECT" -scheme EZSwiftExtensions-iOS -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.0'  | xcpretty
+  - xcodebuild test -project "$PROJECT" -scheme EZSwiftExtensions-tvOS -destination 'platform=tvOS Simulator,name=Apple TV 1080p,OS=10.0' | xcpretty
+
+  - pod _1.1.0.rc2_ lib lint
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+  - sleep 5
+  

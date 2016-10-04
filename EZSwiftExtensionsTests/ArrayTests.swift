@@ -108,9 +108,15 @@ class ArrayTests: XCTestCase {
     }
 
     func testReverseIndex() {
+        let emptyArray = [Int]()
         let array = [Int](0...5)
         XCTAssertEqual(array.reverseIndex(0), 5)
         XCTAssertEqual(array.reverseIndex(2), 3)
+        XCTAssertNil(array.reverseIndex(-2))
+        XCTAssertNil(array.reverseIndex(7))
+        XCTAssertNil(emptyArray.reverseIndex(0))
+        XCTAssertNil(emptyArray.reverseIndex(4))
+        XCTAssertNil(emptyArray.reverseIndex(-3))
     }
 
     func testTakeMax() {

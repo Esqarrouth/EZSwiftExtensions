@@ -14,7 +14,7 @@ class CGFloatTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        radians = CGFloat (M_PI * Double(2))
+        radians = 2 * .pi
         degrees = 360
     }
 

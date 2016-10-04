@@ -8,9 +8,26 @@
 
 import XCTest
 
+@testable import EZSwiftExtensions
+
 class CharacterTests: XCTestCase {
-
     
+    let pchr: Character = "p"
+    let digitChr: Character = "3"
+    
+    let int: Int = 3
+    let str: String = "p"
 
+    override func setUp() {
+        super.setUp()
+    }
+    
+    func testToString() {
+        XCTAssertEqual(pchr.toString, str)
+    }
+    
+    func testToInt() {
+        XCTAssertEqual(digitChr.toInt, int)
+        XCTAssertEqual(pchr.toInt, nil)
+    }
 }
-
