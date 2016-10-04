@@ -91,7 +91,7 @@ class ArrayTests: XCTestCase {
         XCTAssertEqual(array.reverseIndex(0), 5)
         XCTAssertEqual(array.reverseIndex(2), 3)
         XCTAssertNil(array.reverseIndex(-2))
-        XCTAssertEqual(array.reverseIndex(7), 0)
+        XCTAssertNil(array.reverseIndex(7))
         XCTAssertNil(emptyArray.reverseIndex(0))
         XCTAssertNil(emptyArray.reverseIndex(4))
         XCTAssertNil(emptyArray.reverseIndex(-3))
