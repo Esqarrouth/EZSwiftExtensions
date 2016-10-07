@@ -14,7 +14,7 @@ before_install:
 
 before_script:
   - swiftlint
-  - bundle exec danger
+  - bundle exec danger --fail-on-errors=true
 
 script:
   - set -o pipefail
