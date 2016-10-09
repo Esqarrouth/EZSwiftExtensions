@@ -231,4 +231,26 @@ class StringTests: XCTestCase {
         
         XCTAssertEqual("a%20b%20c%20d%20e", urlEncodedSpacedString)
     }
+    
+    func testUrlEncode() {
+        var unchangedString = "abcde"
+        unchangedString.urlEncode()
+        
+        XCTAssertEqual("abcde", unchangedString)
+        
+        var escapeCharString = "\n\t"
+        escapeCharString.urlEncode()
+        
+        XCTAssertEqual("%0A%09", escapeCharString)
+        
+        var mixedString = "ab\ncd"
+        mixedString.urlEncode()
+        
+        XCTAssertEqual("ab%0Acd", mixedString)
+        
+        var spacedString = "a b c d e"
+        spacedString.urlEncode()
+        
+        XCTAssertEqual("a%20b%20c%20d%20e", spacedString)
+    }
 }
