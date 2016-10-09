@@ -454,7 +454,7 @@ extension String {
     #endif
     
     // EZSE: URL encode a string (percent encoding special chars)
-    public func urlEncode() -> String {
+    public func urlEncoded() -> String {
         return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
     }
 }
