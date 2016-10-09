@@ -210,24 +210,24 @@ class StringTests: XCTestCase {
         XCTAssertNil(bool3.toBool())
     }
     
-    func testUrlEncode() {
+    func testUrlEncoded() {
         let unchangedString = "abcde"
-        let urlEncodedUnChangedString = unchangedString.urlEncode()
+        let urlEncodedUnChangedString = unchangedString.urlEncoded()
         
         XCTAssertEqual(unchangedString, urlEncodedUnChangedString)
         
         let escapeCharString = "\n\t"
-        let urlEncodeEscapeCharString = escapeCharString.urlEncode()
+        let urlEncodeEscapeCharString = escapeCharString.urlEncoded()
         
         XCTAssertEqual("%0A%09", urlEncodeEscapeCharString)
         
         let mixedString = "ab\ncd"
-        let urlEncodedMixedString = mixedString.urlEncode()
+        let urlEncodedMixedString = mixedString.urlEncoded()
         
         XCTAssertEqual("ab%0Acd", urlEncodedMixedString)
         
         let spacedString = "a b c d e"
-        let urlEncodedSpacedString = spacedString.urlEncode()
+        let urlEncodedSpacedString = spacedString.urlEncoded()
         
         XCTAssertEqual("a%20b%20c%20d%20e", urlEncodedSpacedString)
     }
