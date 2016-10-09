@@ -457,6 +457,11 @@ extension String {
     public func urlEncoded() -> String {
         return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
     }
+    
+    // EZSE: URL encode a string (percent encoding special chars) mutating version
+    mutating func urlEncode() {
+        self = urlEncoded()
+    }
 }
 
 extension String {
