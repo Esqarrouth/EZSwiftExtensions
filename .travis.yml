@@ -10,19 +10,20 @@ env:
 before_install:
   - gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet
   - gem install xcpretty
+  - gem install xcpretty-json-formatter
   - brew install swiftlint
 
 before_script:
   - swiftlint
-  - bundle exec danger --fail-on-errors=true
 
 script:
   - set -o pipefail
   
-  - xcodebuild clean build test -project "$PROJECT" -scheme EZSwiftExtensions-iOS -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.0'  | xcpretty
-  - xcodebuild clean build test -project "$PROJECT" -scheme EZSwiftExtensions-tvOS -destination 'platform=tvOS Simulator,name=Apple TV 1080p,OS=10.0' | xcpretty
-
-  - pod _1.1.0.rc2_ lib lint
-
+  - xcodebuild clean build test -project "$PROJECT" -scheme EZSwiftExtensions-iOS -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.0' | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-ios.json" xcpretty -f `xcpretty-json-formatter`
+  - xcodebuild clean build test -project "$PROJECT" -scheme EZSwiftExtensions-tvOS -destination 'platform=tvOS Simulator,name=Apple TV 1080p,OS=10.0' | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-tvos.json" xcpretty -f `xcpretty-json-formatter`
+  
+  - pod lib lint
+  - bundle exec danger --fail-on-errors=true
+  
 after_success:
   - bash <(curl -s https://codecov.io/bash)
