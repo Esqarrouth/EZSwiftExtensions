@@ -17,3 +17,5 @@ end
 if git.modified_files.grep(/^EZSwiftExtensionsTests\//).count > 1
 	fail("Please, modify only one extension per pull request.")
 end
+
+xcode_summary.report 'xcodebuild.json'

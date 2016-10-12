@@ -19,7 +19,7 @@ before_script:
 script:
   - set -o pipefail
   
-  - xcodebuild clean build test -project "$PROJECT" -scheme EZSwiftExtensions-iOS -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.0'  | xcpretty
+  - xcodebuild clean build test -project "$PROJECT" -scheme EZSwiftExtensions-iOS -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.0' | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild.json" xcpretty -f `xcpretty-json-formatter`
   - xcodebuild clean build test -project "$PROJECT" -scheme EZSwiftExtensions-tvOS -destination 'platform=tvOS Simulator,name=Apple TV 1080p,OS=10.0' | xcpretty
 
   - pod _1.1.0.rc2_ lib lint
