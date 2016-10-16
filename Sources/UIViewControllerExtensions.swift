@@ -106,8 +106,9 @@ extension UIViewController {
     }
 
     //EZSE: Makes the UIViewController register tap events and hides keyboard when clicked somewhere in the ViewController.
-    public func hideKeyboardWhenTappedAround() {
+    public func hideKeyboardWhenTappedAround(handler: ((UITapGestureRecognizer) -> Void)? = nil) {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        handler?(tap)
         view.addGestureRecognizer(tap)
     }
 
