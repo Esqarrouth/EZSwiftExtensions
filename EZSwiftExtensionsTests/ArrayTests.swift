@@ -224,4 +224,19 @@ class ArrayTests: XCTestCase {
         XCTAssertTrue(numberArray.decompose()!.head == head)
         XCTAssertTrue(numberArray.decompose()!.tail == tail)
     }
+    
+    func testUniqueElementsInArray() {
+        let arrAlreadyUnique = [1, 2, 3, 4]
+        XCTAssertEqual(arrAlreadyUnique.unique(), arrAlreadyUnique)
+        
+        let arrayAlreadyUniqueOrderMaintained = [1, 4, 3, 5]
+        XCTAssertEqual(arrayAlreadyUniqueOrderMaintained.unique(), arrayAlreadyUniqueOrderMaintained)
+        
+        let duplicatedElementsArray = [1, 1, 2, 2, 3, 3]
+        XCTAssertEqual(duplicatedElementsArray.unique(), [1, 2, 3])
+        
+        let duplicatedElementsArrayOrderMaintained = [2, 1, 3, 2, 1, 3]
+        XCTAssertEqual(duplicatedElementsArrayOrderMaintained.unique(), [2, 1, 3])
+        
+    }
 }
