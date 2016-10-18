@@ -91,7 +91,6 @@ extension Array {
     public func testAll(is condition: Bool) -> Bool {
         return testAll { ($0 as? Bool) ?? !condition == condition }
     }
-
 }
 
 extension Array where Element: Equatable {
@@ -183,6 +182,11 @@ extension Array where Element: Equatable {
             }
         }
         return result
+    }
+    
+    /// EZSE: Returns an array consisting of the unique elements in the array
+    public func unique() -> Array {
+        return reduce([]){ $0.contains($1) ? $0 : $0 + [$1] }
     }
 }
 
