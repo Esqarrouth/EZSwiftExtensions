@@ -18,7 +18,17 @@ class CGFloatTests: XCTestCase {
         degrees = 360
     }
 
-    func testToggle() {
+    func testDegreesToRadians() {
         XCTAssertEqual(radians, degrees.degreesToRadians())
+    }
+    
+    func testDegreesToRadiansStaticVersion() {
+        XCTAssertEqual(CGFloat.degreesToRadians(degrees), radians)
+    }
+    
+    func testDegreesToRadiansMutableVersion() {
+        var mutableDegrees = CGFloat(360)
+        mutableDegrees.toRadiansInPlace()
+        XCTAssertEqual(mutableDegrees, radians)
     }
 }

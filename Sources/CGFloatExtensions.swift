@@ -14,13 +14,8 @@ extension CGFloat {
     public var center: CGFloat { return (self / 2) }
 
     /// EZSwiftExtensions
-    public func toRadians() -> CGFloat {
-        return (.pi * self) / 180.0
-    }
-
-    /// EZSwiftExtensions
     public func degreesToRadians() -> CGFloat {
-        return toRadians()
+        return (.pi * self) / 180.0
     }
 
     /// EZSwiftExtensions
