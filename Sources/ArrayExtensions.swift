@@ -183,10 +183,10 @@ extension Array where Element: Equatable {
         }
         return result
     }
-    
+
     /// EZSE: Returns an array consisting of the unique elements in the array
     public func unique() -> Array {
-        return reduce([]){ $0.contains($1) ? $0 : $0 + [$1] }
+        return reduce([]) { $0.contains($1) ? $0 : $0 + [$1] }
     }
 }
 
