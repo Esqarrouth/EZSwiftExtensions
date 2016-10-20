@@ -32,5 +32,20 @@ extension CGFloat {
     public static func degreesToRadians(_ angle: CGFloat) -> CGFloat {
         return (.pi * angle) / 180.0
     }
+    
+    /// EZSE : Converts radians to degrees. 
+    public func radiansToDegrees() -> CGFloat {
+        return (180.0 * self) / .pi
+    }
+    
+    /// EZSE : Converts angle radians to degrees mutable version.
+    public mutating func toDegreesInPlace() {
+        self = (180.0 * self) / .pi
+    }
+    
+    /// EZSE : Converts angle radians to degrees static version.
+    public static func radiansToDegrees(_ angleInDegrees : CGFloat) -> CGFloat {
+        return (180.0 * angleInDegrees) / .pi
+    }
 
 }
