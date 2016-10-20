@@ -19,6 +19,26 @@ public func ==<T: Equatable>(lhs: [T]?, rhs: [T]?) -> Bool {
 }
 
 extension Array {
+    
+    ///EZSE: Get a sub array from range of index
+    public func subArray(fromIndex:Int,toIndex:Int) -> Array {
+        var subArray = Array()
+        for index in fromIndex...toIndex {
+            subArray.append(self[index])
+        }
+        return subArray
+    }
+    
+    ///EZSE: Get a sub array from elements that meet specific condition
+    public func subArray(_ condition: (Element) -> Bool) -> Array {
+        var subArray = Array()
+        for element in self {
+            if condition(element) {
+                subArray.append(element)
+            }
+        }
+        return subArray
+    }
 
     /// EZSE: Checks if array contains at least 1 item which type is same with given element's type
     public func containsType<T>(of element: T) -> Bool {
