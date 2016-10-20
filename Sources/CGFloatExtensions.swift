@@ -32,5 +32,15 @@ extension CGFloat {
     public static func degreesToRadians(_ angle: CGFloat) -> CGFloat {
         return (.pi * angle) / 180.0
     }
-
+    
+    /// EZSE: Returns a random floating point number between 0.0 and 1.0, inclusive.
+    public static func random() -> CGFloat {
+        return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
+    }
+    
+    /// EZSE: Returns a random floating point number in the range min...max, inclusive.
+    public static func random(min: CGFloat, max: CGFloat) -> CGFloat {
+        assert(min < max)
+        return CGFloat.random() * (max - min) + min
+    }
 }

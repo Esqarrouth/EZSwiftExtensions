@@ -31,4 +31,16 @@ class CGFloatTests: XCTestCase {
         mutableDegrees.toRadiansInPlace()
         XCTAssertEqual(mutableDegrees, radians)
     }
+    
+    func testRandom() {
+        let randomCGFloat = CGFloat.random()
+        XCTAssertGreaterThanOrEqual(randomCGFloat, 0.0)
+        XCTAssertLessThanOrEqual(randomCGFloat, 1.0)
+    }
+    
+    func testRandomWithinRange() {
+        let randomCGFloat = CGFloat.random(min: 0.0, max: 10.0)
+        XCTAssertGreaterThanOrEqual(randomCGFloat, 0.0)
+        XCTAssertLessThanOrEqual(randomCGFloat, 10.0)
+    }
 }
