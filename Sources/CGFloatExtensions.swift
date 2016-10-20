@@ -12,7 +12,7 @@ extension CGFloat {
 
     /// EZSE: Return the central value of CGFloat.
     public var center: CGFloat { return (self / 2) }
-    
+
     @available(*, deprecated: 1.8, renamed: "degreesToRadians")
     public func toRadians() -> CGFloat {
         return (.pi * self) / 180.0
@@ -32,19 +32,19 @@ extension CGFloat {
     public static func degreesToRadians(_ angle: CGFloat) -> CGFloat {
         return (.pi * angle) / 180.0
     }
-    
-    /// EZSE : Converts radians to degrees. 
+
+    /// EZSE: Converts radians to degrees.
     public func radiansToDegrees() -> CGFloat {
         return (180.0 * self) / .pi
     }
-    
-    /// EZSE : Converts angle radians to degrees mutable version.
+
+    /// EZSE: Converts angle radians to degrees mutable version.
     public mutating func toDegreesInPlace() {
         self = (180.0 * self) / .pi
     }
-    
+
     /// EZSE : Converts angle radians to degrees static version.
-    public static func radiansToDegrees(_ angleInDegrees : CGFloat) -> CGFloat {
+    public static func radiansToDegrees(_ angleInDegrees: CGFloat) -> CGFloat {
         return (180.0 * angleInDegrees) / .pi
     }
 
