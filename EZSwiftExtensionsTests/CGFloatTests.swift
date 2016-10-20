@@ -8,6 +8,8 @@
 
 import XCTest
 
+@testable import EZSwiftExtensions
+
 class CGFloatTests: XCTestCase {
     var radians: CGFloat!
     var degrees: CGFloat!
@@ -45,5 +47,23 @@ class CGFloatTests: XCTestCase {
         mutableRadians = 2 * .pi
         mutableRadians.toDegreesInPlace()
         XCTAssertEqual(mutableRadians, degrees)
+    }
+
+    func testRandom() {
+        let randomCGFloat = CGFloat.random()
+        XCTAssertGreaterThanOrEqual(randomCGFloat, 0.0)
+        XCTAssertLessThanOrEqual(randomCGFloat, 1.0)
+    }
+    
+    func testRandomWithinRange() {
+        let range = CGFloat(0.0)...CGFloat(10.0)
+        let randomCGFloat = CGFloat.random(within: range)
+        XCTAssertGreaterThanOrEqual(randomCGFloat, 0.0)
+        XCTAssertLessThanOrEqual(randomCGFloat, 10.0)
+        
+        let closedRange = CGFloat(0.0)..<CGFloat(10.0)
+        let randomClosedCGFloat = CGFloat.random(within: closedRange)
+        XCTAssertGreaterThanOrEqual(randomClosedCGFloat, 0.0)
+        XCTAssertLessThanOrEqual(randomClosedCGFloat, 10.0)
     }
 }
