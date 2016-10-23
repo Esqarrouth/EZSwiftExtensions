@@ -65,9 +65,20 @@ class NSDateTests: XCTestCase {
     }
 
     func testTimePassedBetweenDates() {
-        let date = Date(timeIntervalSince1970: 0)
-        XCTAssertTrue(date.timePassed().contains("years"))
+        // Given
+        let years = Date(timeIntervalSince1970: 0)
+        let months = Date(timeIntervalSinceNow: -8_388_608)
+        let days = Date(timeIntervalSinceNow: -262_144)
+        let hours = Date(timeIntervalSinceNow: -65_536)
+        let minutes = Date(timeIntervalSinceNow: -2_048)
         let now = Date()
+
+        // Test
+        XCTAssertTrue(years.timePassed().contains("years"))
+        XCTAssertTrue(months.timePassed().contains("months"))
+        XCTAssertTrue(days.timePassed().contains("days"))
+        XCTAssertTrue(hours.timePassed().contains("hours"))
+        XCTAssertTrue(minutes.timePassed().contains("minutes"))
         XCTAssertTrue(now.timePassed().contains("now") || now.timePassed().contains("seconds"))
     }
 
