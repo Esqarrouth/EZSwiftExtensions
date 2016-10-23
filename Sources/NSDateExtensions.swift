@@ -54,28 +54,28 @@ extension Date {
 
     /// EZSE: Calculates how many days passed from now to date
     public func daysInBetweenDate(_ date: Date) -> Double {
-        var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
+        var diff = self.timeIntervalSince1970 - date.timeIntervalSince1970
         diff = fabs(diff/86400)
         return diff
     }
 
     /// EZSE: Calculates how many hours passed from now to date
     public func hoursInBetweenDate(_ date: Date) -> Double {
-        var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
+        var diff = self.timeIntervalSince1970 - date.timeIntervalSince1970
         diff = fabs(diff/3600)
         return diff
     }
 
     /// EZSE: Calculates how many minutes passed from now to date
     public func minutesInBetweenDate(_ date: Date) -> Double {
-        var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
+        var diff = self.timeIntervalSince1970 - date.timeIntervalSince1970
         diff = fabs(diff/60)
         return diff
     }
 
     /// EZSE: Calculates how many seconds passed from now to date
     public func secondsInBetweenDate(_ date: Date) -> Double {
-        var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
+        var diff = self.timeIntervalSince1970 - date.timeIntervalSince1970
         diff = fabs(diff)
         return diff
     }
