@@ -36,6 +36,24 @@ class NSDateTests: XCTestCase {
         XCTAssertNil(dateFromFalseStr)
     }
 
+    func testHTTPDateString() {
+        // Given
+        let expectedResult = Date(timeIntervalSince1970: 784_111_777)
+        let fromGMT = TimeInterval(NSTimeZone.local.secondsFromGMT())
+
+        // When
+        let rfc1123 = Date(httpDateString: "Sun, 06 Nov 1994 08:49:37 GMT")
+        let rfc850 = Date(httpDateString: "Sunday, 06-Nov-94 08:49:37 GMT")
+        let asctime = Date(httpDateString: "Sun Nov  6 08:49:37 1994")
+        let invalid = Date(httpDateString: "1994-11-06 08:49:37")
+
+        // Test
+        XCTAssertEqual(rfc1123, expectedResult)
+        XCTAssertEqual(rfc850, expectedResult)
+        XCTAssertEqual(asctime?.addingTimeInterval(fromGMT), expectedResult)
+        XCTAssertNil(invalid)
+    }
+
     func testDateToString() {
         let date = Date(timeIntervalSince1970: 0)
 
