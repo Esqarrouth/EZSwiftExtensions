@@ -64,6 +64,58 @@ class NSDateTests: XCTestCase {
         XCTAssertEqual(date.toString(format: format), dateString)
     }
 
+    func testDaysInBetween() {
+        // Given
+        let date1 = Date(timeIntervalSince1970: 0)
+        let date2 = Date(timeIntervalSinceReferenceDate: 0)
+        let expectedResult: Double = 978_307_200 / 86_400
+
+        // When
+        let actualResult = floor(date1.daysInBetweenDate(date2))
+
+        // Test
+        XCTAssertEqual(actualResult, expectedResult)
+    }
+
+    func testHoursInBetween() {
+        // Given
+        let date1 = Date(timeIntervalSince1970: 0)
+        let date2 = Date(timeIntervalSinceReferenceDate: 0)
+        let expectedResult: Double = 978_307_200 / 3_600
+
+        // When
+        let actualResult = date1.hoursInBetweenDate(date2)
+
+        // Test
+        XCTAssertEqual(actualResult, expectedResult)
+    }
+
+    func testMinutesInBetween() {
+        // Given
+        let date1 = Date(timeIntervalSince1970: 0)
+        let date2 = Date(timeIntervalSinceReferenceDate: 0)
+        let expectedResult: Double = 978_307_200 / 60
+
+        // When
+        let actualResult = date1.minutesInBetweenDate(date2)
+
+        // Test
+        XCTAssertEqual(actualResult, expectedResult)
+    }
+
+    func testSecondsInBetween() {
+        // Given
+        let date1 = Date(timeIntervalSince1970: 0)
+        let date2 = Date(timeIntervalSinceReferenceDate: 0)
+        let expectedResult: Double = 978_307_200
+
+        // When
+        let actualResult = date1.secondsInBetweenDate(date2)
+
+        // Test
+        XCTAssertEqual(actualResult, expectedResult)
+    }
+
     func testTimePassedBetweenDates() {
         // Given
         let years = Date(timeIntervalSince1970: 0)
