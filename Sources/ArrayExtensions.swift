@@ -21,21 +21,12 @@ public func ==<T: Equatable>(lhs: [T]?, rhs: [T]?) -> Bool {
 extension Array {
     
     ///EZSE: Get a sub array from range of index
-    public func subArray(fromIndex:Int,toIndex:Int) -> Array {
+    public func get(at range:ClosedRange<Int>) -> Array {
         var subArray = Array()
-        for index in fromIndex...toIndex {
+        let lowerBound = range.lowerBound > 0 ? range.lowerBound : 0
+        let upperBound = range.upperBound > self.count - 1 ? self.count - 1 : range.upperBound
+        for index in lowerBound...upperBound {
             subArray.append(self[index])
-        }
-        return subArray
-    }
-    
-    ///EZSE: Get a sub array from elements that meet specific condition
-    public func subArray(_ condition: (Element) -> Bool) -> Array {
-        var subArray = Array()
-        for element in self {
-            if condition(element) {
-                subArray.append(element)
-            }
         }
         return subArray
     }
