@@ -11,7 +11,7 @@ import UIKit
 class UIColoredView: UIView {
     init() {
         super.init(frame: CGRect(x: 100, y: 100, w: 100, h: 100))
-        backgroundColor = UIColor.randomColor()
+        backgroundColor = UIColor.random()
     }
 
     required init?(coder aDecoder: NSCoder) {
