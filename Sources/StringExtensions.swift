@@ -462,6 +462,14 @@ extension String {
     mutating func urlEncode() {
         self = urlEncoded()
     }
+    
+    /// EZSE: Cut string from closedrange
+    public subscript(integerClosedRange: ClosedRange<Int>) -> String {
+        let start = characters.index(startIndex, offsetBy: integerClosedRange.lowerBound)
+        let end = characters.index(startIndex, offsetBy: integerClosedRange.upperBound)
+        let range = start...end
+        return self[range]
+    }
 }
 
 extension String {
