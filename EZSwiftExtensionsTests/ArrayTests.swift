@@ -19,6 +19,14 @@ class ArrayTests: XCTestCase {
         numberArray = [Int](0...5)
         numberArray.append(1)
     }
+    
+    func testGet_SubArray() {
+        setUp()
+        XCTAssertEqual(numberArray.get(at: 2...4), [2,3,4])
+        XCTAssertEqual(numberArray.get(at: -1...8), [0,1,2,3,4,5,1])
+        XCTAssertEqual(numberArray.get(at: -1...3), [0,1,2,3])
+        XCTAssertEqual(numberArray.get(at: 4...8), [4,5,1])
+    }
 
     func testAdding() {
         numberArray.insertFirst(9)
