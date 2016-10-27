@@ -4,19 +4,19 @@ if github.pr_body.length < 5
 end
 
 # Ensure a clean commits history
-if git.commits.any? { |c| c.message =~ /^Merge branch '#{github.branch_for_base}'/ }
-  fail('Please rebase to get rid of the merge commits in this PR')
-end
+# if git.commits.any? { |c| c.message =~ /^Merge branch '#{github.branch_for_base}'/ }
+#  fail('Please rebase to get rid of the merge commits in this PR')
+# end
 
 # Restrict changing only one extension per PR
-if git.modified_files.grep(/^Sources\//).count > 1
-	fail("Please, modify only one extension per pull request.")
-end
+# if git.modified_files.grep(/^Sources\//).count > 1
+#	fail("Please, modify only one extension per pull request.")
+# end
 
 # Restrict changing only one test per PR
-if git.modified_files.grep(/^EZSwiftExtensionsTests\//).count > 1
-	fail("Please, modify only one extension per pull request.")
-end
+# if git.modified_files.grep(/^EZSwiftExtensionsTests\//).count > 1
+#	fail("Please, modify only one extension per pull request.")
+# end
 
 xcode_summary.report 'xcodebuild-ios.json'
 xcode_summary.report 'xcodebuild-tvos.json'
