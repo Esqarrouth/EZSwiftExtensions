@@ -7,10 +7,27 @@
 //
 
 import XCTest
+@testable import EZSwiftExtensions
 
 class UIViewTests: XCTestCase {
 
-    
-
+    func testRemoveSubviews() {
+        
+        let view = UIView()
+        let sub1 = UIView()
+        let sub2 = UIView()
+        let sub3 = UIView()
+        
+        view.addSubview(sub1)
+        view.addSubview(sub2)
+        view.addSubview(sub3)
+        
+        XCTAssertEqual(view.subviews.count, 3)
+        XCTAssertEqual(view.subviews.contains(sub1) , true)
+        
+        view.removeSubviews()
+        XCTAssertEqual(view.subviews.count, 0)
+        XCTAssertEqual(view.subviews.contains(sub1) , false)
+    }
 }
 
