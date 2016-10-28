@@ -18,10 +18,13 @@ class StringTests: XCTestCase {
     }
 
     func testSubscript() {
+        let string = "0123456789"
         XCTAssertEqual(string[2], "2")
         XCTAssertEqual(string[9], "9")
         XCTAssertEqual(string[0..<10], "0123456789")
         XCTAssertEqual(string[3..<5], "34")
+        XCTAssertEqual(string[0...9], "0123456789")
+        XCTAssertEqual(string[8...9], "89")
     }
 
     func testCapitalization() {
