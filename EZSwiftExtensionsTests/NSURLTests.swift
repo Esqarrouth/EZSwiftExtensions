@@ -35,7 +35,7 @@ class NSURLTests: XCTestCase {
             support = doesSupport
             group.leave()
         })
-        _ = group.wait(timeout: DispatchTime.now() + Double(Int64(30 * NSEC_PER_SEC)) / Double(NSEC_PER_SEC))
+        _ = group.wait(timeout: DispatchTime.now() + TimeInterval(60.0))
         XCTAssertEqual(len, 1024)
         XCTAssertEqual(support, true)
     }
