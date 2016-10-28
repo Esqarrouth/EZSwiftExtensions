@@ -66,4 +66,34 @@ class CGFloatTests: XCTestCase {
         XCTAssertGreaterThanOrEqual(randomClosedCGFloat, 0.0)
         XCTAssertLessThanOrEqual(randomClosedCGFloat, 10.0)
     }
+    
+    func testShortestAngleBetweenInRadiansSanityTest() {
+        let firstAngle = CGFloat(0)
+        let secondAngle = CGFloat(1)
+        
+        let shortestAngle = CGFloat.shortestAngleInRadians(from: firstAngle, to: secondAngle)
+        XCTAssertNotNil(shortestAngle)
+        
+        XCTAssertEqual(shortestAngle, secondAngle - firstAngle)
+    }
+    
+    func testShortestAngleFullCirclePi() {
+        let firstAngle = CGFloat(0)
+        let fullCircleAngle = CGFloat(2 * Double.pi)
+        
+        let shortestAngle = CGFloat.shortestAngleInRadians(from: firstAngle, to: fullCircleAngle)
+        XCTAssertNotNil(shortestAngle)
+        
+        XCTAssertEqual(shortestAngle, 0)
+    }
+    
+    func testShortestAngleThreeFourthsCirclePi() {
+        let firstAngle = CGFloat(0)
+        let threeFourthsCircleAngle = CGFloat(1.5 * Double.pi)
+        
+        let shortestAngle = CGFloat.shortestAngleInRadians(from: firstAngle, to: threeFourthsCircleAngle)
+        XCTAssertNotNil(shortestAngle)
+        
+        XCTAssertEqual(shortestAngle, -0.5 * .pi)
+    }
 }
