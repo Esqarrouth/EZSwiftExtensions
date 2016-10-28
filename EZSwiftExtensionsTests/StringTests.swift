@@ -253,4 +253,55 @@ class StringTests: XCTestCase {
         
         XCTAssertEqual("a%20b%20c%20d%20e", spacedString)
     }
+    
+    func testSplitSeparator() {
+        
+        let testString = "Hey-Ho-Lets-Go"
+        let expectedResult = ["Hey","Ho","Lets","Go"]
+        
+        XCTAssertEqual(testString.split("-"), expectedResult)
+    }
+    
+    func testSplitCharacterSet() {
+        
+        let testString = "HeyHoLetsGo"
+        let expectedResult = ["H","H","L","G"]
+        
+        XCTAssertEqual(testString.split(.lowercaseLetters), expectedResult)
+    }
+    
+    func testIndexOf() {
+        
+        let testString = "HeyHoLetsGo"
+        let expectedResult = 5
+        
+        XCTAssertEqual(testString.getIndexOf("L"), expectedResult)
+    }
+    
+    func testCount() {
+        
+        let testString = "HeyHoLetsGo"
+        let expectedResult = 2
+        
+        XCTAssertEqual(testString.count("o"), expectedResult)
+    }
+
+    func testMatchRegex() {
+        
+        let testString = "H3yH0L3tsG0"
+        let expectedResult = ["3","0","3","0"]
+        
+        XCTAssertEqual(testString.matchesForRegexInText("[0-9]"), expectedResult)
+    }
+    
+    func testIsNumber() {
+        
+        let testString1 = "E"
+        let testString2 = "3"
+        let testString3 = "👻"
+        
+        XCTAssertEqual(testString1.isNumber(), false)
+        XCTAssertEqual(testString2.isNumber(), true)
+        XCTAssertEqual(testString3.isNumber(), false)
+    }
 }
