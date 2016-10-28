@@ -299,9 +299,11 @@ class StringTests: XCTestCase {
         let testString1 = "E"
         let testString2 = "3"
         let testString3 = "👻"
-        
+        let testString4 = "3.333"
+
         XCTAssertEqual(testString1.isNumber(), false)
         XCTAssertEqual(testString2.isNumber(), true)
         XCTAssertEqual(testString3.isNumber(), false)
+        XCTAssertEqual(testString4.isNumber(), true)
     }
 }
