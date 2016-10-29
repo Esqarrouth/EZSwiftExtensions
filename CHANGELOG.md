@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 ### Added extensions
 
 **Array:**
-- `shuffled()` by @piv199
+- ```swift shuffled()``` by @piv199
 - `unique()` by @Khalian
 - `get(at range:ClosedRange<Int>)` by @Dendim0n
 
