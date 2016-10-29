@@ -3,6 +3,15 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased] 
 
+### Fixed bugs
+
+1. **Array:**
+- `shuffle()` crashing if array contains one or zero elements  by @piv199
+
+2. **EZSwiftExtensions:**
+- Setting image on undefined thread for `imageWithURL` related methods #217 by @piv199
+- `runThisEvery()` now returns `Timer` instead of `CFLoopTimer` #228 by @lfarah
+
 ### Added extensions
 
 1. **Array:**
@@ -30,20 +39,11 @@ All notable changes to this project will be documented in this file.
 
 ### Modified extensions
 
-**Global:**
-- Updated `M_PI` to `.pi` #216 by @piv199
+1. **Global:**
+  - Updated `M_PI` to `.pi` #216 by @piv199
 
-**Array:**
-- `reverseIndex(_ index: Int)` now returns `Int?` instead of `Int` by @piv199
-
-### Fixed bugs
-
-**Array:**
-- `shuffle()` crashing if array contains one or zero elements  by @piv199
-
-**EZSwiftExtensions:**
-- Setting image on undefined thread for `imageWithURL` related methods #217 by @piv199
-- `runThisEvery()` now returns `Timer` instead of `CFLoopTimer` #228 by @lfarah
+2. **Array:**
+  - `reverseIndex(_ index: Int)` now returns `Int?` instead of `Int` by @piv199
 
 ### Deprecated/Renamed extensions
 
