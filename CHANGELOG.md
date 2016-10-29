@@ -3,8 +3,6 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased] 
 
-[All changes](https://github.com/goktugyil/EZSwiftExtensions/compare/1.7...master)
-
 ### Fixed bugs
 
 1. **Array:**
@@ -79,3 +77,6 @@ Method/property name  | Renamed to | Author
 Method/property name  | Renamed to | Author 
 ------------- | ------------- | ------------- 
  `randomColor(_ randomAlpha: Bool)` | `random(randomAlpha: Bool)` | lfarah 
+
+[All changes](https://github.com/goktugyil/EZSwiftExtensions/compare/1.7...master)
+
