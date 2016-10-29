@@ -36,6 +36,7 @@ All notable changes to this project will be documented in this file.
 4. **String:**
   - `urlEncoded()` by *Khalian*
   - `urlEncode()` by *Khalian*
+  - `subscript(integerClosedRange: ClosedRange<Int>)` by *lfarah*
 
 ### Modified extensions
 
