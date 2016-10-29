@@ -26,6 +26,7 @@ All notable changes to this project will be documented in this file.
   - `random()` by *Khalian*
   - `random(within: Range<CGFloat>)` by *Khalian*
   - `random(within: ClosedRange<CGFloat>)` by *Khalian*
+  - `shortestAngleInRadians(from first: CGFloat, to second: CGFloat)` by *Khalian*
 
 3. **FloatingPoint:**
   - `round(toPlaces places: Int)` by *piv199*
