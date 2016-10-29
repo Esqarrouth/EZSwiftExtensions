@@ -48,13 +48,13 @@ All notable changes to this project will be documented in this file.
 ### Deprecated/Renamed extensions
 
 ** Array: **
-| Old name  | New name | Author |
-| --- | --- |
-| `containsInstanceOf<T>(_ element: T)`  | `containsType<T>(of element: T)` | piv199 |
-| `get(_ index: Int)`  | `get(at index: Int)` | piv199 |
-| `removeObjects(_ objects: Element...)`  | `removeAll(_ elements: Element...)` | piv199 |
-| `removeFirstObject(_ object: Element)`  | `removeFirst(_ element: Element)` | piv199 |
-| `testIfAllIs(_ condition: Bool)`  | `testAll(is condition: Bool)` | piv199 |
+Old name  | New name | Author
+--- | ---
+`containsInstanceOf<T>(_ element: T)`  | `containsType<T>(of element: T)` | piv199
+`get(_ index: Int)`  | `get(at index: Int)` | piv199 |
+`removeObjects(_ objects: Element...)`  | `removeAll(_ elements: Element...)` | piv199
+`removeFirstObject(_ object: Element)`  | `removeFirst(_ element: Element)` | piv199
+`testIfAllIs(_ condition: Bool)`  | `testAll(is condition: Bool)` | piv199
 
 ** CGFloat: **
 | Old name  | New name | Author |
