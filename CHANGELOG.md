@@ -3,47 +3,49 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased] 
 
+[All changes](https://github.com/goktugyil/EZSwiftExtensions/compare/1.7...master)
+
 ### Fixed bugs
 
 1. **Array:**
-- `shuffle()` crashing if array contains one or zero elements  by @piv199
+  - `shuffle()` crashing if array contains one or zero elements by *piv199*
 
 2. **EZSwiftExtensions:**
-- Setting image on undefined thread for `imageWithURL` related methods #217 by @piv199
-- `runThisEvery()` now returns `Timer` instead of `CFLoopTimer` #228 by @lfarah
+  - Setting image on undefined thread for `imageWithURL` related methods by *piv199*
+  - `runThisEvery()` now returns `Timer` instead of `CFLoopTimer` by *lfarah*
 
 ### Added extensions
 
 1. **Array:**
-  - `shuffled()` by @piv199
-  - `unique()` by @Khalian
-  - `get(at range:ClosedRange<Int>)` by @Dendim0n
+  - `shuffled()` by *piv199*
+  - `unique()` by *Khalian*
+  - `get(at range:ClosedRange<Int>)` by *Dendim0n*
 
 2. **CGFloat:**
-  - `radiansToDegrees()` by @Khalian
-  - `toDegreesInPlace()` by @Khalian
-  - `radiansToDegrees(_ angleInDegrees : CGFloat)` by @Khalian
-  - `random()` by @Khalian
-  - `random(within: Range<CGFloat>)` by @Khalian
-  - `random(within: ClosedRange<CGFloat>)` by @Khalian
+  - `radiansToDegrees()` by *Khalian*
+  - `toDegreesInPlace()` by *Khalian*
+  - `radiansToDegrees(_ angleInDegrees : CGFloat)` by *Khalian*
+  - `random()` by *Khalian*
+  - `random(within: Range<CGFloat>)` by *Khalian*
+  - `random(within: ClosedRange<CGFloat>)` by *Khalian*
 
 3. **FloatingPoint:**
-  - `round(toPlaces places: Int)` by @piv199
-  - `rounded(toPlaces places: Int)` by @piv199
-  - `ceil(toPlaces places: Int)` by @piv199
-  - `ceiled(toPlaces places: Int)` by @piv199
+  - `round(toPlaces places: Int)` by *piv199*
+  - `rounded(toPlaces places: Int)` by *piv199*
+  - `ceil(toPlaces places: Int)` by *piv199*
+  - `ceiled(toPlaces places: Int)` by *piv199*
 
 4. **String:**
-  - `urlEncoded()` by @Khalian
-  - `urlEncode()` by @Khalian
+  - `urlEncoded()` by *Khalian*
+  - `urlEncode()` by *Khalian*
 
 ### Modified extensions
 
 1. **Global:**
-  - Updated `M_PI` to `.pi` #216 by @piv199
+  - Updated `M_PI` to `.pi` by *piv199*
 
 2. **Array:**
-  - `reverseIndex(_ index: Int)` now returns `Int?` instead of `Int` by @piv199
+  - `reverseIndex(_ index: Int)` now returns `Int?` instead of `Int` by *piv199*
 
 ### Deprecated/Renamed extensions
 
