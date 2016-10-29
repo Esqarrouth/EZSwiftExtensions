@@ -5,28 +5,28 @@ All notable changes to this project will be documented in this file.
 
 ### Added extensions
 
-**Array:**
-- ```swift shuffled()``` by @piv199
-- `unique()` by @Khalian
-- `get(at range:ClosedRange<Int>)` by @Dendim0n
+1. **Array:**
+  - `shuffled()` by @piv199
+  - `unique()` by @Khalian
+  - `get(at range:ClosedRange<Int>)` by @Dendim0n
 
-**CGFloat:**
-- `radiansToDegrees()` by @Khalian
-- `toDegreesInPlace()` by @Khalian
-- `radiansToDegrees(_ angleInDegrees : CGFloat)` by @Khalian
-- `random()` by @Khalian
-- `random(within: Range<CGFloat>)` by @Khalian
-- `random(within: ClosedRange<CGFloat>)` by @Khalian
+2. **CGFloat:**
+  - `radiansToDegrees()` by @Khalian
+  - `toDegreesInPlace()` by @Khalian
+  - `radiansToDegrees(_ angleInDegrees : CGFloat)` by @Khalian
+  - `random()` by @Khalian
+  - `random(within: Range<CGFloat>)` by @Khalian
+  - `random(within: ClosedRange<CGFloat>)` by @Khalian
 
-**FloatingPoint:**
-- `round(toPlaces places: Int)` by @piv199
-- `rounded(toPlaces places: Int)` by @piv199
-- `ceil(toPlaces places: Int)` by @piv199
-- `ceiled(toPlaces places: Int)` by @piv199
+3. **FloatingPoint:**
+  - `round(toPlaces places: Int)` by @piv199
+  - `rounded(toPlaces places: Int)` by @piv199
+  - `ceil(toPlaces places: Int)` by @piv199
+  - `ceiled(toPlaces places: Int)` by @piv199
 
-**String:**
-- `urlEncoded()` by @Khalian
-- `urlEncode()` by @Khalian
+4. **String:**
+  - `urlEncoded()` by @Khalian
+  - `urlEncode()` by @Khalian
 
 ### Modified extensions
 
