@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0B96C3CF1C86895E00BB2A3B /* NSURLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96C3CD1C8688CB00BB2A3B /* NSURLTests.swift */; };
 		31F868DB1C2B6E5E00542250 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F868DA1C2B6E5E00542250 /* DoubleExtensions.swift */; };
+		5A3292F01DC5BA6F0078F7F3 /* CGPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3292EF1DC5BA6F0078F7F3 /* CGPointExtensions.swift */; };
+		5A3292F41DC5BCC50078F7F3 /* CGPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3292F31DC5BCC50078F7F3 /* CGPointTests.swift */; };
 		7605D3121C81FC180046FAC3 /* ArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605D3021C81FBB80046FAC3 /* ArrayTests.swift */; };
 		7605D3131C81FC180046FAC3 /* BlockButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605D3031C81FBB80046FAC3 /* BlockButtonTests.swift */; };
 		7605D3141C81FC180046FAC3 /* BoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605D3041C81FBB80046FAC3 /* BoolTests.swift */; };
@@ -225,6 +227,8 @@
 /* Begin PBXFileReference section */
 		0B96C3CD1C8688CB00BB2A3B /* NSURLTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLTests.swift; sourceTree = "<group>"; };
 		31F868DA1C2B6E5E00542250 /* DoubleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
+		5A3292EF1DC5BA6F0078F7F3 /* CGPointExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointExtensions.swift; sourceTree = "<group>"; };
+		5A3292F31DC5BCC50078F7F3 /* CGPointTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointTests.swift; sourceTree = "<group>"; };
 		7605D3021C81FBB80046FAC3 /* ArrayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTests.swift; sourceTree = "<group>"; };
 		7605D3031C81FBB80046FAC3 /* BlockButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockButtonTests.swift; sourceTree = "<group>"; };
 		7605D3041C81FBB80046FAC3 /* BoolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolTests.swift; sourceTree = "<group>"; };
@@ -404,6 +408,7 @@
 				E10A795C1D6F62DF00735549 /* BlockWebViewTests.swift */,
 				7605D3041C81FBB80046FAC3 /* BoolTests.swift */,
 				7605D3051C81FBB80046FAC3 /* CGFloatTests.swift */,
+				5A3292F31DC5BCC50078F7F3 /* CGPointTests.swift */,
 				E10A79651D6F65AF00735549 /* CGRectTests.swift */,
 				E10A79661D6F65AF00735549 /* CharacterTests.swift */,
 				7605D3061C81FBB80046FAC3 /* DictionaryTests.swift */,
@@ -460,6 +465,7 @@
 				B5DC87061C0ED34300972D0A /* BlockWebView.swift */,
 				B5DC87071C0ED34300972D0A /* BoolExtensions.swift */,
 				B5DC87081C0ED34300972D0A /* CGFloatExtensions.swift */,
+				5A3292EF1DC5BA6F0078F7F3 /* CGPointExtensions.swift */,
 				B5DC87091C0ED34300972D0A /* CGRectExtensions.swift */,
 				B5DC870A1C0ED34300972D0A /* DictionaryExtensions.swift */,
 				E178781F1C867E9400BC05AA /* CharacterExtensions.swift */,
@@ -724,6 +730,7 @@
 				B5DC87231C0ED34300972D0A /* BlockWebView.swift in Sources */,
 				B5DC87241C0ED34300972D0A /* BoolExtensions.swift in Sources */,
 				B5DC87251C0ED34300972D0A /* CGFloatExtensions.swift in Sources */,
+				5A3292F01DC5BA6F0078F7F3 /* CGPointExtensions.swift in Sources */,
 				E17878121C86520100BC05AA /* NSTimerExtensions.swift in Sources */,
 				B5DC87261C0ED34300972D0A /* CGRectExtensions.swift in Sources */,
 				B5DC87271C0ED34300972D0A /* DictionaryExtensions.swift in Sources */,
@@ -760,6 +767,7 @@
 				7605D3161C81FC180046FAC3 /* DictionaryTests.swift in Sources */,
 				E10A79611D6F62DF00735549 /* BlockTapTests.swift in Sources */,
 				7605D3141C81FC180046FAC3 /* BoolTests.swift in Sources */,
+				5A3292F41DC5BCC50078F7F3 /* CGPointTests.swift in Sources */,
 				E10A79851D6F65AF00735549 /* CharacterTests.swift in Sources */,
 				E10A79BB1D6F65AF00735549 /* UIViewTests.swift in Sources */,
 				E10A79B51D6F65AF00735549 /* UITextViewTests.swift in Sources */,
