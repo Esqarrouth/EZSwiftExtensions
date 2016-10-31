@@ -30,9 +30,15 @@ class StringTests: XCTestCase {
     func testCapitalization() {
         string = "lorem ipsum"
         XCTAssertEqual(string.capitalizedFirst(), "Lorem ipsum")
+        string = ""
+        XCTAssertEqual(string.capitalizedFirst(), "")
+
         string = "eZSwiftExtensions"
         string.capitalizeFirst()
         XCTAssertEqual(string, "EZSwiftExtensions")
+        string = ""
+        string.capitalizeFirst()
+        XCTAssertEqual(string, "")
 
         string = "ezswiftExtensions"
         string.uppercasePrefix(-7)
@@ -154,6 +160,11 @@ class StringTests: XCTestCase {
 
     func testConversions() {
         XCTAssertNotNil(string.toInt())
+        string = "abc"
+        XCTAssertNil(string.toInt())
+        string = ""
+        XCTAssertNil(string.toInt())
+
         string = "0.12"//Assumed USA locale, change to "," if EU
         XCTAssertNotNil(string.toDouble())
         XCTAssertNotNil(string.toFloat())
