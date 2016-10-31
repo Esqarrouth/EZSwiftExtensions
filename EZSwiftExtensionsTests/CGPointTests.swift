@@ -39,4 +39,12 @@ class CGPointTests: XCTestCase {
         XCTAssertEqual(CGPoint.distance(from: p1, to: p2), 5)
         XCTAssertEqual(CGPoint.distance(from: p2, to: p2), 0)
     }
+    
+    func testNormalized() {
+        let p = CGPoint(x:3, y:4)
+        let pNorm = p.normalized()
+        
+        XCTAssertEqual(pNorm, CGPoint(x:0.6, y:0.8))
+        XCTAssertEqual(pNorm.normalized(), pNorm)
+    }
 }
