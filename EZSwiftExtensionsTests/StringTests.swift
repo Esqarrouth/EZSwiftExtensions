@@ -320,4 +320,33 @@ class StringTests: XCTestCase {
         XCTAssertEqual(testString3.isNumber(), false)
         XCTAssertEqual(testString4.isNumber(), true)
     }
+    
+    func testAttributed() {
+        
+        #if os(iOS)
+        let testString = "meh"
+        let testString2 = "✅"
+
+        let boldResult = NSAttributedString(string: testString, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
+        let boldResult2 = NSAttributedString(string: testString2, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
+        let underlineResult = NSAttributedString(string: testString, attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue])
+        let underlineResult2 = NSAttributedString(string: testString2, attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue])
+
+        let italicResult = NSAttributedString(string: testString, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+        let italicResult2 = NSAttributedString(string: testString2, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+
+        let colorResult = NSAttributedString(string: testString, attributes: [NSForegroundColorAttributeName: UIColor.green])
+        let colorResult2 = NSAttributedString(string: testString2, attributes: [NSForegroundColorAttributeName: UIColor.green])
+
+        XCTAssertEqual(testString.bold(), boldResult)
+        XCTAssertEqual(testString.underline(), underlineResult)
+        XCTAssertEqual(testString.italic(), italicResult)
+        XCTAssertEqual(testString.color(.green), colorResult)
+        XCTAssertEqual(testString2.bold(), boldResult2)
+        XCTAssertEqual(testString2.underline(), underlineResult2)
+        XCTAssertEqual(testString2.italic(), italicResult2)
+        XCTAssertEqual(testString2.color(.green), colorResult2)
+
+        #endif
+    }
 }
