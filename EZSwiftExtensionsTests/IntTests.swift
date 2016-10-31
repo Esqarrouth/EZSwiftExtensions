@@ -17,7 +17,14 @@ class IntTests: XCTestCase {
     }
 
     func testDigits() {
-        XCTAssertEqual(value.digits, 5)
+        
+        let value1: Int = 0
+        let expected1: Int = 1
+        let value2: Int = 50
+        let expected2: Int = 2
+        
+        XCTAssertEqual(value1.digits, expected1)
+        XCTAssertEqual(value2.digits, expected2)
     }
 
     func testConsistency() {
@@ -78,5 +85,27 @@ class IntTests: XCTestCase {
         
         XCTAssertEqual(value1.toInt32, expected1)
         XCTAssertEqual(value2.toInt32, expected2)
+    }
+    
+    func testString() {
+        
+        let value1: Int = 399
+        let expected1: String = "399"
+        let value2: Int = -30
+        let expected2: String = "-30"
+        let value3: Int = 0
+        let expected3: String = "0"
+        
+        XCTAssertEqual(value1.toString, expected1)
+        XCTAssertEqual(value2.toString, expected2)
+        XCTAssertEqual(value3.toString, expected3)
+    }
+    
+    func testRange() {
+        
+        let value: Int = 0
+        let expected: CountableRange<Int> = 0..<value
+        
+        XCTAssertEqual(value.range, expected)
     }
 }
