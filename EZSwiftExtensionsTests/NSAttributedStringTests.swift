@@ -67,5 +67,16 @@ class NSAttributedStringTests: XCTestCase {
         
         XCTAssertEqual(newAttributesSeen[NSForegroundColorAttributeName] as! UIColor, grayColor)
     }
+    
+    func testAppending() {
+        
+        var string = NSAttributedString(string: "EZSwiftExtensions")
+        let string2 = NSAttributedString(string: " is Awesome!")
+        
+        string += string2
+        let expected = NSAttributedString(string: "EZSwiftExtensions is Awesome!")
+
+        XCTAssertEqual(string, expected)
+    }
 }
 
