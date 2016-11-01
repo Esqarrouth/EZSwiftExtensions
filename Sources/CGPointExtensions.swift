@@ -21,4 +21,10 @@ extension CGPoint {
     public static func distance(from: CGPoint, to: CGPoint) -> CGFloat {
         return sqrt(pow(to.x - from.x, 2) + pow(to.y - from.y, 2))
     }
+    
+    /// EZSE: Normalizes the vector described by the CGPoint to length 1.0 and returns the result as a new CGPoint.
+    public func normalized() -> CGPoint {
+        let len = CGPoint.distance(from: self, to: CGPoint.zero)
+        return CGPoint(x: self.x / len, y: self.y / len)
+    }
 }
