@@ -22,6 +22,7 @@ class UIViewTests: XCTestCase {
         view.addSubview(sub2)
         view.addSubview(sub3)
         
+        XCTAssertEqual(view.subviews, [sub1, sub2, sub3])
         XCTAssertEqual(view.subviews.count, 3)
         XCTAssertEqual(view.subviews.contains(sub1) , true)
         XCTAssertEqual(view.subviews.contains(sub2) , true)
