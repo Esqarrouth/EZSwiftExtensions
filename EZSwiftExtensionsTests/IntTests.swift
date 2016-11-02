@@ -103,8 +103,8 @@ class IntTests: XCTestCase {
     
     func testRange() {
         
-        let value: Int = 0
-        let expected: CountableRange<Int> = 0..<value
+        let value: Int = 10
+        let expected: CountableRange<Int> = 0..<10
         
         XCTAssertEqual(value.range, expected)
     }
