@@ -47,4 +47,18 @@ class CGPointTests: XCTestCase {
         XCTAssertEqual(pNorm, CGPoint(x:0.6, y:0.8))
         XCTAssertEqual(pNorm.normalized(), pNorm)
     }
+    
+    func testAngle() {
+        let p = CGPoint(x:1, y:1)
+        XCTAssertEqual(p.angle, .pi/4)
+        
+        let onXAxisP = CGPoint(x:1, y:0)
+        XCTAssertEqual(onXAxisP.angle, 0)
+        
+        let onYAxisP = CGPoint(x:0, y:1)
+        XCTAssertEqual(onYAxisP.angle, .pi/2)
+        
+        let onNegativeXAxisP = CGPoint(x:-1, y:0)
+        XCTAssertEqual(onNegativeXAxisP.angle, .pi)
+    }
 }

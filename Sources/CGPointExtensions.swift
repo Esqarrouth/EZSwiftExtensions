@@ -27,4 +27,9 @@ extension CGPoint {
         let len = CGPoint.distance(from: self, to: CGPoint.zero)
         return CGPoint(x: self.x / len, y: self.y / len)
     }
+    
+    //// EZSE: Returns the angle represented by the point.
+    public var angle: CGFloat {
+        return atan2(y, x)
+    }
 }
