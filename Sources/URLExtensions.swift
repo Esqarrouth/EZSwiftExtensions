@@ -1,5 +1,5 @@
 //
-//  NSURLExtensions.swift
+//  URLExtensions.swift
 //  EZSwiftExtensions
 //
 //  Created by furuyan on 2016/01/11.

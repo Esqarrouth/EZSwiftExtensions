@@ -1,5 +1,5 @@
 //
-//  NSTimerExtensions.swift
+//  TimerExtensions.swift
 //  EZSwiftExtensions
 //
 //  Created by Lucas Farah on 15/07/15.
