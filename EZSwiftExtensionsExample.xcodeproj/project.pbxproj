@@ -56,6 +56,7 @@
 		E1839E371BF79974002212C6 /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E1B1BF79974002212C6 /* UITextViewExtensions.swift */; };
 		E1839E381BF79974002212C6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E1C1BF79974002212C6 /* UIViewControllerExtensions.swift */; };
 		E1839E391BF79974002212C6 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E1D1BF79974002212C6 /* UIViewExtensions.swift */; };
+		E19AC0F51DCBA5CB00908905 /* CGPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19AC0F41DCBA5CB00908905 /* CGPointExtensions.swift */; };
 		E1CB3C1C1C25FFA000DF77CD /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB3C1B1C25FFA000DF77CD /* DoubleExtensions.swift */; };
 		E1D7CDCE1CF8FFB3008E4C07 /* UIBarButtonItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D7CDCD1CF8FFB3008E4C07 /* UIBarButtonItemExtensions.swift */; };
 		FADFAA611D9D8BFE00CF9F7A /* FloatingPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFAA601D9D8BFE00CF9F7A /* FloatingPointExtensions.swift */; };
@@ -113,6 +114,7 @@
 		E1839E1B1BF79974002212C6 /* UITextViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextViewExtensions.swift; path = Sources/UITextViewExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1839E1C1BF79974002212C6 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = Sources/UIViewControllerExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1839E1D1BF79974002212C6 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = Sources/UIViewExtensions.swift; sourceTree = SOURCE_ROOT; };
+		E19AC0F41DCBA5CB00908905 /* CGPointExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGPointExtensions.swift; path = Sources/CGPointExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1CB3C1B1C25FFA000DF77CD /* DoubleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleExtensions.swift; path = Sources/DoubleExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1D7CDCD1CF8FFB3008E4C07 /* UIBarButtonItemExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIBarButtonItemExtensions.swift; path = Sources/UIBarButtonItemExtensions.swift; sourceTree = SOURCE_ROOT; };
 		FADFAA601D9D8BFE00CF9F7A /* FloatingPointExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatingPointExtensions.swift; path = ../Sources/FloatingPointExtensions.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				E1839E0A1BF79974002212C6 /* BoolExtensions.swift */,
 				E10A794A1D6F5C5300735549 /* BundleExtensions.swift */,
 				E1839E0B1BF79974002212C6 /* CGFloatExtensions.swift */,
+				E19AC0F41DCBA5CB00908905 /* CGPointExtensions.swift */,
 				E1839E0C1BF79974002212C6 /* CGRectExtensions.swift */,
 				E17878211C867EAB00BC05AA /* CharacterExtensions.swift */,
 				E1839E101BF79974002212C6 /* DateExtensions.swift */,
@@ -287,6 +290,7 @@
 			files = (
 				E1839DBB1BF79335002212C6 /* ViewController.swift in Sources */,
 				E1839E291BF79974002212C6 /* DictionaryExtensions.swift in Sources */,
+				E19AC0F51DCBA5CB00908905 /* CGPointExtensions.swift in Sources */,
 				E17878221C867EAB00BC05AA /* CharacterExtensions.swift in Sources */,
 				E178781A1C86770E00BC05AA /* UIAlertControllerExtensions.swift in Sources */,
 				E1839E211BF79974002212C6 /* BlockPan.swift in Sources */,
