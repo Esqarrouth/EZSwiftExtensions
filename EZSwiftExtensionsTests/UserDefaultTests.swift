@@ -1,5 +1,5 @@
 //
-//  NSUserDefaultTests.swift
+//  UserDefaultTests.swift
 //  EZSwiftExtensions
 //
 //  Created by Goktug Yilmaz on 8/25/16.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class NSUserDefaultTests: XCTestCase {
+class UserDefaultTests: XCTestCase {
 
     
 

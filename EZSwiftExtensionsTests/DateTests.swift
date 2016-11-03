@@ -1,5 +1,5 @@
 //
-//  NSDateTests.swift
+//  DateTests.swift
 //  EZSwiftExtensions
 //
 //  Created by Valentino Urbano on 28/01/16.
@@ -8,8 +8,8 @@
 
 import XCTest
 
-class NSDateTests: XCTestCase {
-    // note that NSDate uses UTC in NSDate(timeIntervalSince1970: _)
+class DateTests: XCTestCase {
+    // note that Date uses UTC in Date(timeIntervalSince1970: _)
 
     var string: String!
     var wrongDateString: String!
