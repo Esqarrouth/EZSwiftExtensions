@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C85840ED1C43B05200595696 /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85840EC1C43B05200595696 /* NSURLExtensions.swift */; };
+		C85840ED1C43B05200595696 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85840EC1C43B05200595696 /* URLExtensions.swift */; };
 		E10A79321D6F2ED700735549 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79311D6F2ED700735549 /* UIApplicationExtensions.swift */; };
 		E10A79371D6F4BDB00735549 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79361D6F4BDB00735549 /* UITextFieldExtensions.swift */; };
 		E10A79441D6F505900735549 /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79431D6F505900735549 /* UIStoryboardExtensions.swift */; };
 		E10A79491D6F51E200735549 /* NSDictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79481D6F51E200735549 /* NSDictionaryExtensions.swift */; };
-		E10A794B1D6F5C5300735549 /* NSBundleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A794A1D6F5C5300735549 /* NSBundleExtensions.swift */; };
-		E10A794D1D6F5C7300735549 /* NSUserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A794C1D6F5C7300735549 /* NSUserDefaultsExtension.swift */; };
+		E10A794B1D6F5C5300735549 /* BundleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A794A1D6F5C5300735549 /* BundleExtensions.swift */; };
+		E10A794D1D6F5C7300735549 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A794C1D6F5C7300735549 /* UserDefaultsExtension.swift */; };
 		E10A794F1D6F5CB700735549 /* UIUserInterfaceSizeClassExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A794E1D6F5CB700735549 /* UIUserInterfaceSizeClassExtensions.swift */; };
 		E15484E41CA2BD00003B030E /* ErrorTypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15484E31CA2BD00003B030E /* ErrorTypeExtensions.swift */; };
 		E1587FB01CCA41F400A0B071 /* UISwitchExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1587FAF1CCA41F400A0B071 /* UISwitchExtensions.swift */; };
-		E17878141C86525300BC05AA /* NSTimerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878131C86525300BC05AA /* NSTimerExtensions.swift */; };
+		E17878141C86525300BC05AA /* TimerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878131C86525300BC05AA /* TimerExtensions.swift */; };
 		E17878161C86525B00BC05AA /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878151C86525A00BC05AA /* NSAttributedStringExtensions.swift */; };
 		E178781A1C86770E00BC05AA /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17878191C86770E00BC05AA /* UIAlertControllerExtensions.swift */; };
 		E178781E1C8678F900BC05AA /* UISliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E178781D1C8678F900BC05AA /* UISliderExtensions.swift */; };
@@ -42,7 +42,7 @@
 		E1839E291BF79974002212C6 /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E0D1BF79974002212C6 /* DictionaryExtensions.swift */; };
 		E1839E2A1BF79974002212C6 /* EZSwiftFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E0E1BF79974002212C6 /* EZSwiftFunctions.swift */; };
 		E1839E2B1BF79974002212C6 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E0F1BF79974002212C6 /* IntExtensions.swift */; };
-		E1839E2C1BF79974002212C6 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E101BF79974002212C6 /* NSDateExtensions.swift */; };
+		E1839E2C1BF79974002212C6 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E101BF79974002212C6 /* DateExtensions.swift */; };
 		E1839E2D1BF79974002212C6 /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E111BF79974002212C6 /* NSObjectExtensions.swift */; };
 		E1839E2E1BF79974002212C6 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E121BF79974002212C6 /* StringExtensions.swift */; };
 		E1839E2F1BF79974002212C6 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1839E131BF79974002212C6 /* UIButtonExtensions.swift */; };
@@ -62,17 +62,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C85840EC1C43B05200595696 /* NSURLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSURLExtensions.swift; path = Sources/NSURLExtensions.swift; sourceTree = SOURCE_ROOT; };
+		C85840EC1C43B05200595696 /* URLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = URLExtensions.swift; path = Sources/URLExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E10A79311D6F2ED700735549 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIApplicationExtensions.swift; path = Sources/UIApplicationExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E10A79361D6F4BDB00735549 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextFieldExtensions.swift; path = Sources/UITextFieldExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E10A79431D6F505900735549 /* UIStoryboardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIStoryboardExtensions.swift; path = Sources/UIStoryboardExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E10A79481D6F51E200735549 /* NSDictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDictionaryExtensions.swift; path = Sources/NSDictionaryExtensions.swift; sourceTree = SOURCE_ROOT; };
-		E10A794A1D6F5C5300735549 /* NSBundleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSBundleExtensions.swift; path = Sources/NSBundleExtensions.swift; sourceTree = SOURCE_ROOT; };
-		E10A794C1D6F5C7300735549 /* NSUserDefaultsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSUserDefaultsExtension.swift; path = Sources/NSUserDefaultsExtension.swift; sourceTree = SOURCE_ROOT; };
+		E10A794A1D6F5C5300735549 /* BundleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BundleExtensions.swift; path = Sources/BundleExtensions.swift; sourceTree = SOURCE_ROOT; };
+		E10A794C1D6F5C7300735549 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDefaultsExtension.swift; path = Sources/UserDefaultsExtension.swift; sourceTree = SOURCE_ROOT; };
 		E10A794E1D6F5CB700735549 /* UIUserInterfaceSizeClassExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIUserInterfaceSizeClassExtensions.swift; path = Sources/UIUserInterfaceSizeClassExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E15484E31CA2BD00003B030E /* ErrorTypeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorTypeExtensions.swift; path = Sources/ErrorTypeExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1587FAF1CCA41F400A0B071 /* UISwitchExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UISwitchExtensions.swift; path = Sources/UISwitchExtensions.swift; sourceTree = SOURCE_ROOT; };
-		E17878131C86525300BC05AA /* NSTimerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSTimerExtensions.swift; path = Sources/NSTimerExtensions.swift; sourceTree = SOURCE_ROOT; };
+		E17878131C86525300BC05AA /* TimerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerExtensions.swift; path = Sources/TimerExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E17878151C86525A00BC05AA /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSAttributedStringExtensions.swift; path = Sources/NSAttributedStringExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E17878191C86770E00BC05AA /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIAlertControllerExtensions.swift; path = Sources/UIAlertControllerExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E178781D1C8678F900BC05AA /* UISliderExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UISliderExtensions.swift; path = Sources/UISliderExtensions.swift; sourceTree = SOURCE_ROOT; };
@@ -99,7 +99,7 @@
 		E1839E0D1BF79974002212C6 /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryExtensions.swift; path = Sources/DictionaryExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1839E0E1BF79974002212C6 /* EZSwiftFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EZSwiftFunctions.swift; path = Sources/EZSwiftFunctions.swift; sourceTree = SOURCE_ROOT; };
 		E1839E0F1BF79974002212C6 /* IntExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntExtensions.swift; path = Sources/IntExtensions.swift; sourceTree = SOURCE_ROOT; };
-		E1839E101BF79974002212C6 /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateExtensions.swift; path = Sources/NSDateExtensions.swift; sourceTree = SOURCE_ROOT; };
+		E1839E101BF79974002212C6 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateExtensions.swift; path = Sources/DateExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1839E111BF79974002212C6 /* NSObjectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSObjectExtensions.swift; path = Sources/NSObjectExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1839E121BF79974002212C6 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtensions.swift; path = Sources/StringExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1839E131BF79974002212C6 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButtonExtensions.swift; path = Sources/UIButtonExtensions.swift; sourceTree = SOURCE_ROOT; };
@@ -151,13 +151,13 @@
 				FADFAA601D9D8BFE00CF9F7A /* FloatingPointExtensions.swift */,
 				E1839E0F1BF79974002212C6 /* IntExtensions.swift */,
 				E17878151C86525A00BC05AA /* NSAttributedStringExtensions.swift */,
-				E10A794A1D6F5C5300735549 /* NSBundleExtensions.swift */,
-				E1839E101BF79974002212C6 /* NSDateExtensions.swift */,
+				E1839E101BF79974002212C6 /* DateExtensions.swift */,
+				E10A794A1D6F5C5300735549 /* BundleExtensions.swift */,
 				E10A79481D6F51E200735549 /* NSDictionaryExtensions.swift */,
 				E1839E111BF79974002212C6 /* NSObjectExtensions.swift */,
-				E17878131C86525300BC05AA /* NSTimerExtensions.swift */,
-				C85840EC1C43B05200595696 /* NSURLExtensions.swift */,
-				E10A794C1D6F5C7300735549 /* NSUserDefaultsExtension.swift */,
+				E17878131C86525300BC05AA /* TimerExtensions.swift */,
+				C85840EC1C43B05200595696 /* URLExtensions.swift */,
+				E10A794C1D6F5C7300735549 /* UserDefaultsExtension.swift */,
 				E1839E121BF79974002212C6 /* StringExtensions.swift */,
 				E17878191C86770E00BC05AA /* UIAlertControllerExtensions.swift */,
 				E10A79311D6F2ED700735549 /* UIApplicationExtensions.swift */,
@@ -290,7 +290,7 @@
 				E17878221C867EAB00BC05AA /* CharacterExtensions.swift in Sources */,
 				E178781A1C86770E00BC05AA /* UIAlertControllerExtensions.swift in Sources */,
 				E1839E211BF79974002212C6 /* BlockPan.swift in Sources */,
-				E1839E2C1BF79974002212C6 /* NSDateExtensions.swift in Sources */,
+				E1839E2C1BF79974002212C6 /* DateExtensions.swift in Sources */,
 				E1839E321BF79974002212C6 /* UIDeviceExtensions.swift in Sources */,
 				E1839E271BF79974002212C6 /* CGFloatExtensions.swift in Sources */,
 				E1839E351BF79974002212C6 /* UIImageViewExtensions.swift in Sources */,
@@ -302,7 +302,7 @@
 				E1839E1E1BF79974002212C6 /* ArrayExtensions.swift in Sources */,
 				E10A79441D6F505900735549 /* UIStoryboardExtensions.swift in Sources */,
 				E1839E2D1BF79974002212C6 /* NSObjectExtensions.swift in Sources */,
-				E17878141C86525300BC05AA /* NSTimerExtensions.swift in Sources */,
+				E17878141C86525300BC05AA /* TimerExtensions.swift in Sources */,
 				E1839DB91BF79335002212C6 /* AppDelegate.swift in Sources */,
 				E1839E201BF79974002212C6 /* BlockLongPress.swift in Sources */,
 				E17878261C86863900BC05AA /* UIWindowExtensions.swift in Sources */,
@@ -311,19 +311,19 @@
 				E15484E41CA2BD00003B030E /* ErrorTypeExtensions.swift in Sources */,
 				E1839E2A1BF79974002212C6 /* EZSwiftFunctions.swift in Sources */,
 				E1839E391BF79974002212C6 /* UIViewExtensions.swift in Sources */,
-				E10A794B1D6F5C5300735549 /* NSBundleExtensions.swift in Sources */,
+				E10A794B1D6F5C5300735549 /* BundleExtensions.swift in Sources */,
 				E1839E361BF79974002212C6 /* UILabelExtensions.swift in Sources */,
 				E1839E281BF79974002212C6 /* CGRectExtensions.swift in Sources */,
 				E1839E331BF79974002212C6 /* UIFontExtensions.swift in Sources */,
 				FADFAA611D9D8BFE00CF9F7A /* FloatingPointExtensions.swift in Sources */,
-				C85840ED1C43B05200595696 /* NSURLExtensions.swift in Sources */,
+				C85840ED1C43B05200595696 /* URLExtensions.swift in Sources */,
 				E1839E261BF79974002212C6 /* BoolExtensions.swift in Sources */,
 				E1839E2B1BF79974002212C6 /* IntExtensions.swift in Sources */,
 				E10A79321D6F2ED700735549 /* UIApplicationExtensions.swift in Sources */,
 				E10A794F1D6F5CB700735549 /* UIUserInterfaceSizeClassExtensions.swift in Sources */,
 				E1CB3C1C1C25FFA000DF77CD /* DoubleExtensions.swift in Sources */,
 				E1839E341BF79974002212C6 /* UIImageExtensions.swift in Sources */,
-				E10A794D1D6F5C7300735549 /* NSUserDefaultsExtension.swift in Sources */,
+				E10A794D1D6F5C7300735549 /* UserDefaultsExtension.swift in Sources */,
 				E1839E241BF79974002212C6 /* BlockTap.swift in Sources */,
 				E1839E1F1BF79974002212C6 /* BlockButton.swift in Sources */,
 				E1839E311BF79974002212C6 /* UIColorExtensions.swift in Sources */,
