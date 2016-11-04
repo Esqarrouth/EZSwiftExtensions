@@ -61,4 +61,15 @@ class CGPointTests: XCTestCase {
         let onNegativeXAxisP = CGPoint(x:-1, y:0)
         XCTAssertEqual(onNegativeXAxisP.angle, .pi)
     }
+    
+    func testDotProduct() {
+        let p = CGPoint(x:1, y:2)
+        let q = CGPoint(x:3, y:4)
+        
+        XCTAssertEqual(CGPoint.dotProduct(this: p, that: q), 11)
+        
+        let zero = CGPoint(x:0, y:0)
+        
+        XCTAssertEqual(CGPoint.dotProduct(this: p, that: zero), 0)
+    }
 }
