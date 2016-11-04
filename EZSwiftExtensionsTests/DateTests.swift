@@ -133,5 +133,13 @@ class DateTests: XCTestCase {
         XCTAssertTrue(minutes.timePassed().contains("minutes"))
         XCTAssertTrue(now.timePassed().contains("now") || now.timePassed().contains("seconds"))
     }
+    
+    func testIsToday() {
+        let today = Date()
+        XCTAssertTrue(today.isToday)
+        
+        let beginningOfUnixTime = Date(timeIntervalSince1970: 0)
+        XCTAssertFalse(beginningOfUnixTime.isToday)
+    }
 
 }

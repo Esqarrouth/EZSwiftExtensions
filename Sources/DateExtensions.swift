@@ -108,5 +108,11 @@ extension Date {
             return "\(components.second) seconds ago"
         }
     }
-
+    
+    // EZSE: Check date if it is today
+    public var isToday: Bool {
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd"
+        return format.string(from: self) == format.string(from: Date())
+    }
 }
