@@ -32,4 +32,9 @@ extension CGPoint {
     public var angle: CGFloat {
         return atan2(y, x)
     }
+    
+    //// EZSE: Returns the dot product of two vectors represented by points
+    public static func dotProduct(this: CGPoint, that: CGPoint) -> CGFloat {
+        return this.x * that.x + this.y * that.y
+    }
 }
