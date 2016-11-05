@@ -306,7 +306,6 @@ extension UIView {
         transform = CATransform3DScale(transform, x, y, 1)
         self.layer.transform = transform
     }
-
 }
 
 // MARK: Layer Extensions
@@ -595,5 +594,44 @@ extension UIView {
             return self
         }
         return parentView.rootView()
+    }
+}
+
+//MARK: Fade Extensions
+
+private let UIViewFadeDuration: TimeInterval = 0.35
+
+extension UIView {
+    ///EZSE: Fade in with duration, delay and completion block.
+    public func fadeIn(_ duration:TimeInterval?, delay _delay:TimeInterval?, completion: ((Bool) -> Void)? = nil) {
+        UIView.animate(withDuration: duration ?? UIViewFadeDuration, delay: _delay ?? 0.0, options: UIViewAnimationOptions(rawValue: UInt(0)), animations: {
+            self.alpha = 0
+        }) { (success) in
+            if let completion = completion {
+                completion(success)
+            }
+        }
+    }
+    
+    /// EZSwiftExtensions
+    public func fadeOut(_ duration:TimeInterval?, delay _delay:TimeInterval?, completion:((Bool) -> Void)? = nil) {
+        UIView.animate(withDuration: duration ?? UIViewFadeDuration, delay: _delay ?? 0.0, options: UIViewAnimationOptions(rawValue: UInt(0)), animations: {
+            self.alpha = 0
+        }) { (success) in
+            if let completion = completion {
+                completion(success)
+            }
+        }
+    }
+    
+    /// Fade to specific value	 with duration, delay and completion block.
+    public func fadeToValue(_ value:CGFloat, duration _duration:TimeInterval?, delay _delay:TimeInterval?, completion:((Bool) -> Void)? = nil) {
+        UIView.animate(withDuration: _duration ?? UIViewFadeDuration, delay: _delay ?? 0.0, options: UIViewAnimationOptions(rawValue: UInt(0)), animations: {
+            self.alpha = value
+        }) { (success) in
+            if let completion = completion {
+                completion(success)
+            }
+        }
     }
 }
