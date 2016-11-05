@@ -864,6 +864,22 @@ let image = UIImage()
 self.setBackgroundImage(image)
 ```
 
+Easily to fade in/out or a specific alpha value with completion blocks:
+
+``` swift
+view.fadeInWithDuration(0.5, delay: 1.0) { (success) in
+    print("done!")
+}
+
+view.fadeOutWithDuration(0.5, delay: 1.0) { (success) in
+    print("done!")
+}
+
+view.fadeToAlphaValue(0.5, duration: nil, delay: nil) { (success) in
+    print("done!")
+}
+```
+
 ### UITextView Extensions
 
 Easily declare a UITextView with standard details:
