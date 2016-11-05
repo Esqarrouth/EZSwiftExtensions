@@ -11,6 +11,7 @@ before_install:
   - gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet
   - gem install xcpretty
   - gem install xcpretty-json-formatter
+  - brew unlink swiftlint
   - brew install swiftlint
 
 before_script:
