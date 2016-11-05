@@ -27,8 +27,8 @@ How Swift standard types and classes were supposed to work. A collection of usef
 - [NSAttributedString](#nsattributedstring-extensions)
 - [Array](#array-extensions)
 - [Dictionary](#dictionary-extensions)
-- [NSDate](#nsdate-extensions)
-- [NSTimer](#nstimer-extensions)
+- [Date](#date-extensions)
+- [Timer](#timer-extensions)
 - [CGRect](#cgrect-extensions)
 - [UIViewController](#uiviewcontroller-extensions)
 - [UIStoryBoard](#uistoryboard-extensions)
@@ -39,8 +39,8 @@ How Swift standard types and classes were supposed to work. A collection of usef
 - [UIImage](#uiimage-extensions)
 - [Block Objects](#block-objects)
 - [UIDevice](#uidevice-extensions)
-- [NSUserDefaults](#nsuserdefaults-extensions)
-- [NSURL](#nsurl-extensions)
+- [UserDefaults](#userdefaults-extensions)
+- [URL](#url-extensions)
 
 ### EZ functions and variables:
 
@@ -469,28 +469,28 @@ var dictionary2 = ["charmander": "fire","squirtle": "water"]
 difference(dictionary1, dictionary2) // ["bulbasaur" : "grass", "squirtle": "water"]
 ```
 
-### NSDate Extensions
+### Date Extensions
 
 Easily initialize your string:
 
 ``` swift
 let format = "yyyy/MM/dd"
 let fromString = "2016/01/11"
-print(NSDate(fromString: fromString, format: format)) // Optional("2016/01/11 00:00:00 +0000")
+print(Date(fromString: fromString, format: format)) // Optional("2016/01/11 00:00:00 +0000")
 ```
 Easily convert date into string:
 
 ``` swift
-let now = NSDate()
+let now = Date()
 print(now.toString())
-print(now.toString(dateStyle: .MediumStyle, timeStyle: .MediumStyle))
+print(now.toString(dateStyle: .medium, timeStyle: .medium))
 print(now.toString(format: "yyyy/MM/dd HH:mm:ss"))
 ```
 Easily see how much time passed:
 
 ``` swift
-let now = NSDate()
-let later = NSDate(timeIntervalSinceNow: -100000)
+let now = Date()
+let later = Date(timeIntervalSinceNow: -100000)
 print(later.daysInBetweenDate(now)) // 1.15740740782409
 print(later.hoursInBetweenDate(now)) // 27.7777777733571
 print(later.minutesInBetweenDate(now)) // 1666.66666641732
@@ -499,35 +499,35 @@ print(later.secondsInBetweenDate(now)) // 99999.999984026
 Easily humanize how much time passed:
 
 ``` swift
-let date1 = NSDate(timeIntervalSinceNow: -100000)
+let date1 = Date(timeIntervalSinceNow: -100000)
 print(date1.timePassed()) // 1 day ago
-let date2 = NSDate(timeIntervalSinceNow: -10000)
+let date2 = Date(timeIntervalSinceNow: -10000)
 print(date2.timePassed()) // 2 hours ago
-let date3 = NSDate(timeIntervalSinceNow: -1000)
+let date3 = Date(timeIntervalSinceNow: -1000)
 print(date3.timePassed()) //16 minutes ago
 ```
 Easily check if dates are equal:
 
 ``` swift
-let now = NSDate()
-let now2 = NSDate()
+let now = Date()
+let now2 = Date()
 print(now == now2) // false, cause microseconds passed between declarations
 ```
 Easily check which date is larger:
 
 ``` swift
-let now = NSDate()
-let now2 = NSDate()
+let now = Date()
+let now2 = Date()
 print(now < now2) // true
 print(now2 < now) // false  
 ```
 
-### NSTimer Extensions
+### Timer Extensions
 
 Easily run block of codes after a certain delay:
 
 ``` swift
-NSTimer.runThisAfterDelay(seconds: 2) { () -> () in
+Timer.runThisAfterDelay(seconds: 2) { () -> () in
     print("Prints this 2 seconds later in main queue")
 }
 
@@ -535,20 +535,20 @@ NSTimer.runThisAfterDelay(seconds: 2) { () -> () in
 Easily run code after delay in another thread:
 
 ``` swift
-NSTimer.runThisAfterDelay(seconds: 2, queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) { () -> () in
-    print("Prints this 2 seconds later in low priority queue")
+Timer.runThisAfterDelay(seconds: 2, queue: DispatchQueue.global()) { () -> () in
+    print("Prints this 2 seconds later")
 }
 ```
 Easily run code every seconds:
 
 ``` swift
 var count = 0
-NSTimer.runThisEvery(seconds: 1) { (timer) -> Void in
+Timer.runThisEvery(seconds: 1) { (timer) -> Void in
     print("Will print every second")
     if count == 3 {
-        timer.invalidate()
+        timer?.invalidate()
     }
-    count++
+    count += 1
 }
 ```
 
@@ -602,7 +602,7 @@ override func viewDidAppear(animated: Bool) {
 ```
 Easily hide the keyboard when user taps around the UIViewController:
 
-```swift 
+```swift
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -1131,26 +1131,26 @@ button1.addAction { (sender) -> Void in
 // There are also BlockWebView, BlockTap, BlockPan, BlockSwipe, BlockPinch, BlockLongPress
 ```
 
-### NSUserDefaults Extensions
+### UserDefaults Extensions
 
-Easily get values from NSUserDefaults with subscripts:
+Easily get values from UserDefaults with subscripts:
 
 ``` swift
-let Defaults = NSUserDefaults.standardUserDefaults()
-// Get values from NSUserDefaults
+let Defaults = UserDefaults.standard
+// Get values from UserDefaults
 let userName = Defaults["userName"]
 
-// Set values to NSUserDefaults
+// Set values to UserDefaults
 Defaults["userName"] = someUserName
 
 ```
 
-### NSURL Extensions
+### URL Extensions
 
 Easily get query in the Dictionary:
 
 ``` swift
-let url = NSURL(string: "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=facebook")
+let url = URL(string: "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=facebook")
 if let queryParameters = url?.queryParameters {
     print(queryParameters["v"]) //Optional("1.0")
     print(queryParameters["q"]) //Optional("facebook")
@@ -1202,7 +1202,7 @@ github "goktugyil/EZSwiftExtensions"
 
 - More extensions! Please if there is an extension you are constantly using, send a pull request now!
 - Fancy pictures and jpgs in documentation.
-- Documentations inside code 
+- Documentations inside code
 - List of contents inside readme
 - Completing `TODO`s in source code.
 - OSX compatibility and add here https://github.com/AndrewSB/awesome-osx
