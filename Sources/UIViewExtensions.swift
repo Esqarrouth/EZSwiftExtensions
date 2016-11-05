@@ -263,6 +263,8 @@ extension UIView {
     }
 }
 
+private let UIViewTransitionDuration: TimeInterval = 0.45
+
 // MARK: Transform Extensions
 extension UIView {
     /// EZSwiftExtensions
@@ -307,6 +309,28 @@ extension UIView {
         self.layer.transform = transform
     }
 
+    
+    /// EZSwiftExtensions
+    public func setTranslation(_ duration:TimeInterval?, _ x: CGFloat?, y: CGFloat?, completion: ((Bool) -> Void)? = nil) {
+        self.animate(duration: duration ?? UIViewTransitionDuration, animations: {
+            self.transform = .init(translationX: x ?? 0, y: y ?? 0)
+        }) { (success) in
+            if let completion = completion {
+                completion(success)
+            }
+        }
+    }
+    
+    /// EZSwiftExtensions
+    public func setTranslationIdentity(_ duration:TimeInterval?, completion: ((Bool) -> Void)? = nil) {
+        self.animate(duration: duration ?? UIViewTransitionDuration, animations: {
+            self.transform = CGAffineTransform.identity
+        }) { (success) in
+            if let completion = completion {
+                completion(success)
+            }
+        }
+    }
 }
 
 // MARK: Layer Extensions
