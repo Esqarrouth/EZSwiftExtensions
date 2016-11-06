@@ -864,19 +864,17 @@ let image = UIImage()
 self.setBackgroundImage(image)
 ```
 
-Easily to fade in/out or a specific alpha value with completion blocks:
+Easily to animate alpha value with duration, delay and completion block
 
 ``` swift
-view.fadeInWithDuration(0.5, delay: 1.0) { (success) in
-    print("done!")
+view.fadeIn(0.5, delay: 1.0) { (success) in
+    print("view show")
 }
 
-view.fadeOutWithDuration(0.5, delay: 1.0) { (success) in
-    print("done!")
-}
+view.fadeOut()
 
-view.fadeToAlphaValue(0.5, duration: nil, delay: nil) { (success) in
-    print("done!")
+view.fadeTo(0.5, duration: 0.5, delay: 0.0) { (success) in
+    print("view with trasparency")
 }
 ```
 
