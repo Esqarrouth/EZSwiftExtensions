@@ -603,35 +603,23 @@ private let UIViewFadeDuration: TimeInterval = 0.35
 
 extension UIView {
     ///EZSE: Fade in with duration, delay and completion block.
-    public func fadeIn(_ duration:TimeInterval?, delay _delay:TimeInterval?, completion: ((Bool) -> Void)? = nil) {
-        UIView.animate(withDuration: duration ?? UIViewFadeDuration, delay: _delay ?? 0.0, options: UIViewAnimationOptions(rawValue: UInt(0)), animations: {
-            self.alpha = 0
-        }) { (success) in
-            if let completion = completion {
-                completion(success)
-            }
-        }
+    public func fadeIn(_ duration:TimeInterval? = UIViewFadeDuration, delay _delay:TimeInterval? = 0.0, completion: ((Bool) -> Void)? = nil) {
+        UIView.animate(withDuration: duration!, delay: _delay!, options: UIViewAnimationOptions(rawValue: UInt(0)), animations: {
+            self.alpha = 1.0
+        }, completion:completion)
     }
     
     /// EZSwiftExtensions
-    public func fadeOut(_ duration:TimeInterval?, delay _delay:TimeInterval?, completion:((Bool) -> Void)? = nil) {
-        UIView.animate(withDuration: duration ?? UIViewFadeDuration, delay: _delay ?? 0.0, options: UIViewAnimationOptions(rawValue: UInt(0)), animations: {
-            self.alpha = 0
-        }) { (success) in
-            if let completion = completion {
-                completion(success)
-            }
-        }
+    public func fadeOut(_ duration:TimeInterval? = UIViewFadeDuration, delay _delay:TimeInterval? = 0.0, completion:((Bool) -> Void)? = nil) {
+        UIView.animate(withDuration: duration!, delay: _delay!, options: UIViewAnimationOptions(rawValue: UInt(0)), animations: {
+            self.alpha = 0.0
+        }, completion:completion)
     }
     
     /// Fade to specific value	 with duration, delay and completion block.
-    public func fadeToValue(_ value:CGFloat, duration _duration:TimeInterval?, delay _delay:TimeInterval?, completion:((Bool) -> Void)? = nil) {
-        UIView.animate(withDuration: _duration ?? UIViewFadeDuration, delay: _delay ?? 0.0, options: UIViewAnimationOptions(rawValue: UInt(0)), animations: {
+    public func fadeTo(_ value:CGFloat, duration _duration:TimeInterval? = UIViewFadeDuration, delay _delay:TimeInterval? = 0.0, completion:((Bool) -> Void)? = nil) {
+        UIView.animate(withDuration: _duration!, delay: _delay!, options: UIViewAnimationOptions(rawValue: UInt(0)), animations: {
             self.alpha = value
-        }) { (success) in
-            if let completion = completion {
-                completion(success)
-            }
-        }
+        }, completion:completion)
     }
 }
