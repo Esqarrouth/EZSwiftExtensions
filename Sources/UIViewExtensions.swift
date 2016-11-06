@@ -310,26 +310,18 @@ extension UIView {
     }
 
     
-    /// EZSwiftExtensions
-    public func setTranslation(_ duration:TimeInterval?, _ x: CGFloat?, y: CGFloat?, completion: ((Bool) -> Void)? = nil) {
-        self.animate(duration: duration ?? UIViewTransitionDuration, animations: {
-            self.transform = .init(translationX: x ?? 0, y: y ?? 0)
-        }) { (success) in
-            if let completion = completion {
-                completion(success)
-            }
-        }
+    /// EZSE: translate view with animation
+    public func setTranslation(_ duration:TimeInterval? = UIViewTransitionDuration, _ x: CGFloat? = 0.0, y: CGFloat? = 0.0, completion: ((Bool) -> Void)? = nil) {
+        self.animate(duration: duration!, animations: {
+            self.transform = .init(translationX: x!, y: y!)
+        }, completion: completion)
     }
     
-    /// EZSwiftExtensions
-    public func setTranslationIdentity(_ duration:TimeInterval?, completion: ((Bool) -> Void)? = nil) {
-        self.animate(duration: duration ?? UIViewTransitionDuration, animations: {
+    /// EZSE: back to origin with animation
+    public func backToOrigin(_ duration:TimeInterval? = UIViewTransitionDuration, completion: ((Bool) -> Void)? = nil) {
+        self.animate(duration: duration!, animations: {
             self.transform = CGAffineTransform.identity
-        }) { (success) in
-            if let completion = completion {
-                completion(success)
-            }
-        }
+        }, completion: completion)
     }
 }
 
