@@ -10,18 +10,23 @@ import XCTest
 @testable import EZSwiftExtensions
 
 class UITextFieldTests: XCTestCase {
-
+    
+    let x: CGFloat = 30
+    let y: CGFloat = 35
+    let width: CGFloat = 40
+    let height: CGFloat = 45
+    
     func testFrame() {
         
-        let textField = UITextField(x: 30, y: 35, w: 40, h: 45)
-        let expectedFrame =  CGRect(x: 30, y: 35, width: 40, height: 45)
+        let textField = UITextField(x: x, y: y, w: width, h: height)
+        let expectedFrame =  CGRect(x: x, y: y, width: width, height: height)
         
         XCTAssertEqual(textField.frame, expectedFrame)
     }
-
+    
     func testFontSize() {
         
-        let textField = UITextField(x: 30, y: 35, w: 40, h: 45, fontSize: 38)
+        let textField = UITextField(x: x, y: y, w: width, h: height, fontSize: 38)
         let expectedFontSize: CGFloat =  38
         
         XCTAssertEqual(textField.font?.pointSize, expectedFontSize)
