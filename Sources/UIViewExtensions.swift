@@ -263,7 +263,7 @@ extension UIView {
     }
 }
 
-private let UIViewTransitionDuration: TimeInterval = 0.45
+private let UIViewDefaultTransitionDuration: TimeInterval = 0.45
 
 // MARK: Transform Extensions
 extension UIView {
@@ -311,15 +311,15 @@ extension UIView {
 
     
     /// EZSE: translate view with animation
-    public func setTranslation(_ duration:TimeInterval? = UIViewTransitionDuration, _ x: CGFloat? = 0.0, y: CGFloat? = 0.0, completion: ((Bool) -> Void)? = nil) {
-        self.animate(duration: duration!, animations: {
+    public func setTranslation(_ duration:TimeInterval? = UIViewDefaultTransitionDuration, _ x: CGFloat? = 0.0, y: CGFloat? = 0.0, completion: ((Bool) -> Void)? = nil) {
+        self.animate(duration: duration ?? UIViewDefaultTransitionDuration, animations: {
             self.transform = .init(translationX: x!, y: y!)
         }, completion: completion)
     }
     
     /// EZSE: back to origin with animation
-    public func backToOrigin(_ duration:TimeInterval? = UIViewTransitionDuration, completion: ((Bool) -> Void)? = nil) {
-        self.animate(duration: duration!, animations: {
+    public func backToOrigin(_ duration:TimeInterval? = UIViewDefaultTransitionDuration, completion: ((Bool) -> Void)? = nil) {
+        self.animate(duration: duration ?? UIViewDefaultTransitionDuration, animations: {
             self.transform = CGAffineTransform.identity
         }, completion: completion)
     }
