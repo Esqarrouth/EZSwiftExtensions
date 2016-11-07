@@ -42,6 +42,9 @@ Add subsequent changes that you make in this section.
 9. **UIEdgeInsets**
    - `init(inset: CGFloat)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/368) by *furuyan*
 
+10. **UILabel**
+   - `set(text _text: String?, duration: TimeInterval)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/340) by *vilapuigvila*
+
 ## [Version 1.8] 
 
 ### Fixed bugs
