@@ -20,18 +20,18 @@ class UILabelTests: XCTestCase {
         XCTAssertEqual(label2.font.pointSize, 20)
     }
     
-    func testText() {
+    func testSet() {
         
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
-        label.setText("EZSwiftExtensions✅", animated: false, duration: nil)
+        label.set(text: "EZSwiftExtensions✅", duration: 1)
         XCTAssertEqual(label.text, "EZSwiftExtensions✅")
         
         label.text = ""
-        label.setText("EZSwiftExtensions🚀", animated: true, duration: 5)
+        label.set(text: "EZSwiftExtensions🚀", duration: 0)
         XCTAssertEqual(label.text, "EZSwiftExtensions🚀")
         
         label.text = ""
-        label.setText("EZSwiftExtensions❤️", animated: true, duration: nil)
+        label.set(text: "EZSwiftExtensions❤️", duration: 1)
         XCTAssertEqual(label.text, "EZSwiftExtensions❤️")
     }
 
