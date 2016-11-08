@@ -141,5 +141,19 @@ class DateTests: XCTestCase {
         let beginningOfUnixTime = Date(timeIntervalSince1970: 0)
         XCTAssertFalse(beginningOfUnixTime.isToday)
     }
-
+    
+    func testYear() {
+        let customDate = Date(fromString: "12-01-2015 05:45:12", format: self.format)
+        XCTAssertEqual(customDate?.year, 2015)
+    }
+    
+    func testMonth() {
+        let customDate = Date(fromString: "09-01-2015 05:45:12", format: self.format)
+        XCTAssertEqual(customDate?.month, 1)
+    }
+    
+    func testDay() {
+        let customDate = Date(fromString: "09-01-2015 05:45:12", format: self.format)
+        XCTAssertEqual(customDate?.day, 9)
+    }
 }
