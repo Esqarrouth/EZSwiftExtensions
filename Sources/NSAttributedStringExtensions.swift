@@ -54,7 +54,6 @@ extension NSAttributedString {
         return copy
     }
 
-
     #endif
 
     /// EZSE: Adds color attribute to NSAttributedString and returns it
