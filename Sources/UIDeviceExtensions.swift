@@ -84,18 +84,6 @@ extension UIDevice {
     public class func isPad() -> Bool {
         return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
     }
-
-    /// EZSE: Returns path of documents directory
-    class func documentsDirectoryPath() -> String {
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as [String]
-        return paths[0]
-    }
-    
-    /// EZSE: Returns path of documents directory caches
-    class func cachesDirectoryPath() -> String {
-        let paths = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true) as [String]
-        return paths[0]
-    }
     
     /// EZSwiftExtensions
     public class func deviceModel() -> String {
