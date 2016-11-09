@@ -56,11 +56,11 @@ extension UILabel {
         self.fitHeight()
         sizeToFit()
     }
-
+    
     /// EZSwiftExtensions (if duration set to 0 animate wont be)
-    public func animateText(_ text: String?, duration: TimeInterval) {
+    public func set(text _text: String?, duration: TimeInterval) {
         UIView.transition(with: self, duration: duration, options: .transitionCrossDissolve, animations: { () -> Void in
-            self.text = text
+            self.text = _text
         }, completion: nil)
     }
 }
