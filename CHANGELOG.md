@@ -9,7 +9,11 @@ All notable changes to this project will be documented in this file.
 2. **Dictionary**
    - `func random() -> Value?` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/420) by *Khalian*
 
-3. **UIStackView**
+3. **FileManager**
+   - `var documentsDirectoryPath: String?` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/338) by *vilapuigvila*
+   - `var cachesDirectoryPath: String?` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/338) by *vilapuigvila*
+
+4. **UIStackView**
    - `addArrangedSubviews(_ views: UIView...)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/396) by *kirakik*
    - `init(distribution: UIStackViewDistribution, alignment: UIStackViewAlignment, axis: UILayoutConstraintAxis, spacing: CGFloat)` in [[PR]](https://github.com/goktugyil/         EZSwiftExtensions/pull/396) by *kirakik*
 

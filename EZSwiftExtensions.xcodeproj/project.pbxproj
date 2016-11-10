@@ -14,8 +14,12 @@
 		0B96F0311E2FD33C00236DDE /* UIEdgeInsetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F02F1E2FD33C00236DDE /* UIEdgeInsetsTests.swift */; };
 		31F868DB1C2B6E5E00542250 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F868DA1C2B6E5E00542250 /* DoubleExtensions.swift */; };
 		5A02399D1E6D345C00C235B8 /* CollectionsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A02399C1E6D345C00C235B8 /* CollectionsExtension.swift */; };
+		50AD20191DDCE6FF00A5A863 /* FileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AD20181DDCE6FF00A5A863 /* FileManagerTests.swift */; };
+		50AD201A1DDCE6FF00A5A863 /* FileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AD20181DDCE6FF00A5A863 /* FileManagerTests.swift */; };
 		5A3292F01DC5BA6F0078F7F3 /* CGPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3292EF1DC5BA6F0078F7F3 /* CGPointExtensions.swift */; };
 		5A3292F41DC5BCC50078F7F3 /* CGPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3292F31DC5BCC50078F7F3 /* CGPointTests.swift */; };
+		5E9795001DDCC80D00E4C959 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9794FF1DDCC80D00E4C959 /* FileManagerExtension.swift */; };
+		5E9795011DDCC80D00E4C959 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9794FF1DDCC80D00E4C959 /* FileManagerExtension.swift */; };
 		7605D3121C81FC180046FAC3 /* ArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605D3021C81FBB80046FAC3 /* ArrayTests.swift */; };
 		7605D3131C81FC180046FAC3 /* BlockButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605D3031C81FBB80046FAC3 /* BlockButtonTests.swift */; };
 		7605D3141C81FC180046FAC3 /* BoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605D3041C81FBB80046FAC3 /* BoolTests.swift */; };
@@ -241,8 +245,10 @@
 		0B96F02F1E2FD33C00236DDE /* UIEdgeInsetsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetsTests.swift; sourceTree = "<group>"; };
 		31F868DA1C2B6E5E00542250 /* DoubleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
 		5A02399C1E6D345C00C235B8 /* CollectionsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionsExtension.swift; sourceTree = "<group>"; };
+		50AD20181DDCE6FF00A5A863 /* FileManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerTests.swift; sourceTree = "<group>"; };
 		5A3292EF1DC5BA6F0078F7F3 /* CGPointExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointExtensions.swift; sourceTree = "<group>"; };
 		5A3292F31DC5BCC50078F7F3 /* CGPointTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointTests.swift; sourceTree = "<group>"; };
+		5E9794FF1DDCC80D00E4C959 /* FileManagerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
 		7605D3021C81FBB80046FAC3 /* ArrayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTests.swift; sourceTree = "<group>"; };
 		7605D3031C81FBB80046FAC3 /* BlockButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockButtonTests.swift; sourceTree = "<group>"; };
 		7605D3041C81FBB80046FAC3 /* BoolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolTests.swift; sourceTree = "<group>"; };
@@ -432,6 +438,7 @@
 				7605D3081C81FBB80046FAC3 /* DateTests.swift */,
 				7605D3061C81FBB80046FAC3 /* DictionaryTests.swift */,
 				E10A79671D6F65AF00735549 /* DoubleTests.swift */,
+				50AD20181DDCE6FF00A5A863 /* FileManagerTests.swift */,
 				FADFAA5B1D9D787D00CF9F7A /* FloatingPointTests.swift */,
 				E10A79331D6F3D0B00735549 /* EZSwiftFunctionsTests.swift */,
 				E10A79681D6F65AF00735549 /* ErrorTypeTests.swift */,
@@ -493,6 +500,7 @@
 				31F868DA1C2B6E5E00542250 /* DoubleExtensions.swift */,
 				E15484E11CA2BCF0003B030E /* ErrorTypeExtensions.swift */,
 				E1F21CB41CB55CDA004A01A4 /* EZSwiftFunctions.swift */,
+				5E9794FF1DDCC80D00E4C959 /* FileManagerExtension.swift */,
 				FADFAA621D9D8C2F00CF9F7A /* FloatingPointExtensions.swift */,
 				B5DC870C1C0ED34300972D0A /* IntExtensions.swift */,
 				E178780F1C8651EB00BC05AA /* NSAttributedStringExtensions.swift */,
@@ -750,6 +758,7 @@
 				E10A79511D6F5CCC00735549 /* UIUserInterfaceSizeClassExtensions.swift in Sources */,
 				B5DC87201C0ED34300972D0A /* BlockPinch.swift in Sources */,
 				E19AC0EC1DCBA28A00908905 /* UserDefaultsExtension.swift in Sources */,
+				5E9795001DDCC80D00E4C959 /* FileManagerExtension.swift in Sources */,
 				B5DC87211C0ED34300972D0A /* BlockSwipe.swift in Sources */,
 				8889A85B1D20E8D500635002 /* UITextFieldExtensions.swift in Sources */,
 				E1587FB21CCA420400A0B071 /* UISwitchExtensions.swift in Sources */,
@@ -793,6 +802,7 @@
 			files = (
 				E10A79971D6F65AF00735549 /* UIAlertControllerTests.swift in Sources */,
 				7605D3161C81FC180046FAC3 /* DictionaryTests.swift in Sources */,
+				50AD20191DDCE6FF00A5A863 /* FileManagerTests.swift in Sources */,
 				E10A79611D6F62DF00735549 /* BlockTapTests.swift in Sources */,
 				7605D3141C81FC180046FAC3 /* BoolTests.swift in Sources */,
 				5A3292F41DC5BCC50078F7F3 /* CGPointTests.swift in Sources */,
@@ -862,6 +872,7 @@
 				CD4D30B91CEEAFD900CB53BC /* BlockPan.swift in Sources */,
 				CD4D30BA1CEEAFD900CB53BC /* CharacterExtensions.swift in Sources */,
 				CD4D30BB1CEEAFD900CB53BC /* BlockPinch.swift in Sources */,
+				5E9795011DDCC80D00E4C959 /* FileManagerExtension.swift in Sources */,
 				E10A79521D6F5CCC00735549 /* UIUserInterfaceSizeClassExtensions.swift in Sources */,
 				CD4D30BC1CEEAFD900CB53BC /* BlockSwipe.swift in Sources */,
 				E19AC0E71DCBA25800908905 /* BundleExtensions.swift in Sources */,
@@ -906,6 +917,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E10A79981D6F65AF00735549 /* UIAlertControllerTests.swift in Sources */,
+				50AD201A1DDCE6FF00A5A863 /* FileManagerTests.swift in Sources */,
 				CD4D314E1CEEB9EA00CB53BC /* DictionaryTests.swift in Sources */,
 				0B96F0311E2FD33C00236DDE /* UIEdgeInsetsTests.swift in Sources */,
 				E10A79621D6F62DF00735549 /* BlockTapTests.swift in Sources */,
