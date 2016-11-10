@@ -11,6 +11,9 @@ import XCTest
 
 class UIViewTests: XCTestCase {
 
+    let translation = CGFloat(20)
+
+    
     override func setUp() {
         super.setUp()
     }
@@ -18,30 +21,39 @@ class UIViewTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
-
-    func testFadeIn() {
-        
-        let view   = UIView()
-        view.alpha = 0.0
-        
-        view.fadeIn(0.3, delay: 1.0, completion: nil)
-        XCTAssertEqual(view.alpha, 1.0)
+    
+    func view() -> UIView {
+        return UIView(x: 0, y: 0, w: 200, h: 50)
     }
+    
+    func testSetTranslation() {
+        
+        let view = self.view()
+        let aView = UIView(frame:view.frame)
+        view.addSubview(aView)
+        
+        let oldOrigin:CGPoint = CGPoint(x: aView.frame.minX, y:aView.frame.minY)
+        
+        aView.setTranslation(duration: 1, x: 0, y: translation, completion: nil)
+        
+        let newOrigin = CGPoint(x: aView.frame.minX, y:aView.frame.minY)
+        
+        XCTAssertEqual(oldOrigin.y + translation, newOrigin.y)
 
-    func testFadeOut() {
-        
-        let view = UIView()
-        
-        view.fadeOut(nil, delay: nil, completion: nil)
-        XCTAssertEqual(view.alpha, 0.0)
     }
-
-    func testFadeTo() {
+    
+    func testBackToOrigin() {
         
-        let view = UIView()
+        let view = self.view()
+        let aView = UIView(frame:view.frame)
+        view.addSubview(aView)
         
-        view.fadeTo(0.5)
-        XCTAssertEqual(view.alpha, 0.5)
+        let oldOrigin:CGPoint = CGPoint(x: aView.frame.minX, y:aView.frame.minY)
+        
+        aView.setTranslation(duration: 1, x: translation, y: translation, completion: nil)
+        aView.backToOrigin()
+    
+        XCTAssertEqual(oldOrigin.y, aView.frame.minY)
     }
     
     func testRemoveSubviews() {
