@@ -7,10 +7,29 @@
 //
 
 import XCTest
+@testable import EZSwiftExtensions
 
 class UIDeviceTests: XCTestCase {
 
+    override func setUp() {
+        super.setUp()
+    }
     
-
+    override func tearDown() {
+        super.tearDown()
+    }
+    
+    func testGetDocumentsDirectoryPath() {
+        
+        let docPath = UIDevice.documentsDirectoryPath()
+        XCTAssert(docPath.characters.count > 1)
+    }
+    
+    func testGetCachesDirectoryPath() {
+        
+        let docPath = UIDevice.cachesDirectoryPath()
+        XCTAssert(docPath.characters.count > 1)
+    }
+    
 }
 
