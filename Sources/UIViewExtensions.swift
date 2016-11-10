@@ -310,9 +310,9 @@ extension UIView {
     }
     
     /// EZSE: translate view with animation
-    public func setTranslation(_ duration:TimeInterval? = UIViewDefaultTransitionDuration, _ x: CGFloat? = 0.0, y: CGFloat? = 0.0, completion: ((Bool) -> Void)? = nil) {
-        self.animate(duration: duration ?? UIViewDefaultTransitionDuration, animations: {
-            self.transform = .init(translationX: x!, y: y!)
+    public func setTranslation(duration _duration:TimeInterval? = UIViewDefaultTransitionDuration, x xX: CGFloat?, y yY: CGFloat?, completion: ((Bool) -> Void)? = nil) {
+        self.animate(duration: _duration ?? UIViewDefaultTransitionDuration, animations: {
+            self.transform = .init(translationX: xX ?? 0.0, y: yY ?? 0.0)
         }, completion: completion)
     }
     
