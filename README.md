@@ -19,8 +19,103 @@ How Swift standard types and classes were supposed to work. A collection of usef
 
 ##Usage
 
+Easily get an object at a specified index:
 ``` swift
-- Examples here
+var myArray = ["charmander","bulbasaur","squirtle"]
+print(myArray.get(1)) // "bulbasaur"
+```
+Easily access a random element:
+
+``` swift
+var myArray = ["charmander","bulbasaur","squirtle"]
+print(myArray.random()) // bulbasaur or something else
+```
+
+Easily find the indexes of an object:
+``` swift
+var myArray = ["charmander","bulbasaur","squirtle","charmander"]
+print(myArray.indexesOf("charmander")) // [0,3]
+```
+Easily check if an array contains another array:
+``` swift
+var myArray = ["charmander","bulbasaur","squirtle"]
+print(myArray.containsArray(["charmander","bulbasaur"])) // true
+print(myArray.containsArray(["string"])) // false
+```
+Block Objects
+These objects use completion blocks instead of selectors, taken from: CEMKit-Swift
+Easily initialize a BlockButton:
+``` swift
+
+let button = BlockButton(x: 0, y: 0, w: 100, h: 100) { (sender) -> Void in
+    print("Block button clicked!")
+}
+let button1 = BlockButton(x: 0, y: 0, w: 100, h: 100)
+button1.addAction { (sender) -> Void in
+    print("Block button clicked!")
+}
+
+// There are also BlockWebView, BlockTap, BlockPan, BlockSwipe, BlockPinch, BlockLongPress
+```
+
+Easily convert between different types:
+``` swift
+var myCGFloat = myInt.toCGFloat
+var myString = myInt.toString
+var myDouble = myString.toDouble
+var myInt = myDouble.toInt
+```
+Easily initialize:
+``` swift
+let rect = CGRect(x: 100, y: 100, w: 100, h: 100)
+```
+Easily toggle it:
+``` swift
+var myBool: Bool = true
+print(myBool.toggle()) // false
+```
+Easily initialize your objects:
+``` swift
+let myView = UIView(x: 0, y: 0, w: 100, h: 100)
+print(myView.frame) // (0.0, 0.0, 100.0, 100.0)
+```
+Easily access your ViewController on top of your view stack:
+``` swift
+ez.topMostViewController?.presentViewController(myAlertController, animated: true, completion: nil)
+// topMostViewController is your rootViewController
+// Intended for showing small VCs like UIAlertControllerstring.length, string.capitalizefirst, string.trim, string.isemail, 
+```
+Easily initialize your colors:
+``` swift
+let myColor = UIColor(r: 100, g: 100, b: 100) // Default alpha is 1
+```
+Easily run block of codes after a certain delay:
+``` swift
+Timer.runThisAfterDelay(seconds: 2) { () -> () in
+    print("Prints this 2 seconds later in main queue")
+}
+```
+Easily run code every seconds:
+``` swift
+var count = 0
+Timer.runThisEvery(seconds: 1) { (timer) -> Void in
+    print("Will print every second")
+    if count == 3 {
+        timer?.invalidate()
+    }
+    count += 1
+}
+```
+Easily access your projects version and build numbers:
+``` swift
+print(ez.appVersion) // 0.3
+print(ez.appBuild) // 7
+print(ez.appVersionAndBuild) // v0.3(7)
+
+Easily track screen shots:
+ez.detectScreenShot { () -> () in
+    print("User took a screen shot")
+}
 ```
 
 ##Installation
