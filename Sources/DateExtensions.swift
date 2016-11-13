@@ -115,4 +115,33 @@ extension Date {
         format.dateFormat = "yyyy-MM-dd"
         return format.string(from: self) == format.string(from: Date())
     }
+    
+    // EZSE : Get the year from the date
+    public var year: Int {
+        return NSCalendar.current.component(Calendar.Component.year, from: self)
+    }
+    
+    // EZSE : Get the month from the date
+    public var month: Int {
+        return NSCalendar.current.component(Calendar.Component.month, from: self)
+    }
+    
+    // EZSE : Get the weekday from the date
+    public var weekday: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: self)
+    }
+
+    // EZSE : Get the month from the date
+    public var monthAsString: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM"
+        return dateFormatter.string(from: self)
+    }
+    
+    // EZSE : Get the day from the date
+    public var day: Int {
+        return NSCalendar.current.component(Calendar.Component.day, from: self)
+    }
 }
