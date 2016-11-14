@@ -21,14 +21,24 @@ class UIDeviceTests: XCTestCase {
     
     func testGetDocumentsDirectoryPath() {
         
-        let docPath = UIDevice.documentsDirectoryPath()
-        XCTAssert(docPath.characters.count > 1)
+        let paths           = NSURL(fileURLWithPath: UIDevice.documentsDirectoryPath())
+        let getImagePath    = paths.appendingPathComponent("testFile.jpg")
+        let checkValidation = FileManager.default
+        
+        if checkValidation.fileExists(atPath: (getImagePath?.absoluteString)!) == true {
+            XCTAssert(checkValidation.fileExists(atPath: (getImagePath?.absoluteString)!))
+        }
     }
     
     func testGetCachesDirectoryPath() {
         
-        let docPath = UIDevice.cachesDirectoryPath()
-        XCTAssert(docPath.characters.count > 1)
+        let paths           = NSURL(fileURLWithPath: UIDevice.cachesDirectoryPath())
+        let getImagePath    = paths.appendingPathComponent("testCache.jpg")
+        let checkValidation = FileManager.default
+        
+        if checkValidation.fileExists(atPath: (getImagePath?.absoluteString)!) == true {
+            XCTAssert(checkValidation.fileExists(atPath: (getImagePath?.absoluteString)!))
+        }
     }
     
 }
