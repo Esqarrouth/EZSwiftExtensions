@@ -144,4 +144,19 @@ extension Date {
     public var day: Int {
         return NSCalendar.current.component(Calendar.Component.day, from: self)
     }
+    
+    /// EZSE: Get the hours from date
+    public var hour: Int {
+        return NSCalendar.current.component(Calendar.Component.hour, from: self)
+    }
+    
+    /// EZSE: Get the minute from date
+    public var minute: Int {
+        return NSCalendar.current.component(Calendar.Component.minute, from: self)
+    }
+    
+    /// EZSE: Get the second from the date
+    public var second: Int {
+        return NSCalendar.current.component(Calendar.Component.second, from: self)
+    }
 }
