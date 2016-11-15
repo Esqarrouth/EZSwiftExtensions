@@ -166,4 +166,19 @@ class DateTests: XCTestCase {
         let customDate = Date(fromString: "09-01-2015 05:45:12", format: self.format)
         XCTAssertEqual(customDate?.day, 9)
     }
+    
+    func testHour() {
+        let customDate = Date(fromString: "09-01-2015 05:45:12", format: self.format)
+        XCTAssertEqual(customDate?.hour, 5)
+    }
+    
+    func testMinute() {
+        let customDate = Date(fromString: "09-01-2015 05:45:12", format: self.format)
+        XCTAssertEqual(customDate?.minute, 45)
+    }
+    
+    func testSecond() {
+        let customDate = Date(fromString: "09-01-2015 05:45:12", format: self.format)
+        XCTAssertEqual(customDate?.second, 12)
+    }
 }
