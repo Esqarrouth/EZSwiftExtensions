@@ -22,7 +22,7 @@ class FileManagerTests: XCTestCase {
     
     func testGetDocumentsDirectoryPath() {
 
-        let paths           = NSURL(fileURLWithPath: UIDevice.documentsDirectoryPath())
+        let paths           = NSURL(fileURLWithPath: FileManager.documentsDirectoryPath())
         let getImagePath    = paths.appendingPathComponent("testFile.jpg")
         let checkValidation = FileManager.default
    
@@ -33,7 +33,7 @@ class FileManagerTests: XCTestCase {
     
     func testGetCachesDirectoryPath() {
 
-        let paths           = NSURL(fileURLWithPath: UIDevice.cachesDirectoryPath())
+        let paths           = NSURL(fileURLWithPath: FileManager.cachesDirectoryPath())
         let getImagePath    = paths.appendingPathComponent("testCache.jpg")
         let checkValidation = FileManager.default
 
@@ -41,8 +41,5 @@ class FileManagerTests: XCTestCase {
             XCTAssert(checkValidation.fileExists(atPath: (getImagePath?.absoluteString)!))
         }
     }
-
-    
-
     
 }
