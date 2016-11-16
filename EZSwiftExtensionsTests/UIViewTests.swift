@@ -30,18 +30,15 @@ class UIViewTests: XCTestCase {
 
     func testFadeOut() {
         
-        let view   = UIView()
-        view.alpha = 0.0
+        let view = UIView()
         
         view.fadeOut(nil, delay: nil, completion: nil)
         XCTAssertEqual(view.alpha, 0.0)
-        
     }
 
     func testFadeTo() {
         
-        let view   = UIView()
-        view.alpha = 0.0
+        let view = UIView()
         
         view.fadeTo(0.5)
         XCTAssertEqual(view.alpha, 0.5)
