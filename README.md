@@ -864,20 +864,6 @@ let image = UIImage()
 self.setBackgroundImage(image)
 ```
 
-Easily to animate alpha value with duration, delay and completion block
-
-``` swift
-view.fadeIn(0.5, delay: 1.0) { (success) in
-    print("view show")
-}
-
-view.fadeOut()
-
-view.fadeTo(0.5, duration: 0.5, delay: 0.0) { (success) in
-    print("view with trasparency")
-}
-```
-
 ### UITextView Extensions
 
 Easily declare a UITextView with standard details:
