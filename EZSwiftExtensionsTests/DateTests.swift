@@ -181,4 +181,37 @@ class DateTests: XCTestCase {
         let customDate = Date(fromString: "09-01-2015 05:45:12", format: self.format)
         XCTAssertEqual(customDate?.second, 12)
     }
+    
+    func testDatesEqual() {
+        let firstDate = Date(fromString: "09-01-2015 05:45:12", format: self.format)
+        XCTAssertTrue(firstDate! == firstDate!)
+        
+        let secondDate = Date(fromString: "09-01-2016 05:45:12", format: self.format)
+        XCTAssertFalse(firstDate! == secondDate!)
+        
+        let almostFirstDate = Date(fromString: "09-01-2015 05:45:13", format: self.format)
+        XCTAssertFalse(firstDate! == almostFirstDate!)
+    }
+    
+    func testDatesGreater() {
+        let smallerDate = Date(fromString: "09-01-2015 05:45:12", format: self.format)
+        XCTAssertFalse(smallerDate! > smallerDate!)
+        
+        let biggerDate = Date(fromString: "09-01-2016 05:45:12", format: self.format)
+        XCTAssertTrue(biggerDate! > smallerDate!)
+        
+        let slightlyBiggerDate = Date(fromString: "09-01-2015 05:45:13", format: self.format)
+        XCTAssertTrue(slightlyBiggerDate! > smallerDate!)
+    }
+    
+    func testDatesSmaller() {
+        let smallerDate = Date(fromString: "09-01-2015 05:45:12", format: self.format)
+        XCTAssertFalse(smallerDate! < smallerDate!)
+        
+        let biggerDate = Date(fromString: "09-01-2016 05:45:12", format: self.format)
+        XCTAssertFalse(biggerDate! < smallerDate!)
+        
+        let slightlyBiggerDate = Date(fromString: "09-01-2015 05:45:13", format: self.format)
+        XCTAssertFalse(slightlyBiggerDate! < smallerDate!)
+    }
 }

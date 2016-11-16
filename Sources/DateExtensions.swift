@@ -108,7 +108,22 @@ extension Date {
             return "\(components.second) seconds ago"
         }
     }
-
+    
+    /// EZSE: Returns if dates are equal to each other
+    static public func == (lhs: Date, rhs: Date) -> Bool {
+        return lhs.compare(rhs) == .orderedSame
+    }
+    
+    /// EZSE: Returns if left date is earlier than the right one
+    static public func < (lhs: Date, rhs: Date) -> Bool {
+        return lhs.compare(rhs) == .orderedAscending
+    }
+    
+    /// EZSE: Returns if left date is later than the right one
+    static public func > (lhs: Date, rhs: Date) -> Bool {
+        return lhs.compare(rhs) == .orderedDescending
+    }
+    
     // EZSE: Check date if it is today
     public var isToday: Bool {
         let format = DateFormatter()
