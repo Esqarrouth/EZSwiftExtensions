@@ -17,7 +17,7 @@ How Swift standard types and classes were supposed to work. A collection of usef
 
 - [Gitter chat room](https://gitter.im/EZSwiftExtensions/Lobby)
 
-##Usage
+##Example Usage
 
 Easily get an object at a specified index:
 ``` swift
