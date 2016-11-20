@@ -66,10 +66,6 @@ var myString = myInt.toString
 var myDouble = myString.toDouble
 var myInt = myDouble.toInt
 ```
-Easily initialize:
-``` swift
-let rect = CGRect(x: 100, y: 100, w: 100, h: 100)
-```
 Easily toggle it:
 ``` swift
 var myBool: Bool = true
