@@ -37,6 +37,7 @@ Please ensure your pull request adheres to the following guidelines:
 ```
 
 - Make sure your text editor is set to remove trailing whitespace.
+- Make sure swiftlint warnings do not increase.
 - Add a unit test for your function.
 - When adding new files make sure to include it in the /Sources folder and make sure its referenced in both EZSwiftExtensionsExamples and EZSwiftExtensions projects.
 - If you are not sure ask in our chat room https://gitter.im/EZSwiftExtensions/Lobby
