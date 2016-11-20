@@ -19,9 +19,9 @@ public func ==<T: Equatable>(lhs: [T]?, rhs: [T]?) -> Bool {
 }
 
 extension Array {
-
+    
     ///EZSE: Get a sub array from range of index
-    public func get(at range: ClosedRange<Int>) -> Array {
+    public func get(at range:ClosedRange<Int>) -> Array {
         var subArray = Array()
         let lowerBound = range.lowerBound > 0 ? range.lowerBound : 0
         let upperBound = range.upperBound > self.count - 1 ? self.count - 1 : range.upperBound
