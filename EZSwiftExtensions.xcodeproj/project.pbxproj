@@ -150,8 +150,6 @@
 		E10A799C1D6F65AF00735549 /* UIBarButtonItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79711D6F65AF00735549 /* UIBarButtonItemTests.swift */; };
 		E10A799D1D6F65AF00735549 /* UIButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79721D6F65AF00735549 /* UIButtonTests.swift */; };
 		E10A799E1D6F65AF00735549 /* UIButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79721D6F65AF00735549 /* UIButtonTests.swift */; };
-		E10A799F1D6F65AF00735549 /* UIColoredViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79731D6F65AF00735549 /* UIColoredViewTests.swift */; };
-		E10A79A01D6F65AF00735549 /* UIColoredViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79731D6F65AF00735549 /* UIColoredViewTests.swift */; };
 		E10A79A11D6F65AF00735549 /* UIColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79741D6F65AF00735549 /* UIColorTests.swift */; };
 		E10A79A21D6F65AF00735549 /* UIColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79741D6F65AF00735549 /* UIColorTests.swift */; };
 		E10A79A31D6F65AF00735549 /* UIDeviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79751D6F65AF00735549 /* UIDeviceTests.swift */; };
@@ -297,7 +295,6 @@
 		E10A79701D6F65AF00735549 /* UIApplicationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationTests.swift; sourceTree = "<group>"; };
 		E10A79711D6F65AF00735549 /* UIBarButtonItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemTests.swift; sourceTree = "<group>"; };
 		E10A79721D6F65AF00735549 /* UIButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonTests.swift; sourceTree = "<group>"; };
-		E10A79731D6F65AF00735549 /* UIColoredViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColoredViewTests.swift; sourceTree = "<group>"; };
 		E10A79741D6F65AF00735549 /* UIColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorTests.swift; sourceTree = "<group>"; };
 		E10A79751D6F65AF00735549 /* UIDeviceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceTests.swift; sourceTree = "<group>"; };
 		E10A79761D6F65AF00735549 /* UIFontTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontTests.swift; sourceTree = "<group>"; };
@@ -428,7 +425,6 @@
 				E10A79701D6F65AF00735549 /* UIApplicationTests.swift */,
 				E10A79711D6F65AF00735549 /* UIBarButtonItemTests.swift */,
 				E10A79721D6F65AF00735549 /* UIButtonTests.swift */,
-				E10A79731D6F65AF00735549 /* UIColoredViewTests.swift */,
 				E10A79741D6F65AF00735549 /* UIColorTests.swift */,
 				E10A79751D6F65AF00735549 /* UIDeviceTests.swift */,
 				E10A79761D6F65AF00735549 /* UIFontTests.swift */,
@@ -786,7 +782,6 @@
 				E10A79A51D6F65AF00735549 /* UIFontTests.swift in Sources */,
 				E10A79B11D6F65AF00735549 /* UISwitchTests.swift in Sources */,
 				7605D3171C81FC180046FAC3 /* IntTests.swift in Sources */,
-				E10A799F1D6F65AF00735549 /* UIColoredViewTests.swift in Sources */,
 				E10A79B31D6F65AF00735549 /* UITextFieldTests.swift in Sources */,
 				E10A79911D6F65AF00735549 /* NSObjectTests.swift in Sources */,
 				E10A79951D6F65AF00735549 /* UserDefaultTests.swift in Sources */,
@@ -896,7 +891,6 @@
 				E10A79A61D6F65AF00735549 /* UIFontTests.swift in Sources */,
 				E10A79B21D6F65AF00735549 /* UISwitchTests.swift in Sources */,
 				CD4D31521CEEB9EA00CB53BC /* IntTests.swift in Sources */,
-				E10A79A01D6F65AF00735549 /* UIColoredViewTests.swift in Sources */,
 				E10A79B41D6F65AF00735549 /* UITextFieldTests.swift in Sources */,
 				E10A79921D6F65AF00735549 /* NSObjectTests.swift in Sources */,
 				E10A79961D6F65AF00735549 /* UserDefaultTests.swift in Sources */,
