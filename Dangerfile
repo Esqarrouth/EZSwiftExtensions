@@ -1,3 +1,10 @@
+#Ensure changelog entry
+unless github.pr_body.include? "- [x] Trivial change (doesn't require changelog)" 
+	if github.pr_body.include? "- [x] New Extension" && git.modified_files.grep(/^CHANGELOG.md/).count == 0
+		fail("Making non-trivial change requires changelog entry! Please, set trivial change or add entry to changelog.")
+	end
+end
+
 # Contributors should write up some reasoning about the PR, rather than just leave a title
 if github.pr_body.length < 5
   fail "Please provide a summary in the Pull Request description"
