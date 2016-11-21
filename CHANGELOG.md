@@ -15,20 +15,20 @@ All notable changes to this project will be documented in this file.
 ### Added extensions
 
 1. **Array:**
-  - `shuffled() -> Array` in [PR](#1) by *piv199* 
-  - `unique()` by *Khalian*
-  - `get(at range:ClosedRange<Int>)` by *Dendim0n*
+  - `shuffled() -> Array` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/212) by *piv199* 
+  - `unique() -> Array` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/254) by *Khalian*
+  - `get(at range:ClosedRange<Int>) -> Array` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/260) by *Dendim0n*
 
 2. **Date:**
-  - `isToday` by *Khalian*
-  - `year` by *Khalian*
-  - `month` by *Khalian*
-  - `weekday` by *Khalian*
-  - `monthAsString` by *Khalian*
-  - `day` by *Khalian*
-  - `hour` by *Khalian*
-  - `minute` by *Khalian*
-  - `second` by *Khalian*
+  - `isToday: Bool` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/260)  by *Khalian*
+  - `year: Int` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/313) by *Khalian*
+  - `month: Int` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/313) by *Khalian*
+  - `weekday: Int` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/313) by *Khalian*
+  - `monthAsString: String` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/313) by *Khalian*
+  - `day: Int` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/313) by *Khalian*
+  - `hour: Int` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/314) by *Khalian*
+  - `minute: Int` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/314) by *Khalian*
+  - `second: Int` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/314) by *Khalian*
 
 3. **CGFloat:**
   - `radiansToDegrees()` by *Khalian*
