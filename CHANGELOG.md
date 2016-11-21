@@ -15,7 +15,7 @@ All notable changes to this project will be documented in this file.
 ### Added extensions
 
 1. **Array:**
-  - `shuffled() -> Array` by *piv199* [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/212)
+  - `shuffled() -> Array` in [PR](#212) by *piv199* 
   - `unique()` by *Khalian*
   - `get(at range:ClosedRange<Int>)` by *Dendim0n*
 
