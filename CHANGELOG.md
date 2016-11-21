@@ -15,7 +15,7 @@ All notable changes to this project will be documented in this file.
 ### Added extensions
 
 1. **Array:**
-  - `shuffled() -> Array` in #1 by *piv199* 
+  - `shuffled() -> Array` in [PR](#1) by *piv199* 
   - `unique()` by *Khalian*
   - `get(at range:ClosedRange<Int>)` by *Dendim0n*
 
