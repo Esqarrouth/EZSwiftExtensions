@@ -116,6 +116,22 @@ extension Date {
         return format.string(from: self) == format.string(from: Date())
     }
     
+    /// EZSE: Check date if it is yesterday
+    public var isYesterday: Bool {
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd"
+        let yesterDay = Calendar.current.date(byAdding: .day, value: -1, to: Date())
+        return format.string(from: self) == format.string(from: yesterDay!)
+    }
+    
+    /// EZSE: Check date if it is tomorrow
+    public var isTomorrow: Bool {
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd"
+        let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date())
+        return format.string(from: self) == format.string(from: tomorrow!)
+    }
+    
     // EZSE : Get the year from the date
     public var year: Int {
         return NSCalendar.current.component(Calendar.Component.year, from: self)

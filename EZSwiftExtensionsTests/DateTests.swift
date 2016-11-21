@@ -142,6 +142,22 @@ class DateTests: XCTestCase {
         XCTAssertFalse(beginningOfUnixTime.isToday)
     }
     
+    func testIsTomorrow() {
+        let today = Date()
+        XCTAssertFalse(today.isTomorrow)
+        
+        let tomorrow = Calendar.current.date(byAdding: .day, value: 1,to: today)
+        XCTAssertTrue((tomorrow?.isTomorrow)!)
+    }
+    
+    func testIsYesterday() {
+        let today = Date()
+        XCTAssertFalse(today.isYesterday)
+        
+        let yesterday = Calendar.current.date(byAdding: .day, value: -1,to: today)
+        XCTAssertTrue((yesterday?.isYesterday)!)
+    }
+    
     func testYear() {
         let customDate = Date(fromString: "12-01-2015 05:45:12", format: self.format)
         XCTAssertEqual(customDate?.year, 2015)
