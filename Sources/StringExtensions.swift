@@ -43,8 +43,12 @@ extension String {
     public subscript(integerRange: Range<Int>) -> String {
         let start = characters.index(startIndex, offsetBy: integerRange.lowerBound)
         let end = characters.index(startIndex, offsetBy: integerRange.upperBound)
-        let range = start..<end
-        return self[range]
+        return self[start..<end]
+    }
+
+    /// EZSE: Cut string from closedrange
+    public subscript(integerClosedRange: ClosedRange<Int>) -> String {
+        return self[integerClosedRange.lowerBound..<(integerClosedRange.upperBound + 1)]
     }
 
     /// EZSE: Character count
@@ -452,6 +456,16 @@ extension String {
     }
     
     #endif
+    
+    // EZSE: URL encode a string (percent encoding special chars)
+    public func urlEncoded() -> String {
+        return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+    }
+    
+    // EZSE: URL encode a string (percent encoding special chars) mutating version
+    mutating func urlEncode() {
+        self = urlEncoded()
+    }
 
 }
 

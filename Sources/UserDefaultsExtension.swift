@@ -1,5 +1,5 @@
 //
-//  NSUserDefaultsExtension.swift
+//  UserDefaultsExtension.swift
 //  EZSwiftExtensions
 //
 //  Created by Vinay on 12/1/15.

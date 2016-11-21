@@ -1,5 +1,5 @@
 //
-//  NSBundleTests.swift
+//  BundleTests.swift
 //  EZSwiftExtensions
 //
 //  Created by Goktug Yilmaz on 8/25/16.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class NSBundleTests: XCTestCase {
+class BundleTests: XCTestCase {
 
     
 

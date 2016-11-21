@@ -154,7 +154,6 @@ public func - <K, V: Equatable> (first: [K: V], second: [K: V]) -> [K: V] {
     return first.difference(second)
 }
 
-
 /// EZSE: Intersection operator
 public func & <K, V: Equatable> (first: [K: V], second: [K: V]) -> [K: V] {
     return first.intersection(second)

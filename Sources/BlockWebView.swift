@@ -27,7 +27,6 @@ open class BlockWebView: UIWebView, UIWebViewDelegate {
         super.init(coder: aDecoder)
     }
 
-
     open func webViewDidStartLoad(_ webView: UIWebView) {
         didStartLoad? (webView.request!)
     }

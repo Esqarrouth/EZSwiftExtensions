@@ -61,7 +61,7 @@ extension UIColor {
     }
 
     /// EZSE: Returns random UIColor with random alpha(default: false)
-    public static func randomColor(_ randomAlpha: Bool = false) -> UIColor {
+    public static func random(randomAlpha: Bool = false) -> UIColor {
         let randomRed = CGFloat.random()
         let randomGreen = CGFloat.random()
         let randomBlue = CGFloat.random()

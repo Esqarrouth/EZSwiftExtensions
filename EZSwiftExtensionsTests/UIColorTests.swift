@@ -42,8 +42,8 @@ class UIColorTests: XCTestCase {
         var blue: CGFloat = 0
         XCTAssertTrue(color.getRed(&red, green: &green, blue: &blue, alpha: nil))
         
-		let gray = Double(0.299 * red + 0.587 * green + 0.114 * blue).getRoundedByPlaces(7)
-		let testGray = (100 / 255).getRoundedByPlaces(7)
+        let gray = Double(0.299 * red + 0.587 * green + 0.114 * blue).rounded(toPlaces: 7)
+        let testGray = (100.0 / 255).rounded(toPlaces: 7)
 		XCTAssertEqual(gray, testGray)
 	}
 

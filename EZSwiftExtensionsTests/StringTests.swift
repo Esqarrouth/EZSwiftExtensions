@@ -18,18 +18,27 @@ class StringTests: XCTestCase {
     }
 
     func testSubscript() {
+        let string = "0123456789"
         XCTAssertEqual(string[2], "2")
         XCTAssertEqual(string[9], "9")
         XCTAssertEqual(string[0..<10], "0123456789")
         XCTAssertEqual(string[3..<5], "34")
+        XCTAssertEqual(string[0...9], "0123456789")
+        XCTAssertEqual(string[8...9], "89")
     }
 
     func testCapitalization() {
         string = "lorem ipsum"
         XCTAssertEqual(string.capitalizedFirst(), "Lorem ipsum")
+        string = ""
+        XCTAssertEqual(string.capitalizedFirst(), "")
+
         string = "eZSwiftExtensions"
         string.capitalizeFirst()
         XCTAssertEqual(string, "EZSwiftExtensions")
+        string = ""
+        string.capitalizeFirst()
+        XCTAssertEqual(string, "")
 
         string = "ezswiftExtensions"
         string.uppercasePrefix(-7)
@@ -151,6 +160,11 @@ class StringTests: XCTestCase {
 
     func testConversions() {
         XCTAssertNotNil(string.toInt())
+        string = "abc"
+        XCTAssertNil(string.toInt())
+        string = ""
+        XCTAssertNil(string.toInt())
+
         string = "0.12"//Assumed USA locale, change to "," if EU
         XCTAssertNotNil(string.toDouble())
         XCTAssertNotNil(string.toFloat())
@@ -208,5 +222,131 @@ class StringTests: XCTestCase {
         XCTAssertTrue(bool5.toBool()!)
         XCTAssertFalse(bool2.toBool()!)
         XCTAssertNil(bool3.toBool())
+    }
+    
+    func testUrlEncoded() {
+        let unchangedString = "abcde"
+        let urlEncodedUnChangedString = unchangedString.urlEncoded()
+        
+        XCTAssertEqual(unchangedString, urlEncodedUnChangedString)
+        
+        let escapeCharString = "\n\t"
+        let urlEncodeEscapeCharString = escapeCharString.urlEncoded()
+        
+        XCTAssertEqual("%0A%09", urlEncodeEscapeCharString)
+        
+        let mixedString = "ab\ncd"
+        let urlEncodedMixedString = mixedString.urlEncoded()
+        
+        XCTAssertEqual("ab%0Acd", urlEncodedMixedString)
+        
+        let spacedString = "a b c d e"
+        let urlEncodedSpacedString = spacedString.urlEncoded()
+        
+        XCTAssertEqual("a%20b%20c%20d%20e", urlEncodedSpacedString)
+    }
+    
+    func testUrlEncode() {
+        var unchangedString = "abcde"
+        unchangedString.urlEncode()
+        
+        XCTAssertEqual("abcde", unchangedString)
+        
+        var escapeCharString = "\n\t"
+        escapeCharString.urlEncode()
+        
+        XCTAssertEqual("%0A%09", escapeCharString)
+        
+        var mixedString = "ab\ncd"
+        mixedString.urlEncode()
+        
+        XCTAssertEqual("ab%0Acd", mixedString)
+        
+        var spacedString = "a b c d e"
+        spacedString.urlEncode()
+        
+        XCTAssertEqual("a%20b%20c%20d%20e", spacedString)
+    }
+    
+    func testSplitSeparator() {
+        
+        let testString = "Hey-Ho-Lets-Go"
+        let expectedResult = ["Hey","Ho","Lets","Go"]
+        
+        XCTAssertEqual(testString.split("-"), expectedResult)
+    }
+    
+    func testSplitCharacterSet() {
+        
+        let testString = "HeyHoLetsGo"
+        let expectedResult = ["H","H","L","G"]
+        
+        XCTAssertEqual(testString.split(.lowercaseLetters), expectedResult)
+    }
+    
+    func testIndexOf() {
+        
+        let testString = "HeyHoLetsGo"
+        let expectedResult = 5
+        
+        XCTAssertEqual(testString.getIndexOf("L"), expectedResult)
+    }
+    
+    func testCount() {
+        
+        let testString = "HeyHoLetsGo"
+        let expectedResult = 2
+        
+        XCTAssertEqual(testString.count("o"), expectedResult)
+    }
+
+    func testMatchRegex() {
+        
+        let testString = "H3yH0L3tsG0"
+        let expectedResult = ["3","0","3","0"]
+        
+        XCTAssertEqual(testString.matchesForRegexInText("[0-9]"), expectedResult)
+    }
+    
+    func testIsNumber() {
+        
+        let testString1 = "E"
+        let testString2 = "3"
+        let testString3 = "👻"
+        let testString4 = "3.333"
+
+        XCTAssertEqual(testString1.isNumber(), false)
+        XCTAssertEqual(testString2.isNumber(), true)
+        XCTAssertEqual(testString3.isNumber(), false)
+        XCTAssertEqual(testString4.isNumber(), true)
+    }
+    
+    func testAttributed() {
+        
+        #if os(iOS)
+        let testString = "meh"
+        let testString2 = "✅"
+
+        let boldResult = NSAttributedString(string: testString, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
+        let boldResult2 = NSAttributedString(string: testString2, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
+        let underlineResult = NSAttributedString(string: testString, attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue])
+        let underlineResult2 = NSAttributedString(string: testString2, attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue])
+
+        let italicResult = NSAttributedString(string: testString, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+        let italicResult2 = NSAttributedString(string: testString2, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+
+        let colorResult = NSAttributedString(string: testString, attributes: [NSForegroundColorAttributeName: UIColor.green])
+        let colorResult2 = NSAttributedString(string: testString2, attributes: [NSForegroundColorAttributeName: UIColor.green])
+
+        XCTAssertEqual(testString.bold(), boldResult)
+        XCTAssertEqual(testString.underline(), underlineResult)
+        XCTAssertEqual(testString.italic(), italicResult)
+        XCTAssertEqual(testString.color(.green), colorResult)
+        XCTAssertEqual(testString2.bold(), boldResult2)
+        XCTAssertEqual(testString2.underline(), underlineResult2)
+        XCTAssertEqual(testString2.italic(), italicResult2)
+        XCTAssertEqual(testString2.color(.green), colorResult2)
+
+        #endif
     }
 }

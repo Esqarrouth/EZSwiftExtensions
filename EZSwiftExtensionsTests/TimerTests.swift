@@ -1,5 +1,5 @@
 //
-//  NSTimerTests.swift
+//  TimerTests.swift
 //  EZSwiftExtensions
 //
 //  Created by Goktug Yilmaz on 8/25/16.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class NSTimerTests: XCTestCase {
+class TimerTests: XCTestCase {
 
     
 

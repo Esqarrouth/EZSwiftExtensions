@@ -1,5 +1,5 @@
 //
-//  NSDateExtensions.swift
+//  DateExtensions.swift
 //  EZSwiftExtensions
 //
 //  Created by Goktug Yilmaz on 15/07/15.
@@ -8,7 +8,7 @@
 import UIKit
 
 extension Date {
-    /// EZSE: Initializes NSDate from string and format
+    /// EZSE: Initializes Date from string and format
     public init?(fromString string: String, format: String) {
         let formatter = DateFormatter()
         formatter.dateFormat = format
@@ -19,7 +19,7 @@ extension Date {
         }
     }
 
-    /// EZSE: Initializes NSDate from string returned from an http response, according to several RFCs
+    /// EZSE: Initializes Date from string returned from an http response, according to several RFCs
     public init? (httpDateString: String) {
         if let rfc1123 = Date(fromString: httpDateString, format: "EEE',' dd' 'MMM' 'yyyy HH':'mm':'ss zzz") {
             self = rfc1123
@@ -37,7 +37,7 @@ extension Date {
         return nil
     }
 
-    /// EZSE: Converts NSDate to String
+    /// EZSE: Converts Date to String
     public func toString(dateStyle: DateFormatter.Style = .medium, timeStyle: DateFormatter.Style = .medium) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = dateStyle
@@ -45,7 +45,7 @@ extension Date {
         return formatter.string(from: self)
     }
 
-    /// EZSE: Converts NSDate to String, with format
+    /// EZSE: Converts Date to String, with format
     public func toString(format: String) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format
@@ -54,28 +54,28 @@ extension Date {
 
     /// EZSE: Calculates how many days passed from now to date
     public func daysInBetweenDate(_ date: Date) -> Double {
-        var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
+        var diff = self.timeIntervalSince1970 - date.timeIntervalSince1970
         diff = fabs(diff/86400)
         return diff
     }
 
     /// EZSE: Calculates how many hours passed from now to date
     public func hoursInBetweenDate(_ date: Date) -> Double {
-        var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
+        var diff = self.timeIntervalSince1970 - date.timeIntervalSince1970
         diff = fabs(diff/3600)
         return diff
     }
 
     /// EZSE: Calculates how many minutes passed from now to date
     public func minutesInBetweenDate(_ date: Date) -> Double {
-        var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
+        var diff = self.timeIntervalSince1970 - date.timeIntervalSince1970
         diff = fabs(diff/60)
         return diff
     }
 
     /// EZSE: Calculates how many seconds passed from now to date
     public func secondsInBetweenDate(_ date: Date) -> Double {
-        var diff = self.timeIntervalSinceNow - date.timeIntervalSinceNow
+        var diff = self.timeIntervalSince1970 - date.timeIntervalSince1970
         diff = fabs(diff)
         return diff
     }
@@ -109,4 +109,54 @@ extension Date {
         }
     }
 
+    // EZSE: Check date if it is today
+    public var isToday: Bool {
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd"
+        return format.string(from: self) == format.string(from: Date())
+    }
+    
+    // EZSE : Get the year from the date
+    public var year: Int {
+        return NSCalendar.current.component(Calendar.Component.year, from: self)
+    }
+    
+    // EZSE : Get the month from the date
+    public var month: Int {
+        return NSCalendar.current.component(Calendar.Component.month, from: self)
+    }
+    
+    // EZSE : Get the weekday from the date
+    public var weekday: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: self)
+    }
+
+    // EZSE : Get the month from the date
+    public var monthAsString: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM"
+        return dateFormatter.string(from: self)
+    }
+    
+    // EZSE : Get the day from the date
+    public var day: Int {
+        return NSCalendar.current.component(Calendar.Component.day, from: self)
+    }
+    
+    /// EZSE: Get the hours from date
+    public var hour: Int {
+        return NSCalendar.current.component(Calendar.Component.hour, from: self)
+    }
+    
+    /// EZSE: Get the minute from date
+    public var minute: Int {
+        return NSCalendar.current.component(Calendar.Component.minute, from: self)
+    }
+    
+    /// EZSE: Get the second from the date
+    public var second: Int {
+        return NSCalendar.current.component(Calendar.Component.second, from: self)
+    }
 }

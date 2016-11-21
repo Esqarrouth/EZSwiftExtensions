@@ -10,13 +10,32 @@ import XCTest
 import EZSwiftExtensions
 
 class ArrayTests: XCTestCase {
-    var numberArray: [Int] = []
+    let emptyArray = [Int]()
+    var numberArray = [Int]()
 
     override func setUp() {
         super.setUp()
         //[0, 1, 2, 3, 4, 5, 1]
         numberArray = [Int](0...5)
         numberArray.append(1)
+    }
+    
+    func testGet_SubArray() {
+        setUp()
+        XCTAssertEqual(numberArray.get(at: 2...4), [2,3,4])
+        XCTAssertEqual(numberArray.get(at: -1...8), [0,1,2,3,4,5,1])
+        XCTAssertEqual(numberArray.get(at: -1...3), [0,1,2,3])
+        XCTAssertEqual(numberArray.get(at: 4...8), [4,5,1])
+    }
+
+    func testAdding() {
+        numberArray.insertFirst(9)
+        XCTAssertEqual(numberArray[0], 9)
+
+        var nullableNumberArray: [Int?] = numberArray
+        nullableNumberArray.insertFirst(nil)
+        XCTAssertNil(nullableNumberArray[0])
+        XCTAssertEqual(nullableNumberArray[1], 9)
     }
 
     func testIndexesOf() {
@@ -27,35 +46,46 @@ class ArrayTests: XCTestCase {
         XCTAssertEqual(indexes, [])
     }
 
+    func testLastIndexOf() {
+        XCTAssertEqual(numberArray.lastIndex(of: 1), 6)
+        XCTAssertNil(numberArray.lastIndex(of: -1))
+        XCTAssertEqual(numberArray.lastIndex(of: 0), 0)
+
+    }
+
     func testRemoveObject() {
         let copyArray = numberArray
-        numberArray.removeFirstObject(12345)
+        numberArray.removeFirst(12345)
         XCTAssertEqual(numberArray, copyArray)
 
         let compareArray = [0, 2, 3, 4, 5, 1]
-        numberArray.removeFirstObject(1)
+        numberArray.removeFirst(1)
         XCTAssertEqual(numberArray, compareArray)
     }
 
     func testRemoveObjects() {
         let copyArray = numberArray
-        numberArray.removeObjects(12345)
+        numberArray.removeAll(12345)
         XCTAssertEqual(numberArray, copyArray)
 
         let compareArray = [0, 2, 3, 4, 5]
-        numberArray.removeObjects(1)
+        numberArray.removeAll(1)
         XCTAssertEqual(numberArray, compareArray)
     }
 
     func testContainsInstanceOf() {
-        XCTAssertFalse(numberArray.containsInstanceOf("a"))
-        XCTAssertFalse(numberArray.containsInstanceOf(12.22))
-        XCTAssertTrue(numberArray.containsInstanceOf(46378))
+        XCTAssertFalse(numberArray.containsType(of: "a"))
+        XCTAssertFalse(numberArray.containsType(of: 12.22))
+        XCTAssertTrue(numberArray.containsType(of: 46378))
     }
 
     func testContainsArray() {
+        let emptyArray = [Int]()
         let array = [Int](2...4)
-        XCTAssertTrue(numberArray.contains(array: array))
+        let wrongArray = [Int](4..<100)
+        XCTAssertTrue(numberArray.contains(array))
+        XCTAssertTrue(numberArray.contains(emptyArray))
+        XCTAssertFalse(numberArray.contains(wrongArray))
     }
 
     func testRandom() {
@@ -72,17 +102,17 @@ class ArrayTests: XCTestCase {
         let array2 = [false, false]
         let array3 = [true, false]
 
-        XCTAssertEqual(array1.testIfAllIs(true), true)
-        XCTAssertEqual(array2.testIfAllIs(true), false)
-        XCTAssertEqual(array2.testIfAllIs(false), true)
-        XCTAssertEqual(array3.testIfAllIs(true), false)
-        XCTAssertEqual(array3.testIfAllIs(false), false)
-        XCTAssertEqual(numberArray.testIfAllIs(true), false)
+        XCTAssertEqual(array1.testAll(is: true), true)
+        XCTAssertEqual(array2.testAll(is: true), false)
+        XCTAssertEqual(array2.testAll(is: false), true)
+        XCTAssertEqual(array3.testAll(is: true), false)
+        XCTAssertEqual(array3.testAll(is: false), false)
+        XCTAssertEqual(numberArray.testAll(is: true), false)
     }
 
     func testGet() {
-        XCTAssertNotNil(numberArray.get(1))
-        XCTAssertNil(numberArray.get(10))
+        XCTAssertNotNil(numberArray.get(at: 1))
+        XCTAssertNil(numberArray.get(at: 10))
     }
 
     func testReverseIndex() {
@@ -98,7 +128,14 @@ class ArrayTests: XCTestCase {
     }
 
     func testTakeMax() {
-        XCTAssertEqual(numberArray.takeMax(2).count, 2)
+        let takenMax2 = numberArray.takeMax(2)
+        XCTAssertEqual(takenMax2.count, 2)
+        for (takenElement, takenOffset) in takenMax2.enumerated() {
+            XCTAssertEqual(takenElement, numberArray[takenOffset])
+        }
+        XCTAssertEqual(numberArray.takeMax(0).count, 0)
+        XCTAssertEqual(numberArray.takeMax(-3).count, 0)
+
     }
 
     func testForEachEnumerated() {
@@ -114,6 +151,10 @@ class ArrayTests: XCTestCase {
         XCTAssertEqual(indexCount, 5)
         XCTAssertEqual(totalIndexes, 10)
         XCTAssertEqual(totalNumbers, 20)
+
+        emptyArray.forEachEnumerated { _ in XCTFail() }
+        let copyArray = someArray
+        copyArray.forEachEnumerated { XCTAssertTrue(someArray[$0.0] == $0.1) }
     }
 
     func testUnion() {
@@ -141,26 +182,40 @@ class ArrayTests: XCTestCase {
         let a: [Int]? = [1, 2, 3]
         let b: [Int]? = [1, 2, 3]
         let c: [Int]? = nil
+        let d: [Int]? = nil
         
         XCTAssertTrue(a == b)
         XCTAssertFalse(a == c)
         XCTAssertFalse(c == b)
+        XCTAssertTrue(c == d)
     }
 
     func testShuffle() {
         let copyArray = numberArray
+        var numberArray2 = numberArray
+        var emptyArray = [Int]()
 
-        numberArray.shuffle()
-
-        XCTAssertNotNil(numberArray)
-        XCTAssertEqual(numberArray.count, copyArray.count)
-
+        var shuffledArray = numberArray.shuffled()
+        XCTAssertEqual(copyArray.count, shuffledArray.count)
         for e in copyArray {
-            if let i = numberArray.index(of: e) {
-                numberArray.remove(at: i)
+            if let i = shuffledArray.index(of: e) {
+                shuffledArray.remove(at: i)
             }
         }
-        XCTAssertEqual(numberArray, [])
+        XCTAssertEqual(shuffledArray.count, 0)
+
+        numberArray2.shuffle()
+        XCTAssertEqual(numberArray2.count, copyArray.count)
+        for e in copyArray {
+            if let i = numberArray2.index(of: e) {
+                numberArray2.remove(at: i)
+            }
+        }
+        XCTAssertEqual(numberArray2, [])
+
+        XCTAssertEqual(emptyArray.shuffled().count, 0)
+        emptyArray.shuffle()
+        XCTAssertEqual(emptyArray.count, 0)
     }
 
     func testDecompose() {
@@ -176,5 +231,20 @@ class ArrayTests: XCTestCase {
         let tail = copyArray.dropFirst()
         XCTAssertTrue(numberArray.decompose()!.head == head)
         XCTAssertTrue(numberArray.decompose()!.tail == tail)
+    }
+    
+    func testUniqueElementsInArray() {
+        let arrAlreadyUnique = [1, 2, 3, 4]
+        XCTAssertEqual(arrAlreadyUnique.unique(), arrAlreadyUnique)
+        
+        let arrayAlreadyUniqueOrderMaintained = [1, 4, 3, 5]
+        XCTAssertEqual(arrayAlreadyUniqueOrderMaintained.unique(), arrayAlreadyUniqueOrderMaintained)
+        
+        let duplicatedElementsArray = [1, 1, 2, 2, 3, 3]
+        XCTAssertEqual(duplicatedElementsArray.unique(), [1, 2, 3])
+        
+        let duplicatedElementsArrayOrderMaintained = [2, 1, 3, 2, 1, 3]
+        XCTAssertEqual(duplicatedElementsArrayOrderMaintained.unique(), [2, 1, 3])
+        
     }
 }

@@ -1,5 +1,5 @@
 //
-//  NSURLTests.swift
+//  URLTests.swift
 //  EZSwiftExtensions
 //
 //  Created by furuyan on 2016/03/02.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import EZSwiftExtensions
 
-class NSURLTests: XCTestCase {
+class URLTests: XCTestCase {
     func testQueryParameters() {
         let url = URL(string: "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=facebook")
         if let queryParameters = url?.queryParameters {
