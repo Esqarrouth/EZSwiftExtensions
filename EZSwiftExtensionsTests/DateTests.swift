@@ -158,6 +158,34 @@ class DateTests: XCTestCase {
         XCTAssertTrue((yesterday?.isYesterday)!)
     }
     
+    func testIsThisWeek() {
+        let today = Date()
+        XCTAssertTrue(today.isThisWeek)
+        
+        let yesterday = Calendar.current.date(byAdding: .day, value: -1,to: today)
+        XCTAssertTrue((yesterday?.isThisWeek)!)
+        
+        let tomorrow = Calendar.current.date(byAdding: .day, value: 1,to: today)
+        XCTAssertTrue((tomorrow?.isThisWeek)!)
+        
+        XCTAssertFalse(Date.distantPast.isThisWeek)
+    }
+    
+    func testIsThisMonth() {
+        let today = Date()
+        XCTAssertTrue(today.isThisMonth)
+        
+        // Its difficult to unit test (by checking a few days prior) because builds might fail
+        // on the first day of every month. 
+        let aFewSecondsBefore = Calendar.current.date(byAdding: .second, value: -5,to: today)
+        XCTAssertTrue((aFewSecondsBefore?.isThisMonth)!)
+        
+        let aFewSecondsAfter = Calendar.current.date(byAdding: .second, value: -5,to: today)
+        XCTAssertTrue((aFewSecondsAfter?.isThisMonth)!)
+        
+        XCTAssertFalse(Date.distantPast.isThisMonth)
+    }
+    
     func testYear() {
         let customDate = Date(fromString: "12-01-2015 05:45:12", format: self.format)
         XCTAssertEqual(customDate?.year, 2015)
