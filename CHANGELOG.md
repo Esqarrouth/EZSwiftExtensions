@@ -15,7 +15,7 @@ All notable changes to this project will be documented in this file.
 ### Added extensions
 
 1. **Array:**
-  - `shuffled()` by *piv199*
+  - `shuffled() -> Array` by *piv199* [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/212)
   - `unique()` by *Khalian*
   - `get(at range:ClosedRange<Int>)` by *Dendim0n*
 
@@ -30,7 +30,7 @@ All notable changes to this project will be documented in this file.
   - `minute` by *Khalian*
   - `second` by *Khalian*
 
-2. **CGFloat:**
+3. **CGFloat:**
   - `radiansToDegrees()` by *Khalian*
   - `toDegreesInPlace()` by *Khalian*
   - `radiansToDegrees(_ angleInDegrees : CGFloat)` by *Khalian*
@@ -39,7 +39,7 @@ All notable changes to this project will be documented in this file.
   - `random(within: ClosedRange<CGFloat>)` by *Khalian*
   - `shortestAngleInRadians(from first: CGFloat, to second: CGFloat)` by *Khalian*
 
-3. **CGPoint:**
+4. **CGPoint:**
   - `operator +` by *Khalian*
   - `operator -` by *Khalian*
   - `operator *` by *Khalian*
@@ -49,23 +49,23 @@ All notable changes to this project will be documented in this file.
   - `dotProduct(this: CGPoint, that: CGPoint)` by *Khalian*
   - `linearInterpolation(startPoint: CGPoint, endPoint: CGPoint, interpolationParam: CGFloat)` by *Khalian*
 
-4. **FloatingPoint:**
+5. **FloatingPoint:**
   - `round(toPlaces places: Int)` by *piv199*
   - `rounded(toPlaces places: Int)` by *piv199*
   - `ceil(toPlaces places: Int)` by *piv199*
   - `ceiled(toPlaces places: Int)` by *piv199*
 
-5. **String:**
+6. **String:**
   - `urlEncoded()` by *Khalian*
   - `urlEncode()` by *Khalian*
   - `subscript(integerClosedRange: ClosedRange<Int>)` by *lfarah*
 
-6. **UIView**
+7. **UIView**
   - `fadeIn(_ duration: TimeInterval?, delay: TimeInterval?, completion: ((Bool) -> Void)?)` by *vilapuigvila*
   - `fadeOut(_ duration: TimeInterval?, delay: TimeInterval?, completion: ((Bool) -> Void)?)` by *vilapuigvila*
   - `fadeTo(_ value: CGFloat, duration: TimeInterval?, delay: TimeInterval?, completion: ((Bool) -> Void)?)` by *vilapuigvila*
 
-6. **UIViewController:**
+8. **UIViewController:**
   - `hideKeyboardWhenTappedAroundAndCancelsTouchesInView()` by *furuyan*
 
 ### Modified extensions
@@ -98,8 +98,8 @@ Method/property name  | Renamed to | Author
 
 Method/property name  | Renamed to | Author 
 ------------- | ------------- | ------------- 
- `ceilByPlaces(_ places: Int)` | `ceil(toPlaces: places: Int)` | piv199 
- `getCeiledByPlaces(_ places: Int)` | `ceiled(toPlaces: places: Int)` | piv199 
+ `ceilByPlaces(_ places: Int)` | `ceil(toPlaces places: Int)` | piv199 
+ `getCeiledByPlaces(_ places: Int)` | `ceiled(toPlaces places: Int)` | piv199 
  `getRoundedByPlaces(_ places: Int)` | `rounded(toPlaces places: Int)` | piv199 
  `roundByPlaces(_ places: Int)` | `round(toPlaces places: Int)` | piv199 
 
@@ -109,19 +109,21 @@ Method/property name  | Renamed to | Author
 ------------- | ------------- | ------------- 
  `randomColor(_ randomAlpha: Bool)` | `random(randomAlpha: Bool)` | lfarah 
 
-**UIColoredView**
-
 **UIFont:**
 
 Method/property name  | Renamed to | Author 
 ------------- | ------------- | ------------- 
-`PrintFontFamily(_ font: FontName)` |  | lfarah
+`PrintFontFamily(_ font: FontName)` | *deprecated* | lfarah
 
 **UIViewController:**
 
 Method/property name  | Renamed to | Author 
 ------------- | ------------- | ------------- 
  `hideKeyboardWhenTappedAround(handler: ((UITapGestureRecognizer) -> Void)?)` | `hideKeyboardWhenTappedAround()` | furuyan 
+
+### Deprecated/Renamed classes
+
+1. **UIColoredView**
 
 [All changes](https://github.com/goktugyil/EZSwiftExtensions/compare/1.7...master)
 
