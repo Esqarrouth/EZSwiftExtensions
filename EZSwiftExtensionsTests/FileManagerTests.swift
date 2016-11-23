@@ -21,8 +21,8 @@ class FileManagerTests: XCTestCase {
     }
     
     func testGetDocumentsDirectoryPath() {
-
-        let paths           = NSURL(fileURLWithPath: FileManager.documentsDirectoryPath())
+        
+        let paths           = NSURL(fileURLWithPath: FileManager().documentsDirectoryPath)
         let getImagePath    = paths.appendingPathComponent("testFile.jpg")
         let checkValidation = FileManager.default
    
@@ -33,7 +33,7 @@ class FileManagerTests: XCTestCase {
     
     func testGetCachesDirectoryPath() {
 
-        let paths           = NSURL(fileURLWithPath: FileManager.cachesDirectoryPath())
+        let paths           = NSURL(fileURLWithPath: FileManager().cachesDirectoryPath)
         let getImagePath    = paths.appendingPathComponent("testCache.jpg")
         let checkValidation = FileManager.default
 
