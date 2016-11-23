@@ -7,11 +7,10 @@
 //
 
 import XCTest
-@testable import EZSwiftExtensions
 
 class UIDeviceTests: XCTestCase {
 
     
-    
+
 }
 
