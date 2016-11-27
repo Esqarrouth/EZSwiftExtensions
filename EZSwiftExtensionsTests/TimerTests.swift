@@ -7,10 +7,24 @@
 //
 
 import XCTest
+@testable import EZSwiftExtensions
 
 class TimerTests: XCTestCase {
-
     
+    public func testAfterDelayPositiveCase() {
+        
+        let testAfterDelayExpectation = expectation(description: "testAfterDelay")
+        
+        var methodCalled = false
 
+        Timer.runThisAfterDelay(seconds: 1) { () -> () in
+            methodCalled = true
+            testAfterDelayExpectation.fulfill()
+        }
+
+        self.waitForExpectations(timeout: 5) { completion in
+            XCTAssertTrue(methodCalled)
+        }
+    }
 }
 
