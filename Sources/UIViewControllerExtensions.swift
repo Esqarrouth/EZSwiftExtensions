@@ -24,9 +24,7 @@ extension UIViewController {
 
     ///EZSE: Removes NotificationCenter'd observer
     public func removeNotificationObserver() {
-        NotificationCenter.default.removeObserver(self)
-        
-        self.addKeyboardWillShowNotification()
+        NotificationCenter.default.removeObserver(self)        
     }
 
 
