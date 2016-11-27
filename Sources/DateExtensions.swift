@@ -8,6 +8,9 @@
 import UIKit
 
 extension Date {
+    
+    public static let minutesInAWeek = 24 * 60 * 7
+    
     /// EZSE: Initializes Date from string and format
     public init?(fromString string: String, format: String) {
         let formatter = DateFormatter()
@@ -114,6 +117,32 @@ extension Date {
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd"
         return format.string(from: self) == format.string(from: Date())
+    }
+    
+    /// EZSE: Check date if it is yesterday
+    public var isYesterday: Bool {
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd"
+        let yesterDay = Calendar.current.date(byAdding: .day, value: -1, to: Date())
+        return format.string(from: self) == format.string(from: yesterDay!)
+    }
+    
+    /// EZSE: Check date if it is tomorrow
+    public var isTomorrow: Bool {
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd"
+        let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date())
+        return format.string(from: self) == format.string(from: tomorrow!)
+    }
+    
+    /// EZSE: Check date if it is within this month.
+    public var isThisMonth: Bool {
+        let today = Date()
+        return self.month == today.month && self.year == today.year
+    }
+    
+    public var isThisWeek: Bool {
+        return self.minutesInBetweenDate(Date()) <= Double(Date.minutesInAWeek)
     }
     
     // EZSE : Get the year from the date
