@@ -26,5 +26,25 @@ class TimerTests: XCTestCase {
             XCTAssertTrue(methodCalled)
         }
     }
+    
+    public func testAfterEveryPositiveCase() {
+        
+        let testAfterEveryExpectation = expectation(description: "testAfterDelay")
+        
+        var methodCalledTimes = 0
+        
+        Timer.runThisEvery(seconds: 1) { (timer) -> Void in
+            methodCalledTimes += 1
+            
+            if (methodCalledTimes == 3) {
+                timer?.invalidate()
+                testAfterEveryExpectation.fulfill()
+            }
+        }
+        
+        self.waitForExpectations(timeout: 10) { completion in
+            XCTAssertEqual(methodCalledTimes, 3)
+        }
+    }
 }
 
