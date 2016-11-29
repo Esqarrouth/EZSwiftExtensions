@@ -84,7 +84,6 @@ extension UIDevice {
     public class func isPad() -> Bool {
         return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
     }
-    
     /// EZSwiftExtensions
     public class func deviceModel() -> String {
         var systemInfo = utsname()
