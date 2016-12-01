@@ -226,7 +226,7 @@ extension UIViewController {
     }
     
     /// EZSwiftExtensions
-    public func popToRoot() {
+    public func popToRootVC() {
         _ = navigationController?.popToRootViewController(animated: true)
     }
     
