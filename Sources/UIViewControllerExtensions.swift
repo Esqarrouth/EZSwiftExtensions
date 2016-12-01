@@ -247,7 +247,12 @@ extension UIViewController {
     public func popVC() {
         _ = navigationController?.popViewController(animated: true)
     }
-
+    
+    /// EZSE: Added extension for popToRootViewController
+    public func popToRootVC() {
+        _ = navigationController?.popToRootViewController(animated: true)
+    }
+    
     ///EZSE: Presents a view controller modally.
     public func presentVC(_ vc: UIViewController) {
         present(vc, animated: true, completion: nil)
