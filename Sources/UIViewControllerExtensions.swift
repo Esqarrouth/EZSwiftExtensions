@@ -224,7 +224,12 @@ extension UIViewController {
     public func popVC() {
         _ = navigationController?.popViewController(animated: true)
     }
-
+    
+    /// EZSwiftExtensions
+    public func popToRoot() {
+        _ = navigationController?.popToRootViewController(animated: true)
+    }
+    
     /// EZSwiftExtensions
     public func presentVC(_ vc: UIViewController) {
         present(vc, animated: true, completion: nil)
