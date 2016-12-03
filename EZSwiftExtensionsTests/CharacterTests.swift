@@ -13,6 +13,7 @@ import XCTest
 class CharacterTests: XCTestCase {
     
     let pchr: Character = "p"
+    let pchrUpper: Character = "P"
     let digitChr: Character = "3"
     
     let int: Int = 3
@@ -29,5 +30,15 @@ class CharacterTests: XCTestCase {
     func testToInt() {
         XCTAssertEqual(digitChr.toInt, int)
         XCTAssertEqual(pchr.toInt, nil)
+    }
+    
+    func testUppercased() {
+        XCTAssertEqual(pchr.uppercased, pchrUpper)
+        XCTAssertEqual(digitChr.uppercased, digitChr)
+    }
+    
+    func testLowercased() {
+        XCTAssertEqual(pchrUpper.lowercased, pchr)
+        XCTAssertEqual(digitChr.lowercased, digitChr)
     }
 }

@@ -15,4 +15,20 @@ extension Character {
     /// EZSE: If the character represents an integer that fits into an Int, returns the corresponding integer.
     ///TODO: Add to readme
     public var toInt: Int? { return Int(String(self)) }
+
+    /// EZSE: Convert the character to lowercase
+    public var lowercased: Character {
+        get {
+            let s = String(self).lowercased()
+            return s[s.startIndex]
+        }
+    }
+    
+    /// EZSE: Convert the character to uppercase
+    public var uppercased: Character {
+        get {
+            let s = String(self).uppercased()
+            return s[s.startIndex]
+        }
+    }
 }
