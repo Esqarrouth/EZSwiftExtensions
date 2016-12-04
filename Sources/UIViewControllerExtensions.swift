@@ -230,11 +230,6 @@ extension UIViewController {
         _ = navigationController?.popToRootViewController(animated: true)
     }
     
-    /// EZSE: Hide or show navigation bar
-    public func navigationBarHidden(_ hide:Bool) {
-        navigationController?.setNavigationBarHidden(hide, animated: true)
-    }
-    
     /// EZSwiftExtensions
     public func presentVC(_ vc: UIViewController) {
         present(vc, animated: true, completion: nil)
