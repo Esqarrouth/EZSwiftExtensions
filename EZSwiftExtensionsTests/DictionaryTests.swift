@@ -88,4 +88,22 @@ class DictionaryTests: XCTestCase {
         XCTAssertEqual(secondFiltered.count, 1)
 
     }
+
+    func testDicToJSON() {
+        let dic: Dictionary = ["foo":"bar"]
+        let json = dic.formatJSON()
+        let str = "{\"foo\":\"bar\"}"
+        XCTAssertEqual(json, str)
+    }
+    
+    func testJSONtoDic() {
+        let str = "{\"foo\":\"bar\"}"
+        let dic = Dictionary<String, String>.constructFromJSON(json: str)
+        let dicExpected: Dictionary = ["foo":"bar"]
+        XCTAssertEqual(dic!, dicExpected)
+        
+        let badStr = "BADSTR"
+        let badDic = Dictionary<String, String>.constructFromJSON(json: badStr)
+        XCTAssertNil(badDic)
+    }
 }
