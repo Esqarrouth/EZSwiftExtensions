@@ -19,13 +19,15 @@ class UIViewControllerTests: XCTestCase {
         super.tearDown()
     }
 
-    func testNavigationBarHidden() {
+    func testIsNavBarHidden() {
         let vc  = UIViewController()
         _ = UINavigationController(rootViewController: vc)
+        vc.isNavBarHidden = true
+        let isHidden = vc.navigationController?.isNavigationBarHidden
+        XCTAssertEqual(true, isHidden)
         
-        vc.navigationBarHidden(true)
-        let isNavBarHidden = vc.navigationController?.isNavigationBarHidden
-        XCTAssertEqual(true, isNavBarHidden)
+        vc.isNavBarHidden = false
+        XCTAssertEqual(vc.isNavBarHidden, false)
     }
 
 }
