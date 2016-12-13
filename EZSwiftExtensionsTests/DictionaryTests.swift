@@ -88,15 +88,4 @@ class DictionaryTests: XCTestCase {
         XCTAssertEqual(secondFiltered.count, 1)
 
     }
-
-    func testJSON () {
-        let jsonDic = NSDictionary(dictionary: ["name": "John", "surname": "Smith", "age": 35.0, "married": NSNumber(value: true as Bool), "children": 3])
-        let jsonString = jsonDic.formatJSON()
-        XCTAssertNotNil(jsonString)
-        let secondJsonDic = NSDictionary(json: jsonString!)
-        XCTAssertEqual(secondJsonDic!["name"] as? String, "John")
-        XCTAssertEqual(secondJsonDic!["age"] as? Double, 35.0)
-        XCTAssertEqual(secondJsonDic!["married"] as? Bool, true)
-        XCTAssertEqual(secondJsonDic!["children"] as? Int, 3)
-    }
 }
