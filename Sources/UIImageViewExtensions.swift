@@ -68,8 +68,37 @@ extension UIImageView {
         self.clipsToBounds = true
         self.layer.cornerRadius = self.frame.size.width / 2
     }
+    
+    /// EZSE: Initializes an UIImage from URL and adds into current ImageView
+    public func image(url: String) {
+        ez.requestImage(url, success: { (image) -> Void in
+            if let img = image {
+                DispatchQueue.main.async {
+                    self.image = img
+                }
+            }
+        })
+    }
+    
+    /// EZSE: Initializes an UIImage from URL and adds into current ImageView with placeholder
+    public func image(url: String, placeholder: UIImage) {
+        self.image = placeholder
+        image(url: url)
+    }
+    
+    /// EZSE: Initializes an UIImage from URL and adds into current ImageView with placeholder
+    public func image(url: String, placeholderNamed: String) {
+        if let image = UIImage(named: placeholderNamed) {
+            self.image(url: url, placeholder: image)
+        } else {
+            image(url: url)
+        }
+    }
 
+    //MARK: Deprecated 1.8
+    
     /// EZSwiftExtensions
+    @available(*, deprecated: 1.8, renamed: "image(url:)")
     public func imageWithUrl(url: String) {
         ez.requestImage(url, success: { (image) -> Void in
             if let img = image {
@@ -81,12 +110,14 @@ extension UIImageView {
     }
 
     /// EZSwiftExtensions
+    @available(*, deprecated: 1.8, renamed: "image(url:placeholder:)")
     public func imageWithUrl(url: String, placeholder: UIImage) {
         self.image = placeholder
         imageWithUrl(url: url)
     }
 
     /// EZSwiftExtensions
+    @available(*, deprecated: 1.8, renamed: "image(url:placeholderNamed:)")
     public func imageWithUrl(url: String, placeholderNamed: String) {
         if let image = UIImage(named: placeholderNamed) {
             imageWithUrl(url: url, placeholder: image)
