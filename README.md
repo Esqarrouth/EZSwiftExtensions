@@ -15,7 +15,7 @@
 
 How Swift standard types and classes were supposed to work. A collection of useful extensions for the Swift Standard Library, Foundation, and UIKit.
 
-- [Gitter chat room](https://gitter.im/EZSwiftExtensions/Lobby)
+Join our online chat at [![Gitter](https://badges.gitter.im/gitterHQ/gitter.svg)](https://gitter.im/EZSwiftExtensions/Lobby)
 - [Full Documentation via CocoaDocs](http://cocoadocs.org/docsets/EZSwiftExtensions/)
 
 ##Example Usage
