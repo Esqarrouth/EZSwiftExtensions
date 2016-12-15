@@ -134,6 +134,32 @@ class DateTests: XCTestCase {
         XCTAssertTrue(now.timePassed().contains("now") || now.timePassed().contains("seconds"))
     }
     
+    func testIsPast() {
+        let beginningOfUnixTime = Date(timeIntervalSince1970: 0)
+        XCTAssertTrue(beginningOfUnixTime.isPast)
+        
+        let today = Date()
+        
+        let yesterday = Calendar.current.date(byAdding: .day, value: -1,to: today)
+        XCTAssertTrue((yesterday?.isPast)!)
+        
+        let tomorrow = Calendar.current.date(byAdding: .day, value: 1,to: today)
+        XCTAssertFalse((tomorrow?.isPast)!)
+    }
+    
+    func testIsFuture() {
+        let distantFuture = Date(httpDateString: "Sun Nov 6 08:49:37 5000")
+        XCTAssertTrue((distantFuture?.isFuture)!)
+        
+        let today = Date()
+        
+        let yesterday = Calendar.current.date(byAdding: .day, value: -1,to: today)
+        XCTAssertFalse((yesterday?.isFuture)!)
+        
+        let tomorrow = Calendar.current.date(byAdding: .day, value: 1,to: today)
+        XCTAssertTrue((tomorrow?.isFuture)!)
+    }
+    
     func testIsToday() {
         let today = Date()
         XCTAssertTrue(today.isToday)
