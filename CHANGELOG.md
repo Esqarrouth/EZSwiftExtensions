@@ -21,6 +21,8 @@ All notable changes to this project will be documented in this file.
 
 2. **Date:**
   - `isToday: Bool` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/260)  by *Khalian*
+  - `isYesterday: Bool` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/321)  by *Khalian*
+  - `isTomorrow: Bool` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/321)  by *Khalian*
   - `year: Int` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/313) by *Khalian*
   - `month: Int` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/313) by *Khalian*
   - `weekday: Int` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/313) by *Khalian*
@@ -29,6 +31,8 @@ All notable changes to this project will be documented in this file.
   - `hour: Int` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/314) by *Khalian*
   - `minute: Int` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/314) by *Khalian*
   - `second: Int` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/314) by *Khalian*
+  - `isThisWeek: Bool` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/321)  by *Khalian*
+  - `isThisMonth: Bool` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/321)  by *Khalian*
 
 3. **CGFloat:**
   - `radiansToDegrees()` by *Khalian*
@@ -46,7 +50,7 @@ All notable changes to this project will be documented in this file.
   - `distance(from: CGPoint, to: CGPoint)` by *Khalian*
   - `normalized()` by *Khalian*
   - `angle` by *Khalian*
-  - `dotProduct(this: CGPoint, that: CGPoint)` by *Khalian*
+  - `dotProduct(this: CGPoint, that: CGPoint) -> CGPoint` in [[PR](https://github.com/goktugyil/EZSwiftExtensions/pull/290)] by *Khalian*
   - `linearInterpolation(startPoint: CGPoint, endPoint: CGPoint, interpolationParam: CGFloat)` by *Khalian*
 
 5. **FloatingPoint:**
@@ -68,6 +72,14 @@ All notable changes to this project will be documented in this file.
 8. **UIViewController:**
   - `hideKeyboardWhenTappedAroundAndCancelsTouchesInView()` by *furuyan*
 
+9. **Dictionary:**
+  - `static constructFromJSON(json: String) -> Dictionary` by *Khalian*
+  - `formatJSON() -> String?` by *Khalian*
+
+10. **Character:**
+  - `lowercased: Character` by *Khalian*
+  - `uppercased: Character` by *Khalian*
+
 ### Modified extensions
 
 1. **Global:**
@@ -75,6 +87,10 @@ All notable changes to this project will be documented in this file.
 
 2. **Array:**
   - `reverseIndex(_ index: Int)` now returns `Int?` instead of `Int` by *piv199*
+
+### Deprecated/Renamed classes
+
+1. **UIColoredView**
 
 ### Deprecated/Renamed extensions
 
@@ -121,9 +137,19 @@ Method/property name  | Renamed to | Author
 ------------- | ------------- | ------------- 
  `hideKeyboardWhenTappedAround(handler: ((UITapGestureRecognizer) -> Void)?)` | `hideKeyboardWhenTappedAround()` | furuyan 
 
-### Deprecated/Renamed classes
+**NSDictionary:**
+Method/property name  | Renamed to | Author 
+------------- | ------------- | ------------- 
+`init?(json: String)` | *deprecated* | lfarah
+`formatJSON() -> String?` | *deprecated* | lfarah 
 
-1. **UIColoredView**
+**UIImageView:**
+Method/property name  | Renamed to | Author 
+------------- | ------------- | -------------
+`imageWithUrl(url: String, placeholderNamed: String)` | `image(url: String, placeholderNamed: String)` | lfarah
+`imageWithUrl(url: String, placeholder: UIImage)` | `image(url: String, placeholder: UIImage)` | lfarah
+`imageWithUrl(url: String)` | `image(url: String)` | lfarah
+
 
 [All changes](https://github.com/goktugyil/EZSwiftExtensions/compare/1.7...master)
 
