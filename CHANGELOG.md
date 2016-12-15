@@ -9,47 +9,47 @@ All notable changes to this project will be documented in this file.
   - `shuffle()` crashing if array contains one or zero elements by *piv199*
 
 2. **EZSwiftExtensions:**
-  - Setting image on undefined thread for `imageWithURL` related methods by *piv199*
-  - `runThisEvery()` now returns `Timer` instead of `CFLoopTimer` by *lfarah*
+  - Setting image on undefined thread for `imageWithURL` related methods in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/220) by *piv199*
+  - `runThisEvery()` now returns `Timer` instead of `CFLoopTimer` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/228) by *lfarah*
 
 ### Added extensions
 
 1. **Array:**
-  - `shuffled() -> Array` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/212) by *piv199* 
-  - `unique() -> Array` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/254) by *Khalian*
-  - `get(at range:ClosedRange<Int>) -> Array` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/260) by *Dendim0n*
+  - `shuffled() -> Array` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/212) by *piv199* 
+  - `unique() -> Array` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/254) by *Khalian*
+  - `get(at range:ClosedRange<Int>) -> Array` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/260) by *Dendim0n*
 
 2. **Date:**
-  - `isToday: Bool` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/260)  by *Khalian*
-  - `isYesterday: Bool` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/321)  by *Khalian*
-  - `isTomorrow: Bool` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/321)  by *Khalian*
-  - `year: Int` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/313) by *Khalian*
-  - `month: Int` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/313) by *Khalian*
-  - `weekday: Int` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/313) by *Khalian*
-  - `monthAsString: String` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/313) by *Khalian*
-  - `day: Int` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/313) by *Khalian*
-  - `hour: Int` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/314) by *Khalian*
-  - `minute: Int` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/314) by *Khalian*
-  - `second: Int` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/314) by *Khalian*
-  - `isThisWeek: Bool` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/321)  by *Khalian*
-  - `isThisMonth: Bool` in [PR](https://github.com/goktugyil/EZSwiftExtensions/pull/321)  by *Khalian*
+  - `isToday: Bool` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/260)  by *Khalian*
+  - `isYesterday: Bool` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/321)  by *Khalian*
+  - `isTomorrow: Bool` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/321)  by *Khalian*
+  - `year: Int` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/313) by *Khalian*
+  - `month: Int` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/313) by *Khalian*
+  - `weekday: Int` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/313) by *Khalian*
+  - `monthAsString: String` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/313) by *Khalian*
+  - `day: Int` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/313) by *Khalian*
+  - `hour: Int` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/314) by *Khalian*
+  - `minute: Int` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/314) by *Khalian*
+  - `second: Int` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/314) by *Khalian*
+  - `isThisWeek: Bool` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/321) by *Khalian*
+  - `isThisMonth: Bool` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/321) by *Khalian*
 
 3. **CGFloat:**
-  - `radiansToDegrees()` by *Khalian*
-  - `toDegreesInPlace()` by *Khalian*
-  - `radiansToDegrees(_ angleInDegrees : CGFloat)` by *Khalian*
-  - `random()` by *Khalian*
-  - `random(within: Range<CGFloat>)` by *Khalian*
-  - `random(within: ClosedRange<CGFloat>)` by *Khalian*
-  - `shortestAngleInRadians(from first: CGFloat, to second: CGFloat)` by *Khalian*
+  - `radiansToDegrees() -> CGFloat` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/258) by *Khalian*
+  - `toDegreesInPlace()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/258) by *Khalian*
+  - `static radiansToDegrees(_ angleInDegrees : CGFloat) -> CGFloat` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/258) by *Khalian*
+  - `static random() -> CGFloat` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/262) by *Khalian*
+  - `static random(within: Range<CGFloat>)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/262) by *Khalian*
+  - `static random(within: ClosedRange<CGFloat>)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/262) by *Khalian*
+  - `static shortestAngleInRadians(from first: CGFloat, to second: CGFloat) -> CGFloat` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/272) by *Khalian*
 
 4. **CGPoint:**
-  - `operator +` by *Khalian*
+  - `operator +(this: CGPoint, that: CGPoint) -> CGPoint` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/262) by *Khalian*
   - `operator -` by *Khalian*
   - `operator *` by *Khalian*
-  - `distance(from: CGPoint, to: CGPoint)` by *Khalian*
+  - `static distance(from: CGPoint, to: CGPoint) -> CGPoint` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/278) by *Khalian*
   - `normalized()` by *Khalian*
-  - `angle` by *Khalian*
+  - `angle: CGFloat` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/287) by *Khalian*
   - `dotProduct(this: CGPoint, that: CGPoint) -> CGPoint` in [[PR](https://github.com/goktugyil/EZSwiftExtensions/pull/290)] by *Khalian*
   - `linearInterpolation(startPoint: CGPoint, endPoint: CGPoint, interpolationParam: CGFloat)` by *Khalian*
 
