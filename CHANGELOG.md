@@ -138,12 +138,14 @@ Method/property name  | Renamed to | Author
  `hideKeyboardWhenTappedAround(handler: ((UITapGestureRecognizer) -> Void)?)` | `hideKeyboardWhenTappedAround()` | furuyan 
 
 **NSDictionary:**
+
 Method/property name  | Renamed to | Author 
 ------------- | ------------- | ------------- 
 `init?(json: String)` | *deprecated* | lfarah
 `formatJSON() -> String?` | *deprecated* | lfarah 
 
 **UIImageView:**
+
 Method/property name  | Renamed to | Author 
 ------------- | ------------- | -------------
 `imageWithUrl(url: String, placeholderNamed: String)` | `image(url: String, placeholderNamed: String)` | lfarah
