@@ -111,6 +111,16 @@ extension Date {
             return "\(components.second) seconds ago"
         }
     }
+    
+    /// EZSE: Check if date is in future.
+    public var isFuture: Bool {
+        return self > Date()
+    }
+    
+    /// EZSE: Check if date is in past.
+    public var isPast: Bool {
+        return self < Date()
+    }
 
     // EZSE: Check date if it is today
     public var isToday: Bool {
