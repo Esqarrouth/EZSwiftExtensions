@@ -31,4 +31,9 @@ extension Character {
             return s[s.startIndex]
         }
     }
+    
+    /// EZSE : Checks if character is emoji
+    var isEmoji: Bool {
+        return String(self).includesEmoji()
+    }
 }

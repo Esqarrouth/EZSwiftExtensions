@@ -41,4 +41,11 @@ class CharacterTests: XCTestCase {
         XCTAssertEqual(pchrUpper.lowercased, pchr)
         XCTAssertEqual(digitChr.lowercased, digitChr)
     }
+    
+    func testIsIncludeEmoji() {
+        let emojiChar:Character = "😃"
+        XCTAssertTrue(emojiChar.isEmoji)
+        XCTAssertFalse(digitChr.isEmoji)
+        XCTAssertFalse(pchr.isEmoji)
+    }
 }
