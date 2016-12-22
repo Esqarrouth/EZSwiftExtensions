@@ -251,4 +251,13 @@ class DateTests: XCTestCase {
         let customDate = Date(fromString: "09-01-2015 05:45:12", format: self.format)
         XCTAssertEqual(customDate?.second, 12)
     }
+    
+    func testNanoSecond() {
+        let customDateWithoutNanoSecondDefined =
+            Date(fromString: "09-01-2015 05:45:12", format: self.format)
+        XCTAssertEqual(customDateWithoutNanoSecondDefined?.nanosecond, 0)
+        
+        let today = Date()
+        XCTAssert(today.nanosecond == Calendar.current.component(.nanosecond, from: today))
+    }
 }
