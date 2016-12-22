@@ -181,21 +181,26 @@ extension Date {
 
     // EZSE : Get the day from the date
     public var day: Int {
-        return NSCalendar.current.component(Calendar.Component.day, from: self)
+        return Calendar.current.component(.day, from: self)
     }
 
     /// EZSE: Get the hours from date
     public var hour: Int {
-        return NSCalendar.current.component(Calendar.Component.hour, from: self)
+        return Calendar.current.component(.hour, from: self)
     }
 
     /// EZSE: Get the minute from date
     public var minute: Int {
-        return NSCalendar.current.component(Calendar.Component.minute, from: self)
+        return Calendar.current.component(.minute, from: self)
     }
 
     /// EZSE: Get the second from the date
     public var second: Int {
-        return NSCalendar.current.component(Calendar.Component.second, from: self)
+        return Calendar.current.component(.second, from: self)
+    }
+    
+    /// EZSE : Gets the nano second from the date
+    public var nanosecond : Int {
+        return Calendar.current.component(.nanosecond, from: self)
     }
 }
