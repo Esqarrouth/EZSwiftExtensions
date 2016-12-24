@@ -66,7 +66,7 @@ extension CGFloat {
     /**
       EZSE :Returns the shortest angle between two angles. The result is always between
       -π and π.
-     
+
       Inspired from : https://github.com/raywenderlich/SKTUtils/blob/master/SKTUtils/CGFloat%2BExtensions.swift
      */
     public static func shortestAngleInRadians(from first: CGFloat, to second: CGFloat) -> CGFloat {

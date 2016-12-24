@@ -15,12 +15,12 @@ extension CGPoint {
     public static func + (this: CGPoint, that: CGPoint) -> CGPoint {
         return CGPoint(x: this.x + that.x, y: this.y + that.y)
     }
-    
+
     /// EZSE: Subtracts two CGPoints.
     public static func - (left: CGPoint, right: CGPoint) -> CGPoint {
         return CGPoint(x: left.x - right.x, y: left.y - right.y)
     }
-    
+
     /// EZSE: Multiplies a CGPoint with a scalar CGFloat.
     public static func * (point: CGPoint, scalar: CGFloat) -> CGPoint {
         return CGPoint(x: point.x * scalar, y: point.y * scalar)
@@ -47,7 +47,7 @@ extension CGPoint {
     public static func dotProduct(this: CGPoint, that: CGPoint) -> CGFloat {
         return this.x * that.x + this.y * that.y
     }
-    
+
     /// EZSE: Performs a linear interpolation between two CGPoint values.
     /// Inspired by https://github.com/raywenderlich/SKTUtils/blob/master/SKTUtils/CGPoint%2BExtensions.swift
     public static func linearInterpolation(startPoint: CGPoint, endPoint: CGPoint, interpolationParam: CGFloat) -> CGPoint {

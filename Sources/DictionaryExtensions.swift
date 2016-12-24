@@ -124,7 +124,7 @@ extension Dictionary {
         }
         return true
     }
-    
+
     /// EZSE: Unserialize JSON string into Dictionary
     public static func constructFromJSON (json: String) -> Dictionary? {
         if let data = (try? JSONSerialization.jsonObject(with: json.data(using: String.Encoding.utf8, allowLossyConversion: true)!, options: JSONSerialization.ReadingOptions.mutableContainers)) as? Dictionary {
@@ -133,7 +133,7 @@ extension Dictionary {
             return nil
         }
     }
-    
+
     /// EZSE: Serialize Dictionary into JSON string
     public func formatJSON() -> String? {
         if let jsonData = try? JSONSerialization.data(withJSONObject: self, options: JSONSerialization.WritingOptions()) {

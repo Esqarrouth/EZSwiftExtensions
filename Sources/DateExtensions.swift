@@ -8,9 +8,9 @@
 import UIKit
 
 extension Date {
-    
+
     public static let minutesInAWeek = 24 * 60 * 7
-    
+
     /// EZSE: Initializes Date from string and format
     public init?(fromString string: String, format: String) {
         let formatter = DateFormatter()
@@ -118,7 +118,7 @@ extension Date {
         format.dateFormat = "yyyy-MM-dd"
         return format.string(from: self) == format.string(from: Date())
     }
-    
+
     /// EZSE: Check date if it is yesterday
     public var isYesterday: Bool {
         let format = DateFormatter()
@@ -126,7 +126,7 @@ extension Date {
         let yesterDay = Calendar.current.date(byAdding: .day, value: -1, to: Date())
         return format.string(from: self) == format.string(from: yesterDay!)
     }
-    
+
     /// EZSE: Check date if it is tomorrow
     public var isTomorrow: Bool {
         let format = DateFormatter()
@@ -134,27 +134,27 @@ extension Date {
         let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date())
         return format.string(from: self) == format.string(from: tomorrow!)
     }
-    
+
     /// EZSE: Check date if it is within this month.
     public var isThisMonth: Bool {
         let today = Date()
         return self.month == today.month && self.year == today.year
     }
-    
+
     public var isThisWeek: Bool {
         return self.minutesInBetweenDate(Date()) <= Double(Date.minutesInAWeek)
     }
-    
+
     // EZSE : Get the year from the date
     public var year: Int {
         return NSCalendar.current.component(Calendar.Component.year, from: self)
     }
-    
+
     // EZSE : Get the month from the date
     public var month: Int {
         return NSCalendar.current.component(Calendar.Component.month, from: self)
     }
-    
+
     // EZSE : Get the weekday from the date
     public var weekday: String {
         let dateFormatter = DateFormatter()
@@ -168,22 +168,22 @@ extension Date {
         dateFormatter.dateFormat = "MMMM"
         return dateFormatter.string(from: self)
     }
-    
+
     // EZSE : Get the day from the date
     public var day: Int {
         return NSCalendar.current.component(Calendar.Component.day, from: self)
     }
-    
+
     /// EZSE: Get the hours from date
     public var hour: Int {
         return NSCalendar.current.component(Calendar.Component.hour, from: self)
     }
-    
+
     /// EZSE: Get the minute from date
     public var minute: Int {
         return NSCalendar.current.component(Calendar.Component.minute, from: self)
     }
-    
+
     /// EZSE: Get the second from the date
     public var second: Int {
         return NSCalendar.current.component(Calendar.Component.second, from: self)

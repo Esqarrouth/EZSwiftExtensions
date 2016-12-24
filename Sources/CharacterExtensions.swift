@@ -23,7 +23,7 @@ extension Character {
             return s[s.startIndex]
         }
     }
-    
+
     /// EZSE: Convert the character to uppercase
     public var uppercased: Character {
         get {
