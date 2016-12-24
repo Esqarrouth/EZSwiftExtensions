@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 Add subsequent changes that you make in this section. 
 
+1. **CGPoint:**
+   - `init(vector: CGVector)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/349) by *Khalian*
+   - `init(angle: CGFloat)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/349) by *Khalian*
+
 ## [Version 1.8] 
 
 ### Fixed bugs

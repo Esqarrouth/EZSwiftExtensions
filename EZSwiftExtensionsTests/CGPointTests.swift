@@ -20,6 +20,18 @@ class CGPointTests: XCTestCase {
         super.tearDown()
     }
     
+    func testCGVectorConstructorTest() {
+        let cgVector = CGVector(dx: 0.1, dy: 0.3)
+        let cgPointFromVector = CGPoint(vector: cgVector)
+        XCTAssertEqual(cgPointFromVector, CGPoint(x: 0.1, y: 0.3))
+    }
+    
+    func testAngleConstructorTest() {
+        let cgAngle = CGFloat(0.5)
+        let cgPointFromAngle = CGPoint(angle: cgAngle)
+        XCTAssertEqual(cgPointFromAngle, CGPoint(x: cos(0.5), y: sin(0.5)))
+    }
+    
     func testPlus() {
         let p1 = CGPoint(x: 1, y: 2)
         let p2 = CGPoint(x: 3, y: 4)
