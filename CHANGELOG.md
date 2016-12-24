@@ -13,6 +13,10 @@ Add subsequent changes that you make in this section.
    - `var isFuture` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/343) by *Khalian*
    - `var isPast` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/343) by *Khalian*
 
+3. **UInt**
+ - `static gcd(_ firstNum:UInt, _ secondNum:UInt) -> UInt` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/347) by *Khalian*
+ - `static lcm(_ firstNum:UInt, _ secondNum:UInt) -> UInt` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/347)by *Khalian*
+
 ## [Version 1.8] 
 
 ### Fixed bugs
