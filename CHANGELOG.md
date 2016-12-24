@@ -1,7 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [Unreleased] 
+## [Unreleased]
+
+Add subsequent changes that you make in this section. 
+
+## [Version 1.8] 
 
 ### Fixed bugs
 
