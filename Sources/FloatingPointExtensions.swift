@@ -35,5 +35,14 @@ extension FloatingPoint {
     public mutating func ceil(toPlaces places: Int) {
         self = ceiled(toPlaces: places)
     }
-
+    
+    /// EZSE: Returns a random floating point number between 0.0 and 1.0, inclusive.
+    public static func random() -> Float {
+        return Float(arc4random()) / 0xFFFFFFFF
+    }
+    
+    /// EZSE: Returns a random floating point number in the range min...max, inclusive.
+    public static func random(within: Range<Float>) -> Float {
+        return Float.random() * (within.upperBound - within.lowerBound) + within.lowerBound
+    }
 }

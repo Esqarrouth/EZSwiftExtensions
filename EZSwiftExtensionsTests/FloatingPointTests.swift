@@ -115,5 +115,17 @@ extension FloatingPointTests {
         bigFloat.ceil(toPlaces: 3)
         XCTAssertEqual(bigFloat, 0.928)
     }
-
+    
+    func testRandom() {
+        let randomFloat = Float.random()
+        XCTAssertGreaterThanOrEqual(randomFloat, 0.0)
+        XCTAssertLessThanOrEqual(randomFloat, 1.0)
+    }
+    
+    func testRandomWithinRange() {
+        let closedRange = Float(0.0)..<Float(10.0)
+        let randomClosedFloat = Float.random(within: closedRange)
+        XCTAssertGreaterThanOrEqual(randomClosedFloat, 0.0)
+        XCTAssertLessThanOrEqual(randomClosedFloat, 10.0)
+    }
 }
