@@ -22,5 +22,13 @@ class BoolTests: XCTestCase {
         value.toggle()
         XCTAssertNotEqual(value, false)
     }
+    
+    func testToggled() {
+        let falseVal = false
+        XCTAssertTrue(falseVal.toggled)
+        
+        let trueVal = true
+        XCTAssertFalse(trueVal.toggled)
+    }
 }
 

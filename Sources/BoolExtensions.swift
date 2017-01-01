@@ -16,4 +16,9 @@ extension Bool {
         self = !self
         return self
     }
+    
+    /// EZSE: Return inverted value of bool.
+    public var toggled: Bool {
+        return !self
+    }
 }
