@@ -247,4 +247,14 @@ class ArrayTests: XCTestCase {
         XCTAssertEqual(duplicatedElementsArrayOrderMaintained.unique(), [2, 1, 3])
         
     }
+    
+    func testRemoveEqualItems() {
+        var list = ["one", "two", "two", "four"]
+        list.removeEqualItems(item: "two")
+        
+        XCTAssertEqual(["one", "four"], list)
+        
+        list.removeEqualItems(item: "five")
+        XCTAssertEqual(["one", "four"], list)
+    }
 }
