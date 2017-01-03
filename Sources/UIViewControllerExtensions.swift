@@ -4,58 +4,80 @@
 //
 //  Created by Goktug Yilmaz on 15/07/15.
 //  Copyright (c) 2015 Goktug Yilmaz. All rights reserved.
-//
+// swiftlint:disable trailing_whitespace
+
 
 import UIKit
 
 extension UIViewController {
     // MARK: - Notifications
-    //TODO: Document this part
+
+    ///EZSE: Adds an NotificationCenter with name and Selector
     public func addNotificationObserver(_ name: String, selector: Selector) {
         NotificationCenter.default.addObserver(self, selector: selector, name: NSNotification.Name(rawValue: name), object: nil)
     }
 
+    ///EZSE: Removes an NSNotificationCenter for name
     public func removeNotificationObserver(_ name: String) {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: name), object: nil)
     }
 
+    ///EZSE: Removes NotificationCenter'd observer
     public func removeNotificationObserver() {
-        NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.removeObserver(self)        
     }
+
 
     #if os(iOS)
 
+    ///EZSE: Adds a NotificationCenter Observer for keyboardWillShowNotification()
+    ///
+    /// ⚠️ You also need to implement ```keyboardWillShowNotification(_ notification: Notification)```
     public func addKeyboardWillShowNotification() {
         self.addNotificationObserver(NSNotification.Name.UIKeyboardWillShow.rawValue, selector: #selector(UIViewController.keyboardWillShowNotification(_:)))
     }
-
+    
+    ///EZSE:  Adds a NotificationCenter Observer for keyboardDidShowNotification()
+    ///
+    /// ⚠️ You also need to implement ```keyboardDidShowNotification(_ notification: Notification)```
     public func addKeyboardDidShowNotification() {
         self.addNotificationObserver(NSNotification.Name.UIKeyboardDidShow.rawValue, selector: #selector(UIViewController.keyboardDidShowNotification(_:)))
     }
 
+    ///EZSE:  Adds a NotificationCenter Observer for keyboardWillHideNotification()
+    ///
+    /// ⚠️ You also need to implement ```keyboardWillHideNotification(_ notification: Notification)```
     public func addKeyboardWillHideNotification() {
         self.addNotificationObserver(NSNotification.Name.UIKeyboardWillHide.rawValue, selector: #selector(UIViewController.keyboardWillHideNotification(_:)))
     }
 
+    ///EZSE:  Adds a NotificationCenter Observer for keyboardDidHideNotification()
+    ///
+    /// ⚠️ You also need to implement ```keyboardDidHideNotification(_ notification: Notification)```
     public func addKeyboardDidHideNotification() {
         self.addNotificationObserver(NSNotification.Name.UIKeyboardDidHide.rawValue, selector: #selector(UIViewController.keyboardDidHideNotification(_:)))
     }
-
+    
+    ///EZSE: Removes keyboardWillShowNotification()'s NotificationCenter Observer
     public func removeKeyboardWillShowNotification() {
         self.removeNotificationObserver(NSNotification.Name.UIKeyboardWillShow.rawValue)
     }
 
+    ///EZSE: Removes keyboardDidShowNotification()'s NotificationCenter Observer
     public func removeKeyboardDidShowNotification() {
         self.removeNotificationObserver(NSNotification.Name.UIKeyboardDidShow.rawValue)
     }
 
+    ///EZSE: Removes keyboardWillHideNotification()'s NotificationCenter Observer
     public func removeKeyboardWillHideNotification() {
         self.removeNotificationObserver(NSNotification.Name.UIKeyboardWillHide.rawValue)
     }
 
+    ///EZSE: Removes keyboardDidHideNotification()'s NotificationCenter Observer
     public func removeKeyboardDidHideNotification() {
         self.removeNotificationObserver(NSNotification.Name.UIKeyboardDidHide.rawValue)
     }
+
 
     public func keyboardDidShowNotification(_ notification: Notification) {
         if let nInfo = (notification as NSNotification).userInfo, let value = nInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
@@ -119,13 +141,14 @@ extension UIViewController {
 
     #endif
 
+    //EZSE: Dismisses keyboard
     public func dismissKeyboard() {
         view.endEditing(true)
     }
 
     // MARK: - VC Container
 
-    /// EZSwiftExtensions
+    ///EZSE: Returns maximum y of the ViewController
     public var top: CGFloat {
         get {
             if let me = self as? UINavigationController, let visibleViewController = me.visibleViewController {
@@ -143,7 +166,7 @@ extension UIViewController {
         }
     }
 
-    /// EZSwiftExtensions
+    ///EZSE: Returns minimum y of the ViewController
     public var bottom: CGFloat {
         get {
             if let me = self as? UINavigationController, let visibleViewController = me.visibleViewController {
@@ -161,7 +184,7 @@ extension UIViewController {
         }
     }
 
-    /// EZSwiftExtensions
+    ///EZSE: Returns Tab Bar's height
     public var tabBarHeight: CGFloat {
         get {
             if let me = self as? UINavigationController, let visibleViewController = me.visibleViewController {
@@ -174,7 +197,7 @@ extension UIViewController {
         }
     }
 
-    /// EZSwiftExtensions
+    ///EZSE: Returns Navigation Bar's height
     public var navigationBarHeight: CGFloat {
         get {
             if let me = self as? UINavigationController, let visibleViewController = me.visibleViewController {
@@ -187,7 +210,7 @@ extension UIViewController {
         }
     }
 
-    /// EZSwiftExtensions
+    ///EZSE: Returns Navigation Bar's color
     public var navigationBarColor: UIColor? {
         get {
             if let me = self as? UINavigationController, let visibleViewController = me.visibleViewController {
@@ -199,7 +222,7 @@ extension UIViewController {
         }
     }
 
-    /// EZSwiftExtensions
+    ///EZSE: Returns current Navigation Bar
     public var navBar: UINavigationBar? {
         get {
             return navigationController?.navigationBar
@@ -215,12 +238,12 @@ extension UIViewController {
 
     // MARK: - VC Flow
 
-    /// EZSwiftExtensions
+    ///EZSE: Pushes a view controller onto the receiver’s stack and updates the display.
     public func pushVC(_ vc: UIViewController) {
         navigationController?.pushViewController(vc, animated: true)
     }
 
-    /// EZSwiftExtensions
+    ///EZSE: Pops the top view controller from the navigation stack and updates the display.
     public func popVC() {
         _ = navigationController?.popViewController(animated: true)
     }
@@ -235,17 +258,16 @@ extension UIViewController {
         }
     }
 
-    /// EZSwiftExtensions
     public func presentVC(_ vc: UIViewController) {
         present(vc, animated: true, completion: nil)
     }
 
-    /// EZSwiftExtensions
+    ///EZSE: Dismisses the view controller that was presented modally by the view controller.
     public func dismissVC(completion: (() -> Void)? ) {
         dismiss(animated: true, completion: completion)
     }
 
-    /// EZSwiftExtensions
+    ///EZSE: Adds the specified view controller as a child of the current view controller.
     public func addAsChildViewController(_ vc: UIViewController, toView: UIView) {
         self.addChildViewController(vc)
         toView.addSubview(vc.view)

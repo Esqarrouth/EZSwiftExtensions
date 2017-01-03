@@ -11,6 +11,39 @@ import XCTest
 
 class UIViewTests: XCTestCase {
 
+    override func setUp() {
+        super.setUp()
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+    }
+
+    func testFadeIn() {
+        
+        let view   = UIView()
+        view.alpha = 0.0
+        
+        view.fadeIn(0.3, delay: 1.0, completion: nil)
+        XCTAssertEqual(view.alpha, 1.0)
+    }
+
+    func testFadeOut() {
+        
+        let view = UIView()
+        
+        view.fadeOut(nil, delay: nil, completion: nil)
+        XCTAssertEqual(view.alpha, 0.0)
+    }
+
+    func testFadeTo() {
+        
+        let view = UIView()
+        
+        view.fadeTo(0.5)
+        XCTAssertEqual(view.alpha, 0.5)
+    }
+    
     func testRemoveSubviews() {
         
         let view = UIView()

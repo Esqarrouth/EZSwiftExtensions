@@ -89,14 +89,21 @@ class DictionaryTests: XCTestCase {
 
     }
 
-    func testJSON () {
-        let jsonDic = NSDictionary(dictionary: ["name": "John", "surname": "Smith", "age": 35.0, "married": NSNumber(value: true as Bool), "children": 3])
-        let jsonString = jsonDic.formatJSON()
-        XCTAssertNotNil(jsonString)
-        let secondJsonDic = NSDictionary(json: jsonString!)
-        XCTAssertEqual(secondJsonDic!["name"] as? String, "John")
-        XCTAssertEqual(secondJsonDic!["age"] as? Double, 35.0)
-        XCTAssertEqual(secondJsonDic!["married"] as? Bool, true)
-        XCTAssertEqual(secondJsonDic!["children"] as? Int, 3)
+    func testDicToJSON() {
+        let dic: Dictionary = ["foo":"bar"]
+        let json = dic.formatJSON()
+        let str = "{\"foo\":\"bar\"}"
+        XCTAssertEqual(json, str)
+    }
+    
+    func testJSONtoDic() {
+        let str = "{\"foo\":\"bar\"}"
+        let dic = Dictionary<String, String>.constructFromJSON(json: str)
+        let dicExpected: Dictionary = ["foo":"bar"]
+        XCTAssertEqual(dic!, dicExpected)
+        
+        let badStr = "BADSTR"
+        let badDic = Dictionary<String, String>.constructFromJSON(json: badStr)
+        XCTAssertNil(badDic)
     }
 }

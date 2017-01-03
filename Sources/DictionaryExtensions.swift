@@ -124,6 +124,25 @@ extension Dictionary {
         }
         return true
     }
+
+    /// EZSE: Unserialize JSON string into Dictionary
+    public static func constructFromJSON (json: String) -> Dictionary? {
+        if let data = (try? JSONSerialization.jsonObject(with: json.data(using: String.Encoding.utf8, allowLossyConversion: true)!, options: JSONSerialization.ReadingOptions.mutableContainers)) as? Dictionary {
+            return data
+        } else {
+            return nil
+        }
+    }
+
+    /// EZSE: Serialize Dictionary into JSON string
+    public func formatJSON() -> String? {
+        if let jsonData = try? JSONSerialization.data(withJSONObject: self, options: JSONSerialization.WritingOptions()) {
+            let jsonStr = String(data: jsonData, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
+            return String(jsonStr ?? "")
+        }
+        return nil
+    }
+
 }
 
 extension Dictionary where Value: Equatable {
@@ -153,7 +172,6 @@ public func += <KeyType, ValueType> (left: inout Dictionary<KeyType, ValueType>,
 public func - <K, V: Equatable> (first: [K: V], second: [K: V]) -> [K: V] {
     return first.difference(second)
 }
-
 
 /// EZSE: Intersection operator
 public func & <K, V: Equatable> (first: [K: V], second: [K: V]) -> [K: V] {

@@ -47,13 +47,6 @@ public enum FontName: String {
 }
 
 extension UIFont {
-    /// EZSwiftExtensions
-    public class func PrintFontFamily(_ font: FontName) {
-        let arr = UIFont.fontNames(forFamilyName: font.rawValue)
-        for name in arr {
-            print(name)
-        }
-    }
 
     /// EZSwiftExtensions
     public class func Font(_ name: FontName, type: FontType, size: CGFloat) -> UIFont! {
@@ -96,5 +89,16 @@ extension UIFont {
     /// EZSwiftExtensions
     public class func AvenirNextRegular(size: CGFloat) -> UIFont {
         return Font(.AvenirNext, type: .Regular, size: size)
+    }
+
+    //MARK: Deprecated
+
+    /// EZSwiftExtensions
+    @available(*, deprecated: 1.8)
+    public class func PrintFontFamily(_ font: FontName) {
+        let arr = UIFont.fontNames(forFamilyName: font.rawValue)
+        for name in arr {
+            print(name)
+        }
     }
 }

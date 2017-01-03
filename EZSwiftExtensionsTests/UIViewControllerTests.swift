@@ -29,6 +29,31 @@ class UIViewControllerTests: XCTestCase {
         vc.isNavBarHidden = false
         XCTAssertEqual(vc.isNavBarHidden, false)
     }
-
+    
+    override func tearDown() {
+        super.tearDown()
+    }
+    
+    func setupViewControllers() {
+        nav = UINavigationController(rootViewController: rootVC)
+        nav.pushViewController(vc2, animated: false)
+        nav.pushViewController(vc3, animated: false)
+    }
+    
+    func testPopToRoot() {
+        setupViewControllers()
+        
+        vc3.popToRootVC()
+        let root = nav.viewControllers.first
+        XCTAssertEqual(root, rootVC)
+    }
+    
+    func testPopVC() {
+        setupViewControllers()
+        
+        vc3.popVC()
+        let pop = nav.viewControllers[1]
+        XCTAssertEqual(pop, vc2)
+    }
 }
 
