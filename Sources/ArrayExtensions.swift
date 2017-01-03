@@ -132,6 +132,13 @@ extension Array where Element: Equatable {
         self.remove(at: index)
     }
 
+    /// EZSE: Removes equal items of array
+    public mutating func removeEqualItems(item: Element) {
+        self = self.filter { (currentItem: Element) -> Bool in
+            return currentItem != item
+        }
+    }
+    
     // EZSE: Removes all occurrences of the given object
     public mutating func removeAll(_ elements: Element...) {
         for element in elements {
