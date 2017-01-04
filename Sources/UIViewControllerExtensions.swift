@@ -257,8 +257,7 @@ extension UIViewController {
             navigationController?.isNavigationBarHidden = newValue
         }
     }
-    
-    ///EZSE: Presents a view controller modally.
+
     public func presentVC(_ vc: UIViewController) {
         present(vc, animated: true, completion: nil)
     }
