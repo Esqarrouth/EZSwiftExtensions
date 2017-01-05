@@ -132,10 +132,10 @@ extension Array where Element: Equatable {
         self.remove(at: index)
     }
 
-    /// EZSE: Removes equal items of array
-    public mutating func removeEqualItems(item: Element) {
+    /// EZSE: Removes elements with a given value
+    public mutating func removeAllItems(with value:Element) {
         self = self.filter { (currentItem: Element) -> Bool in
-            return currentItem != item
+            return currentItem != value
         }
     }
     
