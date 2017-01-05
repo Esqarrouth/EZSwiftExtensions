@@ -603,23 +603,19 @@ private let UIViewDefaultFadeDuration: TimeInterval = 0.4
 
 extension UIView {
     ///EZSE: Fade in with duration, delay and completion block.
-    public func fadeIn(_ duration: TimeInterval? = UIViewDefaultFadeDuration, delay _delay: TimeInterval? = 0.0, completion: ((Bool) -> Void)? = nil) {
-        UIView.animate(withDuration: duration ?? UIViewDefaultFadeDuration, delay: _delay ?? 0.0, options: UIViewAnimationOptions(rawValue: UInt(0)), animations: {
-            self.alpha = 1.0
-        }, completion:completion)
+    public func fadeIn(_ duration: TimeInterval? = UIViewDefaultFadeDuration, delay: TimeInterval? = 0.0, completion: ((Bool) -> Void)? = nil) {
+        fadeTo(1.0, duration: duration, delay: delay, completion: completion)
     }
 
     /// EZSwiftExtensions
-    public func fadeOut(_ duration: TimeInterval? = UIViewDefaultFadeDuration, delay _delay: TimeInterval? = 0.0, completion: ((Bool) -> Void)? = nil) {
-        UIView.animate(withDuration: duration ?? UIViewDefaultFadeDuration, delay: _delay ?? 0.0, options: UIViewAnimationOptions(rawValue: UInt(0)), animations: {
-            self.alpha = 0.0
-        }, completion:completion)
+    public func fadeOut(_ duration: TimeInterval? = UIViewDefaultFadeDuration, delay: TimeInterval? = 0.0, completion: ((Bool) -> Void)? = nil) {
+        fadeTo(0.0, duration: duration, delay: delay, completion: completion)
     }
 
     /// Fade to specific value	 with duration, delay and completion block.
-    public func fadeTo(_ value: CGFloat, duration _duration: TimeInterval? = UIViewDefaultFadeDuration, delay _delay: TimeInterval? = 0.0, completion: ((Bool) -> Void)? = nil) {
-        UIView.animate(withDuration: _duration ?? UIViewDefaultFadeDuration, delay: _delay ?? UIViewDefaultFadeDuration, options: UIViewAnimationOptions(rawValue: UInt(0)), animations: {
+    public func fadeTo(_ value: CGFloat, duration: TimeInterval? = UIViewDefaultFadeDuration, delay: TimeInterval? = 0.0, completion: ((Bool) -> Void)? = nil) {
+        UIView.animate(withDuration: duration ?? UIViewDefaultFadeDuration, delay: delay ?? UIViewDefaultFadeDuration, options: .curveEaseInOut, animations: {
             self.alpha = value
-        }, completion:completion)
+        }, completion: completion)
     }
 }
