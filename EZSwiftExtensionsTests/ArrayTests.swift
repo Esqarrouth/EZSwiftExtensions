@@ -250,11 +250,11 @@ class ArrayTests: XCTestCase {
     
     func testRemoveEqualItems() {
         var list = ["one", "two", "two", "four"]
-        list.removeEqualItems(item: "two")
+        list.removeAllItems(with: "two")
         
         XCTAssertEqual(["one", "four"], list)
         
-        list.removeEqualItems(item: "five")
+        list.removeAllItems(with: "five")
         XCTAssertEqual(["one", "four"], list)
     }
 }
