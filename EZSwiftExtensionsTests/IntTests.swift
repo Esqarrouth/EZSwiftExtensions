@@ -135,4 +135,11 @@ class IntTests: XCTestCase {
         XCTAssertEqual((-57).digitArray, [5, 7])
         XCTAssertEqual((-039).digitArray, [3, 9])
     }
+
+    func testRandomWithinRange() {
+        let closedRange: Range<Int> = 0..<10
+        let randomClosedInt = Int.random(within: closedRange)
+        XCTAssertGreaterThanOrEqual(randomClosedInt, 0)
+        XCTAssertLessThanOrEqual(randomClosedInt, 10)
+    }
 }
