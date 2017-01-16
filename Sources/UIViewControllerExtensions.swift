@@ -271,7 +271,7 @@ extension UIViewController {
     }
 
     ///EZSE: Adds image named: as a UIImageView in the Background
-    func setBackgroundImage(_ named: String) {
+    public func setBackgroundImage(_ named: String) {
         let image = UIImage(named: named)
         let imageView = UIImageView(frame: view.frame)
         imageView.image = image
