@@ -30,6 +30,9 @@ Add subsequent changes that you make in this section.
  - `static gcd(_ firstNum:UInt, _ secondNum:UInt) -> UInt` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/347) by *Khalian*
  - `static lcm(_ firstNum:UInt, _ secondNum:UInt) -> UInt` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/347)by *Khalian*
 
+7. **UIEdgeInsets**
+   - `init(inset: CGFloat)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/368) by *furuyan*
+
 ## [Version 1.8] 
 
 ### Fixed bugs
