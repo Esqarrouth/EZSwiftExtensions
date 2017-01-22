@@ -268,6 +268,50 @@ class StringTests: XCTestCase {
         XCTAssertEqual("a%20b%20c%20d%20e", spacedString)
     }
     
+    func testUrlDecoded() {
+        let unchangedString = "abcde"
+        let urlDecodedUnChangedString = unchangedString.urlDecoded()
+        
+        XCTAssertEqual(unchangedString, urlDecodedUnChangedString)
+        
+        let urlEncodedEscapeCharString =  "%0A%09"
+        let escapeCharString = urlEncodedEscapeCharString.urlDecoded()
+        
+        XCTAssertEqual("\n\t", escapeCharString)
+        
+        let urlEncodedMixedString = "ab%0Acd"
+        let mixedString = urlEncodedMixedString.urlDecoded()
+        
+        XCTAssertEqual("ab\ncd", mixedString)
+        
+        let urlEncodedSpacedString = "a%20b%20c%20d%20e"
+        let spacedString  = urlEncodedSpacedString.urlDecoded()
+        
+        XCTAssertEqual("a b c d e", spacedString)
+    }
+    
+    func testUrlDecode() {
+        var unchangedString = "abcde"
+        unchangedString.urlDecode()
+        
+        XCTAssertEqual("abcde", unchangedString)
+        
+        var escapeCharString = "%0A%09"
+        escapeCharString.urlDecode()
+        
+        XCTAssertEqual("\n\t", escapeCharString)
+        
+        var mixedString = "ab%0Acd"
+        mixedString.urlDecode()
+        
+        XCTAssertEqual("ab\ncd", mixedString)
+        
+        var spacedString = "a%20b%20c%20d%20e"
+        spacedString.urlDecode()
+        
+        XCTAssertEqual("a b c d e" , spacedString)
+    }
+
     func testSplitSeparator() {
         
         let testString = "Hey-Ho-Lets-Go"

@@ -466,7 +466,16 @@ extension String {
     mutating func urlEncode() {
         self = urlEncoded()
     }
-
+    
+    // EZSE: Removes percent encoding from string
+    public func urlDecoded() -> String {
+        return removingPercentEncoding ?? self
+    }
+    
+    // EZSE : Mutating versin of urlDecoded
+    mutating func urlDecode() {
+        self = urlDecoded()
+    }
 }
 
 extension String {
