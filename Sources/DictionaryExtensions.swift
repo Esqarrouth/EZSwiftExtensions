@@ -162,7 +162,7 @@ extension Dictionary where Value: Equatable {
 }
 
 /// EZSE: Combines the first dictionary with the second and returns single dictionary
-public func += <KeyType, ValueType> (left: inout Dictionary<KeyType, ValueType>, right: Dictionary<KeyType, ValueType>) {
+public func += <KeyType, ValueType> (left: inout [KeyType: ValueType], right: [KeyType: ValueType]) {
     for (k, v) in right {
         left.updateValue(v, forKey: k)
     }

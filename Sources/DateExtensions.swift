@@ -200,7 +200,7 @@ extension Date {
     }
     
     /// EZSE : Gets the nano second from the date
-    public var nanosecond : Int {
+    public var nanosecond: Int {
         return Calendar.current.component(.nanosecond, from: self)
     }
 }

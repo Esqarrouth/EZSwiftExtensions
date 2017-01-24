@@ -59,7 +59,7 @@ extension UInt {
     
     /// EZSE: Greatest common divisor of two integers using the Euclid's algorithm.
     /// Time complexity of this in O(log(n))
-    public static func gcd(_ firstNum:UInt, _ secondNum:UInt) -> UInt {
+    public static func gcd(_ firstNum: UInt, _ secondNum: UInt) -> UInt {
         let remainder = firstNum % secondNum
         if remainder != 0 {
             return gcd(secondNum, remainder)
@@ -69,7 +69,7 @@ extension UInt {
     }
     
     /// EZSE: Least common multiple of two numbers. LCM = n * m / gcd(n, m)
-    public static func lcm(_ firstNum:UInt, _ secondNum:UInt) -> UInt {
+    public static func lcm(_ firstNum: UInt, _ secondNum: UInt) -> UInt {
         return firstNum * secondNum / UInt.gcd(firstNum, secondNum)
     }
 }
