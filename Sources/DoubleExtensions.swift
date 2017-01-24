@@ -43,5 +43,14 @@ extension Double {
     public mutating func ceilByPlaces(_ places: Int) {
         self.ceil(toPlaces: places)
     }
+    
+    /// EZSE: Absolute value of Double. 
+    public var abs : Double {
+        if (self > 0) {
+            return self
+        } else {
+            return -self
+        }
+    }
 
 }

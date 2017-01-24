@@ -11,25 +11,34 @@ Add subsequent changes that you make in this section.
    - `init(vector: CGVector)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/349) by *Khalian*
    - `init(angle: CGFloat)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/349) by *Khalian*
 
+3. **CGRect**
+   - `var area` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/366) by *Khalian*
+
 3. **Date**
    - `var isFuture` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/343) by *Khalian*
    - `var isPast` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/343) by *Khalian*
 
-4. **Float**
+4. **Double**
+   - `var abs` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/365) by *Khalian*
+
+5. **Float**
    - `static func random() -> Float` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/351) by *Khalian*
    - `static func random(within: Range<Float>) -> Float` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/351) by *Khalian*
 
-5. **String**
+6. **String**
    - `func urlDecoded() -> String` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/358) by *Khalian*
    - `mutating func urlDecode() -> String` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/358) by *Khalian*
 
-6. **UInt**
+7. **UInt**
  - `static gcd(_ firstNum:UInt, _ secondNum:UInt) -> UInt` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/347) by *Khalian*
  - `static lcm(_ firstNum:UInt, _ secondNum:UInt) -> UInt` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/347)by *Khalian*
 
-7. **UIImage**
-   - `var base64: String` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/363) by *Lfarah*
+8. **UIEdgeInsets**
+   - `init(inset: CGFloat)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/368) by *furuyan*
 
+9. **UIImage**
+   - `var base64: String` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/363) by *Lfarah*
+   
 ## [Version 1.8] 
 
 ### Fixed bugs
