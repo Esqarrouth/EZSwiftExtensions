@@ -51,6 +51,18 @@ extension Int {
             return -1; //out of bound
         }
     }
+    
+    /// EZSE: The digits of an integer represented in an array(from most significant to least).
+    /// This method ignores leading zeros and sign
+    public var digitArray: [Int] {
+        var digits = [Int]()
+        for char in self.toString.characters {
+            if let digit = Int(String(char)) {
+                digits.append(digit)
+            }
+        }
+        return digits
+    }
 }
 
 extension UInt {

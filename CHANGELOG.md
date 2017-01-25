@@ -25,15 +25,18 @@ Add subsequent changes that you make in this section.
    - `static func random() -> Float` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/351) by *Khalian*
    - `static func random(within: Range<Float>) -> Float` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/351) by *Khalian*
 
-6. **String**
+6. **Int**
+   - `var digitArray` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/373) by *Khalian*
+
+7. **String**
    - `func urlDecoded() -> String` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/358) by *Khalian*
    - `mutating func urlDecode() -> String` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/358) by *Khalian*
 
-7. **UInt**
+8. **UInt**
  - `static gcd(_ firstNum:UInt, _ secondNum:UInt) -> UInt` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/347) by *Khalian*
  - `static lcm(_ firstNum:UInt, _ secondNum:UInt) -> UInt` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/347)by *Khalian*
 
-7. **UIEdgeInsets**
+9. **UIEdgeInsets**
    - `init(inset: CGFloat)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/368) by *furuyan*
 
 ## [Version 1.8] 
