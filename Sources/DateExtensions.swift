@@ -151,21 +151,27 @@ extension Date {
         return self.month == today.month && self.year == today.year
     }
 
+    /// EZSE: Check date if it is within this week.
     public var isThisWeek: Bool {
         return self.minutesInBetweenDate(Date()) <= Double(Date.minutesInAWeek)
     }
 
-    // EZSE : Get the year from the date
+    /// EZSE: Get the era from the date
+    public var era: Int {
+        return Calendar.current.component(Calendar.Component.era, from: self)
+    }
+    
+    /// EZSE : Get the year from the date
     public var year: Int {
-        return NSCalendar.current.component(Calendar.Component.year, from: self)
+        return Calendar.current.component(Calendar.Component.year, from: self)
     }
 
-    // EZSE : Get the month from the date
+    /// EZSE : Get the month from the date
     public var month: Int {
-        return NSCalendar.current.component(Calendar.Component.month, from: self)
+        return Calendar.current.component(Calendar.Component.month, from: self)
     }
 
-    // EZSE : Get the weekday from the date
+    /// EZSE : Get the weekday from the date
     public var weekday: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"

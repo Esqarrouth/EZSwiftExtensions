@@ -18,6 +18,7 @@ Add subsequent changes that you make in this section.
 3. **Date**
    - `var isFuture` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/343) by *Khalian*
    - `var isPast` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/343) by *Khalian*
+   - `var era` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/374) by *Khalian*
 
 4. **Double**
    - `var abs` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/365) by *Khalian*
