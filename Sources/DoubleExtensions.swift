@@ -16,7 +16,7 @@ extension Double {
     public var toInt: Int { return Int(self) }
 }
 
-//MARK: - Deprecated 1.8
+// MARK: - Deprecated 1.8
 
 extension Double {
 
@@ -45,8 +45,8 @@ extension Double {
     }
     
     /// EZSE: Absolute value of Double. 
-    public var abs : Double {
-        if (self > 0) {
+    public var abs: Double {
+        if self > 0 {
             return self
         } else {
             return -self

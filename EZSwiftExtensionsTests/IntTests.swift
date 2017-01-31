@@ -126,4 +126,13 @@ class IntTests: XCTestCase {
         XCTAssertEqual(UInt.lcm(125, 50), 250)
         XCTAssertEqual(UInt.lcm(65, 52), 260)
     }
+    
+    func testDigitArray() {
+        XCTAssertEqual(25.digitArray, [2, 5])
+        XCTAssertEqual(500.digitArray, [5, 0, 0])
+        XCTAssertEqual(034.digitArray, [3, 4])
+        XCTAssertEqual(0.digitArray, [0])
+        XCTAssertEqual((-57).digitArray, [5, 7])
+        XCTAssertEqual((-039).digitArray, [3, 9])
+    }
 }

@@ -95,7 +95,7 @@ extension UIImageView {
         }
     }
 
-    //MARK: Deprecated 1.8
+    // MARK: Deprecated 1.8
 
     /// EZSwiftExtensions
     @available(*, deprecated: 1.8, renamed: "image(url:)")

@@ -51,7 +51,7 @@ extension CGRect {
     }
     
     /// EZSE : Surface Area represented by a CGRectangle
-    public var area : CGFloat {
+    public var area: CGFloat {
         return self.h * self.w
     }
 }

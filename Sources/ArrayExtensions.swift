@@ -43,7 +43,7 @@ extension Array {
     }
 
     /// EZSE: Iterates on each element of the array with its index. (Index, Element)
-    public func forEachEnumerated(_ body: @escaping (_ offset: Int, _ element: Element) -> ()) {
+    public func forEachEnumerated(_ body: @escaping (_ offset: Int, _ element: Element) -> Void) {
         self.enumerated().forEach(body)
     }
 
@@ -201,7 +201,7 @@ extension Array where Element: Equatable {
     }
 }
 
-//MARK: - Deprecated 1.8
+// MARK: - Deprecated 1.8
 
 extension Array {
 
@@ -241,13 +241,13 @@ extension Array where Element: Equatable {
 
 }
 
-//MARK: - Deprecated 1.7
+// MARK: - Deprecated 1.7
 
 extension Array {
 
     /// EZSE: Iterates on each element of the array with its index. (Index, Element)
     @available(*, deprecated: 1.7, renamed: "forEachEnumerated(_:)")
-    public func forEach(_ call: @escaping (Int, Element) -> ()) {
+    public func forEach(_ call: @escaping (Int, Element) -> Void) {
         forEachEnumerated(call)
     }
 
@@ -287,13 +287,13 @@ extension Array where Element: Equatable {
 
 }
 
-//MARK: - Deprecated 1.6
+// MARK: - Deprecated 1.6
 
 extension Array {
 
     /// EZSE: Iterates on each element of the array.
     @available(*, deprecated: 1.6, renamed: "forEach(_:)")
-    public func each(_ call: (Element) -> ()) {
+    public func each(_ call: (Element) -> Void) {
         forEach(call)
     }
 
@@ -306,7 +306,7 @@ extension Array {
 
     /// EZSE: Iterates on each element of the array with its index.  (Index, Element)
     @available(*, deprecated: 1.6, renamed: "forEachEnumerated(_:)")
-    public func each(_ call: @escaping (Int, Element) -> ()) {
+    public func each(_ call: @escaping (Int, Element) -> Void) {
         forEachEnumerated(call)
     }
 

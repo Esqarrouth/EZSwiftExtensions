@@ -73,7 +73,7 @@ extension CGFloat {
         let twoPi = CGFloat(.pi * 2.0)
         var angle = (second - first).truncatingRemainder(dividingBy: twoPi)
         if angle >= .pi {
-            angle += twoPi
+            angle -= twoPi
         }
         if angle <= -.pi {
             angle += twoPi
