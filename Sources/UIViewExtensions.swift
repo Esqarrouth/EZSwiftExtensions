@@ -492,7 +492,7 @@ extension UIView {
     }
 
     /// EZSwiftExtensions - Make sure you use  "[weak self] (gesture) in" if you are using the keyword self inside the closure or there might be a memory leak
-    public func addTapGesture(tapNumber: Int = 1, action: ((UITapGestureRecognizer) -> ())?) {
+    public func addTapGesture(tapNumber: Int = 1, action: ((UITapGestureRecognizer) -> Void)?) {
         let tap = BlockTap(tapCount: tapNumber, fingerCount: 1, action: action)
         addGestureRecognizer(tap)
         isUserInteractionEnabled = true
@@ -514,7 +514,7 @@ extension UIView {
     }
 
     /// EZSwiftExtensions - Make sure you use  "[weak self] (gesture) in" if you are using the keyword self inside the closure or there might be a memory leak
-    public func addSwipeGesture(direction: UISwipeGestureRecognizerDirection, numberOfTouches: Int = 1, action: ((UISwipeGestureRecognizer) -> ())?) {
+    public func addSwipeGesture(direction: UISwipeGestureRecognizerDirection, numberOfTouches: Int = 1, action: ((UISwipeGestureRecognizer) -> Void)?) {
         let swipe = BlockSwipe(direction: direction, fingerCount: numberOfTouches, action: action)
         addGestureRecognizer(swipe)
         isUserInteractionEnabled = true
@@ -528,7 +528,7 @@ extension UIView {
     }
 
     /// EZSwiftExtensions - Make sure you use  "[weak self] (gesture) in" if you are using the keyword self inside the closure or there might be a memory leak
-    public func addPanGesture(action: ((UIPanGestureRecognizer) -> ())?) {
+    public func addPanGesture(action: ((UIPanGestureRecognizer) -> Void)?) {
         let pan = BlockPan(action: action)
         addGestureRecognizer(pan)
         isUserInteractionEnabled = true
@@ -548,7 +548,7 @@ extension UIView {
     #if os(iOS)
 
     /// EZSwiftExtensions - Make sure you use  "[weak self] (gesture) in" if you are using the keyword self inside the closure or there might be a memory leak
-    public func addPinchGesture(action: ((UIPinchGestureRecognizer) -> ())?) {
+    public func addPinchGesture(action: ((UIPinchGestureRecognizer) -> Void)?) {
         let pinch = BlockPinch(action: action)
         addGestureRecognizer(pinch)
         isUserInteractionEnabled = true
@@ -564,7 +564,7 @@ extension UIView {
     }
 
     /// EZSwiftExtensions - Make sure you use  "[weak self] (gesture) in" if you are using the keyword self inside the closure or there might be a memory leak
-    public func addLongPressGesture(action: ((UILongPressGestureRecognizer) -> ())?) {
+    public func addLongPressGesture(action: ((UILongPressGestureRecognizer) -> Void)?) {
         let longPress = BlockLongPress(action: action)
         addGestureRecognizer(longPress)
         isUserInteractionEnabled = true
@@ -613,7 +613,7 @@ extension UIView {
     }
 }
 
-//MARK: Fade Extensions
+// MARK: Fade Extensions
 
 private let UIViewDefaultFadeDuration: TimeInterval = 0.4
 

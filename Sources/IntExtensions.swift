@@ -51,6 +51,18 @@ extension Int {
             return -1; //out of bound
         }
     }
+    
+    /// EZSE: The digits of an integer represented in an array(from most significant to least).
+    /// This method ignores leading zeros and sign
+    public var digitArray: [Int] {
+        var digits = [Int]()
+        for char in self.toString.characters {
+            if let digit = Int(String(char)) {
+                digits.append(digit)
+            }
+        }
+        return digits
+    }
 }
 
 extension UInt {
@@ -59,7 +71,7 @@ extension UInt {
     
     /// EZSE: Greatest common divisor of two integers using the Euclid's algorithm.
     /// Time complexity of this in O(log(n))
-    public static func gcd(_ firstNum:UInt, _ secondNum:UInt) -> UInt {
+    public static func gcd(_ firstNum: UInt, _ secondNum: UInt) -> UInt {
         let remainder = firstNum % secondNum
         if remainder != 0 {
             return gcd(secondNum, remainder)
@@ -69,7 +81,7 @@ extension UInt {
     }
     
     /// EZSE: Least common multiple of two numbers. LCM = n * m / gcd(n, m)
-    public static func lcm(_ firstNum:UInt, _ secondNum:UInt) -> UInt {
+    public static func lcm(_ firstNum: UInt, _ secondNum: UInt) -> UInt {
         return firstNum * secondNum / UInt.gcd(firstNum, secondNum)
     }
 }

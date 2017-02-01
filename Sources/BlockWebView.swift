@@ -12,9 +12,9 @@ import UIKit
 
 ///Make sure you use  `[weak self] (NSURLRequest) in` if you are using the keyword `self` inside the closure or there might be a memory leak
 open class BlockWebView: UIWebView, UIWebViewDelegate {
-    open var didStartLoad: ((URLRequest) -> ())?
-    open var didFinishLoad: ((URLRequest) -> ())?
-    open var didFailLoad: ((URLRequest, Error) -> ())?
+    open var didStartLoad: ((URLRequest) -> Void)?
+    open var didFinishLoad: ((URLRequest) -> Void)?
+    open var didFailLoad: ((URLRequest, Error) -> Void)?
 
     open var shouldStartLoadingRequest: ((URLRequest) -> (Bool))?
 

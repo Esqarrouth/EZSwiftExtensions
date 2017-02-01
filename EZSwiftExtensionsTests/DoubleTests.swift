@@ -41,4 +41,10 @@ extension DoubleTests {
         XCTAssertNotEqual(Double(otherDouble.toInt), otherDouble)
         XCTAssertNotEqual(Double(anotherDouble.toInt), anotherDouble)
     }
+    
+    func testAbs() {
+        XCTAssertEqual(Double(-3.0).abs, Double(3.0))
+        XCTAssertEqual(Double(3.0).abs, Double(3.0))
+        XCTAssertEqual(Double(0).abs, Double(0))
+    }
 }
