@@ -265,4 +265,9 @@ class DateTests: XCTestCase {
         let today = Date()
         XCTAssert(today.nanosecond == Calendar.current.component(.nanosecond, from: today))
     }
+    
+    func testISO8601() {
+        let customDate = Date(fromString: "09-01-2015 05:45:12", format: self.format)
+        XCTAssertEqual(customDate?.iso8601, "2015-01-09T05:45:12Z")
+    }
 }
