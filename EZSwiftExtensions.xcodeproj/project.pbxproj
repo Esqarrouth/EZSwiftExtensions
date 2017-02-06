@@ -59,10 +59,6 @@
 		B5DC87361C0ED34300972D0A /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DC87191C0ED34300972D0A /* UITextViewExtensions.swift */; };
 		B5DC87371C0ED34300972D0A /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DC871A1C0ED34300972D0A /* UIViewControllerExtensions.swift */; };
 		B5DC87381C0ED34300972D0A /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DC871B1C0ED34300972D0A /* UIViewExtensions.swift */; };
-		C2F049FF1E40369D00DEA806 /* base64.txt in Resources */ = {isa = PBXBuildFile; fileRef = C2F049FE1E40369D00DEA806 /* base64.txt */; };
-		C2F04A001E40369D00DEA806 /* base64.txt in Resources */ = {isa = PBXBuildFile; fileRef = C2F049FE1E40369D00DEA806 /* base64.txt */; };
-		C2F04A011E40369D00DEA806 /* base64.txt in Resources */ = {isa = PBXBuildFile; fileRef = C2F049FE1E40369D00DEA806 /* base64.txt */; };
-		C2F04A021E40369D00DEA806 /* base64.txt in Resources */ = {isa = PBXBuildFile; fileRef = C2F049FE1E40369D00DEA806 /* base64.txt */; };
 		C2F04A041E4039B500DEA806 /* charizard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2F04A031E4039B500DEA806 /* charizard.jpg */; };
 		C2F04A051E4039B500DEA806 /* charizard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2F04A031E4039B500DEA806 /* charizard.jpg */; };
 		C2F04A061E4039B500DEA806 /* charizard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2F04A031E4039B500DEA806 /* charizard.jpg */; };
@@ -284,7 +280,6 @@
 		B5DC87191C0ED34300972D0A /* UITextViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewExtensions.swift; sourceTree = "<group>"; };
 		B5DC871A1C0ED34300972D0A /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		B5DC871B1C0ED34300972D0A /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
-		C2F049FE1E40369D00DEA806 /* base64.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = base64.txt; sourceTree = "<group>"; };
 		C2F04A031E4039B500DEA806 /* charizard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = charizard.jpg; sourceTree = "<group>"; };
 		CD4D30E31CEEAFD900CB53BC /* EZSwiftExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EZSwiftExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4D315E1CEEB9EA00CB53BC /* EZSwiftExtensionsTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EZSwiftExtensionsTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -402,7 +397,6 @@
 			isa = PBXGroup;
 			children = (
 				C2F04A031E4039B500DEA806 /* charizard.jpg */,
-				C2F049FE1E40369D00DEA806 /* base64.txt */,
 				B5DC86FE1C0ED34300972D0A /* Sources */,
 				B5DC86AC1C0ED06700972D0A /* EZSwiftExtensions.h */,
 				B5DC86AE1C0ED06700972D0A /* Info.plist */,
@@ -665,7 +659,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2F04A041E4039B500DEA806 /* charizard.jpg in Resources */,
-				C2F049FF1E40369D00DEA806 /* base64.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,7 +667,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2F04A051E4039B500DEA806 /* charizard.jpg in Resources */,
-				C2F04A001E40369D00DEA806 /* base64.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,7 +675,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2F04A061E4039B500DEA806 /* charizard.jpg in Resources */,
-				C2F04A011E40369D00DEA806 /* base64.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,7 +683,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2F04A071E4039B500DEA806 /* charizard.jpg in Resources */,
-				C2F04A021E40369D00DEA806 /* base64.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
