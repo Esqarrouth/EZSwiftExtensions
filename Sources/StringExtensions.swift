@@ -450,11 +450,16 @@ extension String {
         return false
     }
     
+    /// UIPasteboard is __TVOS_PROHIBITED and hence only supported in iOS
+    #if os(iOS)
+    
     /// EZSE: copy string to pasteboard
     func addToPasteboard() {
         let pasteboard = UIPasteboard.generalPasteboard()
         pasteboard.string = self
     }
+    
+    #endif
 }
 
 /// EZSE: Pattern matching of strings via defined functions
