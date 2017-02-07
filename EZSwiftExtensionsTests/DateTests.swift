@@ -212,6 +212,11 @@ class DateTests: XCTestCase {
         XCTAssertFalse(Date.distantPast.isThisMonth)
     }
     
+    func testEra() {
+        let customDate = Date(fromString: "12-01-2015 05:45:12", format: self.format)
+        XCTAssertEqual(customDate?.era, Calendar.current.component(Calendar.Component.era, from:customDate!))
+    }
+    
     func testYear() {
         let customDate = Date(fromString: "12-01-2015 05:45:12", format: self.format)
         XCTAssertEqual(customDate?.year, 2015)

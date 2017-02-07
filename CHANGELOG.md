@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 Add subsequent changes that you make in this section. 
+
 1. **Bool**
    - `public var toggled` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/352) by *Khalian* 
 
@@ -17,6 +18,7 @@ Add subsequent changes that you make in this section.
 3. **Date**
    - `var isFuture` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/343) by *Khalian*
    - `var isPast` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/343) by *Khalian*
+   - `var era` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/374) by *Khalian*
 
 4. **Double**
    - `var abs` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/365) by *Khalian*
@@ -27,17 +29,21 @@ Add subsequent changes that you make in this section.
 
 6. **Int**
    - `var digitArray` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/373) by *Khalian*
+   - `static func random(within: Range<Int>) -> Int` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/360) by *Khalian*
 
 7. **String**
    - `func urlDecoded() -> String` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/358) by *Khalian*
    - `mutating func urlDecode() -> String` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/358) by *Khalian*
 
 8. **UInt**
- - `static gcd(_ firstNum:UInt, _ secondNum:UInt) -> UInt` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/347) by *Khalian*
- - `static lcm(_ firstNum:UInt, _ secondNum:UInt) -> UInt` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/347)by *Khalian*
+   - `static gcd(_ firstNum:UInt, _ secondNum:UInt) -> UInt` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/347) by *Khalian*
+   - `static lcm(_ firstNum:UInt, _ secondNum:UInt) -> UInt` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/347)by *Khalian*
 
 9. **UIEdgeInsets**
    - `init(inset: CGFloat)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/368) by *furuyan*
+
+10. **UILabel**
+   - `set(text _text: String?, duration: TimeInterval)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/340) by *vilapuigvila*
 
 ## [Version 1.8] 
 
