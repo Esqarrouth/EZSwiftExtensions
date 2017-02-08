@@ -10,13 +10,13 @@ import XCTest
 @testable import EZSwiftExtensions
 
 class UIImageTests: XCTestCase {
-
+    
     func testBase64() {
         let testBundle = Bundle(for: type(of: self))
         let imageURL = testBundle.url(forResource: "charizard", withExtension: "jpg")
         let dataImage = try? Data(contentsOf: imageURL!)
         let image = UIImage(data: dataImage!)
-        
-       XCTAssertNotNil(image!.base64)
+        let decodedData = Data(base64Encoded: image!.base64)
+        XCTAssertNotNil(decodedData)
     }
 }
