@@ -247,4 +247,19 @@ class ArrayTests: XCTestCase {
         XCTAssertEqual(duplicatedElementsArrayOrderMaintained.unique(), [2, 1, 3])
         
     }
+    
+    func testElementForIndexPath() {
+        let array = [["a", "b", "c"],["1", "2"]]
+        let item  = array.elemetForIndexPath(section: 0, row: 0) as? String
+	    XCTAssertEqual(item, "a")
+        
+        let noSection = array.elemetForIndexPath(section: 2, row: 0) as? String
+        XCTAssertNil(noSection)
+        
+        let noRow = array.elemetForIndexPath(section: 1, row: 5) as? String
+        XCTAssertNil(noRow)
+        
+        let secondRow = array.elemetForIndexPath(section: 1, row: 1) as? String
+        XCTAssertEqual(secondRow, "2")
+    }
 }
