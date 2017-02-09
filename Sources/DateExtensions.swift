@@ -209,4 +209,12 @@ extension Date {
     public var nanosecond: Int {
         return Calendar.current.component(.nanosecond, from: self)
     }
+    
+    /// EZSE : Gets the international standard(ISO8601) representation of date
+    @available(iOS 10.0, *)
+    @available(tvOS 10.0, *)
+    public var iso8601: String {
+        let formatter = ISO8601DateFormatter()
+        return formatter.string(from: self)
+    }
 }
