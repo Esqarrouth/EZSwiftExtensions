@@ -6,14 +6,17 @@ All notable changes to this project will be documented in this file.
 1. **Collections**
    - `func parallelizedMap<R>(_ each: @escaping (Self.Iterator.Element) -> R) -> [R?]` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/394) by *Khalian*
 
-2. **Dictionary**
+2. **Data**
+   - `var attributedString` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/379) by *Khalian*
+
+3. **Dictionary**
    - `func random() -> Value?` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/420) by *Khalian*
 
-3. **FileManager**
+4. **FileManager**
    - `var documentsDirectoryPath: String?` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/338) by *vilapuigvila*
    - `var cachesDirectoryPath: String?` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/338) by *vilapuigvila*
-
-4. **UIStackView**
+   
+5. **UIStackView**
    - `addArrangedSubviews(_ views: UIView...)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/396) by *kirakik*
    - `init(distribution: UIStackViewDistribution, alignment: UIStackViewAlignment, axis: UILayoutConstraintAxis, spacing: CGFloat)` in [[PR]](https://github.com/goktugyil/         EZSwiftExtensions/pull/396) by *kirakik*
 
