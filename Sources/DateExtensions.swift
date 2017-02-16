@@ -89,26 +89,26 @@ extension Date {
         let calendar = Calendar.current
         let components = (calendar as NSCalendar).components([.year, .month, .day, .hour, .minute, .second], from: self, to: date, options: [])
         var str: String
-
+        
         if components.year! >= 1 {
             components.year == 1 ? (str = "year") : (str = "years")
-            return "\(components.year) \(str) ago"
+            return "\(components.year!) \(str) ago"
         } else if components.month! >= 1 {
             components.month == 1 ? (str = "month") : (str = "months")
-            return "\(components.month) \(str) ago"
+            return "\(components.month!) \(str) ago"
         } else if components.day! >= 1 {
             components.day == 1 ? (str = "day") : (str = "days")
-            return "\(components.day) \(str) ago"
+            return "\(components.day!) \(str) ago"
         } else if components.hour! >= 1 {
             components.hour == 1 ? (str = "hour") : (str = "hours")
-            return "\(components.hour) \(str) ago"
+            return "\(components.hour!) \(str) ago"
         } else if components.minute! >= 1 {
             components.minute == 1 ? (str = "minute") : (str = "minutes")
-            return "\(components.minute) \(str) ago"
+            return "\(components.minute!) \(str) ago"
         } else if components.second == 0 {
             return "Just now"
         } else {
-            return "\(components.second) seconds ago"
+            return "\(components.second!) seconds ago"
         }
     }
     

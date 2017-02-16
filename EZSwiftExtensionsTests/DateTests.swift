@@ -132,6 +132,22 @@ class DateTests: XCTestCase {
         XCTAssertTrue(hours.timePassed().contains("hours"))
         XCTAssertTrue(minutes.timePassed().contains("minutes"))
         XCTAssertTrue(now.timePassed().contains("now") || now.timePassed().contains("seconds"))
+        
+        let today = Date()
+        let yesterday = Calendar.current.date(byAdding: .day, value: -1,to: today)
+        XCTAssertEqual(yesterday?.timePassed(), "1 day ago")
+        
+        let fiveSecondsAgo = Calendar.current.date(byAdding: .second, value: -5,to: today)
+        XCTAssertEqual(fiveSecondsAgo?.timePassed(), "5 seconds ago")
+        
+        let sixHoursAgo = Calendar.current.date(byAdding: .hour, value: -6,to: today)
+        XCTAssertEqual(sixHoursAgo?.timePassed(), "6 hours ago")
+        
+        let twoMonthsAgo = Calendar.current.date(byAdding: .month, value: -2,to: today)
+        XCTAssertEqual(twoMonthsAgo?.timePassed(), "2 months ago")
+        
+        let fifteenYearsAgo = Calendar.current.date(byAdding: .year, value: -15,to: today)
+        XCTAssertEqual(fifteenYearsAgo?.timePassed(), "15 years ago")
     }
     
     func testIsPast() {
