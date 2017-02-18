@@ -13,7 +13,7 @@ class DateTests: XCTestCase {
 
     var string: String!
     var wrongDateString: String!
-    let format = "dd-mm-yyyy hh:mm:ss"
+    let format = "dd-MM-yyyy hh:mm:ss"
 
     override func setUp() {
         super.setUp()
@@ -246,6 +246,12 @@ class DateTests: XCTestCase {
     func testMonthAsString() {
         let customDate = Date(fromString: "09-01-2015 05:45:12", format: self.format)
         XCTAssertEqual(customDate?.monthAsString, "January")
+        
+        let customDate2 = Date(fromString: "10-03-2009 05:45:12", format: self.format)
+        XCTAssertEqual(customDate2?.monthAsString, "March")
+        
+        let customDate3 = Date(fromString: "11-11-2012 05:45:12", format: self.format)
+        XCTAssertEqual(customDate3?.monthAsString, "November")
     }
     
     func testWeekDay() {
