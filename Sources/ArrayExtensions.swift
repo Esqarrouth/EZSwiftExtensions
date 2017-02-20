@@ -232,24 +232,11 @@ extension Array where Element: Equatable {
     public mutating func removeFirstObject(_ object: Element) {
         removeFirst(object)
     }
-
-    /// EZSE: Removes all occurrences of the given object
-    @available(*, deprecated: 1.8, renamed: "removeAll(_:)")
-    public mutating func removeObjects(_ objects: Element...) {
-        objects.forEach { self.removeAll($0) }
-    }
-
 }
 
 // MARK: - Deprecated 1.7
 
 extension Array {
-
-    /// EZSE: Iterates on each element of the array with its index. (Index, Element)
-    @available(*, deprecated: 1.7, renamed: "forEachEnumerated(_:)")
-    public func forEach(_ call: @escaping (Int, Element) -> Void) {
-        forEachEnumerated(call)
-    }
 
     /// EZSE: Prepends an object to the array.
     @available(*, deprecated: 1.7, renamed: "insertFirst(_:)")
