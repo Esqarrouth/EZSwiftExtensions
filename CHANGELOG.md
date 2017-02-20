@@ -1,9 +1,19 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [Release 1.9]
 
-Add subsequent changes that you make in this section. 
+### Fixed bugs 
+
+1. **Array**
+   - `foreach` is now removed since its already in the std library by *Khalian*
+   - `removeAll` is now removed since its already in the std library by *Khalian*
+
+2. **Date**
+   - `timePassed` now returns print value correctly, earlier used to return optionals in between by *Khalian*
+   - `testMonthAsString` fixing documentation via tests by *Khalian* 
+
+### Added extensions
 
 1. **Bool**
    - `public var toggled` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/352) by *Khalian* 
