@@ -56,7 +56,8 @@ All notable changes to this project will be documented in this file.
 10. **UILabel**
    - `set(text _text: String?, duration: TimeInterval)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/340) by *vilapuigvila*
 
-## [Version 1.8] 
+11. **UIImage**
+   - `var base64: String` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/363) by *lfarah*## [Version 1.8] 
 
 ### Fixed bugs
 

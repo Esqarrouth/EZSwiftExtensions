@@ -59,6 +59,10 @@
 		B5DC87361C0ED34300972D0A /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DC87191C0ED34300972D0A /* UITextViewExtensions.swift */; };
 		B5DC87371C0ED34300972D0A /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DC871A1C0ED34300972D0A /* UIViewControllerExtensions.swift */; };
 		B5DC87381C0ED34300972D0A /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DC871B1C0ED34300972D0A /* UIViewExtensions.swift */; };
+		C2F04A041E4039B500DEA806 /* charizard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2F04A031E4039B500DEA806 /* charizard.jpg */; };
+		C2F04A051E4039B500DEA806 /* charizard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2F04A031E4039B500DEA806 /* charizard.jpg */; };
+		C2F04A061E4039B500DEA806 /* charizard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2F04A031E4039B500DEA806 /* charizard.jpg */; };
+		C2F04A071E4039B500DEA806 /* charizard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2F04A031E4039B500DEA806 /* charizard.jpg */; };
 		CD4D30B31CEEAFD900CB53BC /* ErrorTypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15484E11CA2BCF0003B030E /* ErrorTypeExtensions.swift */; };
 		CD4D30B41CEEAFD900CB53BC /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F868DA1C2B6E5E00542250 /* DoubleExtensions.swift */; };
 		CD4D30B51CEEAFD900CB53BC /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DC86FF1C0ED34300972D0A /* ArrayExtensions.swift */; };
@@ -276,6 +280,7 @@
 		B5DC87191C0ED34300972D0A /* UITextViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewExtensions.swift; sourceTree = "<group>"; };
 		B5DC871A1C0ED34300972D0A /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		B5DC871B1C0ED34300972D0A /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		C2F04A031E4039B500DEA806 /* charizard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = charizard.jpg; sourceTree = "<group>"; };
 		CD4D30E31CEEAFD900CB53BC /* EZSwiftExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EZSwiftExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4D315E1CEEB9EA00CB53BC /* EZSwiftExtensionsTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EZSwiftExtensionsTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E10A79331D6F3D0B00735549 /* EZSwiftFunctionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwiftFunctionsTests.swift; sourceTree = "<group>"; };
@@ -391,6 +396,7 @@
 		B5DC86AB1C0ED06700972D0A /* EZSwiftExtensions */ = {
 			isa = PBXGroup;
 			children = (
+				C2F04A031E4039B500DEA806 /* charizard.jpg */,
 				B5DC86FE1C0ED34300972D0A /* Sources */,
 				B5DC86AC1C0ED06700972D0A /* EZSwiftExtensions.h */,
 				B5DC86AE1C0ED06700972D0A /* Info.plist */,
@@ -652,6 +658,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2F04A041E4039B500DEA806 /* charizard.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,6 +666,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2F04A051E4039B500DEA806 /* charizard.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,6 +674,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2F04A061E4039B500DEA806 /* charizard.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,6 +682,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2F04A071E4039B500DEA806 /* charizard.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1088,6 +1098,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbf.EZSwiftExtensions.EZSwiftExtensionsTests;
 				PRODUCT_NAME = EZSwiftExtensionsTest;
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "";
 			};
 			name = Debug;
 		};
@@ -1099,6 +1110,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbf.EZSwiftExtensions.EZSwiftExtensionsTests;
 				PRODUCT_NAME = EZSwiftExtensionsTest;
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "";
 			};
 			name = Release;
 		};
