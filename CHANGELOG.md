@@ -59,6 +59,10 @@ All notable changes to this project will be documented in this file.
 11. **UIImage**
    - `var base64: String` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/363) by *lfarah*## [Version 1.8] 
 
+12. **UIStackView**
+  - `addArrangedSubviews(_ views: UIView...)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/396) by *kirakik*
+  - `init(distribution: UIStackViewDistribution, alignment: UIStackViewAlignment, axis: UILayoutConstraintAxis, spacing: CGFloat)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/396) by *kirakik*
+
 ### Fixed bugs
 
 1. **Array:**
