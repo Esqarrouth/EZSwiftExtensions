@@ -31,8 +31,8 @@ extension UIView {
 
     /// EZSwiftExtensions, add multiple subviews
     public func addSubviews(_ views: [UIView]) {
-        views.forEach { eachView in
-            self.addSubview(eachView)
+        views.forEach { [weak self] eachView in
+            self?.addSubview(eachView)
         }
     }
 
