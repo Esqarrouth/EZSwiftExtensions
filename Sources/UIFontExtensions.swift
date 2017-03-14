@@ -10,40 +10,40 @@ import UIKit
 
 /// EZSwiftExtensions
 public enum FontType: String {
-    case None = ""
-    case Regular = "Regular"
-    case Bold = "Bold"
-    case DemiBold = "DemiBold"
-    case Light = "Light"
-    case UltraLight = "UltraLight"
-    case Italic = "Italic"
-    case Thin = "Thin"
-    case Book = "Book"
-    case Roman = "Roman"
-    case Medium = "Medium"
-    case MediumItalic = "MediumItalic"
-    case CondensedMedium = "CondensedMedium"
-    case CondensedExtraBold = "CondensedExtraBold"
-    case SemiBold = "SemiBold"
-    case BoldItalic = "BoldItalic"
-    case Heavy = "Heavy"
+    case none = ""
+    case regular = "Regular"
+    case bold = "Bold"
+    case demiBold = "DemiBold"
+    case light = "Light"
+    case ultraLight = "UltraLight"
+    case italic = "Italic"
+    case thin = "Thin"
+    case book = "Book"
+    case roman = "Roman"
+    case medium = "Medium"
+    case mediumItalic = "MediumItalic"
+    case condensedMedium = "CondensedMedium"
+    case condensedExtraBold = "CondensedExtraBold"
+    case semiBold = "SemiBold"
+    case boldItalic = "BoldItalic"
+    case heavy = "Heavy"
 }
 
 /// EZSwiftExtensions
 public enum FontName: String {
-    case HelveticaNeue = "HelveticaNeue"
-    case Helvetica = "Helvetica"
-    case Futura = "Futura"
-    case Menlo = "Menlo"
-    case Avenir = "Avenir"
-    case AvenirNext = "AvenirNext"
-    case Didot = "Didot"
-    case AmericanTypewriter = "AmericanTypewriter"
-    case Baskerville = "Baskerville"
-    case Geneva = "Geneva"
-    case GillSans = "GillSans"
-    case SanFranciscoDisplay = "SanFranciscoDisplay"
-    case Seravek = "Seravek"
+    case helveticaNeue = "HelveticaNeue"
+    case helvetica = "Helvetica"
+    case futura = "Futura"
+    case menlo = "Menlo"
+    case avenir = "Avenir"
+    case avenirNext = "AvenirNext"
+    case didot = "Didot"
+    case americanTypewriter = "AmericanTypewriter"
+    case baskerville = "Baskerville"
+    case geneva = "Geneva"
+    case gillSans = "GillSans"
+    case sanFranciscoDisplay = "SanFranciscoDisplay"
+    case seravek = "Seravek"
 }
 
 extension UIFont {
@@ -73,22 +73,22 @@ extension UIFont {
 
     /// EZSwiftExtensions
     public class func HelveticaNeue(type: FontType, size: CGFloat) -> UIFont {
-        return Font(.HelveticaNeue, type: type, size: size)
+        return Font(.helveticaNeue, type: type, size: size)
     }
 
     /// EZSwiftExtensions
     public class func AvenirNext(type: FontType, size: CGFloat) -> UIFont {
-        return Font(.AvenirNext, type: type, size: size)
+        return Font(.avenirNext, type: type, size: size)
     }
 
     /// EZSwiftExtensions
     public class func AvenirNextDemiBold(size: CGFloat) -> UIFont {
-        return Font(.AvenirNext, type: .DemiBold, size: size)
+        return Font(.avenirNext, type: .demiBold, size: size)
     }
 
     /// EZSwiftExtensions
     public class func AvenirNextRegular(size: CGFloat) -> UIFont {
-        return Font(.AvenirNext, type: .Regular, size: size)
+        return Font(.avenirNext, type: .regular, size: size)
     }
 
     // MARK: Deprecated

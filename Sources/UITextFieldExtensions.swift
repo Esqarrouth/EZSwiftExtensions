@@ -19,7 +19,7 @@ extension UITextField {
     /// textAlignment = Left, userInteractionEnabled = true, editable = false, scrollEnabled = false, font = ThemeFontName
     public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, fontSize: CGFloat) {
         self.init(frame: CGRect(x: x, y: y, width: w, height: h))
-        font = UIFont.HelveticaNeue(type: FontType.None, size: fontSize)
+        font = UIFont.HelveticaNeue(type: FontType.none, size: fontSize)
         backgroundColor = UIColor.clear
         clipsToBounds = true
         textAlignment = NSTextAlignment.left
