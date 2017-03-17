@@ -7,6 +7,9 @@ All notable changes to this project will be documented in this file.
    - `addArrangedSubviews(_ views: UIView...)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/396) by *kirakik*
    - `init(distribution: UIStackViewDistribution, alignment: UIStackViewAlignment, axis: UILayoutConstraintAxis, spacing: CGFloat)` in [[PR]](https://github.com/goktugyil/         EZSwiftExtensions/pull/396) by *kirakik*
 
+### Modified extensions
+2. **UIViewController**
+
 ## [Release 1.9]
 
 ### Fixed bugs 
