@@ -112,7 +112,7 @@ extension UIViewController {
         
     }
     
-    public func keyboardDidShowWithFrame(_ frame: CGRect) {
+    open func keyboardDidShowWithFrame(_ frame: CGRect) {
         
     }
     
