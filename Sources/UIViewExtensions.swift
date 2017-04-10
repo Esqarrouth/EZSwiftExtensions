@@ -589,7 +589,7 @@ extension UIView {
 
 extension UIView {
     ///EZSE: Loops until it finds the top root view. //TODO: Add to readme
-    public func rootView() -> UIView {
+    func rootView() -> UIView {
         guard let parentView = superview else {
             return self
         }
