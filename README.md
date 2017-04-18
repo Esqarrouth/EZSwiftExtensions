@@ -18,7 +18,7 @@ How Swift standard types and classes were supposed to work. A collection of usef
 Join our online chat at [![Gitter](https://badges.gitter.im/gitterHQ/gitter.svg)](https://gitter.im/EZSwiftExtensions/Lobby)
 - [Full Documentation via CocoaDocs](http://cocoadocs.org/docsets/EZSwiftExtensions/)
 
-##Example Usage
+## Example Usage
 
 Easily get an object at a specified index:
 ``` swift
@@ -115,7 +115,7 @@ ez.detectScreenShot { () -> () in
 }
 ```
 
-##Installation
+## Installation
 
 ### Manually (~10 seconds)
 
