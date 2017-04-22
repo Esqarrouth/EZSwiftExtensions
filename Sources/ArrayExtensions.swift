@@ -132,13 +132,15 @@ extension Array where Element: Equatable {
         self.remove(at: index)
     }
 
-    // EZSE: Removes all occurrences of the given object
+    /// EZSE: Removes all occurrences of the given object(s)
     public mutating func removeAll(_ elements: Element...) {
-        for element in elements {
-            for index in self.indexes(of: element).reversed() {
-                self.remove(at: index)
-            }
-        }
+        removeAll(elements)
+    }
+
+    /// EZSE: Removes all occurrences of the given object(s)
+    public mutating func removeAll(_ elements: [Element]) {
+        // COW ensures no extra copy in case of no removed elements
+        self = filter { !elements.contains($0) }
     }
 
     /// EZSE: Difference of self and the input arrays.
@@ -198,6 +200,16 @@ extension Array where Element: Equatable {
     /// EZSE: Returns an array consisting of the unique elements in the array
     public func unique() -> Array {
         return reduce([]) { $0.contains($1) ? $0 : $0 + [$1] }
+    }
+}
+
+extension Array where Element: Hashable {
+
+    /// EZSE: Removes all occurrences of the given object(s)
+    public mutating func removeAll(_ elements: [Element]) {
+        let elementsSet = Set(elements)
+        // COW ensures no extra copy in case of no removed elements
+        self = filter { !elementsSet.contains($0) }
     }
 }
 
