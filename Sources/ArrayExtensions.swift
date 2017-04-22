@@ -22,13 +22,8 @@ extension Array {
 
     ///EZSE: Get a sub array from range of index
     public func get(at range: ClosedRange<Int>) -> Array {
-        var subArray = Array()
-        let lowerBound = range.lowerBound > 0 ? range.lowerBound : 0
-        let upperBound = range.upperBound > self.count - 1 ? self.count - 1 : range.upperBound
-        for index in lowerBound...upperBound {
-            subArray.append(self[index])
-        }
-        return subArray
+        let halfOpenClampedRange = Range(range).clamped(to: Range(indices))
+        return Array(self[halfOpenClampedRange])
     }
 
     /// EZSE: Checks if array contains at least 1 item which type is same with given element's type

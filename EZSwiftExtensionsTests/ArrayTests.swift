@@ -21,11 +21,16 @@ class ArrayTests: XCTestCase {
     }
     
     func testGet_SubArray() {
-        setUp()
         XCTAssertEqual(numberArray.get(at: 2...4), [2,3,4])
         XCTAssertEqual(numberArray.get(at: -1...8), [0,1,2,3,4,5,1])
         XCTAssertEqual(numberArray.get(at: -1...3), [0,1,2,3])
         XCTAssertEqual(numberArray.get(at: 4...8), [4,5,1])
+        
+        let emptyArray = [Int]()
+        XCTAssertEqual(emptyArray.get(at: 0...0), [])
+        XCTAssertEqual(emptyArray.get(at: 1...3), [])
+        XCTAssertEqual(emptyArray.get(at: -3...(-1)), [])
+        XCTAssertEqual(emptyArray.get(at: -1...1), [])
     }
 
     func testAdding() {
