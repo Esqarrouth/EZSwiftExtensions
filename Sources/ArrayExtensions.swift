@@ -9,7 +9,7 @@ import UIKit
 
 public func ==<T: Equatable>(lhs: [T]?, rhs: [T]?) -> Bool {
     switch (lhs, rhs) {
-    case (.some(let lhs), .some(let rhs)):
+    case let (lhs?, rhs?):
         return lhs == rhs
     case (.none, .none):
         return true
@@ -34,7 +34,7 @@ extension Array {
     /// EZSE: Checks if array contains at least 1 item which type is same with given element's type
     public func containsType<T>(of element: T) -> Bool {
         let elementType = type(of: element)
-        return first { type(of: $0) == elementType} != nil
+        return contains { type(of: $0) == elementType}
     }
 
     /// EZSE: Decompose an array to a tuple with first element and the rest
@@ -44,7 +44,7 @@ extension Array {
 
     /// EZSE: Iterates on each element of the array with its index. (Index, Element)
     public func forEachEnumerated(_ body: @escaping (_ offset: Int, _ element: Element) -> Void) {
-        self.enumerated().forEach(body)
+        enumerated().forEach(body)
     }
 
     /// EZSE: Gets the object at the specified index, if it exists.
@@ -61,22 +61,22 @@ extension Array {
     /// EZSE: Returns a random element from the array.
     public func random() -> Element? {
         guard count > 0 else { return nil }
-        let index = Int(arc4random_uniform(UInt32(self.count)))
+        let index = Int(arc4random_uniform(UInt32(count)))
         return self[index]
     }
 
     /// EZSE: Reverse the given index. i.g.: reverseIndex(2) would be 2 to the last
     public func reverseIndex(_ index: Int) -> Int? {
         guard index >= 0 && index < count else { return nil }
-        return Swift.max(self.count - 1 - index, 0)
+        return Swift.max(count - 1 - index, 0)
     }
 
     /// EZSE: Shuffles the array in-place using the Fisher-Yates-Durstenfeld algorithm.
     public mutating func shuffle() {
-        guard self.count > 1 else { return }
+        guard count > 1 else { return }
         var j: Int
-        for i in 0..<(self.count-2) {
-            j = Int(arc4random_uniform(UInt32(self.count - i)))
+        for i in 0..<(count-2) {
+            j = Int(arc4random_uniform(UInt32(count - i)))
             if i != i+j { swap(&self[i], &self[i+j]) }
         }
     }
@@ -95,7 +95,7 @@ extension Array {
 
     /// EZSE: Checks if test returns true for all the elements in self
     public func testAll(_ body: @escaping (Element) -> Bool) -> Bool {
-        return self.first { !body($0) } == nil
+        return !contains { !body($0) }
     }
 
     /// EZSE: Checks if all elements in the array are true or false
@@ -118,7 +118,7 @@ extension Array where Element: Equatable {
 
     /// EZSE: Returns the indexes of the object
     public func indexes(of element: Element) -> [Int] {
-        return self.enumerated().flatMap { ($0.element == element) ? $0.offset : nil }
+        return enumerated().flatMap { ($0.element == element) ? $0.offset : nil }
     }
 
     /// EZSE: Returns the last index of the object
@@ -128,17 +128,14 @@ extension Array where Element: Equatable {
 
     /// EZSE: Removes the first given object
     public mutating func removeFirst(_ element: Element) {
-        guard let index = self.index(of: element) else { return }
+        guard let index = index(of: element) else { return }
         self.remove(at: index)
     }
 
-    // EZSE: Removes all occurrences of the given object
+    /// EZSE: Removes all occurrences of the given object
     public mutating func removeAll(_ elements: Element...) {
-        for element in elements {
-            for index in self.indexes(of: element).reversed() {
-                self.remove(at: index)
-            }
-        }
+         // COW ensures no extra copy in case of no removed elements
+        self = filter { !elements.contains($0) }
     }
 
     /// EZSE: Difference of self and the input arrays.
