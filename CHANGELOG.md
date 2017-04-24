@@ -7,6 +7,11 @@ All notable changes to this project will be documented in this file.
    - `addArrangedSubviews(_ views: UIView...)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/396) by *kirakik*
    - `init(distribution: UIStackViewDistribution, alignment: UIStackViewAlignment, axis: UILayoutConstraintAxis, spacing: CGFloat)` in [[PR]](https://github.com/goktugyil/         EZSwiftExtensions/pull/396) by *kirakik*
 
+### Added extensions
+1. **Array**
+   - `removeAll(_ elements: [Element])` (new overload) for `Equatable` elements in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/416) by *dfrib*
+   - `removeAll(_ elements: [Element])` (new overload) for `Hashable` elements in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/416) by *dfrib*
+
 ### Deprecated/Renamed extensions
 1. **UIViewController**
    - `public func hideKeyboardWhenTappedAround(cancelTouches: Bool = false)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/395) by *lfarah*
