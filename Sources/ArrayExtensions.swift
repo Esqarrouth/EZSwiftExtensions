@@ -97,6 +97,20 @@ extension Array {
     public func testAll(is condition: Bool) -> Bool {
         return testAll { ($0 as? Bool) ?? !condition == condition }
     }
+    
+    /// EZSE: Get item according section and row (usefull for table & collection view data source)
+    public func elemetForIndexPath(section aSection:Int, row aRow:Int) -> Any? {
+        let existsSection:Bool = self.indices.contains(aSection)
+        if existsSection {
+            let array:Array<Any> = self[aSection] as! Array<Any>
+            let existsRow:Bool   = array.indices.contains(aRow)
+            if existsRow {
+                return array[aRow]
+            }
+            return nil
+        }
+        return nil
+    }
 }
 
 extension Array where Element: Equatable {
