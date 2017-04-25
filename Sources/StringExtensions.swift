@@ -395,7 +395,7 @@ extension String {
     #if os(iOS)
     
     ///EZSE: Returns hight of rendered string
-    func height(_ width: CGFloat, font: UIFont, lineBreakMode: NSLineBreakMode?) -> CGFloat {
+    public func height(_ width: CGFloat, font: UIFont, lineBreakMode: NSLineBreakMode?) -> CGFloat {
         var attrib: [String: AnyObject] = [NSFontAttributeName: font]
         if lineBreakMode != nil {
             let paragraphStyle = NSMutableParagraphStyle()
