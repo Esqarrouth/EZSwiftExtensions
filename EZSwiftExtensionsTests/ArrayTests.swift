@@ -68,13 +68,46 @@ class ArrayTests: XCTestCase {
         XCTAssertEqual(numberArray, compareArray)
     }
 
-    func testRemoveObjects() {
+    struct NonHashable : Equatable {
+        let val: Int
+        init(_ val: Int) { self.val = val }
+        
+        static func ==(lhs: NonHashable, rhs: NonHashable) -> Bool {
+            return lhs.val == rhs.val
+        }
+    }
+
+    func testRemoveObjectsByArray() {
+        let removeArrayA = [123, 45] // none present in target
+        let removeArrayB = [1, 3]    // both present in target
+
+        // 'removeAll' overload for Hashable elements
+        let copyArray = numberArray
+        numberArray.removeAll(removeArrayA)
+        XCTAssertEqual(numberArray, copyArray)
+
+        let compareArray = [0, 2, 4, 5]
+        numberArray.removeAll(removeArrayB)
+        XCTAssertEqual(numberArray, compareArray)
+
+        // 'removeAll' overload for Equatable but not Hashable elements
+        var nonHashableArray = numberArray.map(NonHashable.init)
+        let nonHashableCopyArray = nonHashableArray
+        nonHashableArray.removeAll(removeArrayA.map(NonHashable.init))
+        XCTAssertEqual(nonHashableArray, nonHashableCopyArray)
+
+        let nonHashableCompareArray = compareArray.map(NonHashable.init)
+        nonHashableArray.removeAll(removeArrayB.map(NonHashable.init))
+        XCTAssertEqual(nonHashableArray, nonHashableCompareArray)
+    }
+
+    func testRemoveObjectsByVariadic() {
         let copyArray = numberArray
         numberArray.removeAll(12345)
         XCTAssertEqual(numberArray, copyArray)
 
-        let compareArray = [0, 2, 3, 4, 5]
-        numberArray.removeAll(1)
+        let compareArray = [0, 2, 4, 5]
+        numberArray.removeAll(1, 3)
         XCTAssertEqual(numberArray, compareArray)
     }
 
