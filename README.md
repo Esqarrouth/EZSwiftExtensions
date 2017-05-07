@@ -10,6 +10,7 @@
 
 [![Build Status](https://travis-ci.org/goktugyil/EZSwiftExtensions.svg?branch=master)](https://travis-ci.org/goktugyil/EZSwiftExtensions)
 [![codecov.io](https://codecov.io/gh/goktugyil/EZSwiftExtensions/branch/master/graphs/badge.svg)](https://codecov.io/gh/goktugyil/EZSwiftExtensions/branch/master)
+[![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 
 <img src="charizard.png" width="200">
 
