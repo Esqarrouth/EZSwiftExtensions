@@ -15,10 +15,16 @@ All notable changes to this project will be documented in this file.
 3. **Date**
    - `init?(httpDateString: String)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/426) by *Vic-L*
 
+4. **EZSwiftFunctions**
+   - `isInTestFlight` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/419) by *Khalian*
+
 4. **Dictionary**
    - `func random() -> Value?` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/420) by *Khalian*
 
-5. **FileManager**
+5. **EZSwiftFunctions**
+   - `isInTestFlight` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/419) by *Khalian*
+
+6. **FileManager**
    - `var documentsDirectoryPath: String?` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/338) by *vilapuigvila*
    - `var cachesDirectoryPath: String?` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/338) by *vilapuigvila*
 
@@ -26,18 +32,18 @@ All notable changes to this project will be documented in this file.
    - `addArrangedSubviews(_ views: UIView...)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/396) by *kirakik*
    - `init(distribution: UIStackViewDistribution, alignment: UIStackViewAlignment, axis: UILayoutConstraintAxis, spacing: CGFloat)` in [[PR]](https://github.com/goktugyil/         EZSwiftExtensions/pull/396) by *kirakik*
 
-7. **UIView**
+8. **UIView**
    - `roundView()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/424) by *Vic-L*
    - `roundView(withBorderColor color: UIColor, withBorderWidth width: CGFloat)` (new overload)  in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/424) by *Vic-L*
    - `nakedView()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/424) by *Vic-L*
 
-8. **UIViewControllerExtensions**
+9. **UIViewControllerExtensions**
    - `isNavBarHidden` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/428) by *Khalian* 
 
-9. **Double**
+10. **Double**
    - `var toCGFloat` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/425) by *Vic-L*
 
-10. **UITextField**
+11. **UITextField**
    - `validateLength()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/429) by *Vic-L*
    - `validateEmail()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/429) by *Vic-L*
    - `validateDigits()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/429) by *Vic-L*
