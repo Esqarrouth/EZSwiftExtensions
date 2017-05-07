@@ -91,6 +91,14 @@ public struct ez {
         return true
     #endif
     }
+    
+    #if !os(macOS)
+    /// EZSE: Returns true if app is running in test flight mode
+    /// Acquired from : http://stackoverflow.com/questions/12431994/detect-testflight
+    public static var isInTestFlight: Bool {
+        return Bundle.main.appStoreReceiptURL?.path.contains("sandboxReceipt") == true 
+    }
+    #endif
 
     /// EZSE: Returns the top ViewController
     public static var topMostVC: UIViewController? {
