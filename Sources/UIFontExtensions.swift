@@ -71,6 +71,16 @@ extension UIFont {
       return nil
     }
 
+    /// EZSwiftExtensions print all family fonts and font names
+    public class func PrintAllFonts() {
+        let fontFamilyNames = self.familyNames
+        for familyName in fontFamilyNames {
+            print("Font Family Name = [\(familyName)]")
+            let names = fontNames(forFamilyName: familyName as String)
+            print("Font Names = [\(names)]")
+        }
+    }
+    
     /// EZSwiftExtensions
     public class func HelveticaNeue(type: FontType, size: CGFloat) -> UIFont {
         return Font(.HelveticaNeue, type: type, size: size)
