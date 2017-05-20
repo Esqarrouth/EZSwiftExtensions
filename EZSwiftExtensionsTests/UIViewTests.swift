@@ -83,7 +83,7 @@ class UIViewTests: XCTestCase {
         XCTAssertEqual(tallView.layer.borderColor, UIColor.clear.cgColor)
     }
     
-    func testRoundViewWithBorder() {
+    func testRoundViewWithBorderAndColor() {
         let view = UIView(x: 0, y: 0, w: 100, h: 100)
         let color = UIColor.blue
         let borderWidth: CGFloat = 5.0
