@@ -60,5 +60,56 @@ class UIViewTests: XCTestCase {
         view.removeSubviews()
         XCTAssertEqual(view.subviews.count, 0)
     }
+    
+    func testRoundView() {
+        let wideView = UIView(x: 0, y: 0, w: 200, h: 80)
+        XCTAssertEqual(wideView.layer.cornerRadius, 0)
+        XCTAssertEqual(wideView.layer.borderWidth, 0)
+        XCTAssertNotEqual(wideView.layer.borderColor, UIColor.clear.cgColor)
+        
+        wideView.roundView()
+        XCTAssertEqual(wideView.layer.cornerRadius, CGFloat(40.0))
+        XCTAssertEqual(wideView.layer.borderWidth, 0)
+        XCTAssertEqual(wideView.layer.borderColor, UIColor.clear.cgColor)
+        
+        let tallView = UIView(x: 0, y: 0, w: 30, h: 300)
+        XCTAssertEqual(tallView.layer.cornerRadius, 0)
+        XCTAssertEqual(tallView.layer.borderWidth, 0)
+        XCTAssertNotEqual(tallView.layer.borderColor, UIColor.clear.cgColor)
+        
+        tallView.roundView()
+        XCTAssertEqual(tallView.layer.cornerRadius, CGFloat(15.0))
+        XCTAssertEqual(tallView.layer.borderWidth, 0)
+        XCTAssertEqual(tallView.layer.borderColor, UIColor.clear.cgColor)
+    }
+    
+    func testRoundViewWithBorder() {
+        let view = UIView(x: 0, y: 0, w: 100, h: 100)
+        let color = UIColor.blue
+        let borderWidth: CGFloat = 5.0
+
+        XCTAssertEqual(view.layer.cornerRadius, 0)
+        XCTAssertEqual(view.layer.borderWidth, 0)
+        XCTAssertNotEqual(view.layer.borderColor, color.cgColor)
+        
+        view.roundView(withBorderColor: color, withBorderWidth: borderWidth)
+        XCTAssertEqual(view.layer.cornerRadius, CGFloat(50.0))
+        XCTAssertEqual(view.layer.borderWidth, borderWidth)
+        XCTAssertEqual(view.layer.borderColor, color.cgColor)
+    }
+    
+    func testNakedView() {
+        let view = UIView(x: 0, y: 0, w: 100, h: 100)
+        let color = UIColor.blue
+        let borderWidth: CGFloat = 5.0
+        
+        view.roundView(withBorderColor: color, withBorderWidth: borderWidth)
+        XCTAssertEqual(view.layer.cornerRadius, CGFloat(50.0))
+        XCTAssertEqual(view.layer.borderWidth, borderWidth)
+        
+        view.nakedView()
+        XCTAssertEqual(view.layer.cornerRadius, CGFloat(50.0))
+        XCTAssertEqual(view.layer.borderWidth, 0)
+    }
 }
 
