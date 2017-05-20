@@ -42,6 +42,15 @@ extension DoubleTests {
         XCTAssertNotEqual(Double(anotherDouble.toInt), anotherDouble)
     }
     
+    func testCGFloat() {
+        XCTAssertEqual(double.toCGFloat, 3.14)
+        XCTAssertEqual(otherDouble.toCGFloat, -147.9564)
+        XCTAssertTrue(double.toCGFloat is CGFloat)
+        XCTAssertTrue(otherDouble.toCGFloat is CGFloat)
+        XCTAssertFalse(double.toCGFloat is Double)
+        XCTAssertFalse(otherDouble.toCGFloat is Double)
+    }
+    
     func testAbs() {
         XCTAssertEqual(Double(-3.0).abs, Double(3.0))
         XCTAssertEqual(Double(3.0).abs, Double(3.0))

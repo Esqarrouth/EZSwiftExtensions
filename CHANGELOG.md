@@ -34,6 +34,9 @@ All notable changes to this project will be documented in this file.
 8. **UIViewControllerExtensions**
    - `isNavBarHidden` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/428) by *Khalian* 
 
+2. **Double**
+   - `var toCGFloat` in PR by *Vic-L*
+
 ### Deprecated/Renamed extensions
 1. **UIViewController**
    - `public func hideKeyboardWhenTappedAround(cancelTouches: Bool = false)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/395) by *lfarah*
