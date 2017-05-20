@@ -14,6 +14,9 @@ extension Double {
 
     /// EZSE: Converts Double to Int
     public var toInt: Int { return Int(self) }
+    
+    /// EZSE: Converts Double to CGFloat
+    public var toCGFloat: CGFloat { return CGFloat(self) }
 }
 
 // MARK: - Deprecated 1.8
