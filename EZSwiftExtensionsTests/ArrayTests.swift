@@ -285,6 +285,24 @@ class ArrayTests: XCTestCase {
         XCTAssertEqual(duplicatedElementsArrayOrderMaintained.unique(), [2, 1, 3])
     }
     
+    func testStep() {
+        XCTAssertNil(self.numberArray.step(-1))
+        XCTAssertNil(self.numberArray.step(0))
+
+        XCTAssertEqual(self.numberArray.step(2)![0], [0, 1])
+        XCTAssertEqual(self.numberArray.step(2)![1], [2, 3])
+        XCTAssertEqual(self.numberArray.step(2)![2], [4, 5])
+        XCTAssertEqual(self.numberArray.step(2)![3], [1])
+        
+        XCTAssertEqual(self.numberArray.step(3)![0], [0, 1, 2])
+        XCTAssertEqual(self.numberArray.step(3)![1], [3, 4, 5])
+        XCTAssertEqual(self.numberArray.step(3)![2], [1])
+        
+        XCTAssertEqual(self.numberArray.step(7)![0], self.numberArray)
+        
+        XCTAssertEqual(self.numberArray.step(8)![0], self.numberArray)
+    }
+    
 #if os(iOS)
     func testParallelizedMapMap() {
         let arr = [1, 2, 3, 4, 5]
