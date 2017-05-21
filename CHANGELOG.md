@@ -35,7 +35,7 @@ All notable changes to this project will be documented in this file.
    - `isNavBarHidden` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/428) by *Khalian* 
 
 2. **Double**
-   - `var toCGFloat` in PR by *Vic-L*
+   - `var toCGFloat` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/425) by *Vic-L*
 
 ### Deprecated/Renamed extensions
 1. **UIViewController**
