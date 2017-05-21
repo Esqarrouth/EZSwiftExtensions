@@ -40,17 +40,26 @@ class DateTests: XCTestCase {
         // Given
         let expectedResult = Date(timeIntervalSince1970: 784_111_777)
         let fromGMT = TimeInterval(NSTimeZone.local.secondsFromGMT())
+        let fromStartOfDay = TimeInterval(8 * 3600 + 49 * 60 + 37) // seconds from start of day
 
         // When
         let rfc1123 = Date(httpDateString: "Sun, 06 Nov 1994 08:49:37 GMT")
         let rfc850 = Date(httpDateString: "Sunday, 06-Nov-94 08:49:37 GMT")
         let asctime = Date(httpDateString: "Sun Nov  6 08:49:37 1994")
+        let iso8601DateOnly = Date(httpDateString: "1994-11-06")
+        let iso8601DateHrMinOnly = Date(httpDateString: "1994-11-06T08:49:37+00:00")
+        let iso8601DateHrMinSOnly = Date(httpDateString: "1994-11-06T08:49:37+00:00")
+        let iso8601DateHrMinSMs = Date(httpDateString: "1994-11-06T08:49:37.000+00:00")
         let invalid = Date(httpDateString: "1994-11-06 08:49:37")
 
         // Test
         XCTAssertEqual(rfc1123, expectedResult)
         XCTAssertEqual(rfc850, expectedResult)
         XCTAssertEqual(asctime?.addingTimeInterval(fromGMT), expectedResult)
+        XCTAssertEqual(iso8601DateOnly?.addingTimeInterval(fromGMT), expectedResult.addingTimeInterval(-fromStartOfDay))
+        XCTAssertEqual(iso8601DateHrMinOnly, expectedResult)
+        XCTAssertEqual(iso8601DateHrMinSOnly, expectedResult)
+        XCTAssertEqual(iso8601DateHrMinSMs, expectedResult)
         XCTAssertNil(invalid)
     }
 
