@@ -38,28 +38,29 @@ class DateTests: XCTestCase {
 
     func testHTTPDateString() {
         // Given
-        let expectedResult = Date(timeIntervalSince1970: 784_111_777)
+        let expectedResult = Date(timeIntervalSince1970: 1447517111)
         let fromGMT = TimeInterval(NSTimeZone.local.secondsFromGMT())
-        let fromStartOfDay = TimeInterval(8 * 3600 + 49 * 60 + 37) // seconds from start of day
+        let fromStartOfDay = TimeInterval(16 * 3600 + 5 * 60 + 11) // seconds from start of day
+        let fromStartOfMin = TimeInterval(11) // seconds from start of minute
 
         // When
-        let rfc1123 = Date(httpDateString: "Sun, 06 Nov 1994 08:49:37 GMT")
-        let rfc850 = Date(httpDateString: "Sunday, 06-Nov-94 08:49:37 GMT")
-        let asctime = Date(httpDateString: "Sun Nov  6 08:49:37 1994")
-        let iso8601DateOnly = Date(httpDateString: "1994-11-06")
-        let iso8601DateHrMinOnly = Date(httpDateString: "1994-11-06T08:49:37+00:00")
-        let iso8601DateHrMinSOnly = Date(httpDateString: "1994-11-06T08:49:37+00:00")
-        let iso8601DateHrMinSMs = Date(httpDateString: "1994-11-06T08:49:37.000+00:00")
-        let invalid = Date(httpDateString: "1994-11-06 08:49:37")
+        let rfc1123 = Date(httpDateString: "Sat, 14 Nov 2015 16:05:11 GMT")
+        let rfc850 = Date(httpDateString: "Saturday, 14-Nov-15 16:05:11 GMT")
+        let asctime = Date(httpDateString: "Sun Nov 14 16:05:11 2015")
+        let iso8601DateOnly = Date(httpDateString: "2015-11-14")
+        let iso8601DateHrMinOnly = Date(httpDateString: "2015-11-14T16:05+00:00")
+        let iso8601DateHrMinSecOnly = Date(httpDateString: "2015-11-14T16:05:11+00:00")
+        let iso8601DateHrMinSecMs = Date(httpDateString: "2015-11-14T16:05:11.123+00:00")
+        let invalid = Date(httpDateString: "2015-11-14 16:05:11")
 
         // Test
         XCTAssertEqual(rfc1123, expectedResult)
         XCTAssertEqual(rfc850, expectedResult)
         XCTAssertEqual(asctime?.addingTimeInterval(fromGMT), expectedResult)
         XCTAssertEqual(iso8601DateOnly?.addingTimeInterval(fromGMT), expectedResult.addingTimeInterval(-fromStartOfDay))
-        XCTAssertEqual(iso8601DateHrMinOnly, expectedResult)
-        XCTAssertEqual(iso8601DateHrMinSOnly, expectedResult)
-        XCTAssertEqual(iso8601DateHrMinSMs, expectedResult)
+        XCTAssertEqual(iso8601DateHrMinOnly, expectedResult.addingTimeInterval(-fromStartOfMin))
+        XCTAssertEqual(iso8601DateHrMinSecOnly, expectedResult)
+        XCTAssertEqual(iso8601DateHrMinSecMs, Date(timeIntervalSince1970: 1447517111.123)) // TODO: find method that can add milliseconds to Date object
         XCTAssertNil(invalid)
     }
 

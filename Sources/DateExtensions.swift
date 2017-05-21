@@ -23,7 +23,7 @@ extension Date {
     }
 
     /// EZSE: Initializes Date from string returned from an http response, according to several RFCs / ISO
-    public init? (httpDateString: String) {
+    public init?(httpDateString: String) {
         if let rfc1123 = Date(fromString: httpDateString, format: "EEE',' dd' 'MMM' 'yyyy HH':'mm':'ss zzz") {
             self = rfc1123
             return
@@ -40,16 +40,16 @@ extension Date {
             self = iso8601DateOnly
             return
         }
-        if let iso8601DateHrMinOnly = Date(fromString: httpDateString, format: "yyyy-MM-dd'T'HH:mmZZZZ") {
+        if let iso8601DateHrMinOnly = Date(fromString: httpDateString, format: "yyyy-MM-dd'T'HH:mmZ") {
             self = iso8601DateHrMinOnly
             return
         }
-        if let iso8601DateHrMinSOnly = Date(fromString: httpDateString, format: "yyyy-MM-dd'T'HH:mm:ssZZZZ") {
-            self = iso8601DateHrMinSOnly
+        if let iso8601DateHrMinSecOnly = Date(fromString: httpDateString, format: "yyyy-MM-dd'T'HH:mm:ssZ") {
+            self = iso8601DateHrMinSecOnly
             return
         }
-        if let iso8601DateHrMinSMs = Date(fromString: httpDateString, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZ") {
-            self = iso8601DateHrMinSMs
+        if let iso8601DateHrMinSecMs = Date(fromString: httpDateString, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ") {
+            self = iso8601DateHrMinSecMs
             return
         }
         //self.init()

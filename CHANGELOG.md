@@ -13,6 +13,9 @@ All notable changes to this project will be documented in this file.
    - `addArrangedSubviews(_ views: UIView...)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/396) by *kirakik*
    - `init(distribution: UIStackViewDistribution, alignment: UIStackViewAlignment, axis: UILayoutConstraintAxis, spacing: CGFloat)` in [[PR]](https://github.com/goktugyil/         EZSwiftExtensions/pull/396) by *kirakik*
 
+4. **Date**
+   - `init?(httpDateString: String)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/426) by *Vic-L*
+
 ### Added extensions
 1. **Array**
    - `removeAll(_ elements: [Element])` (new overload) for `Equatable` elements in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/416) by *dfrib*
