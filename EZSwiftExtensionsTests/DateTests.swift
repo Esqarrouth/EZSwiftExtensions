@@ -11,26 +11,30 @@ import XCTest
 class DateTests: XCTestCase {
     // note that Date uses UTC in Date(timeIntervalSince1970: _)
 
-    var string: String!
-    var wrongDateString: String!
-    let format = "dd-MM-yyyy hh:mm:ss"
+    var dateString: String!
+    var invalidDateString: String!
+    var date: Date!
+    var timeZoneOffset: TimeInterval!
+    let format = "yyyy-MM-dd'T'HH:mm:ssxxxxx"
 
     override func setUp() {
         super.setUp()
-        string = "01-01-1970 00:00:00"
-        wrongDateString = "13-82-1900 90:65:12"
+        self.dateString = "2015-11-14T16:05:11+00:00" // time of the first commit of EZSwiftExtension :clap::clap:
+        self.invalidDateString = "9999-99-99T99:99:99+00:00"
+        self.date = Date(fromString: self.dateString, format: self.format)!
+        NSTimeZone.default = TimeZone(abbreviation: "SGT")! // set timezone to be SGT
+        self.timeZoneOffset = TimeInterval(NSTimeZone.local.secondsFromGMT())
     }
 
     func testDateFromString() {
-        guard let dateFromString = Date(fromString: string, format: format) else {
+        guard let dateFromString = Date(fromString: self.dateString, format: self.format) else {
             XCTFail("Date From String Couldn't be initialized.")
             return
         }
-        let formatter = DateFormatter()
-        formatter.dateFormat = format
-        let dateString = formatter.date(from: string)
-        XCTAssertEqual(dateFromString, dateString)
-        XCTAssertNil(Date(fromString: wrongDateString, format: format), "Date From String initialized, but source string was invalid.")
+        
+        NSTimeZone.default = TimeZone(abbreviation: "UTC")! // set timezone to be UTC to match with original string
+        XCTAssertEqual(dateFromString.toString(format: self.format), self.dateString!) // TODO why is there a need for ! for self.dateString
+        XCTAssertNil(Date(fromString: self.invalidDateString, format: format), "Date From String initialized, but source string was invalid.")
         
         let dateFromFalseStr = Date(fromString: "lol", format: "haha")
         XCTAssertNil(dateFromFalseStr)
@@ -38,19 +42,31 @@ class DateTests: XCTestCase {
 
     func testHTTPDateString() {
         // Given
-        let expectedResult = Date(timeIntervalSince1970: 784_111_777)
-        let fromGMT = TimeInterval(NSTimeZone.local.secondsFromGMT())
+        let fromStartOfDay = TimeInterval(16 * 3600 + 5 * 60 + 11) // seconds from start of day
+        let fromStartOfMin = TimeInterval(11) // seconds from start of minute
 
         // When
-        let rfc1123 = Date(httpDateString: "Sun, 06 Nov 1994 08:49:37 GMT")
-        let rfc850 = Date(httpDateString: "Sunday, 06-Nov-94 08:49:37 GMT")
-        let asctime = Date(httpDateString: "Sun Nov  6 08:49:37 1994")
-        let invalid = Date(httpDateString: "1994-11-06 08:49:37")
+        let correctDateString = "2015-11-14"
+        let correctTimeString = "16:05:11"
+        let correctZoneString = "+00:00"
+        
+        let rfc1123 = Date(httpDateString: "Sat, 14 Nov 2015 \(correctTimeString) GMT")
+        let rfc850 = Date(httpDateString: "Saturday, 14-Nov-15 \(correctTimeString) GMT")
+        let asctime = Date(httpDateString: "Sun Nov 14 \(correctTimeString) 2015")
+        let iso8601DateOnly = Date(httpDateString: correctDateString)
+        let iso8601DateHrMinOnly = Date(httpDateString: "\(correctDateString)T16:05\(correctZoneString)")
+        let iso8601DateHrMinSecOnly = Date(httpDateString: "\(correctDateString)T\(correctTimeString)\(correctZoneString)")
+        let iso8601DateHrMinSecMs = Date(httpDateString: "\(correctDateString)T\(correctTimeString).123\(correctZoneString)") // random nanosecond value 123
+        let invalid = Date(httpDateString: "\(correctDateString) \(correctTimeString)")
 
         // Test
-        XCTAssertEqual(rfc1123, expectedResult)
-        XCTAssertEqual(rfc850, expectedResult)
-        XCTAssertEqual(asctime?.addingTimeInterval(fromGMT), expectedResult)
+        XCTAssertEqual(rfc1123, self.date)
+        XCTAssertEqual(rfc850, self.date)
+        XCTAssertEqual(asctime?.addingTimeInterval(self.timeZoneOffset), self.date)
+        XCTAssertEqual(iso8601DateOnly?.addingTimeInterval(self.timeZoneOffset), self.date.addingTimeInterval(-fromStartOfDay))
+        XCTAssertEqual(iso8601DateHrMinOnly, self.date.addingTimeInterval(-fromStartOfMin))
+        XCTAssertEqual(iso8601DateHrMinSecOnly, self.date)
+        XCTAssertEqual(iso8601DateHrMinSecMs, Date(timeIntervalSince1970: 1447517111.123)) // TODO: find method that can add milliseconds to Date object
         XCTAssertNil(invalid)
     }
 
@@ -229,67 +245,55 @@ class DateTests: XCTestCase {
     }
     
     func testEra() {
-        let customDate = Date(fromString: "12-01-2015 05:45:12", format: self.format)
-        XCTAssertEqual(customDate?.era, Calendar.current.component(Calendar.Component.era, from:customDate!))
+        XCTAssertEqual(date.era, Calendar.current.component(Calendar.Component.era, from: date))
     }
     
     func testYear() {
-        let customDate = Date(fromString: "12-01-2015 05:45:12", format: self.format)
-        XCTAssertEqual(customDate?.year, 2015)
+        XCTAssertEqual(self.date.year, 2015)
     }
     
     func testMonth() {
-        let customDate = Date(fromString: "09-01-2015 05:45:12", format: self.format)
-        XCTAssertEqual(customDate?.month, 1)
+        XCTAssertEqual(self.date.month, 11)
     }
     
     func testMonthAsString() {
-        let customDate = Date(fromString: "09-01-2015 05:45:12", format: self.format)
-        XCTAssertEqual(customDate?.monthAsString, "January")
-        
-        let customDate2 = Date(fromString: "10-03-2009 05:45:12", format: self.format)
-        XCTAssertEqual(customDate2?.monthAsString, "March")
-        
-        let customDate3 = Date(fromString: "11-11-2012 05:45:12", format: self.format)
-        XCTAssertEqual(customDate3?.monthAsString, "November")
+        XCTAssertEqual(self.date.monthAsString, "November")
     }
     
     func testWeekDay() {
-        let customDate = Date(fromString: "09-01-2015 05:45:12", format: self.format)
-        XCTAssertEqual(customDate?.weekday, "Friday")
+        XCTAssertEqual(self.date.weekday, "Sunday")
+        NSTimeZone.default = TimeZone(abbreviation: "UTC")!
+        XCTAssertEqual(self.date.weekday, "Saturday")
     }
     
     func testDay() {
-        let customDate = Date(fromString: "09-01-2015 05:45:12", format: self.format)
-        XCTAssertEqual(customDate?.day, 9)
+        XCTAssertEqual(self.date.day, 15)
+        NSTimeZone.default = TimeZone(abbreviation: "UTC")!
+        XCTAssertEqual(self.date.day, 14)
     }
     
     func testHour() {
-        let customDate = Date(fromString: "09-01-2015 05:45:12", format: self.format)
-        XCTAssertEqual(customDate?.hour, 5)
+        XCTAssertEqual(self.date.hour, 0)
+        NSTimeZone.default = TimeZone(abbreviation: "UTC")!
+        XCTAssertEqual(self.date.hour, 16)
     }
     
     func testMinute() {
-        let customDate = Date(fromString: "09-01-2015 05:45:12", format: self.format)
-        XCTAssertEqual(customDate?.minute, 45)
+        XCTAssertEqual(self.date.minute, 5)
     }
     
     func testSecond() {
-        let customDate = Date(fromString: "09-01-2015 05:45:12", format: self.format)
-        XCTAssertEqual(customDate?.second, 12)
+        XCTAssertEqual(self.date.second, 11)
     }
     
     func testNanoSecond() {
-        let customDateWithoutNanoSecondDefined =
-            Date(fromString: "09-01-2015 05:45:12", format: self.format)
-        XCTAssertEqual(customDateWithoutNanoSecondDefined?.nanosecond, 0)
+        XCTAssertEqual(self.date.nanosecond, 0)
         
         let today = Date()
         XCTAssert(today.nanosecond == Calendar.current.component(.nanosecond, from: today))
     }
     
     func testISO8601() {
-        let customDate = Date(fromString: "09-01-2015 05:45:12", format: self.format)
-        XCTAssertEqual(customDate?.iso8601, "2015-01-09T05:45:12Z")
+        XCTAssertEqual(self.date.iso8601, "2015-11-14T16:05:11Z")
     }
 }
