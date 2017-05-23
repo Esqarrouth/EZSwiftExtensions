@@ -24,6 +24,7 @@ All notable changes to this project will be documented in this file.
 1. **Array**
    - `removeAll(_ elements: [Element])` (new overload) for `Equatable` elements in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/416) by *dfrib*
    - `removeAll(_ elements: [Element])` (new overload) for `Hashable` elements in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/416) by *dfrib*
+   - `step(_ size: Int) -> [[Element]]?` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/427) by *Vic-L*
 
 2. **UIView**
    - `roundView()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/424) by *Vic-L*

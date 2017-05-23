@@ -196,6 +196,14 @@ extension Array where Element: Equatable {
     public func unique() -> Array {
         return reduce([]) { $0.contains($1) ? $0 : $0 + [$1] }
     }
+    
+    /// EZSE: Break array into arrays of desired step (inspired by ruby's `step`)
+    public func step(_ stepSize: Int) -> [[Element]]? {
+        if stepSize <= 0 { return nil }
+        return stride(from: 0, to: self.count, by: stepSize).map {
+            Array(self[$0..<Swift.min($0 + stepSize, self.count)])
+        }
+    }
 }
 
 extension Array where Element: Hashable {
