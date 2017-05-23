@@ -46,14 +46,18 @@ class DateTests: XCTestCase {
         let fromStartOfMin = TimeInterval(11) // seconds from start of minute
 
         // When
-        let rfc1123 = Date(httpDateString: "Sat, 14 Nov 2015 16:05:11 GMT")
-        let rfc850 = Date(httpDateString: "Saturday, 14-Nov-15 16:05:11 GMT")
-        let asctime = Date(httpDateString: "Sun Nov 14 16:05:11 2015")
-        let iso8601DateOnly = Date(httpDateString: "2015-11-14")
-        let iso8601DateHrMinOnly = Date(httpDateString: "2015-11-14T16:05+00:00")
-        let iso8601DateHrMinSecOnly = Date(httpDateString: "2015-11-14T16:05:11+00:00")
-        let iso8601DateHrMinSecMs = Date(httpDateString: "2015-11-14T16:05:11.123+00:00") // random nanosecond value 123
-        let invalid = Date(httpDateString: "2015-11-14 16:05:11")
+        let correctDateString = "2015-11-14"
+        let correctTimeString = "16:05:11"
+        let correctZoneString = "+00:00"
+        
+        let rfc1123 = Date(httpDateString: "Sat, 14 Nov 2015 \(correctTimeString) GMT")
+        let rfc850 = Date(httpDateString: "Saturday, 14-Nov-15 \(correctTimeString) GMT")
+        let asctime = Date(httpDateString: "Sun Nov 14 \(correctTimeString) 2015")
+        let iso8601DateOnly = Date(httpDateString: correctDateString)
+        let iso8601DateHrMinOnly = Date(httpDateString: "\(correctDateString)T16:05\(correctZoneString)")
+        let iso8601DateHrMinSecOnly = Date(httpDateString: "\(correctDateString)T\(correctTimeString)\(correctZoneString)")
+        let iso8601DateHrMinSecMs = Date(httpDateString: "\(correctDateString)T\(correctTimeString).123\(correctZoneString)") // random nanosecond value 123
+        let invalid = Date(httpDateString: "\(correctDateString) \(correctTimeString)")
 
         // Test
         XCTAssertEqual(rfc1123, self.date)
