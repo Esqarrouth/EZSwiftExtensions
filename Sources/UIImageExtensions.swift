@@ -9,6 +9,12 @@
 import UIKit
 
 extension UIImage {
+    
+    /// EZSE: Returns base64 string
+    var base64: String {
+        return UIImageJPEGRepresentation(self, 1.0)!.base64EncodedString()
+    }
+    
     /// EZSE: Returns compressed image to rate from 0 to 1
     public func compressImage(rate: CGFloat) -> Data? {
         return UIImageJPEGRepresentation(self, rate)

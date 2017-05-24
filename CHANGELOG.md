@@ -1,9 +1,53 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## Unreleased
 
-Add subsequent changes that you make in this section. 
+1. **Collections**
+   - `func parallelizedMap<R>(_ each: @escaping (Self.Iterator.Element) -> R) -> [R?]` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/394) by *Khalian*
+
+2. **Dictionary**
+   - `func random() -> Value?` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/420) by *Khalian*
+
+3. **FileManager**
+   - `var documentsDirectoryPath: String?` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/338) by *vilapuigvila*
+   - `var cachesDirectoryPath: String?` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/338) by *vilapuigvila*
+
+4. **UIStackView**
+   - `addArrangedSubviews(_ views: UIView...)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/396) by *kirakik*
+   - `init(distribution: UIStackViewDistribution, alignment: UIStackViewAlignment, axis: UILayoutConstraintAxis, spacing: CGFloat)` in [[PR]](https://github.com/goktugyil/         EZSwiftExtensions/pull/396) by *kirakik*
+
+4. **Date**
+   - `init?(httpDateString: String)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/426) by *Vic-L*
+
+### Added extensions
+1. **Array**
+   - `removeAll(_ elements: [Element])` (new overload) for `Equatable` elements in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/416) by *dfrib*
+   - `removeAll(_ elements: [Element])` (new overload) for `Hashable` elements in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/416) by *dfrib*
+
+2. **UIView**
+   - `roundView()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/424) by *Vic-L*
+   - `roundView(withBorderColor color: UIColor, withBorderWidth width: CGFloat)` (new overload)  in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/424) by *Vic-L*
+   - `nakedView()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/424) by *Vic-L*
+
+### Deprecated/Renamed extensions
+1. **UIViewController**
+   - `public func hideKeyboardWhenTappedAround(cancelTouches: Bool = false)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/395) by *lfarah*
+
+## [Release 1.9]
+
+### Fixed bugs 
+
+1. **Array**
+   - `foreach` is now removed since its already in the std library by *Khalian*
+   - `removeAll` is now removed since its already in the std library by *Khalian*
+
+2. **Date**
+   - `timePassed` now returns print value correctly, earlier used to return optionals in between by *Khalian*
+   - `testMonthAsString` fixing documentation via tests by *Khalian* 
+
+### Added extensions
+
 1. **Bool**
    - `public var toggled` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/352) by *Khalian* 
 
@@ -11,19 +55,42 @@ Add subsequent changes that you make in this section.
    - `init(vector: CGVector)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/349) by *Khalian*
    - `init(angle: CGFloat)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/349) by *Khalian*
 
+3. **CGRect**
+   - `var area` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/366) by *Khalian*
+
 3. **Date**
    - `var isFuture` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/343) by *Khalian*
    - `var isPast` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/343) by *Khalian*
+   - `var era` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/374) by *Khalian*
+   - `var iso8601` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/375) by *Khalian*
 
-4. **Float**
+4. **Double**
+   - `var abs` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/365) by *Khalian*
+
+5. **Float**
    - `static func random() -> Float` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/351) by *Khalian*
    - `static func random(within: Range<Float>) -> Float` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/351) by *Khalian*
 
-5. **UInt**
- - `static gcd(_ firstNum:UInt, _ secondNum:UInt) -> UInt` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/347) by *Khalian*
- - `static lcm(_ firstNum:UInt, _ secondNum:UInt) -> UInt` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/347)by *Khalian*
+6. **Int**
+   - `var digitArray` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/373) by *Khalian*
+   - `static func random(within: Range<Int>) -> Int` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/360) by *Khalian*
 
-## [Version 1.8] 
+7. **String**
+   - `func urlDecoded() -> String` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/358) by *Khalian*
+   - `mutating func urlDecode() -> String` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/358) by *Khalian*
+
+8. **UInt**
+   - `static gcd(_ firstNum:UInt, _ secondNum:UInt) -> UInt` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/347) by *Khalian*
+   - `static lcm(_ firstNum:UInt, _ secondNum:UInt) -> UInt` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/347)by *Khalian*
+
+9. **UIEdgeInsets**
+   - `init(inset: CGFloat)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/368) by *furuyan*
+
+10. **UILabel**
+   - `set(text _text: String?, duration: TimeInterval)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/340) by *vilapuigvila*
+
+11. **UIImage**
+   - `var base64: String` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/363) by *lfarah*## [Version 1.8] 
 
 ### Fixed bugs
 

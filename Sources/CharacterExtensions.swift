@@ -18,18 +18,14 @@ extension Character {
 
     /// EZSE: Convert the character to lowercase
     public var lowercased: Character {
-        get {
             let s = String(self).lowercased()
             return s[s.startIndex]
-        }
     }
 
     /// EZSE: Convert the character to uppercase
     public var uppercased: Character {
-        get {
             let s = String(self).uppercased()
             return s[s.startIndex]
-        }
     }
     
     /// EZSE : Checks if character is emoji

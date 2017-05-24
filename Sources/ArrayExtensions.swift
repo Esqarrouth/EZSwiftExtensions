@@ -9,7 +9,7 @@ import UIKit
 
 public func ==<T: Equatable>(lhs: [T]?, rhs: [T]?) -> Bool {
     switch (lhs, rhs) {
-    case (.some(let lhs), .some(let rhs)):
+    case let (lhs?, rhs?):
         return lhs == rhs
     case (.none, .none):
         return true
@@ -22,19 +22,14 @@ extension Array {
 
     ///EZSE: Get a sub array from range of index
     public func get(at range: ClosedRange<Int>) -> Array {
-        var subArray = Array()
-        let lowerBound = range.lowerBound > 0 ? range.lowerBound : 0
-        let upperBound = range.upperBound > self.count - 1 ? self.count - 1 : range.upperBound
-        for index in lowerBound...upperBound {
-            subArray.append(self[index])
-        }
-        return subArray
+        let halfOpenClampedRange = Range(range).clamped(to: Range(indices))
+        return Array(self[halfOpenClampedRange])
     }
 
     /// EZSE: Checks if array contains at least 1 item which type is same with given element's type
     public func containsType<T>(of element: T) -> Bool {
         let elementType = type(of: element)
-        return first { type(of: $0) == elementType} != nil
+        return contains { type(of: $0) == elementType}
     }
 
     /// EZSE: Decompose an array to a tuple with first element and the rest
@@ -43,8 +38,8 @@ extension Array {
     }
 
     /// EZSE: Iterates on each element of the array with its index. (Index, Element)
-    public func forEachEnumerated(_ body: @escaping (_ offset: Int, _ element: Element) -> ()) {
-        self.enumerated().forEach(body)
+    public func forEachEnumerated(_ body: @escaping (_ offset: Int, _ element: Element) -> Void) {
+        enumerated().forEach(body)
     }
 
     /// EZSE: Gets the object at the specified index, if it exists.
@@ -61,22 +56,22 @@ extension Array {
     /// EZSE: Returns a random element from the array.
     public func random() -> Element? {
         guard count > 0 else { return nil }
-        let index = Int(arc4random_uniform(UInt32(self.count)))
+        let index = Int(arc4random_uniform(UInt32(count)))
         return self[index]
     }
 
     /// EZSE: Reverse the given index. i.g.: reverseIndex(2) would be 2 to the last
     public func reverseIndex(_ index: Int) -> Int? {
         guard index >= 0 && index < count else { return nil }
-        return Swift.max(self.count - 1 - index, 0)
+        return Swift.max(count - 1 - index, 0)
     }
 
     /// EZSE: Shuffles the array in-place using the Fisher-Yates-Durstenfeld algorithm.
     public mutating func shuffle() {
-        guard self.count > 1 else { return }
+        guard count > 1 else { return }
         var j: Int
-        for i in 0..<(self.count-2) {
-            j = Int(arc4random_uniform(UInt32(self.count - i)))
+        for i in 0..<(count-2) {
+            j = Int(arc4random_uniform(UInt32(count - i)))
             if i != i+j { swap(&self[i], &self[i+j]) }
         }
     }
@@ -95,7 +90,7 @@ extension Array {
 
     /// EZSE: Checks if test returns true for all the elements in self
     public func testAll(_ body: @escaping (Element) -> Bool) -> Bool {
-        return self.first { !body($0) } == nil
+        return !contains { !body($0) }
     }
 
     /// EZSE: Checks if all elements in the array are true or false
@@ -118,7 +113,7 @@ extension Array where Element: Equatable {
 
     /// EZSE: Returns the indexes of the object
     public func indexes(of element: Element) -> [Int] {
-        return self.enumerated().flatMap { ($0.element == element) ? $0.offset : nil }
+        return enumerated().flatMap { ($0.element == element) ? $0.offset : nil }
     }
 
     /// EZSE: Returns the last index of the object
@@ -128,17 +123,19 @@ extension Array where Element: Equatable {
 
     /// EZSE: Removes the first given object
     public mutating func removeFirst(_ element: Element) {
-        guard let index = self.index(of: element) else { return }
+        guard let index = index(of: element) else { return }
         self.remove(at: index)
     }
 
-    // EZSE: Removes all occurrences of the given object
+    /// EZSE: Removes all occurrences of the given object(s)
     public mutating func removeAll(_ elements: Element...) {
-        for element in elements {
-            for index in self.indexes(of: element).reversed() {
-                self.remove(at: index)
-            }
-        }
+        removeAll(elements)
+    }
+
+    /// EZSE: Removes all occurrences of the given object(s)
+    public mutating func removeAll(_ elements: [Element]) {
+        // COW ensures no extra copy in case of no removed elements
+        self = filter { !elements.contains($0) }
     }
 
     /// EZSE: Difference of self and the input arrays.
@@ -201,7 +198,17 @@ extension Array where Element: Equatable {
     }
 }
 
-//MARK: - Deprecated 1.8
+extension Array where Element: Hashable {
+
+    /// EZSE: Removes all occurrences of the given object(s)
+    public mutating func removeAll(_ elements: [Element]) {
+        let elementsSet = Set(elements)
+        // COW ensures no extra copy in case of no removed elements
+        self = filter { !elementsSet.contains($0) }
+    }
+}
+
+// MARK: - Deprecated 1.8
 
 extension Array {
 
@@ -232,24 +239,11 @@ extension Array where Element: Equatable {
     public mutating func removeFirstObject(_ object: Element) {
         removeFirst(object)
     }
-
-    /// EZSE: Removes all occurrences of the given object
-    @available(*, deprecated: 1.8, renamed: "removeAll(_:)")
-    public mutating func removeObjects(_ objects: Element...) {
-        objects.forEach { self.removeAll($0) }
-    }
-
 }
 
-//MARK: - Deprecated 1.7
+// MARK: - Deprecated 1.7
 
 extension Array {
-
-    /// EZSE: Iterates on each element of the array with its index. (Index, Element)
-    @available(*, deprecated: 1.7, renamed: "forEachEnumerated(_:)")
-    public func forEach(_ call: @escaping (Int, Element) -> ()) {
-        forEachEnumerated(call)
-    }
 
     /// EZSE: Prepends an object to the array.
     @available(*, deprecated: 1.7, renamed: "insertFirst(_:)")
@@ -287,15 +281,9 @@ extension Array where Element: Equatable {
 
 }
 
-//MARK: - Deprecated 1.6
+// MARK: - Deprecated 1.6
 
 extension Array {
-
-    /// EZSE: Iterates on each element of the array.
-    @available(*, deprecated: 1.6, renamed: "forEach(_:)")
-    public func each(_ call: (Element) -> ()) {
-        forEach(call)
-    }
 
     /// EZSE: Creates an array with values generated by running each value of self
     /// through the mapFunction and discarding nil return values.
@@ -306,7 +294,7 @@ extension Array {
 
     /// EZSE: Iterates on each element of the array with its index.  (Index, Element)
     @available(*, deprecated: 1.6, renamed: "forEachEnumerated(_:)")
-    public func each(_ call: @escaping (Int, Element) -> ()) {
+    public func each(_ call: @escaping (Int, Element) -> Void) {
         forEachEnumerated(call)
     }
 

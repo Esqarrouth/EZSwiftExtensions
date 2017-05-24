@@ -22,8 +22,8 @@ extension Date {
         }
     }
 
-    /// EZSE: Initializes Date from string returned from an http response, according to several RFCs
-    public init? (httpDateString: String) {
+    /// EZSE: Initializes Date from string returned from an http response, according to several RFCs / ISO
+    public init?(httpDateString: String) {
         if let rfc1123 = Date(fromString: httpDateString, format: "EEE',' dd' 'MMM' 'yyyy HH':'mm':'ss zzz") {
             self = rfc1123
             return
@@ -32,8 +32,24 @@ extension Date {
             self = rfc850
             return
         }
-        if let asctime =  Date(fromString: httpDateString, format: "EEE MMM d HH':'mm':'ss yyyy") {
+        if let asctime = Date(fromString: httpDateString, format: "EEE MMM d HH':'mm':'ss yyyy") {
             self = asctime
+            return
+        }
+        if let iso8601DateOnly = Date(fromString: httpDateString, format: "yyyy-MM-dd") {
+            self = iso8601DateOnly
+            return
+        }
+        if let iso8601DateHrMinOnly = Date(fromString: httpDateString, format: "yyyy-MM-dd'T'HH:mmxxxxx") {
+            self = iso8601DateHrMinOnly
+            return
+        }
+        if let iso8601DateHrMinSecOnly = Date(fromString: httpDateString, format: "yyyy-MM-dd'T'HH:mm:ssxxxxx") {
+            self = iso8601DateHrMinSecOnly
+            return
+        }
+        if let iso8601DateHrMinSecMs = Date(fromString: httpDateString, format: "yyyy-MM-dd'T'HH:mm:ss.SSSxxxxx") {
+            self = iso8601DateHrMinSecMs
             return
         }
         //self.init()
@@ -89,26 +105,26 @@ extension Date {
         let calendar = Calendar.current
         let components = (calendar as NSCalendar).components([.year, .month, .day, .hour, .minute, .second], from: self, to: date, options: [])
         var str: String
-
+        
         if components.year! >= 1 {
             components.year == 1 ? (str = "year") : (str = "years")
-            return "\(components.year) \(str) ago"
+            return "\(components.year!) \(str) ago"
         } else if components.month! >= 1 {
             components.month == 1 ? (str = "month") : (str = "months")
-            return "\(components.month) \(str) ago"
+            return "\(components.month!) \(str) ago"
         } else if components.day! >= 1 {
             components.day == 1 ? (str = "day") : (str = "days")
-            return "\(components.day) \(str) ago"
+            return "\(components.day!) \(str) ago"
         } else if components.hour! >= 1 {
             components.hour == 1 ? (str = "hour") : (str = "hours")
-            return "\(components.hour) \(str) ago"
+            return "\(components.hour!) \(str) ago"
         } else if components.minute! >= 1 {
             components.minute == 1 ? (str = "minute") : (str = "minutes")
-            return "\(components.minute) \(str) ago"
+            return "\(components.minute!) \(str) ago"
         } else if components.second == 0 {
             return "Just now"
         } else {
-            return "\(components.second) seconds ago"
+            return "\(components.second!) seconds ago"
         }
     }
     
@@ -151,21 +167,27 @@ extension Date {
         return self.month == today.month && self.year == today.year
     }
 
+    /// EZSE: Check date if it is within this week.
     public var isThisWeek: Bool {
         return self.minutesInBetweenDate(Date()) <= Double(Date.minutesInAWeek)
     }
 
-    // EZSE : Get the year from the date
+    /// EZSE: Get the era from the date
+    public var era: Int {
+        return Calendar.current.component(Calendar.Component.era, from: self)
+    }
+    
+    /// EZSE : Get the year from the date
     public var year: Int {
-        return NSCalendar.current.component(Calendar.Component.year, from: self)
+        return Calendar.current.component(Calendar.Component.year, from: self)
     }
 
-    // EZSE : Get the month from the date
+    /// EZSE : Get the month from the date
     public var month: Int {
-        return NSCalendar.current.component(Calendar.Component.month, from: self)
+        return Calendar.current.component(Calendar.Component.month, from: self)
     }
 
-    // EZSE : Get the weekday from the date
+    /// EZSE : Get the weekday from the date
     public var weekday: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
@@ -200,7 +222,15 @@ extension Date {
     }
     
     /// EZSE : Gets the nano second from the date
-    public var nanosecond : Int {
+    public var nanosecond: Int {
         return Calendar.current.component(.nanosecond, from: self)
+    }
+    
+    /// EZSE : Gets the international standard(ISO8601) representation of date
+    @available(iOS 10.0, *)
+    @available(tvOS 10.0, *)
+    public var iso8601: String {
+        let formatter = ISO8601DateFormatter()
+        return formatter.string(from: self)
     }
 }
