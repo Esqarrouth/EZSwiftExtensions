@@ -11,13 +11,23 @@ import XCTest
 
 class UIViewControllerTests: XCTestCase {
 
-    private var nav:UINavigationController!
-    private let rootVC  = UIViewController()
-    private let vc2     = UIViewController()
-    private let vc3     = UIViewController()
-    
     override func setUp() {
         super.setUp()
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+    }
+
+    func testIsNavBarHidden() {
+        let vc  = UIViewController()
+        _ = UINavigationController(rootViewController: vc)
+        vc.isNavBarHidden = true
+        let isHidden = vc.navigationController?.isNavigationBarHidden
+        XCTAssertEqual(true, isHidden)
+        
+        vc.isNavBarHidden = false
+        XCTAssertEqual(vc.isNavBarHidden, false)
     }
     
     override func tearDown() {

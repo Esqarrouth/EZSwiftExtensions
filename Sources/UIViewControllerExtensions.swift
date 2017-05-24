@@ -228,6 +228,16 @@ extension UIViewController {
         _ = navigationController?.popViewController(animated: true)
     }
     
+    /// EZSE: Hide or show navigation bar
+    public var isNavBarHidden:Bool {
+        get {
+            return (navigationController?.isNavigationBarHidden)!
+        }
+        set {
+            navigationController?.isNavigationBarHidden = newValue
+        }
+    }
+
     /// EZSE: Added extension for popToRootViewController
     open func popToRootVC() {
         _ = navigationController?.popToRootViewController(animated: true)
