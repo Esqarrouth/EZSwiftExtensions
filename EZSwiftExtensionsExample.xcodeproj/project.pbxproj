@@ -60,6 +60,7 @@
 		E1CB3C1C1C25FFA000DF77CD /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB3C1B1C25FFA000DF77CD /* DoubleExtensions.swift */; };
 		E1D7CDCE1CF8FFB3008E4C07 /* UIBarButtonItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D7CDCD1CF8FFB3008E4C07 /* UIBarButtonItemExtensions.swift */; };
 		FADFAA611D9D8BFE00CF9F7A /* FloatingPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFAA601D9D8BFE00CF9F7A /* FloatingPointExtensions.swift */; };
+		FFA538CA1E75D6700093552E /* UIStackViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA538C91E75D6700093552E /* UIStackViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +119,7 @@
 		E1CB3C1B1C25FFA000DF77CD /* DoubleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleExtensions.swift; path = Sources/DoubleExtensions.swift; sourceTree = SOURCE_ROOT; };
 		E1D7CDCD1CF8FFB3008E4C07 /* UIBarButtonItemExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIBarButtonItemExtensions.swift; path = Sources/UIBarButtonItemExtensions.swift; sourceTree = SOURCE_ROOT; };
 		FADFAA601D9D8BFE00CF9F7A /* FloatingPointExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatingPointExtensions.swift; path = ../Sources/FloatingPointExtensions.swift; sourceTree = "<group>"; };
+		FFA538C91E75D6700093552E /* UIStackViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				E1839E191BF79974002212C6 /* UIImageViewExtensions.swift */,
 				E1839E1A1BF79974002212C6 /* UILabelExtensions.swift */,
 				E178781D1C8678F900BC05AA /* UISliderExtensions.swift */,
+				FFA538C91E75D6700093552E /* UIStackViewExtensions.swift */,
 				E10A79431D6F505900735549 /* UIStoryboardExtensions.swift */,
 				E1587FAF1CCA41F400A0B071 /* UISwitchExtensions.swift */,
 				E10A79361D6F4BDB00735549 /* UITextFieldExtensions.swift */,
@@ -311,6 +314,7 @@
 				E1839E201BF79974002212C6 /* BlockLongPress.swift in Sources */,
 				E17878261C86863900BC05AA /* UIWindowExtensions.swift in Sources */,
 				E178781E1C8678F900BC05AA /* UISliderExtensions.swift in Sources */,
+				FFA538CA1E75D6700093552E /* UIStackViewExtensions.swift in Sources */,
 				E1839E381BF79974002212C6 /* UIViewControllerExtensions.swift in Sources */,
 				E15484E41CA2BD00003B030E /* ErrorTypeExtensions.swift in Sources */,
 				E1839E2A1BF79974002212C6 /* EZSwiftFunctions.swift in Sources */,

@@ -6,10 +6,12 @@
 [![Platform](https://img.shields.io/cocoapods/p/EZSwiftExtensions.svg?style=flat)](http://cocoapods.org/pods/EZSwiftExtensions)
 [![Language](https://img.shields.io/badge/swift-3.0-orange.svg)](http://swift.org)
 [![Language](https://img.shields.io/badge/swift-2.3-orange.svg)](http://swift.org)
- [![CocoaPods](https://img.shields.io/cocoapods/dm/EZSwiftExtensions.svg)](https://cocoapods.org/pods/EZSwiftExtensions)
+[![CocoaPods](https://img.shields.io/cocoapods/dm/EZSwiftExtensions.svg)](https://cocoapods.org/pods/EZSwiftExtensions)
+[![CocoaPods](https://img.shields.io/cocoapods/dt/EZSwiftExtensions.svg)](https://cocoapods.org/pods/EZSwiftExtensions)
 
 [![Build Status](https://travis-ci.org/goktugyil/EZSwiftExtensions.svg?branch=master)](https://travis-ci.org/goktugyil/EZSwiftExtensions)
 [![codecov.io](https://codecov.io/gh/goktugyil/EZSwiftExtensions/branch/master/graphs/badge.svg)](https://codecov.io/gh/goktugyil/EZSwiftExtensions/branch/master)
+[![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 
 <img src="charizard.png" width="200">
 
@@ -18,7 +20,7 @@ How Swift standard types and classes were supposed to work. A collection of usef
 Join our online chat at [![Gitter](https://badges.gitter.im/gitterHQ/gitter.svg)](https://gitter.im/EZSwiftExtensions/Lobby)
 - [Full Documentation via CocoaDocs](http://cocoadocs.org/docsets/EZSwiftExtensions/)
 
-##Example Usage
+## Example Usage
 
 Easily get an object at a specified index:
 ``` swift
@@ -115,7 +117,7 @@ ez.detectScreenShot { () -> () in
 }
 ```
 
-##Installation
+## Installation
 
 ### Manually (~10 seconds)
 

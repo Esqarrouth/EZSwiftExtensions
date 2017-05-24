@@ -22,7 +22,7 @@ extension CGRect {
             self.origin.x = value
         }
     }
-
+    
     /// EZSE: Y value of CGRect's origin
     public var y: CGFloat {
         get {
@@ -49,5 +49,9 @@ extension CGRect {
             self.size.height = value
         }
     }
-
+    
+    /// EZSE : Surface Area represented by a CGRectangle
+    public var area: CGFloat {
+        return self.h * self.w
+    }
 }

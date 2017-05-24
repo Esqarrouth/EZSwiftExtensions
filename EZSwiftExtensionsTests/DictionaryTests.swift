@@ -106,4 +106,19 @@ class DictionaryTests: XCTestCase {
         let badDic = Dictionary<String, String>.constructFromJSON(json: badStr)
         XCTAssertNil(badDic)
     }
+    
+    func testRandomOnEmptyDict() {
+        XCTAssertNil([:].random())
+    }
+    
+    func testRandom() {
+        let singleEntryDictionary = ["one": 1]
+        (1...10).forEach { _ in
+            XCTAssertEqual(singleEntryDictionary.random(), Optional<Int>.some(1))
+        }
+        // non-deterministic value return, but deterministic optional case ('.some(_)')
+        (1...10).forEach { _ in
+            XCTAssertNotNil(firstdic.random())
+        }
+    }
 }
