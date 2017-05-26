@@ -45,5 +45,18 @@ class UIViewControllerTests: XCTestCase {
         let pop = nav.viewControllers[1]
         XCTAssertEqual(pop, vc2)
     }
+
+    func testIsNavBarHidden() {
+        let vc  = UIViewController()
+        _ = UINavigationController(rootViewController: vc)
+        
+        vc.isNavBarHidden = true
+        let isHidden = vc.navigationController?.isNavigationBarHidden
+        XCTAssertTrue(isHidden!)
+        
+        vc.isNavBarHidden = false
+        let isHiddenNotHidden = vc.navigationController?.isNavigationBarHidden
+        XCTAssertFalse(isHiddenNotHidden!)
+    }
 }
 
