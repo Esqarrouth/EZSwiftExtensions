@@ -64,4 +64,64 @@ class UITextFieldTests: XCTestCase {
         XCTAssertTrue(textField.validateLength(ofCount: testLength, option: .lessThan))
         XCTAssertTrue(textField.validateLength(ofCount: testLength, option: .lessThanOrEqualTo))
     }
+    
+    func testValidateEmail() {
+        let textField = UITextField(x: x, y: y, w: width, h: height, fontSize: 38)
+        
+        // empty
+        textField.text = ""
+        XCTAssertFalse(textField.validateEmail())
+        
+        // valid format
+        textField.text = "lol@lol.lol"
+        XCTAssertTrue(textField.validateEmail())
+        for specialChar in "!#$%&'*+-/=?^_`{|}~".characters {
+            textField.text = "lol\(specialChar)lol@lol.lol"
+            XCTAssertTrue(textField.validateEmail())
+            textField.text = "\(specialChar)lol@lol.lol"
+            XCTAssertTrue(textField.validateEmail())
+            textField.text = "\(specialChar)@lol.lol"
+            XCTAssertTrue(textField.validateEmail())
+            textField.text = "lol\(specialChar)@lol.lol"
+            XCTAssertTrue(textField.validateEmail())
+        }
+        textField.text = "lol.lol@lol.lol"
+        XCTAssertTrue(textField.validateEmail())
+        textField.text = "lol@lol.l"
+        XCTAssertTrue(textField.validateEmail())
+        textField.text = "1lol@lol.lol"
+        XCTAssertTrue(textField.validateEmail())
+        textField.text = "lol1@lol.lol"
+        XCTAssertTrue(textField.validateEmail())
+        textField.text = "lol@lol.lol1"
+        XCTAssertTrue(textField.validateEmail())
+        textField.text = "lol@1.lol"
+        XCTAssertTrue(textField.validateEmail())
+        textField.text = "lol@1.1"
+        XCTAssertTrue(textField.validateEmail())
+        
+        // invalid formats
+        textField.text = "lol.lol.lol"
+        XCTAssertFalse(textField.validateEmail())
+        textField.text = "lol@lol."
+        XCTAssertFalse(textField.validateEmail())
+        textField.text = "lol@lol"
+        XCTAssertFalse(textField.validateEmail())
+        textField.text = "lol@"
+        XCTAssertFalse(textField.validateEmail())
+        textField.text = "@"
+        XCTAssertFalse(textField.validateEmail())
+        textField.text = "@lol"
+        XCTAssertFalse(textField.validateEmail())
+        textField.text = "@lol."
+        XCTAssertFalse(textField.validateEmail())
+        textField.text = "@lol.lol"
+        XCTAssertFalse(textField.validateEmail())
+        textField.text = "@lol.lol"
+        XCTAssertFalse(textField.validateEmail())
+        textField.text = ".@lol.lol"
+        XCTAssertFalse(textField.validateEmail())
+        textField.text = ".lol@lol.lol"
+        XCTAssertFalse(textField.validateEmail())
+    }
 }
