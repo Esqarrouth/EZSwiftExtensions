@@ -12,8 +12,9 @@ import XCTest
 class DoubleTests: XCTestCase {
 
     var double = 3.14
-    var otherDouble = -147.9564
-    var anotherDouble = 231349.678450342834857392948575
+    var negativeDouble = -147.9564
+    let minDouble = Double.leastNormalMagnitude
+    let maxDouble = Double.greatestFiniteMagnitude
 
     override func setUp() {
         super.setUp()
@@ -29,23 +30,27 @@ extension DoubleTests {
 
     func testToString() {
         XCTAssertEqual(double.toString, "3.14")
-        XCTAssertEqual(otherDouble.toString, "-147.9564")
-        XCTAssertEqual(anotherDouble.toString, "231349.678450343")
+        XCTAssertEqual(negativeDouble.toString, "-147.9564")
+        XCTAssertEqual(minDouble.toString, "2.2250738585072e-308")
+        XCTAssertEqual(maxDouble.toString, "1.79769313486232e+308")
     }
 
     func testToInt() {
         XCTAssertEqual(double.toInt, 3)
-        XCTAssertEqual(otherDouble.toInt, -147)
-        XCTAssertEqual(anotherDouble.toInt, 231349)
+        XCTAssertEqual(negativeDouble.toInt, -147)
+        XCTAssertEqual(minDouble.toInt, 0)
+//        XCTAssertEqual(maxDouble.toInt) // fatal error double value greater than int max value
         XCTAssertNotEqual(Double(double.toInt), double)
-        XCTAssertNotEqual(Double(otherDouble.toInt), otherDouble)
-        XCTAssertNotEqual(Double(anotherDouble.toInt), anotherDouble)
+        XCTAssertNotEqual(Double(negativeDouble.toInt), negativeDouble)
+        XCTAssertNotEqual(Double(minDouble.toInt), minDouble)
+//        XCTAssertNotEqual(Double(maxDouble.toInt), maxDouble) // fatal error double value greater than int max value
     }
     
     func testCGFloat() {
         XCTAssertEqual(double.toCGFloat, 3.14)
-        XCTAssertEqual(otherDouble.toCGFloat, -147.9564)
-        XCTAssertEqual(anotherDouble.toCGFloat, 231349.678450342834857392948575)
+        XCTAssertEqual(negativeDouble.toCGFloat, -147.9564)
+        XCTAssertEqual(minDouble.toCGFloat, CGFloat.leastNormalMagnitude)
+        XCTAssertEqual(maxDouble.toCGFloat, CGFloat.greatestFiniteMagnitude)
     }
     
     func testAbs() {
