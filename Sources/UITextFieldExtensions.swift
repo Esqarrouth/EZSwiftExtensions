@@ -48,6 +48,26 @@ extension UITextField {
         self.leftViewMode = UITextFieldViewMode.always
     }
 
-}
+    /// EZSE: Ways to validate by comparison
+    enum textFieldValidationOptions: Int {
+        case equalTo, greaterThan, greaterThanOrEqualTo, lessThan, lessThanOrEqualTo
+    }
+    
+    /// EZSE: Validation length of character counts in UITextField
+    func validateLength(ofCount count: Int, option: UITextField.textFieldValidationOptions) -> Bool {
+        switch option {
+        case .equalTo:
+            return self.text!.characters.count == count
+        case .greaterThan:
+            return self.text!.characters.count > count
+        case .greaterThanOrEqualTo:
+            return self.text!.characters.count >= count
+        case .lessThan:
+            return self.text!.characters.count < count
+        case .lessThanOrEqualTo:
+            return self.text!.characters.count <= count
+        }
+    }
 
+}
 #endif
