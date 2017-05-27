@@ -124,4 +124,26 @@ class UITextFieldTests: XCTestCase {
         textField.text = ".lol@lol.lol"
         XCTAssertFalse(textField.validateEmail())
     }
+    
+    func testValidateDigits() {
+        let textField = UITextField(x: x, y: y, w: width, h: height, fontSize: 38)
+        
+        // digits
+        textField.text = "123"
+        XCTAssertTrue(textField.validateDigits())
+        textField.text = "1"
+        XCTAssertTrue(textField.validateDigits())
+        
+        // alphabets
+        textField.text = "l"
+        XCTAssertFalse(textField.validateDigits())
+        textField.text = "lol"
+        XCTAssertFalse(textField.validateDigits())
+        
+        // alphanumerics
+        textField.text = "lol123"
+        XCTAssertFalse(textField.validateDigits())
+        textField.text = "123lol"
+        XCTAssertFalse(textField.validateDigits())
+    }
 }
