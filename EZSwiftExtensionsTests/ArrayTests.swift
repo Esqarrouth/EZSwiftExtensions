@@ -12,12 +12,19 @@ import EZSwiftExtensions
 class ArrayTests: XCTestCase {
     let emptyArray = [Int]()
     var numberArray = [Int]()
+    var multiDimensionalArray = [[Int]]()
 
     override func setUp() {
         super.setUp()
         //[0, 1, 2, 3, 4, 5, 1]
         numberArray = [Int](0...5)
         numberArray.append(1)
+        
+        //[[0, 1], [2, 3], [4, 5], [1]]
+        multiDimensionalArray.append([0,1])
+        multiDimensionalArray.append([2,3])
+        multiDimensionalArray.append([4,5])
+        multiDimensionalArray.append([1])
     }
     
     func testGet_SubArray() {
@@ -289,18 +296,48 @@ class ArrayTests: XCTestCase {
         XCTAssertNil(self.numberArray.step(-1))
         XCTAssertNil(self.numberArray.step(0))
 
+        XCTAssertEqual(self.numberArray.step(2)!.count, 4)
+        XCTAssertEqual(self.numberArray.step(2)![0].count, 2) // count in each of the first child element will be <= stepSize
         XCTAssertEqual(self.numberArray.step(2)![0], [0, 1])
+        XCTAssertEqual(self.numberArray.step(2)![1].count, 2) // count in each of the first child element will be <= stepSize
         XCTAssertEqual(self.numberArray.step(2)![1], [2, 3])
+        XCTAssertEqual(self.numberArray.step(2)![2].count, 2) // count in each of the first child element will be <= stepSize
         XCTAssertEqual(self.numberArray.step(2)![2], [4, 5])
+        XCTAssertEqual(self.numberArray.step(2)![3].count, 1)
         XCTAssertEqual(self.numberArray.step(2)![3], [1])
         
+        XCTAssertEqual(self.numberArray.step(3)!.count, 3)
+        XCTAssertEqual(self.numberArray.step(3)![0].count, 3) // count in each of the first child element will be <= stepSize
         XCTAssertEqual(self.numberArray.step(3)![0], [0, 1, 2])
+        XCTAssertEqual(self.numberArray.step(3)![1].count, 3) // count in each of the first child element will be <= stepSize
         XCTAssertEqual(self.numberArray.step(3)![1], [3, 4, 5])
+        XCTAssertEqual(self.numberArray.step(3)![2].count, 1)
         XCTAssertEqual(self.numberArray.step(3)![2], [1])
         
+        XCTAssertEqual(self.numberArray.step(7)!.count, 1)
+        XCTAssertEqual(self.numberArray.step(7)![0].count, self.numberArray.count) // count in each of the first child element will be <= stepSize
         XCTAssertEqual(self.numberArray.step(7)![0], self.numberArray)
         
+        XCTAssertEqual(self.numberArray.step(8)!.count, 1)
+        XCTAssertEqual(self.numberArray.step(8)![0].count, self.numberArray.count) // count in each of the first child element will be <= stepSize
         XCTAssertEqual(self.numberArray.step(8)![0], self.numberArray)
+        
+        // multidimensional array [[0, 1], [2, 3], [4, 5], [1]]
+        XCTAssertEqual(self.multiDimensionalArray.step(2)!.count, 2) // [[[0, 1], [2, 3]], [[4, 5], [1]]]
+        XCTAssertEqual(self.multiDimensionalArray.step(2)![0].count, 2) // count in each of the first child element will be <= stepSize
+        XCTAssertEqual(self.multiDimensionalArray.step(2)![0][0], [0, 1])
+        XCTAssertEqual(self.multiDimensionalArray.step(2)![0][1], [2, 3])
+        XCTAssertEqual(self.multiDimensionalArray.step(2)![1].count, 2) // count in each of the first child element will be <= stepSize
+        XCTAssertEqual(self.multiDimensionalArray.step(2)![1][0], [4, 5])
+        XCTAssertEqual(self.multiDimensionalArray.step(2)![1][1], [1])
+        
+        XCTAssertEqual(self.multiDimensionalArray.step(3)!.count, 2) // [[[0, 1], [2, 3], [4, 5]], [[1]]]
+        XCTAssertEqual(self.multiDimensionalArray.step(3)![0].count, 3) // count in each of the first child element will be <= stepSize
+        XCTAssertEqual(self.multiDimensionalArray.step(3)![0][0], [0, 1])
+        XCTAssertEqual(self.multiDimensionalArray.step(3)![0][1], [2, 3])
+        XCTAssertEqual(self.multiDimensionalArray.step(3)![0][2], [4, 5])
+        XCTAssertEqual(self.multiDimensionalArray.step(3)![1][0].count, 1) // count in each of the first child element will be <= stepSize
+        XCTAssertEqual(self.multiDimensionalArray.step(3)![1][0], [1])
     }
     
 #if os(iOS)
