@@ -34,8 +34,13 @@ All notable changes to this project will be documented in this file.
 8. **UIViewControllerExtensions**
    - `isNavBarHidden` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/428) by *Khalian* 
 
-2. **Double**
+9. **Double**
    - `var toCGFloat` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/425) by *Vic-L*
+
+10. **UITextField**
+   - `validateLength()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/429) by *Vic-L*
+   - `validateEmail()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/429) by *Vic-L*
+   - `validateDigits()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/429) by *Vic-L*
 
 ### Deprecated/Renamed extensions
 1. **UIViewController**
