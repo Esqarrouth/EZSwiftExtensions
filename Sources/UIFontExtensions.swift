@@ -6,6 +6,8 @@
 //
 //
 
+#if os(iOS) || os(tvOS)
+
 import UIKit
 
 /// EZSwiftExtensions
@@ -102,3 +104,5 @@ extension UIFont {
         }
     }
 }
+
+#endif

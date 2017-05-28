@@ -5,6 +5,9 @@
 //  Created by Cem Olcay on 12/08/15.
 //
 //
+
+#if os(iOS) || os(tvOS)
+
 import UIKit
 
 public typealias BlockButtonAction = (_ sender: BlockButton) -> Void
@@ -112,3 +115,5 @@ open class BlockButton: UIButton {
         highlightLayer = nil
     }
 }
+
+#endif

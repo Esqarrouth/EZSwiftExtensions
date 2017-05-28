@@ -6,6 +6,8 @@
 //  Copyright © 2016 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import UIKit
 import Foundation
 
@@ -64,3 +66,5 @@ extension CGPoint {
         return startPoint + (endPoint - startPoint) * interpolationParam
     }
 }
+
+#endif

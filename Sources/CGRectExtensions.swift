@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import UIKit
 
 extension CGRect {
@@ -55,3 +57,5 @@ extension CGRect {
         return self.h * self.w
     }
 }
+
+#endif

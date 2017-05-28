@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import UIKit
 
 extension UILabel {
@@ -64,3 +66,5 @@ extension UILabel {
         }, completion: nil)
     }
 }
+
+#endif

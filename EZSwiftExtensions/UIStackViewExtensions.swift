@@ -6,6 +6,8 @@
 //  Copyright © 2017 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import UIKit
 
 @available(iOS 9.0, *)
@@ -40,3 +42,5 @@ extension UIStackView {
 	}
 
 }
+
+#endif

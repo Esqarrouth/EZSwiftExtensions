@@ -9,6 +9,8 @@
 // swiftlint:disable line_length
 // swiftlint:disable trailing_whitespace
 
+#if os(iOS) || os(tvOS)
+
 import UIKit
 
 extension URL {
@@ -271,3 +273,5 @@ extension URL {
         return false
     }
 }
+
+#endif

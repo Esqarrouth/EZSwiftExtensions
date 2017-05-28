@@ -5,7 +5,6 @@
 //  Created by Goktug Yilmaz on 15/07/15.
 //  Copyright (c) 2015 Goktug Yilmaz. All rights reserved.
 //
-import UIKit
 
 extension Date {
 
@@ -226,6 +225,8 @@ extension Date {
         return Calendar.current.component(.nanosecond, from: self)
     }
     
+    #if os(iOS) || os(tvOS)
+    
     /// EZSE : Gets the international standard(ISO8601) representation of date
     @available(iOS 10.0, *)
     @available(tvOS 10.0, *)
@@ -233,4 +234,6 @@ extension Date {
         let formatter = ISO8601DateFormatter()
         return formatter.string(from: self)
     }
+    
+    #endif
 }

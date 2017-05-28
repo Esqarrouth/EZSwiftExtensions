@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import UIKit
 
 // MARK: Custom UIView Initilizers
@@ -627,3 +629,5 @@ extension UIView {
         }, completion: completion)
     }
 }
+
+#endif

@@ -6,9 +6,9 @@
 //  Copyright © 2016 Goktug Yilmaz. All rights reserved.
 //
 
-import UIKit
-
 #if os(iOS)
+
+import UIKit
 
 extension UISwitch {
 

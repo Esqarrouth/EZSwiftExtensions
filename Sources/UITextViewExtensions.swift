@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import UIKit
 
 extension UITextView {
@@ -52,3 +54,5 @@ extension UITextView {
 
     #endif
 }
+
+#endif

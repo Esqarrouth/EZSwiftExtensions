@@ -5,6 +5,9 @@
 //  Created by Mousavian on 23/02/16.
 //  Copyright (c) 2016 Lucas Farah. All rights reserved.
 //
+
+#if os(iOS) || os(tvOS)
+
 import UIKit
 
 extension UIApplication {
@@ -38,3 +41,5 @@ extension UIApplication {
         return base
     }
 }
+
+#endif

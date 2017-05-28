@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Goktug Yilmaz. All rights reserved.
 // swiftlint:disable trailing_whitespace
 
+#if os(iOS) || os(tvOS)
+
 import UIKit
 
 extension UIViewController {
@@ -286,3 +288,5 @@ extension UIViewController {
     }
     #endif
 }
+
+#endif

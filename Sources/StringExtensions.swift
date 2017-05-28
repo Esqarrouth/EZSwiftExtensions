@@ -10,7 +10,9 @@
 
 #if os(OSX)
     import AppKit
-#else
+#endif
+
+#if os(iOS) || os(tvOS)
     import UIKit
 #endif
 

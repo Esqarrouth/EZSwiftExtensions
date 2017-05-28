@@ -6,6 +6,8 @@
 //  Copyright © 2016 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import UIKit
 
 extension UIWindow {
@@ -17,3 +19,5 @@ extension UIWindow {
         self.makeKeyAndVisible()
     }
 }
+
+#endif
