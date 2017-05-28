@@ -6,6 +6,8 @@
 //  Copyright © 2016 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import Foundation
 import UIKit
 
@@ -22,3 +24,5 @@ extension UIUserInterfaceSizeClass {
     }
   }
 }
+
+#endif

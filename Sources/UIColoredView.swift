@@ -6,6 +6,8 @@
 //  Copyright © 2015 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import UIKit
 
 @available(*, deprecated: 1.8)
@@ -19,3 +21,5 @@ class UIColoredView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+#endif

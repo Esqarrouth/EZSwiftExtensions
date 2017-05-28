@@ -6,6 +6,8 @@
 //  Copyright © 2017年 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import UIKit
 
 extension UIEdgeInsets {
@@ -14,3 +16,5 @@ extension UIEdgeInsets {
         self.init(top: inset, left: inset, bottom: inset, right: inset)
     }
 }
+
+#endif

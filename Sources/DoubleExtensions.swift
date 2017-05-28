@@ -6,8 +6,6 @@
 //  Copyright © 2015 Goktug Yilmaz. All rights reserved.
 //
 
-import UIKit
-
 extension Double {
     /// EZSE: Converts Double to String
     public var toString: String { return String(self) }

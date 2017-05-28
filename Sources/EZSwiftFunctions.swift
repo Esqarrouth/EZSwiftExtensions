@@ -5,7 +5,6 @@
 //  Created by Goktug Yilmaz on 13/07/15.
 //  Copyright (c) 2015 Goktug Yilmaz. All rights reserved.
 //
-import UIKit
 
 //TODO: others standart video, gif
 

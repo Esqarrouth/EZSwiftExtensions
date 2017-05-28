@@ -5,7 +5,6 @@
 //  Created by Lucas Farah on 15/07/15.
 //  Copyright (c) 2016 Lucas Farah. All rights reserved.
 //
-import UIKit
 
 extension Timer {
     /// EZSE: Runs every x seconds, to cancel use: timer.invalidate()

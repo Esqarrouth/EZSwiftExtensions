@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import UIKit
 
 extension UIColor {
@@ -70,10 +72,5 @@ extension UIColor {
     }
 
 }
-
-private extension CGFloat {
-    /// SwiftRandom extension
-    static func random(_ lower: CGFloat = 0, _ upper: CGFloat = 1) -> CGFloat {
-        return CGFloat(Float(arc4random()) / Float(UINT32_MAX)) * (upper - lower) + lower
-    }
-}
+    
+#endif

@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import UIKit
 
 extension UIButton {
@@ -28,3 +30,5 @@ extension UIButton {
 		self.setBackgroundImage(colorImage, for: forState)
 	}
 }
+
+#endif
