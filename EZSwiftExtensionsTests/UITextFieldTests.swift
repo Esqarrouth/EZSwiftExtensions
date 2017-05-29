@@ -74,8 +74,9 @@ class UITextFieldTests: XCTestCase {
         
         // valid format
         textField.text = "lol@lol.lol"
+        let acceptableSpecialChars = "!#$%&'*+-/=?^_`{|}~".characters
         XCTAssertTrue(textField.validateEmail())
-        for specialChar in "!#$%&'*+-/=?^_`{|}~".characters {
+        for specialChar in acceptableSpecialChars {
             textField.text = "lol\(specialChar)lol@lol.lol"
             XCTAssertTrue(textField.validateEmail())
             textField.text = "\(specialChar)lol@lol.lol"
@@ -84,6 +85,16 @@ class UITextFieldTests: XCTestCase {
             XCTAssertTrue(textField.validateEmail())
             textField.text = "lol\(specialChar)@lol.lol"
             XCTAssertTrue(textField.validateEmail())
+            for anotherSpecialChar in acceptableSpecialChars {
+                textField.text = "lol\(anotherSpecialChar)\(anotherSpecialChar)lol@lol.lol"
+                XCTAssertTrue(textField.validateEmail())
+                textField.text = "\(anotherSpecialChar)lol\(anotherSpecialChar)@lol.lol"
+                XCTAssertTrue(textField.validateEmail())
+                textField.text = "\(anotherSpecialChar)\(anotherSpecialChar)@lol.lol"
+                XCTAssertTrue(textField.validateEmail())
+                textField.text = "lol\(anotherSpecialChar)lol\(specialChar)@lol.lol"
+                XCTAssertTrue(textField.validateEmail())
+            }
         }
         textField.text = "lol.lol@lol.lol"
         XCTAssertTrue(textField.validateEmail())
@@ -144,6 +155,8 @@ class UITextFieldTests: XCTestCase {
         textField.text = "lol123"
         XCTAssertFalse(textField.validateDigits())
         textField.text = "123lol"
+        XCTAssertFalse(textField.validateDigits())
+        textField.text = "1l2o3l"
         XCTAssertFalse(textField.validateDigits())
     }
 }
