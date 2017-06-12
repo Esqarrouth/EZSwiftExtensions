@@ -6,6 +6,8 @@
 //  Copyright © 2016 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import XCTest
 
 @testable import EZSwiftExtensions
@@ -115,3 +117,5 @@ class CGPointTests: XCTestCase {
         XCTAssertEqual(CGPoint.dotProduct(this: p, that: zero), 0)
     }
 }
+
+#endif

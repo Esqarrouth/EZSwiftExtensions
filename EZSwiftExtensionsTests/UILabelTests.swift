@@ -6,6 +6,8 @@
 //  Copyright © 2016 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import XCTest
 @testable import EZSwiftExtensions
 class UILabelTests: XCTestCase {
@@ -49,3 +51,4 @@ class UILabelTests: XCTestCase {
     }
 }
 
+#endif

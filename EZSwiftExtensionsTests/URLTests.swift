@@ -6,6 +6,8 @@
 //  Copyright © 2016年 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import XCTest
 @testable import EZSwiftExtensions
 
@@ -56,6 +58,6 @@ class URLTests: XCTestCase {
         //XCTAssertTrue(documentsURL.fileIsWritable)
         //XCTAssertEqual(documentsURL.fileSize, -1)
     //}
-
-
 }
+
+#endif

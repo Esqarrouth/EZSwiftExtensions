@@ -6,6 +6,8 @@
 //  Copyright © 2016 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import XCTest
 
 class UIImageViewTests: XCTestCase {
@@ -19,3 +21,4 @@ class UIImageViewTests: XCTestCase {
     }
 }
 
+#endif

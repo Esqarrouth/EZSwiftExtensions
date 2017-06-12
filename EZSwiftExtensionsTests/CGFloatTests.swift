@@ -6,6 +6,8 @@
 //  Copyright © 2016 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import XCTest
 
 @testable import EZSwiftExtensions
@@ -97,3 +99,5 @@ class CGFloatTests: XCTestCase {
         XCTAssertEqual(shortestAngle, -0.5 * .pi)
     }
 }
+
+#endif

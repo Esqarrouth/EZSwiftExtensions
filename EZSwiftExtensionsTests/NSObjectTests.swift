@@ -6,6 +6,8 @@
 //  Copyright © 2016 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import XCTest
 import EZSwiftExtensions
 
@@ -43,4 +45,6 @@ class NSObjectTests: XCTestCase {
 class UserDefinedClass : NSObject {
     
 }
+
+#endif
 

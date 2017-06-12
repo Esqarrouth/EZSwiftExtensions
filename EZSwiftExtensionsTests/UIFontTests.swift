@@ -6,6 +6,8 @@
 //  Copyright © 2016 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import XCTest
 @testable import EZSwiftExtensions
 
@@ -47,4 +49,6 @@ class UIFontTests: XCTestCase {
         XCTAssertEqual(avenirNextDemiBold.pointSize, TEST_SIZE)
     }
 }
+
+#endif
 
