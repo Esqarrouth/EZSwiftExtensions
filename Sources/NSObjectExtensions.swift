@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 extension NSObject {
     public var className: String {
         return type(of: self).className
@@ -15,3 +17,5 @@ extension NSObject {
         return String(describing: self)
     }
 }
+
+#endif

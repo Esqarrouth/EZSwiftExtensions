@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Goktug Yilmaz. All rights reserved.
 //
 
+import Foundation
+
 extension Dictionary {
    
     /// EZSE: Returns the value of a random Key-Value pair from the Dictionary

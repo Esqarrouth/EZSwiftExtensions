@@ -6,6 +6,8 @@
 //  Copyright (c) 2016 Lucas Farah. All rights reserved.
 //
 
+import Foundation
+
 extension Timer {
     /// EZSE: Runs every x seconds, to cancel use: timer.invalidate()
     public static func runThisEvery(seconds: TimeInterval, handler: @escaping (Timer?) -> Void) -> Timer {

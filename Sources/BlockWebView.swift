@@ -6,9 +6,9 @@
 //
 //
 
-import UIKit
-
 #if os(iOS)
+
+import UIKit
 
 ///Make sure you use  `[weak self] (NSURLRequest) in` if you are using the keyword `self` inside the closure or there might be a memory leak
 open class BlockWebView: UIWebView, UIWebViewDelegate {

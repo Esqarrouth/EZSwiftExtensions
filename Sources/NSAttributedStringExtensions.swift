@@ -6,6 +6,8 @@
 //  Copyright (c) 2016 Lucas Farah. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 extension NSAttributedString {
     /// EZSE: Adds bold attribute to NSAttributedString and returns it
 
@@ -71,3 +73,5 @@ public func += (left: inout NSAttributedString, right: NSAttributedString) {
     ns.append(right)
     left = ns
 }
+
+#endif

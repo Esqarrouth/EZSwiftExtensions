@@ -8,6 +8,8 @@
 
 //TODO: others standart video, gif
 
+import Foundation
+
 public struct ez {
     /// EZSE: Returns app's name
     public static var appDisplayName: String? {
@@ -100,6 +102,8 @@ public struct ez {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+
     /// EZSE: Returns the top ViewController
     public static var topMostVC: UIViewController? {
         let topVC = UIApplication.topViewController()
@@ -127,6 +131,10 @@ public struct ez {
     public static var verticalSizeClass: UIUserInterfaceSizeClass {
         return self.topMostVC?.traitCollection.verticalSizeClass ?? UIUserInterfaceSizeClass.unspecified
     }
+    
+    #endif
+    
+    #if os(iOS) || os(tvOS)
 
     /// EZSE: Returns screen width
     public static var screenWidth: CGFloat {
@@ -163,6 +171,8 @@ public struct ez {
 
         #endif
     }
+    
+    #endif
 
     #if os(iOS)
 
@@ -186,6 +196,8 @@ public struct ez {
     public static var currentRegion: String? {
         return (Locale.current as NSLocale).object(forKey: NSLocale.Key.countryCode) as? String
     }
+    
+    #if os(iOS) || os(tvOS)
 
     /// EZSE: Calls action when a screen shot is taken
     public static func detectScreenShot(_ action: @escaping () -> Void) {
@@ -195,6 +207,8 @@ public struct ez {
             action()
         }
     }
+    
+    #endif
 
     //TODO: Document this, add tests to this
     /// EZSE: Iterates through enum elements, use with (for element in ez.iterateEnum(myEnum))
@@ -285,6 +299,8 @@ public struct ez {
     }
 
     // MARK: - DownloadTask
+    
+    #if os(iOS) || os(tvOS)
 
     /// EZSE: Downloads image from url string
     public static func requestImage(_ url: String, success: @escaping (UIImage?) -> Void) {
@@ -294,6 +310,8 @@ public struct ez {
             }
         })
     }
+    
+    #endif
 
     /// EZSE: Downloads JSON from url string
     public static func requestJSON(_ url: String, success: @escaping ((Any?) -> Void), error: ((NSError) -> Void)?) {

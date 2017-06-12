@@ -10,6 +10,7 @@ import Foundation
 
 public extension Bundle {
 
+    #if os(iOS) || os(tvOS)
     /// EZSE: load xib
     //  Usage: Set some UIView subclass as xib's owner class
     //  Bundle.loadNib("ViewXibName", owner: self) //some UIView subclass
@@ -23,5 +24,6 @@ public extension Bundle {
     public class func loadNib<T>(_ name: String) -> T? {
         return Bundle.main.loadNibNamed(name, owner: nil, options: nil)?[0] as? T
     }
-
+    
+    #endif
 }
