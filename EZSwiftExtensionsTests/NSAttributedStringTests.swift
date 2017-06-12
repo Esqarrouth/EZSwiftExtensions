@@ -35,12 +35,16 @@ class NSAttributedStringTests: XCTestCase {
     
     #endif
     
+    #if os(iOS) || os(tvOS)
+    
     func testUnderLine() {
         let underLineString = testAttributedString.underline()
         let newAttributesSeen = underLineString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, underLineString.length))
         
         XCTAssertEqual(newAttributesSeen[NSUnderlineStyleAttributeName] as! Int, NSUnderlineStyle.styleSingle.rawValue)
     }
+    
+    #endif
     
     #if os(iOS)
     
@@ -60,6 +64,8 @@ class NSAttributedStringTests: XCTestCase {
     
     #endif
     
+    #if os(iOS) || os(tvOS)
+    
     func testColor() {
         let grayColor = UIColor(gray: 0)
         let coloredString = testAttributedString.color(grayColor)
@@ -78,5 +84,7 @@ class NSAttributedStringTests: XCTestCase {
 
         XCTAssertEqual(string, expected)
     }
+    
+    #endif
 }
 

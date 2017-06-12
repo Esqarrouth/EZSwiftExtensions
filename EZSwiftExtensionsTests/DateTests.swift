@@ -293,7 +293,11 @@ class DateTests: XCTestCase {
         XCTAssert(today.nanosecond == Calendar.current.component(.nanosecond, from: today))
     }
     
+    #if os(iOS) || os(tvOS)
+    
     func testISO8601() {
         XCTAssertEqual(self.date.iso8601, "2015-11-14T16:05:11Z")
     }
+    
+    #endif
 }

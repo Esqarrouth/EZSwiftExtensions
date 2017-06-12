@@ -6,6 +6,8 @@
 //  Copyright © 2016 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import XCTest
 @testable import EZSwiftExtensions
 
@@ -160,3 +162,5 @@ class UITextFieldTests: XCTestCase {
         XCTAssertFalse(textField.validateDigits())
     }
 }
+
+#endif

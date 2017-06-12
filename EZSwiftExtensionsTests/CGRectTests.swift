@@ -6,7 +6,10 @@
 //  Copyright © 2016 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import XCTest
+import Foundation
 
 class CGRectTests: XCTestCase {
 
@@ -43,3 +46,5 @@ class CGRectTests: XCTestCase {
         XCTAssertEqual(cg.area, 3000)
     }
 }
+
+#endif

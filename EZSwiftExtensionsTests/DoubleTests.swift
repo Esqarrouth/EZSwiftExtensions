@@ -46,6 +46,8 @@ extension DoubleTests {
 //        XCTAssertNotEqual(Double(maxDouble.toInt), maxDouble) // fatal error double value greater than int max value
     }
     
+    #if os(iOS) || os(tvOS)
+    
     func testCGFloat() {
         XCTAssertEqual(double.toCGFloat, 3.14)
         XCTAssertEqual(negativeDouble.toCGFloat, -147.9564)
@@ -58,4 +60,6 @@ extension DoubleTests {
         XCTAssertEqual(Double(3.0).abs, Double(3.0))
         XCTAssertEqual(Double(0).abs, Double(0))
     }
+    
+    #endif
 }

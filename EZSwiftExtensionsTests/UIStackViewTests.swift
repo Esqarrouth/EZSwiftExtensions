@@ -6,6 +6,8 @@
 //  Copyright © 2017 Goktug Yilmaz. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import XCTest
 @testable import EZSwiftExtensions
 
@@ -39,3 +41,5 @@ class UIStackViewTests: XCTestCase {
 	}
 
 }
+
+#endif
