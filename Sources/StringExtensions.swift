@@ -410,6 +410,8 @@ extension String {
     
     #endif
     
+    #if os(iOS) || os(tvOS)
+    
     ///EZSE: Returns NSAttributedString
     public func color(_ color: UIColor) -> NSAttributedString {
         let colorString = NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
@@ -435,6 +437,8 @@ extension String {
         }
         return attrText
     }
+    
+    #endif
     
     /// EZSE: Checks if String contains Emoji
     public func includesEmoji() -> Bool {

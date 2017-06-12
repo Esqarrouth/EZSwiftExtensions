@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Goktug Yilmaz. All rights reserved.
 //
 
+import Foundation
+
 extension Int {
     /// EZSE: Checks if the integer is even.
     public var isEven: Bool { return (self % 2 == 0) }

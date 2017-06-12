@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Goktug Yilmaz. All rights reserved.
 //
 
+import Foundation
+
 extension Date {
 
     public static let minutesInAWeek = 24 * 60 * 7
