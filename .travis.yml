@@ -23,7 +23,7 @@ before_script:
 script:
   - set -o pipefail
   
-  - xcodebuild clean build test -project "$PROJECT" -scheme EZSwiftExtensions-iOS -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.3' | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-ios.json" xcpretty -f `xcpretty-json-formatter`
+  - xcodebuild clean build test -project "$PROJECT" -scheme EZSwiftExtensions-iOS -destination 'platform=iOS Simulator,name=iPhone 5s,OS=10.3.1' | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-ios.json" xcpretty -f `xcpretty-json-formatter`
   - xcodebuild clean build test -project "$PROJECT" -scheme EZSwiftExtensions-tvOS -destination 'platform=tvOS Simulator,name=Apple TV 1080p,OS=10.0' | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-tvos.json" xcpretty -f `xcpretty-json-formatter`
   
   - pod lib lint
