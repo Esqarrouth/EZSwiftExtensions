@@ -17,9 +17,9 @@ extension Collection {
         var res = [R?](repeating: nil, count: indices.count)
         
         let queue = OperationQueue()
-        let operations = indices.enumerated().map { index, elementIndex in
+        let operations = indices.enumerated().map { index in
             return BlockOperation {
-                res[index] = each(self[elementIndex])
+                res[index.offset] = each(self[index.element])
             }
         }
         queue.addOperations(operations, waitUntilFinished: true)
