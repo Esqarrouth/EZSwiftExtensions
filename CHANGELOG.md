@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## [Release 1.10]
+
+### New platform added. 
+
+1. **MacOSX 10.11**
+
 ### Added extensions 
 
 1. **Array**
