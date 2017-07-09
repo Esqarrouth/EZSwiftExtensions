@@ -128,9 +128,17 @@ extension Array where Element: Equatable {
         self.remove(at: index)
     }
 
-    /// EZSE: Removes all occurrences of the given object(s)
-    public mutating func removeAll(_ elements: Element...) {
-        removeAll(elements)
+    /// EZSE: Removes all occurrences of the given object(s), at least one entry is needed.
+    public mutating func removeAll(_ firstElement: Element?, _ elements: Element...) {
+        var removeAllArr = [Element]()
+        
+        if let firstElementVal = firstElement {
+            removeAllArr.append(firstElementVal)
+        }
+        
+        elements.forEach({element in removeAllArr.append(element)})
+        
+        removeAll(removeAllArr)
     }
 
     /// EZSE: Removes all occurrences of the given object(s)
