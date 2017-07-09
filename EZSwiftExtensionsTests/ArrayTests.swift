@@ -76,6 +76,17 @@ class ArrayTests: XCTestCase {
             return lhs.val == rhs.val
         }
     }
+    
+    func testRemoveAllSanityFromStdLib() {
+        var rmArray = [1, 2, 3, 4, 5]
+        
+        // This test case is to ensure that remove all from std lib is not conflicted.
+        // The method called here is from std lib. If there is a compile time failure, 
+        // our code is coflicting with stdlib.
+        rmArray.removeAll()
+        
+        XCTAssertTrue(rmArray.isEmpty)
+    }
 
     func testRemoveObjectsByArray() {
         let removeArrayA = [123, 45] // none present in target
@@ -109,6 +120,22 @@ class ArrayTests: XCTestCase {
         let compareArray = [0, 2, 4, 5]
         numberArray.removeAll(1, 3)
         XCTAssertEqual(numberArray, compareArray)
+    }
+    
+    func testRemoveObjectByVariadicWithFirstElement() {
+        var noChangeArray = [0, 2, 4, 5]
+        let nilFirstElem:Int? = nil
+        noChangeArray.removeAll(nilFirstElem, 1, 3)
+        XCTAssertEqual(noChangeArray, noChangeArray)
+        
+        var changedArrayWithNilFirstElement = [0, 2, 4, 5]
+        changedArrayWithNilFirstElement.removeAll(nilFirstElem, 2, 4)
+        XCTAssertEqual(changedArrayWithNilFirstElement, [0, 5])
+        
+        var changedArray = [0, 2, 4, 5, 6]
+        let firstElement = 0;
+        changedArray.removeAll(firstElement, 2, 4)
+        XCTAssertEqual(changedArray, [5, 6])
     }
 
     func testContainsInstanceOf() {
