@@ -70,7 +70,7 @@ extension UILabel {
     public func setLineSpacing(lineSpacing: CGFloat) {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 1.0
-        paragraphStyle.lineHeightMultiple = lineHeight
+        paragraphStyle.lineHeightMultiple = lineSpacing
         paragraphStyle.alignment = self.textAlignment
         
         let attrString = NSMutableAttributedString(string: self.text!)
