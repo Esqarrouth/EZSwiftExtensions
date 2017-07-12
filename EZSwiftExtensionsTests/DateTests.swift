@@ -150,16 +150,16 @@ class DateTests: XCTestCase {
         XCTAssertTrue(now.timePassed().contains("now") || now.timePassed().contains("seconds"))
         
         let today = Date()
-		XCTAssertEqual(today.timePassed(), "Just now")
-		
+        XCTAssertEqual(today.timePassed(), "Just now")
+        
         let yesterday = Calendar.current.date(byAdding: .day, value: -1,to: today)
         XCTAssertEqual(yesterday?.timePassed(), "1 day ago")
         
         let fiveSecondsAgo = Calendar.current.date(byAdding: .second, value: -5,to: today)
         XCTAssertEqual(fiveSecondsAgo?.timePassed(), "5 seconds ago")
-		
-		let oneSecondAgo = Calendar.current.date(byAdding: .second, value: -1, to: today)
-		XCTAssertEqual(oneSecondAgo?.timePassed(), "1 second ago")
+        
+        let oneSecondAgo = Calendar.current.date(byAdding: .second, value: -1, to: today)
+        XCTAssertEqual(oneSecondAgo?.timePassed(), "1 second ago")
         
         let sixHoursAgo = Calendar.current.date(byAdding: .hour, value: -6,to: today)
         XCTAssertEqual(sixHoursAgo?.timePassed(), "6 hours ago")
