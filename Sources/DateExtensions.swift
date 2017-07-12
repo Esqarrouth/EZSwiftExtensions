@@ -122,12 +122,12 @@ extension Date {
         } else if components.minute! >= 1 {
             components.minute == 1 ? (str = "minute") : (str = "minutes")
             return "\(components.minute!) \(str) ago"
-		} else if components.second! >= 1 {
-			components.second == 1 ? (str = "second") : (str = "seconds")
-			return "\(components.second!) \(str) ago"
-		} else {
-			return "Just now"
-		}
+	} else if components.second! >= 1 {
+	    components.second == 1 ? (str = "second") : (str = "seconds")
+	    return "\(components.second!) \(str) ago"
+	} else {
+	    return "Just now"
+	}
     }
     
     /// EZSE: Check if date is in future.
