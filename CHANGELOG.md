@@ -54,6 +54,9 @@ All notable changes to this project will be documented in this file.
    - `validateEmail()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/429) by *Vic-L*
    - `validateDigits()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/429) by *Vic-L*
 
+12. **UILabelExtensions**
+   - `setLineSpacing` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/438) by *osama10* 
+
 ### Deprecated/Renamed extensions
 1. **UIViewController**
    - `public func hideKeyboardWhenTappedAround(cancelTouches: Bool = false)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/395) by *lfarah*
