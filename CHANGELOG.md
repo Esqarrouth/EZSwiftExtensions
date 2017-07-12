@@ -55,7 +55,7 @@ All notable changes to this project will be documented in this file.
    - `validateDigits()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/429) by *Vic-L*
 
 12. **UILabelExtensions**
-   - `setLineSpacing` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/438) by *osama10* 
+   - `setLineSpacing(lineSpacing : CGFloat)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/438) by *osama10* 
 
 ### Deprecated/Renamed extensions
 1. **UIViewController**
