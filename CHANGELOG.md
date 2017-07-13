@@ -2,7 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## Unreleased
-
+ **UILabelExtensions**
+   - `setLineSpacing(lineSpacing : CGFloat)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/438) by *osama10*
 ## [Release 1.10]
 
 ### New platform added. 
@@ -54,10 +55,7 @@ All notable changes to this project will be documented in this file.
    - `validateEmail()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/429) by *Vic-L*
    - `validateDigits()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/429) by *Vic-L*
 
-12. **UILabelExtensions**
-   - `setLineSpacing(lineSpacing : CGFloat)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/438) by *osama10* 
-
-### Deprecated/Renamed extensions
+ ### Deprecated/Renamed extensions
 1. **UIViewController**
    - `public func hideKeyboardWhenTappedAround(cancelTouches: Bool = false)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/395) by *lfarah*
 
