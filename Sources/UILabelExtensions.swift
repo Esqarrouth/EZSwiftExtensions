@@ -15,6 +15,14 @@ extension UILabel {
     public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
         self.init(x: x, y: y, w: w, h: h, fontSize: 17)
     }
+    
+    /// EZSwiftExtensions
+    public convenience init(font: UIFont, color: UIColor, alignment: NSTextAlignment) {
+        self.init()
+        self.font = font
+        self.textColor = color
+        self.textAlignment = alignment
+    }
 
     /// EZSwiftExtensions
     public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, fontSize: CGFloat) {
