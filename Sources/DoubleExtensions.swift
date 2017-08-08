@@ -6,7 +6,13 @@
 //  Copyright © 2015 Goktug Yilmaz. All rights reserved.
 //
 
+import Foundation
+
+precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
+infix operator ** : PowerPrecedence
+
 extension Double {
+    
     /// EZSE: Converts Double to String
     public var toString: String { return String(self) }
 
@@ -19,6 +25,11 @@ extension Double {
     public var toCGFloat: CGFloat { return CGFloat(self) }
     
     #endif
+    
+    /// EZSE: Creating the exponent operator
+    static public func ** (lhs: Double, rhs: Double) -> Double {
+        return pow(lhs, rhs)
+    }
 }
 
 // MARK: - Deprecated 1.8
