@@ -17,7 +17,7 @@ extension UILabel {
         self.init(x: x, y: y, w: w, h: h, fontSize: 17)
     }
     
-    /// EZSwiftExtensions
+    /// EZSE: Initialize Label with a font, color and alignment.
     public convenience init(font: UIFont, color: UIColor, alignment: NSTextAlignment) {
         self.init()
         self.font = font
