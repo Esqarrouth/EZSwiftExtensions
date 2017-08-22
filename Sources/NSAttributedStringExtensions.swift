@@ -81,5 +81,4 @@ public func + (left: NSAttributedString, right: NSAttributedString) -> NSAttribu
     return ns
 }
 
-
 #endif
