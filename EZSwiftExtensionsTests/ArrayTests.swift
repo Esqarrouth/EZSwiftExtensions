@@ -32,6 +32,14 @@ class ArrayTests: XCTestCase {
         XCTAssertEqual(emptyArray.get(at: -3...(-1)), [])
         XCTAssertEqual(emptyArray.get(at: -1...1), [])
     }
+    
+    func testSafeIndex() {
+        
+        let optionalNumber: Int? = 3
+        XCTAssertEqual(numberArray[safe: 3], optionalNumber)
+        XCTAssertNotEqual(numberArray[safe: 4], 3)
+        XCTAssertNil(numberArray[safe: 10])
+    }
 
     func testAdding() {
         numberArray.insertFirst(9)
