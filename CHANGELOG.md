@@ -6,6 +6,9 @@ All notable changes to this project will be documented in this file.
 1. **Double**
    - `**?(lhs:Double, rhs:Double)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/443) by *Khalian*
 
+2. **NSAttributedString**
+   - `+ (left: NSAttributedString, right: NSAttributedString) -> NSAttributedString` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/446) by *lfarah*
+
 ## [Release 1.10]
 
 ### New platform added. 
