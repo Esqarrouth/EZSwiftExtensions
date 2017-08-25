@@ -20,6 +20,7 @@ class UILabelTests: XCTestCase {
         
         XCTAssertEqual(label.frame, expected.frame)
         XCTAssertEqual(label2.font.pointSize, 20)
+        XCTAssertEqual(label.font.pointSize, 17)
     }
     
     func testSet() {
