@@ -37,6 +37,31 @@ class UILabelTests: XCTestCase {
         XCTAssertEqual(label.text, "EZSwiftExtensions❤️")
     }
 
+    func testSetLineSpacing(){
+    
+        let textForTesting = "I am testing test Set line spacing method"
+        var paragraphStyle : NSMutableParagraphStyle?
+        
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        label.text = textForTesting
+        label.setLineSpacing(lineSpacing: 1.5)
+        
+        label.attributedText?.enumerateAttribute(NSParagraphStyleAttributeName , in: NSMakeRange(0, (label.attributedText?.length)!), options: [.longestEffectiveRangeNotRequired]) { value, range, isStop in
+            
+            
+            if let value = value {
+                
+                paragraphStyle =  value as! NSMutableParagraphStyle
+               
+            }
+        }
+        
+        XCTAssertEqual(paragraphStyle?.lineHeightMultiple, 1.5)
+        
+       
+        
+    }
+    
     var waitExpectation: XCTestExpectation?
     
     func wait(duration: TimeInterval) {
