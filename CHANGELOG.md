@@ -7,9 +7,9 @@ All notable changes to this project will be documented in this file.
    - `**?(lhs:Double, rhs:Double)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/443) by *Khalian*
 
 2. **Enum**
-   - `static func enumerated()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/446) by *furuyan*
-   - `static var cases` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/446) by *furuyan*
-   - `static var count` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/446) by *furuyan*
+   - `static func enumerated()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/447) by *furuyan*
+   - `static var cases` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/447) by *furuyan*
+   - `static var count` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/447) by *furuyan*
 
 ## [Release 1.10]
 
