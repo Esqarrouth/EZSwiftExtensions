@@ -25,14 +25,17 @@ extension EnumCollection where Case: Hashable {
         }
     }
 
+    /// EZSwiftExtensions
     static func enumerated() -> EnumeratedSequence<AnySequence<Case>> {
         return AnySequence(iterator).enumerated()
     }
 
+    /// EZSwiftExtensions
     static var cases: [Case] {
         return Array(iterator)
     }
 
+    /// EZSwiftExtensions
     static var count: Int {
         return cases.count
     }
