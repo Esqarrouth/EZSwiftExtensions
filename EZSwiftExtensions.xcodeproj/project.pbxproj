@@ -12,6 +12,8 @@
 		0B96F02E1E2FD32500236DDE /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F02C1E2FD32000236DDE /* UIEdgeInsets.swift */; };
 		0B96F0301E2FD33C00236DDE /* UIEdgeInsetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F02F1E2FD33C00236DDE /* UIEdgeInsetsTests.swift */; };
 		0B96F0311E2FD33C00236DDE /* UIEdgeInsetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F02F1E2FD33C00236DDE /* UIEdgeInsetsTests.swift */; };
+		0BE73A261F5138A100CEA894 /* EnumExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE73A251F5138A100CEA894 /* EnumExtensions.swift */; };
+		0BE73A281F5138F800CEA894 /* EnumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE73A271F5138F800CEA894 /* EnumTests.swift */; };
 		31F868DB1C2B6E5E00542250 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F868DA1C2B6E5E00542250 /* DoubleExtensions.swift */; };
 		50AD20191DDCE6FF00A5A863 /* FileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AD20181DDCE6FF00A5A863 /* FileManagerTests.swift */; };
 		50AD201A1DDCE6FF00A5A863 /* FileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AD20181DDCE6FF00A5A863 /* FileManagerTests.swift */; };
@@ -354,6 +356,8 @@
 		0B96C3CD1C8688CB00BB2A3B /* URLTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLTests.swift; sourceTree = "<group>"; };
 		0B96F02C1E2FD32000236DDE /* UIEdgeInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
 		0B96F02F1E2FD33C00236DDE /* UIEdgeInsetsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetsTests.swift; sourceTree = "<group>"; };
+		0BE73A251F5138A100CEA894 /* EnumExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumExtensions.swift; sourceTree = "<group>"; };
+		0BE73A271F5138F800CEA894 /* EnumTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumTests.swift; sourceTree = "<group>"; };
 		31F868DA1C2B6E5E00542250 /* DoubleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
 		50AD20181DDCE6FF00A5A863 /* FileManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerTests.swift; sourceTree = "<group>"; };
 		5A02399C1E6D345C00C235B8 /* CollectionsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionsExtension.swift; sourceTree = "<group>"; };
@@ -603,6 +607,7 @@
 				B5DC86B81C0ED06700972D0A /* ExampleTests.swift */,
 				B5DC86BA1C0ED06700972D0A /* Info.plist */,
 				0B96F02F1E2FD33C00236DDE /* UIEdgeInsetsTests.swift */,
+				0BE73A271F5138F800CEA894 /* EnumTests.swift */,
 			);
 			path = EZSwiftExtensionsTests;
 			sourceTree = "<group>";
@@ -662,6 +667,7 @@
 				E19AC0EE1DCBA2BF00908905 /* URLExtensions.swift */,
 				E19AC0EB1DCBA28A00908905 /* UserDefaultsExtension.swift */,
 				0B96F02C1E2FD32000236DDE /* UIEdgeInsets.swift */,
+				0BE73A251F5138A100CEA894 /* EnumExtensions.swift */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -980,6 +986,7 @@
 				5AF5779F1EEE52DC00B1C277 /* UISliderExtensions.swift in Sources */,
 				5AF577A01EEE52DC00B1C277 /* UIStackViewExtensions.swift in Sources */,
 				5AF577A11EEE52DC00B1C277 /* UIStoryboardExtensions.swift in Sources */,
+				0BE73A261F5138A100CEA894 /* EnumExtensions.swift in Sources */,
 				5AF577A21EEE52DC00B1C277 /* UISwitchExtensions.swift in Sources */,
 				5AF577A31EEE52DC00B1C277 /* UITextFieldExtensions.swift in Sources */,
 				5AF577A41EEE52DC00B1C277 /* UITextViewExtensions.swift in Sources */,
@@ -1015,6 +1022,7 @@
 				5AF578481EEE595C00B1C277 /* DateTests.swift in Sources */,
 				5AF578491EEE595C00B1C277 /* DictionaryTests.swift in Sources */,
 				5AF5784A1EEE595C00B1C277 /* DoubleTests.swift in Sources */,
+				0BE73A281F5138F800CEA894 /* EnumTests.swift in Sources */,
 				5AF5784B1EEE595C00B1C277 /* FileManagerTests.swift in Sources */,
 				5AF5784C1EEE595C00B1C277 /* FloatingPointTests.swift in Sources */,
 				5AF5784D1EEE595C00B1C277 /* EZSwiftFunctionsTests.swift in Sources */,
