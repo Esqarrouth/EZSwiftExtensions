@@ -15,6 +15,10 @@
 		0BE73A261F5138A100CEA894 /* EnumExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE73A251F5138A100CEA894 /* EnumExtensions.swift */; };
 		0BE73A281F5138F800CEA894 /* EnumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE73A271F5138F800CEA894 /* EnumTests.swift */; };
 		31F868DB1C2B6E5E00542250 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F868DA1C2B6E5E00542250 /* DoubleExtensions.swift */; };
+		45511FD11F55700F003A3D5A /* EnumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE73A271F5138F800CEA894 /* EnumTests.swift */; };
+		45511FD21F557013003A3D5A /* EnumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE73A271F5138F800CEA894 /* EnumTests.swift */; };
+		45511FD31F557046003A3D5A /* EnumExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE73A251F5138A100CEA894 /* EnumExtensions.swift */; };
+		45511FD41F557047003A3D5A /* EnumExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE73A251F5138A100CEA894 /* EnumExtensions.swift */; };
 		50AD20191DDCE6FF00A5A863 /* FileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AD20181DDCE6FF00A5A863 /* FileManagerTests.swift */; };
 		50AD201A1DDCE6FF00A5A863 /* FileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AD20181DDCE6FF00A5A863 /* FileManagerTests.swift */; };
 		5A02399D1E6D345C00C235B8 /* CollectionsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A02399C1E6D345C00C235B8 /* CollectionsExtension.swift */; };
@@ -1105,6 +1109,7 @@
 				B5DC87311C0ED34300972D0A /* UIDeviceExtensions.swift in Sources */,
 				E1F21CB51CB55CDA004A01A4 /* EZSwiftFunctions.swift in Sources */,
 				5A02399D1E6D345C00C235B8 /* CollectionsExtension.swift in Sources */,
+				45511FD31F557046003A3D5A /* EnumExtensions.swift in Sources */,
 				E178781C1C8678AA00BC05AA /* UISliderExtensions.swift in Sources */,
 				B5DC87321C0ED34300972D0A /* UIFontExtensions.swift in Sources */,
 				B5DC87331C0ED34300972D0A /* UIImageExtensions.swift in Sources */,
@@ -1129,6 +1134,7 @@
 				7605D3141C81FC180046FAC3 /* BoolTests.swift in Sources */,
 				5A3292F41DC5BCC50078F7F3 /* CGPointTests.swift in Sources */,
 				E10A79851D6F65AF00735549 /* CharacterTests.swift in Sources */,
+				45511FD11F55700F003A3D5A /* EnumTests.swift in Sources */,
 				0B96F0301E2FD33C00236DDE /* UIEdgeInsetsTests.swift in Sources */,
 				E10A79BB1D6F65AF00735549 /* UIViewTests.swift in Sources */,
 				E10A79B51D6F65AF00735549 /* UITextViewTests.swift in Sources */,
@@ -1230,6 +1236,7 @@
 				CD4D30D81CEEAFD900CB53BC /* UITextViewExtensions.swift in Sources */,
 				FFA538CD1E75D69F0093552E /* UIStackViewExtensions.swift in Sources */,
 				CD4D30D91CEEAFD900CB53BC /* UIViewControllerExtensions.swift in Sources */,
+				45511FD41F557047003A3D5A /* EnumExtensions.swift in Sources */,
 				CD4D30DA1CEEAFD900CB53BC /* UIViewExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1256,6 +1263,7 @@
 				E10A79641D6F62DF00735549 /* BlockWebViewTests.swift in Sources */,
 				E10A79601D6F62DF00735549 /* BlockSwipeTests.swift in Sources */,
 				E10A79881D6F65AF00735549 /* DoubleTests.swift in Sources */,
+				45511FD21F557013003A3D5A /* EnumTests.swift in Sources */,
 				FADFAA5D1D9D787D00CF9F7A /* FloatingPointTests.swift in Sources */,
 				E10A79A41D6F65AF00735549 /* UIDeviceTests.swift in Sources */,
 				E10A79941D6F65AF00735549 /* TimerTests.swift in Sources */,

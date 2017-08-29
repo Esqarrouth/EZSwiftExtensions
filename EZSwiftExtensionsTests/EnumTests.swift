@@ -15,14 +15,14 @@ class EnumTests: XCTestCase {
     }
 
     func testEnumerated() {
-        for (i, fruit) in Fruit.enumrated() {
-            switch i {
-            case 0:
-                XCTAssertEqual(fruit, .apple)
-            case 1:
-                XCTAssertEqual(fruit, .orange)
-            case 2:
-                XCTAssertEqual(fruit, .banana)
+        for (i, fruit) in Fruit.enumerated() {
+            switch (i, fruit) {
+            case (0, .apple),
+                 (1, .orange),
+                 (2, .banana):
+                XCTAssertTrue(true)
+            default:
+                XCTFail()
             }
         }
     }
