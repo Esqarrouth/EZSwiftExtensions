@@ -13,11 +13,11 @@ All notable changes to this project will be documented in this file.
 
 ## [Release 1.10]
 
-### New platform added.
+### New platform added. 
 
 1. **MacOSX 10.11**
 
-### Added extensions
+### Added extensions 
 
 1. **Array**
    - `removeAll(_ elements: [Element])` (new overload) for `Equatable` elements in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/416) by *dfrib*
@@ -52,7 +52,7 @@ All notable changes to this project will be documented in this file.
    - `nakedView()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/424) by *Vic-L*
 
 9. **UIViewControllerExtensions**
-   - `isNavBarHidden` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/428) by *Khalian*
+   - `isNavBarHidden` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/428) by *Khalian* 
 
 10. **Double**
    - `var toCGFloat` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/425) by *Vic-L*
@@ -68,7 +68,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Release 1.9]
 
-### Fixed bugs
+### Fixed bugs 
 
 1. **Array**
    - `foreach` is now removed since its already in the std library by *Khalian*
@@ -76,12 +76,12 @@ All notable changes to this project will be documented in this file.
 
 2. **Date**
    - `timePassed` now returns print value correctly, earlier used to return optionals in between by *Khalian*
-   - `testMonthAsString` fixing documentation via tests by *Khalian*
+   - `testMonthAsString` fixing documentation via tests by *Khalian* 
 
 ### Added extensions
 
 1. **Bool**
-   - `public var toggled` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/352) by *Khalian*
+   - `public var toggled` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/352) by *Khalian* 
 
 2. **CGPoint:**
    - `init(vector: CGVector)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/349) by *Khalian*
@@ -122,7 +122,7 @@ All notable changes to this project will be documented in this file.
    - `set(text _text: String?, duration: TimeInterval)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/340) by *vilapuigvila*
 
 11. **UIImage**
-   - `var base64: String` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/363) by *lfarah*## [Version 1.8]
+   - `var base64: String` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/363) by *lfarah*## [Version 1.8] 
 
 ### Fixed bugs
 
@@ -136,7 +136,7 @@ All notable changes to this project will be documented in this file.
 ### Added extensions
 
 1. **Array:**
-  - `shuffled() -> Array` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/212) by *piv199*
+  - `shuffled() -> Array` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/212) by *piv199* 
   - `unique() -> Array` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/254) by *Khalian*
   - `get(at range:ClosedRange<Int>) -> Array` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/260) by *Dendim0n*
 
@@ -217,57 +217,57 @@ All notable changes to this project will be documented in this file.
 
 **Array:**
 
-Method/property name  | Renamed to | Author
-------------- | ------------- | -------------
-`containsInstanceOf<T>(_ element: T)`  | `containsType<T>(of element: T)` | piv199
-`get(_ index: Int)`  | `get(at index: Int)` | piv199
-`removeObjects(_ objects: Element...)`  | `removeAll(_ elements: Element...)` | piv199
-`removeFirstObject(_ object: Element)`  | `removeFirst(_ element: Element)` | piv199
-`testIfAllIs(_ condition: Bool)`  | `testAll(is condition: Bool)` | piv199
+Method/property name  | Renamed to | Author 
+------------- | ------------- | ------------- 
+`containsInstanceOf<T>(_ element: T)`  | `containsType<T>(of element: T)` | piv199 
+`get(_ index: Int)`  | `get(at index: Int)` | piv199 
+`removeObjects(_ objects: Element...)`  | `removeAll(_ elements: Element...)` | piv199 
+`removeFirstObject(_ object: Element)`  | `removeFirst(_ element: Element)` | piv199 
+`testIfAllIs(_ condition: Bool)`  | `testAll(is condition: Bool)` | piv199 
 
 **CGFloat:**
 
-Method/property name  | Renamed to | Author
-------------- | ------------- | -------------
- `toRadians()` | `degreesToRadians()` | Khalian
+Method/property name  | Renamed to | Author 
+------------- | ------------- | ------------- 
+ `toRadians()` | `degreesToRadians()` | Khalian 
 
 **Double:**
 
-Method/property name  | Renamed to | Author
-------------- | ------------- | -------------
- `ceilByPlaces(_ places: Int)` | `ceil(toPlaces places: Int)` | piv199
- `getCeiledByPlaces(_ places: Int)` | `ceiled(toPlaces places: Int)` | piv199
- `getRoundedByPlaces(_ places: Int)` | `rounded(toPlaces places: Int)` | piv199
- `roundByPlaces(_ places: Int)` | `round(toPlaces places: Int)` | piv199
+Method/property name  | Renamed to | Author 
+------------- | ------------- | ------------- 
+ `ceilByPlaces(_ places: Int)` | `ceil(toPlaces places: Int)` | piv199 
+ `getCeiledByPlaces(_ places: Int)` | `ceiled(toPlaces places: Int)` | piv199 
+ `getRoundedByPlaces(_ places: Int)` | `rounded(toPlaces places: Int)` | piv199 
+ `roundByPlaces(_ places: Int)` | `round(toPlaces places: Int)` | piv199 
 
 **UIColor:**
 
-Method/property name  | Renamed to | Author
-------------- | ------------- | -------------
- `randomColor(_ randomAlpha: Bool)` | `random(randomAlpha: Bool)` | lfarah
+Method/property name  | Renamed to | Author 
+------------- | ------------- | ------------- 
+ `randomColor(_ randomAlpha: Bool)` | `random(randomAlpha: Bool)` | lfarah 
 
 **UIFont:**
 
-Method/property name  | Renamed to | Author
-------------- | ------------- | -------------
+Method/property name  | Renamed to | Author 
+------------- | ------------- | ------------- 
 `PrintFontFamily(_ font: FontName)` | *deprecated* | lfarah
 
 **UIViewController:**
 
-Method/property name  | Renamed to | Author
-------------- | ------------- | -------------
- `hideKeyboardWhenTappedAround(handler: ((UITapGestureRecognizer) -> Void)?)` | `hideKeyboardWhenTappedAround()` | furuyan
+Method/property name  | Renamed to | Author 
+------------- | ------------- | ------------- 
+ `hideKeyboardWhenTappedAround(handler: ((UITapGestureRecognizer) -> Void)?)` | `hideKeyboardWhenTappedAround()` | furuyan 
 
 **NSDictionary:**
 
-Method/property name  | Renamed to | Author
-------------- | ------------- | -------------
+Method/property name  | Renamed to | Author 
+------------- | ------------- | ------------- 
 `init?(json: String)` | *deprecated* | lfarah
-`formatJSON() -> String?` | *deprecated* | lfarah
+`formatJSON() -> String?` | *deprecated* | lfarah 
 
 **UIImageView:**
 
-Method/property name  | Renamed to | Author
+Method/property name  | Renamed to | Author 
 ------------- | ------------- | -------------
 `imageWithUrl(url: String, placeholderNamed: String)` | `image(url: String, placeholderNamed: String)` | lfarah
 `imageWithUrl(url: String, placeholder: UIImage)` | `image(url: String, placeholder: UIImage)` | lfarah
@@ -275,3 +275,4 @@ Method/property name  | Renamed to | Author
 
 
 [All changes](https://github.com/goktugyil/EZSwiftExtensions/compare/1.7...master)
+
