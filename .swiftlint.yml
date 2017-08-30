@@ -11,3 +11,4 @@ disabled_rules:
   - valid_docs
   - todo
   - variable_name_min_length
+  - trailing_whitespace

@@ -12,6 +12,9 @@ All notable changes to this project will be documented in this file.
 2. **UILabel**
    - `public convenience init(font: UIFont, color: UIColor, alignment: NSTextAlignment)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/441) by *icefall*
 
+2. **UILabel**
+   - `public convenience init(font: UIFont, color: UIColor, alignment: NSTextAlignment)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/441) by *icefall*
+
 ## [Release 1.10]
 
 ### New platform added. 

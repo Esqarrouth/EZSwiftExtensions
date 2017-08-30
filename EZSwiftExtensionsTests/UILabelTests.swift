@@ -13,31 +13,40 @@
     class UILabelTests: XCTestCase {
         
         func testInit() {
-            
-            let label = UILabel(x: 0, y: 0, w: 200, h: 50)
-            let expected = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
-            let label2 = UILabel(x: 0, y: 0, w: 200, h: 50, fontSize: 20)
-            
-            XCTAssertEqual(label.frame, expected.frame)
-            XCTAssertEqual(label2.font.pointSize, 20)
-        }
         
+        let label = UILabel(x: 0, y: 0, w: 200, h: 50)
+        let expected = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        let label2 = UILabel(x: 0, y: 0, w: 200, h: 50, fontSize: 20)
+        
+        let label3 = UILabel(font: UIFont.systemFont(ofSize: 32), color: .red, alignment: .left)
+        
+        XCTAssertEqual(label.frame, expected.frame)
+        XCTAssertEqual(label2.font.pointSize, 20)
+        XCTAssertEqual(label.font.pointSize, 17)
+        
+        XCTAssertEqual(label3.font, UIFont.systemFont(ofSize: 32))
+        XCTAssertEqual(label3.textColor, .red)
+        XCTAssertEqual(label3.textAlignment, .left)
+    }
+
+        
+
         func testSet() {
-            
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
-            label.set(text: "EZSwiftExtensions✅", duration: 1)
-            XCTAssertEqual(label.text, "EZSwiftExtensions✅")
-            
-            label.text = ""
-            label.set(text: "EZSwiftExtensions🚀", duration: 0)
-            XCTAssertEqual(label.text, "EZSwiftExtensions🚀")
-            
-            label.text = ""
-            label.set(text: "EZSwiftExtensions❤️", duration: 1)
-            XCTAssertEqual(label.text, "EZSwiftExtensions❤️")
-        }
         
-        func testSetLineSpacing(){
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        label.set(text: "EZSwiftExtensions✅", duration: 1)
+        XCTAssertEqual(label.text, "EZSwiftExtensions✅")
+        
+        label.text = ""
+        label.set(text: "EZSwiftExtensions🚀", duration: 0)
+        XCTAssertEqual(label.text, "EZSwiftExtensions🚀")
+        
+        label.text = ""
+        label.set(text: "EZSwiftExtensions❤️", duration: 1)
+        XCTAssertEqual(label.text, "EZSwiftExtensions❤️")
+}
+      
+      func testSetLineSpacing(){
             
             let textForTesting = "I am testing test Set line spacing method"
             var paragraphStyle : NSMutableParagraphStyle?
