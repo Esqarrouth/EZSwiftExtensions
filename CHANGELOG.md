@@ -2,8 +2,15 @@
 All notable changes to this project will be documented in this file.
 
 ## Unreleased
+
  **UILabelExtensions**
    - `setLineSpacing(lineSpacing : CGFloat)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/438) by *osama10*
+
+
+1. **Double**
+   - `**?(lhs:Double, rhs:Double)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/443) by *Khalian*
+
+
 ## [Release 1.10]
 
 ### New platform added. 

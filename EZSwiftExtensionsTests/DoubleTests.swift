@@ -34,16 +34,20 @@ extension DoubleTests {
         XCTAssertEqual(minDouble.toString, "2.2250738585072e-308")
         XCTAssertEqual(maxDouble.toString, "1.79769313486232e+308")
     }
+    
+    func testExponent() {
+        XCTAssertEqual(2.0 ** 3.0, 8.0)
+        XCTAssertEqual(4.0 ** 0.0, 1.0)
+        XCTAssertEqual(2.0 ** 4.0, 4.0 ** 2.0)
+    }
 
     func testToInt() {
         XCTAssertEqual(double.toInt, 3)
         XCTAssertEqual(negativeDouble.toInt, -147)
         XCTAssertEqual(minDouble.toInt, 0)
-//        XCTAssertEqual(maxDouble.toInt) // fatal error double value greater than int max value
         XCTAssertNotEqual(Double(double.toInt), double)
         XCTAssertNotEqual(Double(negativeDouble.toInt), negativeDouble)
         XCTAssertNotEqual(Double(minDouble.toInt), minDouble)
-//        XCTAssertNotEqual(Double(maxDouble.toInt), maxDouble) // fatal error double value greater than int max value
     }
     
     #if os(iOS) || os(tvOS)
