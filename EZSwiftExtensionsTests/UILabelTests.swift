@@ -44,7 +44,6 @@
         }
         
         func testSetLineSpacing(){
-            
             let textForTesting = "I am testing test Set line spacing method"
             var paragraphStyle : NSMutableParagraphStyle?
             
@@ -57,7 +56,6 @@
                     paragraphStyle =  value as! NSMutableParagraphStyle
                 }
             }
-            
             XCTAssertEqual(paragraphStyle?.lineHeightMultiple, 1.5)
         }
         
