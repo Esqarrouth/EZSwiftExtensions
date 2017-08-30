@@ -18,9 +18,15 @@ class UILabelTests: XCTestCase {
         let expected = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         let label2 = UILabel(x: 0, y: 0, w: 200, h: 50, fontSize: 20)
         
+        let label3 = UILabel(font: UIFont.systemFont(ofSize: 32), color: .red, alignment: .left)
+        
         XCTAssertEqual(label.frame, expected.frame)
         XCTAssertEqual(label2.font.pointSize, 20)
         XCTAssertEqual(label.font.pointSize, 17)
+        
+        XCTAssertEqual(label3.font, UIFont.systemFont(ofSize: 32))
+        XCTAssertEqual(label3.textColor, .red)
+        XCTAssertEqual(label3.textAlignment, .left)
     }
     
     func testSet() {
