@@ -3,17 +3,14 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
- **UILabelExtensions**
-   - `setLineSpacing(lineSpacing : CGFloat)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/438) by *osama10*
-
 
 1. **Double**
    - `**?(lhs:Double, rhs:Double)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/443) by *Khalian*
 2. **UILabel**
    - `public convenience init(font: UIFont, color: UIColor, alignment: NSTextAlignment)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/441) by *icefall*
 
-2. **UILabel**
-   - `public convenience init(font: UIFont, color: UIColor, alignment: NSTextAlignment)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/441) by *icefall*
+3.  **UILabelExtensions**
+   - `setLineSpacing(lineSpacing : CGFloat)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/438) by *osama10*
 
 ## [Release 1.10]
 
