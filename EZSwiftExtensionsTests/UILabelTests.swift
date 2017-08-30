@@ -7,24 +7,6 @@
 //
 
 #if os(iOS) || os(tvOS)
-<<<<<<< HEAD
-=======
-
-import XCTest
-@testable import EZSwiftExtensions
-class UILabelTests: XCTestCase {
-
-    func testInit() {
-        
-        let label = UILabel(x: 0, y: 0, w: 200, h: 50)
-        let expected = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
-        let label2 = UILabel(x: 0, y: 0, w: 200, h: 50, fontSize: 20)
-        
-        XCTAssertEqual(label.frame, expected.frame)
-        XCTAssertEqual(label2.font.pointSize, 20)
-        XCTAssertEqual(label.font.pointSize, 17)
-    }
->>>>>>> 638c47200b16776d978dc4598237109396915878
     
     import XCTest
     @testable import EZSwiftExtensions
