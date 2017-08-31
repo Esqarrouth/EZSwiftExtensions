@@ -18,7 +18,7 @@ if git.commits.any? { |c| c.message =~ /^Merge branch '#{github.branch_for_base}
 end
 
 # Restrict changing only one extension per PR
-if git.modified_files.grep(/^Sources\//).count > 1
+if (git.modified_files.grep(/^Sources\//).count > 1) && (github.pr_body.include? "- [ ] Changed more than one extension, but all changes are related")
 	fail("Please, modify only one extension per pull request.")
 end
 
