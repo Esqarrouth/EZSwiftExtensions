@@ -76,13 +76,28 @@ class NSAttributedStringTests: XCTestCase {
     
     func testAppending() {
         
-        var string = NSAttributedString(string: "EZSwiftExtensions")
+        let string = NSAttributedString(string: "EZSwiftExtensions")
         let string2 = NSAttributedString(string: " is Awesome!")
-        
-        string += string2
         let expected = NSAttributedString(string: "EZSwiftExtensions is Awesome!")
+        let expected2 = NSAttributedString(string: "Hello. How are you?")
 
-        XCTAssertEqual(string, expected)
+        // Appending
+        var result1 = NSAttributedString()
+        result1 += string
+        result1 += string2
+        XCTAssertEqual(result1, expected)
+
+        // Adding
+        let result2 = string + string2
+        XCTAssertEqual(result2, expected)
+        
+        var attr = NSAttributedString(string: "Hello. ")
+        let attr2 = NSAttributedString(string: "How ")
+        let attr3 = NSAttributedString(string: "are ")
+        let attr4 = NSAttributedString(string: "you?")
+        
+        attr += ((attr2 + attr3) + attr4)
+        XCTAssertEqual(attr, expected2)
     }
     
     #endif
