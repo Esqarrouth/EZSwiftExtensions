@@ -18,11 +18,15 @@ extension CGFloat {
     @available(*, deprecated: 1.8, renamed: "degreesToRadians")
     public func toRadians() -> CGFloat {
         return (.pi * self) / 180.0
+        
+        
     }
 
     /// EZSwiftExtensions
     public func degreesToRadians() -> CGFloat {
         return (.pi * self) / 180.0
+        
+        
     }
 
     /// EZSwiftExtensions
