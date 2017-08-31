@@ -449,7 +449,7 @@ extension UIView {
         setScale(x: 0.9, y: 0.9)
         UIView.animate(withDuration: 0.05, delay: 0, options: UIViewAnimationOptions.allowUserInteraction, animations: { [weak self] _ in
             self?.setScale(x: 1, y: 1)
-        }) { (_) in }
+        })
     }
 }
 
