@@ -5,6 +5,7 @@
 //  Created by Kenza Iraki on 2017-03-12.
 //  Copyright © 2017 Goktug Yilmaz. All rights reserved.
 //
+// swiftlint:disable line_length
 
 #if os(iOS) || os(tvOS)
 
@@ -12,7 +13,6 @@ import UIKit
 
 @available(iOS 9.0, *)
 extension UIStackView {
-
 
 	/// EZSwiftExtensions: Convenience initializer in order to directly pass the distribution, alignment, axis and spacing of the stack view.
 	///
