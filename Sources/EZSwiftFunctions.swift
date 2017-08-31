@@ -200,6 +200,8 @@ public struct ez {
     #if os(iOS) || os(tvOS)
 
     /// EZSE: Calls action when a screen shot is taken
+    
+    
     public static func detectScreenShot(_ action: @escaping () -> Void) {
         let mainQueue = OperationQueue.main
         NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationUserDidTakeScreenshot, object: nil, queue: mainQueue) { _ in
