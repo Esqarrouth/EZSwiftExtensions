@@ -10,6 +10,9 @@ All notable changes to this project will be documented in this file.
 3. **NSAttributedString**
    - `+ (left: NSAttributedString, right: NSAttributedString) -> NSAttributedString` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/446) by *lfarah*
 
+2. **Array**
+   - `public subscript (safe index: Index)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/445) by *lfarah*
+
 ## [Release 1.10]
 
 ### New platform added. 
