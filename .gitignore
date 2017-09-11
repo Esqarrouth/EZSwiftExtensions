@@ -3,6 +3,9 @@
 ## OS X
 .DS_Store
 
+## Appcode
+.idea/*
+
 ## Build generated
 build/
 DerivedData
