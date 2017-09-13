@@ -225,9 +225,10 @@ class ArrayTests: XCTestCase {
         XCTAssertEqual(totalIndexes, 10)
         XCTAssertEqual(totalNumbers, 20)
 
-        emptyArray.forEachEnumerated { _ in XCTFail() }
+        emptyArray.forEachEnumerated { _,_  in XCTFail() }
         let copyArray = someArray
-        copyArray.forEachEnumerated { XCTAssertTrue(someArray[$0.0] == $0.1) }
+//        copyArray.forEachEnumerated { XCTAssertTrue(someArray[$0.0] == $0.1) }
+        XCTFail()
     }
 
     func testUnion() {

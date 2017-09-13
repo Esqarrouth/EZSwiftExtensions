@@ -82,10 +82,10 @@ class DictionaryTests: XCTestCase {
     }
 
     func testFilter() {
-        let secondFiltered = secondDic.filter { key, value in key != "five" }
-
-        XCTAssertTrue(secondFiltered.has("four"))
-        XCTAssertEqual(secondFiltered.count, 1)
+//        let secondFiltered = secondDic.filter { key, value in key != "five" }
+        XCTFail()
+//        XCTAssertTrue(secondFiltered.has("four"))
+//        XCTAssertEqual(secondFiltered.count, 1)
 
     }
 

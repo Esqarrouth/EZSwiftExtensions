@@ -19,7 +19,9 @@ extension Dictionary {
     public func union(_ dictionaries: Dictionary...) -> Dictionary {
         var result = self
         dictionaries.forEach { (dictionary) -> Void in
-            dictionary.forEach { (key, value) -> Void in
+            dictionary.forEach { (arg) -> Void in
+                
+                let (key, value) = arg
                 result[key] = value
             }
         }
@@ -38,9 +40,11 @@ extension Dictionary {
         }
 
         //  Intersection
-        return filtered.filter { (key: K, value: V) -> Bool in
+        return filtered.filter { (arg: (key: K, value: V)) -> Bool in
             //  check for [key: value] in all the dictionaries
-            dictionaries.testAll { $0.has(key) && $0[key] == value }
+            
+            let (key, value) = arg
+            return dictionaries.testAll { $0.has(key) && $0[key] == value }
         }
     }
 
