@@ -44,7 +44,7 @@ extension String {
     public subscript(integerRange: Range<Int>) -> String {
         let start = characters.index(startIndex, offsetBy: integerRange.lowerBound)
         let end = characters.index(startIndex, offsetBy: integerRange.upperBound)
-        return self[start..<end]
+        return String(self[start..<end])
     }
     
     /// EZSE: Cut string from closedrange
@@ -257,22 +257,22 @@ extension String {
         return (regex?.numberOfMatches(in: str, options: NSRegularExpression.MatchingOptions(), range: NSRange(location:0, length: str.length)) ?? -1) + 1
     }
     
-    internal func rangeFromNSRange(_ nsRange: NSRange) -> Range<String.Index>? {
-        let from16 = utf16.startIndex.advanced(by: nsRange.location)
-        let to16 = from16.advanced(by: nsRange.length)
-        if let from = String.Index(from16, within: self),
-            let to = String.Index(to16, within: self) {
-            return from ..< to
-        }
-        return nil
-    }
+//    internal func rangeFromNSRange(_ nsRange: NSRange) -> Range<String.Index>? {
+//        let from16 = utf16.startIndex + nsRange.location
+//        let to16 = from16 + nsRange.length
+//        if let from = String.Index(from16, within: self),
+//            let to = String.Index(to16, within: self) {
+//            return from ..< to
+//        }
+//        return nil
+//    }
     
     /// EZSE: Find matches of regular expression in string
-    public func matchesForRegexInText(_ regex: String!) -> [String] {
-        let regex = try? NSRegularExpression(pattern: regex, options: [])
-        let results = regex?.matches(in: self, options: [], range: NSRange(location: 0, length: self.length)) ?? []
-        return results.map { self.substring(with: self.rangeFromNSRange($0.range)!) }
-    }
+//    public func matchesForRegexInText(_ regex: String!) -> [String] {
+//        let regex = try? NSRegularExpression(pattern: regex, options: [])
+//        let results = regex?.matches(in: self, options: [], range: NSRange(location: 0, length: self.length)) ?? []
+//        return results.map { self.substring(with: self.rangeFromNSRange($0.range)!) }
+//    }
     
     /// EZSE: Checks if String contains Email
     public var isEmail: Bool {
@@ -368,7 +368,7 @@ extension String {
     
     ///EZSE: Returns bold NSAttributedString
     public func bold() -> NSAttributedString {
-        let boldString = NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
+        let boldString = NSMutableAttributedString(string: self, attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
         return boldString
     }
     
@@ -376,7 +376,7 @@ extension String {
     
     ///EZSE: Returns underlined NSAttributedString
     public func underline() -> NSAttributedString {
-        let underlineString = NSAttributedString(string: self, attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue])
+        let underlineString = NSAttributedString(string: self, attributes: [NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
         return underlineString
     }
     
@@ -384,7 +384,7 @@ extension String {
     
     ///EZSE: Returns italic NSAttributedString
     public func italic() -> NSAttributedString {
-        let italicString = NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+        let italicString = NSMutableAttributedString(string: self, attributes: [NSAttributedStringKey.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
         return italicString
     }
     
@@ -393,16 +393,16 @@ extension String {
     #if os(iOS)
     
     ///EZSE: Returns hight of rendered string
-    public func height(_ width: CGFloat, font: UIFont, lineBreakMode: NSLineBreakMode?) -> CGFloat {
-        var attrib: [String: AnyObject] = [NSFontAttributeName: font]
-        if lineBreakMode != nil {
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineBreakMode = lineBreakMode!
-            attrib.updateValue(paragraphStyle, forKey: NSParagraphStyleAttributeName)
-        }
-        let size = CGSize(width: width, height: CGFloat(Double.greatestFiniteMagnitude))
-        return ceil((self as NSString).boundingRect(with: size, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes:attrib, context: nil).height)
-    }
+//    public func height(_ width: CGFloat, font: UIFont, lineBreakMode: NSLineBreakMode?) -> CGFloat {
+//        var attrib: [String: AnyObject] = [NSAttributedStringKey.font.rawValue: font]
+//        if lineBreakMode != nil {
+//            let paragraphStyle = NSMutableParagraphStyle()
+//            paragraphStyle.lineBreakMode = lineBreakMode!
+//            attrib.updateValue(paragraphStyle, forKey: NSAttributedStringKey.paragraphStyle.rawValue)
+//        }
+//        let size = CGSize(width: width, height: CGFloat(Double.greatestFiniteMagnitude))
+//        return ceil((self as NSString).boundingRect(with: size, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes:attrib, context: nil).height)
+//    }
     
     #endif
     
@@ -410,7 +410,7 @@ extension String {
     
     ///EZSE: Returns NSAttributedString
     public func color(_ color: UIColor) -> NSAttributedString {
-        let colorString = NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
+        let colorString = NSMutableAttributedString(string: self, attributes: [NSAttributedStringKey.foregroundColor: color])
         return colorString
     }
     
@@ -429,7 +429,7 @@ extension String {
         }
         let attrText = NSMutableAttributedString(string: self)
         for range in ranges {
-            attrText.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
+            attrText.addAttribute(NSAttributedStringKey.foregroundColor, value: color, range: range)
         }
         return attrText
     }
