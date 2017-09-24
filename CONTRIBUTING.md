@@ -31,7 +31,7 @@ Please ensure your pull request adheres to the following guidelines:
       var Very_Cool_Var:Bool = doCoolStuff()
       return Very_Cool_Var
   }
-  //The doc looks retarded, function name capital letters & underscores, spaces between "->", 
+  //The problems with the above examples are, function name has capital letters & underscores and there no spaces between "()->{", 
   //var instead of let, variable name retarded, :Bool no space, etc.. Don't be that guy!
   //Check this out: https://github.com/raywenderlich/swift-style-guide
 ```
@@ -42,5 +42,13 @@ Please ensure your pull request adheres to the following guidelines:
 - When adding new files make sure to include it in the /Sources folder and make sure its referenced in both EZSwiftExtensionsExamples and EZSwiftExtensions projects.
 - If you are not sure ask in our chat room https://gitter.im/EZSwiftExtensions/Lobby
 - Also check this: https://github.com/goktugyil/EZSwiftExtensions/issues/183
+
+PR ettiquette
+
+- When you submit a PR, ensure that you rebase and replay mainline on top of your branch and submit only the commits that represent you change. 
+- Do not submit multiple commits that represent one particular feature. Squash your contributions into one commit before submitting. 
+- If you are submitting a feature request, a new test or refactoring existing extensions, ensure only one extension class is changed.  
+- After submitting a PR for a new extension, update the CHANGELOG.md Unreleased section to include your extension. 
+- No merge commits please.
 
 Your contributions are always welcome!  Thank you for your contributions!
