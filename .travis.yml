@@ -27,7 +27,7 @@ script:
   - xcodebuild clean build test -project "$PROJECT" -scheme EZSwiftExtensions-tvOS -destination 'platform=tvOS Simulator,name=Apple TV 1080p,OS=10.0' | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-tvos.json" xcpretty -f `xcpretty-json-formatter`
   - xcodebuild clean build test -project "$PROJECT" -scheme EZSwiftExtensions-macOS -destination 'platform=macOS,arch=x86_64' | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-macos.json" xcpretty -f `xcpretty-json-formatter`
   
-  - pod lib lint
+  - pod lib lint --verbose
   - bundle exec danger --fail-on-errors=true
   
 after_success:
