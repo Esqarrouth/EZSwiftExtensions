@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+
 1. **Double**
    - `**?(lhs:Double, rhs:Double)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/443) by *Khalian*
 2. **UILabel**
@@ -12,6 +13,9 @@ All notable changes to this project will be documented in this file.
 
 2. **Array**
    - `public subscript (safe index: Index)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/445) by *lfarah*
+
+3.  **UILabelExtensions**
+   - `setLineSpacing(lineSpacing : CGFloat)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/438) by *osama10*
 
 ## [Release 1.10]
 
@@ -64,7 +68,7 @@ All notable changes to this project will be documented in this file.
    - `validateEmail()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/429) by *Vic-L*
    - `validateDigits()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/429) by *Vic-L*
 
-### Deprecated/Renamed extensions
+ ### Deprecated/Renamed extensions
 1. **UIViewController**
    - `public func hideKeyboardWhenTappedAround(cancelTouches: Bool = false)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/395) by *lfarah*
 
