@@ -13,6 +13,11 @@ All notable changes to this project will be documented in this file.
 2. **Array**
    - `public subscript (safe index: Index)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/445) by *lfarah*
 
+2. **Enum**
+   - `static func enumerated()` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/447) by *furuyan*
+   - `static var cases` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/447) by *furuyan*
+   - `static var count` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/447) by *furuyan*
+
 ## [Release 1.10]
 
 ### New platform added. 
