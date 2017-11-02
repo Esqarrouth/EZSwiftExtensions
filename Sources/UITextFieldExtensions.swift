@@ -65,15 +65,15 @@ extension UITextField {
     func validateLength(ofCount count: Int, option: UITextField.textFieldValidationOptions) -> Bool {
         switch option {
         case .equalTo:
-            return self.text!.characters.count == count
+            return self.text!.count == count
         case .greaterThan:
-            return self.text!.characters.count > count
+            return self.text!.count > count
         case .greaterThanOrEqualTo:
-            return self.text!.characters.count >= count
+            return self.text!.count >= count
         case .lessThan:
-            return self.text!.characters.count < count
+            return self.text!.count < count
         case .lessThanOrEqualTo:
-            return self.text!.characters.count <= count
+            return self.text!.count <= count
         }
     }
 
