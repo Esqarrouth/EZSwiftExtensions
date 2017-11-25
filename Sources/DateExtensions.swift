@@ -103,7 +103,7 @@ extension Date {
     /// EZSE: Easy creation of time passed String. Can be Years, Months, days, hours, minutes or seconds
     public func timePassed() -> String {
         let date = Date()
-        let calendar = Calendar.current
+        let calendar = Calendar.autoupdatingCurrent
         let components = (calendar as NSCalendar).components([.year, .month, .day, .hour, .minute, .second], from: self, to: date, options: [])
         var str: String
         
