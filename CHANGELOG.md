@@ -3,15 +3,20 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-1. **Double**
+1. **Array**
+   - `public subscript (safe index: Index)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/445) by *lfarah*
+
+2. **Double**
    - `**?(lhs:Double, rhs:Double)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/443) by *Khalian*
-2. **UILabel**
-   - `public convenience init(font: UIFont, color: UIColor, alignment: NSTextAlignment)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/441) by *icefall*
+
 3. **NSAttributedString**
    - `+ (left: NSAttributedString, right: NSAttributedString) -> NSAttributedString` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/446) by *lfarah*
 
-2. **Array**
-   - `public subscript (safe index: Index)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/445) by *lfarah*
+4. **UILabel**
+   - `public convenience init(font: UIFont, color: UIColor, alignment: NSTextAlignment)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/441) by *icefall*
+
+5. **UserDefaults**
+   - `public func date(forKey key: String) -> Date?` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/459) by *Khalian*
 
 ## [Release 1.10]
 

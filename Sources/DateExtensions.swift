@@ -13,8 +13,14 @@ extension Date {
     public static let minutesInAWeek = 24 * 60 * 7
 
     /// EZSE: Initializes Date from string and format
-    public init?(fromString string: String, format: String) {
+    public init?(fromString string: String,
+                 format: String,
+                 timezone: TimeZone = TimeZone.autoupdatingCurrent,
+                 locale: Locale = Locale.current) {
+        
         let formatter = DateFormatter()
+        formatter.timeZone = timezone
+        formatter.locale = locale
         formatter.dateFormat = format
         if let date = formatter.date(from: string) {
             self = date
@@ -103,7 +109,7 @@ extension Date {
     /// EZSE: Easy creation of time passed String. Can be Years, Months, days, hours, minutes or seconds
     public func timePassed() -> String {
         let date = Date()
-        let calendar = Calendar.current
+        let calendar = Calendar.autoupdatingCurrent
         let components = (calendar as NSCalendar).components([.year, .month, .day, .hour, .minute, .second], from: self, to: date, options: [])
         var str: String
         
