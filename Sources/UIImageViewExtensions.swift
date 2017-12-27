@@ -12,9 +12,6 @@ import UIKit
 
 extension UIImageView {
     
-    public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
-        self.init(frame: CGRect(x: x, y: y, width: w, height: h))
-    }
     
     /// EZSE: Convenince init that takes coordinates of bottom left corner, height width and image name. 
     public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, imageName: String) {

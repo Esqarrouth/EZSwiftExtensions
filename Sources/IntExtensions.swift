@@ -57,7 +57,7 @@ extension Int {
     /// This method ignores leading zeros and sign
     public var digitArray: [Int] {
         var digits = [Int]()
-        for char in self.toString.characters {
+        for char in self.toString {
             if let digit = Int(String(char)) {
                 digits.append(digit)
             }

@@ -217,14 +217,6 @@ extension Array where Element: Hashable {
     }
 }
 
-extension Collection where Indices.Iterator.Element == Index {
-    
-    /// Returns the element at the specified index if it is within bounds, otherwise nil.
-    public subscript (safe index: Index) -> Iterator.Element? {
-        return indices.contains(index) ? self[index] : nil
-    }
-}
-
 // MARK: - Deprecated 1.8
 
 extension Array {

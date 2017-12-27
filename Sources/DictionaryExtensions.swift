@@ -19,9 +19,7 @@ extension Dictionary {
     public func union(_ dictionaries: Dictionary...) -> Dictionary {
         var result = self
         dictionaries.forEach { (dictionary) -> Void in
-            dictionary.forEach { (arg) -> Void in
-                
-                let (key, value) = arg
+            dictionary.forEach { (key, value) -> Void in
                 result[key] = value
             }
         }
@@ -30,7 +28,7 @@ extension Dictionary {
 
     /// EZSE: Intersection of self and the input dictionaries.
     /// Two dictionaries are considered equal if they contain the same [key: value] copules.
-    public func intersection<K, V>(_ dictionaries: [K: V]...) -> [K: V] where K: Equatable, V: Equatable {
+    public func intersection<K, V>(_ dictionaries: [K: V]...) -> [K: V] {
         //  Casts self from [Key: Value] to [K: V]
         let filtered = mapFilter { (item, value) -> (K, V)? in
             if let item = item as? K, let value = value as? V {
@@ -40,11 +38,12 @@ extension Dictionary {
         }
 
         //  Intersection
+        
         return filtered.filter { (arg: (key: K, value: V)) -> Bool in
             //  check for [key: value] in all the dictionaries
             
             let (key, value) = arg
-            return dictionaries.testAll { $0.has(key) && $0[key] == value }
+            return dictionaries.testAll { $0.has(key) && $0[key] == value as! _OptionalNilComparisonType }
         }
     }
 
@@ -123,10 +122,7 @@ extension Dictionary {
 
     /// EZSE: Unserialize JSON string into Dictionary
     public static func constructFromJSON (json: String) -> Dictionary? {
-        if let data = (try? JSONSerialization.jsonObject(
-            with: json.data(using: String.Encoding.utf8,
-            allowLossyConversion: true)!,
-            options: JSONSerialization.ReadingOptions.mutableContainers)) as? Dictionary {
+        if let data = (try? JSONSerialization.jsonObject(with: json.data(using: String.Encoding.utf8, allowLossyConversion: true)!, options: JSONSerialization.ReadingOptions.mutableContainers)) as? Dictionary {
             return data
         } else {
             return nil
@@ -178,6 +174,6 @@ public func & <K, V: Equatable> (first: [K: V], second: [K: V]) -> [K: V] {
 }
 
 /// EZSE: Union operator
-public func | <K: Hashable, V> (first: [K: V], second: [K: V]) -> [K: V] {
+public func | <K, V> (first: [K: V], second: [K: V]) -> [K: V] {
     return first.union(second)
 }

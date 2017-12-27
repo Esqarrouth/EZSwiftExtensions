@@ -78,13 +78,13 @@ open class BlockButton: UIButton {
 
     // MARK: Action
 
-    open func didPressed(_ sender: BlockButton) {
+    @objc open func didPressed(_ sender: BlockButton) {
         action?(sender)
     }
 
     // MARK: Highlight
 
-    open func highlight() {
+    @objc open func highlight() {
         if action == nil {
             return
         }
@@ -107,7 +107,7 @@ open class BlockButton: UIButton {
         self.highlightLayer = highlightLayer
     }
 
-    open func unhighlight() {
+    @objc open func unhighlight() {
         if action == nil {
             return
         }
