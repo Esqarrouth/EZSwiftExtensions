@@ -202,7 +202,7 @@ public struct ez {
     /// EZSE: Calls action when a screen shot is taken
     public static func detectScreenShot(_ action: @escaping () -> Void) {
         let mainQueue = OperationQueue.main
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationUserDidTakeScreenshot, object: nil, queue: mainQueue) { _ in
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationUserDidTakeScreenshot, object: nil, queue: mainQueue) { notification in
             // executes after screenshot
             action()
         }
@@ -254,10 +254,7 @@ public struct ez {
     }
 
     /// EZSE: Runs every second, to cancel use: timer.invalidate()
-    @discardableResult public static func runThisEvery(
-        seconds: TimeInterval,
-        startAfterSeconds: TimeInterval,
-        handler: @escaping (CFRunLoopTimer?) -> Void) -> Timer {
+    @discardableResult public static func runThisEvery(seconds: TimeInterval, startAfterSeconds: TimeInterval, handler: @escaping (CFRunLoopTimer?) -> Void) -> Timer {
         let fireDate = startAfterSeconds + CFAbsoluteTimeGetCurrent()
         let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, fireDate, seconds, 0, 0, handler)
         CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, CFRunLoopMode.commonModes)
@@ -344,7 +341,7 @@ public struct ez {
                 json = nil
             }
 
-            if error != nil {
+            if let _ = error {
                 return nil
             } else {
                 return json
@@ -363,7 +360,7 @@ public struct ez {
 
         URLSession.shared.dataTask(
             with: URLRequest(url: requestURL),
-            completionHandler: { data, _, err in
+            completionHandler: { data, response, err in
                 if let e = err {
                     error?(e as NSError)
                 } else {

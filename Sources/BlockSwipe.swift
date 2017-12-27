@@ -18,8 +18,7 @@ open class BlockSwipe: UISwipeGestureRecognizer {
         super.init(target: target, action: action)
     }
 
-    public convenience init (
-        direction: UISwipeGestureRecognizerDirection,
+    public convenience init (direction: UISwipeGestureRecognizerDirection,
         fingerCount: Int = 1,
         action: ((UISwipeGestureRecognizer) -> Void)?) {
             self.init()
@@ -35,7 +34,7 @@ open class BlockSwipe: UISwipeGestureRecognizer {
             addTarget(self, action: #selector(BlockSwipe.didSwipe(_:)))
     }
 
-    open func didSwipe (_ swipe: UISwipeGestureRecognizer) {
+    @objc open func didSwipe (_ swipe: UISwipeGestureRecognizer) {
         swipeAction? (swipe)
     }
 }

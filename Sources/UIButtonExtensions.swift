@@ -11,14 +11,16 @@
 import UIKit
 
 extension UIButton {
+	/// EZSwiftExtensions
 
-    /// EZSwiftExtensions: Convenience constructor for UIButton. 
+	// swiftlint:disable function_parameter_count
 	public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, target: AnyObject, action: Selector) {
 		self.init(frame: CGRect(x: x, y: y, width: w, height: h))
 		addTarget(target, action: action, for: UIControlEvents.touchUpInside)
 	}
+	// swiftlint:enable function_parameter_count
 
-	/// EZSwiftExtensions: Set a background color for the button.
+	/// EZSwiftExtensions
 	public func setBackgroundColor(_ color: UIColor, forState: UIControlState) {
 		UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
 		UIGraphicsGetCurrentContext()?.setFillColor(color.cgColor)

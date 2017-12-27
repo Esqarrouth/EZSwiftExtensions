@@ -13,7 +13,7 @@ import UIKit
 extension UIImage {
     
     /// EZSE: Returns base64 string
-    public var base64: String {
+    var base64: String {
         return UIImageJPEGRepresentation(self, 1.0)!.base64EncodedString()
     }
     

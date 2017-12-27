@@ -49,7 +49,7 @@ extension NSAttributedString {
 
         let range = (self.string as NSString).range(of: self.string)
         let attributes = [
-        NSAttributedStringKey.strikethroughStyle: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)]
+            NSAttributedStringKey.strikethroughStyle: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)]
         copy.addAttributes(attributes, range: range)
 
         return copy
@@ -72,13 +72,6 @@ public func += (left: inout NSAttributedString, right: NSAttributedString) {
     let ns = NSMutableAttributedString(attributedString: left)
     ns.append(right)
     left = ns
-}
-    
-/// EZSE: Sum of one NSAttributedString with another NSAttributedString
-public func + (left: NSAttributedString, right: NSAttributedString) -> NSAttributedString {
-    let ns = NSMutableAttributedString(attributedString: left)
-    ns.append(right)
-    return ns
 }
 
 #endif

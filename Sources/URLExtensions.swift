@@ -7,6 +7,7 @@
 //  Copyright (c) 2016 Goktug Yilmaz. All rights reserved.
 //
 // swiftlint:disable line_length
+// swiftlint:disable trailing_whitespace
 
 #if os(iOS) || os(tvOS)
 
@@ -32,7 +33,7 @@ extension URL {
         let request = NSMutableURLRequest(url: self, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeoutInterval)
         request.httpMethod = "HEAD"
         request.setValue("", forHTTPHeaderField: "Accept-Encoding")
-        URLSession.shared.dataTask(with: request as URLRequest) { (_, response, _) in
+        URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             let contentLength: Int64 = response?.expectedContentLength ?? NSURLSessionTransferSizeUnknown
             DispatchQueue.global(qos: .default).async(execute: {
                 completionHandler(contentLength)

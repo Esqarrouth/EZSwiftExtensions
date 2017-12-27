@@ -11,17 +11,9 @@
 import UIKit
 
 extension UILabel {
-    
-    /// EZSE: Initialize Label with a font, color and alignment.
-    public convenience init(font: UIFont, color: UIColor, alignment: NSTextAlignment) {
-        self.init()
-        self.font = font
-        self.textColor = color
-        self.textAlignment = alignment
-    }
 
     /// EZSwiftExtensions
-    public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, fontSize: CGFloat = 17) {
+    public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, fontSize: CGFloat) {
         self.init(frame: CGRect(x: x, y: y, width: w, height: h))
         font = UIFont.HelveticaNeue(type: FontType.None, size: fontSize)
         backgroundColor = UIColor.clear

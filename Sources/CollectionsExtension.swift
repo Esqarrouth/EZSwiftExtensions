@@ -27,6 +27,7 @@ extension Collection {
         return res
     }
 
+    
     /// EZSE : Helper method to get an array of collection indices
     private func indicesArray() -> [Self.Index] {
         var indicesArray: [Self.Index] = []
