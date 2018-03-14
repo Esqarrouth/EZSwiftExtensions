@@ -73,5 +73,12 @@ public func += (left: inout NSAttributedString, right: NSAttributedString) {
     ns.append(right)
     left = ns
 }
+    
+/// EZSE: Sum of one NSAttributedString with another NSAttributedString
+public func + (left: NSAttributedString, right: NSAttributedString) -> NSAttributedString {
+    let ns = NSMutableAttributedString(attributedString: left)
+    ns.append(right)
+    return ns
+}
 
 #endif

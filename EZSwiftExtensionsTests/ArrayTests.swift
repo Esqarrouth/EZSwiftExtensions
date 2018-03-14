@@ -326,7 +326,7 @@ class ArrayTests: XCTestCase {
         let arr = [1, 2, 3, 4, 5]
         let squaredArr = arr.parallelizedMap { (x) in x * x}
         XCTAssertEqual(squaredArr.map{$0!}, [1, 4, 9, 16, 25])
-
+        
         let doubledArr = arr.parallelizedMap { (x) in 2 * x}
         XCTAssertEqual(doubledArr.map{$0!}, [2, 4, 6, 8, 10])
     }

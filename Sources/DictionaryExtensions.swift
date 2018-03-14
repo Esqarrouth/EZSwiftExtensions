@@ -28,7 +28,7 @@ extension Dictionary {
 
     /// EZSE: Intersection of self and the input dictionaries.
     /// Two dictionaries are considered equal if they contain the same [key: value] copules.
-    public func intersection<K, V>(_ dictionaries: [K: V]...) -> [K: V] {
+    public func intersection<K, V: Equatable>(_ dictionaries: [K: V]...) -> [K: V] {
         //  Casts self from [Key: Value] to [K: V]
         let filtered = mapFilter { (item, value) -> (K, V)? in
             if let item = item as? K, let value = value as? V {
@@ -43,7 +43,7 @@ extension Dictionary {
             //  check for [key: value] in all the dictionaries
             
             let (key, value) = arg
-            return dictionaries.testAll { $0.has(key) && $0[key] == value as! _OptionalNilComparisonType }
+            return dictionaries.testAll { $0.has(key) && $0[key] == value }
         }
     }
 

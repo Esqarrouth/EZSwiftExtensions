@@ -349,8 +349,7 @@ class StringTests: XCTestCase {
         let testString = "H3yH0L3tsG0"
         let expectedResult = ["3","0","3","0"]
         
-//        XCTAssertEqual(testString.matchesForRegexInText("[0-9]"), expectedResult)
-        XCTFail()
+        XCTAssertEqual(testString.matchesForRegexInText("[0-9]"), expectedResult)
     }
     
     func testIsNumber() {
