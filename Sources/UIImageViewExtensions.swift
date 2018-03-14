@@ -11,8 +11,8 @@
 import UIKit
 
 extension UIImageView {
-        
-    /// EZSwiftExtensions
+     
+    /// EZSE: Convenince init that takes coordinates of bottom left corner, height width and image name. 
     public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, imageName: String? = nil) {
         self.init(frame: CGRect(x: x, y: y, width: w, height: h))
         if let name = imageName {
@@ -20,7 +20,7 @@ extension UIImageView {
         }
     }
 
-    /// EZSwiftExtensions
+    /// EZSE: Convenience init that takes coordinates of bottom left corner, image name and scales image frame to width. 
     public convenience init(x: CGFloat, y: CGFloat, imageName: String, scaleToWidth: CGFloat) {
         self.init(frame: CGRect(x: x, y: y, width: 0, height: 0))
         image = UIImage(named: imageName)
@@ -31,20 +31,20 @@ extension UIImageView {
         }
     }
 
-    /// EZSwiftExtensions
+    /// EZSE: Convenience init that takes coordinates of bottom left corner, width height and an UIImage Object.
     public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, image: UIImage) {
         self.init(frame: CGRect(x: x, y: y, width: w, height: h))
         self.image = image
     }
 
-    /// EZSwiftExtensions
+    /// EZSE: Convenience init that coordinates of bottom left corner, an UIImage object and scales image from to width.
     public convenience init(x: CGFloat, y: CGFloat, image: UIImage, scaleToWidth: CGFloat) {
         self.init(frame: CGRect(x: x, y: y, width: 0, height: 0))
         self.image = image
         scaleImageFrameToWidth(width: scaleToWidth)
     }
 
-    /// EZSwiftExtensions, scales this ImageView size to fit the given width
+    /// EZSE: scales this ImageView size to fit the given width
     public func scaleImageFrameToWidth(width: CGFloat) {
         guard let image = image else {
             print("EZSwiftExtensions Error: The image is not set yet!")
@@ -56,7 +56,7 @@ extension UIImageView {
         frame = CGRect(x: frame.origin.x, y: frame.origin.y, width: newWidth, height: newHeigth)
     }
 
-    /// EZSwiftExtensions, scales this ImageView size to fit the given height
+    /// EZSE: scales this ImageView size to fit the given height
     public func scaleImageFrameToHeight(height: CGFloat) {
         guard let image = image else {
             print("EZSwiftExtensions Error: The image is not set yet!")
@@ -68,7 +68,7 @@ extension UIImageView {
         frame = CGRect(x: frame.origin.x, y: frame.origin.y, width: newWidth, height: newHeight)
     }
 
-    /// EZSwiftExtensions
+    /// EZSE: Rounds up an image by clipping the corner radius to one half the frame width.
     public func roundSquareImage() {
         self.clipsToBounds = true
         self.layer.cornerRadius = self.frame.size.width / 2
