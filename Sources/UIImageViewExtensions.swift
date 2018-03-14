@@ -11,12 +11,13 @@
 import UIKit
 
 extension UIImageView {
-    
-    
+        
     /// EZSwiftExtensions
-    public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, imageName: String) {
+    public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, imageName: String? = nil) {
         self.init(frame: CGRect(x: x, y: y, width: w, height: h))
-        image = UIImage(named: imageName)
+        if let name = imageName {
+            self.image = UIImage(named: name)
+        }
     }
 
     /// EZSwiftExtensions

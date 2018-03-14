@@ -13,7 +13,7 @@ import UIKit
 // MARK: Custom UIView Initilizers
 extension UIView {
     /// EZSwiftExtensions
-    public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
+    @objc public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
         self.init(frame: CGRect(x: x, y: y, width: w, height: h))
     }
 
