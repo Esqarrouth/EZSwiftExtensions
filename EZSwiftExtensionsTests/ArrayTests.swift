@@ -227,8 +227,7 @@ class ArrayTests: XCTestCase {
 
         emptyArray.forEachEnumerated { _,_  in XCTFail() }
         let copyArray = someArray
-//        copyArray.forEachEnumerated { XCTAssertTrue(someArray[$0.0] == $0.1) }
-        XCTFail()
+        copyArray.forEachEnumerated { XCTAssertTrue(someArray[$0] == $1) }
     }
 
     func testUnion() {
