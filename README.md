@@ -6,8 +6,12 @@
 [![Platform](https://img.shields.io/cocoapods/p/EZSwiftExtensions.svg?style=flat)](http://cocoapods.org/pods/EZSwiftExtensions)
 [![Language](https://img.shields.io/badge/swift-3.0-orange.svg)](http://swift.org)
 [![Language](https://img.shields.io/badge/swift-2.3-orange.svg)](http://swift.org)
-[![CocoaPods](https://img.shields.io/cocoapods/dm/EZSwiftExtensions.svg)](https://cocoapods.org/pods/EZSwiftExtensions)
-[![CocoaPods](https://img.shields.io/cocoapods/dt/EZSwiftExtensions.svg)](https://cocoapods.org/pods/EZSwiftExtensions)
+
+<p>
+<a href="http://cocoapods.org/pods/EZSwiftExtensions"><img src="https://img.shields.io/cocoapods/at/EZSwiftExtensions.svg?label=Apps%20Using%20EZSwiftExtensions&colorB=28B9FE"></a>
+<a href="http://cocoapods.org/pods/EZSwiftExtensions"><img src="https://img.shields.io/cocoapods/dt/EZSwiftExtensions.svg?label=Total%20Downloads&colorB=28B9FE"></a>
+<a href="http://cocoapods.org/pods/EZSwiftExtensions"><img src="https://img.shields.io/cocoapods/dm/EZSwiftExtensions.svg?label=Downloads&colorB=28B9FE"></a>
+</p>
 
 [![Build Status](https://travis-ci.org/goktugyil/EZSwiftExtensions.svg?branch=master)](https://travis-ci.org/goktugyil/EZSwiftExtensions)
 [![codecov.io](https://codecov.io/gh/goktugyil/EZSwiftExtensions/branch/master/graphs/badge.svg)](https://codecov.io/gh/goktugyil/EZSwiftExtensions/branch/master)
