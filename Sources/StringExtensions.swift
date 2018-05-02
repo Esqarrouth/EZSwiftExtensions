@@ -379,11 +379,15 @@ extension String {
     
     #endif
     
+    #if os(iOS)
+
     ///EZSE: Returns underlined NSAttributedString
     public func underline() -> NSAttributedString {
         let underlineString = NSAttributedString(string: self, attributes: [NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
         return underlineString
     }
+    
+    #endif
     
     #if os(iOS)
     
