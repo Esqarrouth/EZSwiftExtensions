@@ -29,7 +29,7 @@ class NSObjectTests: XCTestCase {
         XCTAssertEqual(nsStringObject.className, "__NSCFString")
         
         let intObj = 5 as NSObject
-        XCTAssertEqual(intObj.className, "_SwiftTypePreservingNSNumber")
+        XCTAssertEqual(intObj.className, "__NSCFNumber")
         
         let userDefinedObject = UserDefinedClass() as NSObject
         XCTAssertEqual(userDefinedObject.className, "UserDefinedClass")

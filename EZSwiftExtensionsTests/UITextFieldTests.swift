@@ -76,7 +76,7 @@ class UITextFieldTests: XCTestCase {
         
         // valid format
         textField.text = "lol@lol.lol"
-        let acceptableSpecialChars = "!#$%&'*+-/=?^_`{|}~".characters
+        let acceptableSpecialChars = "!#$%&'*+-/=?^_`{|}~"
         XCTAssertTrue(textField.validateEmail())
         for specialChar in acceptableSpecialChars {
             textField.text = "lol\(specialChar)lol@lol.lol"

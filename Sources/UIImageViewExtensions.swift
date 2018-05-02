@@ -11,15 +11,13 @@
 import UIKit
 
 extension UIImageView {
-    
-    public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
-        self.init(frame: CGRect(x: x, y: y, width: w, height: h))
-    }
-    
+     
     /// EZSE: Convenince init that takes coordinates of bottom left corner, height width and image name. 
-    public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, imageName: String) {
+    public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, imageName: String? = nil) {
         self.init(frame: CGRect(x: x, y: y, width: w, height: h))
-        image = UIImage(named: imageName)
+        if let name = imageName {
+            self.image = UIImage(named: name)
+        }
     }
 
     /// EZSE: Convenience init that takes coordinates of bottom left corner, image name and scales image frame to width. 

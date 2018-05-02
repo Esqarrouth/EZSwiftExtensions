@@ -14,7 +14,7 @@ import EZSwiftExtensions
 class NSAttributedStringTests: XCTestCase {
     
     let testAttributedString = NSAttributedString(string: "Swift Attributed String",
-                                                  attributes: [String:Any]())
+                                                  attributes: [:])
     override func setUp() {
         super.setUp()
     }
@@ -30,7 +30,7 @@ class NSAttributedStringTests: XCTestCase {
         let boldString = testAttributedString.bold()
         let newAttributesSeen = boldString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, boldString.length))
         
-        XCTAssertEqual(newAttributesSeen[NSFontAttributeName] as! UIFont, UIFont.boldSystemFont(ofSize: UIFont.systemFontSize))
+        XCTAssertEqual(newAttributesSeen[NSAttributedStringKey.font] as! UIFont, UIFont.boldSystemFont(ofSize: UIFont.systemFontSize))
     }
     
     #endif
@@ -41,7 +41,7 @@ class NSAttributedStringTests: XCTestCase {
         let underLineString = testAttributedString.underline()
         let newAttributesSeen = underLineString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, underLineString.length))
         
-        XCTAssertEqual(newAttributesSeen[NSUnderlineStyleAttributeName] as! Int, NSUnderlineStyle.styleSingle.rawValue)
+        XCTAssertEqual(newAttributesSeen[NSAttributedStringKey.underlineStyle] as! Int, NSUnderlineStyle.styleSingle.rawValue)
     }
     
     #endif
@@ -52,14 +52,14 @@ class NSAttributedStringTests: XCTestCase {
         let italicString = testAttributedString.italic()
         let newAttributesSeen = italicString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, italicString.length))
         
-        XCTAssertEqual(newAttributesSeen[NSFontAttributeName] as! UIFont, UIFont.italicSystemFont(ofSize: UIFont.systemFontSize))
+        XCTAssertEqual(newAttributesSeen[NSAttributedStringKey.font] as! UIFont, UIFont.italicSystemFont(ofSize: UIFont.systemFontSize))
     }
     
     func testStrikethrough() {
         let strikeThroughString = testAttributedString.strikethrough()
         let newAttributesSeen = strikeThroughString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, strikeThroughString.length))
         
-        XCTAssertEqual(newAttributesSeen[NSStrikethroughStyleAttributeName] as! NSNumber, NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int))
+        XCTAssertEqual(newAttributesSeen[NSAttributedStringKey.strikethroughStyle] as! NSNumber, NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int))
     }
     
     #endif
@@ -71,7 +71,7 @@ class NSAttributedStringTests: XCTestCase {
         let coloredString = testAttributedString.color(grayColor)
         let newAttributesSeen = coloredString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, coloredString.length))
         
-        XCTAssertEqual(newAttributesSeen[NSForegroundColorAttributeName] as! UIColor, grayColor)
+        XCTAssertEqual(newAttributesSeen[NSAttributedStringKey.foregroundColor] as! UIColor, grayColor)
     }
     
     func testAppending() {

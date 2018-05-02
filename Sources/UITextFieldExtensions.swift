@@ -5,7 +5,6 @@
 //  Created by Wang Yu on 6/26/16.
 //  Copyright © 2016 Goktug Yilmaz. All rights reserved.
 //
-// swiftlint:disable line_length
 
 #if os(iOS) || os(tvOS)
 
@@ -16,14 +15,8 @@ extension UITextField {
     static let emailRegex = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"
     
     /// EZSwiftExtensions: Automatically sets these values: backgroundColor = clearColor, textColor = ThemeNicknameColor, clipsToBounds = true,
-    /// textAlignment = Left, userInteractionEnabled = true, editable = false, scrollEnabled = false, font = ThemeFontName, fontsize = 17
-    public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
-        self.init(x: x, y: y, w: w, h: h, fontSize: 17)
-    }
-
-    /// EZSwiftExtensions: Automatically sets these values: backgroundColor = clearColor, textColor = ThemeNicknameColor, clipsToBounds = true,
     /// textAlignment = Left, userInteractionEnabled = true, editable = false, scrollEnabled = false, font = ThemeFontName
-    public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, fontSize: CGFloat) {
+    public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, fontSize: CGFloat = 20) {
         self.init(frame: CGRect(x: x, y: y, width: w, height: h))
         font = UIFont.HelveticaNeue(type: FontType.None, size: fontSize)
         backgroundColor = UIColor.clear
@@ -65,15 +58,15 @@ extension UITextField {
     func validateLength(ofCount count: Int, option: UITextField.textFieldValidationOptions) -> Bool {
         switch option {
         case .equalTo:
-            return self.text!.characters.count == count
+            return self.text!.count == count
         case .greaterThan:
-            return self.text!.characters.count > count
+            return self.text!.count > count
         case .greaterThanOrEqualTo:
-            return self.text!.characters.count >= count
+            return self.text!.count >= count
         case .lessThan:
-            return self.text!.characters.count < count
+            return self.text!.count < count
         case .lessThanOrEqualTo:
-            return self.text!.characters.count <= count
+            return self.text!.count <= count
         }
     }
 
