@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+
+## Major version update
+
+1. Swift4 version update. [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/476) by *Simple4, Steven_Cheung and lfarah*
+
 ## Unreleased
 
 1. **Array**
