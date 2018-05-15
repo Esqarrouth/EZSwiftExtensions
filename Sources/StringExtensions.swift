@@ -255,7 +255,7 @@ extension String {
     public var countofParagraphs: Int {
         let regex = try? NSRegularExpression(pattern: "\\n", options: NSRegularExpression.Options())
         let str = self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        return (regex?.numberOfMatches(in: str, options: NSRegularExpression.MatchingOptions(), range: NSRange(location:0, length: str.length)) ?? -1) + 1
+        return (regex?.numberOfMatches(in: str, options: NSRegularExpression.MatchingOptions(), range: NSRange(location: 0, length: str.length)) ?? -1) + 1
     }
     
     internal func rangeFromNSRange(_ nsRange: NSRange) -> Range<String.Index>? {
@@ -285,10 +285,7 @@ extension String {
     
     /// EZSE: Returns if String is a number
     public func isNumber() -> Bool {
-        if let _ = NumberFormatter().number(from: self) {
-            return true
-        }
-        return false
+        return NumberFormatter().number(from: self) != nil ? true : false
     }
     
     /// EZSE: Extracts URLS from String
@@ -304,8 +301,10 @@ extension String {
         let text = self
         
         if let detector = detector {
-            detector.enumerateMatches(in: text, options: [], range: NSRange(location: 0, length: text.count), using: {
-                (result: NSTextCheckingResult?, flags: NSRegularExpression.MatchingFlags, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
+            detector.enumerateMatches(in: text,
+                                      options: [],
+                                      range: NSRange(location: 0, length: text.count),
+                                      using: { (result: NSTextCheckingResult?, _, _) -> Void in
                 if let result = result, let url = result.url {
                     urls.append(url)
                 }
@@ -358,10 +357,8 @@ extension String {
     
     ///EZSE: Returns the first index of the occurency of the character in String
     public func getIndexOf(_ char: Character) -> Int? {
-        for (index, c) in self.enumerated() {
-            if c == char {
-                return index
-            }
+        for (index, c) in self.enumerated() where c == char {
+            return index
         }
         return nil
     }
@@ -410,7 +407,7 @@ extension String {
             attrib.updateValue(paragraphStyle, forKey: NSAttributedStringKey.paragraphStyle)
         }
         let size = CGSize(width: width, height: CGFloat(Double.greatestFiniteMagnitude))
-        return ceil((self as NSString).boundingRect(with: size, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes:attrib, context: nil).height)
+        return ceil((self as NSString).boundingRect(with: size, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attrib, context: nil).height)
     }
     
     #endif

@@ -334,6 +334,8 @@ class StringTests: XCTestCase {
         let expectedResult = 5
         
         XCTAssertEqual(testString.getIndexOf("L"), expectedResult)
+        
+        XCTAssertEqual(testString.getIndexOf("X"), nil)
     }
     
     func testCount() {
