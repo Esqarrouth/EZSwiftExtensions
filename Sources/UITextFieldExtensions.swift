@@ -5,6 +5,7 @@
 //  Created by Wang Yu on 6/26/16.
 //  Copyright © 2016 Goktug Yilmaz. All rights reserved.
 //
+// swiftlint:disable line_length
 
 #if os(iOS) || os(tvOS)
 
@@ -16,7 +17,7 @@ extension UITextField {
     
     /// EZSwiftExtensions: Automatically sets these values: backgroundColor = clearColor, textColor = ThemeNicknameColor, clipsToBounds = true,
     /// textAlignment = Left, userInteractionEnabled = true, editable = false, scrollEnabled = false, font = ThemeFontName
-    public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, fontSize: CGFloat = 20) {
+    public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, fontSize: CGFloat = 17) {
         self.init(frame: CGRect(x: x, y: y, width: w, height: h))
         font = UIFont.HelveticaNeue(type: FontType.None, size: fontSize)
         backgroundColor = UIColor.clear
@@ -73,14 +74,14 @@ extension UITextField {
     /// EZSE: Validation of email format based on https://stackoverflow.com/questions/201323/using-a-regular-expression-to-validate-an-email-address and https://stackoverflow.com/questions/2049502/what-characters-are-allowed-in-an-email-address
     // TODO match String.isEmail method
     func validateEmail() -> Bool {
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", UITextField.emailRegex)
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", UITextField.emailRegex)
         return emailTest.evaluate(with: self.text)
     }
     
     /// EZSE: Validation of digits only
     func validateDigits() -> Bool {
         let digitsRegEx = "[0-9]*"
-        let digitsTest = NSPredicate(format:"SELF MATCHES %@", digitsRegEx)
+        let digitsTest = NSPredicate(format: "SELF MATCHES %@", digitsRegEx)
         return digitsTest.evaluate(with: self.text)
     }
 }

@@ -33,19 +33,19 @@ public enum FontType: String {
 
 /// EZSwiftExtensions
 public enum FontName: String {
-    case HelveticaNeue = "HelveticaNeue"
-    case Helvetica = "Helvetica"
-    case Futura = "Futura"
-    case Menlo = "Menlo"
-    case Avenir = "Avenir"
-    case AvenirNext = "AvenirNext"
-    case Didot = "Didot"
-    case AmericanTypewriter = "AmericanTypewriter"
-    case Baskerville = "Baskerville"
-    case Geneva = "Geneva"
-    case GillSans = "GillSans"
-    case SanFranciscoDisplay = "SanFranciscoDisplay"
-    case Seravek = "Seravek"
+    case HelveticaNeue
+    case Helvetica
+    case Futura
+    case Menlo
+    case Avenir
+    case AvenirNext
+    case Didot
+    case AmericanTypewriter
+    case Baskerville
+    case Geneva
+    case GillSans
+    case SanFranciscoDisplay
+    case Seravek
 }
 
 extension UIFont {
