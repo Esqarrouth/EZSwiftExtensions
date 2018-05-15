@@ -18,7 +18,7 @@ extension UIButton {
 		addTarget(target, action: action, for: UIControlEvents.touchUpInside)
 	}
 
-	/// EZSwiftExtensions
+	/// EZSwiftExtensions: Set a background color for the button.
 	public func setBackgroundColor(_ color: UIColor, forState: UIControlState) {
 		UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
 		UIGraphicsGetCurrentContext()?.setFillColor(color.cgColor)
