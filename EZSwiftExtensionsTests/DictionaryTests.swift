@@ -81,14 +81,6 @@ class DictionaryTests: XCTestCase {
         XCTAssertEqual(thirdMappedDic["seven"], "seven * 2 = 14")
     }
 
-    func testFilter() {
-        let secondFiltered = secondDic.filter { key, value in key != "five" }
-
-        XCTAssertTrue(secondFiltered.has("four"))
-        XCTAssertEqual(secondFiltered.count, 1)
-
-    }
-
     func testDicToJSON() {
         let dic: Dictionary = ["foo":"bar"]
         let json = dic.formatJSON()

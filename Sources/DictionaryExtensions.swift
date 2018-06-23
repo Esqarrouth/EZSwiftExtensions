@@ -28,7 +28,7 @@ extension Dictionary {
 
     /// EZSE: Intersection of self and the input dictionaries.
     /// Two dictionaries are considered equal if they contain the same [key: value] copules.
-    public func intersection<K, V>(_ dictionaries: [K: V]...) -> [K: V] where K: Equatable, V: Equatable {
+    public func intersection<K: Equatable, V: Equatable>(_ dictionaries: [K: V]...) -> [K: V] {
         //  Casts self from [Key: Value] to [K: V]
         let filtered = mapFilter { (item, value) -> (K, V)? in
             if let item = item as? K, let value = value as? V {
@@ -38,9 +38,12 @@ extension Dictionary {
         }
 
         //  Intersection
-        return filtered.filter { (key: K, value: V) -> Bool in
+        
+        return filtered.filter { (arg: (key: K, value: V)) -> Bool in
             //  check for [key: value] in all the dictionaries
-            dictionaries.testAll { $0.has(key) && $0[key] == value }
+            
+            let (key, value) = arg
+            return dictionaries.testAll { $0.has(key) && $0[key] == value }
         }
     }
 
@@ -121,7 +124,7 @@ extension Dictionary {
     public static func constructFromJSON (json: String) -> Dictionary? {
         if let data = (try? JSONSerialization.jsonObject(
             with: json.data(using: String.Encoding.utf8,
-            allowLossyConversion: true)!,
+                            allowLossyConversion: true)!,
             options: JSONSerialization.ReadingOptions.mutableContainers)) as? Dictionary {
             return data
         } else {

@@ -13,7 +13,7 @@ import UIKit
 // MARK: Custom UIView Initilizers
 extension UIView {
     /// EZSE: convenience contructor to define a view based on width, height and base coordinates.
-    public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
+    @objc public convenience init(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
         self.init(frame: CGRect(x: x, y: y, width: w, height: h))
     }
 
@@ -447,9 +447,9 @@ extension UIView {
     //EZSE: Reverse pop, good for button animations
     public func reversePop() {
         setScale(x: 0.9, y: 0.9)
-        UIView.animate(withDuration: 0.05, delay: 0, options: UIViewAnimationOptions.allowUserInteraction, animations: { [weak self] _ in
+        UIView.animate(withDuration: 0.05, delay: 0, options: .allowUserInteraction, animations: {[weak self] in
             self?.setScale(x: 1, y: 1)
-        })
+        }, completion: { (_) in })
     }
 }
 
@@ -609,7 +609,7 @@ extension UIView {
 
 // MARK: Fade Extensions
 
-private let UIViewDefaultFadeDuration: TimeInterval = 0.4
+public let UIViewDefaultFadeDuration: TimeInterval = 0.4
 
 extension UIView {
     ///EZSE: Fade in with duration, delay and completion block.

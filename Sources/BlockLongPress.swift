@@ -24,7 +24,7 @@ open class BlockLongPress: UILongPressGestureRecognizer {
         addTarget(self, action: #selector(BlockLongPress.didLongPressed(_:)))
     }
 
-    open func didLongPressed(_ longPress: UILongPressGestureRecognizer) {
+    @objc open func didLongPressed(_ longPress: UILongPressGestureRecognizer) {
         if longPress.state == UIGestureRecognizerState.began {
             longPressAction?(longPress)
         }

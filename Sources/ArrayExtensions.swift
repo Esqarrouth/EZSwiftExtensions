@@ -73,7 +73,7 @@ extension Array {
         var j: Int
         for i in 0..<(count-2) {
             j = Int(arc4random_uniform(UInt32(count - i)))
-            if i != i+j { swap(&self[i], &self[i+j]) }
+            if i != i+j { self.swapAt(i, i+j) }
         }
     }
 
@@ -114,7 +114,7 @@ extension Array where Element: Equatable {
 
     /// EZSE: Returns the indexes of the object
     public func indexes(of element: Element) -> [Int] {
-        return enumerated().flatMap { ($0.element == element) ? $0.offset : nil }
+        return enumerated().compactMap { ($0.element == element) ? $0.offset : nil }
     }
 
     /// EZSE: Returns the last index of the object
@@ -217,10 +217,10 @@ extension Array where Element: Hashable {
     }
 }
 
-extension Collection where Indices.Iterator.Element == Index {
+extension Collection {
     
     /// Returns the element at the specified index if it is within bounds, otherwise nil.
-    public subscript (safe index: Index) -> Generator.Element? {
+    public subscript (safe index: Index) -> Iterator.Element? {
         return indices.contains(index) ? self[index] : nil
     }
 }

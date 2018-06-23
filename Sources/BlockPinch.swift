@@ -24,7 +24,7 @@ open class BlockPinch: UIPinchGestureRecognizer {
         self.addTarget(self, action: #selector(BlockPinch.didPinch(_:)))
     }
 
-    open func didPinch (_ pinch: UIPinchGestureRecognizer) {
+    @objc open func didPinch (_ pinch: UIPinchGestureRecognizer) {
         pinchAction? (pinch)
     }
 }
