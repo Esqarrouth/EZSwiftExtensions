@@ -4,6 +4,7 @@
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)  
 [![License](https://img.shields.io/cocoapods/l/EZSwiftExtensions.svg?style=flat)](https://cocoapods.org/pods/EZSwiftExtensions)
 [![Platform](https://img.shields.io/cocoapods/p/EZSwiftExtensions.svg?style=flat)](http://cocoapods.org/pods/EZSwiftExtensions)
+[![Language](https://img.shields.io/badge/swift-4.0-orange.svg)](http://swift.org)
 [![Language](https://img.shields.io/badge/swift-3.0-orange.svg)](http://swift.org)
 [![Language](https://img.shields.io/badge/swift-2.3-orange.svg)](http://swift.org)
 
