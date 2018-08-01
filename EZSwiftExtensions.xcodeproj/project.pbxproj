@@ -142,6 +142,12 @@
 		79AB4F311D03394F009183EC /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB4F2C1D03394F009183EC /* UIApplicationExtensions.swift */; };
 		79AB4F331D03394F009183EC /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB4F2C1D03394F009183EC /* UIApplicationExtensions.swift */; };
 		8889A85B1D20E8D500635002 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8889A85A1D20E8D500635002 /* UITextFieldExtensions.swift */; };
+		98246C672111CC0500ECA4A2 /* HashableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98246C662111CC0500ECA4A2 /* HashableExtensions.swift */; };
+		98246C682111CC0500ECA4A2 /* HashableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98246C662111CC0500ECA4A2 /* HashableExtensions.swift */; };
+		98246C692111CC0500ECA4A2 /* HashableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98246C662111CC0500ECA4A2 /* HashableExtensions.swift */; };
+		98246C6B2111CC4800ECA4A2 /* HashableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98246C6A2111CC4800ECA4A2 /* HashableTests.swift */; };
+		98246C6C2111CC4800ECA4A2 /* HashableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98246C6A2111CC4800ECA4A2 /* HashableTests.swift */; };
+		98246C6D2111CC4800ECA4A2 /* HashableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98246C6A2111CC4800ECA4A2 /* HashableTests.swift */; };
 		B5DC86AD1C0ED06700972D0A /* EZSwiftExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = B5DC86AC1C0ED06700972D0A /* EZSwiftExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5DC86B41C0ED06700972D0A /* EZSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5DC86A91C0ED06700972D0A /* EZSwiftExtensions.framework */; };
 		B5DC86B91C0ED06700972D0A /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DC86B81C0ED06700972D0A /* ExampleTests.swift */; };
@@ -377,6 +383,8 @@
 		79AB4F2B1D03394F009183EC /* NSDictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDictionaryExtensions.swift; sourceTree = "<group>"; };
 		79AB4F2C1D03394F009183EC /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		8889A85A1D20E8D500635002 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensions.swift; sourceTree = "<group>"; };
+		98246C662111CC0500ECA4A2 /* HashableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashableExtensions.swift; sourceTree = "<group>"; };
+		98246C6A2111CC4800ECA4A2 /* HashableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashableTests.swift; sourceTree = "<group>"; };
 		B5DC86A91C0ED06700972D0A /* EZSwiftExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EZSwiftExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5DC86AC1C0ED06700972D0A /* EZSwiftExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EZSwiftExtensions.h; sourceTree = "<group>"; };
 		B5DC86AE1C0ED06700972D0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -576,6 +584,7 @@
 				FADFAA5B1D9D787D00CF9F7A /* FloatingPointTests.swift */,
 				E10A79331D6F3D0B00735549 /* EZSwiftFunctionsTests.swift */,
 				E10A79681D6F65AF00735549 /* ErrorTypeTests.swift */,
+				98246C6A2111CC4800ECA4A2 /* HashableTests.swift */,
 				7605D3071C81FBB80046FAC3 /* IntTests.swift */,
 				E10A79691D6F65AF00735549 /* NSAttributedStringTests.swift */,
 				E10A796B1D6F65AF00735549 /* NSDictionaryTests.swift */,
@@ -667,6 +676,7 @@
 				E19AC0EB1DCBA28A00908905 /* UserDefaultsExtension.swift */,
 				0B96F02C1E2FD32000236DDE /* UIEdgeInsets.swift */,
 				2D919FCF212FC9440024A3AE /* TimePassed.swift */,
+				98246C662111CC0500ECA4A2 /* HashableExtensions.swift */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -974,6 +984,7 @@
 				5AF577941EEE52DC00B1C277 /* UIAlertControllerExtensions.swift in Sources */,
 				5AF577951EEE52DC00B1C277 /* UIApplicationExtensions.swift in Sources */,
 				5AF577961EEE52DC00B1C277 /* UIBarButtonItemExtensions.swift in Sources */,
+				98246C692111CC0500ECA4A2 /* HashableExtensions.swift in Sources */,
 				5AF577971EEE52DC00B1C277 /* UIButtonExtensions.swift in Sources */,
 				5AF577981EEE52DC00B1C277 /* UIColoredView.swift in Sources */,
 				5AF577991EEE52DC00B1C277 /* UIColorExtensions.swift in Sources */,
@@ -1044,6 +1055,7 @@
 				5AF5785F1EEE595C00B1C277 /* UISliderTests.swift in Sources */,
 				5AF578601EEE595C00B1C277 /* UIStackViewTests.swift in Sources */,
 				5AF578611EEE595C00B1C277 /* UIStoryboardTests.swift in Sources */,
+				98246C6D2111CC4800ECA4A2 /* HashableTests.swift in Sources */,
 				5AF578621EEE595C00B1C277 /* UISwitchTests.swift in Sources */,
 				5AF578631EEE595C00B1C277 /* UITextFieldTests.swift in Sources */,
 				5AF578641EEE595C00B1C277 /* UITextViewTests.swift in Sources */,
@@ -1092,6 +1104,7 @@
 				B5DC87271C0ED34300972D0A /* DictionaryExtensions.swift in Sources */,
 				B5DC87291C0ED34300972D0A /* IntExtensions.swift in Sources */,
 				E17878101C8651EB00BC05AA /* NSAttributedStringExtensions.swift in Sources */,
+				98246C672111CC0500ECA4A2 /* HashableExtensions.swift in Sources */,
 				B5DC872B1C0ED34300972D0A /* NSObjectExtensions.swift in Sources */,
 				79AB4F2D1D03394F009183EC /* NSDictionaryExtensions.swift in Sources */,
 				B5DC872D1C0ED34300972D0A /* StringExtensions.swift in Sources */,
@@ -1127,6 +1140,7 @@
 				E10A79611D6F62DF00735549 /* BlockTapTests.swift in Sources */,
 				7605D3141C81FC180046FAC3 /* BoolTests.swift in Sources */,
 				5A3292F41DC5BCC50078F7F3 /* CGPointTests.swift in Sources */,
+				98246C6B2111CC4800ECA4A2 /* HashableTests.swift in Sources */,
 				E10A79851D6F65AF00735549 /* CharacterTests.swift in Sources */,
 				0B96F0301E2FD33C00236DDE /* UIEdgeInsetsTests.swift in Sources */,
 				E10A79BB1D6F65AF00735549 /* UIViewTests.swift in Sources */,
@@ -1211,6 +1225,7 @@
 				CD4D30CA1CEEAFD900CB53BC /* NSObjectExtensions.swift in Sources */,
 				79AB4F2F1D03394F009183EC /* NSDictionaryExtensions.swift in Sources */,
 				CD4D30CC1CEEAFD900CB53BC /* StringExtensions.swift in Sources */,
+				98246C682111CC0500ECA4A2 /* HashableExtensions.swift in Sources */,
 				CD4D30CD1CEEAFD900CB53BC /* UIAlertControllerExtensions.swift in Sources */,
 				CD4D30CE1CEEAFD900CB53BC /* UIButtonExtensions.swift in Sources */,
 				E19AC0F31DCBA2CE00908905 /* TimerExtensions.swift in Sources */,
@@ -1279,6 +1294,7 @@
 				E10A79AC1D6F65AF00735549 /* UILabelTests.swift in Sources */,
 				E10A79A81D6F65AF00735549 /* UIImageTests.swift in Sources */,
 				E10A79AA1D6F65AF00735549 /* UIImageViewTests.swift in Sources */,
+				98246C6C2111CC4800ECA4A2 /* HashableTests.swift in Sources */,
 				E10A79B81D6F65AF00735549 /* UIUserInterfaceSizeClassTests.swift in Sources */,
 				E10A79BE1D6F65AF00735549 /* UIWindowTests.swift in Sources */,
 				E10A79BA1D6F65AF00735549 /* UIViewControllerTests.swift in Sources */,
