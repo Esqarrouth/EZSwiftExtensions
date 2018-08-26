@@ -12,6 +12,9 @@
 		0B96F02E1E2FD32500236DDE /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F02C1E2FD32000236DDE /* UIEdgeInsets.swift */; };
 		0B96F0301E2FD33C00236DDE /* UIEdgeInsetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F02F1E2FD33C00236DDE /* UIEdgeInsetsTests.swift */; };
 		0B96F0311E2FD33C00236DDE /* UIEdgeInsetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96F02F1E2FD33C00236DDE /* UIEdgeInsetsTests.swift */; };
+		2D919FD0212FC9440024A3AE /* TimePassed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D919FCF212FC9440024A3AE /* TimePassed.swift */; };
+		2D919FD1212FC9440024A3AE /* TimePassed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D919FCF212FC9440024A3AE /* TimePassed.swift */; };
+		2D919FD2212FC9440024A3AE /* TimePassed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D919FCF212FC9440024A3AE /* TimePassed.swift */; };
 		31F868DB1C2B6E5E00542250 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F868DA1C2B6E5E00542250 /* DoubleExtensions.swift */; };
 		50AD20191DDCE6FF00A5A863 /* FileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AD20181DDCE6FF00A5A863 /* FileManagerTests.swift */; };
 		50AD201A1DDCE6FF00A5A863 /* FileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AD20181DDCE6FF00A5A863 /* FileManagerTests.swift */; };
@@ -354,6 +357,7 @@
 		0B96C3CD1C8688CB00BB2A3B /* URLTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLTests.swift; sourceTree = "<group>"; };
 		0B96F02C1E2FD32000236DDE /* UIEdgeInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
 		0B96F02F1E2FD33C00236DDE /* UIEdgeInsetsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetsTests.swift; sourceTree = "<group>"; };
+		2D919FCF212FC9440024A3AE /* TimePassed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePassed.swift; sourceTree = "<group>"; };
 		31F868DA1C2B6E5E00542250 /* DoubleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
 		50AD20181DDCE6FF00A5A863 /* FileManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerTests.swift; sourceTree = "<group>"; };
 		5A02399C1E6D345C00C235B8 /* CollectionsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionsExtension.swift; sourceTree = "<group>"; };
@@ -662,6 +666,7 @@
 				E19AC0EE1DCBA2BF00908905 /* URLExtensions.swift */,
 				E19AC0EB1DCBA28A00908905 /* UserDefaultsExtension.swift */,
 				0B96F02C1E2FD32000236DDE /* UIEdgeInsets.swift */,
+				2D919FCF212FC9440024A3AE /* TimePassed.swift */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -986,6 +991,7 @@
 				5AF577A51EEE52DC00B1C277 /* UIUserInterfaceSizeClassExtensions.swift in Sources */,
 				5AF577A61EEE52DC00B1C277 /* UIViewControllerExtensions.swift in Sources */,
 				5AF577A71EEE52DC00B1C277 /* UIViewExtensions.swift in Sources */,
+				2D919FD2212FC9440024A3AE /* TimePassed.swift in Sources */,
 				5AF577A81EEE52DC00B1C277 /* UIWindowExtensions.swift in Sources */,
 				5AF577A91EEE52DC00B1C277 /* URLExtensions.swift in Sources */,
 				5AF577AA1EEE52DC00B1C277 /* UserDefaultsExtension.swift in Sources */,
@@ -1103,6 +1109,7 @@
 				B5DC87341C0ED34300972D0A /* UIImageViewExtensions.swift in Sources */,
 				B5DC87351C0ED34300972D0A /* UILabelExtensions.swift in Sources */,
 				B5DC87361C0ED34300972D0A /* UITextViewExtensions.swift in Sources */,
+				2D919FD0212FC9440024A3AE /* TimePassed.swift in Sources */,
 				E19AC0E91DCBA26500908905 /* DateExtensions.swift in Sources */,
 				B5DC87371C0ED34300972D0A /* UIViewControllerExtensions.swift in Sources */,
 				B5DC87381C0ED34300972D0A /* UIViewExtensions.swift in Sources */,
@@ -1208,6 +1215,7 @@
 				CD4D30CE1CEEAFD900CB53BC /* UIButtonExtensions.swift in Sources */,
 				E19AC0F31DCBA2CE00908905 /* TimerExtensions.swift in Sources */,
 				CD4D30CF1CEEAFD900CB53BC /* UIColoredView.swift in Sources */,
+				2D919FD1212FC9440024A3AE /* TimePassed.swift in Sources */,
 				79AB4F331D03394F009183EC /* UIApplicationExtensions.swift in Sources */,
 				CD4D30D01CEEAFD900CB53BC /* UIColorExtensions.swift in Sources */,
 				CD4D30D11CEEAFD900CB53BC /* UIDeviceExtensions.swift in Sources */,

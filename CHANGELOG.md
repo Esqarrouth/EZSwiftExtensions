@@ -22,6 +22,9 @@ All notable changes to this project will be documented in this file.
 
 5. **UserDefaults**
    - `public func date(forKey key: String) -> Date?` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/459) by *Khalian*
+   
+6. **Date**
+    - `public func timePassed() -> TimePassed` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/486) by *110100110101*
 
 ## [Release 1.10]
 
