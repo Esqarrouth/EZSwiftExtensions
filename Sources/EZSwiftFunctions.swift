@@ -78,7 +78,7 @@ public struct ez {
 
     /// EZSE: Returns true if its simulator and not a device //TODO: Add to readme
     public static var isSimulator: Bool {
-    #if targetEnvironment(simulator)
+    #if (arch(i386) || arch(x86_64)) && os(iOS)
         return true
     #else
         return false
@@ -87,7 +87,7 @@ public struct ez {
 
     /// EZSE: Returns true if its on a device and not a simulator //TODO: Add to readme
     public static var isDevice: Bool {
-    #if targetEnvironment(simulator)
+    #if (arch(i386) || arch(x86_64)) && os(iOS)
         return false
     #else
         return true
