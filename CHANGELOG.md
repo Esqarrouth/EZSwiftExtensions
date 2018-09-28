@@ -26,6 +26,9 @@ All notable changes to this project will be documented in this file.
 6. **Date**
     - `public func timePassed() -> TimePassed` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/486) by *110100110101*
 
+7. **Hashable**
+    - `public var hashString: String` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/485) by *rugheid*
+
 ## [Release 1.10]
 
 ### New platform added. 
