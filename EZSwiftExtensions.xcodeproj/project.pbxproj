@@ -325,6 +325,9 @@
 		E19AC0F31DCBA2CE00908905 /* TimerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19AC0F11DCBA2CE00908905 /* TimerExtensions.swift */; };
 		E1D7CDD01CF8FFC7008E4C07 /* UIBarButtonItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D7CDCF1CF8FFC7008E4C07 /* UIBarButtonItemExtensions.swift */; };
 		E1F21CB51CB55CDA004A01A4 /* EZSwiftFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F21CB41CB55CDA004A01A4 /* EZSwiftFunctions.swift */; };
+		EDBA58C021946A35007D3F86 /* SynchronizedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBA58BF21946A35007D3F86 /* SynchronizedDictionary.swift */; };
+		EDBA58C121946B01007D3F86 /* SynchronizedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBA58BF21946A35007D3F86 /* SynchronizedDictionary.swift */; };
+		EDBA58C221946B01007D3F86 /* SynchronizedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBA58BF21946A35007D3F86 /* SynchronizedDictionary.swift */; };
 		FADFAA5C1D9D787D00CF9F7A /* FloatingPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFAA5B1D9D787D00CF9F7A /* FloatingPointTests.swift */; };
 		FADFAA5D1D9D787D00CF9F7A /* FloatingPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFAA5B1D9D787D00CF9F7A /* FloatingPointTests.swift */; };
 		FADFAA631D9D8C2F00CF9F7A /* FloatingPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFAA621D9D8C2F00CF9F7A /* FloatingPointExtensions.swift */; };
@@ -472,6 +475,7 @@
 		E19AC0F11DCBA2CE00908905 /* TimerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerExtensions.swift; sourceTree = "<group>"; };
 		E1D7CDCF1CF8FFC7008E4C07 /* UIBarButtonItemExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtensions.swift; sourceTree = "<group>"; };
 		E1F21CB41CB55CDA004A01A4 /* EZSwiftFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwiftFunctions.swift; sourceTree = "<group>"; };
+		EDBA58BF21946A35007D3F86 /* SynchronizedDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedDictionary.swift; sourceTree = "<group>"; };
 		FADFAA5B1D9D787D00CF9F7A /* FloatingPointTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPointTests.swift; sourceTree = "<group>"; };
 		FADFAA621D9D8C2F00CF9F7A /* FloatingPointExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPointExtensions.swift; sourceTree = "<group>"; };
 		FFA538CB1E75D69F0093552E /* UIStackViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIStackViewExtensions.swift; path = ../EZSwiftExtensions/UIStackViewExtensions.swift; sourceTree = "<group>"; };
@@ -677,6 +681,7 @@
 				0B96F02C1E2FD32000236DDE /* UIEdgeInsets.swift */,
 				2D919FCF212FC9440024A3AE /* TimePassed.swift */,
 				98246C662111CC0500ECA4A2 /* HashableExtensions.swift */,
+				EDBA58BF21946A35007D3F86 /* SynchronizedDictionary.swift */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -998,6 +1003,7 @@
 				5AF577A11EEE52DC00B1C277 /* UIStoryboardExtensions.swift in Sources */,
 				5AF577A21EEE52DC00B1C277 /* UISwitchExtensions.swift in Sources */,
 				5AF577A31EEE52DC00B1C277 /* UITextFieldExtensions.swift in Sources */,
+				EDBA58C021946A35007D3F86 /* SynchronizedDictionary.swift in Sources */,
 				5AF577A41EEE52DC00B1C277 /* UITextViewExtensions.swift in Sources */,
 				5AF577A51EEE52DC00B1C277 /* UIUserInterfaceSizeClassExtensions.swift in Sources */,
 				5AF577A61EEE52DC00B1C277 /* UIViewControllerExtensions.swift in Sources */,
@@ -1118,6 +1124,7 @@
 				5A02399D1E6D345C00C235B8 /* CollectionsExtension.swift in Sources */,
 				E178781C1C8678AA00BC05AA /* UISliderExtensions.swift in Sources */,
 				B5DC87321C0ED34300972D0A /* UIFontExtensions.swift in Sources */,
+				EDBA58C121946B01007D3F86 /* SynchronizedDictionary.swift in Sources */,
 				B5DC87331C0ED34300972D0A /* UIImageExtensions.swift in Sources */,
 				B5DC87341C0ED34300972D0A /* UIImageViewExtensions.swift in Sources */,
 				B5DC87351C0ED34300972D0A /* UILabelExtensions.swift in Sources */,
@@ -1211,6 +1218,7 @@
 				E10A79521D6F5CCC00735549 /* UIUserInterfaceSizeClassExtensions.swift in Sources */,
 				CD4D30BC1CEEAFD900CB53BC /* BlockSwipe.swift in Sources */,
 				E19AC0E71DCBA25800908905 /* BundleExtensions.swift in Sources */,
+				EDBA58C221946B01007D3F86 /* SynchronizedDictionary.swift in Sources */,
 				CD4D30BE1CEEAFD900CB53BC /* UISwitchExtensions.swift in Sources */,
 				E10A79391D6F4E3400735549 /* UITextFieldExtensions.swift in Sources */,
 				CD4D30BF1CEEAFD900CB53BC /* BlockTap.swift in Sources */,

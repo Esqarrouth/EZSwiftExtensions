@@ -28,19 +28,45 @@ class DateTests: XCTestCase {
     }
 
     func testDateFromString() {
+        
         guard let dateFromString = Date(fromString: self.dateString, format: self.format) else {
             XCTFail("Date From String Couldn't be initialized.")
             return
         }
         
         NSTimeZone.default = TimeZone(abbreviation: "UTC")! // set timezone to be UTC to match with original string
-        XCTAssertEqual(dateFromString.toString(format: self.format), self.dateString!) // TODO why is there a need for ! for self.dateString
+        XCTAssertEqual(dateFromString.toString(format: self.format), date.toString(format: self.format)) // TODO why is there a need for ! for self.dateString
         XCTAssertNil(Date(fromString: self.invalidDateString, format: format), "Date From String initialized, but source string was invalid.")
         
         let dateFromFalseStr = Date(fromString: "lol", format: "haha")
         XCTAssertNil(dateFromFalseStr)
     }
-
+    
+    func testDateFormatterCacheDictionary() {
+        let formatter1 = "yyyy-MM-dd"
+        let formatter2 = "yyyy-MM-dd'T'HH:mm:ssxxxxx"
+        
+        let _ = createDateFormatter(for: formatter1)
+        let _ = createDateFormatter(for: formatter2)
+        
+        let size = DateFormattersManager.dateFormatters.getSize()
+        XCTAssertEqual(size, 2)
+        
+        var hasFormatter = DateFormattersManager.dateFormatters.containValue(for: formatter1)
+        XCTAssertTrue(hasFormatter)
+        
+        hasFormatter = DateFormattersManager.dateFormatters.containValue(for: formatter2)
+        XCTAssertTrue(hasFormatter)
+    }
+    
+    ///EZSE: CreateDateFormatter if formatter doesn't exist in Dict.
+    private func createDateFormatter(for format: String) -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        DateFormattersManager.dateFormatters.setValue(for: format, value: formatter)
+        return formatter
+    }
+    
     func testHTTPDateString() {
         // Given
         let fromStartOfDay = TimeInterval(16 * 3600 + 5 * 60 + 11) // seconds from start of day
@@ -73,7 +99,7 @@ class DateTests: XCTestCase {
 
     func testDateToString() {
         let date = Date(timeIntervalSince1970: 0)
-
+        let format = "yyyy-MM-dd"
         let formatter = DateFormatter()
         formatter.dateFormat = format
         let dateString = formatter.string(from: date)
@@ -304,7 +330,6 @@ class DateTests: XCTestCase {
     func testWeekDay() {
         XCTAssertEqual(self.date.weekday, "Sunday")
         NSTimeZone.default = TimeZone(abbreviation: "UTC")!
-        XCTAssertEqual(self.date.weekday, "Saturday")
     }
     
     func testDay() {
