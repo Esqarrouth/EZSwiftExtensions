@@ -8,27 +8,38 @@
 
 import Foundation
 
+/// EZSE: This Dict help to cache already created formatter to use them in future, helps in performace improvement.
+fileprivate var dateFormatterDict: [String:DateFormatter] = [:]
+
 extension Date {
     
     public static let minutesInAWeek = 24 * 60 * 7
-
+    
     /// EZSE: Initializes Date from string and format
     public init?(fromString string: String,
                  format: String,
                  timezone: TimeZone = TimeZone.autoupdatingCurrent,
                  locale: Locale = Locale.current) {
-        
-        let formatter = DateFormatter()
-        formatter.timeZone = timezone
-        formatter.locale = locale
-        formatter.dateFormat = format
-        if let date = formatter.date(from: string) {
-            self = date
-        } else {
-            return nil
+        if let dateFormatter = dateFormatterDict[format]{
+            if let date = dateFormatter.date(from: string) {
+                self = date
+            } else {
+                return nil
+            }
+        }else{
+            let formatter = DateFormatter()
+            formatter.timeZone = timezone
+            formatter.locale = locale
+            formatter.dateFormat = format
+            dateFormatterDict[format] = formatter
+            if let date = formatter.date(from: string) {
+                self = date
+            } else {
+                return nil
+            }
         }
     }
-
+    
     /// EZSE: Initializes Date from string returned from an http response, according to several RFCs / ISO
     public init?(httpDateString: String) {
         if let rfc1123 = Date(fromString: httpDateString, format: "EEE',' dd' 'MMM' 'yyyy HH':'mm':'ss zzz") {
@@ -59,10 +70,9 @@ extension Date {
             self = iso8601DateHrMinSecMs
             return
         }
-        //self.init()
         return nil
     }
-
+    
     /// EZSE: Converts Date to String
     public func toString(dateStyle: DateFormatter.Style = .medium, timeStyle: DateFormatter.Style = .medium) -> String {
         let formatter = DateFormatter()
@@ -70,42 +80,46 @@ extension Date {
         formatter.timeStyle = timeStyle
         return formatter.string(from: self)
     }
-
+    
     /// EZSE: Converts Date to String, with format
     public func toString(format: String) -> String {
+        if let dateFormatter = dateFormatterDict[format]{
+            return dateFormatter.string(from: self)
+        }
         let formatter = DateFormatter()
         formatter.dateFormat = format
+        dateFormatterDict[format] = formatter
         return formatter.string(from: self)
     }
-
+    
     /// EZSE: Calculates how many days passed from now to date
     public func daysInBetweenDate(_ date: Date) -> Double {
         var diff = self.timeIntervalSince1970 - date.timeIntervalSince1970
         diff = fabs(diff/86400)
         return diff
     }
-
+    
     /// EZSE: Calculates how many hours passed from now to date
     public func hoursInBetweenDate(_ date: Date) -> Double {
         var diff = self.timeIntervalSince1970 - date.timeIntervalSince1970
         diff = fabs(diff/3600)
         return diff
     }
-
+    
     /// EZSE: Calculates how many minutes passed from now to date
     public func minutesInBetweenDate(_ date: Date) -> Double {
         var diff = self.timeIntervalSince1970 - date.timeIntervalSince1970
         diff = fabs(diff/60)
         return diff
     }
-
+    
     /// EZSE: Calculates how many seconds passed from now to date
     public func secondsInBetweenDate(_ date: Date) -> Double {
         var diff = self.timeIntervalSince1970 - date.timeIntervalSince1970
         diff = fabs(diff)
         return diff
     }
-
+    
     /// EZSE: Easy creation of time passed String. Can be Years, Months, days, hours, minutes or seconds
     public func timePassed() -> String {
         let date = Date()
@@ -169,41 +183,56 @@ extension Date {
     public var isPast: Bool {
         return self < Date()
     }
-
+    
     // EZSE: Check date if it is today
     public var isToday: Bool {
-        let format = DateFormatter()
-        format.dateFormat = "yyyy-MM-dd"
-        return format.string(from: self) == format.string(from: Date())
+        let format = "yyyy-MM-dd"
+        if let dateFormatter = dateFormatterDict[format]{
+            return dateFormatter.string(from: self) == dateFormatter.string(from: Date())
+        }
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        dateFormatterDict[format] = formatter
+        return formatter.string(from: self) == formatter.string(from: Date())
     }
-
+    
     /// EZSE: Check date if it is yesterday
     public var isYesterday: Bool {
-        let format = DateFormatter()
-        format.dateFormat = "yyyy-MM-dd"
+        let format = "yyyy-MM-dd"
         let yesterDay = Calendar.current.date(byAdding: .day, value: -1, to: Date())
-        return format.string(from: self) == format.string(from: yesterDay!)
+        if let dateFormatter = dateFormatterDict[format]{
+            return dateFormatter.string(from: self) == dateFormatter.string(from: yesterDay!)
+        }
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        dateFormatterDict[format] = formatter
+        return formatter.string(from: self) == formatter.string(from: yesterDay!)
     }
-
+    
     /// EZSE: Check date if it is tomorrow
     public var isTomorrow: Bool {
-        let format = DateFormatter()
-        format.dateFormat = "yyyy-MM-dd"
+        let format = "yyyy-MM-dd"
         let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date())
-        return format.string(from: self) == format.string(from: tomorrow!)
+        if let dateFormatter = dateFormatterDict[format]{
+            return dateFormatter.string(from: self) == dateFormatter.string(from: tomorrow!)
+        }
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        dateFormatterDict[format] = formatter
+        return formatter.string(from: self) == formatter.string(from: tomorrow!)
     }
-
+    
     /// EZSE: Check date if it is within this month.
     public var isThisMonth: Bool {
         let today = Date()
         return self.month == today.month && self.year == today.year
     }
-
+    
     /// EZSE: Check date if it is within this week.
     public var isThisWeek: Bool {
         return self.minutesInBetweenDate(Date()) <= Double(Date.minutesInAWeek)
     }
-
+    
     /// EZSE: Get the era from the date
     public var era: Int {
         return Calendar.current.component(Calendar.Component.era, from: self)
@@ -213,41 +242,51 @@ extension Date {
     public var year: Int {
         return Calendar.current.component(Calendar.Component.year, from: self)
     }
-
+    
     /// EZSE : Get the month from the date
     public var month: Int {
         return Calendar.current.component(Calendar.Component.month, from: self)
     }
-
+    
     /// EZSE : Get the weekday from the date
     public var weekday: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE"
-        return dateFormatter.string(from: self)
+        let format = "EEEE"
+        if let dateFormatter = dateFormatterDict[format]{
+            return dateFormatter.string(from: self)
+        }
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        dateFormatterDict[format] = formatter
+        return formatter.string(from: self)
     }
-
+    
     // EZSE : Get the month from the date
     public var monthAsString: String {
+        let format = "MMMM"
+        if let dateFormatter = dateFormatterDict[format]{
+            return dateFormatter.string(from: self)
+        }
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM"
+        dateFormatter.dateFormat = format
+        dateFormatterDict[format] = dateFormatter
         return dateFormatter.string(from: self)
     }
-
+    
     // EZSE : Get the day from the date
     public var day: Int {
         return Calendar.current.component(.day, from: self)
     }
-
+    
     /// EZSE: Get the hours from date
     public var hour: Int {
         return Calendar.current.component(.hour, from: self)
     }
-
+    
     /// EZSE: Get the minute from date
     public var minute: Int {
         return Calendar.current.component(.minute, from: self)
     }
-
+    
     /// EZSE: Get the second from the date
     public var second: Int {
         return Calendar.current.component(.second, from: self)
