@@ -19,7 +19,7 @@ class BoolTests: XCTestCase {
 
     func testToggle() {
         var value = false
-        value.toggle()
+        value = value.toggle()
         XCTAssertNotEqual(value, false)
     }
     
