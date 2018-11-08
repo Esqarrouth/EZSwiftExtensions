@@ -40,7 +40,32 @@ class DateTests: XCTestCase {
         let dateFromFalseStr = Date(fromString: "lol", format: "haha")
         XCTAssertNil(dateFromFalseStr)
     }
-
+    
+    func testDateFormatterCacheDictionary() {
+        let formatter1 = "yyyy-MM-dd"
+        let formatter2 = "yyyy-MM-dd'T'HH:mm:ssxxxxx"
+        
+        let _ = createDateFormatter(for: formatter1)
+        let _ = createDateFormatter(for: formatter2)
+        
+        let size = DateFormattersManager.dateFormatters.getSize()
+        XCTAssertEqual(size, 2)
+        
+        var hasFormatter = DateFormattersManager.dateFormatters.containValue(for: formatter1)
+        XCTAssertTrue(hasFormatter)
+        
+        hasFormatter = DateFormattersManager.dateFormatters.containValue(for: formatter2)
+        XCTAssertTrue(hasFormatter)
+    }
+    
+    ///EZSE: CreateDateFormatter if formatter doesn't exist in Dict.
+    private func createDateFormatter(for format: String) -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        DateFormattersManager.dateFormatters.setValue(for: format, value: formatter)
+        return formatter
+    }
+    
     func testHTTPDateString() {
         // Given
         let fromStartOfDay = TimeInterval(16 * 3600 + 5 * 60 + 11) // seconds from start of day

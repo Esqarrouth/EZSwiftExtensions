@@ -8,8 +8,11 @@
 
 import Foundation
 
-/// EZSE: This Dict help to cache already created formatter to use them in future, helps in performace improvement.
-fileprivate var dateFormatterDict: [String:DateFormatter] = [:]
+/// EZSE: This Date Formatter Manager help to cache already created formatter in a synchronized Dictionary to use them in future, helps in performace improvement.
+
+class DateFormattersManager {
+    public static var dateFormatters: SynchronizedDictionary = SynchronizedDictionary<String, DateFormatter>()
+}
 
 extension Date {
     
@@ -20,18 +23,18 @@ extension Date {
                  format: String,
                  timezone: TimeZone = TimeZone.autoupdatingCurrent,
                  locale: Locale = Locale.current) {
-        if let dateFormatter = dateFormatterDict[format]{
+        if let dateFormatter = DateFormattersManager.dateFormatters.getValue(for: format) {
             if let date = dateFormatter.date(from: string) {
                 self = date
             } else {
                 return nil
             }
-        }else{
+        } else {
             let formatter = DateFormatter()
             formatter.timeZone = timezone
             formatter.locale = locale
             formatter.dateFormat = format
-            dateFormatterDict[format] = formatter
+            DateFormattersManager.dateFormatters.setValue(for: format, value: formatter)
             if let date = formatter.date(from: string) {
                 self = date
             } else {
@@ -83,13 +86,30 @@ extension Date {
     
     /// EZSE: Converts Date to String, with format
     public func toString(format: String) -> String {
-        if let dateFormatter = dateFormatterDict[format]{
-            return dateFormatter.string(from: self)
+        
+        let dateFormatter = getDateFormatter(for: format)
+        return dateFormatter.string(from: self)
+    }
+    
+    /// EZSE: Use to get dateFormatter from synchronized Dict via dateFormatterManager
+    private func getDateFormatter(for format: String) -> DateFormatter {
+        
+        var dateFormatter: DateFormatter?
+        if let _dateFormatter = DateFormattersManager.dateFormatters.getValue(for: format) {
+             dateFormatter = _dateFormatter
+        } else {
+            dateFormatter = createDateFormatter(for: format)
         }
+        
+        return dateFormatter!
+    }
+    
+    ///EZSE: CreateDateFormatter if formatter doesn't exist in Dict.
+    private func createDateFormatter(for format: String) -> DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = format
-        dateFormatterDict[format] = formatter
-        return formatter.string(from: self)
+        DateFormattersManager.dateFormatters.setValue(for: format, value: formatter)
+        return formatter
     }
     
     /// EZSE: Calculates how many days passed from now to date
@@ -187,39 +207,25 @@ extension Date {
     // EZSE: Check date if it is today
     public var isToday: Bool {
         let format = "yyyy-MM-dd"
-        if let dateFormatter = dateFormatterDict[format]{
-            return dateFormatter.string(from: self) == dateFormatter.string(from: Date())
-        }
-        let formatter = DateFormatter()
-        formatter.dateFormat = format
-        dateFormatterDict[format] = formatter
-        return formatter.string(from: self) == formatter.string(from: Date())
+        let dateFormatter = getDateFormatter(for: format)
+        return dateFormatter.string(from: self) == dateFormatter.string(from: Date())
     }
     
     /// EZSE: Check date if it is yesterday
     public var isYesterday: Bool {
         let format = "yyyy-MM-dd"
         let yesterDay = Calendar.current.date(byAdding: .day, value: -1, to: Date())
-        if let dateFormatter = dateFormatterDict[format]{
-            return dateFormatter.string(from: self) == dateFormatter.string(from: yesterDay!)
-        }
-        let formatter = DateFormatter()
-        formatter.dateFormat = format
-        dateFormatterDict[format] = formatter
-        return formatter.string(from: self) == formatter.string(from: yesterDay!)
+        let dateFormatter = getDateFormatter(for: format)
+        return dateFormatter.string(from: self) == dateFormatter.string(from: yesterDay!)
     }
     
     /// EZSE: Check date if it is tomorrow
     public var isTomorrow: Bool {
         let format = "yyyy-MM-dd"
         let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date())
-        if let dateFormatter = dateFormatterDict[format]{
-            return dateFormatter.string(from: self) == dateFormatter.string(from: tomorrow!)
-        }
-        let formatter = DateFormatter()
-        formatter.dateFormat = format
-        dateFormatterDict[format] = formatter
-        return formatter.string(from: self) == formatter.string(from: tomorrow!)
+        let dateFormatter = getDateFormatter(for: format)
+        
+        return dateFormatter.string(from: self) == dateFormatter.string(from: tomorrow!)
     }
     
     /// EZSE: Check date if it is within this month.
@@ -251,24 +257,14 @@ extension Date {
     /// EZSE : Get the weekday from the date
     public var weekday: String {
         let format = "EEEE"
-        if let dateFormatter = dateFormatterDict[format]{
-            return dateFormatter.string(from: self)
-        }
-        let formatter = DateFormatter()
-        formatter.dateFormat = format
-        dateFormatterDict[format] = formatter
-        return formatter.string(from: self)
+        let dateFormatter = getDateFormatter(for: format)
+        return dateFormatter.string(from: self)
     }
     
     // EZSE : Get the month from the date
     public var monthAsString: String {
         let format = "MMMM"
-        if let dateFormatter = dateFormatterDict[format]{
-            return dateFormatter.string(from: self)
-        }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-        dateFormatterDict[format] = dateFormatter
+        let dateFormatter = getDateFormatter(for: format)
         return dateFormatter.string(from: self)
     }
     
