@@ -78,7 +78,7 @@ public struct ez {
 
     /// EZSE: Returns true if its simulator and not a device //TODO: Add to readme
     public static var isSimulator: Bool {
-        #if targetEnvironment(simulator)
+    #if targetEnvironment(simulator)
         return true
     #else
         return false
@@ -87,7 +87,7 @@ public struct ez {
 
     /// EZSE: Returns true if its on a device and not a simulator //TODO: Add to readme
     public static var isDevice: Bool {
-        #if targetEnvironment(simulator)
+    #if targetEnvironment(simulator)
         return false
     #else
         return true
@@ -198,7 +198,7 @@ public struct ez {
     }
     
     #if os(iOS) || os(tvOS)
-
+    
     /// EZSE: Calls action when a screen shot is taken
     public static func detectScreenShot(_ action: @escaping () -> Void) {
         let mainQueue = OperationQueue.main

@@ -306,7 +306,7 @@ extension Array {
     /// through the mapFunction and discarding nil return values.
     @available(*, deprecated: 1.6, renamed: "flatMap(_:)")
     public func mapFilter<V>(mapFunction map: (Element) -> (V)?) -> [V] {
-        return flatMap { map($0) }
+        return compactMap { map($0) }
     }
 
     /// EZSE: Iterates on each element of the array with its index.  (Index, Element)
