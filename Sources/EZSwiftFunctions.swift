@@ -210,18 +210,8 @@ public struct ez {
     
     #endif
 
-    //TODO: Document this, add tests to this
-    /// EZSE: Iterates through enum elements, use with (for element in ez.iterateEnum(myEnum))
     /// http://stackoverflow.com/questions/24007461/how-to-enumerate-an-enum-with-string-type
-    public static func iterateEnum<T: Hashable>(_: T.Type) -> AnyIterator<T> {
-        var i = 0
-        return AnyIterator {
-            let next = withUnsafePointer(to: &i) { $0.withMemoryRebound(to: T.self, capacity: 1) { $0.pointee } }
-            if next.hashValue != i { return nil }
-            i += 1
-            return next
-        }
-    }
+    // Enum iterations are now covered by extending the CaseIterable protocol and using allCases. 
 
     // MARK: - Dispatch
 

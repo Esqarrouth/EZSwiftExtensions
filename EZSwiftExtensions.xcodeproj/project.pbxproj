@@ -93,7 +93,6 @@
 		5AF5784A1EEE595C00B1C277 /* DoubleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79671D6F65AF00735549 /* DoubleTests.swift */; };
 		5AF5784B1EEE595C00B1C277 /* FileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AD20181DDCE6FF00A5A863 /* FileManagerTests.swift */; };
 		5AF5784C1EEE595C00B1C277 /* FloatingPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFAA5B1D9D787D00CF9F7A /* FloatingPointTests.swift */; };
-		5AF5784D1EEE595C00B1C277 /* EZSwiftFunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79331D6F3D0B00735549 /* EZSwiftFunctionsTests.swift */; };
 		5AF5784E1EEE595C00B1C277 /* ErrorTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79681D6F65AF00735549 /* ErrorTypeTests.swift */; };
 		5AF5784F1EEE595C00B1C277 /* IntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605D3071C81FBB80046FAC3 /* IntTests.swift */; };
 		5AF578501EEE595C00B1C277 /* NSAttributedStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79691D6F65AF00735549 /* NSAttributedStringTests.swift */; };
@@ -228,8 +227,6 @@
 		CD4D31561CEEB9EA00CB53BC /* CGFloatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605D3051C81FBB80046FAC3 /* CGFloatTests.swift */; };
 		CD4D31571CEEB9EA00CB53BC /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7605D3081C81FBB80046FAC3 /* DateTests.swift */; };
 		CD4D31591CEEB9EA00CB53BC /* EZSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5DC86A91C0ED06700972D0A /* EZSwiftExtensions.framework */; };
-		E10A79341D6F3D0B00735549 /* EZSwiftFunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79331D6F3D0B00735549 /* EZSwiftFunctionsTests.swift */; };
-		E10A79351D6F3D0B00735549 /* EZSwiftFunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79331D6F3D0B00735549 /* EZSwiftFunctionsTests.swift */; };
 		E10A79381D6F4E1A00735549 /* UIBarButtonItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D7CDCF1CF8FFC7008E4C07 /* UIBarButtonItemExtensions.swift */; };
 		E10A79391D6F4E3400735549 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8889A85A1D20E8D500635002 /* UITextFieldExtensions.swift */; };
 		E10A79461D6F506400735549 /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10A79451D6F506400735549 /* UIStoryboardExtensions.swift */; };
@@ -420,7 +417,6 @@
 		C2F04A031E4039B500DEA806 /* charizard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = charizard.jpg; sourceTree = "<group>"; };
 		CD4D30E31CEEAFD900CB53BC /* EZSwiftExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EZSwiftExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4D315E1CEEB9EA00CB53BC /* EZSwiftExtensionsTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EZSwiftExtensionsTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E10A79331D6F3D0B00735549 /* EZSwiftFunctionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwiftFunctionsTests.swift; sourceTree = "<group>"; };
 		E10A79451D6F506400735549 /* UIStoryboardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtensions.swift; sourceTree = "<group>"; };
 		E10A79501D6F5CCC00735549 /* UIUserInterfaceSizeClassExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUserInterfaceSizeClassExtensions.swift; sourceTree = "<group>"; };
 		E10A79531D6F5DAD00735549 /* BlockLongPressTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockLongPressTests.swift; sourceTree = "<group>"; };
@@ -582,7 +578,6 @@
 				E10A79671D6F65AF00735549 /* DoubleTests.swift */,
 				50AD20181DDCE6FF00A5A863 /* FileManagerTests.swift */,
 				FADFAA5B1D9D787D00CF9F7A /* FloatingPointTests.swift */,
-				E10A79331D6F3D0B00735549 /* EZSwiftFunctionsTests.swift */,
 				E10A79681D6F65AF00735549 /* ErrorTypeTests.swift */,
 				98246C6A2111CC4800ECA4A2 /* HashableTests.swift */,
 				7605D3071C81FBB80046FAC3 /* IntTests.swift */,
@@ -827,7 +822,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Goktug Yilmaz";
 				TargetAttributes = {
 					5AF577601EEE527500B1C277 = {
@@ -1036,7 +1031,6 @@
 				5AF5784A1EEE595C00B1C277 /* DoubleTests.swift in Sources */,
 				5AF5784B1EEE595C00B1C277 /* FileManagerTests.swift in Sources */,
 				5AF5784C1EEE595C00B1C277 /* FloatingPointTests.swift in Sources */,
-				5AF5784D1EEE595C00B1C277 /* EZSwiftFunctionsTests.swift in Sources */,
 				5AF5784E1EEE595C00B1C277 /* ErrorTypeTests.swift in Sources */,
 				5AF5784F1EEE595C00B1C277 /* IntTests.swift in Sources */,
 				5AF578501EEE595C00B1C277 /* NSAttributedStringTests.swift in Sources */,
@@ -1166,7 +1160,6 @@
 				E10A79B31D6F65AF00735549 /* UITextFieldTests.swift in Sources */,
 				E10A79911D6F65AF00735549 /* NSObjectTests.swift in Sources */,
 				E10A79951D6F65AF00735549 /* UserDefaultTests.swift in Sources */,
-				E10A79341D6F3D0B00735549 /* EZSwiftFunctionsTests.swift in Sources */,
 				0B96C3CF1C86895E00BB2A3B /* URLTests.swift in Sources */,
 				E10A798B1D6F65AF00735549 /* NSAttributedStringTests.swift in Sources */,
 				E10A795D1D6F62DF00735549 /* BlockPinchTests.swift in Sources */,
@@ -1283,7 +1276,6 @@
 				E10A79B41D6F65AF00735549 /* UITextFieldTests.swift in Sources */,
 				E10A79921D6F65AF00735549 /* NSObjectTests.swift in Sources */,
 				E10A79961D6F65AF00735549 /* UserDefaultTests.swift in Sources */,
-				E10A79351D6F3D0B00735549 /* EZSwiftFunctionsTests.swift in Sources */,
 				CD4D31531CEEB9EA00CB53BC /* URLTests.swift in Sources */,
 				E10A798C1D6F65AF00735549 /* NSAttributedStringTests.swift in Sources */,
 				E10A795E1D6F62DF00735549 /* BlockPinchTests.swift in Sources */,
@@ -1429,14 +1421,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1478,14 +1478,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
