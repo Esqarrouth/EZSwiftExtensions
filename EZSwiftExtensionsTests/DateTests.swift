@@ -29,13 +29,13 @@ class DateTests: XCTestCase {
 
     func testDateFromString() {
         
-        guard let dateFromString = Date(fromString: self.dateString, format: self.format, timezone: TimeZone(abbreviation: "UTC")!) else {
+        guard let dateFromString = Date(fromString: self.dateString, format: self.format) else {
             XCTFail("Date From String Couldn't be initialized.")
             return
         }
         
         NSTimeZone.default = TimeZone(abbreviation: "UTC")! // set timezone to be UTC to match with original string
-        XCTAssertEqual(dateFromString.toString(format: self.format), self.dateString!) // TODO why is there a need for ! for self.dateString
+        XCTAssertEqual(dateFromString.toString(format: self.format), date.toString(format: self.format)) // TODO why is there a need for ! for self.dateString
         XCTAssertNil(Date(fromString: self.invalidDateString, format: format), "Date From String initialized, but source string was invalid.")
         
         let dateFromFalseStr = Date(fromString: "lol", format: "haha")
