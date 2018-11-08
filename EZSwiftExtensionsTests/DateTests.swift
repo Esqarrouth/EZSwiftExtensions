@@ -33,7 +33,6 @@ class DateTests: XCTestCase {
             return
         }
         
-        NSTimeZone.default = TimeZone(abbreviation: "UTC")! // set timezone to be UTC to match with original string
         XCTAssertEqual(dateFromString.toString(format: self.format), self.dateString!) // TODO why is there a need for ! for self.dateString
         XCTAssertNil(Date(fromString: self.invalidDateString, format: format), "Date From String initialized, but source string was invalid.")
         
