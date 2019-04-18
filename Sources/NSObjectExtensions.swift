@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Goktug Yilmaz. All rights reserved.
 //
 
+import Foundation
+
 #if os(iOS) || os(tvOS)
 
 extension NSObject {
