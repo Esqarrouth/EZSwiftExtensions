@@ -137,29 +137,29 @@ extension Date {
     }
     
     /// EZSE: Easy creation of time passed String. Can be Years, Months, days, hours, minutes or seconds. Useful for localization
-    public func timePassed() -> TimePassed {
-        
-        let date = Date()
-        let calendar = Calendar.autoupdatingCurrent
-        let components = (calendar as NSCalendar).components([.year, .month, .day, .hour, .minute, .second], from: self, to: date, options: [])
-        
-        if components.year! >= 1 {
-            return TimePassed.year(components.year!)
-        } else if components.month! >= 1 {
-            return TimePassed.month(components.month!)
-        } else if components.day! >= 1 {
-            return TimePassed.day(components.day!)
-        } else if components.hour! >= 1 {
-            return TimePassed.hour(components.hour!)
-        } else if components.minute! >= 1 {
-            return TimePassed.minute(components.minute!)
-        } else if components.second! >= 1 {
-            return TimePassed.second(components.second!)
-        } else {
-            return TimePassed.now
-        }
-    }
-    
+//    public func timePassed() -> TimePassed {
+//
+//        let date = Date()
+//        let calendar = Calendar.autoupdatingCurrent
+//        let components = (calendar as NSCalendar).components([.year, .month, .day, .hour, .minute, .second], from: self, to: date, options: [])
+//
+//        if components.year! >= 1 {
+//            return TimePassed.year(components.year!)
+//        } else if components.month! >= 1 {
+//            return TimePassed.month(components.month!)
+//        } else if components.day! >= 1 {
+//            return TimePassed.day(components.day!)
+//        } else if components.hour! >= 1 {
+//            return TimePassed.hour(components.hour!)
+//        } else if components.minute! >= 1 {
+//            return TimePassed.minute(components.minute!)
+//        } else if components.second! >= 1 {
+//            return TimePassed.second(components.second!)
+//        } else {
+//            return TimePassed.now
+//        }
+//    }
+
     /// EZSE: Check if date is in future.
     public var isFuture: Bool {
         return self > Date()

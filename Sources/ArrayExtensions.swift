@@ -23,7 +23,7 @@ extension Array {
 
     ///EZSE: Get a sub array from range of index
     public func get(at range: ClosedRange<Int>) -> Array {
-        let halfOpenClampedRange = Range(range).clamped(to: Range(indices))
+        let halfOpenClampedRange = Range(range).clamped(to: indices)
         return Array(self[halfOpenClampedRange])
     }
 
