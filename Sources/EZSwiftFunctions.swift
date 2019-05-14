@@ -78,7 +78,7 @@ public struct ez {
 
     /// EZSE: Returns true if its simulator and not a device //TODO: Add to readme
     public static var isSimulator: Bool {
-    #if (arch(i386) || arch(x86_64)) && os(iOS)
+        #if targetEnvironment(simulator)
         return true
     #else
         return false
@@ -87,7 +87,7 @@ public struct ez {
 
     /// EZSE: Returns true if its on a device and not a simulator //TODO: Add to readme
     public static var isDevice: Bool {
-    #if (arch(i386) || arch(x86_64)) && os(iOS)
+        #if targetEnvironment(simulator)
         return false
     #else
         return true
@@ -141,7 +141,7 @@ public struct ez {
 
         #if os(iOS)
 
-        if UIInterfaceOrientationIsPortrait(screenOrientation) {
+        if screenOrientation.isPortrait {
             return UIScreen.main.bounds.size.width
         } else {
             return UIScreen.main.bounds.size.height
@@ -159,7 +159,7 @@ public struct ez {
 
         #if os(iOS)
 
-        if UIInterfaceOrientationIsPortrait(screenOrientation) {
+        if screenOrientation.isPortrait {
             return UIScreen.main.bounds.size.height
         } else {
             return UIScreen.main.bounds.size.width
@@ -183,7 +183,7 @@ public struct ez {
 
     /// EZSE: Return screen's height without StatusBar
     public static var screenHeightWithoutStatusBar: CGFloat {
-        if UIInterfaceOrientationIsPortrait(screenOrientation) {
+        if screenOrientation.isPortrait {
             return UIScreen.main.bounds.size.height - screenStatusBarHeight
         } else {
             return UIScreen.main.bounds.size.width - screenStatusBarHeight
@@ -202,7 +202,7 @@ public struct ez {
     /// EZSE: Calls action when a screen shot is taken
     public static func detectScreenShot(_ action: @escaping () -> Void) {
         let mainQueue = OperationQueue.main
-        _ = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationUserDidTakeScreenshot, object: nil, queue: mainQueue) { _ in
+        _ = NotificationCenter.default.addObserver(forName: UIApplication.userDidTakeScreenshotNotification, object: nil, queue: mainQueue) { _ in
             // executes after screenshot
             action()
         }
@@ -265,38 +265,38 @@ public struct ez {
     }
 
     /// EZSE: Gobal main queue
-    @available(*, deprecated: 1.7, renamed: "DispatchQueue.main")
+    @available(*, deprecated, renamed: "DispatchQueue.main")
     public var globalMainQueue: DispatchQueue {
         return DispatchQueue.main
     }
 
     /// EZSE: Gobal queue with user interactive priority
-    @available(*, deprecated: 1.7, renamed: "DispatchQueue.main")
+    @available(*, deprecated, renamed: "DispatchQueue.main")
 
     public var globalUserInteractiveQueue: DispatchQueue {
         return DispatchQueue.global(qos: .userInteractive)
     }
 
     /// EZSE: Gobal queue with user initiated priority
-    @available(*, deprecated: 1.7, renamed: "DispatchQueue.global()")
+    @available(*, deprecated, renamed: "DispatchQueue.global()")
     public var globalUserInitiatedQueue: DispatchQueue {
         return DispatchQueue.global(qos: .userInitiated)
     }
 
     /// EZSE: Gobal queue with utility priority
-    @available(*, deprecated: 1.7, renamed: "DispatchQueue.global()")
+    @available(*, deprecated, renamed: "DispatchQueue.global()")
     public var globalUtilityQueue: DispatchQueue {
         return DispatchQueue.global(qos: .utility)
     }
 
     /// EZSE: Gobal queue with background priority
-    @available(*, deprecated: 1.7, renamed: "DispatchQueue.global()")
+    @available(*, deprecated, renamed: "DispatchQueue.global()")
     public var globalBackgroundQueue: DispatchQueue {
         return DispatchQueue.global(qos: .background)
     }
 
     /// EZSE: Gobal queue with default priority
-    @available(*, deprecated: 1.7, renamed: "DispatchQueue.global()")
+    @available(*, deprecated, renamed: "DispatchQueue.global()")
     public var globalQueue: DispatchQueue {
         return DispatchQueue.global(qos: .default)
     }

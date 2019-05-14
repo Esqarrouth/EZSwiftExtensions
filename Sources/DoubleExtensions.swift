@@ -37,25 +37,25 @@ extension Double {
 extension Double {
 
     /// EZSE: Returns a Double rounded to decimal
-    @available(*, deprecated: 1.8, renamed: "rounded(toPlaces:)")
+    @available(*, deprecated, renamed: "rounded(toPlaces:)")
     public func getRoundedByPlaces(_ places: Int) -> Double {
         return rounded(toPlaces: places)
     }
 
     /// EZSE: Rounds the current Double rounded to decimal
-    @available(*, deprecated: 1.8, renamed: "round(toPlaces:)")
+    @available(*, deprecated, renamed: "round(toPlaces:)")
     public mutating func roundByPlaces(_ places: Int) {
         self.round(toPlaces: places)
     }
 
     /// EZSE: Returns a Double Ceil to decimal
-    @available(*, deprecated: 1.8, renamed: "ceiled(toPlaces:)")
+    @available(*, deprecated, renamed: "ceiled(toPlaces:)")
     public func getCeiledByPlaces(_ places: Int) -> Double {
         return ceiled(toPlaces: places)
     }
 
     /// EZSE: Ceils current Double to number of places
-    @available(*, deprecated: 1.8, renamed: "ceil(toPlaces:)")
+    @available(*, deprecated, renamed: "ceil(toPlaces:)")
     public mutating func ceilByPlaces(_ places: Int) {
         self.ceil(toPlaces: places)
     }

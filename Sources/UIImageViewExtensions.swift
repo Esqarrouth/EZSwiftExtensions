@@ -103,7 +103,7 @@ extension UIImageView {
     // MARK: Deprecated 1.8
 
     /// EZSwiftExtensions
-    @available(*, deprecated: 1.8, renamed: "image(url:)")
+    @available(*, deprecated, renamed: "image(url:)")
     public func imageWithUrl(url: String) {
         ez.requestImage(url, success: { (image) -> Void in
             if let img = image {
@@ -115,14 +115,14 @@ extension UIImageView {
     }
 
     /// EZSwiftExtensions
-    @available(*, deprecated: 1.8, renamed: "image(url:placeholder:)")
+    @available(*, deprecated, renamed: "image(url:placeholder:)")
     public func imageWithUrl(url: String, placeholder: UIImage) {
         self.image = placeholder
         imageWithUrl(url: url)
     }
 
     /// EZSwiftExtensions
-    @available(*, deprecated: 1.8, renamed: "image(url:placeholderNamed:)")
+    @available(*, deprecated, renamed: "image(url:placeholderNamed:)")
     public func imageWithUrl(url: String, placeholderNamed: String) {
         if let image = UIImage(named: placeholderNamed) {
             imageWithUrl(url: url, placeholder: image)

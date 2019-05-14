@@ -10,7 +10,7 @@
 
 import UIKit
 
-@available(*, deprecated: 1.8)
+@available(*, deprecated)
 class UIColoredView: UIView {
     init() {
         super.init(frame: CGRect(x: 100, y: 100, w: 100, h: 100))

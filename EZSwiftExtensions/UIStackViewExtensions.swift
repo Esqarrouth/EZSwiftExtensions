@@ -21,9 +21,9 @@ extension UIStackView {
 	///   - alignment: the alignment of the stack view
 	///   - axis: the axis (e.g. horizontal or vertical)
 	///   - spacing: spacing between subviews, default is 0
-	public convenience init(distribution: UIStackViewDistribution,
-	                        alignment: UIStackViewAlignment,
-	                        axis: UILayoutConstraintAxis,
+    public convenience init(distribution: UIStackView.Distribution,
+                            alignment: UIStackView.Alignment,
+                            axis: NSLayoutConstraint.Axis,
 	                        spacing: CGFloat = 0) {
 		self.init()
 		self.distribution = distribution
