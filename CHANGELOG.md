@@ -1,12 +1,25 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## Release 2.1 
 
-## Major version update
+### Major version update
+
+1. Swift4.2 version update [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/496) by *Sunil Prajapati and Khalian*
+
+### Features
+
+1. **Hashable**
+    - `public var hashString: String` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/485) by *rugheid*
+
+
+## Release 2.0
+
+### Major version update
 
 1. Swift4 version update. [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/476) by *Simple4, Steven_Cheung and lfarah*
 
-## Unreleased
+### Features
 
 1. **Array**
    - `public subscript (safe index: Index)` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/445) by *lfarah*
@@ -25,9 +38,6 @@ All notable changes to this project will be documented in this file.
    
 6. **Date**
     - `public func timePassed() -> TimePassed` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/486) by *110100110101*
-
-7. **Hashable**
-    - `public var hashString: String` in [[PR]](https://github.com/goktugyil/EZSwiftExtensions/pull/485) by *rugheid*
 
 ## [Release 1.10]
 

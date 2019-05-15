@@ -31,8 +31,8 @@ extension DoubleTests {
     func testToString() {
         XCTAssertEqual(double.toString, "3.14")
         XCTAssertEqual(negativeDouble.toString, "-147.9564")
-        XCTAssertEqual(minDouble.toString, "2.2250738585072e-308")
-        XCTAssertEqual(maxDouble.toString, "1.79769313486232e+308")
+        XCTAssertEqual(minDouble.toString, "2.2250738585072014e-308")
+        XCTAssertEqual(maxDouble.toString, "1.7976931348623157e+308")
     }
     
     func testExponent() {

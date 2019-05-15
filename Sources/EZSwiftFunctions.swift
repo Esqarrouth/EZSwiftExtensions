@@ -78,7 +78,7 @@ public struct ez {
 
     /// EZSE: Returns true if its simulator and not a device //TODO: Add to readme
     public static var isSimulator: Bool {
-    #if (arch(i386) || arch(x86_64)) && os(iOS)
+    #if targetEnvironment(simulator)
         return true
     #else
         return false
@@ -87,7 +87,7 @@ public struct ez {
 
     /// EZSE: Returns true if its on a device and not a simulator //TODO: Add to readme
     public static var isDevice: Bool {
-    #if (arch(i386) || arch(x86_64)) && os(iOS)
+    #if targetEnvironment(simulator)
         return false
     #else
         return true
@@ -141,7 +141,7 @@ public struct ez {
 
         #if os(iOS)
 
-        if UIInterfaceOrientationIsPortrait(screenOrientation) {
+        if screenOrientation == .portrait  {
             return UIScreen.main.bounds.size.width
         } else {
             return UIScreen.main.bounds.size.height
@@ -159,7 +159,7 @@ public struct ez {
 
         #if os(iOS)
 
-        if UIInterfaceOrientationIsPortrait(screenOrientation) {
+        if screenOrientation == .portrait  {
             return UIScreen.main.bounds.size.height
         } else {
             return UIScreen.main.bounds.size.width
@@ -183,7 +183,7 @@ public struct ez {
 
     /// EZSE: Return screen's height without StatusBar
     public static var screenHeightWithoutStatusBar: CGFloat {
-        if UIInterfaceOrientationIsPortrait(screenOrientation) {
+        if screenOrientation == .portrait {
             return UIScreen.main.bounds.size.height - screenStatusBarHeight
         } else {
             return UIScreen.main.bounds.size.width - screenStatusBarHeight
@@ -198,11 +198,11 @@ public struct ez {
     }
     
     #if os(iOS) || os(tvOS)
-
+    
     /// EZSE: Calls action when a screen shot is taken
     public static func detectScreenShot(_ action: @escaping () -> Void) {
         let mainQueue = OperationQueue.main
-        _ = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationUserDidTakeScreenshot, object: nil, queue: mainQueue) { _ in
+        _ = NotificationCenter.default.addObserver(forName: UIApplication.userDidTakeScreenshotNotification, object: nil, queue: mainQueue) { _ in
             // executes after screenshot
             action()
         }
@@ -210,18 +210,8 @@ public struct ez {
     
     #endif
 
-    //TODO: Document this, add tests to this
-    /// EZSE: Iterates through enum elements, use with (for element in ez.iterateEnum(myEnum))
     /// http://stackoverflow.com/questions/24007461/how-to-enumerate-an-enum-with-string-type
-    public static func iterateEnum<T: Hashable>(_: T.Type) -> AnyIterator<T> {
-        var i = 0
-        return AnyIterator {
-            let next = withUnsafePointer(to: &i) { $0.withMemoryRebound(to: T.self, capacity: 1) { $0.pointee } }
-            if next.hashValue != i { return nil }
-            i += 1
-            return next
-        }
-    }
+    // Enum iterations are now covered by extending the CaseIterable protocol and using allCases. 
 
     // MARK: - Dispatch
 
