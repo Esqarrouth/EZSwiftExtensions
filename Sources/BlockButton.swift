@@ -60,16 +60,16 @@ open class BlockButton: UIButton {
     }
 
     private func defaultInit() {
-        addTarget(self, action: #selector(BlockButton.didPressed(_:)), for: UIControlEvents.touchUpInside)
-        addTarget(self, action: #selector(BlockButton.highlight), for: [UIControlEvents.touchDown, UIControlEvents.touchDragEnter])
+        addTarget(self, action: #selector(BlockButton.didPressed(_:)), for: UIControl.Event.touchUpInside)
+        addTarget(self, action: #selector(BlockButton.highlight), for: [UIControl.Event.touchDown, UIControl.Event.touchDragEnter])
         addTarget(self, action: #selector(BlockButton.unhighlight), for: [
-            UIControlEvents.touchUpInside,
-            UIControlEvents.touchUpOutside,
-            UIControlEvents.touchCancel,
-            UIControlEvents.touchDragExit
+            UIControl.Event.touchUpInside,
+            UIControl.Event.touchUpOutside,
+            UIControl.Event.touchCancel,
+            UIControl.Event.touchDragExit
         ])
-        setTitleColor(UIColor.black, for: UIControlState.normal)
-        setTitleColor(UIColor.blue, for: UIControlState.selected)
+        setTitleColor(UIColor.black, for: UIControl.State.normal)
+        setTitleColor(UIColor.blue, for: UIControl.State.selected)
     }
 
     open func addAction(_ action: @escaping BlockButtonAction) {

@@ -5,11 +5,11 @@
 //  Created by Goktug Yilmaz on 13/07/15.
 //  Copyright (c) 2015 Goktug Yilmaz. All rights reserved.
 //
-
 //TODO: others standart video, gif
-
 import Foundation
-
+#if os(iOS) || os(tvOS)
+import UIKit
+#endif
 public struct ez {
     /// EZSE: Returns app's name
     public static var appDisplayName: String? {
@@ -18,25 +18,25 @@ public struct ez {
         } else if let bundleName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String {
             return bundleName
         }
-
+        
         return nil
     }
-
+    
     /// EZSE: Returns app's version number
     public static var appVersion: String? {
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
     }
-
+    
     /// EZSE: Return app's build number
     public static var appBuild: String? {
         return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
     }
-
+    
     /// EZSE: Return app's bundle ID
     public static var appBundleID: String? {
         return Bundle.main.bundleIdentifier
     }
-
+    
     /// EZSE: Returns both app's version and build numbers "v0.3(7)"
     public static var appVersionAndBuild: String? {
         if appVersion != nil && appBuild != nil {
@@ -48,7 +48,7 @@ public struct ez {
         }
         return nil
     }
-
+    
     /// EZSE: Return device version ""
     public static var deviceVersion: String {
         var size: Int = 0
@@ -57,53 +57,53 @@ public struct ez {
         sysctlbyname("hw.machine", &machine, &size, nil, 0)
         return String(cString: machine)
     }
-
+    
     /// EZSE: Returns true if DEBUG mode is active //TODO: Add to readme
     public static var isDebug: Bool {
-    #if DEBUG
+        #if DEBUG
         return true
-    #else
+        #else
         return false
-    #endif
+        #endif
     }
-
+    
     /// EZSE: Returns true if RELEASE mode is active //TODO: Add to readme
     public static var isRelease: Bool {
-    #if DEBUG
+        #if DEBUG
         return false
-    #else
+        #else
         return true
-    #endif
+        #endif
     }
-
+    
     /// EZSE: Returns true if its simulator and not a device //TODO: Add to readme
     public static var isSimulator: Bool {
-    #if (arch(i386) || arch(x86_64)) && os(iOS)
+        #if targetEnvironment(simulator)
         return true
-    #else
+        #else
         return false
-    #endif
+        #endif
     }
-
+    
     /// EZSE: Returns true if its on a device and not a simulator //TODO: Add to readme
     public static var isDevice: Bool {
-    #if (arch(i386) || arch(x86_64)) && os(iOS)
+        #if targetEnvironment(simulator)
         return false
-    #else
+        #else
         return true
-    #endif
+        #endif
     }
     
     #if !os(macOS)
     /// EZSE: Returns true if app is running in test flight mode
     /// Acquired from : http://stackoverflow.com/questions/12431994/detect-testflight
     public static var isInTestFlight: Bool {
-        return Bundle.main.appStoreReceiptURL?.path.contains("sandboxReceipt") == true 
+        return Bundle.main.appStoreReceiptURL?.path.contains("sandboxReceipt") == true
     }
     #endif
-
+    
     #if os(iOS) || os(tvOS)
-
+    
     /// EZSE: Returns the top ViewController
     public static var topMostVC: UIViewController? {
         let topVC = UIApplication.topViewController()
@@ -112,21 +112,21 @@ public struct ez {
         }
         return topVC
     }
-
+    
     #if os(iOS)
-
+    
     /// EZSE: Returns current screen orientation
     public static var screenOrientation: UIInterfaceOrientation {
         return UIApplication.shared.statusBarOrientation
     }
-
+    
     #endif
-
+    
     /// EZSwiftExtensions
     public static var horizontalSizeClass: UIUserInterfaceSizeClass {
         return self.topMostVC?.traitCollection.horizontalSizeClass ?? UIUserInterfaceSizeClass.unspecified
     }
-
+    
     /// EZSwiftExtensions
     public static var verticalSizeClass: UIUserInterfaceSizeClass {
         return self.topMostVC?.traitCollection.verticalSizeClass ?? UIUserInterfaceSizeClass.unspecified
@@ -135,81 +135,81 @@ public struct ez {
     #endif
     
     #if os(iOS) || os(tvOS)
-
+    
     /// EZSE: Returns screen width
     public static var screenWidth: CGFloat {
-
+        
         #if os(iOS)
-
-        if UIInterfaceOrientationIsPortrait(screenOrientation) {
+        
+        if screenOrientation == .portrait || screenOrientation == .portraitUpsideDown {
             return UIScreen.main.bounds.size.width
         } else {
             return UIScreen.main.bounds.size.height
         }
-
+        
         #elseif os(tvOS)
-
+        
         return UIScreen.main.bounds.size.width
-
+        
         #endif
     }
-
+    
     /// EZSE: Returns screen height
     public static var screenHeight: CGFloat {
-
+        
         #if os(iOS)
-
-        if UIInterfaceOrientationIsPortrait(screenOrientation) {
+        
+        if screenOrientation == .portrait || screenOrientation == .portraitUpsideDown {
             return UIScreen.main.bounds.size.height
         } else {
             return UIScreen.main.bounds.size.width
         }
-
+        
         #elseif os(tvOS)
-
-            return UIScreen.main.bounds.size.height
-
+        
+        return UIScreen.main.bounds.size.height
+        
         #endif
     }
     
     #endif
-
+    
     #if os(iOS)
-
+    
     /// EZSE: Returns StatusBar height
     public static var screenStatusBarHeight: CGFloat {
         return UIApplication.shared.statusBarFrame.height
     }
-
+    
     /// EZSE: Return screen's height without StatusBar
     public static var screenHeightWithoutStatusBar: CGFloat {
-        if UIInterfaceOrientationIsPortrait(screenOrientation) {
+        if screenOrientation == .portrait || screenOrientation == .portraitUpsideDown {
             return UIScreen.main.bounds.size.height - screenStatusBarHeight
         } else {
             return UIScreen.main.bounds.size.width - screenStatusBarHeight
         }
     }
-
+    
     #endif
-
+    
     /// EZSE: Returns the locale country code. An example value might be "ES". //TODO: Add to readme
     public static var currentRegion: String? {
         return (Locale.current as NSLocale).object(forKey: NSLocale.Key.countryCode) as? String
     }
     
     #if os(iOS) || os(tvOS)
-
+    
     /// EZSE: Calls action when a screen shot is taken
     public static func detectScreenShot(_ action: @escaping () -> Void) {
         let mainQueue = OperationQueue.main
-        _ = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationUserDidTakeScreenshot, object: nil, queue: mainQueue) { _ in
+        _ = NotificationCenter.default.addObserver(forName: UIApplication.userDidTakeScreenshotNotification, object: nil, queue: mainQueue) { _ in
             // executes after screenshot
             action()
         }
     }
     
     #endif
-
+    
     //TODO: Document this, add tests to this
     /// EZSE: Iterates through enum elements, use with (for element in ez.iterateEnum(myEnum))
     /// http://stackoverflow.com/questions/24007461/how-to-enumerate-an-enum-with-string-type
@@ -222,37 +222,36 @@ public struct ez {
             return next
         }
     }
-
+    
     // MARK: - Dispatch
-
     /// EZSE: Runs the function after x seconds
     public static func dispatchDelay(_ second: Double, closure:@escaping () -> Void) {
         DispatchQueue.main.asyncAfter(
             deadline: DispatchTime.now() + Double(Int64(second * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
     }
-
+    
     /// EZSE: Runs function after x seconds
     public static func runThisAfterDelay(seconds: Double, after: @escaping () -> Void) {
         runThisAfterDelay(seconds: seconds, queue: DispatchQueue.main, after: after)
     }
-
+    
     //TODO: Make this easier
     /// EZSE: Runs function after x seconds with dispatch_queue, use this syntax: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
     public static func runThisAfterDelay(seconds: Double, queue: DispatchQueue, after: @escaping () -> Void) {
         let time = DispatchTime.now() + Double(Int64(seconds * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
         queue.asyncAfter(deadline: time, execute: after)
     }
-
+    
     /// EZSE: Submits a block for asynchronous execution on the main queue
     public static func runThisInMainThread(_ block: @escaping () -> Void) {
         DispatchQueue.main.async(execute: block)
     }
-
+    
     /// EZSE: Runs in Default priority queue
     public static func runThisInBackground(_ block: @escaping () -> Void) {
         DispatchQueue.global(qos: .default).async(execute: block)
     }
-
+    
     /// EZSE: Runs every second, to cancel use: timer.invalidate()
     @discardableResult public static func runThisEvery(
         seconds: TimeInterval,
@@ -263,48 +262,48 @@ public struct ez {
         CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, CFRunLoopMode.commonModes)
         return timer!
     }
-
+    
     /// EZSE: Gobal main queue
-    @available(*, deprecated: 1.7, renamed: "DispatchQueue.main")
+    @available(*, deprecated, renamed: "DispatchQueue.main")
     public var globalMainQueue: DispatchQueue {
         return DispatchQueue.main
     }
-
+    
     /// EZSE: Gobal queue with user interactive priority
-    @available(*, deprecated: 1.7, renamed: "DispatchQueue.main")
-
+    @available(*, deprecated, renamed: "DispatchQueue.main")
+    
     public var globalUserInteractiveQueue: DispatchQueue {
         return DispatchQueue.global(qos: .userInteractive)
     }
-
+    
     /// EZSE: Gobal queue with user initiated priority
-    @available(*, deprecated: 1.7, renamed: "DispatchQueue.global()")
+    @available(*, deprecated, renamed: "DispatchQueue.global()")
     public var globalUserInitiatedQueue: DispatchQueue {
         return DispatchQueue.global(qos: .userInitiated)
     }
-
+    
     /// EZSE: Gobal queue with utility priority
-    @available(*, deprecated: 1.7, renamed: "DispatchQueue.global()")
+    @available(*, deprecated, renamed: "DispatchQueue.global()")
     public var globalUtilityQueue: DispatchQueue {
         return DispatchQueue.global(qos: .utility)
     }
-
+    
     /// EZSE: Gobal queue with background priority
-    @available(*, deprecated: 1.7, renamed: "DispatchQueue.global()")
+    @available(*, deprecated, renamed: "DispatchQueue.global()")
     public var globalBackgroundQueue: DispatchQueue {
         return DispatchQueue.global(qos: .background)
     }
-
+    
     /// EZSE: Gobal queue with default priority
-    @available(*, deprecated: 1.7, renamed: "DispatchQueue.global()")
+    @available(*, deprecated, renamed: "DispatchQueue.global()")
     public var globalQueue: DispatchQueue {
         return DispatchQueue.global(qos: .default)
     }
-
+    
     // MARK: - DownloadTask
     
     #if os(iOS) || os(tvOS)
-
+    
     /// EZSE: Downloads image from url string
     public static func requestImage(_ url: String, success: @escaping (UIImage?) -> Void) {
         requestURL(url, success: { (data) -> Void in
@@ -315,21 +314,21 @@ public struct ez {
     }
     
     #endif
-
+    
     /// EZSE: Downloads JSON from url string
     public static func requestJSON(_ url: String, success: @escaping ((Any?) -> Void), error: ((NSError) -> Void)?) {
         requestURL(url,
-            success: { (data) -> Void in
-                let json = self.dataToJsonDict(data)
-                success(json)
-            },
-            error: { (err) -> Void in
-                if let e = error {
-                    e(err)
-                }
+                   success: { (data) -> Void in
+                    let json = self.dataToJsonDict(data)
+                    success(json)
+        },
+                   error: { (err) -> Void in
+                    if let e = error {
+                        e(err)
+                    }
         })
     }
-
+    
     /// EZSE: converts NSData to JSON dictionary
     fileprivate static func dataToJsonDict(_ data: Data?) -> Any? {
         if let d = data {
@@ -343,7 +342,7 @@ public struct ez {
                 error = error1
                 json = nil
             }
-
+            
             if error != nil {
                 return nil
             } else {
@@ -353,14 +352,14 @@ public struct ez {
             return nil
         }
     }
-
+    
     /// EZSE:
     fileprivate static func requestURL(_ url: String, success: @escaping (Data?) -> Void, error: ((NSError) -> Void)? = nil) {
         guard let requestURL = URL(string: url) else {
             assertionFailure("EZSwiftExtensions Error: Invalid URL")
             return
         }
-
+        
         URLSession.shared.dataTask(
             with: URLRequest(url: requestURL),
             completionHandler: { data, _, err in
