@@ -193,7 +193,7 @@ extension String {
     }
     
     /// EZSE: Counts whitespace & new lines
-    @available(*, deprecated: 1.6, renamed: "isBlank")
+    @available(*, deprecated, renamed: "isBlank")
     public func isOnlyEmptySpacesAndNewLineCharacters() -> Bool {
         let characterSet = CharacterSet.whitespacesAndNewlines
         let newText = self.trimmingCharacters(in: characterSet)

@@ -1,4 +1,4 @@
-osx_image: xcode9.2
+osx_image: xcode10.2.1
 language: objective-c
 rvm: 2.2.2
 cache: cocoapods
@@ -22,13 +22,13 @@ before_script:
 
 script:
   - set -o pipefail
-  
+
   - xcodebuild clean build test -project "$PROJECT" -scheme EZSwiftExtensions-iOS -destination 'platform=iOS Simulator,name=iPhone 5s,OS=10.3.1' | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-ios.json" xcpretty -f `xcpretty-json-formatter`
   - xcodebuild clean build test -project "$PROJECT" -scheme EZSwiftExtensions-tvOS -destination 'platform=tvOS Simulator,name=Apple TV 1080p,OS=10.0' | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-tvos.json" xcpretty -f `xcpretty-json-formatter`
   - xcodebuild clean build test -project "$PROJECT" -scheme EZSwiftExtensions-macOS -destination 'platform=macOS,arch=x86_64' | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-macos.json" xcpretty -f `xcpretty-json-formatter`
-  
+
   - pod lib lint
   - bundle exec danger --fail-on-errors=true
-  
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)

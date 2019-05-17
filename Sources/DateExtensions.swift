@@ -9,7 +9,7 @@
 import Foundation
 
 extension Date {
-    
+
     public static let minutesInAWeek = 24 * 60 * 7
 
     /// EZSE: Initializes Date from string and format
@@ -17,7 +17,7 @@ extension Date {
                  format: String,
                  timezone: TimeZone = TimeZone.autoupdatingCurrent,
                  locale: Locale = Locale.current) {
-        
+
         let formatter = DateFormatter()
         formatter.timeZone = timezone
         formatter.locale = locale
@@ -112,7 +112,7 @@ extension Date {
         let calendar = Calendar.autoupdatingCurrent
         let components = (calendar as NSCalendar).components([.year, .month, .day, .hour, .minute, .second], from: self, to: date, options: [])
         var str: String
-        
+
         if components.year! >= 1 {
             components.year == 1 ? (str = "year") : (str = "years")
             return "\(components.year!) \(str) ago"
@@ -135,8 +135,9 @@ extension Date {
             return "Just now"
         }
     }
-    
+
     /// EZSE: Easy creation of time passed String. Can be Years, Months, days, hours, minutes or seconds. Useful for localization
+    /// I don't know how to fix this bug. if someone know, please pull request
 //    public func timePassed() -> TimePassed {
 //
 //        let date = Date()
@@ -164,7 +165,7 @@ extension Date {
     public var isFuture: Bool {
         return self > Date()
     }
-    
+
     /// EZSE: Check if date is in past.
     public var isPast: Bool {
         return self < Date()
@@ -208,7 +209,7 @@ extension Date {
     public var era: Int {
         return Calendar.current.component(Calendar.Component.era, from: self)
     }
-    
+
     /// EZSE : Get the year from the date
     public var year: Int {
         return Calendar.current.component(Calendar.Component.year, from: self)
@@ -252,14 +253,14 @@ extension Date {
     public var second: Int {
         return Calendar.current.component(.second, from: self)
     }
-    
+
     /// EZSE : Gets the nano second from the date
     public var nanosecond: Int {
         return Calendar.current.component(.nanosecond, from: self)
     }
-    
+
     #if os(iOS) || os(tvOS)
-    
+
     /// EZSE : Gets the international standard(ISO8601) representation of date
     @available(iOS 10.0, *)
     @available(tvOS 10.0, *)
@@ -267,6 +268,6 @@ extension Date {
         let formatter = ISO8601DateFormatter()
         return formatter.string(from: self)
     }
-    
+
     #endif
 }
