@@ -10,6 +10,8 @@ import Foundation
 
 #if os(iOS) || os(tvOS)
 
+import Foundation
+
 extension NSObject {
     public var className: String {
         return type(of: self).className

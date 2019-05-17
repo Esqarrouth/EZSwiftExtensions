@@ -5,11 +5,11 @@
 //  Created by Goktug Yilmaz on 13/07/15.
 //  Copyright (c) 2015 Goktug Yilmaz. All rights reserved.
 //
-
 //TODO: others standart video, gif
-
 import Foundation
-
+#if os(iOS) || os(tvOS)
+import UIKit
+#endif
 public struct ez {
     /// EZSE: Returns app's name
     public static var appDisplayName: String? {
@@ -60,45 +60,45 @@ public struct ez {
 
     /// EZSE: Returns true if DEBUG mode is active //TODO: Add to readme
     public static var isDebug: Bool {
-    #if DEBUG
+        #if DEBUG
         return true
-    #else
+        #else
         return false
-    #endif
+        #endif
     }
 
     /// EZSE: Returns true if RELEASE mode is active //TODO: Add to readme
     public static var isRelease: Bool {
-    #if DEBUG
+        #if DEBUG
         return false
-    #else
+        #else
         return true
-    #endif
+        #endif
     }
 
     /// EZSE: Returns true if its simulator and not a device //TODO: Add to readme
     public static var isSimulator: Bool {
-    #if (arch(i386) || arch(x86_64)) && os(iOS)
+        #if targetEnvironment(simulator)
         return true
-    #else
+        #else
         return false
-    #endif
+        #endif
     }
 
     /// EZSE: Returns true if its on a device and not a simulator //TODO: Add to readme
     public static var isDevice: Bool {
-    #if (arch(i386) || arch(x86_64)) && os(iOS)
+        #if targetEnvironment(simulator)
         return false
-    #else
+        #else
         return true
-    #endif
+        #endif
     }
-    
+
     #if !os(macOS)
     /// EZSE: Returns true if app is running in test flight mode
     /// Acquired from : http://stackoverflow.com/questions/12431994/detect-testflight
     public static var isInTestFlight: Bool {
-        return Bundle.main.appStoreReceiptURL?.path.contains("sandboxReceipt") == true 
+        return Bundle.main.appStoreReceiptURL?.path.contains("sandboxReceipt") == true
     }
     #endif
 
@@ -131,9 +131,9 @@ public struct ez {
     public static var verticalSizeClass: UIUserInterfaceSizeClass {
         return self.topMostVC?.traitCollection.verticalSizeClass ?? UIUserInterfaceSizeClass.unspecified
     }
-    
+
     #endif
-    
+
     #if os(iOS) || os(tvOS)
 
     /// EZSE: Returns screen width
@@ -167,11 +167,11 @@ public struct ez {
 
         #elseif os(tvOS)
 
-            return UIScreen.main.bounds.size.height
+        return UIScreen.main.bounds.size.height
 
         #endif
     }
-    
+
     #endif
 
     #if os(iOS)
@@ -196,7 +196,7 @@ public struct ez {
     public static var currentRegion: String? {
         return (Locale.current as NSLocale).object(forKey: NSLocale.Key.countryCode) as? String
     }
-    
+
     #if os(iOS) || os(tvOS)
 
     /// EZSE: Calls action when a screen shot is taken
@@ -207,7 +207,7 @@ public struct ez {
             action()
         }
     }
-    
+
     #endif
 
     //TODO: Document this, add tests to this
@@ -224,7 +224,6 @@ public struct ez {
     }
 
     // MARK: - Dispatch
-
     /// EZSE: Runs the function after x seconds
     public static func dispatchDelay(_ second: Double, closure:@escaping () -> Void) {
         DispatchQueue.main.asyncAfter(
@@ -265,44 +264,44 @@ public struct ez {
     }
 
     /// EZSE: Gobal main queue
-    @available(*, deprecated: 1.7, renamed: "DispatchQueue.main")
+    @available(*, deprecated, renamed: "DispatchQueue.main")
     public var globalMainQueue: DispatchQueue {
         return DispatchQueue.main
     }
 
     /// EZSE: Gobal queue with user interactive priority
-    @available(*, deprecated: 1.7, renamed: "DispatchQueue.main")
+    @available(*, deprecated, renamed: "DispatchQueue.main")
 
     public var globalUserInteractiveQueue: DispatchQueue {
         return DispatchQueue.global(qos: .userInteractive)
     }
 
     /// EZSE: Gobal queue with user initiated priority
-    @available(*, deprecated: 1.7, renamed: "DispatchQueue.global()")
+    @available(*, deprecated, renamed: "DispatchQueue.global()")
     public var globalUserInitiatedQueue: DispatchQueue {
         return DispatchQueue.global(qos: .userInitiated)
     }
 
     /// EZSE: Gobal queue with utility priority
-    @available(*, deprecated: 1.7, renamed: "DispatchQueue.global()")
+    @available(*, deprecated, renamed: "DispatchQueue.global()")
     public var globalUtilityQueue: DispatchQueue {
         return DispatchQueue.global(qos: .utility)
     }
 
     /// EZSE: Gobal queue with background priority
-    @available(*, deprecated: 1.7, renamed: "DispatchQueue.global()")
+    @available(*, deprecated, renamed: "DispatchQueue.global()")
     public var globalBackgroundQueue: DispatchQueue {
         return DispatchQueue.global(qos: .background)
     }
 
     /// EZSE: Gobal queue with default priority
-    @available(*, deprecated: 1.7, renamed: "DispatchQueue.global()")
+    @available(*, deprecated, renamed: "DispatchQueue.global()")
     public var globalQueue: DispatchQueue {
         return DispatchQueue.global(qos: .default)
     }
 
     // MARK: - DownloadTask
-    
+
     #if os(iOS) || os(tvOS)
 
     /// EZSE: Downloads image from url string
@@ -313,20 +312,20 @@ public struct ez {
             }
         })
     }
-    
+
     #endif
 
     /// EZSE: Downloads JSON from url string
     public static func requestJSON(_ url: String, success: @escaping ((Any?) -> Void), error: ((NSError) -> Void)?) {
         requestURL(url,
-            success: { (data) -> Void in
-                let json = self.dataToJsonDict(data)
-                success(json)
-            },
-            error: { (err) -> Void in
-                if let e = error {
-                    e(err)
-                }
+                   success: { (data) -> Void in
+                    let json = self.dataToJsonDict(data)
+                    success(json)
+        },
+                   error: { (err) -> Void in
+                    if let e = error {
+                        e(err)
+                    }
         })
     }
 

@@ -1632,6 +1632,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbf.EZSwiftExtensions.EZSwiftExtensionsTests;
 				PRODUCT_NAME = EZSwiftExtensionsTest;
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1643,6 +1644,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbf.EZSwiftExtensions.EZSwiftExtensionsTests;
 				PRODUCT_NAME = EZSwiftExtensionsTest;
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
