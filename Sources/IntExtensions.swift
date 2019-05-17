@@ -10,7 +10,6 @@ import Foundation
 #if os(iOS) || os(tvOS)
 import UIKit
 #endif
-
 extension Int {
     /// EZSE: Checks if the integer is even.
     public var isEven: Bool { return (self % 2 == 0) }
