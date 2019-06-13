@@ -112,19 +112,25 @@ extension String {
     
     /// EZSE: Uppercases string in range 'range' (from range.startIndex to range.endIndex)
     public mutating func uppercase(range: CountableRange<Int>) {
-        let from = max(range.lowerBound, 0), to = min(range.upperBound, length)
-        guard self.count > 0 && (0..<length).contains(from) else { return }
-        self.replaceSubrange(self.index(startIndex, offsetBy: from)..<self.index(startIndex, offsetBy: to),
-                             with: String(self[self.index(startIndex, offsetBy: from)..<self.index(startIndex, offsetBy: to)]).uppercased())
+        let from = max(range.lowerBound, 0)
+        let to = min(range.upperBound, length)
+        guard count > 0 && (0..<length).contains(from) else { return }
+        let fromIndex = index(startIndex, offsetBy: from)
+        let toIndex = index(startIndex, offsetBy: to)
+        self.replaceSubrange(fromIndex..<toIndex,
+                             with: String(self[fromIndex..<toIndex]).uppercased())
     }
     
     /// EZSE: Uppercases string in range 'range' (from range.startIndex to range.endIndex), returns new string
     public func uppercased(range: CountableRange<Int>) -> String {
-        let from = max(range.lowerBound, 0), to = min(range.upperBound, length)
+        let from = max(range.lowerBound, 0)
+        let to = min(range.upperBound, length)
         guard self.count > 0 && (0..<length).contains(from) else { return self }
         var result = self
-        result.replaceSubrange(self.index(startIndex, offsetBy: from)..<self.index(startIndex, offsetBy: to),
-                               with: String(self[self.index(startIndex, offsetBy: from)..<self.index(startIndex, offsetBy: to)]).uppercased())
+        let fromIndex = index(startIndex, offsetBy: from)
+        let toIndex = index(startIndex, offsetBy: to)
+        result.replaceSubrange(fromIndex..<toIndex,
+                               with: String(self[fromIndex..<toIndex]).uppercased())
         return result
     }
     
@@ -176,19 +182,25 @@ extension String {
     
     /// EZSE: Lowercases string in range 'range' (from range.startIndex to range.endIndex)
     public mutating func lowercase(range: CountableRange<Int>) {
-        let from = max(range.lowerBound, 0), to = min(range.upperBound, length)
+        let from = max(range.lowerBound, 0)
+        let to = min(range.upperBound, length)
         guard self.count > 0 && (0..<length).contains(from) else { return }
-        self.replaceSubrange(self.index(startIndex, offsetBy: from)..<self.index(startIndex, offsetBy: to),
-                             with: String(self[self.index(startIndex, offsetBy: from)..<self.index(startIndex, offsetBy: to)]).lowercased())
+        let fromIndex = index(startIndex, offsetBy: from)
+        let toIndex = index(startIndex, offsetBy: to)
+        self.replaceSubrange(fromIndex..<toIndex,
+                             with: String(self[fromIndex..<toIndex]).lowercased())
     }
     
     /// EZSE: Lowercases string in range 'range' (from range.startIndex to range.endIndex), returns new string
     public func lowercased(range: CountableRange<Int>) -> String {
-        let from = max(range.lowerBound, 0), to = min(range.upperBound, length)
+        let from = max(range.lowerBound, 0)
+        let to = min(range.upperBound, length)
         guard self.count > 0 && (0..<length).contains(from) else { return self }
         var result = self
-        result.replaceSubrange(self.index(startIndex, offsetBy: from)..<self.index(startIndex, offsetBy: to),
-                               with: String(self[self.index(startIndex, offsetBy: from)..<self.index(startIndex, offsetBy: to)]).lowercased())
+        let fromIndex = index(startIndex, offsetBy: from)
+        let toIndex = index(startIndex, offsetBy: to)
+        result.replaceSubrange(fromIndex..<toIndex,
+                               with: String(self[fromIndex..<toIndex]).lowercased())
         return result
     }
     
