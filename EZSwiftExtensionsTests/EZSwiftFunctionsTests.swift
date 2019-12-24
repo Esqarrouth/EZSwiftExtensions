@@ -12,7 +12,7 @@ import XCTest
 class EZSwiftFunctionsTests: XCTestCase {
    
     func testIterateEnum() {
-        enum testEnum: Int {
+        enum testEnum: Int, CaseIterable {
             case one = 1
             case two = 2
             case three = 3

@@ -23,7 +23,7 @@ class NSObjectTests: XCTestCase {
     
     func testClassName() {
         let stringObject = "TEST_STRING"
-        XCTAssertEqual(stringObject.className, "_NSContiguousString")
+        XCTAssertEqual(stringObject.className, "__NSCFString")
         
         let nsStringObject = "TEST_STRING" as NSString
         XCTAssertEqual(nsStringObject.className, "__NSCFString")

@@ -444,7 +444,7 @@ extension String {
     
     /// EZSE: Checks if String contains Emoji
     public func includesEmoji() -> Bool {
-        for i in 0...length {
+        for i in 0..<length {
             let c: unichar = (self as NSString).character(at: i)
             if (0xD800 <= c && c <= 0xDBFF) || (0xDC00 <= c && c <= 0xDFFF) {
                 return true
