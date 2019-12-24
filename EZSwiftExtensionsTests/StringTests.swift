@@ -373,16 +373,16 @@ class StringTests: XCTestCase {
         let testString = "meh"
         let testString2 = "✅"
 
-            let boldResult = NSAttributedString(string: testString, attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
-            let boldResult2 = NSAttributedString(string: testString2, attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
-            let underlineResult = NSAttributedString(string: testString, attributes: [NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
-            let underlineResult2 = NSAttributedString(string: testString2, attributes: [NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
+        let boldResult = NSAttributedString(string: testString, attributes: [.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
+        let boldResult2 = NSAttributedString(string: testString2, attributes: [.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
+        let underlineResult = NSAttributedString(string: testString, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
+        let underlineResult2 = NSAttributedString(string: testString2, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
 
-            let italicResult = NSAttributedString(string: testString, attributes: [NSAttributedStringKey.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
-            let italicResult2 = NSAttributedString(string: testString2, attributes: [NSAttributedStringKey.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+        let italicResult = NSAttributedString(string: testString, attributes: [.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+        let italicResult2 = NSAttributedString(string: testString2, attributes: [.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
 
-            let colorResult = NSAttributedString(string: testString, attributes: [NSAttributedStringKey.foregroundColor: UIColor.green])
-            let colorResult2 = NSAttributedString(string: testString2, attributes: [NSAttributedStringKey.foregroundColor: UIColor.green])
+        let colorResult = NSAttributedString(string: testString, attributes: [NSAttributedString.Key.foregroundColor: UIColor.green])
+        let colorResult2 = NSAttributedString(string: testString2, attributes: [NSAttributedString.Key.foregroundColor: UIColor.green])
 
         XCTAssertEqual(testString.bold(), boldResult)
         XCTAssertEqual(testString.underline(), underlineResult)

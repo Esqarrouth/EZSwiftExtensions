@@ -34,7 +34,7 @@ class CGRectTests: XCTestCase {
     }
     
     func testGetXYWH() {
-        var cg = CGRect(x: 55, y: 66, width: 77, height: 88)
+        let cg = CGRect(x: 55, y: 66, width: 77, height: 88)
         XCTAssertEqual(cg.x, 55)
         XCTAssertEqual(cg.y, 66)
         XCTAssertEqual(cg.w, 77)

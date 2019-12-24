@@ -62,8 +62,8 @@ class DictionaryTests: XCTestCase {
             return key.uppercased() + String(value)
         }
 
-        XCTAssertNotNil(array.index(of: "TWO2"))
-        XCTAssertNotNil(array.index(of: "FIVE5"))
+        XCTAssertNotNil(array.firstIndex(of: "TWO2"))
+        XCTAssertNotNil(array.firstIndex(of: "FIVE5"))
         XCTAssertEqual(array.count, fourthDic.count)
     }
 

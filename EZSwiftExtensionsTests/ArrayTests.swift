@@ -271,7 +271,7 @@ class ArrayTests: XCTestCase {
         var shuffledArray = numberArray.shuffled()
         XCTAssertEqual(copyArray.count, shuffledArray.count)
         for e in copyArray {
-            if let i = shuffledArray.index(of: e) {
+            if let i = shuffledArray.firstIndex(of: e) {
                 shuffledArray.remove(at: i)
             }
         }
@@ -280,7 +280,7 @@ class ArrayTests: XCTestCase {
         numberArray2.shuffle()
         XCTAssertEqual(numberArray2.count, copyArray.count)
         for e in copyArray {
-            if let i = numberArray2.index(of: e) {
+            if let i = numberArray2.firstIndex(of: e) {
                 numberArray2.remove(at: i)
             }
         }
