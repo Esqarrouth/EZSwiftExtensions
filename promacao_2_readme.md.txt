@@ -1,5 +1,9 @@
-Texto definitivo	
+substituição de texto 
 
-Definitivo
+bianca hahn
 
-It was a Monday morning, during winter. Danny woke up to a bad surprise that day. Somehow, one window of his house was open all night and some snow got in. It melted and now, all the kitchen floor is wet and it’s freezing cold. Danny is upset. Why was that window open? He doesn’t know how it happened, but he is mad because now he has to clean everything. Also, the carpet beside the door is completely ruined. He will have to buy a new one and honestly, he doesn’t have the budget for such expenses. Frustrated, Danny wiped the kitchen floor and closed the window, hoping it will never happen again.
+Lorem ipsum dolor sit amet. Qui quis dolor est delectus eius et amet quaerat qui quae consectetur! Qui magni internos est magnam laboriosam est dolore voluptatem eos laboriosam fugiat est numquam ducimus vel veritatis voluptas.
+
+Ab soluta earum qui voluptatibus eaque et dignissimos debitis et repellat dolores ut libero voluptate qui nostrum illum sed molestias odit. Eum nulla quia ab alias expedita est error nemo ex aperiam veritatis hic architecto Quis ad placeat asperiores? Ut blanditiis quasi et ducimus vero sed magnam voluptatem. Sit voluptas porro est aliquid reprehenderit qui velit inventore et dolorem quae ut labore earum.
+
+Qui nesciunt quisquam est 
