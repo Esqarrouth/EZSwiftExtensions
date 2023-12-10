@@ -584,16 +584,13 @@ extension UIView {
 extension UIView {
     ///EZSE: Shakes the view for as many number of times as given in the argument.
     public func shakeViewForTimes(_ times: Int) {
-        let anim = CAKeyframeAnimation(keyPath: "transform")
-        anim.values = [
-            NSValue(caTransform3D: CATransform3DMakeTranslation(-5, 0, 0 )),
-            NSValue(caTransform3D: CATransform3DMakeTranslation( 5, 0, 0 ))
-        ]
-        anim.autoreverses = true
-        anim.repeatCount = Float(times)
-        anim.duration = 7/100
-
-        self.layer.add(anim, forKey: nil)
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.07
+        animation.repeatCount = Float(times)
+        animation.autoreverses = true
+        animation.fromValue = CGPoint(x: self.frame.midX - 10, y: self.frame.midY)
+        animation.toValue = CGPoint(x: self.frame.midX + 10, y: self.frame.midY)
+        self.layer.add(animation, forKey: "position")
     }
 }
 
